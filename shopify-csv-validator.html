@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Shopify CSV Import Pre-Validator & Error Fixer (2026 Free) | 360tools.me</title>
+  <meta name="title" content="Shopify CSV Import Pre-Validator & Error Fixer (2026 Free) | 360tools.me">
+  <meta name="description" content="Validate Shopify product CSV import files client-side before uploading. Detect missing handles, duplicate variants, malformed image URLs, and currency format errors with 1-click auto-sanitize.">
+  <meta name="keywords" content="shopify csv validator, shopify product csv import error checker, validate shopify csv file, fix shopify import errors, shopify product csv template checker, client-side csv validator">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/shopify-csv-validator.html">
+
+  <!-- Favicon & Open Graph / Facebook -->
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/shopify-csv-validator.html">
+  <meta property="og:title" content="Shopify CSV Import Pre-Validator & Error Fixer | 360tools.me">
+  <meta property="og:description" content="Scan Shopify product CSV files for errors client-side before uploading to your store. 100% private with instant error highlighting.">
+  <meta property="og:image" content="images/logo.jpg">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/shopify-csv-validator.html">
+  <meta property="twitter:title" content="Shopify CSV Import Pre-Validator (100% Private)">
+  <meta property="twitter:description" content="Scan Shopify product CSV files client-side. Catch duplicate variants, handle errors, and malformed prices before importing.">
+  <meta property="twitter:image" content="images/logo.jpg">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Shopify CSV Import Pre-Validator",
+    "url": "https://360tools.me/shopify-csv-validator.html",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "description": "100% Client-side Shopify product CSV import validator. Checks required headers, variant combinations, handle formatting, image URLs, and price strings without uploading data to external servers.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why do Shopify product CSV imports fail?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Shopify product imports commonly fail due to missing 'Handle' or 'Title' headers, duplicate variant option combinations across the same handle, currency symbols (like '$') inside price columns, missing image protocol prefixes (http:// or https://), and UTF-8 encoding issues."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my product CSV data uploaded to any server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. This validator operates 100% client-side inside your web browser. Your product catalogs, pricing, and vendor details never leave your computer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How should product variants be structured in a Shopify CSV?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The first row of a product must contain the Handle, Title, Description (Body HTML), Vendor, and Type. Subsequent variant rows sharing the same Handle must only provide Option values, SKU, Price, and Inventory, leaving the Title and Description blank."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "E-Commerce & Digital Sellers",
+        "item": "https://360tools.me/#ecommerce-tools"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Shopify CSV Validator",
+        "item": "https://360tools.me/shopify-csv-validator.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- PapaParse for Client-Side Parsing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4">
+
+  <!-- Header Navigation -->
+    <!-- Standard Header Navigation -->
+    <!-- Standard Header Navigation -->
+    <!-- Standard Header Navigation -->
+  <header class="max-w-7xl mx-auto w-full sticky top-3 z-50 px-4 sm:px-6 my-3">
+    <div class="bg-white/95 backdrop-blur-md border border-slate-200/80 rounded-2xl shadow-xs px-5 py-3 flex items-center justify-between transition-all">
+      
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-8">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="images/logo.jpg" alt="360tools.me Logo" class="w-10 h-10 object-contain rounded-2xl group-hover:scale-105 transition-transform">
+          <span class="text-2xl font-black text-[#183153] tracking-tight">360tools<span class="text-[#146ebe]">.me</span></span>
+        </a>
+
+        <!-- Desktop Navigation with Quick Dropdowns -->
+        <nav class="hidden lg:flex items-center gap-1 text-xs font-bold text-slate-700">
+          
+          <!-- Dropdown 1: Audio & Voice -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-volume-high text-purple-600 text-xs"></i>
+              <span>Audio & Voice</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="text-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-volume-high text-[#146ebe] w-4 text-center"></i> Text to Speech
+                </a>
+                <a href="text-to-mp3.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-audio text-emerald-600 w-4 text-center"></i> Text to MP3
+                </a>
+                <a href="ai-voice-generator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-wand-magic-sparkles text-purple-600 w-4 text-center"></i> AI Voice Generator
+                </a>
+                <a href="pdf-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-pdf text-red-600 w-4 text-center"></i> PDF to Speech
+                </a>
+                <a href="youtube-voiceover-generator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-youtube text-rose-600 w-4 text-center"></i> YouTube Voiceovers
+                </a>
+                <a href="urdu-text-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-feather text-emerald-700 w-4 text-center"></i> Urdu TTS (اردو)
+                </a>
+                <a href="article-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-newspaper text-amber-600 w-4 text-center"></i> Article Reader
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="audio-voice-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All Audio Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 2: Compression -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-compress text-emerald-600 text-xs"></i>
+              <span>Compression</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="image-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-image text-emerald-600 w-4 text-center"></i> Image Compressor
+                </a>
+                <a href="jpg-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-camera text-amber-600 w-4 text-center"></i> JPG Compressor
+                </a>
+                <a href="png-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-image text-emerald-600 w-4 text-center"></i> PNG Compressor
+                </a>
+                <a href="webp-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-bolt text-blue-600 w-4 text-center"></i> WebP Compressor
+                </a>
+                <a href="pdf-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-pdf text-red-600 w-4 text-center"></i> PDF Compressor
+                </a>
+                <a href="video-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-video text-rose-600 w-4 text-center"></i> Video Compressor
+                </a>
+                <a href="compress-image-to-100kb.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-bullseye text-indigo-600 w-4 text-center"></i> Compress to 100KB
+                </a>
+                <a href="compress-image-to-500kb.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-bullseye text-indigo-600 w-4 text-center"></i> Compress to 500KB
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="compression-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All Compression</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 3: Developer -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-code text-cyan-600 text-xs"></i>
+              <span>Developer</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="html-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-html5 text-orange-600 w-4 text-center"></i> HTML Minifier
+                </a>
+                <a href="css-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-css3-alt text-blue-600 w-4 text-center"></i> CSS Minifier
+                </a>
+                <a href="javascript-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-js text-yellow-500 w-4 text-center"></i> JavaScript Minifier
+                </a>
+                <a href="shopify-csv-validator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-shopify text-emerald-600 w-4 text-center"></i> Shopify CSV Validator
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="developer-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All Dev Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 4: E-Commerce & Financial -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-cart-shopping text-[#f1641e] text-xs"></i>
+              <span>E-Commerce & Tax</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-72 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="etsy-fee-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-etsy text-[#f1641e] w-4 text-center"></i> Etsy Fee Calculator
+                </a>
+                <a href="amazon-fba-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-amazon text-amber-600 w-4 text-center"></i> Amazon FBA Dim Weight
+                </a>
+                <a href="tiktok-shop-payout-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-tiktok text-[#fe2c55] w-4 text-center"></i> TikTok Shop Payout
+                </a>
+                <a href="pod-profit-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-shirt text-blue-600 w-4 text-center"></i> POD Margin Grid
+                </a>
+                <a href="section8-estimator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-house-user text-[#146ebe] w-4 text-center"></i> Section 8 Estimator
+                </a>
+                <a href="uk-stamp-duty-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-landmark text-amber-700 w-4 text-center"></i> UK Stamp Duty
+                </a>
+                <a href="1031-exchange-tracker.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-clock-rotate-left text-purple-600 w-4 text-center"></i> 1031 Exchange Tracker
+                </a>
+                <a href="str-cleaning-splitter.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-broom text-teal-600 w-4 text-center"></i> STR Cleaning Splitter
+                </a>
+                <a href="eu-vat-oss-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-percent text-blue-700 w-4 text-center"></i> EU VAT OSS
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="ecommerce-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All E-Commerce Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </nav>
+      </div>
+
+      <!-- Right Header Actions: Interactive Command Palette Quick Search -->
+      <div class="flex items-center gap-2.5">
+        <button onclick="openQuickSearch()" class="flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200/80 px-3.5 py-2 rounded-xl border border-slate-200/60 shadow-2xs transition-all cursor-pointer">
+          <i class="fa-solid fa-magnifying-glass text-[#146ebe]"></i>
+          <span class="hidden sm:inline">Search Tools...</span>
+          <kbd class="hidden sm:inline-block px-1.5 py-0.5 bg-white border border-slate-300 rounded text-[10px] text-slate-500 font-mono font-bold shadow-2xs">Ctrl K</kbd>
+        </button>
+
+        <a href="index.html#tools-catalog" class="fa-btn-primary px-3.5 py-2 text-xs font-black shadow-xs hidden sm:inline-flex items-center gap-1.5">
+          <i class="fa-solid fa-grip"></i>
+          <span>All Tools</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars text-lg" id="mobileMenuIcon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenuDrawer" class="hidden lg:hidden mt-2 p-5 bg-white rounded-2xl border border-slate-200 shadow-xl space-y-4 transition-all max-h-[80vh] overflow-y-auto">
+      <div class="space-y-1">
+        <div class="text-[11px] font-black text-purple-700 uppercase tracking-wider px-2 mb-1 flex items-center gap-1.5">
+          <i class="fa-solid fa-volume-high"></i> AI Voice & Audio
+        </div>
+        <a href="text-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Text to Speech</a>
+        <a href="text-to-mp3.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Text to MP3</a>
+        <a href="ai-voice-generator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">AI Voice Generator</a>
+        <a href="pdf-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">PDF to Speech</a>
+        <a href="youtube-voiceover-generator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">YouTube Narrator</a>
+        <a href="urdu-text-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Urdu TTS</a>
+        <a href="article-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Article Reader</a>
+
+        <div class="text-[11px] font-black text-emerald-700 uppercase tracking-wider px-2 pt-3 mb-1 border-t border-slate-100 flex items-center gap-1.5">
+          <i class="fa-solid fa-compress"></i> Media Compression
+        </div>
+        <a href="image-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Image Compressor</a>
+        <a href="jpg-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">JPG Compressor</a>
+        <a href="png-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">PNG Compressor</a>
+        <a href="webp-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">WebP Compressor</a>
+        <a href="pdf-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">PDF Compressor</a>
+        <a href="video-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Video Compressor</a>
+
+        <div class="text-[11px] font-black text-cyan-700 uppercase tracking-wider px-2 pt-3 mb-1 border-t border-slate-100 flex items-center gap-1.5">
+          <i class="fa-solid fa-code"></i> Developer Minifiers
+        </div>
+        <a href="html-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">HTML Minifier</a>
+        <a href="css-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">CSS Minifier</a>
+        <a href="javascript-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">JS Minifier</a>
+        <a href="shopify-csv-validator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Shopify CSV</a>
+
+        <div class="text-[11px] font-black text-orange-700 uppercase tracking-wider px-2 pt-3 mb-1 border-t border-slate-100 flex items-center gap-1.5">
+          <i class="fa-solid fa-cart-shopping"></i> E-Commerce & Financial
+        </div>
+        <a href="etsy-fee-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Etsy Calculator</a>
+        <a href="amazon-fba-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Amazon FBA</a>
+        <a href="tiktok-shop-payout-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">TikTok Shop</a>
+        <a href="pod-profit-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">POD Margins</a>
+        <a href="section8-estimator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Section 8</a>
+        <a href="uk-stamp-duty-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">UK Stamp Duty</a>
+        <a href="1031-exchange-tracker.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">1031 Exchange</a>
+        <a href="str-cleaning-splitter.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">STR Cleaning</a>
+        <a href="eu-vat-oss-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">EU VAT OSS</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto w-full flex-1">
+    
+    <!-- Hero / Headline Above the Fold -->
+    <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="bg-[#95bf47]/20 text-[#2c5211] text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-brands fa-shopify mr-1 text-[#95bf47]"></i> 100% Client-Side Engine
+          </span>
+          <span class="text-xs font-bold text-slate-400">• Zero Server Upload • 100% Private</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+          Shopify CSV Import Pre-Validator & Error Fixer
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
+          Scan your Shopify product CSV files for common formatting errors, duplicate variant keys, invalid prices, and missing image URLs before uploading to avoid failed imports.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 self-start sm:self-center">
+        <button onclick="loadSampleBrokenCSV()" class="fa-btn-secondary text-xs px-3.5 py-2 text-rose-700 bg-rose-50 hover:bg-rose-100 border-rose-200">
+          <i class="fa-solid fa-bug"></i> Test Broken CSV
+        </button>
+        <button onclick="loadSampleValidCSV()" class="fa-btn-primary text-xs px-3.5 py-2 bg-[#95bf47] text-[#183153] hover:bg-[#82a83b]">
+          <i class="fa-solid fa-circle-check"></i> Test Valid CSV
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Workspace -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+      
+      <!-- Left Column: CSV Upload & Text Input Area (7 cols) -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- Drag & Drop Zone -->
+        <div class="fa-card p-6 sm:p-7 shadow-sm">
+          <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+            <h2 class="text-base font-black text-[#183153] flex items-center gap-2">
+              <i class="fa-solid fa-file-csv text-[#95bf47] text-lg"></i>
+              Upload or Paste Shopify Product CSV
+            </h2>
+            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+              <i class="fa-solid fa-lock text-[10px]"></i> Client-Side Only
+            </span>
+          </div>
+
+          <div id="dropZone" class="border-2 border-dashed border-slate-300 hover:border-[#146ebe] hover:bg-blue-50/30 transition-all rounded-2xl p-8 text-center cursor-pointer mb-4" onclick="document.getElementById('csvFileInput').click()">
+            <input type="file" id="csvFileInput" accept=".csv,text/csv" class="hidden" onchange="handleFileSelect(event)">
+            <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-500 mx-auto flex items-center justify-center text-xl mb-3">
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+            </div>
+            <p class="text-sm font-bold text-slate-700 mb-1">Click to browse or drag & drop your <span class="text-[#146ebe]">.csv file</span></p>
+            <p class="text-xs text-slate-400">Supports standard Shopify product export & vendor feed files</p>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <label for="csvTextInput" class="text-xs font-bold uppercase tracking-wider text-slate-600">Or Paste Raw CSV Data</label>
+              <button onclick="clearCsvInput()" class="text-xs font-bold text-slate-400 hover:text-slate-600">Clear</button>
+            </div>
+            <textarea id="csvTextInput" rows="7" placeholder="Handle,Title,Body (HTML),Vendor,Type,Tags,Published,Option1 Name,Option1 Value,Variant SKU,Variant Price...&#10;classic-tee,Classic Cotton Tee,High quality shirt,MyBrand,Shirts,cotton,true,Size,Medium,TEE-MED,$24.99..." class="fa-input font-mono text-xs w-full" oninput="parseRawCSV()"></textarea>
+          </div>
+
+          <div class="mt-4 flex items-center justify-between">
+            <button onclick="parseRawCSV()" class="fa-btn-primary text-xs px-4 py-2 bg-[#183153] hover:bg-[#25406b]">
+              <i class="fa-solid fa-stethoscope"></i> Run Deep Pre-Validation
+            </button>
+            <button id="btnAutoClean" onclick="autoSanitizeAndDownload()" class="fa-btn-primary text-xs px-4 py-2 bg-emerald-600 hover:bg-emerald-700 hidden">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Clean & Download CSV
+            </button>
+          </div>
+        </div>
+
+        <!-- Issue Table / Diagnostic Inspector -->
+        <div id="diagnosticCard" class="fa-card p-6 sm:p-7 shadow-sm hidden">
+          <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+            <h3 class="text-base font-black text-[#183153] flex items-center gap-2">
+              <i class="fa-solid fa-list-check text-[#146ebe]"></i>
+              Detailed Diagnostic Report (<span id="issueCount">0</span> issues)
+            </h3>
+            <div class="flex gap-2">
+              <span id="badgeErrors" class="px-2 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-800">0 Errors</span>
+              <span id="badgeWarnings" class="px-2 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800">0 Warnings</span>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto max-h-96">
+            <table class="w-full text-left text-xs border-collapse">
+              <thead>
+                <tr class="border-b border-slate-200 text-slate-600 font-bold bg-slate-50 sticky top-0">
+                  <th class="py-2.5 px-3">Row</th>
+                  <th class="py-2.5 px-3">Severity</th>
+                  <th class="py-2.5 px-3">Field / Column</th>
+                  <th class="py-2.5 px-3">Diagnostic Message</th>
+                </tr>
+              </thead>
+              <tbody id="issueTableBody" class="divide-y divide-slate-100 font-medium text-slate-700">
+                <!-- Dynamic diagnostic rows injected here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Status Score & Inspection Metrics (5 cols) -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <!-- Readiness Score Card -->
+        <div class="fa-card p-6 sm:p-7 shadow-lg border-2 border-slate-200 bg-gradient-to-b from-white to-slate-50 sticky top-24">
+          
+          <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+            <span class="text-xs font-black uppercase tracking-wider text-slate-600 bg-slate-100 px-2.5 py-1 rounded-full">
+              Shopify Import Readiness
+            </span>
+            <span id="fileStatsText" class="text-xs font-mono font-bold text-slate-500">0 Rows • 0 Cols</span>
+          </div>
+
+          <!-- Readiness Gauge -->
+          <div class="my-6 text-center bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest block mb-1">Import Health Score</span>
+            <div id="readinessScore" class="text-5xl font-black text-slate-400 font-mono tracking-tight">
+              --
+            </div>
+            <div id="readinessStatus" class="mt-2 text-xs font-bold text-slate-500 flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-hourglass-start"></i> Waiting for CSV input...
+            </div>
+          </div>
+
+          <!-- Key Check Highlights -->
+          <div class="space-y-2 text-xs border-t border-slate-200 pt-4 font-semibold text-slate-700">
+            <div class="flex justify-between items-center">
+              <span class="flex items-center gap-2">
+                <i id="iconHeaderCheck" class="fa-solid fa-circle-question text-slate-400"></i>
+                Required Shopify Headers:
+              </span>
+              <span id="resHeaderCheck" class="font-mono text-slate-500">Pending</span>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <span class="flex items-center gap-2">
+                <i id="iconHandleCheck" class="fa-solid fa-circle-question text-slate-400"></i>
+                Handle Slug Formatting:
+              </span>
+              <span id="resHandleCheck" class="font-mono text-slate-500">Pending</span>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <span class="flex items-center gap-2">
+                <i id="iconVariantCheck" class="fa-solid fa-circle-question text-slate-400"></i>
+                Duplicate Variant Combinations:
+              </span>
+              <span id="resVariantCheck" class="font-mono text-slate-500">Pending</span>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <span class="flex items-center gap-2">
+                <i id="iconPriceCheck" class="fa-solid fa-circle-question text-slate-400"></i>
+                Price & Numeric Formatting:
+              </span>
+              <span id="resPriceCheck" class="font-mono text-slate-500">Pending</span>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <span class="flex items-center gap-2">
+                <i id="iconImageCheck" class="fa-solid fa-circle-question text-slate-400"></i>
+                Image URL Protocols:
+              </span>
+              <span id="resImageCheck" class="font-mono text-slate-500">Pending</span>
+            </div>
+          </div>
+
+          <!-- Recommendation Banner -->
+          <div id="recBanner" class="mt-6 p-4 rounded-xl bg-slate-100 border border-slate-200 text-xs text-slate-700">
+            <div class="font-bold flex items-center gap-1.5 mb-1">
+              <i class="fa-solid fa-lightbulb text-amber-500"></i> Quick Tip
+            </div>
+            <p id="recText">Upload a CSV or try the sample buttons above to run diagnostic checks.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SEO Content Section: Common Shopify CSV Import Errors Guide -->
+    <section class="mt-16 pt-12 border-t border-slate-200">
+      <div class="max-w-4xl mx-auto space-y-12">
+        
+        <div class="text-center">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">
+            Common Shopify CSV Import Errors & How to Fix Them
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2">
+            A comprehensive reference guide for e-commerce developers, store owners, and catalog managers.
+          </p>
+        </div>
+
+        <!-- 4 Common Error Cases -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="fa-card p-6">
+            <h4 class="font-black text-rose-700 text-base mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-circle-exclamation"></i>
+              "Line X-Y: Option values are not unique"
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              This occurs when multiple rows sharing the same <code>Handle</code> have identical values for <code>Option1 Value</code>, <code>Option2 Value</code>, and <code>Option3 Value</code> (for example, two rows listing "Size: Small" and "Color: Black"). Every variant must have a unique combination of option attributes.
+            </p>
+          </div>
+
+          <div class="fa-card p-6">
+            <h4 class="font-black text-rose-700 text-base mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-circle-exclamation"></i>
+              "Validation failed: Price is not a number"
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Exporting from Excel often inserts currency symbols like <code>$24.99</code> or comma decimal separators (<code>24,99</code>). Shopify strictly requires clean floats with periods (e.g. <code>24.99</code>) and no letters or currency signs.
+            </p>
+          </div>
+
+          <div class="fa-card p-6">
+            <h4 class="font-black text-amber-700 text-base mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              "Illegal characters in Handle"
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              The <code>Handle</code> becomes your product's URL slug (e.g. <code>/products/my-cool-shirt</code>). It should contain only lowercase alphanumeric letters and hyphens. Spaces, apostrophes, and symbols trigger import rejections.
+            </p>
+          </div>
+
+          <div class="fa-card p-6">
+            <h4 class="font-black text-amber-700 text-base mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              "Image Src cannot be downloaded"
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Shopify downloads images from external URLs during import. Ensure all image links start with <code>https://</code>, are publicly accessible (not behind Google Drive passwords), and point directly to image extensions (.jpg, .png, .webp).
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+    <!-- Standard Footer -->
+    <!-- Standard Footer -->
+    <!-- Standard Footer -->
+  <footer class="bg-white border-t border-slate-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+        
+        <!-- Brand Column -->
+        <div class="space-y-4 md:col-span-1">
+          <a href="index.html" class="flex items-center gap-3">
+            <img src="images/logo.jpg" alt="360tools.me Logo" class="w-10 h-10 object-contain rounded-2xl">
+            <span class="text-2xl font-black text-[#183153]">360tools<span class="text-[#146ebe]">.me</span></span>
+          </a>
+          <p class="text-xs text-slate-500 font-medium leading-relaxed">
+            High-precision, free online AI speech synthesis, media compressors, developer minifiers, and e-commerce calculators.
+          </p>
+        </div>
+
+        <!-- AI Voice & Audio -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">AI Voice & Speech</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="text-to-speech.html" class="hover:text-[#146ebe]">Text to Speech</a></li>
+            <li><a href="text-to-mp3.html" class="hover:text-[#146ebe]">Text to MP3</a></li>
+            <li><a href="ai-voice-generator.html" class="hover:text-[#146ebe]">AI Voice Generator</a></li>
+            <li><a href="youtube-voiceover-generator.html" class="hover:text-[#146ebe]">YouTube Narrator</a></li>
+            <li><a href="pdf-to-speech.html" class="hover:text-[#146ebe]">PDF to Speech</a></li>
+            <li><a href="urdu-text-to-speech.html" class="hover:text-[#146ebe]">Urdu TTS (اردو)</a></li>
+            <li><a href="article-to-speech.html" class="hover:text-[#146ebe]">Article Reader</a></li>
+          </ul>
+        </div>
+
+        <!-- Compression Suite -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">Compression Tools</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="image-compressor.html" class="hover:text-[#146ebe]">Image Compressor</a></li>
+            <li><a href="jpg-compressor.html" class="hover:text-[#146ebe]">JPG Compressor</a></li>
+            <li><a href="png-compressor.html" class="hover:text-[#146ebe]">PNG Compressor</a></li>
+            <li><a href="webp-compressor.html" class="hover:text-[#146ebe]">WebP Compressor</a></li>
+            <li><a href="pdf-compressor.html" class="hover:text-[#146ebe]">PDF Compressor</a></li>
+            <li><a href="video-compressor.html" class="hover:text-[#146ebe]">Video Compressor</a></li>
+            <li><a href="compress-image-to-100kb.html" class="hover:text-[#146ebe]">Compress to 100KB</a></li>
+          </ul>
+        </div>
+
+        <!-- Developer Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">Developer & Minifiers</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="html-minifier.html" class="hover:text-[#146ebe]">HTML Minifier</a></li>
+            <li><a href="css-minifier.html" class="hover:text-[#146ebe]">CSS Minifier</a></li>
+            <li><a href="javascript-minifier.html" class="hover:text-[#146ebe]">JavaScript Minifier</a></li>
+            <li><a href="shopify-csv-validator.html" class="hover:text-[#146ebe]">Shopify CSV Validator</a></li>
+            <li><a href="developer-tools.html" class="hover:text-[#146ebe]">All Developer Tools</a></li>
+          </ul>
+        </div>
+
+        <!-- E-Commerce & Legal -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">E-Commerce & Legal</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="etsy-fee-calculator.html" class="hover:text-[#146ebe]">Etsy Fee Calculator</a></li>
+            <li><a href="amazon-fba-calculator.html" class="hover:text-[#146ebe]">Amazon FBA Checker</a></li>
+            <li><a href="tiktok-shop-payout-calculator.html" class="hover:text-[#146ebe]">TikTok Shop Calculator</a></li>
+            <li><a href="section8-estimator.html" class="hover:text-[#146ebe]">Section 8 Estimator</a></li>
+            <li><a href="str-cleaning-splitter.html" class="hover:text-[#146ebe]">STR Cleaning Splitter</a></li>
+            <li><a href="privacy-policy.html" class="hover:text-[#146ebe]">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html" class="hover:text-[#146ebe]">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-semibold">
+        <div>
+          © 2026 <a href="index.html" class="font-bold text-[#183153] hover:text-[#146ebe]">360tools.me</a>. All rights reserved.
+        </div>
+        <div class="text-[11px] text-slate-400">
+          Client-side browser processing • Zero cloud data harvesting
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Script: Shopify CSV Validator Logic -->
+  <script src="js/main.js"></script>
+  <script>
+    let parsedCsvData = null;
+    let parsedErrors = [];
+    let parsedWarnings = [];
+
+    // Drag and Drop listeners
+    const dropZone = document.getElementById('dropZone');
+    ['dragenter', 'dragover'].forEach(name => {
+      dropZone.addEventListener(name, (e) => {
+        e.preventDefault();
+        dropZone.classList.add('border-[#146ebe]', 'bg-blue-50/50');
+      });
+    });
+    ['dragleave', 'drop'].forEach(name => {
+      dropZone.addEventListener(name, (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('border-[#146ebe]', 'bg-blue-50/50');
+      });
+    });
+    dropZone.addEventListener('drop', (e) => {
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        processFile(e.dataTransfer.files[0]);
+      }
+    });
+
+    function handleFileSelect(e) {
+      if (e.target.files && e.target.files.length > 0) {
+        processFile(e.target.files[0]);
+      }
+    }
+
+    function processFile(file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('csvTextInput').value = e.target.result;
+        parseRawCSV();
+        showToast(`Loaded file: ${file.name}`, 'fa-file-csv');
+      };
+      reader.readAsText(file);
+    }
+
+    function clearCsvInput() {
+      document.getElementById('csvTextInput').value = '';
+      resetValidationState();
+      showToast('Cleared input', 'fa-trash');
+    }
+
+    function resetValidationState() {
+      parsedCsvData = null;
+      parsedErrors = [];
+      parsedWarnings = [];
+      document.getElementById('diagnosticCard').classList.add('hidden');
+      document.getElementById('btnAutoClean').classList.add('hidden');
+      document.getElementById('readinessScore').textContent = '--';
+      document.getElementById('readinessScore').className = 'text-5xl font-black text-slate-400 font-mono tracking-tight';
+      document.getElementById('readinessStatus').innerHTML = '<i class="fa-solid fa-hourglass-start"></i> Waiting for CSV input...';
+      document.getElementById('fileStatsText').textContent = '0 Rows • 0 Cols';
+      
+      ['HeaderCheck', 'HandleCheck', 'VariantCheck', 'PriceCheck', 'ImageCheck'].forEach(k => {
+        document.getElementById(`icon${k}`).className = 'fa-solid fa-circle-question text-slate-400';
+        document.getElementById(`res${k}`).textContent = 'Pending';
+        document.getElementById(`res${k}`).className = 'font-mono text-slate-500';
+      });
+    }
+
+    function parseRawCSV() {
+      const text = document.getElementById('csvTextInput').value.trim();
+      if (!text) {
+        resetValidationState();
+        return;
+      }
+
+      Papa.parse(text, {
+        header: true,
+        skipEmptyLines: 'greedy',
+        complete: function(results) {
+          validateShopifyData(results.data, results.meta.fields || []);
+        },
+        error: function(err) {
+          showToast('Failed to parse CSV format', 'fa-triangle-exclamation');
+        }
+      });
+    }
+
+    function validateShopifyData(rows, headers) {
+      parsedCsvData = rows;
+      parsedErrors = [];
+      parsedWarnings = [];
+
+      if (!rows || rows.length === 0) {
+        resetValidationState();
+        return;
+      }
+
+      document.getElementById('fileStatsText').textContent = `${rows.length} Rows • ${headers.length} Cols`;
+
+      // 1. Header Validation
+      const requiredHeaders = ['Handle', 'Title'];
+      const recommendedHeaders = ['Body (HTML)', 'Vendor', 'Type', 'Tags', 'Published', 'Option1 Name', 'Option1 Value', 'Variant Price'];
+      const missingRequired = requiredHeaders.filter(h => !headers.includes(h));
+      const missingRecommended = recommendedHeaders.filter(h => !headers.includes(h));
+
+      let headerStatus = 'passed';
+      if (missingRequired.length > 0) {
+        headerStatus = 'error';
+        missingRequired.forEach(h => {
+          parsedErrors.push({ row: 1, col: 'Header', msg: `Missing mandatory column header: "${h}"` });
+        });
+      } else if (missingRecommended.length > 0) {
+        headerStatus = 'warning';
+        missingRecommended.forEach(h => {
+          parsedWarnings.push({ row: 1, col: 'Header', msg: `Standard column header not found: "${h}"` });
+        });
+      }
+
+      // 2. Data Rows Validation
+      const handleVariantMap = {}; // handle -> Set of "opt1|opt2|opt3"
+      let handleErrors = 0;
+      let variantErrors = 0;
+      let priceErrors = 0;
+      let imageErrors = 0;
+
+      rows.forEach((row, idx) => {
+        const rowNum = idx + 2; // +1 for 0-index, +1 for header line
+        const handle = (row['Handle'] || '').trim();
+        const title = (row['Title'] || '').trim();
+        const price = (row['Variant Price'] || '').trim();
+        const comparePrice = (row['Variant Compare At Price'] || '').trim();
+        const opt1Name = (row['Option1 Name'] || '').trim();
+        const opt1Val = (row['Option1 Value'] || '').trim();
+        const opt2Val = (row['Option2 Value'] || '').trim();
+        const opt3Val = (row['Option3 Value'] || '').trim();
+        const imageSrc = (row['Image Src'] || '').trim();
+
+        // Handle checks
+        if (!handle) {
+          parsedErrors.push({ row: rowNum, col: 'Handle', msg: 'Empty Handle value. Every product line must have a Handle.' });
+          handleErrors++;
+        } else {
+          // Check slug format
+          if (/[A-Z]/.test(handle)) {
+            parsedWarnings.push({ row: rowNum, col: 'Handle', msg: `Handle "${handle}" contains uppercase letters. Shopify URLs work best with lowercase.` });
+            handleErrors++;
+          }
+          if (/\s/.test(handle)) {
+            parsedErrors.push({ row: rowNum, col: 'Handle', msg: `Handle "${handle}" contains spaces. Replace spaces with hyphens.` });
+            handleErrors++;
+          }
+        }
+
+        // Duplicate variant checks
+        if (handle) {
+          if (!handleVariantMap[handle]) {
+            handleVariantMap[handle] = new Set();
+          }
+          const variantKey = `${opt1Val.toLowerCase()}||${opt2Val.toLowerCase()}||${opt3Val.toLowerCase()}`;
+          if (opt1Val && handleVariantMap[handle].has(variantKey)) {
+            parsedErrors.push({ row: rowNum, col: 'Option Values', msg: `Duplicate variant key "${opt1Val}${opt2Val ? ' / '+opt2Val : ''}" under handle "${handle}". Shopify will reject this row.` });
+            variantErrors++;
+          } else if (opt1Val) {
+            handleVariantMap[handle].add(variantKey);
+          }
+        }
+
+        // Price formatting checks
+        if (price) {
+          if (price.includes('$') || price.includes('€') || price.includes('£')) {
+            parsedErrors.push({ row: rowNum, col: 'Variant Price', msg: `Price "${price}" contains currency symbol. Remove symbols (e.g. use "24.99").` });
+            priceErrors++;
+          } else if (isNaN(parseFloat(price))) {
+            parsedErrors.push({ row: rowNum, col: 'Variant Price', msg: `Price "${price}" is not a valid number.` });
+            priceErrors++;
+          } else if (parseFloat(price) < 0) {
+            parsedErrors.push({ row: rowNum, col: 'Variant Price', msg: `Price "${price}" cannot be negative.` });
+            priceErrors++;
+          }
+        }
+
+        if (comparePrice && (comparePrice.includes('$') || isNaN(parseFloat(comparePrice)))) {
+          parsedWarnings.push({ row: rowNum, col: 'Variant Compare At Price', msg: `Compare price "${comparePrice}" contains formatting issue.` });
+          priceErrors++;
+        }
+
+        // Image URL checks
+        if (imageSrc) {
+          if (!imageSrc.startsWith('http://') && !imageSrc.startsWith('https://')) {
+            parsedErrors.push({ row: rowNum, col: 'Image Src', msg: `Image URL "${imageSrc}" is missing http:// or https:// protocol.` });
+            imageErrors++;
+          }
+        }
+      });
+
+      // Update Diagnostic UI Table
+      renderDiagnosticTable();
+
+      // Update Indicators
+      updateStatusIndicator('HeaderCheck', headerStatus === 'passed', headerStatus === 'warning', headerStatus === 'error', 
+        headerStatus === 'passed' ? 'Valid' : (headerStatus === 'warning' ? 'Missing Non-Critical' : 'Missing Required'));
+
+      updateStatusIndicator('HandleCheck', handleErrors === 0, false, handleErrors > 0, 
+        handleErrors === 0 ? 'Clean Slugs' : `${handleErrors} Formatting Issues`);
+
+      updateStatusIndicator('VariantCheck', variantErrors === 0, false, variantErrors > 0, 
+        variantErrors === 0 ? 'Unique Variants' : `${variantErrors} Duplicates Detected`);
+
+      updateStatusIndicator('PriceCheck', priceErrors === 0, false, priceErrors > 0, 
+        priceErrors === 0 ? 'Valid Numbers' : `${priceErrors} Invalid Price Formats`);
+
+      updateStatusIndicator('ImageCheck', imageErrors === 0, false, imageErrors > 0, 
+        imageErrors === 0 ? 'Valid Links' : `${imageErrors} Malformed URLs`);
+
+      // Compute Overall Score (0 to 100)
+      const totalIssues = (parsedErrors.length * 15) + (parsedWarnings.length * 5);
+      const score = Math.max(0, 100 - totalIssues);
+      const scoreEl = document.getElementById('readinessScore');
+      const statusEl = document.getElementById('readinessStatus');
+
+      scoreEl.textContent = `${score}/100`;
+      if (score === 100) {
+        scoreEl.className = 'text-5xl font-black text-emerald-600 font-mono tracking-tight';
+        statusEl.innerHTML = '<i class="fa-solid fa-circle-check text-emerald-600"></i> Ready for Shopify Import!';
+        document.getElementById('recText').textContent = 'Your CSV conforms cleanly to Shopify specifications. You can safely import this file into Shopify Admin.';
+        document.getElementById('btnAutoClean').classList.add('hidden');
+      } else if (parsedErrors.length > 0) {
+        scoreEl.className = 'text-5xl font-black text-rose-600 font-mono tracking-tight';
+        statusEl.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-rose-600"></i> ${parsedErrors.length} Critical Errors Detected`;
+        document.getElementById('recText').textContent = 'Critical errors found that will cause Shopify import to abort. Click "Clean & Download CSV" to auto-sanitize common errors.';
+        document.getElementById('btnAutoClean').classList.remove('hidden');
+      } else {
+        scoreEl.className = 'text-5xl font-black text-amber-600 font-mono tracking-tight';
+        statusEl.innerHTML = `<i class="fa-solid fa-triangle-exclamation text-amber-600"></i> ${parsedWarnings.length} Warnings Found`;
+        document.getElementById('recText').textContent = 'No fatal errors found, but some formatting warnings should be reviewed to avoid display quirks in Shopify.';
+        document.getElementById('btnAutoClean').classList.remove('hidden');
+      }
+    }
+
+    function updateStatusIndicator(id, isPass, isWarn, isErr, labelText) {
+      const icon = document.getElementById(`icon${id}`);
+      const res = document.getElementById(`res${id}`);
+      res.textContent = labelText;
+
+      if (isErr) {
+        icon.className = 'fa-solid fa-circle-xmark text-rose-600';
+        res.className = 'font-mono text-rose-600 font-bold';
+      } else if (isWarn) {
+        icon.className = 'fa-solid fa-triangle-exclamation text-amber-500';
+        res.className = 'font-mono text-amber-600 font-bold';
+      } else {
+        icon.className = 'fa-solid fa-circle-check text-emerald-600';
+        res.className = 'font-mono text-emerald-600 font-bold';
+      }
+    }
+
+    function renderDiagnosticTable() {
+      const card = document.getElementById('diagnosticCard');
+      const tbody = document.getElementById('issueTableBody');
+      tbody.innerHTML = '';
+
+      const allIssues = [
+        ...parsedErrors.map(e => ({ ...e, type: 'error' })),
+        ...parsedWarnings.map(w => ({ ...w, type: 'warning' }))
+      ];
+
+      document.getElementById('issueCount').textContent = allIssues.length;
+      document.getElementById('badgeErrors').textContent = `${parsedErrors.length} Errors`;
+      document.getElementById('badgeWarnings').textContent = `${parsedWarnings.length} Warnings`;
+
+      if (allIssues.length === 0) {
+        card.classList.add('hidden');
+        return;
+      }
+
+      card.classList.remove('hidden');
+
+      allIssues.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-50 transition-colors';
+        const isErr = item.type === 'error';
+
+        tr.innerHTML = `
+          <td class="py-2.5 px-3 font-mono font-bold text-slate-800">Line ${item.row}</td>
+          <td class="py-2.5 px-3">
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-black uppercase ${isErr ? 'bg-rose-100 text-rose-800' : 'bg-amber-100 text-amber-800'}">
+              ${item.type}
+            </span>
+          </td>
+          <td class="py-2.5 px-3 font-mono font-bold text-slate-700">${item.col}</td>
+          <td class="py-2.5 px-3 text-slate-600">${item.msg}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function autoSanitizeAndDownload() {
+      if (!parsedCsvData || parsedCsvData.length === 0) return;
+
+      // Clean rows
+      const cleanedRows = parsedCsvData.map(row => {
+        const cleaned = {};
+        for (let key in row) {
+          let val = (row[key] || '').toString().trim();
+          
+          // Auto slugify handles
+          if (key === 'Handle') {
+            val = val.toLowerCase().replace(/[^a-z0-9-_]/g, '-').replace(/-+/g, '-');
+          }
+          
+          // Auto clean price columns
+          if (key === 'Variant Price' || key === 'Variant Compare At Price') {
+            val = val.replace(/[\$,€,£]/g, '').replace(/,/g, '.').trim();
+          }
+
+          cleaned[key] = val;
+        }
+        return cleaned;
+      });
+
+      // Convert back to CSV
+      const cleanCsvString = Papa.unparse(cleanedRows);
+      
+      // Trigger download
+      const blob = new Blob([cleanCsvString], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      const url = URL.createObjectURL(blob);
+      link.setAttribute('href', url);
+      link.setAttribute('download', 'shopify_products_cleaned.csv');
+      link.style.visibility = 'hidden';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      showToast('Cleaned CSV downloaded successfully!', 'fa-file-arrow-down');
+    }
+
+    function loadSampleBrokenCSV() {
+      const sampleBroken = `Handle,Title,Body (HTML),Vendor,Type,Tags,Published,Option1 Name,Option1 Value,Option2 Name,Option2 Value,Variant SKU,Variant Price,Variant Compare At Price,Image Src
+Classic Tee Shirt,Classic Cotton Tee,<p>Super comfortable</p>,BrandCo,Apparel,shirt,true,Size,Small,Color,Black,TEE-S-BLK,$24.99,$30.00,https://cdn.example.com/img1.jpg
+Classic Tee Shirt,,,,,,,,Small,,Black,TEE-S-BLK2,$24.99,,invalid-image-url.jpg
+Heavy Hoodie,Premium Heavy Hoodie,<p>Warm fleece</p>,BrandCo,Apparel,hoodie,true,Size,Large,Color,Navy,HD-L-NVY,48.00,55.00,https://cdn.example.com/hoodie.jpg`;
+
+      document.getElementById('csvTextInput').value = sampleBroken;
+      parseRawCSV();
+      showToast('Loaded sample broken CSV with duplicate variant & price errors', 'fa-bug');
+    }
+
+    function loadSampleValidCSV() {
+      const sampleValid = `Handle,Title,Body (HTML),Vendor,Type,Tags,Published,Option1 Name,Option1 Value,Option2 Name,Option2 Value,Variant SKU,Variant Price,Variant Compare At Price,Image Src
+classic-tee-shirt,Classic Cotton Tee,<p>Super comfortable unisex cotton tee.</p>,BrandCo,Apparel,cotton, summer,true,Size,Small,Color,Black,TEE-S-BLK,24.99,29.99,https://cdn.example.com/tee-black.jpg
+classic-tee-shirt,,,,,,,,Size,Medium,Color,Black,TEE-M-BLK,24.99,29.99,https://cdn.example.com/tee-black.jpg
+classic-tee-shirt,,,,,,,,Size,Large,Color,White,TEE-L-WHT,24.99,29.99,https://cdn.example.com/tee-white.jpg
+heavy-blend-hoodie,Heavy Blend Fleece Hoodie,<p>Cozy winter pullover hoodie.</p>,BrandCo,Apparel,winter, hoodie,true,Size,Medium,Color,Navy,HD-M-NVY,49.99,59.99,https://cdn.example.com/hoodie-navy.jpg`;
+
+      document.getElementById('csvTextInput').value = sampleValid;
+      parseRawCSV();
+      showToast('Loaded 100% compliant Shopify CSV template', 'fa-circle-check');
+    }
+  </script>
+</body>
+</html>

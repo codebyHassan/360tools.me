@@ -1,0 +1,6 @@
+# 360tools.me Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://360tools.me/sitemap.xml

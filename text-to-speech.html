@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Free Text to Speech Converter Online (Natural Voices) | 360tools</title>
+  <meta name="title" content="Free Text to Speech Converter Online (Natural Voices) | 360tools">
+  <meta name="description" content="Convert written text to natural speech online for free. Control speech speed, pitch, and voice accents with live word-by-word reading highlighting. 100% private in-browser TTS.">
+  <meta name="keywords" content="text to speech online, tts reader, free text to speech, natural voice reader, listen to text online, speech synthesis online">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/text-to-speech.html">
+
+  <!-- Open Graph / Twitter -->
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/text-to-speech.html">
+  <meta property="og:title" content="Free Text to Speech Converter Online | 360tools">
+  <meta property="og:description" content="Read any text aloud in natural voices. Adjustable speed, pitch, and accents with zero server delay.">
+  <meta property="og:image" content="images/logo.jpg">
+
+  <!-- Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Text to Speech Converter",
+    "url": "https://360tools.me/text-to-speech.html",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "description": "Convert written text into natural spoken audio in real time using the browser's native Web Speech API with word highlighting.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this Text to Speech converter completely free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! It utilizes the browser's native SpeechSynthesis API, meaning there are zero subscription fees, no character limits, and no credit card required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I change the reading speed and voice accent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can adjust the playback rate from 0.5x (slow) to 2.0x (fast), customize the pitch, and choose from available US, UK, Canadian, Australian, and international voices."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my text data logged or sent to any server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The speech synthesis engine executes 100% locally inside your web browser. Your text is never stored, tracked, or transmitted to any third-party server."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Audio & Speech Tools",
+        "item": "https://360tools.me/audio-voice-tools.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Text to Speech",
+        "item": "https://360tools.me/text-to-speech.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4 bg-[#f8fafc]">
+
+  <!-- Header Navigation -->
+    <!-- Standard Header Navigation -->
+    <!-- Standard Header Navigation -->
+    <!-- Standard Header Navigation -->
+  <header class="max-w-7xl mx-auto w-full sticky top-3 z-50 px-4 sm:px-6 my-3">
+    <div class="bg-white/95 backdrop-blur-md border border-slate-200/80 rounded-2xl shadow-xs px-5 py-3 flex items-center justify-between transition-all">
+      
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-8">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="images/logo.jpg" alt="360tools.me Logo" class="w-10 h-10 object-contain rounded-2xl group-hover:scale-105 transition-transform">
+          <span class="text-2xl font-black text-[#183153] tracking-tight">360tools<span class="text-[#146ebe]">.me</span></span>
+        </a>
+
+        <!-- Desktop Navigation with Quick Dropdowns -->
+        <nav class="hidden lg:flex items-center gap-1 text-xs font-bold text-slate-700">
+          
+          <!-- Dropdown 1: Audio & Voice -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-volume-high text-purple-600 text-xs"></i>
+              <span>Audio & Voice</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="text-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-volume-high text-[#146ebe] w-4 text-center"></i> Text to Speech
+                </a>
+                <a href="text-to-mp3.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-audio text-emerald-600 w-4 text-center"></i> Text to MP3
+                </a>
+                <a href="ai-voice-generator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-wand-magic-sparkles text-purple-600 w-4 text-center"></i> AI Voice Generator
+                </a>
+                <a href="pdf-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-pdf text-red-600 w-4 text-center"></i> PDF to Speech
+                </a>
+                <a href="youtube-voiceover-generator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-youtube text-rose-600 w-4 text-center"></i> YouTube Voiceovers
+                </a>
+                <a href="urdu-text-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-feather text-emerald-700 w-4 text-center"></i> Urdu TTS (اردو)
+                </a>
+                <a href="article-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-newspaper text-amber-600 w-4 text-center"></i> Article Reader
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="audio-voice-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All Audio Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 2: Compression -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-compress text-emerald-600 text-xs"></i>
+              <span>Compression</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="image-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-image text-emerald-600 w-4 text-center"></i> Image Compressor
+                </a>
+                <a href="jpg-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-camera text-amber-600 w-4 text-center"></i> JPG Compressor
+                </a>
+                <a href="png-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-image text-emerald-600 w-4 text-center"></i> PNG Compressor
+                </a>
+                <a href="webp-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-bolt text-blue-600 w-4 text-center"></i> WebP Compressor
+                </a>
+                <a href="pdf-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-pdf text-red-600 w-4 text-center"></i> PDF Compressor
+                </a>
+                <a href="video-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-video text-rose-600 w-4 text-center"></i> Video Compressor
+                </a>
+                <a href="compress-image-to-100kb.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-bullseye text-indigo-600 w-4 text-center"></i> Compress to 100KB
+                </a>
+                <a href="compress-image-to-500kb.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-bullseye text-indigo-600 w-4 text-center"></i> Compress to 500KB
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="compression-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All Compression</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 3: Developer -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-code text-cyan-600 text-xs"></i>
+              <span>Developer</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="html-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-html5 text-orange-600 w-4 text-center"></i> HTML Minifier
+                </a>
+                <a href="css-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-css3-alt text-blue-600 w-4 text-center"></i> CSS Minifier
+                </a>
+                <a href="javascript-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-js text-yellow-500 w-4 text-center"></i> JavaScript Minifier
+                </a>
+                <a href="shopify-csv-validator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-shopify text-emerald-600 w-4 text-center"></i> Shopify CSV Validator
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="developer-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All Dev Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 4: E-Commerce & Financial -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-cart-shopping text-[#f1641e] text-xs"></i>
+              <span>E-Commerce & Tax</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-72 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="etsy-fee-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-etsy text-[#f1641e] w-4 text-center"></i> Etsy Fee Calculator
+                </a>
+                <a href="amazon-fba-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-amazon text-amber-600 w-4 text-center"></i> Amazon FBA Dim Weight
+                </a>
+                <a href="tiktok-shop-payout-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-tiktok text-[#fe2c55] w-4 text-center"></i> TikTok Shop Payout
+                </a>
+                <a href="pod-profit-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-shirt text-blue-600 w-4 text-center"></i> POD Margin Grid
+                </a>
+                <a href="section8-estimator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-house-user text-[#146ebe] w-4 text-center"></i> Section 8 Estimator
+                </a>
+                <a href="uk-stamp-duty-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-landmark text-amber-700 w-4 text-center"></i> UK Stamp Duty
+                </a>
+                <a href="1031-exchange-tracker.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-clock-rotate-left text-purple-600 w-4 text-center"></i> 1031 Exchange Tracker
+                </a>
+                <a href="str-cleaning-splitter.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-broom text-teal-600 w-4 text-center"></i> STR Cleaning Splitter
+                </a>
+                <a href="eu-vat-oss-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-percent text-blue-700 w-4 text-center"></i> EU VAT OSS
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="ecommerce-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All E-Commerce Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </nav>
+      </div>
+
+      <!-- Right Header Actions: Interactive Command Palette Quick Search -->
+      <div class="flex items-center gap-2.5">
+        <button onclick="openQuickSearch()" class="flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200/80 px-3.5 py-2 rounded-xl border border-slate-200/60 shadow-2xs transition-all cursor-pointer">
+          <i class="fa-solid fa-magnifying-glass text-[#146ebe]"></i>
+          <span class="hidden sm:inline">Search Tools...</span>
+          <kbd class="hidden sm:inline-block px-1.5 py-0.5 bg-white border border-slate-300 rounded text-[10px] text-slate-500 font-mono font-bold shadow-2xs">Ctrl K</kbd>
+        </button>
+
+        <a href="index.html#tools-catalog" class="fa-btn-primary px-3.5 py-2 text-xs font-black shadow-xs hidden sm:inline-flex items-center gap-1.5">
+          <i class="fa-solid fa-grip"></i>
+          <span>All Tools</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars text-lg" id="mobileMenuIcon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenuDrawer" class="hidden lg:hidden mt-2 p-5 bg-white rounded-2xl border border-slate-200 shadow-xl space-y-4 transition-all max-h-[80vh] overflow-y-auto">
+      <div class="space-y-1">
+        <div class="text-[11px] font-black text-purple-700 uppercase tracking-wider px-2 mb-1 flex items-center gap-1.5">
+          <i class="fa-solid fa-volume-high"></i> AI Voice & Audio
+        </div>
+        <a href="text-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Text to Speech</a>
+        <a href="text-to-mp3.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Text to MP3</a>
+        <a href="ai-voice-generator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">AI Voice Generator</a>
+        <a href="pdf-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">PDF to Speech</a>
+        <a href="youtube-voiceover-generator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">YouTube Narrator</a>
+        <a href="urdu-text-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Urdu TTS</a>
+        <a href="article-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Article Reader</a>
+
+        <div class="text-[11px] font-black text-emerald-700 uppercase tracking-wider px-2 pt-3 mb-1 border-t border-slate-100 flex items-center gap-1.5">
+          <i class="fa-solid fa-compress"></i> Media Compression
+        </div>
+        <a href="image-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Image Compressor</a>
+        <a href="jpg-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">JPG Compressor</a>
+        <a href="png-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">PNG Compressor</a>
+        <a href="webp-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">WebP Compressor</a>
+        <a href="pdf-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">PDF Compressor</a>
+        <a href="video-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Video Compressor</a>
+
+        <div class="text-[11px] font-black text-cyan-700 uppercase tracking-wider px-2 pt-3 mb-1 border-t border-slate-100 flex items-center gap-1.5">
+          <i class="fa-solid fa-code"></i> Developer Minifiers
+        </div>
+        <a href="html-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">HTML Minifier</a>
+        <a href="css-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">CSS Minifier</a>
+        <a href="javascript-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">JS Minifier</a>
+        <a href="shopify-csv-validator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Shopify CSV</a>
+
+        <div class="text-[11px] font-black text-orange-700 uppercase tracking-wider px-2 pt-3 mb-1 border-t border-slate-100 flex items-center gap-1.5">
+          <i class="fa-solid fa-cart-shopping"></i> E-Commerce & Financial
+        </div>
+        <a href="etsy-fee-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Etsy Calculator</a>
+        <a href="amazon-fba-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Amazon FBA</a>
+        <a href="tiktok-shop-payout-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">TikTok Shop</a>
+        <a href="pod-profit-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">POD Margins</a>
+        <a href="section8-estimator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Section 8</a>
+        <a href="uk-stamp-duty-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">UK Stamp Duty</a>
+        <a href="1031-exchange-tracker.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">1031 Exchange</a>
+        <a href="str-cleaning-splitter.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">STR Cleaning</a>
+        <a href="eu-vat-oss-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">EU VAT OSS</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto w-full flex-1">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4" aria-label="Breadcrumb">
+      <a href="index.html" class="hover:text-[#146ebe]">Home</a>
+      <span>/</span>
+      <a href="audio-voice-tools.html" class="hover:text-[#146ebe]">Audio & Speech</a>
+      <span>/</span>
+      <span class="text-slate-700">Text to Speech</span>
+    </nav>
+
+    <!-- H1 & Intro -->
+    <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="bg-blue-50 text-[#146ebe] text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-solid fa-volume-high mr-1"></i> Web Speech Synthesis Engine
+          </span>
+          <span class="text-xs font-bold text-slate-400">• Real-Time Speech • Word Highlighting</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+          Text to Speech Converter (Natural Reader)
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
+          Listen to any text read aloud with natural accents. Adjust pitch and reading speed (0.5x to 2.0x) with zero character limits and 100% in-browser privacy.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 self-start sm:self-center">
+        <button onclick="loadSampleText('story')" class="fa-btn-secondary text-xs px-3 py-1.5">
+          <i class="fa-solid fa-book-open mr-1"></i> Load Story Sample
+        </button>
+      </div>
+    </div>
+
+    <!-- Privacy Banner -->
+    <div class="mb-6 p-3.5 bg-emerald-50 border border-emerald-200/80 rounded-2xl flex items-center justify-between text-xs text-emerald-900 font-semibold">
+      <div class="flex items-center gap-2.5">
+        <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+          <i class="fa-solid fa-shield-halved text-sm"></i>
+        </span>
+        <span><strong>100% In-Browser Privacy:</strong> Text is converted directly in your device's audio hardware. No server API calls or data tracking.</span>
+      </div>
+      <span class="hidden sm:inline-block bg-emerald-200/70 text-emerald-800 px-2.5 py-1 rounded-full text-[10px] font-black uppercase">Zero Cloud Storage</span>
+    </div>
+
+    <!-- Main Tool Interface (Grid) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+      
+      <!-- Left Column: Text Input & Live Highlight Display (7 cols) -->
+      <div class="lg:col-span-7 space-y-4">
+        
+        <div class="fa-card p-6 shadow-sm space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <span class="text-xs font-black uppercase tracking-wider text-[#183153] flex items-center gap-1.5">
+              <i class="fa-solid fa-keyboard text-[#146ebe]"></i> Text Input & Script Reader
+            </span>
+            <div class="flex items-center gap-3 text-xs font-mono text-slate-500 font-bold">
+              <span id="charCountStat">0 chars</span>
+              <span>•</span>
+              <span id="wordCountStat">0 words</span>
+              <span>•</span>
+              <span id="readTimeStat">0s read</span>
+            </div>
+          </div>
+
+          <!-- Raw Input Textarea -->
+          <textarea id="ttsTextInput" rows="12" placeholder="Type or paste your text here to listen..." class="fa-input font-sans text-sm w-full p-4 leading-relaxed bg-white border border-slate-200 focus:ring-2 focus:ring-[#146ebe] rounded-xl" oninput="handleTextChange()"></textarea>
+
+          <!-- Live Word Highlighter Box (appears during playback) -->
+          <div id="highlightContainer" class="hidden p-4 rounded-xl bg-slate-900 text-slate-100 text-sm leading-relaxed max-h-48 overflow-y-auto border border-slate-800 font-medium">
+            <div id="highlightWords"></div>
+          </div>
+
+          <!-- Quick Action Buttons Below Text -->
+          <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100">
+            <div class="flex items-center gap-2">
+              <button onclick="clearTtsText()" class="text-xs font-bold text-slate-400 hover:text-slate-600 px-2.5 py-1 rounded-lg border border-slate-200">
+                <i class="fa-solid fa-trash mr-1"></i> Clear
+              </button>
+              <button onclick="copyTtsText()" class="text-xs font-bold text-slate-500 hover:text-[#146ebe] px-2.5 py-1 rounded-lg border border-slate-200">
+                <i class="fa-solid fa-copy mr-1"></i> Copy Text
+              </button>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="loadSampleText('pitch')" class="text-xs font-bold text-slate-500 hover:text-[#146ebe]">Corporate Sample</button>
+              <span>•</span>
+              <button onclick="loadSampleText('news')" class="text-xs font-bold text-slate-500 hover:text-[#146ebe]">News Sample</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Voice Engine Controls & Playback (5 cols) -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <div class="fa-card p-6 shadow-md border-2 border-blue-500/20 bg-gradient-to-b from-white to-slate-50 space-y-5">
+          <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+            <h3 class="text-xs font-black uppercase tracking-wider text-[#183153] flex items-center gap-1.5">
+              <i class="fa-solid fa-sliders text-[#146ebe]"></i> Voice Synthesis Settings
+            </h3>
+            <span id="speechStatusBadge" class="text-xs font-black font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded-lg">
+              Idle
+            </span>
+          </div>
+
+          <!-- Voice Selector -->
+          <div>
+            <label for="voiceSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+              Select Voice & Accent
+            </label>
+            <select id="voiceSelect" class="fa-input text-xs font-bold w-full bg-white border border-slate-300">
+              <option value="">Loading system voices...</option>
+            </select>
+          </div>
+
+          <!-- Speed Slider -->
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <label for="speedSlider" class="text-xs font-bold uppercase tracking-wider text-slate-600">Reading Speed</label>
+              <span id="speedVal" class="text-xs font-black font-mono bg-blue-100 text-[#146ebe] px-2 py-0.5 rounded-lg">1.0x</span>
+            </div>
+            <input type="range" id="speedSlider" min="0.5" max="2.0" step="0.1" value="1.0" class="w-full accent-[#146ebe] cursor-pointer" oninput="updateSpeed(this.value)">
+            <div class="flex justify-between text-[10px] text-slate-400 font-bold mt-0.5">
+              <span>0.5x (Slow)</span>
+              <span>1.0x (Normal)</span>
+              <span>2.0x (Fast)</span>
+            </div>
+          </div>
+
+          <!-- Pitch Slider -->
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <label for="pitchSlider" class="text-xs font-bold uppercase tracking-wider text-slate-600">Voice Pitch</label>
+              <span id="pitchVal" class="text-xs font-black font-mono bg-blue-100 text-[#146ebe] px-2 py-0.5 rounded-lg">1.0</span>
+            </div>
+            <input type="range" id="pitchSlider" min="0.5" max="1.5" step="0.1" value="1.0" class="w-full accent-[#146ebe] cursor-pointer" oninput="updatePitch(this.value)">
+            <div class="flex justify-between text-[10px] text-slate-400 font-bold mt-0.5">
+              <span>Deep (0.5)</span>
+              <span>Default (1.0)</span>
+              <span>High (1.5)</span>
+            </div>
+          </div>
+
+          <!-- Master Audio Playback Controls -->
+          <div class="pt-3 border-t border-slate-200 space-y-2">
+            <div class="grid grid-cols-2 gap-2">
+              <button id="btnPlay" onclick="togglePlay()" class="fa-btn-primary py-3 text-sm font-black flex items-center justify-center gap-2 bg-[#146ebe] hover:bg-[#0f5494]">
+                <i class="fa-solid fa-play" id="playIcon"></i>
+                <span id="playText">Read Aloud</span>
+              </button>
+              <button id="btnStop" onclick="stopSpeech()" class="fa-btn-secondary py-3 text-sm font-bold flex items-center justify-center gap-2">
+                <i class="fa-solid fa-stop"></i>
+                <span>Stop</span>
+              </button>
+            </div>
+            <a href="text-to-mp3.html" class="fa-btn-secondary py-2.5 text-xs font-bold w-full text-center flex items-center justify-center gap-1.5 text-emerald-700 bg-emerald-50 border-emerald-200 hover:bg-emerald-100">
+              <i class="fa-solid fa-file-audio"></i>
+              <span>Need an MP3 audio file? Use Text to MP3</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- AdSense Placement -->
+    <div class="w-full my-8 p-4 rounded-2xl bg-slate-100 border border-dashed border-slate-300 text-center text-xs font-bold text-slate-400 min-h-[90px] flex items-center justify-center">
+      <span>Advertisement Area (Non-Intrusive)</span>
+    </div>
+
+    <!-- Features & FAQs Section -->
+    <section class="my-16 pt-10 border-t border-slate-200">
+      <div class="max-w-4xl mx-auto space-y-12">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="fa-card p-6">
+            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-bolt text-[#146ebe]"></i> Zero Server Delay
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Synthesizes phonemes instantly using your device's built-in speech engine without waiting for cloud queues.
+            </p>
+          </div>
+          <div class="fa-card p-6">
+            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-highlighter text-amber-500"></i> Word Tracking
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Follow along with real-time text highlighting as each word is spoken aloud, perfect for language learners.
+            </p>
+          </div>
+          <div class="fa-card p-6">
+            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-infinity text-emerald-600"></i> Unlimited Words
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              No character limits, paywalls, or daily caps. Listen to entire essays, reports, and books completely free.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQs -->
+        <div class="space-y-4" id="faqSection">
+          <h2 class="text-2xl font-black text-[#183153] mb-4">Frequently Asked Questions</h2>
+          
+          <details class="group fa-card p-5 transition-all">
+            <summary class="flex justify-between items-center font-bold text-sm text-[#183153] cursor-pointer list-none">
+              <span>Why do voice options vary across different devices?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+              The Web Speech API accesses the natural voices installed on your operating system (Windows, macOS, iOS, Android, or Google Chrome). Microsoft Edge and Google Chrome provide high-quality natural voices by default.
+            </p>
+          </details>
+
+          <details class="group fa-card p-5 transition-all">
+            <summary class="flex justify-between items-center font-bold text-sm text-[#183153] cursor-pointer list-none">
+              <span>How can I convert this text into an MP3 download?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+              Use our dedicated <a href="text-to-mp3.html" class="text-[#146ebe] underline font-bold">Text to MP3 Converter</a> tool, which encodes your spoken audio directly into a downloadable MP3/WAV audio file.
+            </p>
+          </details>
+
+          <details class="group fa-card p-5 transition-all">
+            <summary class="flex justify-between items-center font-bold text-sm text-[#183153] cursor-pointer list-none">
+              <span>Can I listen to PDF documents?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+              Yes! Check out our <a href="pdf-to-speech.html" class="text-[#146ebe] underline font-bold">PDF to Speech Document Reader</a> which automatically extracts and reads multi-page PDF ebooks and contracts.
+            </p>
+          </details>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="pt-8 border-t border-slate-200">
+          <h3 class="text-xs font-black text-slate-400 uppercase tracking-wider mb-4">Related Speech & Audio Tools</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <a href="text-to-mp3.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+              <i class="fa-solid fa-file-audio text-emerald-600 mr-1.5"></i> Text to MP3
+            </a>
+            <a href="ai-voice-generator.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+              <i class="fa-solid fa-wand-magic-sparkles text-purple-600 mr-1.5"></i> AI Voice Studio
+            </a>
+            <a href="pdf-to-speech.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+              <i class="fa-solid fa-file-pdf text-red-600 mr-1.5"></i> PDF to Speech
+            </a>
+            <a href="youtube-voiceover-generator.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+              <i class="fa-brands fa-youtube text-red-600 mr-1.5"></i> YouTube Narrator
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+    <!-- Standard Footer -->
+    <!-- Standard Footer -->
+    <!-- Standard Footer -->
+  <footer class="bg-white border-t border-slate-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+        
+        <!-- Brand Column -->
+        <div class="space-y-4 md:col-span-1">
+          <a href="index.html" class="flex items-center gap-3">
+            <img src="images/logo.jpg" alt="360tools.me Logo" class="w-10 h-10 object-contain rounded-2xl">
+            <span class="text-2xl font-black text-[#183153]">360tools<span class="text-[#146ebe]">.me</span></span>
+          </a>
+          <p class="text-xs text-slate-500 font-medium leading-relaxed">
+            High-precision, free online AI speech synthesis, media compressors, developer minifiers, and e-commerce calculators.
+          </p>
+        </div>
+
+        <!-- AI Voice & Audio -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">AI Voice & Speech</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="text-to-speech.html" class="hover:text-[#146ebe]">Text to Speech</a></li>
+            <li><a href="text-to-mp3.html" class="hover:text-[#146ebe]">Text to MP3</a></li>
+            <li><a href="ai-voice-generator.html" class="hover:text-[#146ebe]">AI Voice Generator</a></li>
+            <li><a href="youtube-voiceover-generator.html" class="hover:text-[#146ebe]">YouTube Narrator</a></li>
+            <li><a href="pdf-to-speech.html" class="hover:text-[#146ebe]">PDF to Speech</a></li>
+            <li><a href="urdu-text-to-speech.html" class="hover:text-[#146ebe]">Urdu TTS (اردو)</a></li>
+            <li><a href="article-to-speech.html" class="hover:text-[#146ebe]">Article Reader</a></li>
+          </ul>
+        </div>
+
+        <!-- Compression Suite -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">Compression Tools</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="image-compressor.html" class="hover:text-[#146ebe]">Image Compressor</a></li>
+            <li><a href="jpg-compressor.html" class="hover:text-[#146ebe]">JPG Compressor</a></li>
+            <li><a href="png-compressor.html" class="hover:text-[#146ebe]">PNG Compressor</a></li>
+            <li><a href="webp-compressor.html" class="hover:text-[#146ebe]">WebP Compressor</a></li>
+            <li><a href="pdf-compressor.html" class="hover:text-[#146ebe]">PDF Compressor</a></li>
+            <li><a href="video-compressor.html" class="hover:text-[#146ebe]">Video Compressor</a></li>
+            <li><a href="compress-image-to-100kb.html" class="hover:text-[#146ebe]">Compress to 100KB</a></li>
+          </ul>
+        </div>
+
+        <!-- Developer Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">Developer & Minifiers</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="html-minifier.html" class="hover:text-[#146ebe]">HTML Minifier</a></li>
+            <li><a href="css-minifier.html" class="hover:text-[#146ebe]">CSS Minifier</a></li>
+            <li><a href="javascript-minifier.html" class="hover:text-[#146ebe]">JavaScript Minifier</a></li>
+            <li><a href="shopify-csv-validator.html" class="hover:text-[#146ebe]">Shopify CSV Validator</a></li>
+            <li><a href="developer-tools.html" class="hover:text-[#146ebe]">All Developer Tools</a></li>
+          </ul>
+        </div>
+
+        <!-- E-Commerce & Legal -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">E-Commerce & Legal</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="etsy-fee-calculator.html" class="hover:text-[#146ebe]">Etsy Fee Calculator</a></li>
+            <li><a href="amazon-fba-calculator.html" class="hover:text-[#146ebe]">Amazon FBA Checker</a></li>
+            <li><a href="tiktok-shop-payout-calculator.html" class="hover:text-[#146ebe]">TikTok Shop Calculator</a></li>
+            <li><a href="section8-estimator.html" class="hover:text-[#146ebe]">Section 8 Estimator</a></li>
+            <li><a href="str-cleaning-splitter.html" class="hover:text-[#146ebe]">STR Cleaning Splitter</a></li>
+            <li><a href="privacy-policy.html" class="hover:text-[#146ebe]">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html" class="hover:text-[#146ebe]">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-semibold">
+        <div>
+          © 2026 <a href="index.html" class="font-bold text-[#183153] hover:text-[#146ebe]">360tools.me</a>. All rights reserved.
+        </div>
+        <div class="text-[11px] text-slate-400">
+          Client-side browser processing • Zero cloud data harvesting
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script>
+    let synth = window.speechSynthesis;
+    let voices = [];
+    let currentUtterance = null;
+    let isSpeaking = false;
+    let isPaused = false;
+
+    function populateVoices() {
+      if (!synth) return;
+      voices = synth.getVoices().sort((a, b) => a.lang.localeCompare(b.lang));
+      const voiceSelect = document.getElementById('voiceSelect');
+      voiceSelect.innerHTML = '';
+
+      if (voices.length === 0) {
+        voiceSelect.innerHTML = '<option value="">Default System Voice</option>';
+        return;
+      }
+
+      voices.forEach((voice, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = `${voice.name} (${voice.lang})${voice.default ? ' [Default]' : ''}`;
+        if (voice.lang.includes('en-US') || voice.default) {
+          option.selected = true;
+        }
+        voiceSelect.appendChild(option);
+      });
+    }
+
+    if (speechSynthesis.onvoiceschanged !== undefined) {
+      speechSynthesis.onvoiceschanged = populateVoices;
+    }
+    populateVoices();
+
+    function handleTextChange() {
+      const text = document.getElementById('ttsTextInput').value;
+      const chars = text.length;
+      const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+      const speed = parseFloat(document.getElementById('speedSlider').value) || 1.0;
+      const readSeconds = Math.round((words / (150 * speed)) * 60);
+
+      document.getElementById('charCountStat').textContent = `${chars} chars`;
+      document.getElementById('wordCountStat').textContent = `${words} words`;
+      document.getElementById('readTimeStat').textContent = `${readSeconds > 60 ? Math.round(readSeconds/60) + 'm' : readSeconds + 's'} read`;
+    }
+
+    function updateSpeed(val) {
+      document.getElementById('speedVal').textContent = `${parseFloat(val).toFixed(1)}x`;
+      handleTextChange();
+    }
+
+    function updatePitch(val) {
+      document.getElementById('pitchVal').textContent = parseFloat(val).toFixed(1);
+    }
+
+    function togglePlay() {
+      if (!synth) {
+        showToast('Speech synthesis not supported in this browser', 'fa-triangle-exclamation');
+        return;
+      }
+
+      const text = document.getElementById('ttsTextInput').value.trim();
+      if (!text) {
+        showToast('Please enter text to read aloud', 'fa-pen');
+        return;
+      }
+
+      if (isSpeaking && !isPaused) {
+        synth.pause();
+        isPaused = true;
+        document.getElementById('playText').textContent = 'Resume';
+        document.getElementById('playIcon').className = 'fa-solid fa-play';
+        document.getElementById('speechStatusBadge').textContent = 'Paused';
+        document.getElementById('speechStatusBadge').className = 'text-xs font-black font-mono bg-amber-100 text-amber-900 px-2 py-0.5 rounded-lg';
+        return;
+      }
+
+      if (isPaused) {
+        synth.resume();
+        isPaused = false;
+        document.getElementById('playText').textContent = 'Pause';
+        document.getElementById('playIcon').className = 'fa-solid fa-pause';
+        document.getElementById('speechStatusBadge').textContent = 'Reading...';
+        document.getElementById('speechStatusBadge').className = 'text-xs font-black font-mono bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-lg';
+        return;
+      }
+
+      // Start new speech
+      synth.cancel();
+      currentUtterance = new SpeechSynthesisUtterance(text);
+
+      const voiceIndex = document.getElementById('voiceSelect').value;
+      if (voices[voiceIndex]) {
+        currentUtterance.voice = voices[voiceIndex];
+      }
+
+      currentUtterance.rate = parseFloat(document.getElementById('speedSlider').value) || 1.0;
+      currentUtterance.pitch = parseFloat(document.getElementById('pitchSlider').value) || 1.0;
+
+      // Setup highlight box
+      setupHighlightBox(text);
+
+      currentUtterance.onboundary = function(event) {
+        if (event.name === 'word') {
+          highlightWordAtChar(event.charIndex);
+        }
+      };
+
+      currentUtterance.onstart = function() {
+        isSpeaking = true;
+        isPaused = false;
+        document.getElementById('playText').textContent = 'Pause';
+        document.getElementById('playIcon').className = 'fa-solid fa-pause';
+        document.getElementById('speechStatusBadge').textContent = 'Reading...';
+        document.getElementById('speechStatusBadge').className = 'text-xs font-black font-mono bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-lg';
+        document.getElementById('highlightContainer').classList.remove('hidden');
+      };
+
+      currentUtterance.onend = function() {
+        resetSpeechState();
+      };
+
+      currentUtterance.onerror = function() {
+        resetSpeechState();
+      };
+
+      synth.speak(currentUtterance);
+    }
+
+    function stopSpeech() {
+      if (synth) {
+        synth.cancel();
+      }
+      resetSpeechState();
+      showToast('Speech stopped', 'fa-stop');
+    }
+
+    function resetSpeechState() {
+      isSpeaking = false;
+      isPaused = false;
+      document.getElementById('playText').textContent = 'Read Aloud';
+      document.getElementById('playIcon').className = 'fa-solid fa-play';
+      document.getElementById('speechStatusBadge').textContent = 'Idle';
+      document.getElementById('speechStatusBadge').className = 'text-xs font-black font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded-lg';
+      document.getElementById('highlightContainer').classList.add('hidden');
+    }
+
+    function setupHighlightBox(text) {
+      const container = document.getElementById('highlightWords');
+      container.innerHTML = '';
+      const words = text.split(/(\s+)/);
+      words.forEach(w => {
+        const span = document.createElement('span');
+        span.textContent = w;
+        container.appendChild(span);
+      });
+    }
+
+    function highlightWordAtChar(charIndex) {
+      const text = document.getElementById('ttsTextInput').value;
+      const before = text.substring(0, charIndex);
+      const remaining = text.substring(charIndex);
+      const match = remaining.match(/^\S+/);
+      if (match) {
+        const word = match[0];
+        const container = document.getElementById('highlightWords');
+        container.innerHTML = `${before}<span class="bg-[#ffd43b] text-[#183153] font-black px-1 rounded">${word}</span>${remaining.substring(word.length)}`;
+      }
+    }
+
+    function clearTtsText() {
+      document.getElementById('ttsTextInput').value = '';
+      stopSpeech();
+      handleTextChange();
+    }
+
+    function copyTtsText() {
+      const text = document.getElementById('ttsTextInput').value;
+      if (text) copyToClipboard(text, 'Text copied to clipboard!');
+    }
+
+    function loadSampleText(type) {
+      if (type === 'story') {
+        document.getElementById('ttsTextInput').value = "The old observatory stood silently atop the misty peak. As the clock struck midnight, the great brass telescope rotated slowly, pointing toward the constellation of Orion. Dr. Evelyn adjusted the focus and gasped. A brilliant, rhythmic pulse of blue light was transmitting across the interstellar void.";
+      } else if (type === 'pitch') {
+        document.getElementById('ttsTextInput').value = "Welcome to 360tools. Our mission is to provide high-precision, client-side developer utilities and financial calculators with zero server latency and complete user privacy. Thank you for joining us today.";
+      } else {
+        document.getElementById('ttsTextInput').value = "Global markets opened higher this morning following encouraging economic indicators and record consumer confidence reports across North America and Europe. Energy and technology sectors led the gains.";
+      }
+      handleTextChange();
+      showToast('Loaded sample text', 'fa-book-open');
+    }
+
+    // Initialize with sample
+    loadSampleText('story');
+  </script>
+</body>
+</html>

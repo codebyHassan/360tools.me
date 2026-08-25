@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Amazon FBA Dimensional Weight & Size Tier Checker (2026) | 360tools.me</title>
+  <meta name="title" content="Amazon FBA Dimensional Weight & Size Tier Checker (2026) | 360tools.me">
+  <meta name="description" content="Calculate Amazon FBA dimensional weight vs actual weight using the 139 divisor (inches/lbs) and 5000 divisor (cm/kg). Check exact Amazon size tiers, billable weight, and fulfillment fee estimates.">
+  <meta name="keywords" content="amazon fba dimensional weight calculator, amazon dim weight checker, fba size tier calculator 2026, amazon dim divisor 139, fba billable weight, amazon fulfillment fee estimator">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/amazon-fba-calculator.html">
+
+  <!-- Favicon & Open Graph / Facebook -->
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/amazon-fba-calculator.html">
+  <meta property="og:title" content="Amazon FBA Dimensional Weight & Size Tier Checker | 360tools.me">
+  <meta property="og:description" content="Determine whether Amazon will charge you based on actual or dimensional weight ($L \times W \times H / 139$) and find your exact FBA size tier.">
+  <meta property="og:image" content="images/logo.jpg">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/amazon-fba-calculator.html">
+  <meta property="twitter:title" content="Amazon FBA Dimensional Weight vs. Actual Weight Checker">
+  <meta property="twitter:description" content="Precision FBA dimensional weight and size tier calculator for US, Canada, UK, and European Amazon sellers.">
+  <meta property="twitter:image" content="images/logo.jpg">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Amazon FBA Dimensional Weight & Size Tier Checker",
+    "url": "https://360tools.me/amazon-fba-calculator.html",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Calculate Amazon FBA dimensional weight using divisor 139 or 5000, determine billable shipping weight, detect product size tiers, and optimize packaging dimensions to reduce FBA fees.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the Amazon FBA Dimensional Weight formula in 2026?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For US FBA sellers, Dimensional Weight (lbs) = (Length × Width × Height in inches) ÷ 139. For Canada, UK, and Europe, Dimensional Weight (kg) = (Length × Width × Height in centimeters) ÷ 5000."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When does Amazon charge Dimensional Weight instead of Actual Weight?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Amazon charges the greater of unit actual weight or dimensional weight for all Large Standard-Size units (weighing more than 0.75 lb) and all Oversize units (Small Oversize, Medium Oversize, and Large Oversize)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is Length + Girth calculated for Amazon Oversize packages?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Girth is equal to 2 × (Width + Height). Length + Girth is therefore calculated as: Longest Side + 2 × (Median Side + Shortest Side). Standard-size units must have Length + Girth of 130 inches or less."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the dimensions for Large Standard vs Small Oversize?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Large Standard unit has a maximum longest side of 18 inches, median side of 14 inches, shortest side of 8 inches, and actual weight of 20 lbs. If any single dimension exceeds these thresholds, the product automatically escalates to the Oversize tier, resulting in significantly higher fulfillment fees."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "E-Commerce & Digital Sellers",
+        "item": "https://360tools.me/#ecommerce-tools"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Amazon FBA Checker",
+        "item": "https://360tools.me/amazon-fba-calculator.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4">
+
+  <!-- Header Navigation -->
+    <!-- Standard Header Navigation -->
+    <!-- Standard Header Navigation -->
+    <!-- Standard Header Navigation -->
+  <header class="max-w-7xl mx-auto w-full sticky top-3 z-50 px-4 sm:px-6 my-3">
+    <div class="bg-white/95 backdrop-blur-md border border-slate-200/80 rounded-2xl shadow-xs px-5 py-3 flex items-center justify-between transition-all">
+      
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-8">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="images/logo.jpg" alt="360tools.me Logo" class="w-10 h-10 object-contain rounded-2xl group-hover:scale-105 transition-transform">
+          <span class="text-2xl font-black text-[#183153] tracking-tight">360tools<span class="text-[#146ebe]">.me</span></span>
+        </a>
+
+        <!-- Desktop Navigation with Quick Dropdowns -->
+        <nav class="hidden lg:flex items-center gap-1 text-xs font-bold text-slate-700">
+          
+          <!-- Dropdown 1: Audio & Voice -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-volume-high text-purple-600 text-xs"></i>
+              <span>Audio & Voice</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="text-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-volume-high text-[#146ebe] w-4 text-center"></i> Text to Speech
+                </a>
+                <a href="text-to-mp3.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-audio text-emerald-600 w-4 text-center"></i> Text to MP3
+                </a>
+                <a href="ai-voice-generator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-wand-magic-sparkles text-purple-600 w-4 text-center"></i> AI Voice Generator
+                </a>
+                <a href="pdf-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-pdf text-red-600 w-4 text-center"></i> PDF to Speech
+                </a>
+                <a href="youtube-voiceover-generator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-youtube text-rose-600 w-4 text-center"></i> YouTube Voiceovers
+                </a>
+                <a href="urdu-text-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-feather text-emerald-700 w-4 text-center"></i> Urdu TTS (اردو)
+                </a>
+                <a href="article-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-newspaper text-amber-600 w-4 text-center"></i> Article Reader
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="audio-voice-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All Audio Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 2: Compression -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-compress text-emerald-600 text-xs"></i>
+              <span>Compression</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="image-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-image text-emerald-600 w-4 text-center"></i> Image Compressor
+                </a>
+                <a href="jpg-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-camera text-amber-600 w-4 text-center"></i> JPG Compressor
+                </a>
+                <a href="png-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-image text-emerald-600 w-4 text-center"></i> PNG Compressor
+                </a>
+                <a href="webp-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-bolt text-blue-600 w-4 text-center"></i> WebP Compressor
+                </a>
+                <a href="pdf-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-pdf text-red-600 w-4 text-center"></i> PDF Compressor
+                </a>
+                <a href="video-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-video text-rose-600 w-4 text-center"></i> Video Compressor
+                </a>
+                <a href="compress-image-to-100kb.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-bullseye text-indigo-600 w-4 text-center"></i> Compress to 100KB
+                </a>
+                <a href="compress-image-to-500kb.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-bullseye text-indigo-600 w-4 text-center"></i> Compress to 500KB
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="compression-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All Compression</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 3: Developer -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-code text-cyan-600 text-xs"></i>
+              <span>Developer</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="html-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-html5 text-orange-600 w-4 text-center"></i> HTML Minifier
+                </a>
+                <a href="css-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-css3-alt text-blue-600 w-4 text-center"></i> CSS Minifier
+                </a>
+                <a href="javascript-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-js text-yellow-500 w-4 text-center"></i> JavaScript Minifier
+                </a>
+                <a href="shopify-csv-validator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-shopify text-emerald-600 w-4 text-center"></i> Shopify CSV Validator
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="developer-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All Dev Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 4: E-Commerce & Financial -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-cart-shopping text-[#f1641e] text-xs"></i>
+              <span>E-Commerce & Tax</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-72 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="etsy-fee-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-etsy text-[#f1641e] w-4 text-center"></i> Etsy Fee Calculator
+                </a>
+                <a href="amazon-fba-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-amazon text-amber-600 w-4 text-center"></i> Amazon FBA Dim Weight
+                </a>
+                <a href="tiktok-shop-payout-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-tiktok text-[#fe2c55] w-4 text-center"></i> TikTok Shop Payout
+                </a>
+                <a href="pod-profit-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-shirt text-blue-600 w-4 text-center"></i> POD Margin Grid
+                </a>
+                <a href="section8-estimator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-house-user text-[#146ebe] w-4 text-center"></i> Section 8 Estimator
+                </a>
+                <a href="uk-stamp-duty-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-landmark text-amber-700 w-4 text-center"></i> UK Stamp Duty
+                </a>
+                <a href="1031-exchange-tracker.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-clock-rotate-left text-purple-600 w-4 text-center"></i> 1031 Exchange Tracker
+                </a>
+                <a href="str-cleaning-splitter.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-broom text-teal-600 w-4 text-center"></i> STR Cleaning Splitter
+                </a>
+                <a href="eu-vat-oss-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-percent text-blue-700 w-4 text-center"></i> EU VAT OSS
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="ecommerce-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All E-Commerce Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </nav>
+      </div>
+
+      <!-- Right Header Actions: Interactive Command Palette Quick Search -->
+      <div class="flex items-center gap-2.5">
+        <button onclick="openQuickSearch()" class="flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200/80 px-3.5 py-2 rounded-xl border border-slate-200/60 shadow-2xs transition-all cursor-pointer">
+          <i class="fa-solid fa-magnifying-glass text-[#146ebe]"></i>
+          <span class="hidden sm:inline">Search Tools...</span>
+          <kbd class="hidden sm:inline-block px-1.5 py-0.5 bg-white border border-slate-300 rounded text-[10px] text-slate-500 font-mono font-bold shadow-2xs">Ctrl K</kbd>
+        </button>
+
+        <a href="index.html#tools-catalog" class="fa-btn-primary px-3.5 py-2 text-xs font-black shadow-xs hidden sm:inline-flex items-center gap-1.5">
+          <i class="fa-solid fa-grip"></i>
+          <span>All Tools</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars text-lg" id="mobileMenuIcon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenuDrawer" class="hidden lg:hidden mt-2 p-5 bg-white rounded-2xl border border-slate-200 shadow-xl space-y-4 transition-all max-h-[80vh] overflow-y-auto">
+      <div class="space-y-1">
+        <div class="text-[11px] font-black text-purple-700 uppercase tracking-wider px-2 mb-1 flex items-center gap-1.5">
+          <i class="fa-solid fa-volume-high"></i> AI Voice & Audio
+        </div>
+        <a href="text-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Text to Speech</a>
+        <a href="text-to-mp3.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Text to MP3</a>
+        <a href="ai-voice-generator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">AI Voice Generator</a>
+        <a href="pdf-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">PDF to Speech</a>
+        <a href="youtube-voiceover-generator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">YouTube Narrator</a>
+        <a href="urdu-text-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Urdu TTS</a>
+        <a href="article-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Article Reader</a>
+
+        <div class="text-[11px] font-black text-emerald-700 uppercase tracking-wider px-2 pt-3 mb-1 border-t border-slate-100 flex items-center gap-1.5">
+          <i class="fa-solid fa-compress"></i> Media Compression
+        </div>
+        <a href="image-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Image Compressor</a>
+        <a href="jpg-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">JPG Compressor</a>
+        <a href="png-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">PNG Compressor</a>
+        <a href="webp-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">WebP Compressor</a>
+        <a href="pdf-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">PDF Compressor</a>
+        <a href="video-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Video Compressor</a>
+
+        <div class="text-[11px] font-black text-cyan-700 uppercase tracking-wider px-2 pt-3 mb-1 border-t border-slate-100 flex items-center gap-1.5">
+          <i class="fa-solid fa-code"></i> Developer Minifiers
+        </div>
+        <a href="html-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">HTML Minifier</a>
+        <a href="css-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">CSS Minifier</a>
+        <a href="javascript-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">JS Minifier</a>
+        <a href="shopify-csv-validator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Shopify CSV</a>
+
+        <div class="text-[11px] font-black text-orange-700 uppercase tracking-wider px-2 pt-3 mb-1 border-t border-slate-100 flex items-center gap-1.5">
+          <i class="fa-solid fa-cart-shopping"></i> E-Commerce & Financial
+        </div>
+        <a href="etsy-fee-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Etsy Calculator</a>
+        <a href="amazon-fba-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Amazon FBA</a>
+        <a href="tiktok-shop-payout-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">TikTok Shop</a>
+        <a href="pod-profit-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">POD Margins</a>
+        <a href="section8-estimator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Section 8</a>
+        <a href="uk-stamp-duty-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">UK Stamp Duty</a>
+        <a href="1031-exchange-tracker.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">1031 Exchange</a>
+        <a href="str-cleaning-splitter.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">STR Cleaning</a>
+        <a href="eu-vat-oss-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">EU VAT OSS</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto w-full flex-1">
+    
+    <!-- Hero / Headline Above the Fold -->
+    <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="bg-[#ffd43b]/20 text-[#183153] text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-brands fa-amazon mr-1 text-[#ff9900]"></i> 2026 Amazon FBA Divisor 139
+          </span>
+          <span class="text-xs font-bold text-slate-400">• US, CA, UK & EU Standards</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+          Amazon FBA Dimensional Weight & Size Tier Checker
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
+          Enter packaged product dimensions to determine your billable shipping weight, size classification tier, estimated base fulfillment fee, and package optimization savings.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 self-start sm:self-center">
+        <button onclick="resetFbaForm()" class="fa-btn-secondary text-xs px-3.5 py-2">
+          <i class="fa-solid fa-rotate-left"></i> Reset
+        </button>
+        <button onclick="loadFbaPreset('box')" class="fa-btn-primary text-xs px-3.5 py-2 bg-[#ff9900] text-slate-900 hover:bg-[#e88b00]">
+          <i class="fa-solid fa-cube"></i> Sample Product
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Calculator Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+      
+      <!-- Left Column: Inputs -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- Unit System & Region Settings -->
+        <div class="fa-card p-6 sm:p-7 shadow-sm">
+          <div class="flex items-center justify-between mb-5 border-b border-slate-100 pb-4">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
+                <i class="fa-solid fa-ruler-combined"></i>
+              </div>
+              <h2 class="text-lg font-black text-[#183153]">1. Marketplace & Measurement Units</h2>
+            </div>
+            <span class="text-xs text-slate-400 font-bold">Step 1 of 3</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="fbaMarketplace" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                Marketplace Region
+              </label>
+              <select id="fbaMarketplace" class="fa-input text-sm font-semibold" onchange="handleMarketplaceChange()">
+                <option value="US" selected>Amazon USA (US Inches / lbs • Divisor 139)</option>
+                <option value="CA">Amazon Canada (Metric cm / kg • Divisor 5000)</option>
+                <option value="UK">Amazon UK (Metric cm / kg • Divisor 5000)</option>
+                <option value="EU">Amazon Europe / DE / FR (Metric cm / kg • Divisor 5000)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="fbaUnitSystem" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                Measurement System
+              </label>
+              <select id="fbaUnitSystem" class="fa-input text-sm font-semibold" onchange="handleUnitSystemChange()">
+                <option value="imperial" selected>Imperial (Inches, Pounds / oz)</option>
+                <option value="metric">Metric (Centimeters, Kilograms / g)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Packaged Dimensions -->
+        <div class="fa-card p-6 sm:p-7 shadow-sm">
+          <div class="flex items-center justify-between mb-5 border-b border-slate-100 pb-4">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-xl bg-blue-100 text-[#146ebe] flex items-center justify-center font-bold">
+                <i class="fa-solid fa-box"></i>
+              </div>
+              <h2 class="text-lg font-black text-[#183153]">2. Packaged Item Dimensions & Weight</h2>
+            </div>
+            <span class="text-xs text-slate-400 font-bold">Step 2 of 3</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+            <div>
+              <label for="fbaLength" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                Length (<span class="dimUnit">in</span>)
+              </label>
+              <input type="number" id="fbaLength" value="12.5" step="0.1" min="0.1" class="fa-input font-mono font-bold text-base" oninput="calculateFBA()">
+              <span class="text-[11px] text-slate-400 mt-1 block">Longest side</span>
+            </div>
+
+            <div>
+              <label for="fbaWidth" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                Width (<span class="dimUnit">in</span>)
+              </label>
+              <input type="number" id="fbaWidth" value="9.0" step="0.1" min="0.1" class="fa-input font-mono font-bold text-base" oninput="calculateFBA()">
+              <span class="text-[11px] text-slate-400 mt-1 block">Median side</span>
+            </div>
+
+            <div>
+              <label for="fbaHeight" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                Height (<span class="dimUnit">in</span>)
+              </label>
+              <input type="number" id="fbaHeight" value="4.0" step="0.1" min="0.1" class="fa-input font-mono font-bold text-base" oninput="calculateFBA()">
+              <span class="text-[11px] text-slate-400 mt-1 block">Shortest side (thickness)</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="fbaActualWeight" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                Actual Packaged Weight (<span class="weightUnit">lbs</span>)
+              </label>
+              <input type="number" id="fbaActualWeight" value="1.80" step="0.01" min="0.01" class="fa-input font-mono font-bold text-base" oninput="calculateFBA()">
+              <span class="text-[11px] text-slate-400 mt-1 block" id="weightHelperText">Item + packaging scale weight</span>
+            </div>
+
+            <div>
+              <label for="fbaCategory" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                Product Category
+              </label>
+              <select id="fbaCategory" class="fa-input text-sm font-semibold" onchange="calculateFBA()">
+                <option value="standard" selected>Core Products / Non-Apparel</option>
+                <option value="apparel">Apparel & Clothing</option>
+                <option value="dangerous">Dangerous Goods (Hazmat)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Presets & Dimension Presets -->
+        <div class="fa-card p-6 shadow-sm">
+          <h3 class="text-xs font-bold uppercase tracking-wider text-slate-600 mb-3">Quick Product Presets</h3>
+          <div class="flex flex-wrap gap-2">
+            <button onclick="loadFbaPreset('phone-case')" class="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-all">
+              📱 Phone Case (Small Standard)
+            </button>
+            <button onclick="loadFbaPreset('sneakers')" class="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-all">
+              👟 Shoe Box (Large Standard)
+            </button>
+            <button onclick="loadFbaPreset('air-fryer')" class="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-all">
+              🍳 Air Fryer (Large Standard / High DIM)
+            </button>
+            <button onclick="loadFbaPreset('gaming-chair')" class="px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50 hover:border-slate-300 transition-all">
+              🪑 Office Chair (Small Oversize)
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Results Card -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <!-- Main Result Card (Sticky) -->
+        <div class="fa-card p-6 sm:p-7 shadow-lg border-2 border-amber-400/40 bg-gradient-to-b from-white to-amber-50/20 sticky top-24">
+          
+          <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+            <span class="text-xs font-black uppercase tracking-wider text-amber-800 bg-amber-100 px-2.5 py-1 rounded-full flex items-center gap-1.5">
+              <i class="fa-solid fa-tag"></i> <span id="resSizeTierBadge">Large Standard-Size</span>
+            </span>
+            <button onclick="copyFbaBreakdown()" class="text-xs font-bold text-slate-500 hover:text-[#146ebe] flex items-center gap-1">
+              <i class="fa-solid fa-copy"></i> Copy Specs
+            </button>
+          </div>
+
+          <!-- Hero Metric: Billable Weight & Winning Rule -->
+          <div class="my-6 text-center bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <span class="text-xs font-bold text-slate-500 uppercase tracking-widest block mb-1">Amazon Billable Weight</span>
+            <div id="resBillableWeight" class="text-4xl sm:text-5xl font-black text-[#183153] font-mono tracking-tight">
+              3.24 lbs
+            </div>
+            <div class="mt-2 text-xs font-bold text-amber-700 flex items-center justify-center gap-1">
+              <i class="fa-solid fa-triangle-exclamation"></i>
+              <span id="resChargedByText">Charged by Dimensional Weight (Exceeds Actual by +1.44 lbs)</span>
+            </div>
+          </div>
+
+          <!-- Dimensional vs Actual Weight Comparison Card -->
+          <div class="grid grid-cols-2 gap-3 mb-5 text-center">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-[11px] font-bold text-slate-500 block uppercase">Actual Weight</span>
+              <span id="resActualWeight" class="text-base font-black font-mono text-slate-800">1.80 lbs</span>
+            </div>
+            <div class="p-3 bg-amber-50 rounded-xl border border-amber-200">
+              <span class="text-[11px] font-bold text-amber-800 block uppercase">Dimensional Weight</span>
+              <span id="resDimWeight" class="text-base font-black font-mono text-amber-900">3.24 lbs</span>
+            </div>
+          </div>
+
+          <!-- Package Measurements Breakdown -->
+          <div class="space-y-2.5 text-xs border-t border-slate-200 pt-4 font-semibold text-slate-700">
+            <div class="flex justify-between items-center">
+              <span class="text-slate-600">Unit Volume:</span>
+              <span id="resVolume" class="font-mono font-bold text-slate-900">450.00 in³ (0.26 ft³)</span>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <span class="text-slate-600">Length + Girth ($L + 2W + 2H$):</span>
+              <span id="resLengthGirth" class="font-mono font-bold text-slate-900">38.50 in</span>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <span class="text-slate-600">DIM Divisor Used:</span>
+              <span id="resDivisorText" class="font-mono text-slate-900">139 (US Standard)</span>
+            </div>
+
+            <div class="flex justify-between items-center pt-2 border-t border-slate-100 text-slate-900 font-bold">
+              <span>Est. Base FBA Fulfillment Fee:</span>
+              <span id="resEstimatedFee" class="font-mono text-emerald-700 text-sm">$6.10 / unit</span>
+            </div>
+
+            <div class="flex justify-between items-center text-slate-600">
+              <span>Est. Monthly Storage (Jan–Sep):</span>
+              <span id="resStorageStandard" class="font-mono text-slate-800">$0.20 / unit / mo</span>
+            </div>
+
+            <div class="flex justify-between items-center text-slate-600">
+              <span>Est. Q4 Peak Storage (Oct–Dec):</span>
+              <span id="resStoragePeak" class="font-mono text-slate-800">$0.62 / unit / mo</span>
+            </div>
+          </div>
+
+          <!-- Packaging Optimization Recommendation Box -->
+          <div id="boxOptimization" class="mt-6 p-4 rounded-xl bg-blue-50 border border-blue-200 text-xs text-blue-900">
+            <div class="flex items-center gap-2 font-bold mb-1">
+              <i class="fa-solid fa-wand-magic-sparkles text-[#146ebe]"></i>
+              <span id="optTitle">Packaging Optimization Insight</span>
+            </div>
+            <p id="optDescription" class="text-blue-800 leading-relaxed">
+              Your dimensional weight is driving your fulfillment fee. Reducing package dimensions by just 1 inch saves billable weight on every unit shipped.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SEO Content Section: FBA Size Tiers & Formulas Guide -->
+    <section class="mt-16 pt-12 border-t border-slate-200">
+      <div class="max-w-4xl mx-auto space-y-12">
+        
+        <div class="text-center">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">
+            Amazon FBA Size Tier Classification & Fee Standards (2026)
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2">
+            Master the strict dimension limits, dimensional divisor formulas, and weight thresholds that dictate Amazon Fulfillment charges.
+          </p>
+        </div>
+
+        <!-- Size Tier Matrix Table -->
+        <div class="fa-card p-6 sm:p-8 overflow-x-auto">
+          <h3 class="text-lg font-black text-[#183153] mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-table-list text-[#146ebe]"></i>
+            Amazon FBA Size Tier Thresholds Matrix (US Imperial)
+          </h3>
+          <table class="w-full text-left text-xs sm:text-sm border-collapse">
+            <thead>
+              <tr class="border-b border-slate-200 text-slate-600 font-bold bg-slate-50">
+                <th class="py-3 px-3">Size Tier</th>
+                <th class="py-3 px-3">Max Weight</th>
+                <th class="py-3 px-3">Longest Side</th>
+                <th class="py-3 px-3">Median Side</th>
+                <th class="py-3 px-3">Shortest Side</th>
+                <th class="py-3 px-3">Length + Girth</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-medium text-slate-700">
+              <tr>
+                <td class="py-3 px-3 font-bold text-emerald-700">Small Standard</td>
+                <td class="py-3 px-3 font-mono">16 oz (1 lb)</td>
+                <td class="py-3 px-3 font-mono">≤ 15"</td>
+                <td class="py-3 px-3 font-mono">≤ 12"</td>
+                <td class="py-3 px-3 font-mono">≤ 0.75"</td>
+                <td class="py-3 px-3 text-slate-400">—</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-3 font-bold text-[#146ebe]">Large Standard</td>
+                <td class="py-3 px-3 font-mono">20 lbs</td>
+                <td class="py-3 px-3 font-mono">≤ 18"</td>
+                <td class="py-3 px-3 font-mono">≤ 14"</td>
+                <td class="py-3 px-3 font-mono">≤ 8"</td>
+                <td class="py-3 px-3 text-slate-400">—</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-3 font-bold text-amber-700">Small Oversize</td>
+                <td class="py-3 px-3 font-mono">70 lbs</td>
+                <td class="py-3 px-3 font-mono">≤ 60"</td>
+                <td class="py-3 px-3 font-mono">≤ 30"</td>
+                <td class="py-3 px-3 text-slate-400">—</td>
+                <td class="py-3 px-3 font-mono">≤ 130"</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-3 font-bold text-orange-700">Medium Oversize</td>
+                <td class="py-3 px-3 font-mono">150 lbs</td>
+                <td class="py-3 px-3 font-mono">≤ 108"</td>
+                <td class="py-3 px-3 text-slate-400">—</td>
+                <td class="py-3 px-3 text-slate-400">—</td>
+                <td class="py-3 px-3 font-mono">≤ 130"</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-3 font-bold text-rose-700">Large Oversize</td>
+                <td class="py-3 px-3 font-mono">150 lbs</td>
+                <td class="py-3 px-3 font-mono">≤ 108"</td>
+                <td class="py-3 px-3 text-slate-400">—</td>
+                <td class="py-3 px-3 text-slate-400">—</td>
+                <td class="py-3 px-3 font-mono">≤ 165"</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Strategy Guides Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="fa-card p-6">
+            <h4 class="font-black text-[#183153] text-base mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-compress text-[#146ebe]"></i>
+              The 0.75-Inch Thickness Cliff
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              If a product's thickness exceeds <strong>0.75 inches</strong>, even by 0.05 inches, it immediately jumps from <em>Small Standard</em> to <em>Large Standard</em>, triggering a steep jump in fulfillment base fees. Vacuum sealing and custom cardboard sleeves can keep your product in the lowest fee bracket.
+            </p>
+          </div>
+
+          <div class="fa-card p-6">
+            <h4 class="font-black text-[#183153] text-base mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-boxes-stacked text-amber-600"></i>
+              Why Divisor 139 Matters
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Commercial carriers (FedEx/UPS retail) frequently use a 166 divisor, but Amazon enforces the aggressive <strong>139 divisor</strong> for US fulfillment. A lightweight pillow or bulky jacket measuring 18" × 14" × 6" yields a dimensional weight of $(18 \times 14 \times 6) / 139 = 10.88\text{ lbs}$, even if it only weighs 1 lb.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+    <!-- Standard Footer -->
+    <!-- Standard Footer -->
+    <!-- Standard Footer -->
+  <footer class="bg-white border-t border-slate-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+        
+        <!-- Brand Column -->
+        <div class="space-y-4 md:col-span-1">
+          <a href="index.html" class="flex items-center gap-3">
+            <img src="images/logo.jpg" alt="360tools.me Logo" class="w-10 h-10 object-contain rounded-2xl">
+            <span class="text-2xl font-black text-[#183153]">360tools<span class="text-[#146ebe]">.me</span></span>
+          </a>
+          <p class="text-xs text-slate-500 font-medium leading-relaxed">
+            High-precision, free online AI speech synthesis, media compressors, developer minifiers, and e-commerce calculators.
+          </p>
+        </div>
+
+        <!-- AI Voice & Audio -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">AI Voice & Speech</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="text-to-speech.html" class="hover:text-[#146ebe]">Text to Speech</a></li>
+            <li><a href="text-to-mp3.html" class="hover:text-[#146ebe]">Text to MP3</a></li>
+            <li><a href="ai-voice-generator.html" class="hover:text-[#146ebe]">AI Voice Generator</a></li>
+            <li><a href="youtube-voiceover-generator.html" class="hover:text-[#146ebe]">YouTube Narrator</a></li>
+            <li><a href="pdf-to-speech.html" class="hover:text-[#146ebe]">PDF to Speech</a></li>
+            <li><a href="urdu-text-to-speech.html" class="hover:text-[#146ebe]">Urdu TTS (اردو)</a></li>
+            <li><a href="article-to-speech.html" class="hover:text-[#146ebe]">Article Reader</a></li>
+          </ul>
+        </div>
+
+        <!-- Compression Suite -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">Compression Tools</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="image-compressor.html" class="hover:text-[#146ebe]">Image Compressor</a></li>
+            <li><a href="jpg-compressor.html" class="hover:text-[#146ebe]">JPG Compressor</a></li>
+            <li><a href="png-compressor.html" class="hover:text-[#146ebe]">PNG Compressor</a></li>
+            <li><a href="webp-compressor.html" class="hover:text-[#146ebe]">WebP Compressor</a></li>
+            <li><a href="pdf-compressor.html" class="hover:text-[#146ebe]">PDF Compressor</a></li>
+            <li><a href="video-compressor.html" class="hover:text-[#146ebe]">Video Compressor</a></li>
+            <li><a href="compress-image-to-100kb.html" class="hover:text-[#146ebe]">Compress to 100KB</a></li>
+          </ul>
+        </div>
+
+        <!-- Developer Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">Developer & Minifiers</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="html-minifier.html" class="hover:text-[#146ebe]">HTML Minifier</a></li>
+            <li><a href="css-minifier.html" class="hover:text-[#146ebe]">CSS Minifier</a></li>
+            <li><a href="javascript-minifier.html" class="hover:text-[#146ebe]">JavaScript Minifier</a></li>
+            <li><a href="shopify-csv-validator.html" class="hover:text-[#146ebe]">Shopify CSV Validator</a></li>
+            <li><a href="developer-tools.html" class="hover:text-[#146ebe]">All Developer Tools</a></li>
+          </ul>
+        </div>
+
+        <!-- E-Commerce & Legal -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">E-Commerce & Legal</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="etsy-fee-calculator.html" class="hover:text-[#146ebe]">Etsy Fee Calculator</a></li>
+            <li><a href="amazon-fba-calculator.html" class="hover:text-[#146ebe]">Amazon FBA Checker</a></li>
+            <li><a href="tiktok-shop-payout-calculator.html" class="hover:text-[#146ebe]">TikTok Shop Calculator</a></li>
+            <li><a href="section8-estimator.html" class="hover:text-[#146ebe]">Section 8 Estimator</a></li>
+            <li><a href="str-cleaning-splitter.html" class="hover:text-[#146ebe]">STR Cleaning Splitter</a></li>
+            <li><a href="privacy-policy.html" class="hover:text-[#146ebe]">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html" class="hover:text-[#146ebe]">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-semibold">
+        <div>
+          © 2026 <a href="index.html" class="font-bold text-[#183153] hover:text-[#146ebe]">360tools.me</a>. All rights reserved.
+        </div>
+        <div class="text-[11px] text-slate-400">
+          Client-side browser processing • Zero cloud data harvesting
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Script: Amazon FBA Checker Logic -->
+  <script src="js/main.js"></script>
+  <script>
+    let currentUnitSystem = 'imperial'; // 'imperial' or 'metric'
+
+    function handleMarketplaceChange() {
+      const market = document.getElementById('fbaMarketplace').value;
+      if (market === 'US') {
+        document.getElementById('fbaUnitSystem').value = 'imperial';
+      } else {
+        document.getElementById('fbaUnitSystem').value = 'metric';
+      }
+      handleUnitSystemChange();
+    }
+
+    function handleUnitSystemChange() {
+      const newSys = document.getElementById('fbaUnitSystem').value;
+      if (newSys === currentUnitSystem) return;
+
+      const lenInput = document.getElementById('fbaLength');
+      const widInput = document.getElementById('fbaWidth');
+      const hgtInput = document.getElementById('fbaHeight');
+      const wgtInput = document.getElementById('fbaActualWeight');
+
+      let l = parseFloat(lenInput.value) || 0;
+      let w = parseFloat(widInput.value) || 0;
+      let h = parseFloat(hgtInput.value) || 0;
+      let wt = parseFloat(wgtInput.value) || 0;
+
+      if (newSys === 'metric') {
+        // Convert inches to cm, lbs to kg
+        lenInput.value = (l * 2.54).toFixed(1);
+        widInput.value = (w * 2.54).toFixed(1);
+        hgtInput.value = (h * 2.54).toFixed(1);
+        wgtInput.value = (wt * 0.453592).toFixed(2);
+        document.querySelectorAll('.dimUnit').forEach(el => el.textContent = 'cm');
+        document.querySelectorAll('.weightUnit').forEach(el => el.textContent = 'kg');
+        document.getElementById('weightHelperText').textContent = 'Item + packaging scale weight in kilograms';
+      } else {
+        // Convert cm to inches, kg to lbs
+        lenInput.value = (l / 2.54).toFixed(1);
+        widInput.value = (w / 2.54).toFixed(1);
+        hgtInput.value = (h / 2.54).toFixed(1);
+        wgtInput.value = (wt / 0.453592).toFixed(2);
+        document.querySelectorAll('.dimUnit').forEach(el => el.textContent = 'in');
+        document.querySelectorAll('.weightUnit').forEach(el => el.textContent = 'lbs');
+        document.getElementById('weightHelperText').textContent = 'Item + packaging scale weight in pounds';
+      }
+
+      currentUnitSystem = newSys;
+      calculateFBA();
+    }
+
+    function calculateFBA() {
+      const isMetric = currentUnitSystem === 'metric';
+      let rawL = parseFloat(document.getElementById('fbaLength').value) || 0;
+      let rawW = parseFloat(document.getElementById('fbaWidth').value) || 0;
+      let rawH = parseFloat(document.getElementById('fbaHeight').value) || 0;
+      let rawWeight = parseFloat(document.getElementById('fbaActualWeight').value) || 0;
+      const category = document.getElementById('fbaCategory').value;
+
+      // Sort dimensions into longest, median, shortest
+      const dims = [rawL, rawW, rawH].sort((a, b) => b - a);
+      const longest = dims[0];
+      const median = dims[1];
+      const shortest = dims[2];
+
+      // Convert to inches and lbs internally for standard tier classification
+      const inLongest = isMetric ? longest / 2.54 : longest;
+      const inMedian = isMetric ? median / 2.54 : median;
+      const inShortest = isMetric ? shortest / 2.54 : shortest;
+      const inLengthGirth = inLongest + (2 * (inMedian + inShortest));
+      const lbsWeight = isMetric ? rawWeight / 0.453592 : rawWeight;
+
+      // Volume
+      const volumeIn3 = inLongest * inMedian * inShortest;
+      const volumeFt3 = volumeIn3 / 1728;
+
+      // Dimensional Weight Calculation
+      let dimWeight = 0;
+      let divisor = 139;
+      if (isMetric) {
+        divisor = 5000;
+        dimWeight = (longest * median * shortest) / divisor; // kg
+      } else {
+        dimWeight = (longest * median * shortest) / divisor; // lbs
+      }
+
+      // Amazon Size Tier Determination
+      let sizeTier = 'Large Standard';
+      let tierBadgeColor = 'bg-[#146ebe] text-white';
+
+      if (lbsWeight <= 1.0 && inLongest <= 15 && inMedian <= 12 && inShortest <= 0.75) {
+        sizeTier = 'Small Standard';
+        tierBadgeColor = 'bg-emerald-100 text-emerald-800';
+      } else if (lbsWeight <= 20 && inLongest <= 18 && inMedian <= 14 && inShortest <= 8) {
+        sizeTier = 'Large Standard';
+        tierBadgeColor = 'bg-blue-100 text-blue-800';
+      } else if (lbsWeight <= 70 && inLongest <= 60 && inMedian <= 30 && inLengthGirth <= 130) {
+        sizeTier = 'Small Oversize';
+        tierBadgeColor = 'bg-amber-100 text-amber-800';
+      } else if (lbsWeight <= 150 && inLongest <= 108 && inLengthGirth <= 130) {
+        sizeTier = 'Medium Oversize';
+        tierBadgeColor = 'bg-orange-100 text-orange-800';
+      } else if (lbsWeight <= 150 && inLongest <= 108 && inLengthGirth <= 165) {
+        sizeTier = 'Large Oversize';
+        tierBadgeColor = 'bg-rose-100 text-rose-800';
+      } else {
+        sizeTier = 'Special Oversize';
+        tierBadgeColor = 'bg-purple-100 text-purple-800';
+      }
+
+      // Billable Weight Logic
+      // Small Standard: Actual weight only (if <= 1 lb)
+      // Large standard & oversize: greater of actual weight or dim weight
+      let billableWeight = 0;
+      let chargedByDim = false;
+
+      if (sizeTier === 'Small Standard') {
+        billableWeight = rawWeight;
+        chargedByDim = false;
+      } else {
+        if (dimWeight > rawWeight) {
+          billableWeight = dimWeight;
+          chargedByDim = true;
+        } else {
+          billableWeight = rawWeight;
+          chargedByDim = false;
+        }
+      }
+
+      // Estimated FBA base fulfillment fee (US baseline 2026 model)
+      let estFee = 0;
+      const billableLbs = isMetric ? billableWeight / 0.453592 : billableWeight;
+
+      if (sizeTier === 'Small Standard') {
+        if (billableLbs <= 0.25) estFee = 3.22;
+        else if (billableLbs <= 0.5) estFee = 3.40;
+        else if (billableLbs <= 0.75) estFee = 3.58;
+        else estFee = 3.77;
+      } else if (sizeTier === 'Large Standard') {
+        if (billableLbs <= 0.25) estFee = 3.86;
+        else if (billableLbs <= 0.5) estFee = 4.08;
+        else if (billableLbs <= 0.75) estFee = 4.29;
+        else if (billableLbs <= 1.0) estFee = 4.75;
+        else if (billableLbs <= 1.5) estFee = 5.40;
+        else if (billableLbs <= 2.0) estFee = 5.69;
+        else if (billableLbs <= 3.0) estFee = 6.10;
+        else {
+          estFee = 6.10 + (Math.ceil(billableLbs - 3.0) * 0.38);
+        }
+      } else if (sizeTier === 'Small Oversize') {
+        estFee = 9.73 + (Math.max(0, Math.ceil(billableLbs - 1.0)) * 0.42);
+      } else if (sizeTier === 'Medium Oversize') {
+        estFee = 19.05 + (Math.max(0, Math.ceil(billableLbs - 1.0)) * 0.42);
+      } else if (sizeTier === 'Large Oversize') {
+        estFee = 89.98 + (Math.max(0, Math.ceil(billableLbs - 90.0)) * 0.83);
+      } else {
+        estFee = 158.49 + (Math.max(0, Math.ceil(billableLbs - 90.0)) * 0.83);
+      }
+
+      if (category === 'apparel') estFee += 0.45;
+
+      // Storage Fees
+      const storageStd = volumeFt3 * 0.78; // $0.78 / cu ft Jan-Sep
+      const storagePeak = volumeFt3 * 2.40; // $2.40 / cu ft Oct-Dec
+
+      // Update UI
+      const wUnit = isMetric ? 'kg' : 'lbs';
+      const dUnit = isMetric ? 'cm' : 'in';
+
+      const tierBadge = document.getElementById('resSizeTierBadge');
+      tierBadge.textContent = `${sizeTier}-Size`;
+      tierBadge.className = `px-2.5 py-1 rounded-full text-xs font-black uppercase tracking-wider ${tierBadgeColor}`;
+
+      document.getElementById('resBillableWeight').textContent = `${billableWeight.toFixed(2)} ${wUnit}`;
+      document.getElementById('resActualWeight').textContent = `${rawWeight.toFixed(2)} ${wUnit}`;
+      document.getElementById('resDimWeight').textContent = `${dimWeight.toFixed(2)} ${wUnit}`;
+
+      const chargedText = document.getElementById('resChargedByText');
+      if (sizeTier === 'Small Standard') {
+        chargedText.textContent = `Charged by Actual Weight (Small Standard Tier exempt from DIM)`;
+        chargedText.className = 'mt-2 text-xs font-bold text-emerald-700 flex items-center justify-center gap-1';
+      } else if (chargedByDim) {
+        const diff = (dimWeight - rawWeight).toFixed(2);
+        chargedText.textContent = `Charged by DIM Weight (Exceeds Actual Scale Weight by +${diff} ${wUnit})`;
+        chargedText.className = 'mt-2 text-xs font-bold text-amber-700 flex items-center justify-center gap-1';
+      } else {
+        chargedText.textContent = `Charged by Actual Weight (Heavier than Dimensional Weight)`;
+        chargedText.className = 'mt-2 text-xs font-bold text-emerald-700 flex items-center justify-center gap-1';
+      }
+
+      if (isMetric) {
+        const volM3 = (longest * median * shortest) / 1000000;
+        document.getElementById('resVolume').textContent = `${(longest * median * shortest).toLocaleString()} cm³ (${volM3.toFixed(4)} m³ / ${(volM3*1000).toFixed(1)} L)`;
+        document.getElementById('resLengthGirth').textContent = `${(longest + 2*(median+shortest)).toFixed(1)} cm`;
+        document.getElementById('resDivisorText').textContent = `5000 (Metric Standard)`;
+      } else {
+        document.getElementById('resVolume').textContent = `${volumeIn3.toFixed(1)} in³ (${volumeFt3.toFixed(2)} ft³) `;
+        document.getElementById('resLengthGirth').textContent = `${inLengthGirth.toFixed(2)} in`;
+        document.getElementById('resDivisorText').textContent = `139 (Amazon US FBA)`;
+      }
+
+      document.getElementById('resEstimatedFee').textContent = `$${estFee.toFixed(2)} / unit`;
+      document.getElementById('resStorageStandard').textContent = `$${storageStd.toFixed(2)} / unit / mo`;
+      document.getElementById('resStoragePeak').textContent = `$${storagePeak.toFixed(2)} / unit / mo`;
+
+      // Optimization Guidance
+      const optTitle = document.getElementById('optTitle');
+      const optDesc = document.getElementById('optDescription');
+      if (inShortest > 0.75 && inShortest <= 1.2 && inLongest <= 15 && inMedian <= 12 && lbsWeight <= 1.0) {
+        optTitle.textContent = '⚡ Potential Tier Drop to Small Standard!';
+        optDesc.textContent = `Your package height is ${inShortest.toFixed(2)}" (limit is 0.75"). Reducing thickness by ${(inShortest - 0.75).toFixed(2)}" drops this item into Small Standard, saving ~$0.90 to $1.50 per unit in FBA fees!`;
+      } else if (sizeTier === 'Small Oversize' && (inLongest <= 20 || inMedian <= 16 || inShortest <= 10)) {
+        optTitle.textContent = '⚠️ Near Large Standard Boundary';
+        optDesc.textContent = `This package is categorized as Oversize because one dimension exceeds 18" × 14" × 8". Redesigning packaging into a fold-flat carton can drop base fulfillment fees from $9.73 down to ~$5.50!`;
+      } else if (chargedByDim) {
+        optTitle.textContent = '💡 Packaging Downsizing Opportunity';
+        optDesc.textContent = `Dimensional weight is ${((dimWeight/rawWeight - 1)*100).toFixed(0)}% higher than actual weight. Reducing box void space will immediately lower billable weight.`;
+      } else {
+        optTitle.textContent = '✅ Dense Package Efficiency';
+        optDesc.textContent = `Your package density is well balanced. Amazon is billing you on actual weight rather than penalizing dimensional volume.`;
+      }
+    }
+
+    function loadFbaPreset(type) {
+      if (currentUnitSystem === 'metric') {
+        document.getElementById('fbaUnitSystem').value = 'imperial';
+        handleUnitSystemChange();
+      }
+
+      if (type === 'phone-case') {
+        document.getElementById('fbaLength').value = '6.8';
+        document.getElementById('fbaWidth').value = '3.5';
+        document.getElementById('fbaHeight').value = '0.6';
+        document.getElementById('fbaActualWeight').value = '0.22';
+        document.getElementById('fbaCategory').value = 'standard';
+      } else if (type === 'sneakers') {
+        document.getElementById('fbaLength').value = '13.5';
+        document.getElementById('fbaWidth').value = '8.5';
+        document.getElementById('fbaHeight').value = '4.8';
+        document.getElementById('fbaActualWeight').value = '2.40';
+        document.getElementById('fbaCategory').value = 'apparel';
+      } else if (type === 'air-fryer') {
+        document.getElementById('fbaLength').value = '14.0';
+        document.getElementById('fbaWidth').value = '12.5';
+        document.getElementById('fbaHeight').value = '11.0';
+        document.getElementById('fbaActualWeight').value = '8.50';
+        document.getElementById('fbaCategory').value = 'standard';
+      } else if (type === 'gaming-chair') {
+        document.getElementById('fbaLength').value = '33.0';
+        document.getElementById('fbaWidth').value = '25.0';
+        document.getElementById('fbaHeight').value = '13.0';
+        document.getElementById('fbaActualWeight').value = '42.0';
+        document.getElementById('fbaCategory').value = 'standard';
+      } else {
+        document.getElementById('fbaLength').value = '12.5';
+        document.getElementById('fbaWidth').value = '9.0';
+        document.getElementById('fbaHeight').value = '4.0';
+        document.getElementById('fbaActualWeight').value = '1.80';
+        document.getElementById('fbaCategory').value = 'standard';
+      }
+      calculateFBA();
+      showToast('Loaded preset dimensions', 'fa-box');
+    }
+
+    function resetFbaForm() {
+      document.getElementById('fbaLength').value = '12.0';
+      document.getElementById('fbaWidth').value = '8.0';
+      document.getElementById('fbaHeight').value = '4.0';
+      document.getElementById('fbaActualWeight').value = '1.50';
+      document.getElementById('fbaCategory').value = 'standard';
+      calculateFBA();
+      showToast('Form reset', 'fa-rotate-left');
+    }
+
+    function copyFbaBreakdown() {
+      const summaryText = `Amazon FBA Size Tier & Dim Weight (via 360tools.me):\n` +
+        `• Size Tier: ${document.getElementById('resSizeTierBadge').textContent}\n` +
+        `• Billable Weight: ${document.getElementById('resBillableWeight').textContent}\n` +
+        `• Actual Weight: ${document.getElementById('resActualWeight').textContent} vs DIM: ${document.getElementById('resDimWeight').textContent}\n` +
+        `• Volume: ${document.getElementById('resVolume').textContent}\n` +
+        `• Est. Base Fulfillment Fee: ${document.getElementById('resEstimatedFee').textContent}\n` +
+        `Check your FBA dimensions free at: https://360tools.me/amazon-fba-calculator.html`;
+      copyToClipboard(summaryText, 'Amazon FBA Specs copied to clipboard!');
+    }
+
+    document.addEventListener('DOMContentLoaded', calculateFBA);
+  </script>
+</body>
+</html>

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Primary Meta Tags -->
+  <title>Short-Term Rental Cleaning Fee Splitter (2026 Updated) - Airbnb & VRBO Payout Tool | 360tools.me</title>
+  <meta name="title"
+    content="Short-Term Rental Cleaning Fee Splitter (2026 Updated) - Airbnb & VRBO Payout Tool | 360tools.me">
+  <meta name="description"
+    content="Calculate and split short-term rental turnover cleaning fees, property manager commission bases, cleaner direct payouts, platform host channel fees, and net host profit margins with interactive Chart.js donut charts.">
+  <meta name="keywords"
+    content="str cleaning fee splitter, airbnb cleaning fee calculator, vrbo manager commission splitter, co-host cleaning fee split, short term rental payout calculator">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/str-cleaning-splitter.html">
+
+  <!-- Favicon & Open Graph / Facebook -->
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/str-cleaning-splitter.html">
+  <meta property="og:title"
+    content="Short-Term Rental Cleaning Fee Splitter (2026 Updated) - Airbnb & VRBO Payout Tool">
+  <meta property="og:description"
+    content="Calculate and split short-term rental turnover cleaning fees, property manager commission bases, and net host take-home pay.">
+  <meta property="og:image" content="images/logo.jpg">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/str-cleaning-splitter.html">
+  <meta property="twitter:title" content="Short-Term Rental Cleaning Fee Splitter (2026 Updated)">
+  <meta property="twitter:description"
+    content="Split Airbnb and VRBO cleaning fees, co-host commissions, and cleaner payouts with interactive visual charts.">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Short-Term Rental Cleaning Fee Splitter",
+    "url": "https://360tools.me/str-cleaning-splitter.html",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Calculate Airbnb and VRBO guest turnover payouts, cleaner direct compensation, property co-host management commissions, platform channel fees, and host net take-home earnings with interactive chart visualizer.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Should property management commission be calculated on the cleaning fee?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Industry best practice dictates that property management commission should be calculated strictly on the Nightly Accommodation Rate, because the cleaning fee is a 100% pass-through expense paid to cleaning vendors."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Airbnb charge their 3% host platform fee on the cleaning fee?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Airbnb deducts the 3% standard host service fee from the entire booking total, including both the nightly rate and the cleaning fee."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Vacation Rentals",
+        "item": "https://360tools.me/#str-rentals"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "STR Cleaning Fee Splitter",
+        "item": "https://360tools.me/str-cleaning-splitter.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Master Stylesheet (FontAwesome Theme) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Chart.js CDN for Donut Breakdown Chart -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body
+  class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4">
+
+  <!-- Header Navigation -->
+  <header class="max-w-7xl mx-auto w-full sticky top-4 z-40 mb-8">
+    <div class="fa-header-nav px-6 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="images/logo.jpg" alt="360tools.me Logo"
+            class="w-11 h-11 object-contain rounded-2xl group-hover:scale-105 transition-transform">
+          <div>
+            <div class="flex items-center gap-1.5">
+              <span class="text-xl font-black text-[#183153] tracking-tight">360tools<span
+                  class="text-[#146ebe]">.me</span></span>
+            </div>
+            <p class="text-[11px] text-slate-500 font-bold leading-none">STR Cleaning Splitter</p>
+          </div>
+        </a>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-bold text-[#183153]">
+        <a href="section8-estimator.html" class="hover:text-[#146ebe] transition-colors">Section 8</a>
+        <a href="uk-stamp-duty-calculator.html" class="hover:text-[#146ebe] transition-colors">UK Stamp Duty</a>
+        <a href="1031-exchange-tracker.html" class="hover:text-[#146ebe] transition-colors">1031 Exchange</a>
+        <a href="eu-vat-oss-calculator.html" class="hover:text-[#146ebe] transition-colors">EU VAT OSS</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button
+          onclick="shareCurrentPage('Short-Term Rental Cleaning Fee Splitter', 'Split Airbnb and VRBO turnover cleaning fees, manager commissions, and cleaner payouts.')"
+          class="fa-btn-primary px-4 py-2 text-xs sm:text-sm">
+          <i class="fa-solid fa-share-nodes"></i>
+          <span>Share</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto w-full flex-1">
+
+    <!-- Hero / Headline Above the Fold -->
+    <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="fa-badge-teal py-1.5 px-4 text-xs font-black uppercase">
+            <i class="fa-solid fa-certificate mr-1 text-[#20c997]"></i> Airbnb & VRBO Standard • Tax Year 2026
+          </span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-black text-[#183153] tracking-tight">
+          STR Cleaning Fee Splitter
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base mt-1.5 max-w-2xl font-medium leading-relaxed">
+          Itemize booking payouts, cleaner compensation, property manager commission bases, platform fees, and net host
+          earnings.
+        </p>
+      </div>
+
+      <div class="self-start sm:self-center">
+        <button onclick="resetDefaults()"
+          class="fa-btn-secondary px-4 py-2.5 text-xs sm:text-sm flex items-center gap-2 font-bold">
+          <i class="fa-solid fa-rotate-left text-xs"></i> Reset to Defaults
+        </button>
+      </div>
+    </div>
+
+    <!-- 2-COLUMN APP LAYOUT -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16" id="calculator-widget">
+
+      <!-- LEFT COLUMN: Inputs (7 Cols) -->
+      <div class="lg:col-span-7 space-y-6">
+
+        <div class="fa-card p-6 sm:p-8 space-y-6">
+
+          <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+            <h2 class="font-black text-[#183153] text-base uppercase tracking-wider flex items-center gap-2.5">
+              <i class="fa-solid fa-sliders text-[#146ebe]"></i> Reservation & Fee Parameters
+            </h2>
+            <span class="fa-badge-teal text-[11px] py-1 px-3">Payout Breakdown</span>
+          </div>
+
+          <!-- 1. Nightly Rate & Nights Stayed -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label for="nightlyRate" class="text-sm font-bold text-slate-800">Nightly Rate (Avg)</label>
+                <span class="text-xs text-slate-500 font-mono font-bold">USD / night</span>
+              </div>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <span class="text-[#146ebe] font-mono text-base font-bold">$</span>
+                </div>
+                <input type="number" id="nightlyRate" min="10" step="10" value="220"
+                  class="fa-input pl-9 pr-14 py-3 text-base text-slate-900 font-mono font-bold"
+                  oninput="calculateSTR()">
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label for="nightsCount" class="text-sm font-bold text-slate-800">Nights Stayed</label>
+                <span class="text-xs text-slate-500 font-mono font-bold" id="subtotalStayDisplay">$880.00
+                  subtotal</span>
+              </div>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <i class="fa-solid fa-moon text-slate-400 text-sm"></i>
+                </div>
+                <input type="number" id="nightsCount" min="1" max="90" step="1" value="4"
+                  class="fa-input pl-10 pr-14 py-3 text-base text-slate-900 font-mono font-bold"
+                  oninput="calculateSTR()">
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Cleaning Fee Charged vs Cost -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label for="guestCleaningFee" class="text-sm font-bold text-slate-800">Guest Cleaning Fee</label>
+                <span class="text-xs text-slate-500 font-mono font-bold">Charged</span>
+              </div>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <span class="text-[#146ebe] font-mono text-base font-bold">$</span>
+                </div>
+                <input type="number" id="guestCleaningFee" min="0" step="5" value="175"
+                  class="fa-input pl-9 pr-14 py-3 text-base text-slate-900 font-mono font-bold"
+                  oninput="calculateSTR()">
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label for="cleanerCost" class="text-sm font-bold text-slate-800">Actual Cleaner Cost</label>
+                <span class="text-xs text-[#20c997] font-mono font-extrabold" id="cleanerMarginDisplay">+$40
+                  Margin</span>
+              </div>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <span class="text-slate-400 font-mono text-base font-bold">$</span>
+                </div>
+                <input type="number" id="cleanerCost" min="0" step="5" value="135"
+                  class="fa-input pl-9 pr-14 py-3 text-base text-slate-900 font-mono font-bold"
+                  oninput="calculateSTR()">
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Property Management Commission % & Base Toggle -->
+          <div class="p-5 rounded-2xl fa-card space-y-4">
+            <div class="flex items-center justify-between">
+              <label for="managerPct" class="text-sm font-bold text-slate-800">
+                Property Manager / Co-Host Commission
+              </label>
+              <span id="managerPctDisplay" class="fa-badge-blue text-xs font-mono font-extrabold py-1 px-3">
+                15%
+              </span>
+            </div>
+
+            <input type="range" id="managerPct" min="0" max="35" step="1" value="15"
+              class="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer"
+              oninput="document.getElementById('managerPctDisplay').textContent = this.value + '%'; calculateSTR();">
+
+            <!-- Commission Base Toggle -->
+            <div>
+              <span class="text-xs text-slate-500 block mb-2 font-bold uppercase tracking-wider">Calculate Manager
+                Commission On:</span>
+              <div class="grid grid-cols-2 gap-3">
+                <button type="button" onclick="setCommBase('nightly')" id="btnBaseNightly"
+                  class="fa-btn-primary py-2.5 px-3 text-xs font-black">
+                  Nightly Rate Only
+                </button>
+                <button type="button" onclick="setCommBase('gross')" id="btnBaseGross"
+                  class="fa-btn-secondary py-2.5 px-3 text-xs font-bold">
+                  Gross (Incl. Cleaning)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Platform Host Fee -->
+          <div
+            class="flex items-center justify-between pt-4 border-t border-slate-100 text-sm font-bold text-slate-700">
+            <span>Platform Channel Fee (Airbnb 3%)</span>
+            <span class="font-mono text-slate-900 text-base" id="platformFeeDisplay">$31.65</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Sticky Live Output Card with Chart (5 Cols) -->
+      <div class="lg:col-span-5 lg:sticky lg:top-24 space-y-6">
+
+        <div class="fa-card p-8 relative overflow-hidden border-2 border-blue-200 shadow-xl">
+
+          <!-- Hero Metric Header -->
+          <div class="text-center pb-6 border-b border-slate-100">
+            <span class="fa-badge-teal text-xs font-extrabold uppercase py-1.5 px-4">
+              Host Net Take-Home Pay
+            </span>
+            <div class="text-5xl sm:text-6xl font-black text-[#183153] font-mono tracking-tight mt-3"
+              id="hostNetDisplay">
+              $751.35
+            </div>
+            <div class="text-sm text-slate-500 mt-1 font-mono font-bold">
+              Net Host Margin: <span id="hostMarginPct" class="font-extrabold text-[#20c997]">71.2%</span> of gross
+            </div>
+          </div>
+
+          <!-- Chart.js Donut Visualization -->
+          <div class="py-4 flex justify-center items-center">
+            <div class="w-48 h-48 relative">
+              <canvas id="payoutDonutChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Itemized Breakdown Rows -->
+          <div class="space-y-2.5 text-xs sm:text-sm font-mono font-semibold border-t border-slate-100 pt-5">
+            <div class="flex justify-between text-slate-600">
+              <span class="font-sans">Gross Booking Total:</span>
+              <span class="font-bold text-slate-900" id="outGrossTotal">$1,055.00</span>
+            </div>
+            <div class="flex justify-between text-slate-600">
+              <span class="font-sans">Cleaner Direct Payout:</span>
+              <span class="font-bold text-[#146ebe]" id="outCleanerPayout">-$135.00</span>
+            </div>
+            <div class="flex justify-between text-slate-600">
+              <span class="font-sans">Manager Commission (<span id="outMgrPct">15%</span>):</span>
+              <span class="font-bold text-amber-600" id="outManagerPayout">-$132.00</span>
+            </div>
+            <div class="flex justify-between text-slate-600">
+              <span class="font-sans">Platform Fee (3%):</span>
+              <span class="font-bold text-rose-600" id="outPlatformPayout">-$31.65</span>
+            </div>
+            <div
+              class="flex justify-between text-slate-900 font-black pt-3 border-t border-slate-100 text-sm sm:text-base">
+              <span class="text-[#0ca678] font-sans">Host Final Take-Home:</span>
+              <span class="text-[#0ca678] font-black" id="outHostNet">$751.35</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="mt-6 flex gap-3">
+            <button onclick="copySummary()" id="copyBtn"
+              class="fa-btn-primary flex-1 py-3 px-4 text-xs sm:text-sm font-black flex items-center justify-center gap-2">
+              <i class="fa-regular fa-copy"></i>
+              <span>Copy Breakdown</span>
+            </button>
+            <button onclick="window.print()"
+              class="fa-btn-secondary py-3 px-4 text-xs sm:text-sm flex items-center justify-center gap-2">
+              <i class="fa-solid fa-print"></i> Print
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- 3. HIGH-VALUE TEXT CONTENT (800 - 1,200 Words) -->
+    <article class="fa-card p-8 sm:p-12 space-y-10 text-slate-700 text-base leading-relaxed mb-16">
+
+      <section class="space-y-4">
+        <h2 class="text-2xl sm:text-3xl font-black text-[#183153] flex items-center gap-3">
+          <i class="fa-solid fa-broom text-[#146ebe]"></i> Short-Term Rental Cleaning & Commission Mechanics
+        </h2>
+        <p>
+          Managing turnovers for vacation rentals on Airbnb and VRBO requires precise accounting between pass-through
+          expenses, third-party vendor invoices, property management commissions, and host net operating income (NOI).
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 not-prose my-6">
+          <div class="p-6 rounded-2xl fa-card space-y-2">
+            <div
+              class="w-10 h-10 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center font-black text-sm font-mono">
+              1</div>
+            <h3 class="font-black text-[#183153] text-base">Pass-Through vs. Profit</h3>
+            <p class="text-xs text-slate-600 font-medium leading-relaxed">If guest cleaning fee matches cleaner invoice,
+              it's 100% pass-through. Surplus is host margin.</p>
+          </div>
+          <div class="p-6 rounded-2xl fa-card space-y-2">
+            <div
+              class="w-10 h-10 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center font-black text-sm font-mono">
+              2</div>
+            <h3 class="font-black text-[#183153] text-base">Commission Base Impact</h3>
+            <p class="text-xs text-slate-600 font-medium leading-relaxed">Calculating manager fees on Nightly Rate only
+              saves hosts hundreds of dollars per year.</p>
+          </div>
+          <div class="p-6 rounded-2xl fa-card space-y-2">
+            <div
+              class="w-10 h-10 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center font-black text-sm font-mono">
+              3</div>
+            <h3 class="font-black text-[#183153] text-base">Platform Deductions</h3>
+            <p class="text-xs text-slate-600 font-medium leading-relaxed">Airbnb automatically deducts 3% host channel
+              fee from entire total including cleaning.</p>
+          </div>
+        </div>
+      </section>
+
+    </article>
+
+    <!-- 4. STRUCTURED DATA FAQ SECTION -->
+    <section class="mb-16">
+      <div class="mb-6">
+        <span class="fa-badge-teal text-xs py-1.5 px-4 font-black">Frequently Asked Questions</span>
+        <h2 class="text-3xl font-black text-[#183153] mt-2">STR Cleaning & Payout FAQs</h2>
+      </div>
+
+      <div class="space-y-4">
+
+        <details class="group fa-card p-6 transition-all [&_svg]:open:-rotate-180">
+          <summary
+            class="flex justify-between items-center font-bold text-base sm:text-lg text-[#183153] cursor-pointer list-none">
+            <span>Should property management commission be calculated on the cleaning fee?</span>
+            <svg class="w-5 h-5 text-[#146ebe] transition-transform duration-200" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="text-sm text-slate-600 mt-4 leading-relaxed font-medium">
+            Industry best practice dictates that property management commission should be calculated strictly on the
+            Nightly Accommodation Rate, because the cleaning fee is a 100% pass-through expense paid to cleaning
+            vendors.
+          </p>
+        </details>
+
+        <details class="group fa-card p-6 transition-all [&_svg]:open:-rotate-180">
+          <summary
+            class="flex justify-between items-center font-bold text-base sm:text-lg text-[#183153] cursor-pointer list-none">
+            <span>Does Airbnb charge their 3% host platform fee on the cleaning fee?</span>
+            <svg class="w-5 h-5 text-[#146ebe] transition-transform duration-200" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <p class="text-sm text-slate-600 mt-4 leading-relaxed font-medium">
+            Yes. Airbnb deducts the 3% standard host service fee from the entire booking total, including both the
+            nightly rate and the cleaning fee.
+          </p>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- 5. INTERNAL LINKS GRID -->
+    <section class="mb-16">
+      <div class="mb-6">
+        <span class="fa-badge-blue text-xs py-1.5 px-4 font-black">Related Utilities</span>
+        <h2 class="text-2xl font-black text-[#183153] mt-2">More Precision Calculators</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <a href="section8-estimator.html" class="p-6 fa-card fa-card-interactive group">
+          <div class="flex items-center gap-3 mb-2">
+            <span
+              class="w-8 h-8 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center text-xs font-black font-mono">HCV</span>
+            <span class="text-sm font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">Section 8
+              Estimator</span>
+          </div>
+          <p class="text-xs text-slate-600 font-medium">Calculate HUD voucher payment standards.</p>
+        </a>
+
+        <a href="1031-exchange-tracker.html" class="p-6 fa-card fa-card-interactive group">
+          <div class="flex items-center gap-3 mb-2">
+            <span
+              class="w-8 h-8 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center text-xs font-black font-mono">1031</span>
+            <span class="text-sm font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">1031
+              Exchange</span>
+          </div>
+          <p class="text-xs text-slate-600 font-medium">Track 45-day ID & 180-day purchase closing deadlines.</p>
+        </a>
+
+        <a href="uk-stamp-duty-calculator.html" class="p-6 fa-card fa-card-interactive group">
+          <div class="flex items-center gap-3 mb-2">
+            <span
+              class="w-8 h-8 rounded-xl bg-yellow-50 text-amber-600 flex items-center justify-center text-xs font-black font-mono">SDLT</span>
+            <span class="text-sm font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">UK Stamp
+              Duty</span>
+          </div>
+          <p class="text-xs text-slate-600 font-medium">Calculate First-Time Buyer SDLT relief savings.</p>
+        </a>
+
+        <a href="eu-vat-oss-calculator.html" class="p-6 fa-card fa-card-interactive group">
+          <div class="flex items-center gap-3 mb-2">
+            <span
+              class="w-8 h-8 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center text-xs font-black font-mono">OSS</span>
+            <span class="text-sm font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">EU VAT
+              OSS</span>
+          </div>
+          <p class="text-xs text-slate-600 font-medium">Calculate cross-border EU digital VAT across 27 nations.</p>
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="max-w-7xl mx-auto w-full mb-6">
+    <div
+      class="fa-card p-8 text-center text-xs sm:text-sm text-slate-600 flex flex-col sm:flex-row items-center justify-between gap-4 font-semibold">
+      <div class="flex items-center gap-3">
+        <img src="images/logo.jpg" alt="360tools.me Logo" class="w-9 h-9 object-contain rounded-xl">
+        <div>
+          © 2026 <a href="index.html" class="font-black text-[#183153] hover:text-[#146ebe]">360tools.me</a> • STR
+          Cleaning Fee Splitter
+        </div>
+      </div>
+      <div class="flex flex-wrap justify-center gap-6 text-[#183153] font-bold">
+        <a href="index.html" class="hover:text-[#146ebe]">Home</a>
+        <a href="section8-estimator.html" class="hover:text-[#146ebe]">Section 8 Estimator</a>
+        <a href="uk-stamp-duty-calculator.html" class="hover:text-[#146ebe]">UK SDLT</a>
+        <a href="1031-exchange-tracker.html" class="hover:text-[#146ebe]">1031 Exchange</a>
+        <a href="eu-vat-oss-calculator.html" class="hover:text-[#146ebe]">EU VAT OSS</a>
+        <a href="privacy-policy.html" class="hover:text-[#146ebe]">Privacy</a>
+        <a href="terms-and-conditions.html" class="hover:text-[#146ebe]">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared JavaScript File -->
+  <script src="js/main.js"></script>
+
+  <!-- Core JavaScript Logic -->
+  <script>
+    let commBase = 'nightly';
+    let donutChartInstance = null;
+
+    function setCommBase(base) {
+      commBase = base;
+      const btnNightly = document.getElementById('btnBaseNightly');
+      const btnGross = document.getElementById('btnBaseGross');
+
+      if (base === 'nightly') {
+        btnNightly.className = 'fa-btn-primary py-2.5 px-3 text-xs font-black';
+        btnGross.className = 'fa-btn-secondary py-2.5 px-3 text-xs font-bold';
+      } else {
+        btnGross.className = 'fa-btn-primary py-2.5 px-3 text-xs font-black';
+        btnNightly.className = 'fa-btn-secondary py-2.5 px-3 text-xs font-bold';
+      }
+      calculateSTR();
+    }
+
+    function calculateSTR() {
+      const nightly = Math.max(0, parseFloat(document.getElementById('nightlyRate').value) || 0);
+      const nights = Math.max(1, parseInt(document.getElementById('nightsCount').value) || 1);
+      const guestClean = Math.max(0, parseFloat(document.getElementById('guestCleaningFee').value) || 0);
+      const cleanerActual = Math.max(0, parseFloat(document.getElementById('cleanerCost').value) || 0);
+      const mgrPct = Math.max(0, parseFloat(document.getElementById('managerPct').value) || 0);
+
+      const roomSubtotal = nightly * nights;
+      const grossTotal = roomSubtotal + guestClean;
+
+      const cleanMargin = guestClean - cleanerActual;
+      const cleanMarginDisplay = document.getElementById('cleanerMarginDisplay');
+      if (cleanMargin >= 0) {
+        cleanMarginDisplay.textContent = `+$${cleanMargin.toFixed(2)} Margin`;
+        cleanMarginDisplay.className = 'text-xs text-[#20c997] font-mono font-extrabold';
+      } else {
+        cleanMarginDisplay.textContent = `-$${Math.abs(cleanMargin).toFixed(2)} Deficit`;
+        cleanMarginDisplay.className = 'text-xs text-rose-600 font-mono font-extrabold';
+      }
+
+      document.getElementById('subtotalStayDisplay').textContent = `$${roomSubtotal.toFixed(2)} subtotal`;
+
+      const platformFee = grossTotal * 0.03;
+      document.getElementById('platformFeeDisplay').textContent = `$${platformFee.toFixed(2)}`;
+
+      let mgrCommission = 0;
+      if (commBase === 'nightly') {
+        mgrCommission = roomSubtotal * (mgrPct / 100);
+      } else {
+        mgrCommission = grossTotal * (mgrPct / 100);
+      }
+
+      const hostNet = Math.max(0, grossTotal - cleanerActual - mgrCommission - platformFee);
+      const hostMargin = grossTotal > 0 ? ((hostNet / grossTotal) * 100).toFixed(1) : 0;
+
+      document.getElementById('hostNetDisplay').textContent = `$${hostNet.toFixed(2)}`;
+      document.getElementById('hostMarginPct').textContent = `${hostMargin}%`;
+
+      document.getElementById('outGrossTotal').textContent = `$${grossTotal.toFixed(2)}`;
+      document.getElementById('outCleanerPayout').textContent = `-$${cleanerActual.toFixed(2)}`;
+      document.getElementById('outManagerPayout').textContent = `-$${mgrCommission.toFixed(2)}`;
+      document.getElementById('outMgrPct').textContent = `${mgrPct}%`;
+      document.getElementById('outPlatformPayout').textContent = `-$${platformFee.toFixed(2)}`;
+      document.getElementById('outHostNet').textContent = `$${hostNet.toFixed(2)}`;
+
+      updateDonutChart(hostNet, cleanerActual, mgrCommission, platformFee);
+    }
+
+    function updateDonutChart(hostNet, cleaner, manager, platform) {
+      const ctx = document.getElementById('payoutDonutChart').getContext('2d');
+
+      const data = {
+        labels: ['Host Net', 'Cleaner', 'Manager', 'Platform (3%)'],
+        datasets: [{
+          data: [hostNet, cleaner, manager, platform],
+          backgroundColor: ['#20c997', '#146ebe', '#ffd43b', '#fa5252'],
+          borderWidth: 2,
+          borderColor: '#ffffff'
+        }]
+      };
+
+      if (donutChartInstance) {
+        donutChartInstance.data = data;
+        donutChartInstance.update();
+      } else {
+        donutChartInstance = new Chart(ctx, {
+          type: 'doughnut',
+          data: data,
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false }
+            },
+            cutout: '70%'
+          }
+        });
+      }
+    }
+
+    function resetDefaults() {
+      document.getElementById('nightlyRate').value = '220';
+      document.getElementById('nightsCount').value = '4';
+      document.getElementById('guestCleaningFee').value = '175';
+      document.getElementById('cleanerCost').value = '135';
+      document.getElementById('managerPct').value = '15';
+      document.getElementById('managerPctDisplay').textContent = '15%';
+      setCommBase('nightly');
+      showToast('Reset to default values', 'fa-rotate-left');
+    }
+
+    function copySummary() {
+      const net = document.getElementById('hostNetDisplay').textContent;
+      const gross = document.getElementById('outGrossTotal').textContent;
+      const cleaner = document.getElementById('outCleanerPayout').textContent;
+      const manager = document.getElementById('outManagerPayout').textContent;
+      const platform = document.getElementById('outPlatformPayout').textContent;
+
+      const text = `STR Booking Payout Split:\n• Gross Booking Total: ${gross}\n• Host Net Take-Home: ${net}\n• Cleaner Payout: ${cleaner}\n• Manager Commission: ${manager}\n• Platform Channel Fee (3%): ${platform}\nCalculated via 360tools.me`;
+
+      copyToClipboard(text, 'Breakdown copied to clipboard!');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      calculateSTR();
+    });
+  </script>
+</body>
+
+</html>

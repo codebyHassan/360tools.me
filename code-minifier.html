@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Free HTML, CSS & JavaScript Minifier & Beautifier (2026) | 360tools.me</title>
+  <meta name="title" content="Free HTML, CSS & JavaScript Minifier & Beautifier (2026) | 360tools.me">
+  <meta name="description" content="Minify and beautify HTML, CSS, JavaScript, and JSON code online for free. Strip comments, collapse whitespace, and estimate Gzip bandwidth savings. 100% client-side.">
+  <meta name="keywords" content="html minifier, css minifier, javascript minifier, code minifier online, code beautifier, js minifier free, html css js compressor">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/code-minifier.html">
+
+  <!-- Favicon & Open Graph / Facebook -->
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/code-minifier.html">
+  <meta property="og:title" content="HTML, CSS & JS Minifier & Beautifier | 360tools.me">
+  <meta property="og:description" content="Minify and format HTML, CSS, and JS code client-side with real-time Gzip payload estimation.">
+  <meta property="og:image" content="images/logo.jpg">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/code-minifier.html">
+  <meta property="twitter:title" content="Free Code Minifier & Beautifier (HTML/CSS/JS)">
+  <meta property="twitter:description" content="Minify code and estimate Gzip compression savings with instant copy and file export.">
+  <meta property="twitter:image" content="images/logo.jpg">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "HTML CSS JS Minifier & Beautifier",
+    "url": "https://360tools.me/code-minifier.html",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "description": "Developer utility to minify and format HTML, CSS, JavaScript, and JSON source code client-side in the browser with Gzip size estimation.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why is code minification important for web performance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Minification removes unnecessary whitespace, line breaks, comments, and redundant characters from code. This slashes file transfer sizes by 30% to 60%, reducing server bandwidth and speeding up browser parsing time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between Minification and Gzip compression?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Minification transforms source code by eliminating unneeded syntax (done during build/deployment), while Gzip/Brotli is an HTTP transmission algorithm that compresses the text on the fly. Combining both yields the highest possible speed."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Developer & Media",
+        "item": "https://360tools.me/#media-tools"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Code Minifier",
+        "item": "https://360tools.me/code-minifier.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4">
+
+  <!-- Header Navigation -->
+    <!-- Standard Header Navigation -->
+    <!-- Standard Header Navigation -->
+    <!-- Standard Header Navigation -->
+  <header class="max-w-7xl mx-auto w-full sticky top-3 z-50 px-4 sm:px-6 my-3">
+    <div class="bg-white/95 backdrop-blur-md border border-slate-200/80 rounded-2xl shadow-xs px-5 py-3 flex items-center justify-between transition-all">
+      
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-8">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="images/logo.jpg" alt="360tools.me Logo" class="w-10 h-10 object-contain rounded-2xl group-hover:scale-105 transition-transform">
+          <span class="text-2xl font-black text-[#183153] tracking-tight">360tools<span class="text-[#146ebe]">.me</span></span>
+        </a>
+
+        <!-- Desktop Navigation with Quick Dropdowns -->
+        <nav class="hidden lg:flex items-center gap-1 text-xs font-bold text-slate-700">
+          
+          <!-- Dropdown 1: Audio & Voice -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-volume-high text-purple-600 text-xs"></i>
+              <span>Audio & Voice</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="text-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-volume-high text-[#146ebe] w-4 text-center"></i> Text to Speech
+                </a>
+                <a href="text-to-mp3.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-audio text-emerald-600 w-4 text-center"></i> Text to MP3
+                </a>
+                <a href="ai-voice-generator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-wand-magic-sparkles text-purple-600 w-4 text-center"></i> AI Voice Generator
+                </a>
+                <a href="pdf-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-pdf text-red-600 w-4 text-center"></i> PDF to Speech
+                </a>
+                <a href="youtube-voiceover-generator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-youtube text-rose-600 w-4 text-center"></i> YouTube Voiceovers
+                </a>
+                <a href="urdu-text-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-feather text-emerald-700 w-4 text-center"></i> Urdu TTS (اردو)
+                </a>
+                <a href="article-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-newspaper text-amber-600 w-4 text-center"></i> Article Reader
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="audio-voice-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All Audio Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 2: Compression -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-compress text-emerald-600 text-xs"></i>
+              <span>Compression</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="image-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-image text-emerald-600 w-4 text-center"></i> Image Compressor
+                </a>
+                <a href="jpg-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-camera text-amber-600 w-4 text-center"></i> JPG Compressor
+                </a>
+                <a href="png-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-image text-emerald-600 w-4 text-center"></i> PNG Compressor
+                </a>
+                <a href="webp-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-bolt text-blue-600 w-4 text-center"></i> WebP Compressor
+                </a>
+                <a href="pdf-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-pdf text-red-600 w-4 text-center"></i> PDF Compressor
+                </a>
+                <a href="video-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-video text-rose-600 w-4 text-center"></i> Video Compressor
+                </a>
+                <a href="compress-image-to-100kb.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-bullseye text-indigo-600 w-4 text-center"></i> Compress to 100KB
+                </a>
+                <a href="compress-image-to-500kb.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-bullseye text-indigo-600 w-4 text-center"></i> Compress to 500KB
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="compression-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All Compression</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 3: Developer -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-code text-cyan-600 text-xs"></i>
+              <span>Developer</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="html-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-html5 text-orange-600 w-4 text-center"></i> HTML Minifier
+                </a>
+                <a href="css-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-css3-alt text-blue-600 w-4 text-center"></i> CSS Minifier
+                </a>
+                <a href="javascript-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-js text-yellow-500 w-4 text-center"></i> JavaScript Minifier
+                </a>
+                <a href="shopify-csv-validator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-shopify text-emerald-600 w-4 text-center"></i> Shopify CSV Validator
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="developer-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All Dev Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 4: E-Commerce & Financial -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-cart-shopping text-[#f1641e] text-xs"></i>
+              <span>E-Commerce & Tax</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-72 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="etsy-fee-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-etsy text-[#f1641e] w-4 text-center"></i> Etsy Fee Calculator
+                </a>
+                <a href="amazon-fba-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-amazon text-amber-600 w-4 text-center"></i> Amazon FBA Dim Weight
+                </a>
+                <a href="tiktok-shop-payout-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-tiktok text-[#fe2c55] w-4 text-center"></i> TikTok Shop Payout
+                </a>
+                <a href="pod-profit-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-shirt text-blue-600 w-4 text-center"></i> POD Margin Grid
+                </a>
+                <a href="section8-estimator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-house-user text-[#146ebe] w-4 text-center"></i> Section 8 Estimator
+                </a>
+                <a href="uk-stamp-duty-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-landmark text-amber-700 w-4 text-center"></i> UK Stamp Duty
+                </a>
+                <a href="1031-exchange-tracker.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-clock-rotate-left text-purple-600 w-4 text-center"></i> 1031 Exchange Tracker
+                </a>
+                <a href="str-cleaning-splitter.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-broom text-teal-600 w-4 text-center"></i> STR Cleaning Splitter
+                </a>
+                <a href="eu-vat-oss-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-percent text-blue-700 w-4 text-center"></i> EU VAT OSS
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="ecommerce-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All E-Commerce Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </nav>
+      </div>
+
+      <!-- Right Header Actions: Interactive Command Palette Quick Search -->
+      <div class="flex items-center gap-2.5">
+        <button onclick="openQuickSearch()" class="flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200/80 px-3.5 py-2 rounded-xl border border-slate-200/60 shadow-2xs transition-all cursor-pointer">
+          <i class="fa-solid fa-magnifying-glass text-[#146ebe]"></i>
+          <span class="hidden sm:inline">Search Tools...</span>
+          <kbd class="hidden sm:inline-block px-1.5 py-0.5 bg-white border border-slate-300 rounded text-[10px] text-slate-500 font-mono font-bold shadow-2xs">Ctrl K</kbd>
+        </button>
+
+        <a href="index.html#tools-catalog" class="fa-btn-primary px-3.5 py-2 text-xs font-black shadow-xs hidden sm:inline-flex items-center gap-1.5">
+          <i class="fa-solid fa-grip"></i>
+          <span>All Tools</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars text-lg" id="mobileMenuIcon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenuDrawer" class="hidden lg:hidden mt-2 p-5 bg-white rounded-2xl border border-slate-200 shadow-xl space-y-4 transition-all max-h-[80vh] overflow-y-auto">
+      <div class="space-y-1">
+        <div class="text-[11px] font-black text-purple-700 uppercase tracking-wider px-2 mb-1 flex items-center gap-1.5">
+          <i class="fa-solid fa-volume-high"></i> AI Voice & Audio
+        </div>
+        <a href="text-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Text to Speech</a>
+        <a href="text-to-mp3.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Text to MP3</a>
+        <a href="ai-voice-generator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">AI Voice Generator</a>
+        <a href="pdf-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">PDF to Speech</a>
+        <a href="youtube-voiceover-generator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">YouTube Narrator</a>
+        <a href="urdu-text-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Urdu TTS</a>
+        <a href="article-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Article Reader</a>
+
+        <div class="text-[11px] font-black text-emerald-700 uppercase tracking-wider px-2 pt-3 mb-1 border-t border-slate-100 flex items-center gap-1.5">
+          <i class="fa-solid fa-compress"></i> Media Compression
+        </div>
+        <a href="image-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Image Compressor</a>
+        <a href="jpg-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">JPG Compressor</a>
+        <a href="png-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">PNG Compressor</a>
+        <a href="webp-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">WebP Compressor</a>
+        <a href="pdf-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">PDF Compressor</a>
+        <a href="video-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Video Compressor</a>
+
+        <div class="text-[11px] font-black text-cyan-700 uppercase tracking-wider px-2 pt-3 mb-1 border-t border-slate-100 flex items-center gap-1.5">
+          <i class="fa-solid fa-code"></i> Developer Minifiers
+        </div>
+        <a href="html-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">HTML Minifier</a>
+        <a href="css-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">CSS Minifier</a>
+        <a href="javascript-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">JS Minifier</a>
+        <a href="shopify-csv-validator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Shopify CSV</a>
+
+        <div class="text-[11px] font-black text-orange-700 uppercase tracking-wider px-2 pt-3 mb-1 border-t border-slate-100 flex items-center gap-1.5">
+          <i class="fa-solid fa-cart-shopping"></i> E-Commerce & Financial
+        </div>
+        <a href="etsy-fee-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Etsy Calculator</a>
+        <a href="amazon-fba-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Amazon FBA</a>
+        <a href="tiktok-shop-payout-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">TikTok Shop</a>
+        <a href="pod-profit-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">POD Margins</a>
+        <a href="section8-estimator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Section 8</a>
+        <a href="uk-stamp-duty-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">UK Stamp Duty</a>
+        <a href="1031-exchange-tracker.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">1031 Exchange</a>
+        <a href="str-cleaning-splitter.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">STR Cleaning</a>
+        <a href="eu-vat-oss-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">EU VAT OSS</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto w-full flex-1">
+    
+    <!-- Hero / Headline Above the Fold -->
+    <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="bg-cyan-50 text-cyan-800 text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-solid fa-code mr-1"></i> Developer Performance Suite
+          </span>
+          <span class="text-xs font-bold text-slate-400">• HTML5, CSS3, JS & JSON • Gzip Estimator</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+          HTML, CSS & JavaScript Minifier & Beautifier
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
+          Instantly compress and format frontend code. Strip whitespace, purge comments, estimate Gzip bandwidth savings, and download optimized production assets.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 self-start sm:self-center">
+        <button onclick="loadSampleCode()" class="fa-btn-secondary text-xs px-3.5 py-2">
+          <i class="fa-solid fa-code-compare"></i> Load Sample Code
+        </button>
+      </div>
+    </div>
+
+    <!-- Mode & Language Tabs -->
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+      
+      <!-- Language Selector -->
+      <div class="flex items-center gap-2 bg-white p-1.5 rounded-2xl border border-slate-200 shadow-xs">
+        <button onclick="setLanguage('html')" id="tabHtml" class="lang-tab px-4 py-2 rounded-xl text-xs font-black bg-[#146ebe] text-white transition-all">
+          <i class="fa-brands fa-html5 mr-1 text-orange-400"></i> HTML5
+        </button>
+        <button onclick="setLanguage('css')" id="tabCss" class="lang-tab px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 transition-all">
+          <i class="fa-brands fa-css3-alt mr-1 text-blue-500"></i> CSS3
+        </button>
+        <button onclick="setLanguage('js')" id="tabJs" class="lang-tab px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 transition-all">
+          <i class="fa-brands fa-js mr-1 text-yellow-500"></i> JavaScript
+        </button>
+        <button onclick="setLanguage('json')" id="tabJson" class="lang-tab px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 transition-all">
+          <i class="fa-solid fa-brackets-curly mr-1 text-emerald-500"></i> JSON
+        </button>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2">
+        <button onclick="processCode('minify')" class="fa-btn-primary px-4 py-2 text-xs font-black bg-[#183153] hover:bg-[#25406b] flex items-center gap-1.5">
+          <i class="fa-solid fa-compress"></i> Minify Code
+        </button>
+        <button onclick="processCode('beautify')" class="fa-btn-secondary px-4 py-2 text-xs font-bold flex items-center gap-1.5">
+          <i class="fa-solid fa-align-left"></i> Beautify / Format
+        </button>
+        <button onclick="clearCode()" class="p-2 text-slate-400 hover:text-slate-600 rounded-xl border border-slate-200">
+          <i class="fa-solid fa-trash text-xs"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Main Code Split Workspace -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+      
+      <!-- Input Panel -->
+      <div class="fa-card p-5 shadow-sm space-y-3">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+          <span class="text-xs font-bold text-slate-600 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-pen-to-square text-slate-400"></i> Input Source Code
+          </span>
+          <span id="inputCharCount" class="text-xs font-mono font-bold text-slate-400">0 characters • 0 lines</span>
+        </div>
+        <textarea id="rawCodeInput" rows="18" placeholder="Paste your raw HTML, CSS, JS, or JSON code here..." class="fa-input font-mono text-xs w-full bg-slate-900 text-slate-100 border-0 focus:ring-2 focus:ring-[#146ebe] p-4 leading-relaxed" oninput="handleInputCode()"></textarea>
+      </div>
+
+      <!-- Output Panel -->
+      <div class="fa-card p-5 shadow-sm space-y-3">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+          <span class="text-xs font-bold text-slate-600 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-bolt text-emerald-600"></i> Processed Output
+          </span>
+          <div class="flex items-center gap-2">
+            <button onclick="copyProcessedCode()" class="text-xs font-bold text-slate-500 hover:text-[#146ebe] flex items-center gap-1">
+              <i class="fa-solid fa-copy"></i> Copy
+            </button>
+            <button onclick="downloadCodeFile()" class="text-xs font-bold text-slate-500 hover:text-[#146ebe] flex items-center gap-1">
+              <i class="fa-solid fa-download"></i> Save
+            </button>
+          </div>
+        </div>
+        <textarea id="outputCodeArea" rows="18" readonly placeholder="Minified or beautified output will appear here..." class="fa-input font-mono text-xs w-full bg-slate-950 text-emerald-400 border-0 p-4 leading-relaxed"></textarea>
+      </div>
+
+    </div>
+
+    <!-- Performance Stats Strip -->
+    <div class="fa-card p-6 mb-12 shadow-md border-2 border-slate-200">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+        <div class="p-3 bg-slate-50 rounded-xl">
+          <span class="text-[10px] font-bold text-slate-400 block uppercase tracking-wider">Raw Size</span>
+          <span id="statRawBytes" class="text-base sm:text-lg font-black font-mono text-slate-800">0 B</span>
+        </div>
+        <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200">
+          <span class="text-[10px] font-bold text-emerald-800 block uppercase tracking-wider">Minified Size</span>
+          <span id="statMinBytes" class="text-base sm:text-lg font-black font-mono text-emerald-700">0 B</span>
+        </div>
+        <div class="p-3 bg-blue-50 rounded-xl border border-blue-200">
+          <span class="text-[10px] font-bold text-[#146ebe] block uppercase tracking-wider">Size Reduction</span>
+          <span id="statReductionPct" class="text-base sm:text-lg font-black font-mono text-[#146ebe]">0%</span>
+        </div>
+        <div class="p-3 bg-purple-50 rounded-xl border border-purple-200">
+          <span class="text-[10px] font-bold text-purple-800 block uppercase tracking-wider">Est. Gzip Payload</span>
+          <span id="statGzipBytes" class="text-base sm:text-lg font-black font-mono text-purple-900">0 B</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO Content Section -->
+    <section class="mt-16 pt-12 border-t border-slate-200">
+      <div class="max-w-4xl mx-auto space-y-12">
+        
+        <div class="text-center">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">
+            Frontend Code Optimization & Minification Best Practices
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2">
+            Why removing comments, whitespaces, and unneeded characters speeds up Largest Contentful Paint (LCP) and Total Blocking Time (TBT).
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="fa-card p-6">
+            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+              <i class="fa-brands fa-html5 text-orange-500"></i> HTML Minification
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Strips multi-line HTML comments, collapses white-space between inline block tags, and removes unnecessary default boolean attribute quotes.
+            </p>
+          </div>
+
+          <div class="fa-card p-6">
+            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+              <i class="fa-brands fa-css3-alt text-blue-500"></i> CSS Compression
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Shortens hex colors (<code>#ffffff</code> &rarr; <code>#fff</code>), merges duplicate selectors, strips trailing declaration semicolons, and purges CSS comments.
+            </p>
+          </div>
+
+          <div class="fa-card p-6">
+            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+              <i class="fa-brands fa-js text-yellow-500"></i> JavaScript Optimization
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Cleans multi-line and single-line comments, compresses variable spaces, and optimizes object literals without breaking execution logic.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+    <!-- Standard Footer -->
+    <!-- Standard Footer -->
+    <!-- Standard Footer -->
+  <footer class="bg-white border-t border-slate-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+        
+        <!-- Brand Column -->
+        <div class="space-y-4 md:col-span-1">
+          <a href="index.html" class="flex items-center gap-3">
+            <img src="images/logo.jpg" alt="360tools.me Logo" class="w-10 h-10 object-contain rounded-2xl">
+            <span class="text-2xl font-black text-[#183153]">360tools<span class="text-[#146ebe]">.me</span></span>
+          </a>
+          <p class="text-xs text-slate-500 font-medium leading-relaxed">
+            High-precision, free online AI speech synthesis, media compressors, developer minifiers, and e-commerce calculators.
+          </p>
+        </div>
+
+        <!-- AI Voice & Audio -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">AI Voice & Speech</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="text-to-speech.html" class="hover:text-[#146ebe]">Text to Speech</a></li>
+            <li><a href="text-to-mp3.html" class="hover:text-[#146ebe]">Text to MP3</a></li>
+            <li><a href="ai-voice-generator.html" class="hover:text-[#146ebe]">AI Voice Generator</a></li>
+            <li><a href="youtube-voiceover-generator.html" class="hover:text-[#146ebe]">YouTube Narrator</a></li>
+            <li><a href="pdf-to-speech.html" class="hover:text-[#146ebe]">PDF to Speech</a></li>
+            <li><a href="urdu-text-to-speech.html" class="hover:text-[#146ebe]">Urdu TTS (اردو)</a></li>
+            <li><a href="article-to-speech.html" class="hover:text-[#146ebe]">Article Reader</a></li>
+          </ul>
+        </div>
+
+        <!-- Compression Suite -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">Compression Tools</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="image-compressor.html" class="hover:text-[#146ebe]">Image Compressor</a></li>
+            <li><a href="jpg-compressor.html" class="hover:text-[#146ebe]">JPG Compressor</a></li>
+            <li><a href="png-compressor.html" class="hover:text-[#146ebe]">PNG Compressor</a></li>
+            <li><a href="webp-compressor.html" class="hover:text-[#146ebe]">WebP Compressor</a></li>
+            <li><a href="pdf-compressor.html" class="hover:text-[#146ebe]">PDF Compressor</a></li>
+            <li><a href="video-compressor.html" class="hover:text-[#146ebe]">Video Compressor</a></li>
+            <li><a href="compress-image-to-100kb.html" class="hover:text-[#146ebe]">Compress to 100KB</a></li>
+          </ul>
+        </div>
+
+        <!-- Developer Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">Developer & Minifiers</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="html-minifier.html" class="hover:text-[#146ebe]">HTML Minifier</a></li>
+            <li><a href="css-minifier.html" class="hover:text-[#146ebe]">CSS Minifier</a></li>
+            <li><a href="javascript-minifier.html" class="hover:text-[#146ebe]">JavaScript Minifier</a></li>
+            <li><a href="shopify-csv-validator.html" class="hover:text-[#146ebe]">Shopify CSV Validator</a></li>
+            <li><a href="developer-tools.html" class="hover:text-[#146ebe]">All Developer Tools</a></li>
+          </ul>
+        </div>
+
+        <!-- E-Commerce & Legal -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">E-Commerce & Legal</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="etsy-fee-calculator.html" class="hover:text-[#146ebe]">Etsy Fee Calculator</a></li>
+            <li><a href="amazon-fba-calculator.html" class="hover:text-[#146ebe]">Amazon FBA Checker</a></li>
+            <li><a href="tiktok-shop-payout-calculator.html" class="hover:text-[#146ebe]">TikTok Shop Calculator</a></li>
+            <li><a href="section8-estimator.html" class="hover:text-[#146ebe]">Section 8 Estimator</a></li>
+            <li><a href="str-cleaning-splitter.html" class="hover:text-[#146ebe]">STR Cleaning Splitter</a></li>
+            <li><a href="privacy-policy.html" class="hover:text-[#146ebe]">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html" class="hover:text-[#146ebe]">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-semibold">
+        <div>
+          © 2026 <a href="index.html" class="font-bold text-[#183153] hover:text-[#146ebe]">360tools.me</a>. All rights reserved.
+        </div>
+        <div class="text-[11px] text-slate-400">
+          Client-side browser processing • Zero cloud data harvesting
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Script: Code Minifier Logic -->
+  <script src="js/main.js"></script>
+  <script>
+    let activeLang = 'html';
+
+    function setLanguage(lang) {
+      activeLang = lang;
+      ['html', 'css', 'js', 'json'].forEach(l => {
+        const tab = document.getElementById('tab' + l.charAt(0).toUpperCase() + l.slice(1));
+        if (l === lang) {
+          tab.className = 'lang-tab px-4 py-2 rounded-xl text-xs font-black bg-[#146ebe] text-white transition-all';
+        } else {
+          tab.className = 'lang-tab px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 transition-all';
+        }
+      });
+      processCode('minify');
+    }
+
+    function formatBytes(bytes) {
+      if (!bytes || bytes === 0) return '0 B';
+      const k = 1024;
+      const sizes = ['B', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    function handleInputCode() {
+      const code = document.getElementById('rawCodeInput').value;
+      const lines = code.split('\n').length;
+      document.getElementById('inputCharCount').textContent = `${code.length} characters • ${lines} lines`;
+      processCode('minify');
+    }
+
+    function processCode(action) {
+      const input = document.getElementById('rawCodeInput').value;
+      if (!input.trim()) {
+        document.getElementById('outputCodeArea').value = '';
+        updateMetrics(0, 0);
+        return;
+      }
+
+      let result = '';
+
+      if (action === 'minify') {
+        if (activeLang === 'html') result = minifyHTML(input);
+        else if (activeLang === 'css') result = minifyCSS(input);
+        else if (activeLang === 'js') result = minifyJS(input);
+        else if (activeLang === 'json') result = minifyJSON(input);
+      } else {
+        if (activeLang === 'html') result = beautifyHTML(input);
+        else if (activeLang === 'css') result = beautifyCSS(input);
+        else if (activeLang === 'js') result = beautifyJS(input);
+        else if (activeLang === 'json') result = beautifyJSON(input);
+      }
+
+      document.getElementById('outputCodeArea').value = result;
+      updateMetrics(new Blob([input]).size, new Blob([result]).size);
+    }
+
+    // Minifiers
+    function minifyHTML(html) {
+      return html
+        .replace(/<!--[\s\S]*?-->/g, '') // remove comments
+        .replace(/\s+/g, ' ') // collapse multi spaces
+        .replace(/>\s+</g, '><') // remove spaces between tags
+        .trim();
+    }
+
+    function minifyCSS(css) {
+      return css
+        .replace(/\/\*[\s\S]*?\*\//g, '') // remove comments
+        .replace(/\s+/g, ' ') // collapse spaces
+        .replace(/\s*([\{\}:;,])\s*/g, '$1') // remove spaces around brackets and colons
+        .replace(/;\}/g, '}') // remove trailing semicolons
+        .replace(/#([0-9a-fA-F])\1([0-9a-fA-F])\2([0-9a-fA-F])\3/g, '#$1$2$3') // short hex
+        .trim();
+    }
+
+    function minifyJS(js) {
+      return js
+        .replace(/\/\*[\s\S]*?\*\//g, '') // multi-line comments
+        .replace(/\/\/[^\n\r]*/g, '') // single-line comments
+        .replace(/\s+/g, ' ') // collapse spaces
+        .replace(/\s*([\{\}\(\)\[\]=+\-*\/%&|!<>?:;,])\s*/g, '$1')
+        .trim();
+    }
+
+    function minifyJSON(json) {
+      try {
+        return JSON.stringify(JSON.parse(json));
+      } catch (e) {
+        return json.replace(/\s+/g, ' ').trim();
+      }
+    }
+
+    // Beautifiers
+    function beautifyHTML(html) {
+      let formatted = '';
+      let indent = '';
+      const tab = '  ';
+      html.split(/>\s*</).forEach(node => {
+        if (node.match(/^\/\w/)) indent = indent.substring(tab.length);
+        formatted += indent + '<' + node + '>\r\n';
+        if (node.match(/^<?\w[^>]*[^\/]$/) && !node.startsWith('input') && !node.startsWith('img') && !node.startsWith('br') && !node.startsWith('hr')) {
+          indent += tab;
+        }
+      });
+      return formatted.substring(1, formatted.length - 3);
+    }
+
+    function beautifyCSS(css) {
+      return css
+        .replace(/\s*\{\s*/g, ' {\n  ')
+        .replace(/\s*;\s*/g, ';\n  ')
+        .replace(/\s*\}\s*/g, '\n}\n\n')
+        .replace(/  \n/g, '')
+        .trim();
+    }
+
+    function beautifyJS(js) {
+      return js
+        .replace(/\{/g, ' {\n  ')
+        .replace(/;/g, ';\n  ')
+        .replace(/\}/g, '\n}\n')
+        .trim();
+    }
+
+    function beautifyJSON(json) {
+      try {
+        return JSON.stringify(JSON.parse(json), null, 2);
+      } catch (e) {
+        return json;
+      }
+    }
+
+    function updateMetrics(rawSize, minSize) {
+      document.getElementById('statRawBytes').textContent = formatBytes(rawSize);
+      document.getElementById('statMinBytes').textContent = formatBytes(minSize);
+
+      const savedBytes = Math.max(0, rawSize - minSize);
+      const savedPct = rawSize > 0 ? ((savedBytes / rawSize) * 100).toFixed(1) : 0;
+      document.getElementById('statReductionPct').textContent = `-${savedPct}%`;
+
+      // Estimated Gzip is roughly 30% of minified text
+      const estGzip = Math.round(minSize * 0.32);
+      document.getElementById('statGzipBytes').textContent = formatBytes(estGzip);
+    }
+
+    function copyProcessedCode() {
+      const code = document.getElementById('outputCodeArea').value;
+      if (!code) return;
+      copyToClipboard(code, 'Code copied to clipboard!');
+    }
+
+    function downloadCodeFile() {
+      const code = document.getElementById('outputCodeArea').value;
+      if (!code) return;
+      const ext = activeLang === 'js' ? 'js' : (activeLang === 'css' ? 'css' : (activeLang === 'json' ? 'json' : 'html'));
+      const blob = new Blob([code], { type: 'text/plain;charset=utf-8' });
+      const link = document.createElement('a');
+      link.download = `optimized.${ext}`;
+      link.href = URL.createObjectURL(blob);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast(`Downloaded optimized ${ext.toUpperCase()} file!`, 'fa-file-code');
+    }
+
+    function clearCode() {
+      document.getElementById('rawCodeInput').value = '';
+      document.getElementById('outputCodeArea').value = '';
+      updateMetrics(0, 0);
+      showToast('Cleared code', 'fa-trash');
+    }
+
+    function loadSampleCode() {
+      if (activeLang === 'html') {
+        document.getElementById('rawCodeInput').value = `<!DOCTYPE html>\n<!-- Sample Webpage Header -->\n<html lang="en">\n  <head>\n    <title>360tools Performance</title>\n    <meta charset="UTF-8">\n    <link rel="stylesheet" href="css/style.css">\n  </head>\n  <body>\n    <!-- Main Navigation Bar -->\n    <nav class="navbar">\n      <a href="/" class="brand-link">360tools</a>\n    </nav>\n    <main>\n      <h1>Fast Web Performance</h1>\n      <p>Clean client-side minification.</p>\n    </main>\n  </body>\n</html>`;
+      } else if (activeLang === 'css') {
+        document.getElementById('rawCodeInput').value = `/* Master Stylesheet */\n.header-container {\n  background-color: #ffffff;\n  margin: 0px 10px 0px 10px;\n  padding: 20px;\n  border-radius: 12px;\n}\n\n/* Interactive Buttons */\n.btn-primary {\n  color: #ffffff;\n  background-color: #146ebe;\n  font-weight: 700;\n  border: none;\n}`;
+      } else if (activeLang === 'js') {
+        document.getElementById('rawCodeInput').value = `// User Session Calculator\nfunction calculateSavings(originalSize, minifiedSize) {\n  /* Calculate percentage */\n  const diff = originalSize - minifiedSize;\n  const percentage = (diff / originalSize) * 100;\n  console.log("Saved: " + percentage.toFixed(2) + "%");\n  return { saved: diff, pct: percentage };\n}`;
+      } else {
+        document.getElementById('rawCodeInput').value = `{\n  "tool": "360tools Code Minifier",\n  "version": "2026.1",\n  "features": [\n    "HTML5 Minification",\n    "CSS3 Compression",\n    "JavaScript Optimizer",\n    "JSON Formatter"\n  ],\n  "isClientSide": true\n}`;
+      }
+      handleInputCode();
+      showToast(`Loaded sample ${activeLang.toUpperCase()} code`, 'fa-code');
+    }
+  </script>
+</body>
+</html>

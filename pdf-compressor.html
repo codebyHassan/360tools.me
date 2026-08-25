@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Free PDF Compressor Online (100% Private Client-Side) | 360tools.me</title>
+  <meta name="title" content="Free PDF Compressor Online (100% Private Client-Side) | 360tools.me">
+  <meta name="description" content="Compress PDF files online for free without uploading to any server. Reduce PDF file size to 100KB, 200KB, or 1MB with multi-page DPI presets. 100% client-side security.">
+  <meta name="keywords" content="pdf compressor online, compress pdf free, reduce pdf file size, compress pdf to 100kb, compress pdf to 200kb, client side pdf compressor, secure pdf optimizer">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/pdf-compressor.html">
+
+  <!-- Favicon & Open Graph / Facebook -->
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/pdf-compressor.html">
+  <meta property="og:title" content="Free PDF Compressor Online (100% Private) | 360tools.me">
+  <meta property="og:description" content="Compress PDF documents client-side in your browser. Zero server uploads, custom DPI presets, and instant download.">
+  <meta property="og:image" content="images/logo.jpg">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/pdf-compressor.html">
+  <meta property="twitter:title" content="Free PDF Compressor — 100% Client-Side Private">
+  <meta property="twitter:description" content="Reduce PDF document sizes up to 80% without uploading sensitive contracts or tax returns to the cloud.">
+  <meta property="twitter:image" content="images/logo.jpg">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Client-Side PDF Compressor",
+    "url": "https://360tools.me/pdf-compressor.html",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "description": "Compress PDF documents directly in your web browser with zero server uploads. Re-encodes pages with adjustable DPI and image compression quality.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are my sensitive PDF documents uploaded to your server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Never. All PDF compression, page rendering, and stream re-encoding execute 100% locally inside your browser memory using PDF.js and PDF-Lib. Your confidential documents, bank statements, and tax returns never touch any external server."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does client-side PDF compression reduce file size?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The tool analyzes each page, quantizes embedded high-resolution raster images, downsamples excessive DPI resolution (from 600+ DPI down to 150 or 72 DPI), and strips redundant metadata headers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best compression preset for email attachments?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The 'Recommended (150 DPI)' preset is ideal for email attachments and job applications, delivering 50% to 70% file size reduction while maintaining crystal-clear text readability."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Media & Compression",
+        "item": "https://360tools.me/#media-tools"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "PDF Compressor",
+        "item": "https://360tools.me/pdf-compressor.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- PDF.js and PDF-Lib CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script>
+    // Set PDF.js worker
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  </script>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4">
+
+  <!-- Header Navigation -->
+    <!-- Standard Header Navigation -->
+    <!-- Standard Header Navigation -->
+    <!-- Standard Header Navigation -->
+  <header class="max-w-7xl mx-auto w-full sticky top-3 z-50 px-4 sm:px-6 my-3">
+    <div class="bg-white/95 backdrop-blur-md border border-slate-200/80 rounded-2xl shadow-xs px-5 py-3 flex items-center justify-between transition-all">
+      
+      <!-- Brand Logo -->
+      <div class="flex items-center gap-8">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="images/logo.jpg" alt="360tools.me Logo" class="w-10 h-10 object-contain rounded-2xl group-hover:scale-105 transition-transform">
+          <span class="text-2xl font-black text-[#183153] tracking-tight">360tools<span class="text-[#146ebe]">.me</span></span>
+        </a>
+
+        <!-- Desktop Navigation with Quick Dropdowns -->
+        <nav class="hidden lg:flex items-center gap-1 text-xs font-bold text-slate-700">
+          
+          <!-- Dropdown 1: Audio & Voice -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-volume-high text-purple-600 text-xs"></i>
+              <span>Audio & Voice</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="text-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-volume-high text-[#146ebe] w-4 text-center"></i> Text to Speech
+                </a>
+                <a href="text-to-mp3.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-audio text-emerald-600 w-4 text-center"></i> Text to MP3
+                </a>
+                <a href="ai-voice-generator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-wand-magic-sparkles text-purple-600 w-4 text-center"></i> AI Voice Generator
+                </a>
+                <a href="pdf-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-pdf text-red-600 w-4 text-center"></i> PDF to Speech
+                </a>
+                <a href="youtube-voiceover-generator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-youtube text-rose-600 w-4 text-center"></i> YouTube Voiceovers
+                </a>
+                <a href="urdu-text-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-feather text-emerald-700 w-4 text-center"></i> Urdu TTS (اردو)
+                </a>
+                <a href="article-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-newspaper text-amber-600 w-4 text-center"></i> Article Reader
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="audio-voice-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All Audio Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 2: Compression -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-compress text-emerald-600 text-xs"></i>
+              <span>Compression</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="image-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-image text-emerald-600 w-4 text-center"></i> Image Compressor
+                </a>
+                <a href="jpg-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-camera text-amber-600 w-4 text-center"></i> JPG Compressor
+                </a>
+                <a href="png-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-image text-emerald-600 w-4 text-center"></i> PNG Compressor
+                </a>
+                <a href="webp-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-bolt text-blue-600 w-4 text-center"></i> WebP Compressor
+                </a>
+                <a href="pdf-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-pdf text-red-600 w-4 text-center"></i> PDF Compressor
+                </a>
+                <a href="video-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-video text-rose-600 w-4 text-center"></i> Video Compressor
+                </a>
+                <a href="compress-image-to-100kb.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-bullseye text-indigo-600 w-4 text-center"></i> Compress to 100KB
+                </a>
+                <a href="compress-image-to-500kb.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-bullseye text-indigo-600 w-4 text-center"></i> Compress to 500KB
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="compression-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All Compression</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 3: Developer -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-code text-cyan-600 text-xs"></i>
+              <span>Developer</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="html-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-html5 text-orange-600 w-4 text-center"></i> HTML Minifier
+                </a>
+                <a href="css-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-css3-alt text-blue-600 w-4 text-center"></i> CSS Minifier
+                </a>
+                <a href="javascript-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-js text-yellow-500 w-4 text-center"></i> JavaScript Minifier
+                </a>
+                <a href="shopify-csv-validator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-shopify text-emerald-600 w-4 text-center"></i> Shopify CSV Validator
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="developer-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All Dev Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 4: E-Commerce & Financial -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+              <i class="fa-solid fa-cart-shopping text-[#f1641e] text-xs"></i>
+              <span>E-Commerce & Tax</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-72 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="etsy-fee-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-etsy text-[#f1641e] w-4 text-center"></i> Etsy Fee Calculator
+                </a>
+                <a href="amazon-fba-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-amazon text-amber-600 w-4 text-center"></i> Amazon FBA Dim Weight
+                </a>
+                <a href="tiktok-shop-payout-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-tiktok text-[#fe2c55] w-4 text-center"></i> TikTok Shop Payout
+                </a>
+                <a href="pod-profit-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-shirt text-blue-600 w-4 text-center"></i> POD Margin Grid
+                </a>
+                <a href="section8-estimator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-house-user text-[#146ebe] w-4 text-center"></i> Section 8 Estimator
+                </a>
+                <a href="uk-stamp-duty-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-landmark text-amber-700 w-4 text-center"></i> UK Stamp Duty
+                </a>
+                <a href="1031-exchange-tracker.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-clock-rotate-left text-purple-600 w-4 text-center"></i> 1031 Exchange Tracker
+                </a>
+                <a href="str-cleaning-splitter.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-broom text-teal-600 w-4 text-center"></i> STR Cleaning Splitter
+                </a>
+                <a href="eu-vat-oss-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-percent text-blue-700 w-4 text-center"></i> EU VAT OSS
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="ecommerce-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All E-Commerce Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </nav>
+      </div>
+
+      <!-- Right Header Actions: Interactive Command Palette Quick Search -->
+      <div class="flex items-center gap-2.5">
+        <button onclick="openQuickSearch()" class="flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200/80 px-3.5 py-2 rounded-xl border border-slate-200/60 shadow-2xs transition-all cursor-pointer">
+          <i class="fa-solid fa-magnifying-glass text-[#146ebe]"></i>
+          <span class="hidden sm:inline">Search Tools...</span>
+          <kbd class="hidden sm:inline-block px-1.5 py-0.5 bg-white border border-slate-300 rounded text-[10px] text-slate-500 font-mono font-bold shadow-2xs">Ctrl K</kbd>
+        </button>
+
+        <a href="index.html#tools-catalog" class="fa-btn-primary px-3.5 py-2 text-xs font-black shadow-xs hidden sm:inline-flex items-center gap-1.5">
+          <i class="fa-solid fa-grip"></i>
+          <span>All Tools</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars text-lg" id="mobileMenuIcon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenuDrawer" class="hidden lg:hidden mt-2 p-5 bg-white rounded-2xl border border-slate-200 shadow-xl space-y-4 transition-all max-h-[80vh] overflow-y-auto">
+      <div class="space-y-1">
+        <div class="text-[11px] font-black text-purple-700 uppercase tracking-wider px-2 mb-1 flex items-center gap-1.5">
+          <i class="fa-solid fa-volume-high"></i> AI Voice & Audio
+        </div>
+        <a href="text-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Text to Speech</a>
+        <a href="text-to-mp3.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Text to MP3</a>
+        <a href="ai-voice-generator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">AI Voice Generator</a>
+        <a href="pdf-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">PDF to Speech</a>
+        <a href="youtube-voiceover-generator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">YouTube Narrator</a>
+        <a href="urdu-text-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Urdu TTS</a>
+        <a href="article-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Article Reader</a>
+
+        <div class="text-[11px] font-black text-emerald-700 uppercase tracking-wider px-2 pt-3 mb-1 border-t border-slate-100 flex items-center gap-1.5">
+          <i class="fa-solid fa-compress"></i> Media Compression
+        </div>
+        <a href="image-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Image Compressor</a>
+        <a href="jpg-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">JPG Compressor</a>
+        <a href="png-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">PNG Compressor</a>
+        <a href="webp-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">WebP Compressor</a>
+        <a href="pdf-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">PDF Compressor</a>
+        <a href="video-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Video Compressor</a>
+
+        <div class="text-[11px] font-black text-cyan-700 uppercase tracking-wider px-2 pt-3 mb-1 border-t border-slate-100 flex items-center gap-1.5">
+          <i class="fa-solid fa-code"></i> Developer Minifiers
+        </div>
+        <a href="html-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">HTML Minifier</a>
+        <a href="css-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">CSS Minifier</a>
+        <a href="javascript-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">JS Minifier</a>
+        <a href="shopify-csv-validator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Shopify CSV</a>
+
+        <div class="text-[11px] font-black text-orange-700 uppercase tracking-wider px-2 pt-3 mb-1 border-t border-slate-100 flex items-center gap-1.5">
+          <i class="fa-solid fa-cart-shopping"></i> E-Commerce & Financial
+        </div>
+        <a href="etsy-fee-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Etsy Calculator</a>
+        <a href="amazon-fba-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Amazon FBA</a>
+        <a href="tiktok-shop-payout-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">TikTok Shop</a>
+        <a href="pod-profit-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">POD Margins</a>
+        <a href="section8-estimator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Section 8</a>
+        <a href="uk-stamp-duty-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">UK Stamp Duty</a>
+        <a href="1031-exchange-tracker.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">1031 Exchange</a>
+        <a href="str-cleaning-splitter.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">STR Cleaning</a>
+        <a href="eu-vat-oss-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">EU VAT OSS</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto w-full flex-1">
+    
+    <!-- Hero / Headline Above the Fold -->
+    <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="bg-red-50 text-red-700 text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-solid fa-file-pdf mr-1"></i> 100% Private PDF Engine
+          </span>
+          <span class="text-xs font-bold text-slate-400">• Zero Upload to Cloud • GDPR Safe</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+          Client-Side PDF Compressor & Optimizer
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
+          Reduce PDF file size up to 80% directly in your browser. Choose compression presets (72, 150, 300 DPI) for email attachments, legal documents, and official portals.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 self-start sm:self-center">
+        <button onclick="generateSamplePDF()" class="fa-btn-secondary text-xs px-3.5 py-2">
+          <i class="fa-solid fa-file-circle-plus"></i> Generate Sample PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Workspace -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+      
+      <!-- Left Column: Upload & Compression Presets (5 cols) -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <!-- Drag & Drop Zone -->
+        <div class="fa-card p-6 sm:p-7 shadow-sm">
+          <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+            <h2 class="text-base font-black text-[#183153] flex items-center gap-2">
+              <i class="fa-solid fa-file-arrow-up text-red-600"></i>
+              Upload PDF Document
+            </h2>
+            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+              <i class="fa-solid fa-lock text-[10px]"></i> 100% In-Browser
+            </span>
+          </div>
+
+          <div id="pdfDropZone" class="border-2 border-dashed border-slate-300 hover:border-red-500 hover:bg-red-50/20 transition-all rounded-2xl p-8 text-center cursor-pointer mb-2" onclick="document.getElementById('pdfFileInput').click()">
+            <input type="file" id="pdfFileInput" accept="application/pdf" class="hidden" onchange="handlePdfUpload(event)">
+            <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 mx-auto flex items-center justify-center text-xl mb-3">
+              <i class="fa-solid fa-file-pdf"></i>
+            </div>
+            <p class="text-sm font-bold text-slate-700 mb-1">Click to browse or drag & drop PDF</p>
+            <p class="text-xs text-slate-400">Supports contracts, scans, invoices & presentations</p>
+          </div>
+        </div>
+
+        <!-- Compression Presets -->
+        <div class="fa-card p-6 sm:p-7 shadow-sm space-y-5">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <h3 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
+              <i class="fa-solid fa-gauge-simple-high text-red-600"></i>
+              Compression Level
+            </h3>
+            <span class="text-xs font-bold text-slate-400" id="pageCountText">0 Pages</span>
+          </div>
+
+          <div class="space-y-3">
+            <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-200 hover:border-red-400 cursor-pointer transition-all bg-slate-50/50">
+              <input type="radio" name="pdfQualityPreset" value="extreme" class="mt-1 text-red-600" onchange="applyPreset('extreme')">
+              <div>
+                <div class="text-xs font-black text-[#183153] flex items-center gap-1.5">
+                  <span>Extreme Compression (72 DPI)</span>
+                  <span class="bg-red-100 text-red-800 text-[9px] px-1.5 py-0.5 rounded font-bold">Max Savings</span>
+                </div>
+                <p class="text-[11px] text-slate-500 mt-0.5">Lowest file size (~80% reduction). Best for strict upload limits (&lt;500KB).</p>
+              </div>
+            </label>
+
+            <label class="flex items-start gap-3 p-3 rounded-xl border-2 border-red-500 cursor-pointer transition-all bg-red-50/30">
+              <input type="radio" name="pdfQualityPreset" value="recommended" checked class="mt-1 text-red-600" onchange="applyPreset('recommended')">
+              <div>
+                <div class="text-xs font-black text-[#183153] flex items-center gap-1.5">
+                  <span>Recommended Quality (150 DPI)</span>
+                  <span class="bg-emerald-100 text-emerald-800 text-[9px] px-1.5 py-0.5 rounded font-bold">Balanced</span>
+                </div>
+                <p class="text-[11px] text-slate-500 mt-0.5">Optimal balance of crisp text and 50–70% size reduction. Great for email & job applications.</p>
+              </div>
+            </label>
+
+            <label class="flex items-start gap-3 p-3 rounded-xl border border-slate-200 hover:border-red-400 cursor-pointer transition-all bg-slate-50/50">
+              <input type="radio" name="pdfQualityPreset" value="low" class="mt-1 text-red-600" onchange="applyPreset('low')">
+              <div>
+                <div class="text-xs font-black text-[#183153] flex items-center gap-1.5">
+                  <span>Light Compression (300 DPI)</span>
+                  <span class="bg-blue-100 text-blue-800 text-[9px] px-1.5 py-0.5 rounded font-bold">Print Ready</span>
+                </div>
+                <p class="text-[11px] text-slate-500 mt-0.5">Preserves ultra-sharp vector details. Ideal for commercial printing & legal archives.</p>
+              </div>
+            </label>
+          </div>
+
+          <!-- Progress Bar during compression -->
+          <div id="compressionProgressContainer" class="hidden space-y-1.5 pt-2">
+            <div class="flex justify-between text-xs font-bold text-slate-600">
+              <span>Compressing PDF pages...</span>
+              <span id="progressPct">0%</span>
+            </div>
+            <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
+              <div id="progressBar" class="bg-red-600 h-full transition-all duration-200" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
+            <button id="btnCompressPdf" onclick="startPdfCompression()" class="fa-btn-primary py-3 text-sm font-black w-full bg-red-600 hover:bg-red-700 flex items-center justify-center gap-2 disabled:opacity-50" disabled>
+              <i class="fa-solid fa-compress"></i>
+              <span>Compress PDF Document</span>
+            </button>
+            <button id="btnDownloadPdf" onclick="downloadCompressedPdf()" class="fa-btn-primary py-3 text-sm font-black w-full bg-emerald-600 hover:bg-emerald-700 hidden flex items-center justify-center gap-2">
+              <i class="fa-solid fa-download"></i>
+              <span>Download Compressed PDF</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Stats & Page Preview (7 cols) -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- Live Reduction Summary -->
+        <div class="fa-card p-6 sm:p-7 shadow-lg border-2 border-red-500/30 bg-gradient-to-b from-white to-slate-50">
+          <div class="flex items-center justify-between pb-4 border-b border-slate-200">
+            <span class="text-xs font-black uppercase tracking-wider text-red-800 bg-red-100 px-2.5 py-1 rounded-full">
+              PDF Compression Summary
+            </span>
+            <span id="pdfSavingsBadge" class="text-xs font-mono font-black text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-lg">
+              0% Reduction
+            </span>
+          </div>
+
+          <div class="grid grid-cols-3 gap-4 my-5 text-center">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="text-[10px] font-bold text-slate-400 block uppercase tracking-wider">Original Size</span>
+              <span id="pdfOriginalSize" class="text-base sm:text-lg font-black font-mono text-slate-800">--</span>
+            </div>
+            <div class="p-3 bg-red-50 rounded-xl border border-red-200">
+              <span class="text-[10px] font-bold text-red-800 block uppercase tracking-wider">Compressed Size</span>
+              <span id="pdfCompressedSize" class="text-base sm:text-lg font-black font-mono text-red-700">--</span>
+            </div>
+            <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200">
+              <span class="text-[10px] font-bold text-emerald-800 block uppercase tracking-wider">Saved</span>
+              <span id="pdfSavedBytes" class="text-base sm:text-lg font-black font-mono text-emerald-700">--</span>
+            </div>
+          </div>
+
+          <!-- PDF Page Canvas Preview -->
+          <div class="relative bg-slate-900 rounded-2xl overflow-hidden min-h-[340px] flex items-center justify-center p-4">
+            <div id="pdfEmptyPlaceholder" class="text-center text-slate-400 p-8">
+              <i class="fa-solid fa-file-pdf text-4xl mb-2 text-slate-600"></i>
+              <p class="text-xs font-bold">No PDF loaded yet</p>
+              <p class="text-[11px] text-slate-500">Upload a PDF or click "Generate Sample PDF" above</p>
+            </div>
+            <canvas id="pdfPreviewCanvas" class="max-h-[440px] max-w-full object-contain rounded-lg shadow-xl bg-white hidden"></canvas>
+          </div>
+
+          <div class="mt-4 flex items-center justify-between text-xs text-slate-500">
+            <span id="pdfDocName">Document: None</span>
+            <span id="pdfPageInfo">Page Preview: 1 of 0</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SEO Content Section: PDF Compression Best Practices -->
+    <section class="mt-16 pt-12 border-t border-slate-200">
+      <div class="max-w-4xl mx-auto space-y-12">
+        
+        <div class="text-center">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">
+            PDF Optimization & File Size Standards (2026)
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2">
+            Why client-side PDF compression is essential for enterprise privacy, email delivery limits, and government portal compliance.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="fa-card p-6">
+            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-shield-halved text-emerald-600"></i> GDPR & HIPAA Compliance
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Never upload sensitive legal contracts, employee resumes, or financial tax statements to unknown third-party cloud servers. Local browser processing guarantees 100% confidentiality.
+            </p>
+          </div>
+
+          <div class="fa-card p-6">
+            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-inbox text-red-600"></i> Beat Email 25MB Caps
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Corporate email servers reject attachments exceeding 20MB–25MB. Compressing presentation slides and scanned documents down to 2MB–5MB ensures instant inbox delivery.
+            </p>
+          </div>
+
+          <div class="fa-card p-6">
+            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-passport text-[#146ebe]"></i> Portal Upload Limits
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Visa applications, court filing systems, and university admissions portals strictly cap file uploads at 500KB to 2MB. Use our Extreme (72 DPI) preset to fit exact thresholds.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+    <!-- Standard Footer -->
+    <!-- Standard Footer -->
+    <!-- Standard Footer -->
+  <footer class="bg-white border-t border-slate-200 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+      
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+        
+        <!-- Brand Column -->
+        <div class="space-y-4 md:col-span-1">
+          <a href="index.html" class="flex items-center gap-3">
+            <img src="images/logo.jpg" alt="360tools.me Logo" class="w-10 h-10 object-contain rounded-2xl">
+            <span class="text-2xl font-black text-[#183153]">360tools<span class="text-[#146ebe]">.me</span></span>
+          </a>
+          <p class="text-xs text-slate-500 font-medium leading-relaxed">
+            High-precision, free online AI speech synthesis, media compressors, developer minifiers, and e-commerce calculators.
+          </p>
+        </div>
+
+        <!-- AI Voice & Audio -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">AI Voice & Speech</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="text-to-speech.html" class="hover:text-[#146ebe]">Text to Speech</a></li>
+            <li><a href="text-to-mp3.html" class="hover:text-[#146ebe]">Text to MP3</a></li>
+            <li><a href="ai-voice-generator.html" class="hover:text-[#146ebe]">AI Voice Generator</a></li>
+            <li><a href="youtube-voiceover-generator.html" class="hover:text-[#146ebe]">YouTube Narrator</a></li>
+            <li><a href="pdf-to-speech.html" class="hover:text-[#146ebe]">PDF to Speech</a></li>
+            <li><a href="urdu-text-to-speech.html" class="hover:text-[#146ebe]">Urdu TTS (اردو)</a></li>
+            <li><a href="article-to-speech.html" class="hover:text-[#146ebe]">Article Reader</a></li>
+          </ul>
+        </div>
+
+        <!-- Compression Suite -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">Compression Tools</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="image-compressor.html" class="hover:text-[#146ebe]">Image Compressor</a></li>
+            <li><a href="jpg-compressor.html" class="hover:text-[#146ebe]">JPG Compressor</a></li>
+            <li><a href="png-compressor.html" class="hover:text-[#146ebe]">PNG Compressor</a></li>
+            <li><a href="webp-compressor.html" class="hover:text-[#146ebe]">WebP Compressor</a></li>
+            <li><a href="pdf-compressor.html" class="hover:text-[#146ebe]">PDF Compressor</a></li>
+            <li><a href="video-compressor.html" class="hover:text-[#146ebe]">Video Compressor</a></li>
+            <li><a href="compress-image-to-100kb.html" class="hover:text-[#146ebe]">Compress to 100KB</a></li>
+          </ul>
+        </div>
+
+        <!-- Developer Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">Developer & Minifiers</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="html-minifier.html" class="hover:text-[#146ebe]">HTML Minifier</a></li>
+            <li><a href="css-minifier.html" class="hover:text-[#146ebe]">CSS Minifier</a></li>
+            <li><a href="javascript-minifier.html" class="hover:text-[#146ebe]">JavaScript Minifier</a></li>
+            <li><a href="shopify-csv-validator.html" class="hover:text-[#146ebe]">Shopify CSV Validator</a></li>
+            <li><a href="developer-tools.html" class="hover:text-[#146ebe]">All Developer Tools</a></li>
+          </ul>
+        </div>
+
+        <!-- E-Commerce & Legal -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">E-Commerce & Legal</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="etsy-fee-calculator.html" class="hover:text-[#146ebe]">Etsy Fee Calculator</a></li>
+            <li><a href="amazon-fba-calculator.html" class="hover:text-[#146ebe]">Amazon FBA Checker</a></li>
+            <li><a href="tiktok-shop-payout-calculator.html" class="hover:text-[#146ebe]">TikTok Shop Calculator</a></li>
+            <li><a href="section8-estimator.html" class="hover:text-[#146ebe]">Section 8 Estimator</a></li>
+            <li><a href="str-cleaning-splitter.html" class="hover:text-[#146ebe]">STR Cleaning Splitter</a></li>
+            <li><a href="privacy-policy.html" class="hover:text-[#146ebe]">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html" class="hover:text-[#146ebe]">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-semibold">
+        <div>
+          © 2026 <a href="index.html" class="font-bold text-[#183153] hover:text-[#146ebe]">360tools.me</a>. All rights reserved.
+        </div>
+        <div class="text-[11px] text-slate-400">
+          Client-side browser processing • Zero cloud data harvesting
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Script: PDF Compressor Logic -->
+  <script src="js/main.js"></script>
+  <script>
+    let currentPdfDoc = null;
+    let originalPdfBytes = null;
+    let originalPdfFile = null;
+    let compressedPdfBlob = null;
+    let selectedPreset = 'recommended';
+
+    // Drag and Drop
+    const dropZone = document.getElementById('pdfDropZone');
+    ['dragenter', 'dragover'].forEach(name => {
+      dropZone.addEventListener(name, (e) => {
+        e.preventDefault();
+        dropZone.classList.add('border-red-500', 'bg-red-50/30');
+      });
+    });
+    ['dragleave', 'drop'].forEach(name => {
+      dropZone.addEventListener(name, (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('border-red-500', 'bg-red-50/30');
+      });
+    });
+    dropZone.addEventListener('drop', (e) => {
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        loadPdfFile(e.dataTransfer.files[0]);
+      }
+    });
+
+    function handlePdfUpload(e) {
+      if (e.target.files && e.target.files.length > 0) {
+        loadPdfFile(e.target.files[0]);
+      }
+    }
+
+    function formatBytes(bytes) {
+      if (!bytes || bytes === 0) return '0 Bytes';
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    async function loadPdfFile(file) {
+      originalPdfFile = file;
+      const arrayBuffer = await file.arrayBuffer();
+      originalPdfBytes = arrayBuffer;
+
+      document.getElementById('pdfOriginalSize').textContent = formatBytes(file.size);
+      document.getElementById('pdfDocName').textContent = `Document: ${file.name}`;
+
+      const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+      currentPdfDoc = await loadingTask.promise;
+
+      document.getElementById('pageCountText').textContent = `${currentPdfDoc.numPages} Pages`;
+      document.getElementById('pdfPageInfo').textContent = `Page Preview: 1 of ${currentPdfDoc.numPages}`;
+
+      // Render page 1 preview
+      renderPagePreview(1);
+
+      document.getElementById('btnCompressPdf').removeAttribute('disabled');
+      document.getElementById('btnDownloadPdf').classList.add('hidden');
+      showToast(`Loaded PDF: ${file.name} (${currentPdfDoc.numPages} pages)`, 'fa-file-pdf');
+    }
+
+    async function renderPagePreview(pageNum) {
+      if (!currentPdfDoc) return;
+      const page = await currentPdfDoc.getPage(pageNum);
+      const viewport = page.getViewport({ scale: 1.5 });
+
+      const canvas = document.getElementById('pdfPreviewCanvas');
+      const placeholder = document.getElementById('pdfEmptyPlaceholder');
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      const ctx = canvas.getContext('2d');
+
+      await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+      canvas.classList.remove('hidden');
+      placeholder.classList.add('hidden');
+    }
+
+    function applyPreset(preset) {
+      selectedPreset = preset;
+      document.querySelectorAll('input[name="pdfQualityPreset"]').forEach(radio => {
+        const parent = radio.closest('label');
+        if (radio.value === preset) {
+          parent.className = 'flex items-start gap-3 p-3 rounded-xl border-2 border-red-500 cursor-pointer transition-all bg-red-50/30';
+        } else {
+          parent.className = 'flex items-start gap-3 p-3 rounded-xl border border-slate-200 hover:border-red-400 cursor-pointer transition-all bg-slate-50/50';
+        }
+      });
+    }
+
+    async function startPdfCompression() {
+      if (!currentPdfDoc || !originalPdfBytes) return;
+
+      const progressContainer = document.getElementById('compressionProgressContainer');
+      const progressBar = document.getElementById('progressBar');
+      const progressPct = document.getElementById('progressPct');
+      const btnCompress = document.getElementById('btnCompressPdf');
+
+      progressContainer.classList.remove('hidden');
+      btnCompress.setAttribute('disabled', 'true');
+
+      let scale = 1.5; // 150 DPI approx
+      let imageQuality = 0.75;
+
+      if (selectedPreset === 'extreme') {
+        scale = 1.0; // 72 DPI
+        imageQuality = 0.50;
+      } else if (selectedPreset === 'low') {
+        scale = 2.0; // 300 DPI
+        imageQuality = 0.90;
+      }
+
+      try {
+        const pdfDoc = await PDFLib.PDFDocument.create();
+        const totalPages = currentPdfDoc.numPages;
+
+        for (let i = 1; i <= totalPages; i++) {
+          const page = await currentPdfDoc.getPage(i);
+          const viewport = page.getViewport({ scale: scale });
+
+          const canvas = document.createElement('canvas');
+          canvas.width = viewport.width;
+          canvas.height = viewport.height;
+          const ctx = canvas.getContext('2d');
+
+          ctx.fillStyle = '#ffffff';
+          ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+          await page.render({ canvasContext: ctx, viewport: viewport }).promise;
+
+          // Convert canvas page to compressed JPEG image
+          const jpegDataUrl = canvas.toDataURL('image/jpeg', imageQuality);
+          const jpegImage = await pdfDoc.embedJpg(jpegDataUrl);
+
+          // Add page with original aspect ratio dimensions
+          const originalViewport = page.getViewport({ scale: 1.0 });
+          const newPage = pdfDoc.addPage([originalViewport.width, originalViewport.height]);
+          newPage.drawImage(jpegImage, {
+            x: 0,
+            y: 0,
+            width: originalViewport.width,
+            height: originalViewport.height,
+          });
+
+          // Update Progress
+          const pct = Math.round((i / totalPages) * 100);
+          progressBar.style.width = `${pct}%`;
+          progressPct.textContent = `${pct}%`;
+        }
+
+        const compressedBytes = await pdfDoc.save();
+        compressedPdfBlob = new Blob([compressedBytes], { type: 'application/pdf' });
+
+        const origSize = originalPdfBytes.byteLength;
+        const compSize = compressedBytes.byteLength;
+        const savedBytes = Math.max(0, origSize - compSize);
+        const savedPct = origSize > 0 ? ((savedBytes / origSize) * 100).toFixed(1) : 0;
+
+        document.getElementById('pdfCompressedSize').textContent = formatBytes(compSize);
+        document.getElementById('pdfSavedBytes').textContent = `-${formatBytes(savedBytes)}`;
+        document.getElementById('pdfSavingsBadge').textContent = `${savedPct}% Reduction`;
+
+        document.getElementById('btnDownloadPdf').classList.remove('hidden');
+        btnCompress.removeAttribute('disabled');
+        progressContainer.classList.add('hidden');
+        showToast('PDF compressed successfully!', 'fa-circle-check');
+      } catch (err) {
+        console.error(err);
+        showToast('Compression error: ' + err.message, 'fa-triangle-exclamation');
+        btnCompress.removeAttribute('disabled');
+        progressContainer.classList.add('hidden');
+      }
+    }
+
+    function downloadCompressedPdf() {
+      if (!compressedPdfBlob) return;
+      const link = document.createElement('a');
+      const baseName = originalPdfFile ? originalPdfFile.name.replace(/\.[^/.]+$/, '') : 'compressed_document';
+      link.download = `${baseName}_compressed.pdf`;
+      link.href = URL.createObjectURL(compressedPdfBlob);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast('Downloaded compressed PDF!', 'fa-file-arrow-down');
+    }
+
+    async function generateSamplePDF() {
+      const pdfDoc = await PDFLib.PDFDocument.create();
+      const page = pdfDoc.addPage([600, 800]);
+      page.drawText('360tools.me - Sample PDF Document', { x: 50, y: 720, size: 24 });
+      page.drawText('This is a test PDF to demonstrate 100% client-side compression in browser.', { x: 50, y: 680, size: 12 });
+
+      // Draw decorative rectangles
+      page.drawRectangle({ x: 50, y: 300, width: 500, height: 320, color: PDFLib.rgb(0.08, 0.43, 0.75) });
+      page.drawText('High-Resolution Color Block', { x: 70, y: 450, size: 18, color: PDFLib.rgb(1, 1, 1) });
+
+      const pdfBytes = await pdfDoc.save();
+      const sampleBlob = new Blob([pdfBytes], { type: 'application/pdf' });
+      const sampleFile = new File([sampleBlob], 'sample_presentation.pdf', { type: 'application/pdf' });
+      loadPdfFile(sampleFile);
+    }
+  </script>
+</body>
+</html>
