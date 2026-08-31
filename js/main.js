@@ -777,6 +777,33 @@ function renderGlobalFooter() {
           <div class="flex items-center gap-2">
             <span class="fa-badge-blue text-[10px]"><i class="fa-solid fa-shield-halved"></i> 100% In-Browser Private</span>
           </div>
+
+          <!-- Social Media Channels -->
+          <div class="pt-2 space-y-2">
+            <span class="text-[11px] font-black uppercase tracking-wider text-slate-400 block">Connect With Us</span>
+            <div class="flex items-center gap-2.5">
+              <a href="https://www.youtube.com/@360tools" target="_blank" rel="noopener noreferrer" 
+                class="w-8 h-8 rounded-xl bg-red-50 hover:bg-red-600 text-red-600 hover:text-white flex items-center justify-center text-sm transition-all shadow-2xs hover:scale-110" 
+                title="YouTube" aria-label="YouTube Channel">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+              <a href="https://www.facebook.com/360tools.me" target="_blank" rel="noopener noreferrer" 
+                class="w-8 h-8 rounded-xl bg-blue-50 hover:bg-[#1877f2] text-[#1877f2] hover:text-white flex items-center justify-center text-sm transition-all shadow-2xs hover:scale-110" 
+                title="Facebook" aria-label="Facebook Page">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com/360tools.me" target="_blank" rel="noopener noreferrer" 
+                class="w-8 h-8 rounded-xl bg-pink-50 hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] text-[#e1306c] hover:text-white flex items-center justify-center text-sm transition-all shadow-2xs hover:scale-110" 
+                title="Instagram" aria-label="Instagram Profile">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://360tools.me" 
+                class="w-8 h-8 rounded-xl bg-blue-50 hover:bg-[#146ebe] text-[#146ebe] hover:text-white flex items-center justify-center text-sm transition-all shadow-2xs hover:scale-110" 
+                title="360tools.me Website" aria-label="360tools.me Official Website">
+                <i class="fa-solid fa-globe"></i>
+              </a>
+            </div>
+          </div>
         </div>
 
         <!-- Audio & Voice -->
@@ -841,7 +868,20 @@ function renderGlobalFooter() {
       <!-- Bottom Copyright Bar -->
       <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-semibold">
         <div>© 2026 <a href="index.html" class="font-bold text-[#183153] hover:text-[#146ebe]">360tools.me</a>. All rights reserved.</div>
-        <div class="text-[11px] text-slate-400">Client-side browser processing • Zero cloud data harvesting</div>
+        <div class="flex items-center gap-3">
+          <a href="https://www.youtube.com/@360tools" target="_blank" rel="noopener noreferrer" class="hover:text-red-600 transition-colors flex items-center gap-1 font-bold">
+            <i class="fa-brands fa-youtube text-xs text-red-600"></i> YouTube
+          </a>
+          <span>•</span>
+          <a href="https://www.facebook.com/360tools.me" target="_blank" rel="noopener noreferrer" class="hover:text-[#1877f2] transition-colors flex items-center gap-1 font-bold">
+            <i class="fa-brands fa-facebook text-xs text-[#1877f2]"></i> Facebook
+          </a>
+          <span>•</span>
+          <a href="https://www.instagram.com/360tools.me" target="_blank" rel="noopener noreferrer" class="hover:text-[#e1306c] transition-colors flex items-center gap-1 font-bold">
+            <i class="fa-brands fa-instagram text-xs text-[#e1306c]"></i> Instagram
+          </a>
+        </div>
+        <div class="text-[11px] text-slate-400">Client-side browser processing • Zero data harvest</div>
       </div>
     </div>
   `;
