@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="2W-yLM0M7MhCp-e7mGbKlLwz_l2N5_OEl-Dk2VGnFuc" />
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Free Online Invoice Generator & PDF Maker | 100% Client-Side Private — 360tools.me</title>
+  <meta name="title" content="Free Online Invoice Generator & PDF Maker | 100% Client-Side Private — 360tools.me">
+  <meta name="description" content="Create professional PDF invoices online for free. 100% client-side privacy, company logo upload, multi-currency support, custom tax/discount rates, and multiple printable cards themes. Zero data harvest.">
+  <meta name="keywords" content="free invoice generator, online invoice maker, client side pdf invoice, freelancer invoice tool, printable receipt generator, pdf bill creator, zero data harvest invoice, tax invoice template">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/invoice-generator.html">
+
+  <!-- Favicon & Open Graph -->
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/invoice-generator.html">
+  <meta property="og:title" content="Free Online Invoice Generator & PDF Maker | 360tools.me">
+  <meta property="og:description" content="Professional free online invoice generator. Create, customize, and export printable A4 PDF invoices instantly in browser.">
+  <meta property="og:image" content="images/logo.jpg">
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Online Invoice Generator & PDF Maker | 360tools.me">
+  <meta name="twitter:description" content="100% Private, client-side online invoice generator. Logo upload, multi-currency, and printable A4 themes.">
+  <meta name="twitter:image" content="images/logo.jpg">
+
+  <!-- JSON-LD Structured Data: WebApplication Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "360tools Free Online Invoice Generator",
+    "url": "https://360tools.me/invoice-generator.html",
+    "description": "Professional client-side invoice generator tool for freelancers, agency owners, and small businesses with PDF export and multi-currency calculation.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is the 360tools Invoice Generator really 100% free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! The Invoice Generator is completely free to use with unlimited invoices, zero sign-up required, and no hidden fees."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my client or business data saved on your servers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Never. All invoice calculations, client details, and logo uploads run 100% locally in your web browser. Data is never transmitted to any external server."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I save or download my generated invoice as a PDF?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Click the 'Print / Save PDF' button at the top or press Ctrl+P / Cmd+P. Select 'Save as PDF' as your printer destination in the browser print dialog."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ==========================================================================
+       Print & PDF Export Optimization Rules (High Precision A4 Standard)
+       ========================================================================== */
+    @page {
+      size: A4 portrait;
+      margin: 10mm 12mm 10mm 12mm;
+    }
+
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        box-shadow: none !important;
+      }
+
+      html, body {
+        background: #ffffff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        color: #0f172a !important;
+        font-size: 11pt !important;
+      }
+
+      .no-print,
+      header,
+      footer,
+      #mobileAppBottomNav,
+      #editorPanel,
+      .top-announcement,
+      .action-toolbar,
+      .mobile-view-tabs {
+        display: none !important;
+      }
+
+      #previewPanel,
+      #previewWrapper {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+        position: static !important;
+      }
+
+      .invoice-sheet {
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        border-radius: 0 !important;
+        background: #ffffff !important;
+      }
+
+      /* Table & Section Page Break Protection */
+      table, tr, td, th, .theme-header, .invoice-totals-box {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+    }
+
+    /* Template Themes Styling */
+    /* Theme 1: Modern Minimal (Default) */
+    .template-modern {
+      font-family: var(--font-sans);
+    }
+    .template-modern .theme-header {
+      border-bottom: 2px solid #146ebe;
+      padding-bottom: 1.25rem;
+    }
+    .template-modern .theme-accent-bg {
+      background-color: #f0f7ff;
+    }
+    .template-modern .theme-table-header {
+      background-color: #183153 !important;
+      color: #ffffff !important;
+    }
+
+    /* Theme 2: Corporate Navy */
+    .template-corporate .theme-header {
+      background: linear-gradient(135deg, #0f1c2e, #183153) !important;
+      color: #ffffff !important;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+    .template-corporate .theme-header h1,
+    .template-corporate .theme-header p,
+    .template-corporate .theme-header span {
+      color: #ffffff !important;
+    }
+    .template-corporate .theme-table-header {
+      background-color: #25406b !important;
+      color: #ffffff !important;
+    }
+    .template-corporate .theme-accent-bg {
+      background-color: #f1f5f9;
+    }
+
+    /* Theme 3: Compact Creative */
+    .template-compact .theme-header {
+      border-left: 6px solid #20c997;
+      padding-left: 1.25rem;
+    }
+    .template-compact .theme-table-header {
+      background-color: #e6fcf5 !important;
+      color: #0ca678 !important;
+      border-bottom: 2px solid #20c997;
+    }
+    .template-compact .theme-accent-bg {
+      background-color: #e6fcf5;
+    }
+
+    /* Theme 4: Executive Slate */
+    .template-executive .theme-header {
+      background-color: #1e293b !important;
+      color: #ffffff !important;
+      padding: 1.5rem;
+      border-top: 4px solid #ffd43b;
+    }
+    .template-executive .theme-header h1,
+    .template-executive .theme-header p {
+      color: #ffffff !important;
+    }
+    .template-executive .theme-table-header {
+      background-color: #334155 !important;
+      color: #ffffff !important;
+    }
+    .template-executive .theme-accent-bg {
+      background-color: #f8fafc;
+    }
+
+    /* Theme Selector Card Styling */
+    .theme-card {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .theme-card.active {
+      border-color: #146ebe !important;
+      background-color: #f0f7ff !important;
+      box-shadow: 0 4px 12px rgba(20, 110, 190, 0.12) !important;
+    }
+    .theme-card.active .check-badge {
+      display: flex !important;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#f8fafc]">
+
+  <!-- Top Global Announcement Banner -->
+  <div class="no-print bg-[#183153] text-white text-xs py-2 px-4 text-center font-semibold border-b border-[#25406b] hidden sm:flex items-center justify-center gap-2">
+    <span class="bg-[#ffd43b] text-[#183153] px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wide">New Module</span>
+    <span>100% Client-Side Free Online Invoice Generator & PDF Exporter</span>
+    <a href="index.html" class="text-[#ffd43b] hover:underline font-bold ml-1 inline-flex items-center gap-1">All Tools <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="no-print max-w-7xl mx-auto w-full sticky top-3 z-50 px-4 sm:px-6 my-2">
+    <div class="bg-white/95 backdrop-blur-md border border-slate-200/80 rounded-2xl shadow-xs px-5 py-3 flex items-center justify-between transition-all">
+      
+      <!-- Brand Logo & Desktop Nav -->
+      <div class="flex items-center gap-8">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="images/logo.jpg" alt="360tools.me Logo" class="w-9 h-9 object-contain rounded-xl group-hover:scale-105 transition-transform">
+          <span class="text-xl sm:text-2xl font-black text-[#183153] tracking-tight">360tools<span class="text-[#146ebe]">.me</span></span>
+        </a>
+
+        <!-- Desktop Navigation with Quick Dropdowns -->
+        <nav class="hidden lg:flex items-center gap-1 text-xs font-bold text-slate-700">
+          
+          <!-- Dropdown 1: Audio & Voice -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all cursor-pointer">
+              <i class="fa-solid fa-volume-high text-purple-600 text-xs"></i>
+              <span>Audio & Voice</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="text-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-volume-high text-[#146ebe] w-4 text-center"></i> Text to Speech
+                </a>
+                <a href="text-to-mp3.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-audio text-emerald-600 w-4 text-center"></i> Text to MP3
+                </a>
+                <a href="ai-voice-generator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-wand-magic-sparkles text-purple-600 w-4 text-center"></i> AI Voice Generator
+                </a>
+                <a href="pdf-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-pdf text-red-600 w-4 text-center"></i> PDF to Speech
+                </a>
+                <a href="youtube-voiceover-generator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-youtube text-rose-600 w-4 text-center"></i> YouTube Voiceovers
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 2: Compression -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all cursor-pointer">
+              <i class="fa-solid fa-compress text-emerald-600 text-xs"></i>
+              <span>Compression</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="image-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-image text-emerald-600 w-4 text-center"></i> Image Compressor
+                </a>
+                <a href="pdf-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-file-pdf text-red-600 w-4 text-center"></i> PDF Compressor
+                </a>
+                <a href="video-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-solid fa-video text-rose-600 w-4 text-center"></i> Video Compressor
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 3: Developer -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all cursor-pointer">
+              <i class="fa-solid fa-code text-cyan-600 text-xs"></i>
+              <span>Developer</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="html-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-html5 text-orange-600 w-4 text-center"></i> HTML Minifier
+                </a>
+                <a href="css-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-css3-alt text-blue-600 w-4 text-center"></i> CSS Minifier
+                </a>
+                <a href="javascript-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-js text-yellow-500 w-4 text-center"></i> JavaScript Minifier
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 4: E-Commerce & Finance -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all cursor-pointer">
+              <i class="fa-solid fa-cart-shopping text-[#f1641e] text-xs"></i>
+              <span>E-Commerce & Tax</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-72 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
+                <a href="invoice-generator.html" class="flex items-center gap-2.5 p-2 bg-blue-50/70 rounded-xl text-xs font-black text-[#146ebe] hover:bg-blue-100 transition-all">
+                  <i class="fa-solid fa-file-invoice-dollar text-[#146ebe] w-4 text-center"></i> Invoice Generator
+                </a>
+                <a href="etsy-fee-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-etsy text-[#f1641e] w-4 text-center"></i> Etsy Fee Calculator
+                </a>
+                <a href="amazon-fba-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                  <i class="fa-brands fa-amazon text-amber-600 w-4 text-center"></i> Amazon FBA Dim Weight
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Dedicated Tab: Invoice Generator -->
+          <a href="invoice-generator.html" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-blue-50 text-[#146ebe] font-black transition-all">
+            <i class="fa-solid fa-file-invoice-dollar text-xs"></i>
+            <span>Invoice Maker</span>
+          </a>
+
+        </nav>
+      </div>
+
+      <!-- Right Actions -->
+      <div class="flex items-center gap-2.5">
+        <button onclick="openQuickSearch()" class="flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200/80 px-3.5 py-2 rounded-xl border border-slate-200/60 shadow-2xs transition-all cursor-pointer">
+          <i class="fa-solid fa-magnifying-glass text-[#146ebe]"></i>
+          <span class="hidden sm:inline">Search Tools...</span>
+        </button>
+
+        <a href="index.html#tools-catalog" class="fa-btn-primary px-3.5 py-2 text-xs font-black shadow-xs hidden sm:inline-flex items-center gap-1.5">
+          <i class="fa-solid fa-grip"></i>
+          <span>All Tools</span>
+        </a>
+
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="max-w-7xl mx-auto w-full px-4 sm:px-6 py-4 flex-grow">
+    
+    <!-- Page Header & Action Bar -->
+    <div class="no-print mb-6">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <span class="fa-badge-blue"><i class="fa-solid fa-file-invoice-dollar"></i> Private & Free</span>
+            <span class="text-xs text-slate-400 font-bold">• 100% In-Browser Engine</span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">Free Online Invoice Generator</h1>
+          <p class="text-xs sm:text-sm text-slate-500 font-medium">Create, customize, and export professional PDF invoices instantly with zero sign-up.</p>
+        </div>
+
+        <!-- Quick Toolbar Controls -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="loadSampleData()" class="px-3 py-2 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl border border-slate-200 transition-all flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-wand-magic-sparkles text-amber-500"></i> Sample Data
+          </button>
+          <button onclick="clearForm()" class="px-3 py-2 text-xs font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 rounded-xl border border-rose-200 transition-all flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-trash-can"></i> Clear
+          </button>
+          <button onclick="window.print()" class="fa-btn-primary px-4 py-2 text-xs font-black shadow-md flex items-center gap-2 cursor-pointer">
+            <i class="fa-solid fa-print"></i> Print / Save PDF
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile View Switcher Tabs (Visible on < lg screens) -->
+    <div class="no-print mobile-view-tabs lg:hidden flex rounded-xl bg-slate-200 p-1 mb-4 text-xs font-bold">
+      <button id="tabBtnEditor" onclick="switchMobileView('editor')" class="flex-1 py-2 rounded-lg text-center bg-white text-[#146ebe] shadow-xs transition-all font-black">
+        <i class="fa-solid fa-pen-to-square mr-1"></i> Edit Invoice
+      </button>
+      <button id="tabBtnPreview" onclick="switchMobileView('preview')" class="flex-1 py-2 rounded-lg text-center text-slate-600 transition-all font-bold">
+        <i class="fa-solid fa-eye mr-1"></i> Live Preview
+      </button>
+    </div>
+
+    <!-- Split View Grid Workspace -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+      
+      <!-- ================= EDITOR FORM PANEL (5 cols) ================= -->
+      <div id="editorPanel" class="no-print lg:col-span-5 space-y-5">
+        
+        <!-- Interactive Template Theme Cards Selection Section -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3.5">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
+              <i class="fa-solid fa-layer-group text-[#146ebe]"></i> Select Invoice Template
+            </h2>
+            <span class="text-[10px] text-slate-400 font-extrabold uppercase">4 Designs</span>
+          </div>
+
+          <!-- Cards Grid -->
+          <div class="grid grid-cols-2 gap-2.5">
+            
+            <!-- Card 1: Modern Minimal -->
+            <div onclick="selectThemeCard('template-modern')" id="card-template-modern" class="theme-card active cursor-pointer p-3 rounded-xl border-2 border-slate-200 hover:border-blue-300 relative bg-white">
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-[#146ebe] inline-block"></span>
+                  <span class="text-xs font-black text-[#183153]">Modern</span>
+                </div>
+                <div class="check-badge w-4 h-4 rounded-full bg-[#146ebe] text-white flex items-center justify-center text-[9px]">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+              </div>
+              <div class="h-7 rounded-lg bg-slate-50 border border-slate-200 p-1 flex items-center justify-between text-[9px] font-bold text-slate-500">
+                <span class="bg-[#146ebe] text-white px-1.5 py-0.5 rounded text-[8px]">INV</span>
+                <span>Clean Lines</span>
+              </div>
+            </div>
+
+            <!-- Card 2: Corporate Navy -->
+            <div onclick="selectThemeCard('template-corporate')" id="card-template-corporate" class="theme-card cursor-pointer p-3 rounded-xl border-2 border-slate-200 hover:border-blue-300 relative bg-white">
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-[#183153] inline-block"></span>
+                  <span class="text-xs font-black text-[#183153]">Corporate</span>
+                </div>
+                <div class="check-badge hidden w-4 h-4 rounded-full bg-[#146ebe] text-white flex items-center justify-center text-[9px]">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+              </div>
+              <div class="h-7 rounded-lg bg-[#183153] p-1 flex items-center justify-between text-[9px] font-bold text-white">
+                <span class="font-black text-[8px] uppercase">Header</span>
+                <span class="text-slate-300">Navy Band</span>
+              </div>
+            </div>
+
+            <!-- Card 3: Compact Creative -->
+            <div onclick="selectThemeCard('template-compact')" id="card-template-compact" class="theme-card cursor-pointer p-3 rounded-xl border-2 border-slate-200 hover:border-blue-300 relative bg-white">
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-[#20c997] inline-block"></span>
+                  <span class="text-xs font-black text-[#183153]">Compact</span>
+                </div>
+                <div class="check-badge hidden w-4 h-4 rounded-full bg-[#146ebe] text-white flex items-center justify-center text-[9px]">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+              </div>
+              <div class="h-7 rounded-lg bg-emerald-50 border-l-4 border-[#20c997] p-1 flex items-center justify-between text-[9px] font-bold text-emerald-800">
+                <span>Stripe</span>
+                <span>Teal Mint</span>
+              </div>
+            </div>
+
+            <!-- Card 4: Executive Slate -->
+            <div onclick="selectThemeCard('template-executive')" id="card-template-executive" class="theme-card cursor-pointer p-3 rounded-xl border-2 border-slate-200 hover:border-blue-300 relative bg-white">
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-3 h-3 rounded-full bg-[#334155] inline-block"></span>
+                  <span class="text-xs font-black text-[#183153]">Executive</span>
+                </div>
+                <div class="check-badge hidden w-4 h-4 rounded-full bg-[#146ebe] text-white flex items-center justify-center text-[9px]">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+              </div>
+              <div class="h-7 rounded-lg bg-[#1e293b] border-t-2 border-[#ffd43b] p-1 flex items-center justify-between text-[9px] font-bold text-white">
+                <span>Dark</span>
+                <span class="text-amber-300">Gold Accent</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Currency Selector -->
+          <div class="pt-2 border-t border-slate-100 flex items-center justify-between gap-3">
+            <label class="text-xs font-bold text-slate-700">Invoice Currency</label>
+            <select id="inputCurrency" onchange="updateData()" class="fa-input text-xs py-1.5 px-3 w-36 font-bold">
+              <option value="$">USD ($)</option>
+              <option value="€">EUR (€)</option>
+              <option value="£">GBP (£)</option>
+              <option value="₨">PKR (₨)</option>
+              <option value="₹">INR (₹)</option>
+              <option value="C$">CAD (C$)</option>
+              <option value="A$">AUD (A$)</option>
+              <option value="AED ">AED</option>
+              <option value="SAR ">SAR</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Seller / Business Info Card -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+          <h2 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-building text-purple-600"></i> Business Details (Your Company)
+          </h2>
+
+          <!-- Logo Upload Zone -->
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Company Logo</label>
+            <div id="logoDropzone" class="border-2 border-dashed border-slate-200 rounded-xl p-3 text-center bg-slate-50 hover:bg-slate-100/80 transition-all cursor-pointer relative">
+              <input type="file" id="logoFileInput" accept="image/*" class="hidden" onchange="handleLogoSelect(event)">
+              <div id="logoUploadPrompt" class="space-y-1">
+                <i class="fa-solid fa-cloud-arrow-up text-slate-400 text-lg"></i>
+                <p class="text-[11px] font-bold text-slate-600">Click to upload logo (PNG/JPG)</p>
+              </div>
+              <div id="logoPreviewContainer" class="hidden flex items-center justify-between gap-2">
+                <img id="logoPreviewImg" src="" alt="Company Logo" class="h-10 object-contain rounded">
+                <button type="button" onclick="removeLogo()" class="text-xs font-bold text-rose-600 hover:underline p-1">
+                  <i class="fa-solid fa-xmark"></i> Remove
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-2.5">
+            <div>
+              <input type="text" id="sellerName" placeholder="Company Name (e.g. Acme Agency LLC)" oninput="updateData()" class="fa-input text-xs py-2">
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <input type="email" id="sellerEmail" placeholder="Email (contact@acme.com)" oninput="updateData()" class="fa-input text-xs py-2">
+              <input type="text" id="sellerPhone" placeholder="Phone (+1 234 567 890)" oninput="updateData()" class="fa-input text-xs py-2">
+            </div>
+            <div>
+              <input type="text" id="sellerAddress" placeholder="Street Address, City, Country" oninput="updateData()" class="fa-input text-xs py-2">
+            </div>
+            <div>
+              <input type="text" id="sellerTaxId" placeholder="Tax / VAT ID (Optional)" oninput="updateData()" class="fa-input text-xs py-2">
+            </div>
+          </div>
+        </div>
+
+        <!-- Client Info Card -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+          <h2 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-user-tie text-emerald-600"></i> Client Info (Billed To)
+          </h2>
+
+          <div class="space-y-2.5">
+            <input type="text" id="clientName" placeholder="Client Name / Business Name" oninput="updateData()" class="fa-input text-xs py-2">
+            <input type="email" id="clientEmail" placeholder="Client Email" oninput="updateData()" class="fa-input text-xs py-2">
+            <input type="text" id="clientAddress" placeholder="Client Billing Address" oninput="updateData()" class="fa-input text-xs py-2">
+          </div>
+        </div>
+
+        <!-- Invoice Details & Metadata -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+          <h2 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-calendar-days text-indigo-600"></i> Invoice Dates & Number
+          </h2>
+
+          <div class="grid grid-cols-2 gap-2.5">
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-0.5">Invoice #</label>
+              <input type="text" id="invNumber" placeholder="INV-2026-001" oninput="updateData()" class="fa-input text-xs py-2">
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-0.5">Payment Terms</label>
+              <input type="text" id="invTerms" placeholder="Due on Receipt / Net 15" oninput="updateData()" class="fa-input text-xs py-2">
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-0.5">Issue Date</label>
+              <input type="date" id="invDate" onchange="updateData()" class="fa-input text-xs py-2">
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-0.5">Due Date</label>
+              <input type="date" id="invDueDate" onchange="updateData()" class="fa-input text-xs py-2">
+            </div>
+          </div>
+        </div>
+
+        <!-- Line Items Editor -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <h2 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
+              <i class="fa-solid fa-list-check text-amber-600"></i> Line Items
+            </h2>
+            <button onclick="addLineItem()" class="text-xs font-bold text-[#146ebe] hover:bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-200 transition-all cursor-pointer">
+              <i class="fa-solid fa-plus mr-1"></i> Add Line
+            </button>
+          </div>
+
+          <div id="lineItemsEditorList" class="space-y-2.5">
+            <!-- Dynamic Line Rows Rendered Here -->
+          </div>
+        </div>
+
+        <!-- Adjustments (Tax, Discount, Shipping) -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+          <h2 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-calculator text-rose-600"></i> Tax, Discount & Fees
+          </h2>
+
+          <div class="grid grid-cols-3 gap-2.5">
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-0.5">Tax (%)</label>
+              <input type="number" id="inputTax" value="0" min="0" step="0.5" oninput="updateData()" class="fa-input text-xs py-2">
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-0.5">Discount (%)</label>
+              <input type="number" id="inputDiscount" value="0" min="0" step="0.5" oninput="updateData()" class="fa-input text-xs py-2">
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-600 mb-0.5">Shipping Fee</label>
+              <input type="number" id="inputShipping" value="0" min="0" step="1" oninput="updateData()" class="fa-input text-xs py-2">
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Notes / Instructions -->
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+          <h2 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
+            <i class="fa-solid fa-note-sticky text-teal-600"></i> Payment Terms & Notes
+          </h2>
+          <textarea id="inputNotes" rows="3" placeholder="Bank account details, SWIFT code, PayPal link, or thank you note..." oninput="updateData()" class="fa-input text-xs py-2 resize-none"></textarea>
+        </div>
+
+      </div>
+
+      <!-- ================= LIVE PREVIEW PANEL (7 cols) ================= -->
+      <div id="previewPanel" class="lg:col-span-7 sticky top-20">
+        
+        <div id="previewWrapper" class="bg-slate-800/90 p-4 sm:p-6 rounded-3xl border border-slate-700 shadow-2xl overflow-x-auto">
+          
+          <div class="text-center mb-3 no-print flex items-center justify-between text-xs text-slate-300 font-bold px-2">
+            <span class="flex items-center gap-1.5 text-emerald-400">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              Live Printable A4 Sheet
+            </span>
+            <span>Standard 210mm x 297mm</span>
+          </div>
+
+          <!-- Printable Invoice Sheet -->
+          <div id="invoiceSheet" class="invoice-sheet template-modern bg-white text-slate-900 rounded-xl shadow-xl p-8 sm:p-12 w-full max-w-[210mm] mx-auto min-h-[280mm] flex flex-col justify-between transition-all">
+            
+            <div class="space-y-8">
+              <!-- Invoice Header Zone -->
+              <div class="theme-header flex items-start justify-between gap-6">
+                <div>
+                  <div id="sheetLogoWrapper" class="mb-3 hidden">
+                    <img id="sheetLogo" src="" alt="Company Logo" class="max-h-14 max-w-[180px] object-contain">
+                  </div>
+                  <h1 id="sheetSellerName" class="text-2xl font-black text-[#183153] tracking-tight">Your Company Name</h1>
+                  <p id="sheetSellerAddress" class="text-xs text-slate-500 font-medium leading-relaxed mt-1">Street Address, City, Country</p>
+                  <p id="sheetSellerContact" class="text-xs text-slate-500 font-medium">contact@company.com • +1 234 567 890</p>
+                  <p id="sheetSellerTaxId" class="text-xs text-slate-400 font-semibold mt-0.5">Tax ID: --</p>
+                </div>
+
+                <div class="text-right">
+                  <span class="inline-block px-3 py-1 bg-blue-50 text-[#146ebe] text-xs font-black rounded-full uppercase tracking-wider mb-2">INVOICE</span>
+                  <div class="text-xs font-bold text-slate-700 space-y-0.5">
+                    <p><span class="text-slate-400">Invoice #:</span> <span id="sheetInvNumber" class="text-slate-900 font-black">INV-2026-001</span></p>
+                    <p><span class="text-slate-400">Date:</span> <span id="sheetInvDate">Aug 31, 2026</span></p>
+                    <p><span class="text-slate-400">Due Date:</span> <span id="sheetInvDueDate">Sep 15, 2026</span></p>
+                    <p><span class="text-slate-400">Terms:</span> <span id="sheetInvTerms">Due on Receipt</span></p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Billed To Section -->
+              <div class="p-4 rounded-xl theme-accent-bg border border-slate-100/80">
+                <span class="text-[10px] font-black text-[#146ebe] uppercase tracking-wider block mb-1">Billed To / Customer:</span>
+                <h3 id="sheetClientName" class="text-base font-black text-[#183153]">Client Name</h3>
+                <p id="sheetClientEmail" class="text-xs text-slate-600 font-medium">client@example.com</p>
+                <p id="sheetClientAddress" class="text-xs text-slate-500 font-medium mt-0.5">Client Address Here</p>
+              </div>
+
+              <!-- Items Table -->
+              <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                  <thead>
+                    <tr class="theme-table-header text-xs uppercase tracking-wider font-bold">
+                      <th class="py-2.5 px-3 rounded-l-lg w-[50%]">Item & Description</th>
+                      <th class="py-2.5 px-3 text-center w-[12%]">Qty</th>
+                      <th class="py-2.5 px-3 text-right w-[18%]">Unit Price</th>
+                      <th class="py-2.5 px-3 text-right rounded-r-lg w-[20%]">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody id="sheetItemsTbody" class="divide-y divide-slate-100 text-xs text-slate-700 font-medium">
+                    <!-- Dynamic Rows Rendered Here -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Totals Breakdown Grid -->
+              <div class="invoice-totals-box flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 pt-4">
+                
+                <!-- Payment Notes / Bank Info -->
+                <div class="w-full sm:w-1/2 text-xs space-y-1">
+                  <span class="font-black text-slate-700 uppercase tracking-wider block text-[10px]">Payment Instructions & Notes:</span>
+                  <p id="sheetNotes" class="text-slate-500 whitespace-pre-line leading-relaxed">Thank you for your business! Payment is due within 15 days.</p>
+                </div>
+
+                <!-- Financial Calculation Summary Box -->
+                <div class="w-full sm:w-5/12 bg-slate-50 p-4 rounded-xl border border-slate-200/80 space-y-2 text-xs font-bold text-slate-700">
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-500">Subtotal:</span>
+                    <span id="sheetSubtotal" class="font-mono">$0.00</span>
+                  </div>
+                  <div id="sheetTaxRow" class="flex items-center justify-between text-slate-600">
+                    <span class="text-slate-500">Tax (<span id="sheetTaxRate">0</span>%):</span>
+                    <span id="sheetTaxTotal" class="font-mono">$0.00</span>
+                  </div>
+                  <div id="sheetDiscountRow" class="flex items-center justify-between text-emerald-600 hidden">
+                    <span>Discount (<span id="sheetDiscountRate">0</span>%):</span>
+                    <span id="sheetDiscountTotal" class="font-mono">-$0.00</span>
+                  </div>
+                  <div id="sheetShippingRow" class="flex items-center justify-between text-slate-600 hidden">
+                    <span class="text-slate-500">Shipping:</span>
+                    <span id="sheetShippingTotal" class="font-mono">$0.00</span>
+                  </div>
+                  <div class="border-t border-slate-200 pt-2 mt-2 flex items-center justify-between text-base font-black text-[#183153]">
+                    <span>Grand Total:</span>
+                    <span id="sheetGrandTotal" class="text-[#146ebe] font-mono">$0.00</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Footer Stamp -->
+            <div class="border-t border-slate-100 pt-4 mt-8 flex items-center justify-between text-[10px] text-slate-400 font-semibold">
+              <span>360tools.me • Generated Client-Side</span>
+              <span>Page 1 of 1</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SEO FAQ & Guide Section -->
+    <section class="no-print mt-12 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 space-y-6">
+      <div>
+        <h2 class="text-xl font-black text-[#183153] mb-1">Frequently Asked Questions — Free Invoice Generator</h2>
+        <p class="text-xs text-slate-500 font-medium">Everything you need to know about creating, saving, and downloading PDF invoices for free.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs leading-relaxed">
+        <div class="space-y-1.5">
+          <h3 class="font-black text-slate-800 text-sm flex items-center gap-2">
+            <i class="fa-solid fa-lock text-[#146ebe]"></i> Is my client & financial data private?
+          </h3>
+          <p class="text-slate-600">Yes, 100%. All form entries, total calculations, line items, and uploaded company logos execute purely inside your web browser. Nothing is uploaded or stored on any external server.</p>
+        </div>
+
+        <div class="space-y-1.5">
+          <h3 class="font-black text-slate-800 text-sm flex items-center gap-2">
+            <i class="fa-solid fa-file-pdf text-red-600"></i> How do I export my invoice to PDF?
+          </h3>
+          <p class="text-slate-600">Simply click the <strong>"Print / Save PDF"</strong> button at the top (or press Ctrl+P). In your browser's print options menu, set the printer destination to <strong>"Save as PDF"</strong>.</p>
+        </div>
+
+        <div class="space-y-1.5">
+          <h3 class="font-black text-slate-800 text-sm flex items-center gap-2">
+            <i class="fa-solid fa-coins text-amber-500"></i> Can I change currencies and add tax?
+          </h3>
+          <p class="text-slate-600">Yes! Use the settings panel on the left to pick your preferred currency ($, €, £, ₨, ₹, etc.), set custom tax percentages, apply discounts, or include shipping fees.</p>
+        </div>
+
+        <div class="space-y-1.5">
+          <h3 class="font-black text-slate-800 text-sm flex items-center gap-2">
+            <i class="fa-solid fa-image text-emerald-600"></i> Will my uploaded logo print cleanly?
+          </h3>
+          <p class="text-slate-600">Yes. Uploaded logos are converted into Base64 format locally in your browser memory. This guarantees that your logo renders crisp and clear during PDF export without broken image URLs.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="no-print bg-white border-t border-slate-200/80 pt-12 pb-8 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-10">
+        
+        <!-- Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <a href="index.html" class="flex items-center gap-3">
+            <img src="images/logo.jpg" alt="360tools.me Logo" class="w-8 h-8 object-contain rounded-xl">
+            <span class="text-xl font-black text-[#183153] tracking-tight">360tools<span class="text-[#146ebe]">.me</span></span>
+          </a>
+          <p class="text-xs text-slate-500 font-medium leading-relaxed max-w-sm">
+            High-precision online AI voiceovers, media compression engines, developer tools, and client-side invoice generators. 100% free with zero cloud uploads.
+          </p>
+          <div class="flex items-center gap-2">
+            <span class="fa-badge-blue text-[10px]"><i class="fa-solid fa-shield-halved"></i> 100% In-Browser Private</span>
+          </div>
+        </div>
+
+        <!-- Audio & Voice -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">Audio & Voice</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="text-to-speech.html" class="hover:text-[#146ebe]">Text to Speech</a></li>
+            <li><a href="text-to-mp3.html" class="hover:text-[#146ebe]">Text to MP3 Converter</a></li>
+            <li><a href="ai-voice-generator.html" class="hover:text-[#146ebe]">AI Voice Generator</a></li>
+            <li><a href="pdf-to-speech.html" class="hover:text-[#146ebe]">PDF to Speech Reader</a></li>
+            <li><a href="youtube-voiceover-generator.html" class="hover:text-[#146ebe]">YouTube Narrator</a></li>
+          </ul>
+        </div>
+
+        <!-- Media & Dev -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">Media & Dev</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="image-compressor.html" class="hover:text-[#146ebe]">Image Compressor</a></li>
+            <li><a href="pdf-compressor.html" class="hover:text-[#146ebe]">PDF Compressor</a></li>
+            <li><a href="video-compressor.html" class="hover:text-[#146ebe]">Video Compressor</a></li>
+            <li><a href="html-minifier.html" class="hover:text-[#146ebe]">HTML Minifier</a></li>
+            <li><a href="css-minifier.html" class="hover:text-[#146ebe]">CSS Minifier</a></li>
+          </ul>
+        </div>
+
+        <!-- Invoice & Business -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">Invoice & Business</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="invoice-generator.html" class="text-[#146ebe] font-black hover:underline">Invoice Generator (New)</a></li>
+            <li><a href="etsy-fee-calculator.html" class="hover:text-[#146ebe]">Etsy Fee Calculator</a></li>
+            <li><a href="amazon-fba-calculator.html" class="hover:text-[#146ebe]">Amazon FBA Calculator</a></li>
+            <li><a href="tiktok-shop-payout-calculator.html" class="hover:text-[#146ebe]">TikTok Payout Estimator</a></li>
+            <li><a href="privacy-policy.html" class="hover:text-[#146ebe]">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html" class="hover:text-[#146ebe]">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-semibold">
+        <div>
+          © 2026 <a href="index.html" class="font-bold text-[#183153] hover:text-[#146ebe]">360tools.me</a>. All rights reserved.
+        </div>
+        <div class="text-[11px] text-slate-400">
+          Client-side browser processing • Zero cloud data harvesting
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Master Shared JS Script -->
+  <script src="js/main.js"></script>
+
+  <!-- Invoice Engine Script -->
+  <script>
+    // Invoice State Container
+    let invoiceData = {
+      theme: 'template-modern',
+      currency: '$',
+      seller: {
+        name: 'Acme Digital Agency LLC',
+        email: 'billing@acmeagency.com',
+        phone: '+1 (555) 019-2834',
+        address: '100 Innovation Way, Suite 400, San Francisco, CA',
+        taxId: 'US-94820193',
+        logo: ''
+      },
+      client: {
+        name: 'Starlight Global Inc.',
+        email: 'accounts@starlight.io',
+        address: '742 Evergreen Terrace, Austin, TX 78701'
+      },
+      meta: {
+        number: 'INV-2026-089',
+        terms: 'Net 15 Days',
+        date: new Date().toISOString().split('T')[0],
+        dueDate: new Date(Date.now() + 15 * 86400000).toISOString().split('T')[0]
+      },
+      items: [
+        { description: 'Full Stack Web Application Development (Phase 1)', qty: 1, price: 2500 },
+        { description: 'UI/UX Mobile Design System & Figma Tokens', qty: 1, price: 1200 },
+        { description: 'Cloud Infrastructure Setup & CI/CD Pipeline', qty: 5, price: 150 }
+      ],
+      taxRate: 8.5,
+      discountVal: 5,
+      shippingVal: 0,
+      notes: 'Thank you for choosing Acme Digital Agency!\nPayment method: Wire Transfer / ACH\nBank Name: Silicon Valley Bank\nAccount: XXXX-8921 | SWIFT: SVBKUS33'
+    };
+
+    // DOM Element References
+    const STORAGE_KEY = '360tools_invoice_draft_v1';
+
+    function initInvoiceEngine() {
+      // Restore saved draft if exists
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          invoiceData = JSON.parse(saved);
+        } catch(e) {
+          console.warn('Could not parse invoice draft');
+        }
+      }
+
+      // Populate Form Inputs from Data State
+      populateFormInputs();
+
+      // Render Line Items in Form Editor
+      renderLineItemEditors();
+
+      // Update Live Preview Sheet
+      renderInvoicePreview();
+    }
+
+    function selectThemeCard(themeName) {
+      invoiceData.theme = themeName;
+      
+      // Update visual active card borders
+      document.querySelectorAll('.theme-card').forEach(card => {
+        card.classList.remove('active');
+        const badge = card.querySelector('.check-badge');
+        if (badge) badge.classList.add('hidden');
+      });
+
+      const selectedCard = document.getElementById(`card-${themeName}`);
+      if (selectedCard) {
+        selectedCard.classList.add('active');
+        const badge = selectedCard.querySelector('.check-badge');
+        if (badge) badge.classList.remove('hidden');
+      }
+
+      // Save to localStorage & render preview
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(invoiceData));
+      } catch(e) {}
+
+      renderInvoicePreview();
+    }
+
+    function populateFormInputs() {
+      selectThemeCard(invoiceData.theme || 'template-modern');
+      document.getElementById('inputCurrency').value = invoiceData.currency || '$';
+      
+      document.getElementById('sellerName').value = invoiceData.seller.name || '';
+      document.getElementById('sellerEmail').value = invoiceData.seller.email || '';
+      document.getElementById('sellerPhone').value = invoiceData.seller.phone || '';
+      document.getElementById('sellerAddress').value = invoiceData.seller.address || '';
+      document.getElementById('sellerTaxId').value = invoiceData.seller.taxId || '';
+
+      document.getElementById('clientName').value = invoiceData.client.name || '';
+      document.getElementById('clientEmail').value = invoiceData.client.email || '';
+      document.getElementById('clientAddress').value = invoiceData.client.address || '';
+
+      document.getElementById('invNumber').value = invoiceData.meta.number || '';
+      document.getElementById('invTerms').value = invoiceData.meta.terms || '';
+      document.getElementById('invDate').value = invoiceData.meta.date || '';
+      document.getElementById('invDueDate').value = invoiceData.meta.dueDate || '';
+
+      document.getElementById('inputTax').value = invoiceData.taxRate || 0;
+      document.getElementById('inputDiscount').value = invoiceData.discountVal || 0;
+      document.getElementById('inputShipping').value = invoiceData.shippingVal || 0;
+      document.getElementById('inputNotes').value = invoiceData.notes || '';
+
+      if (invoiceData.seller.logo) {
+        showLogoPreview(invoiceData.seller.logo);
+      } else {
+        removeLogoPreview();
+      }
+    }
+
+    function updateData() {
+      invoiceData.currency = document.getElementById('inputCurrency').value;
+
+      invoiceData.seller.name = document.getElementById('sellerName').value;
+      invoiceData.seller.email = document.getElementById('sellerEmail').value;
+      invoiceData.seller.phone = document.getElementById('sellerPhone').value;
+      invoiceData.seller.address = document.getElementById('sellerAddress').value;
+      invoiceData.seller.taxId = document.getElementById('sellerTaxId').value;
+
+      invoiceData.client.name = document.getElementById('clientName').value;
+      invoiceData.client.email = document.getElementById('clientEmail').value;
+      invoiceData.client.address = document.getElementById('clientAddress').value;
+
+      invoiceData.meta.number = document.getElementById('invNumber').value;
+      invoiceData.meta.terms = document.getElementById('invTerms').value;
+      invoiceData.meta.date = document.getElementById('invDate').value;
+      invoiceData.meta.dueDate = document.getElementById('invDueDate').value;
+
+      invoiceData.taxRate = parseFloat(document.getElementById('inputTax').value) || 0;
+      invoiceData.discountVal = parseFloat(document.getElementById('inputDiscount').value) || 0;
+      invoiceData.shippingVal = parseFloat(document.getElementById('inputShipping').value) || 0;
+      invoiceData.notes = document.getElementById('inputNotes').value;
+
+      // Sync Line Items from Form
+      const itemRows = document.querySelectorAll('.line-item-row');
+      invoiceData.items = Array.from(itemRows).map(row => {
+        return {
+          description: row.querySelector('.item-desc').value || '',
+          qty: parseFloat(row.querySelector('.item-qty').value) || 0,
+          price: parseFloat(row.querySelector('.item-price').value) || 0
+        };
+      });
+
+      // Save to localStorage
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(invoiceData));
+      } catch(e) {}
+
+      // Re-render Preview
+      renderInvoicePreview();
+    }
+
+    function renderLineItemEditors() {
+      const container = document.getElementById('lineItemsEditorList');
+      container.innerHTML = '';
+
+      invoiceData.items.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'line-item-row p-2.5 bg-slate-50 border border-slate-200 rounded-xl space-y-2';
+        div.innerHTML = `
+          <div class="flex items-center justify-between gap-2">
+            <input type="text" value="${escapeHtml(item.description)}" placeholder="Description / Service name" oninput="updateData()" class="item-desc fa-input text-xs py-1.5 flex-1">
+            <button type="button" onclick="removeLineItem(${index})" class="text-rose-500 hover:text-rose-700 p-1.5 text-xs font-bold cursor-pointer" title="Delete Line">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-[10px] font-bold text-slate-500 mb-0.5">Qty</label>
+              <input type="number" value="${item.qty}" min="0" step="1" oninput="updateData()" class="item-qty fa-input text-xs py-1.5">
+            </div>
+            <div>
+              <label class="block text-[10px] font-bold text-slate-500 mb-0.5">Unit Price (${invoiceData.currency})</label>
+              <input type="number" value="${item.price}" min="0" step="0.01" oninput="updateData()" class="item-price fa-input text-xs py-1.5">
+            </div>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function addLineItem() {
+      invoiceData.items.push({ description: 'New Service / Item', qty: 1, price: 100 });
+      renderLineItemEditors();
+      updateData();
+    }
+
+    function removeLineItem(index) {
+      if (invoiceData.items.length <= 1) {
+        if (typeof showToast === 'function') showToast('Invoice must have at least 1 item', 'fa-triangle-exclamation');
+        return;
+      }
+      invoiceData.items.splice(index, 1);
+      renderLineItemEditors();
+      updateData();
+    }
+
+    function renderInvoicePreview() {
+      const sheet = document.getElementById('invoiceSheet');
+      const curr = invoiceData.currency || '$';
+
+      // Update Theme Class
+      sheet.className = `invoice-sheet ${invoiceData.theme} bg-white text-slate-900 rounded-xl shadow-xl p-8 sm:p-12 w-full max-w-[210mm] mx-auto min-h-[280mm] flex flex-col justify-between transition-all`;
+
+      // Seller Info
+      document.getElementById('sheetSellerName').textContent = invoiceData.seller.name || 'Your Company Name';
+      document.getElementById('sheetSellerAddress').textContent = invoiceData.seller.address || 'Street Address, City, Country';
+      document.getElementById('sheetSellerContact').textContent = `${invoiceData.seller.email || ''} ${invoiceData.seller.phone ? '• ' + invoiceData.seller.phone : ''}`;
+      
+      const taxIdElem = document.getElementById('sheetSellerTaxId');
+      if (invoiceData.seller.taxId) {
+        taxIdElem.textContent = `Tax / VAT ID: ${invoiceData.seller.taxId}`;
+        taxIdElem.classList.remove('hidden');
+      } else {
+        taxIdElem.classList.add('hidden');
+      }
+
+      // Logo
+      const logoWrapper = document.getElementById('sheetLogoWrapper');
+      const logoImg = document.getElementById('sheetLogo');
+      if (invoiceData.seller.logo) {
+        logoImg.src = invoiceData.seller.logo;
+        logoWrapper.classList.remove('hidden');
+      } else {
+        logoWrapper.classList.add('hidden');
+      }
+
+      // Metadata
+      document.getElementById('sheetInvNumber').textContent = invoiceData.meta.number || 'INV-001';
+      document.getElementById('sheetInvDate').textContent = formatDate(invoiceData.meta.date);
+      document.getElementById('sheetInvDueDate').textContent = formatDate(invoiceData.meta.dueDate);
+      document.getElementById('sheetInvTerms').textContent = invoiceData.meta.terms || 'Due on Receipt';
+
+      // Client Info
+      document.getElementById('sheetClientName').textContent = invoiceData.client.name || 'Client Name';
+      document.getElementById('sheetClientEmail').textContent = invoiceData.client.email || '';
+      document.getElementById('sheetClientAddress').textContent = invoiceData.client.address || '';
+
+      // Items Table Render
+      const tbody = document.getElementById('sheetItemsTbody');
+      tbody.innerHTML = '';
+
+      let subtotal = 0;
+      invoiceData.items.forEach(item => {
+        const lineTotal = (item.qty || 0) * (item.price || 0);
+        subtotal += lineTotal;
+
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-50/60 transition-colors';
+        tr.innerHTML = `
+          <td class="py-3 px-3 font-semibold text-slate-800">${escapeHtml(item.description || 'Item')}</td>
+          <td class="py-3 px-3 text-center text-slate-600 font-bold">${item.qty}</td>
+          <td class="py-3 px-3 text-right text-slate-600 font-mono">${curr}${formatNum(item.price)}</td>
+          <td class="py-3 px-3 text-right font-black text-slate-900 font-mono">${curr}${formatNum(lineTotal)}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      // Financial Calculations
+      const taxTotal = subtotal * (invoiceData.taxRate / 100);
+      const discountTotal = subtotal * (invoiceData.discountVal / 100);
+      const shippingTotal = invoiceData.shippingVal || 0;
+      const grandTotal = Math.max(0, subtotal + taxTotal - discountTotal + shippingTotal);
+
+      document.getElementById('sheetSubtotal').textContent = `${curr}${formatNum(subtotal)}`;
+      
+      // Tax Row
+      document.getElementById('sheetTaxRate').textContent = invoiceData.taxRate;
+      document.getElementById('sheetTaxTotal').textContent = `${curr}${formatNum(taxTotal)}`;
+
+      // Discount Row
+      const discRow = document.getElementById('sheetDiscountRow');
+      if (invoiceData.discountVal > 0) {
+        document.getElementById('sheetDiscountRate').textContent = invoiceData.discountVal;
+        document.getElementById('sheetDiscountTotal').textContent = `-${curr}${formatNum(discountTotal)}`;
+        discRow.classList.remove('hidden');
+      } else {
+        discRow.classList.add('hidden');
+      }
+
+      // Shipping Row
+      const shipRow = document.getElementById('sheetShippingRow');
+      if (shippingTotal > 0) {
+        document.getElementById('sheetShippingTotal').textContent = `${curr}${formatNum(shippingTotal)}`;
+        shipRow.classList.remove('hidden');
+      } else {
+        shipRow.classList.add('hidden');
+      }
+
+      // Grand Total
+      document.getElementById('sheetGrandTotal').textContent = `${curr}${formatNum(grandTotal)}`;
+
+      // Notes
+      document.getElementById('sheetNotes').textContent = invoiceData.notes || 'Thank you for your business!';
+    }
+
+    // Logo Handling
+    function handleLogoSelect(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      if (file.size > 2 * 1024 * 1024) {
+        if (typeof showToast === 'function') showToast('Logo image must be under 2MB', 'fa-triangle-exclamation');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const base64 = evt.target.result;
+        invoiceData.seller.logo = base64;
+        showLogoPreview(base64);
+        updateData();
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function showLogoPreview(base64) {
+      document.getElementById('logoUploadPrompt').classList.add('hidden');
+      const previewContainer = document.getElementById('logoPreviewContainer');
+      const previewImg = document.getElementById('logoPreviewImg');
+      previewImg.src = base64;
+      previewContainer.classList.remove('hidden');
+    }
+
+    function removeLogo() {
+      invoiceData.seller.logo = '';
+      removeLogoPreview();
+      updateData();
+    }
+
+    function removeLogoPreview() {
+      document.getElementById('logoFileInput').value = '';
+      document.getElementById('logoUploadPrompt').classList.remove('hidden');
+      document.getElementById('logoPreviewContainer').classList.add('hidden');
+    }
+
+    // Mobile View Switching
+    function switchMobileView(view) {
+      const editor = document.getElementById('editorPanel');
+      const preview = document.getElementById('previewPanel');
+      const btnEdit = document.getElementById('tabBtnEditor');
+      const btnPrev = document.getElementById('tabBtnPreview');
+
+      if (view === 'editor') {
+        editor.classList.remove('hidden');
+        preview.classList.add('hidden');
+        btnEdit.className = 'flex-1 py-2 rounded-lg text-center bg-white text-[#146ebe] shadow-xs transition-all font-black';
+        btnPrev.className = 'flex-1 py-2 rounded-lg text-center text-slate-600 transition-all font-bold';
+      } else {
+        editor.classList.add('hidden');
+        preview.classList.remove('hidden');
+        btnPrev.className = 'flex-1 py-2 rounded-lg text-center bg-white text-[#146ebe] shadow-xs transition-all font-black';
+        btnEdit.className = 'flex-1 py-2 rounded-lg text-center text-slate-600 transition-all font-bold';
+      }
+    }
+
+    // Utility Helpers
+    function formatNum(num) {
+      return Number(num || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      const d = new Date(dateStr + 'T00:00:00');
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+
+    function escapeHtml(str) {
+      return (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function loadSampleData() {
+      invoiceData = {
+        theme: 'template-modern',
+        currency: '$',
+        seller: {
+          name: 'Apex Creative Solutions LLC',
+          email: 'invoicing@apexcreative.io',
+          phone: '+1 (415) 890-1200',
+          address: '500 Howard Street, Suite 300, San Francisco, CA 94105',
+          taxId: 'US-88392019',
+          logo: ''
+        },
+        client: {
+          name: 'Vanguard Enterprise Systems',
+          email: 'billing@vanguardent.com',
+          address: '100 Federal Street, 18th Floor, Boston, MA 02110'
+        },
+        meta: {
+          number: 'INV-2026-104',
+          terms: 'Net 30 Days',
+          date: new Date().toISOString().split('T')[0],
+          dueDate: new Date(Date.now() + 30 * 86400000).toISOString().split('T')[0]
+        },
+        items: [
+          { description: 'Enterprise SaaS Dashboard Design & Figma Design Tokens', qty: 1, price: 3500 },
+          { description: 'React / Next.js Component Library Implementation', qty: 1, price: 4200 },
+          { description: 'Performance Audit & Core Web Vitals Optimization', qty: 8, price: 125 }
+        ],
+        taxRate: 8.5,
+        discountVal: 5,
+        shippingVal: 0,
+        notes: 'Thank you for your business!\nPayment Terms: Wire Transfer / ACH Direct Deposit\nBank Name: JPMorgan Chase Bank\nAccount #: 9876-5432-10 | Routing #: 121000358'
+      };
+
+      populateFormInputs();
+      renderLineItemEditors();
+      updateData();
+      if (typeof showToast === 'function') showToast('Sample invoice data loaded!', 'fa-wand-magic-sparkles');
+    }
+
+    function clearForm() {
+      invoiceData = {
+        theme: 'template-modern',
+        currency: '$',
+        seller: { name: '', email: '', phone: '', address: '', taxId: '', logo: '' },
+        client: { name: '', email: '', address: '' },
+        meta: { number: 'INV-001', terms: 'Due on Receipt', date: new Date().toISOString().split('T')[0], dueDate: '' },
+        items: [{ description: '', qty: 1, price: 0 }],
+        taxRate: 0,
+        discountVal: 0,
+        shippingVal: 0,
+        notes: ''
+      };
+
+      localStorage.removeItem(STORAGE_KEY);
+      populateFormInputs();
+      renderLineItemEditors();
+      renderInvoicePreview();
+      if (typeof showToast === 'function') showToast('Form cleared', 'fa-trash-can');
+    }
+
+    // Drag and drop logo helper
+    document.addEventListener('DOMContentLoaded', () => {
+      const dropzone = document.getElementById('logoDropzone');
+      if (dropzone) {
+        dropzone.addEventListener('click', () => {
+          document.getElementById('logoFileInput').click();
+        });
+        dropzone.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          dropzone.classList.add('bg-blue-50', 'border-blue-300');
+        });
+        dropzone.addEventListener('dragleave', () => {
+          dropzone.classList.remove('bg-blue-50', 'border-blue-300');
+        });
+        dropzone.addEventListener('drop', (e) => {
+          e.preventDefault();
+          dropzone.classList.remove('bg-blue-50', 'border-blue-300');
+          if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+            handleLogoSelect({ target: { files: e.dataTransfer.files } });
+          }
+        });
+      }
+
+      initInvoiceEngine();
+    });
+  </script>
+</body>
+</html>

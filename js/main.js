@@ -33,6 +33,7 @@ const TOOLS_REGISTRY = [
   { name: 'Shopify CSV Validator', url: 'shopify-csv-validator.html', category: 'Developer', icon: 'fa-shopify', color: 'text-emerald-600', keywords: 'shopify products csv schema error fix' },
 
   // E-Commerce & Financial
+  { name: 'Free Online Invoice Generator', url: 'invoice-generator.html', category: 'E-Commerce & Financial', icon: 'fa-file-invoice-dollar', color: 'text-blue-600', keywords: 'invoice generator pdf maker bill receipt tax quote freelancer client billing' },
   { name: 'Etsy Fee Calculator', url: 'etsy-fee-calculator.html', category: 'E-Commerce', icon: 'fa-etsy', color: 'text-orange-600', keywords: 'etsy fees listing transaction offsite ads profit' },
   { name: 'Amazon FBA Dim Weight Checker', url: 'amazon-fba-calculator.html', category: 'E-Commerce', icon: 'fa-amazon', color: 'text-amber-600', keywords: 'fba dimensional weight divisor 139 tier' },
   { name: 'TikTok Shop Payout Estimator', url: 'tiktok-shop-payout-calculator.html', category: 'E-Commerce', icon: 'fa-tiktok', color: 'text-pink-600', keywords: 'tiktok shop affiliate commission net deposit' },
@@ -227,3 +228,218 @@ function fallbackCopyText(text, successMsg) {
 function formatUSD(num) {
   return '$' + Number(num || 0).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
 }
+
+// ==========================================================================
+// Mobile Native App Bottom Navigation & Slide-up Sheet Drawer Controller
+// ==========================================================================
+function initMobileAppNavigation() {
+  if (document.getElementById('mobileAppBottomNav')) return;
+
+  const currentPath = window.location.pathname.toLowerCase();
+  
+  const isHome = currentPath.endsWith('index.html') || currentPath.endsWith('/') || currentPath === '' || currentPath.endsWith('360tools.me');
+  const isAudio = currentPath.includes('speech') || currentPath.includes('voice') || currentPath.includes('audio') || currentPath.includes('mp3');
+  const isCompress = currentPath.includes('compress') || currentPath.includes('jpg') || currentPath.includes('png') || currentPath.includes('webp') || currentPath.includes('pdf');
+
+  // Create Bottom Nav Bar
+  const nav = document.createElement('nav');
+  nav.id = 'mobileAppBottomNav';
+  nav.className = 'mobile-bottom-nav';
+  nav.setAttribute('aria-label', 'Mobile App Bottom Navigation');
+
+  nav.innerHTML = `
+    <a href="index.html" class="mobile-nav-item ${isHome ? 'active' : ''}">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a href="audio-voice-tools.html" class="mobile-nav-item ${isAudio ? 'active' : ''}">
+      <i class="fa-solid fa-volume-high"></i>
+      <span>Audio</span>
+    </a>
+    <button onclick="openQuickSearch()" class="mobile-nav-item mobile-nav-item-highlight" aria-label="Search tools">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <span>Search</span>
+    </button>
+    <a href="compression-tools.html" class="mobile-nav-item ${isCompress ? 'active' : ''}">
+      <i class="fa-solid fa-compress"></i>
+      <span>Compress</span>
+    </a>
+    <button onclick="toggleMobileAppDrawer()" class="mobile-nav-item" aria-label="More tools menu">
+      <i class="fa-solid fa-grip"></i>
+      <span>Menu</span>
+    </button>
+  `;
+
+  document.body.appendChild(nav);
+
+  // Create Mobile App Slide-up Drawer
+  createMobileAppDrawer();
+}
+
+function createMobileAppDrawer() {
+  if (document.getElementById('mobileAppDrawerModal')) return;
+
+  const drawer = document.createElement('div');
+  drawer.id = 'mobileAppDrawerModal';
+  drawer.className = 'mobile-app-drawer';
+  drawer.onclick = (e) => {
+    if (e.target === drawer) toggleMobileAppDrawer(false);
+  };
+
+  drawer.innerHTML = `
+    <div class="mobile-app-drawer-content" onclick="event.stopPropagation()">
+      <div class="mobile-drawer-handle"></div>
+      
+      <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
+        <div class="flex items-center gap-2.5">
+          <img src="images/logo.jpg" alt="Logo" class="w-8 h-8 rounded-xl">
+          <div>
+            <h3 class="text-sm font-black text-[#183153]">360tools<span class="text-[#146ebe]">.me</span></h3>
+            <p class="text-[10px] text-slate-400 font-bold">100% Free & Private Online Suite</p>
+          </div>
+        </div>
+        <button onclick="toggleMobileAppDrawer(false)" class="p-2 rounded-xl text-slate-400 hover:text-slate-700 bg-slate-100 hover:bg-slate-200 text-xs">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Quick Search Trigger Input -->
+      <button onclick="toggleMobileAppDrawer(false); openQuickSearch();" class="w-full mb-4 p-3 bg-slate-100 hover:bg-slate-200/80 rounded-2xl border border-slate-200 text-left flex items-center justify-between text-xs font-bold text-slate-500">
+        <span class="flex items-center gap-2">
+          <i class="fa-solid fa-magnifying-glass text-[#146ebe]"></i>
+          Search all 30+ tools...
+        </span>
+        <span class="px-2 py-0.5 bg-white rounded-lg border border-slate-200 text-[10px] text-slate-400 font-mono">Tap</span>
+      </button>
+
+      <!-- Tool Categories Grid -->
+      <div class="space-y-4">
+        <div>
+          <div class="text-[11px] font-black text-purple-700 uppercase tracking-wider mb-2 flex items-center justify-between">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-volume-high"></i> AI Voice & Audio</span>
+            <a href="audio-voice-tools.html" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="text-to-speech.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-volume-high text-[#146ebe] text-sm"></i> Text to Speech
+            </a>
+            <a href="text-to-mp3.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-file-audio text-emerald-600 text-sm"></i> Text to MP3
+            </a>
+            <a href="ai-voice-generator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-wand-magic-sparkles text-purple-600 text-sm"></i> AI Voice Studio
+            </a>
+            <a href="pdf-to-speech.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-file-pdf text-red-600 text-sm"></i> PDF Reader
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="text-[11px] font-black text-emerald-700 uppercase tracking-wider mb-2 flex items-center justify-between">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-compress"></i> Media Compression</span>
+            <a href="compression-tools.html" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="image-compressor.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-image text-emerald-600 text-sm"></i> Image Compressor
+            </a>
+            <a href="pdf-compressor.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-file-pdf text-red-600 text-sm"></i> PDF Compressor
+            </a>
+            <a href="video-compressor.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-video text-rose-600 text-sm"></i> Video Compressor
+            </a>
+            <a href="compress-image-to-100kb.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-bullseye text-indigo-600 text-sm"></i> 100KB Target
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="text-[11px] font-black text-cyan-700 uppercase tracking-wider mb-2 flex items-center justify-between">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-code"></i> Developer & Web Tools</span>
+            <a href="developer-tools.html" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="html-minifier.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+              <i class="fa-brands fa-html5 text-orange-600 text-sm"></i> HTML Minifier
+            </a>
+            <a href="css-minifier.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+              <i class="fa-brands fa-css3-alt text-blue-600 text-sm"></i> CSS Minifier
+            </a>
+            <a href="javascript-minifier.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+              <i class="fa-brands fa-js text-yellow-500 text-sm"></i> JS Minifier
+            </a>
+            <a href="shopify-csv-validator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+              <i class="fa-brands fa-shopify text-emerald-600 text-sm"></i> Shopify CSV
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="text-[11px] font-black text-[#f1641e] uppercase tracking-wider mb-2 flex items-center justify-between">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-calculator"></i> E-Commerce & Finance</span>
+            <a href="ecommerce-tools.html" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="etsy-fee-calculator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+              <i class="fa-brands fa-etsy text-[#f1641e] text-sm"></i> Etsy Fee Calc
+            </a>
+            <a href="amazon-fba-calculator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+              <i class="fa-brands fa-amazon text-amber-600 text-sm"></i> Amazon FBA
+            </a>
+            <a href="tiktok-shop-payout-calculator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+              <i class="fa-brands fa-tiktok text-pink-600 text-sm"></i> TikTok Payout
+            </a>
+            <a href="section8-estimator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-house-user text-[#146ebe] text-sm"></i> Section 8
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  `;
+
+  document.body.appendChild(drawer);
+}
+
+function toggleMobileAppDrawer(forceState) {
+  const drawer = document.getElementById('mobileAppDrawerModal');
+  if (!drawer) {
+    createMobileAppDrawer();
+    return toggleMobileAppDrawer(forceState);
+  }
+
+  const isOpen = drawer.classList.contains('open');
+  const nextState = (typeof forceState === 'boolean') ? forceState : !isOpen;
+
+  if (nextState) {
+    drawer.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  } else {
+    drawer.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+// Upgrade existing mobile hamburger button handler to trigger the mobile app drawer smoothly
+if (typeof toggleMobileMenu === 'function') {
+  const prevToggle = toggleMobileMenu;
+  toggleMobileMenu = function() {
+    toggleMobileAppDrawer();
+  };
+} else {
+  function toggleMobileMenu() {
+    toggleMobileAppDrawer();
+  }
+}
+
+// Auto Initialize Mobile App Navigation on Load
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initMobileAppNavigation);
+} else {
+  initMobileAppNavigation();
+}
+
