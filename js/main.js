@@ -14,7 +14,8 @@ const TOOLS_REGISTRY = [
   { name: 'Urdu Text to Speech', url: 'urdu-text-to-speech.html', category: 'Audio & Voice', icon: 'fa-feather', color: 'text-emerald-700', keywords: 'urdu tts nastaliq pakistani voice roman urdu اردو' },
   { name: 'Article to Speech Reader', url: 'article-to-speech.html', category: 'Audio & Voice', icon: 'fa-newspaper', color: 'text-amber-600', keywords: 'url reader web news blog cleaner' },
 
-  // Compression
+  // Compression & AI Image
+  { name: 'Free AI Background Remover', url: 'background-remover.html', category: 'AI & Image', icon: 'fa-wand-magic-sparkles', color: 'text-blue-600', keywords: 'ai background remover bg eraser transparent png cutout photo object removal' },
   { name: 'Universal Image Compressor', url: 'image-compressor.html', category: 'Compression', icon: 'fa-image', color: 'text-emerald-600', keywords: 'compress photo resize shrink optimizer' },
   { name: 'JPG Compressor', url: 'jpg-compressor.html', category: 'Compression', icon: 'fa-camera', color: 'text-amber-600', keywords: 'jpeg compress photo quality scale' },
   { name: 'PNG Compressor', url: 'png-compressor.html', category: 'Compression', icon: 'fa-file-image', color: 'text-emerald-600', keywords: 'transparent alpha lossless png logo' },
@@ -436,10 +437,426 @@ if (typeof toggleMobileMenu === 'function') {
   }
 }
 
-// Auto Initialize Mobile App Navigation on Load
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initMobileAppNavigation);
-} else {
+// ==========================================
+// Centralized Pure JS Header & Footer Component Injector
+// Single Source of Truth across 360tools.me
+// ==========================================
+
+function renderGlobalHeader() {
+  const headerElem = document.getElementById('globalHeader');
+  if (!headerElem) return;
+
+  headerElem.className = 'no-print max-w-7xl mx-auto w-full sticky top-3 z-50 px-4 sm:px-6 my-2';
+  headerElem.innerHTML = `
+    <div class="bg-white/95 backdrop-blur-md border border-slate-200/90 rounded-2xl shadow-sm px-5 py-2.5 flex items-center justify-between transition-all">
+      
+      <!-- Brand Logo & Desktop Nav -->
+      <div class="flex items-center gap-6">
+        <a href="index.html" class="flex items-center gap-2.5 group">
+          <img src="images/logo.jpg" alt="360tools.me Logo" class="w-8 h-8 object-contain rounded-xl group-hover:scale-105 transition-transform">
+          <span class="text-xl font-black text-[#183153] tracking-tight">360tools<span class="text-[#146ebe]">.me</span></span>
+        </a>
+
+        <!-- Professional Desktop Navigation Mega Dropdowns -->
+        <nav class="hidden lg:flex items-center gap-1 text-xs font-bold text-slate-700">
+          
+          <!-- Category 1: AI Voice & Audio -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all cursor-pointer">
+              <i class="fa-solid fa-microphone-lines text-purple-600 text-xs"></i>
+              <span>Audio & Voice</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-80 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-2xl p-3 space-y-1 max-h-[85vh] overflow-y-auto">
+                <div class="px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-purple-700 bg-purple-50 rounded-lg flex items-center justify-between">
+                  <span>Voice Synthesis Engines</span>
+                  <i class="fa-solid fa-wand-magic-sparkles text-[10px]"></i>
+                </div>
+                <a href="text-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-purple-50 hover:text-purple-700 transition-all">
+                  <i class="fa-solid fa-volume-high text-[#146ebe] w-4 text-center"></i> Text to Speech Converter
+                </a>
+                <a href="text-to-mp3.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-purple-50 hover:text-purple-700 transition-all">
+                  <i class="fa-solid fa-file-audio text-emerald-600 w-4 text-center"></i> Text to MP3 Converter
+                </a>
+                <a href="ai-voice-generator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-purple-50 hover:text-purple-700 transition-all">
+                  <i class="fa-solid fa-user-astronaut text-purple-600 w-4 text-center"></i> AI Voice Generator Studio
+                </a>
+                <a href="pdf-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-purple-50 hover:text-purple-700 transition-all">
+                  <i class="fa-solid fa-file-pdf text-red-600 w-4 text-center"></i> PDF to Speech Reader
+                </a>
+                <a href="youtube-voiceover-generator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-purple-50 hover:text-purple-700 transition-all">
+                  <i class="fa-brands fa-youtube text-rose-600 w-4 text-center"></i> YouTube Voiceover Narrator
+                </a>
+                <a href="urdu-text-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-purple-50 hover:text-purple-700 transition-all">
+                  <i class="fa-solid fa-feather text-emerald-700 w-4 text-center"></i> Urdu TTS (اردو)
+                </a>
+                <a href="article-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-purple-50 hover:text-purple-700 transition-all">
+                  <i class="fa-solid fa-newspaper text-amber-600 w-4 text-center"></i> Article to Speech Reader
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="audio-voice-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-purple-700 hover:bg-purple-50">
+                    <span>View All Audio Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: AI & Media Suite -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all cursor-pointer">
+              <i class="fa-solid fa-wand-magic-sparkles text-teal-600 text-xs"></i>
+              <span>AI & Media</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-80 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-2xl p-3 space-y-1 max-h-[85vh] overflow-y-auto">
+                
+                <!-- Highlighted AI Cutout Card -->
+                <a href="background-remover.html" class="flex items-center justify-between p-2.5 bg-gradient-to-r from-teal-50 to-emerald-50 border border-teal-200/80 rounded-xl text-xs font-black text-teal-800 hover:scale-[1.01] transition-transform">
+                  <div class="flex items-center gap-2.5">
+                    <i class="fa-solid fa-wand-magic-sparkles text-teal-600 text-sm"></i>
+                    <div>
+                      <div class="leading-none">AI Background Remover</div>
+                      <div class="text-[10px] text-teal-600 font-semibold mt-0.5">100% In-Browser Eraser</div>
+                    </div>
+                  </div>
+                  <span class="bg-teal-600 text-white text-[9px] px-1.5 py-0.5 rounded-md font-black uppercase">NEW</span>
+                </a>
+
+                <div class="pt-1">
+                  <div class="px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-slate-400">Media Compressors</div>
+                  <a href="image-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-teal-50 hover:text-teal-700 transition-all">
+                    <i class="fa-solid fa-image text-emerald-600 w-4 text-center"></i> Universal Image Compressor
+                  </a>
+                  <a href="jpg-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-teal-50 hover:text-teal-700 transition-all">
+                    <i class="fa-solid fa-camera text-amber-600 w-4 text-center"></i> JPG Compressor
+                  </a>
+                  <a href="png-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-teal-50 hover:text-teal-700 transition-all">
+                    <i class="fa-solid fa-file-image text-emerald-600 w-4 text-center"></i> PNG Compressor
+                  </a>
+                  <a href="webp-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-teal-50 hover:text-teal-700 transition-all">
+                    <i class="fa-solid fa-bolt text-blue-600 w-4 text-center"></i> WebP Compressor
+                  </a>
+                  <a href="pdf-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-teal-50 hover:text-teal-700 transition-all">
+                    <i class="fa-solid fa-file-pdf text-red-600 w-4 text-center"></i> PDF Compressor
+                  </a>
+                  <a href="video-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-teal-50 hover:text-teal-700 transition-all">
+                    <i class="fa-solid fa-video text-rose-600 w-4 text-center"></i> Video Compressor
+                  </a>
+                  <a href="compress-image-to-100kb.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-teal-50 hover:text-teal-700 transition-all">
+                    <i class="fa-solid fa-bullseye text-indigo-600 w-4 text-center"></i> Compress to 100KB / 200KB / 500KB
+                  </a>
+                  <a href="bulk-image-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-teal-50 hover:text-teal-700 transition-all">
+                    <i class="fa-solid fa-layer-group text-purple-600 w-4 text-center"></i> Bulk Image Compressor
+                  </a>
+                </div>
+
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="compression-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-teal-700 hover:bg-teal-50">
+                    <span>View All Media & AI Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 3: Developer Tools -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all cursor-pointer">
+              <i class="fa-solid fa-code text-cyan-600 text-xs"></i>
+              <span>Developer</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-80 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-2xl p-3 space-y-1 max-h-[85vh] overflow-y-auto">
+                <div class="px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-cyan-700 bg-cyan-50 rounded-lg">Code Optimization</div>
+                <a href="html-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-cyan-50 hover:text-cyan-700 transition-all">
+                  <i class="fa-brands fa-html5 text-orange-600 w-4 text-center"></i> HTML Minifier
+                </a>
+                <a href="css-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-cyan-50 hover:text-cyan-700 transition-all">
+                  <i class="fa-brands fa-css3-alt text-blue-600 w-4 text-center"></i> CSS Minifier
+                </a>
+                <a href="javascript-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-cyan-50 hover:text-cyan-700 transition-all">
+                  <i class="fa-brands fa-js text-yellow-500 w-4 text-center"></i> JavaScript Minifier
+                </a>
+                <a href="code-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-cyan-50 hover:text-cyan-700 transition-all">
+                  <i class="fa-solid fa-code text-cyan-600 w-4 text-center"></i> Universal Code Minifier
+                </a>
+                <a href="shopify-csv-validator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-cyan-50 hover:text-cyan-700 transition-all">
+                  <i class="fa-brands fa-shopify text-emerald-600 w-4 text-center"></i> Shopify CSV Validator
+                </a>
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="developer-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-cyan-700 hover:bg-cyan-50">
+                    <span>View All Dev Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 4: Finance & Business -->
+          <div class="relative group">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all cursor-pointer">
+              <i class="fa-solid fa-briefcase text-amber-600 text-xs"></i>
+              <span>Finance & Business</span>
+              <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+            </button>
+            <div class="absolute top-full left-0 pt-2 w-80 hidden group-hover:block transition-all z-50">
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-2xl p-3 space-y-1 max-h-[85vh] overflow-y-auto">
+                
+                <!-- Highlighted Invoice Card -->
+                <a href="invoice-generator.html" class="flex items-center justify-between p-2.5 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/80 rounded-xl text-xs font-black text-[#146ebe] hover:scale-[1.01] transition-transform">
+                  <div class="flex items-center gap-2.5">
+                    <i class="fa-solid fa-file-invoice-dollar text-[#146ebe] text-sm"></i>
+                    <div>
+                      <div class="leading-none">Free Invoice Generator</div>
+                      <div class="text-[10px] text-blue-600 font-semibold mt-0.5">Printable A4 PDF Maker</div>
+                    </div>
+                  </div>
+                  <span class="bg-[#146ebe] text-white text-[9px] px-1.5 py-0.5 rounded-md font-black uppercase">NEW</span>
+                </a>
+
+                <div class="pt-1">
+                  <div class="px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-slate-400">E-Commerce & Tax</div>
+                  <a href="etsy-fee-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                    <i class="fa-brands fa-etsy text-[#f1641e] w-4 text-center"></i> Etsy Fee Calculator
+                  </a>
+                  <a href="amazon-fba-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                    <i class="fa-brands fa-amazon text-amber-600 w-4 text-center"></i> Amazon FBA Dim Weight
+                  </a>
+                  <a href="tiktok-shop-payout-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                    <i class="fa-brands fa-tiktok text-pink-600 w-4 text-center"></i> TikTok Shop Payout
+                  </a>
+                  <a href="pod-profit-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                    <i class="fa-solid fa-shirt text-blue-600 w-4 text-center"></i> Print-on-Demand Margin Grid
+                  </a>
+                  <a href="section8-estimator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                    <i class="fa-solid fa-house-user text-[#146ebe] w-4 text-center"></i> Section 8 Max Rent Estimator
+                  </a>
+                  <a href="uk-stamp-duty-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                    <i class="fa-solid fa-landmark text-amber-700 w-4 text-center"></i> UK Stamp Duty Calculator
+                  </a>
+                  <a href="1031-exchange-tracker.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                    <i class="fa-solid fa-clock-rotate-left text-purple-600 w-4 text-center"></i> 1031 Exchange Tracker
+                  </a>
+                  <a href="str-cleaning-splitter.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                    <i class="fa-solid fa-broom text-teal-600 w-4 text-center"></i> STR Cleaning Splitter
+                  </a>
+                  <a href="eu-vat-oss-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                    <i class="fa-solid fa-percent text-blue-700 w-4 text-center"></i> EU VAT OSS Calculator
+                  </a>
+                </div>
+
+                <div class="border-t border-slate-100 pt-1 mt-1">
+                  <a href="ecommerce-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                    <span>View All Business Tools</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </nav>
+      </div>
+
+      <!-- Right Header Actions -->
+      <div class="flex items-center gap-2">
+        
+        <!-- Interactive Quick Search Bar Trigger -->
+        <button onclick="openQuickSearch()" class="flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200/80 px-3 py-1.5 rounded-xl border border-slate-200/80 shadow-2xs transition-all cursor-pointer">
+          <i class="fa-solid fa-magnifying-glass text-[#146ebe]"></i>
+          <span class="hidden sm:inline">Search...</span>
+          <kbd class="hidden sm:inline-block px-1.5 py-0.5 bg-white border border-slate-300 rounded text-[9px] text-slate-500 font-mono font-bold">Ctrl K</kbd>
+        </button>
+
+        <!-- All Tools Catalog Quick Link -->
+        <a href="index.html#tools-catalog" class="fa-btn-primary px-3 py-1.5 text-xs font-black shadow-xs hidden sm:inline-flex items-center gap-1.5">
+          <i class="fa-solid fa-grip"></i>
+          <span>All Tools</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars text-base"></i>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu (Full Categorized Mobile Navigation) -->
+    <div id="mobileMenuDrawer" class="hidden lg:hidden mt-2 p-5 bg-white rounded-2xl border border-slate-200 shadow-xl space-y-4 transition-all max-h-[80vh] overflow-y-auto">
+      
+      <!-- Audio & Voice -->
+      <div class="space-y-1">
+        <div class="text-[11px] font-black text-purple-700 uppercase tracking-wider px-2 mb-1 flex items-center gap-1.5">
+          <i class="fa-solid fa-volume-high"></i> AI Voice & Audio
+        </div>
+        <a href="text-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-purple-50">Text to Speech</a>
+        <a href="text-to-mp3.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-purple-50">Text to MP3 Converter</a>
+        <a href="ai-voice-generator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-purple-50">AI Voice Studio</a>
+        <a href="pdf-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-purple-50">PDF Reader Aloud</a>
+        <a href="youtube-voiceover-generator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-purple-50">YouTube Voiceovers</a>
+        <a href="urdu-text-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-purple-50">Urdu TTS (اردو)</a>
+        <a href="article-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-purple-50">Article Reader</a>
+      </div>
+
+      <!-- AI & Media -->
+      <div class="space-y-1 pt-2 border-t border-slate-100">
+        <div class="text-[11px] font-black text-teal-700 uppercase tracking-wider px-2 mb-1 flex items-center gap-1.5">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> AI & Media Suite
+        </div>
+        <a href="background-remover.html" class="flex items-center gap-2.5 p-1.5 bg-teal-50 rounded-xl text-xs font-black text-teal-700">AI Background Remover (New)</a>
+        <a href="image-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-teal-50">Universal Image Compressor</a>
+        <a href="jpg-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-teal-50">JPG Compressor</a>
+        <a href="png-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-teal-50">PNG Compressor</a>
+        <a href="webp-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-teal-50">WebP Compressor</a>
+        <a href="pdf-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-teal-50">PDF Compressor</a>
+        <a href="video-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-teal-50">Video Compressor</a>
+        <a href="compress-image-to-100kb.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-teal-50">Compress to 100KB / 200KB / 500KB</a>
+      </div>
+
+      <!-- Developer -->
+      <div class="space-y-1 pt-2 border-t border-slate-100">
+        <div class="text-[11px] font-black text-cyan-700 uppercase tracking-wider px-2 mb-1 flex items-center gap-1.5">
+          <i class="fa-solid fa-code"></i> Developer & Minifiers
+        </div>
+        <a href="html-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-cyan-50">HTML Minifier</a>
+        <a href="css-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-cyan-50">CSS Minifier</a>
+        <a href="javascript-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-cyan-50">JavaScript Minifier</a>
+        <a href="code-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-cyan-50">Universal Code Minifier</a>
+        <a href="shopify-csv-validator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-cyan-50">Shopify CSV Validator</a>
+      </div>
+
+      <!-- Finance & Business -->
+      <div class="space-y-1 pt-2 border-t border-slate-100">
+        <div class="text-[11px] font-black text-blue-700 uppercase tracking-wider px-2 mb-1 flex items-center gap-1.5">
+          <i class="fa-solid fa-briefcase"></i> Finance & E-Commerce
+        </div>
+        <a href="invoice-generator.html" class="flex items-center gap-2.5 p-1.5 bg-blue-50 rounded-xl text-xs font-black text-[#146ebe]">Invoice Generator (New)</a>
+        <a href="etsy-fee-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50">Etsy Fee Calculator</a>
+        <a href="amazon-fba-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50">Amazon FBA Calculator</a>
+        <a href="tiktok-shop-payout-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50">TikTok Shop Calculator</a>
+        <a href="pod-profit-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50">POD Margin Grid</a>
+        <a href="section8-estimator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50">Section 8 Estimator</a>
+        <a href="uk-stamp-duty-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50">UK Stamp Duty</a>
+        <a href="1031-exchange-tracker.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50">1031 Exchange Tracker</a>
+        <a href="str-cleaning-splitter.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50">STR Cleaning Splitter</a>
+        <a href="eu-vat-oss-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50">EU VAT OSS</a>
+      </div>
+
+    </div>
+  `;
+}
+
+function renderGlobalFooter() {
+  const footerElem = document.getElementById('globalFooter');
+  if (!footerElem) return;
+
+  footerElem.className = 'no-print bg-white border-t border-slate-200/80 pt-12 pb-8 mt-16';
+  footerElem.innerHTML = `
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-10">
+        
+        <!-- Brand Info -->
+        <div class="space-y-4">
+          <a href="index.html" class="flex items-center gap-3">
+            <img src="images/logo.jpg" alt="360tools.me Logo" class="w-8 h-8 object-contain rounded-xl">
+            <span class="text-xl font-black text-[#183153] tracking-tight">360tools<span class="text-[#146ebe]">.me</span></span>
+          </a>
+          <p class="text-xs text-slate-500 font-medium leading-relaxed">
+            High-precision client-side AI image tools, speech synthesis engines, media compressors, and developer utilities. 100% free & private.
+          </p>
+          <div class="flex items-center gap-2">
+            <span class="fa-badge-blue text-[10px]"><i class="fa-solid fa-shield-halved"></i> 100% In-Browser Private</span>
+          </div>
+        </div>
+
+        <!-- Audio & Voice -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">Audio & Voice</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="text-to-speech.html" class="hover:text-[#146ebe]">Text to Speech</a></li>
+            <li><a href="text-to-mp3.html" class="hover:text-[#146ebe]">Text to MP3</a></li>
+            <li><a href="ai-voice-generator.html" class="hover:text-[#146ebe]">AI Voice Generator</a></li>
+            <li><a href="pdf-to-speech.html" class="hover:text-[#146ebe]">PDF to Speech</a></li>
+            <li><a href="youtube-voiceover-generator.html" class="hover:text-[#146ebe]">YouTube Voiceovers</a></li>
+            <li><a href="urdu-text-to-speech.html" class="hover:text-[#146ebe]">Urdu TTS (اردو)</a></li>
+            <li><a href="article-to-speech.html" class="hover:text-[#146ebe]">Article Reader</a></li>
+          </ul>
+        </div>
+
+        <!-- AI & Media -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">AI & Media</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="background-remover.html" class="text-teal-700 font-black hover:underline">AI Background Remover (New)</a></li>
+            <li><a href="image-compressor.html" class="hover:text-[#146ebe]">Image Compressor</a></li>
+            <li><a href="jpg-compressor.html" class="hover:text-[#146ebe]">JPG Compressor</a></li>
+            <li><a href="png-compressor.html" class="hover:text-[#146ebe]">PNG Compressor</a></li>
+            <li><a href="webp-compressor.html" class="hover:text-[#146ebe]">WebP Compressor</a></li>
+            <li><a href="pdf-compressor.html" class="hover:text-[#146ebe]">PDF Compressor</a></li>
+            <li><a href="video-compressor.html" class="hover:text-[#146ebe]">Video Compressor</a></li>
+            <li><a href="compress-image-to-100kb.html" class="hover:text-[#146ebe]">Compress to 100KB / 500KB</a></li>
+          </ul>
+        </div>
+
+        <!-- Developer Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">Developer & Minifiers</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="html-minifier.html" class="hover:text-[#146ebe]">HTML Minifier</a></li>
+            <li><a href="css-minifier.html" class="hover:text-[#146ebe]">CSS Minifier</a></li>
+            <li><a href="javascript-minifier.html" class="hover:text-[#146ebe]">JavaScript Minifier</a></li>
+            <li><a href="code-minifier.html" class="hover:text-[#146ebe]">Universal Code Minifier</a></li>
+            <li><a href="shopify-csv-validator.html" class="hover:text-[#146ebe]">Shopify CSV Validator</a></li>
+            <li><a href="developer-tools.html" class="hover:text-[#146ebe]">All Dev Tools</a></li>
+          </ul>
+        </div>
+
+        <!-- Finance & Legal -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">Finance & E-Commerce</h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="invoice-generator.html" class="text-[#146ebe] font-black hover:underline">Invoice Generator (New)</a></li>
+            <li><a href="etsy-fee-calculator.html" class="hover:text-[#146ebe]">Etsy Fee Calculator</a></li>
+            <li><a href="amazon-fba-calculator.html" class="hover:text-[#146ebe]">Amazon FBA Calculator</a></li>
+            <li><a href="tiktok-shop-payout-calculator.html" class="hover:text-[#146ebe]">TikTok Shop Payout</a></li>
+            <li><a href="section8-estimator.html" class="hover:text-[#146ebe]">Section 8 Estimator</a></li>
+            <li><a href="uk-stamp-duty-calculator.html" class="hover:text-[#146ebe]">UK Stamp Duty</a></li>
+            <li><a href="privacy-policy.html" class="hover:text-[#146ebe]">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html" class="hover:text-[#146ebe]">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright Bar -->
+      <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-semibold">
+        <div>© 2026 <a href="index.html" class="font-bold text-[#183153] hover:text-[#146ebe]">360tools.me</a>. All rights reserved.</div>
+        <div class="text-[11px] text-slate-400">Client-side browser processing • Zero cloud data harvesting</div>
+      </div>
+    </div>
+  `;
+}
+
+// Auto Inject Header and Footer on DOM Content Loaded
+function initGlobalComponents() {
+  renderGlobalHeader();
+  renderGlobalFooter();
   initMobileAppNavigation();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initGlobalComponents);
+} else {
+  initGlobalComponents();
 }
 

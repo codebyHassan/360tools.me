@@ -141,41 +141,8 @@
 <body
   class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4">
 
-  <!-- Header Navigation -->
-  <header class="max-w-7xl mx-auto w-full sticky top-4 z-40 mb-8">
-    <div class="fa-header-nav px-6 py-3.5 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <a href="index.html" class="flex items-center gap-3 group">
-          <img src="images/logo.jpg" alt="360tools.me Logo"
-            class="w-11 h-11 object-contain rounded-2xl group-hover:scale-105 transition-transform">
-          <div>
-            <div class="flex items-center gap-1.5">
-              <span class="text-xl font-black text-[#183153] tracking-tight">360tools<span
-                  class="text-[#146ebe]">.me</span></span>
-            </div>
-            <p class="text-[11px] text-slate-500 font-bold leading-none">Section 8 Estimator</p>
-          </div>
-
-        </a>
-      </div>
-
-      <nav class="hidden md:flex items-center gap-6 text-sm font-bold text-[#183153]">
-        <a href="uk-stamp-duty-calculator.html" class="hover:text-[#146ebe] transition-colors">UK Stamp Duty</a>
-        <a href="1031-exchange-tracker.html" class="hover:text-[#146ebe] transition-colors">1031 Exchange</a>
-        <a href="str-cleaning-splitter.html" class="hover:text-[#146ebe] transition-colors">STR Splitter</a>
-        <a href="eu-vat-oss-calculator.html" class="hover:text-[#146ebe] transition-colors">EU VAT OSS</a>
-      </nav>
-
-      <div class="flex items-center gap-3">
-        <button
-          onclick="shareCurrentPage('Section 8 Max Rent Estimator', 'Calculate HUD voucher subsidies and tenant 30% contributions.')"
-          class="fa-btn-primary px-4 py-2 text-xs sm:text-sm">
-          <i class="fa-solid fa-share-nodes"></i>
-          <span>Share</span>
-        </button>
-      </div>
-    </div>
-  </header>
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
@@ -708,28 +675,8 @@
 
   </main>
 
-  <!-- Footer -->
-  <footer class="max-w-7xl mx-auto w-full mb-6">
-    <div
-      class="fa-card p-8 text-center text-xs sm:text-sm text-slate-600 flex flex-col sm:flex-row items-center justify-between gap-4 font-semibold">
-      <div class="flex items-center gap-3">
-        <img src="images/logo.jpg" alt="360tools.me Logo" class="w-9 h-9 object-contain rounded-xl">
-        <div>
-          © 2026 <a href="index.html" class="font-black text-[#183153] hover:text-[#146ebe]">360tools.me</a> • Section 8
-          Max Rent Estimator
-        </div>
-      </div>
-      <div class="flex flex-wrap justify-center gap-6 text-[#183153] font-bold">
-        <a href="index.html" class="hover:text-[#146ebe]">Home</a>
-        <a href="uk-stamp-duty-calculator.html" class="hover:text-[#146ebe]">UK SDLT</a>
-        <a href="1031-exchange-tracker.html" class="hover:text-[#146ebe]">1031 Exchange</a>
-        <a href="str-cleaning-splitter.html" class="hover:text-[#146ebe]">STR Splitter</a>
-        <a href="eu-vat-oss-calculator.html" class="hover:text-[#146ebe]">EU VAT OSS</a>
-        <a href="privacy-policy.html" class="hover:text-[#146ebe]">Privacy</a>
-        <a href="terms-and-conditions.html" class="hover:text-[#146ebe]">Terms</a>
-      </div>
-    </div>
-  </footer>
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
 
   <!-- Shared JavaScript File -->
   <script src="js/main.js"></script>
