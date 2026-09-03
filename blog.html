@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Blog & Tech Guides — 360tools.me | AI Voice, Compression, E-Commerce Tutorials</title>
+  <meta name="title" content="Blog & Tech Guides — 360tools.me | AI Voice, Compression, E-Commerce Tutorials">
+  <meta name="description" content="Discover in-depth engineering tutorials, PDF invoicing guides, AI voice synthesis workflows, and media compression tips from the 360tools engineering team.">
+  <meta name="keywords" content="360tools blog, invoicing guide, ai voiceover tutorials, image compression tips, developer guides, fba calculator guide">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/blog.html">
+
+  <!-- Favicon & Open Graph -->
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/blog.html">
+  <meta property="og:title" content="360tools Blog & Tutorials Hub">
+  <meta property="og:description" content="Explore expert tutorials and engineering deep-dives on browser privacy, AI voiceovers, and calculation utilities.">
+  <meta property="og:image" content="images/logo.jpg">
+
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#f8fafc]">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader"></header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="w-full flex-1">
+
+    <!-- HERO SECTION -->
+    <section class="bg-gradient-to-b from-white to-slate-50 border-b border-slate-200/80 pt-10 pb-14 px-4 sm:px-6">
+      <div class="max-w-6xl mx-auto text-center space-y-4">
+        
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#146ebe] text-xs font-black uppercase tracking-wider">
+          <i class="fa-solid fa-book-open"></i> Knowledge Base & Editorial Guides
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl font-black text-[#183153] tracking-tight">
+          360tools <span class="text-[#146ebe]">Engineering & Guides</span>
+        </h1>
+
+        <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto font-medium">
+          Comprehensive step-by-step guides, productivity tips, video breakdowns, and deep dives into our precision online tools.
+        </p>
+
+        <!-- Live Search & Filter Bar -->
+        <div class="max-w-xl mx-auto mt-6 pt-2">
+          <div class="relative flex items-center">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 text-slate-400 text-sm"></i>
+            <input 
+              type="text" 
+              id="blogSearchInput"
+              placeholder="Search guides, tutorials, or tools (e.g. invoice, compress, voice)..." 
+              class="w-full pl-11 pr-24 py-3.5 bg-white border border-slate-300 rounded-2xl shadow-sm text-sm font-bold text-slate-800 focus:outline-hidden focus:ring-2 focus:ring-[#146ebe] focus:border-transparent transition-all"
+            >
+            <button 
+              id="clearSearchBtn" 
+              class="hidden absolute right-3 px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl text-xs font-bold transition-all">
+              Clear
+            </button>
+          </div>
+        </div>
+
+        <!-- Categories Pill Bar -->
+        <div id="categoryTabs" class="flex items-center justify-center flex-wrap gap-2 pt-4">
+          <button data-category="" class="cat-pill active px-4 py-2 rounded-xl text-xs font-black bg-[#183153] text-white shadow-xs transition-all cursor-pointer">
+            All Guides
+          </button>
+          <!-- Dynamic Category Pills Injected Here -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BLOG POSTS GRID SECTION -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+      
+      <!-- Featured Hero Post Container (Top Sticky) -->
+      <div id="featuredPostContainer" class="mb-12 hidden">
+        <!-- Injected Dynamically -->
+      </div>
+
+      <!-- Section Title & Live Count -->
+      <div class="flex items-center justify-between mb-8 pb-3 border-b border-slate-200">
+        <h2 id="gridSectionTitle" class="text-xl sm:text-2xl font-black text-[#183153] flex items-center gap-2.5">
+          <i class="fa-solid fa-newspaper text-[#146ebe]"></i>
+          <span>Latest Articles & Guides</span>
+        </h2>
+        <span id="postsCountBadge" class="text-xs font-bold text-slate-500 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-2xs">
+          Loading...
+        </span>
+      </div>
+
+      <!-- Blog Grid (Cards) -->
+      <div id="blogsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Loading Skeleton Slices -->
+        <div class="animate-pulse bg-white rounded-3xl border border-slate-200 p-5 space-y-4 shadow-sm">
+          <div class="bg-slate-200 h-48 rounded-2xl w-full"></div>
+          <div class="h-4 bg-slate-200 rounded w-1/3"></div>
+          <div class="h-6 bg-slate-200 rounded w-3/4"></div>
+          <div class="h-4 bg-slate-200 rounded w-full"></div>
+        </div>
+        <div class="animate-pulse bg-white rounded-3xl border border-slate-200 p-5 space-y-4 shadow-sm">
+          <div class="bg-slate-200 h-48 rounded-2xl w-full"></div>
+          <div class="h-4 bg-slate-200 rounded w-1/3"></div>
+          <div class="h-6 bg-slate-200 rounded w-3/4"></div>
+          <div class="h-4 bg-slate-200 rounded w-full"></div>
+        </div>
+        <div class="animate-pulse bg-white rounded-3xl border border-slate-200 p-5 space-y-4 shadow-sm">
+          <div class="bg-slate-200 h-48 rounded-2xl w-full"></div>
+          <div class="h-4 bg-slate-200 rounded w-1/3"></div>
+          <div class="h-6 bg-slate-200 rounded w-3/4"></div>
+          <div class="h-4 bg-slate-200 rounded w-full"></div>
+        </div>
+
+      </div>
+
+      <!-- Empty State / Fallback -->
+      <div id="noResultsState" class="hidden text-center py-16 bg-white rounded-3xl border border-dashed border-slate-300 p-8 my-8">
+        <i class="fa-solid fa-file-circle-question text-4xl text-slate-300 mb-3"></i>
+        <h3 class="text-lg font-black text-[#183153]">No articles found</h3>
+        <p class="text-xs text-slate-500 max-w-sm mx-auto mt-1">
+          Try searching with different keywords or check back soon as our team publishes new guides.
+        </p>
+        <button onclick="resetBlogFilters()" class="mt-4 px-4 py-2 rounded-xl bg-[#146ebe] text-white text-xs font-bold hover:bg-blue-700 transition-all">
+          Reset Filters
+        </button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/blog-engine.js"></script>
+  
+  <script>
+    let currentCategory = '';
+    let currentSearch = '';
+    let allCategoriesList = [];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check query params for initial filter
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('category')) {
+        currentCategory = urlParams.get('category');
+      }
+      if (urlParams.has('search')) {
+        currentSearch = urlParams.get('search');
+        document.getElementById('blogSearchInput').value = currentSearch;
+      }
+
+      loadCategories();
+      loadBlogs();
+
+      // Search input handler with debounce
+      let searchTimeout;
+      const searchInput = document.getElementById('blogSearchInput');
+      const clearBtn = document.getElementById('clearSearchBtn');
+
+      searchInput.addEventListener('input', (e) => {
+        clearTimeout(searchTimeout);
+        currentSearch = e.target.value.trim();
+        clearBtn.classList.toggle('hidden', !currentSearch);
+
+        searchTimeout = setTimeout(() => {
+          loadBlogs();
+        }, 350);
+      });
+
+      clearBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        currentSearch = '';
+        clearBtn.classList.add('hidden');
+        loadBlogs();
+      });
+    });
+
+    async function loadCategories() {
+      try {
+        const categories = await fetchBlogApi('/api/categories/');
+        allCategoriesList = Array.isArray(categories) ? categories : (categories.results || []);
+
+        const tabsContainer = document.getElementById('categoryTabs');
+        tabsContainer.innerHTML = `
+          <button data-category="" onclick="setCategoryFilter('')" 
+                  class="cat-pill px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer ${currentCategory === '' ? 'bg-[#183153] text-white shadow-xs' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}">
+            All Guides
+          </button>
+        ` + allCategoriesList.map(cat => `
+          <button data-category="${cat.slug}" onclick="setCategoryFilter('${cat.slug}')" 
+                  class="cat-pill px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-1.5 ${currentCategory === cat.slug ? 'bg-[#183153] text-white shadow-xs' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}">
+            <i class="${cat.icon || 'fa-solid fa-folder'} ${cat.color || 'text-[#146ebe]'} text-xs"></i>
+            <span>${cat.name}</span>
+            <span class="text-[10px] opacity-70 bg-slate-100/50 px-1.5 py-0.2 rounded-full">${cat.posts_count || 0}</span>
+          </button>
+        `).join('');
+      } catch (err) {
+        console.warn('Categories API offline or cold start:', err);
+      }
+    }
+
+    function setCategoryFilter(categorySlug) {
+      currentCategory = categorySlug;
+      
+      // Update UI button styles
+      document.querySelectorAll('.cat-pill').forEach(btn => {
+        const isSelected = btn.getAttribute('data-category') === categorySlug;
+        btn.className = `cat-pill px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-1.5 ${isSelected ? 'bg-[#183153] text-white shadow-xs' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}`;
+      });
+
+      loadBlogs();
+    }
+
+    function resetBlogFilters() {
+      currentCategory = '';
+      currentSearch = '';
+      document.getElementById('blogSearchInput').value = '';
+      document.getElementById('clearSearchBtn').classList.add('hidden');
+      setCategoryFilter('');
+    }
+
+    async function loadBlogs() {
+      const grid = document.getElementById('blogsGrid');
+      const countBadge = document.getElementById('postsCountBadge');
+      const noResults = document.getElementById('noResultsState');
+      const featuredContainer = document.getElementById('featuredPostContainer');
+
+      // Construct API query path
+      let path = `/api/blogs/?`;
+      if (currentCategory) path += `category=${encodeURIComponent(currentCategory)}&`;
+      if (currentSearch) path += `search=${encodeURIComponent(currentSearch)}&`;
+
+      try {
+        const data = await fetchBlogApi(path);
+        const posts = Array.isArray(data) ? data : (data.results || []);
+
+        countBadge.textContent = `${posts.length} ${posts.length === 1 ? 'Article' : 'Articles'}`;
+
+        if (posts.length === 0) {
+          grid.innerHTML = '';
+          noResults.classList.remove('hidden');
+          featuredContainer.classList.add('hidden');
+          return;
+        }
+
+        noResults.classList.add('hidden');
+
+        // Check for featured post on initial load without search
+        if (!currentSearch && !currentCategory && posts.length > 0 && posts[0].is_featured) {
+          const feat = posts[0];
+          featuredContainer.innerHTML = `
+            <div class="bg-gradient-to-br from-white to-blue-50/40 rounded-3xl border border-slate-200 shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 sm:p-8 items-center">
+              <div class="lg:col-span-6 relative overflow-hidden rounded-2xl group">
+                <img src="${feat.featured_image_url || 'images/logo.jpg'}" alt="${feat.title}" class="w-full h-64 sm:h-80 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-300">
+                <span class="absolute top-3 left-3 bg-[#ffd43b] text-[#183153] px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider flex items-center gap-1 shadow-md">
+                  <i class="fa-solid fa-star"></i> Featured Guide
+                </span>
+                ${feat.featured_video_url ? `
+                  <span class="absolute bottom-3 right-3 bg-red-600 text-white px-2.5 py-1 rounded-full text-[10px] font-black uppercase flex items-center gap-1 shadow-md">
+                    <i class="fa-solid fa-play text-[9px]"></i> Video Included
+                  </span>
+                ` : ''}
+              </div>
+
+              <div class="lg:col-span-6 space-y-4">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-black text-[#146ebe] uppercase tracking-wider bg-blue-50 px-2.5 py-1 rounded-lg">
+                    ${feat.category?.name || 'General'}
+                  </span>
+                  <span class="text-xs text-slate-400 font-semibold">• ${feat.read_time_minutes || 4} min read</span>
+                </div>
+
+                <h3 class="text-2xl sm:text-3xl font-black text-[#183153] leading-tight hover:text-[#146ebe] transition-colors">
+                  <a href="blog-post.html?slug=${feat.slug}">${feat.title}</a>
+                </h3>
+
+                <p class="text-xs sm:text-sm text-slate-600 line-clamp-3 leading-relaxed">
+                  ${feat.excerpt}
+                </p>
+
+                <div class="pt-2 flex flex-wrap items-center justify-between gap-4">
+                  <div class="flex items-center gap-3">
+                    <img src="${feat.author_avatar || 'images/logo.jpg'}" class="w-9 h-9 rounded-xl object-cover border border-slate-200">
+                    <div>
+                      <div class="text-xs font-black text-[#183153]">${feat.author_name}</div>
+                      <div class="text-[10px] text-slate-400">${feat.published_date_formatted || ''}</div>
+                    </div>
+                  </div>
+
+                  <a href="blog-post.html?slug=${feat.slug}" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#146ebe] hover:bg-blue-700 text-white font-black text-xs rounded-xl shadow-md transition-all">
+                    <span>Read Full Guide</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          `;
+          featuredContainer.classList.remove('hidden');
+        } else {
+          featuredContainer.classList.add('hidden');
+        }
+
+        // Render Cards Grid
+        grid.innerHTML = posts.map(post => `
+          <article class="bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group">
+            <!-- Card Thumbnail -->
+            <div class="relative overflow-hidden aspect-16/10 bg-slate-100">
+              <img src="${post.featured_image_url || 'images/logo.jpg'}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+              
+              <!-- Category Badge -->
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs text-[#183153] border border-slate-200 px-2.5 py-1 rounded-xl text-[11px] font-black shadow-xs flex items-center gap-1.5">
+                <i class="${post.category?.icon || 'fa-solid fa-folder'} ${post.category?.color || 'text-[#146ebe]'} text-xs"></i>
+                <span>${post.category?.name || 'Guide'}</span>
+              </span>
+
+              <!-- Video Indicator if available -->
+              ${post.featured_video_url ? `
+                <span class="absolute top-3 right-3 bg-red-600 text-white px-2 py-0.5 rounded-lg text-[10px] font-black uppercase flex items-center gap-1 shadow-md">
+                  <i class="fa-solid fa-play text-[8px]"></i> Video
+                </span>
+              ` : ''}
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div class="space-y-2">
+                <div class="flex items-center gap-2 text-[11px] font-bold text-slate-400">
+                  <span>${post.published_date_formatted || ''}</span>
+                  <span>•</span>
+                  <span><i class="fa-regular fa-clock"></i> ${post.read_time_minutes || 4} min read</span>
+                </div>
+
+                <h3 class="text-base sm:text-lg font-black text-[#183153] group-hover:text-[#146ebe] transition-colors leading-snug line-clamp-2">
+                  <a href="blog-post.html?slug=${post.slug}">${post.title}</a>
+                </h3>
+
+                <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                  ${post.excerpt}
+                </p>
+              </div>
+
+              <!-- Card Footer: Author + CTA -->
+              <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <img src="${post.author_avatar || 'images/logo.jpg'}" class="w-7 h-7 rounded-lg object-cover border border-slate-200">
+                  <span class="text-xs font-bold text-slate-700 truncate max-w-[120px]">${post.author_name}</span>
+                </div>
+
+                <a href="blog-post.html?slug=${post.slug}" class="text-xs font-black text-[#146ebe] hover:text-blue-800 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  <span>Read Guide</span>
+                  <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+              </div>
+
+              <!-- Linked Tool Tag (If Connected) -->
+              ${post.primary_tool_name ? `
+                <div class="pt-1">
+                  <a href="${post.primary_tool_url || '#'}" class="w-full flex items-center justify-between p-2 rounded-xl bg-blue-50 hover:bg-blue-100/80 text-[11px] font-bold text-[#146ebe] transition-colors">
+                    <span class="flex items-center gap-1.5 truncate">
+                      <i class="fa-solid fa-screwdriver-wrench"></i> ${post.primary_tool_name}
+                    </span>
+                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                  </a>
+                </div>
+              ` : ''}
+
+            </div>
+          </article>
+        `).join('');
+
+      } catch (err) {
+        console.error('Error fetching blogs:', err);
+        grid.innerHTML = `
+          <div class="col-span-full text-center py-12 bg-white rounded-3xl border border-slate-200 p-8 space-y-4">
+            <i class="fa-solid fa-triangle-exclamation text-3xl text-amber-500"></i>
+            <h3 class="text-lg font-black text-[#183153]">Connecting to Blog Server...</h3>
+            <p class="text-xs text-slate-500 max-w-md mx-auto">
+              If the PythonAnywhere server is currently sleeping on the free tier, it will wake up in a few moments.
+            </p>
+            <button onclick="loadBlogs()" class="px-5 py-2.5 rounded-xl bg-[#146ebe] hover:bg-blue-700 text-white text-xs font-bold transition-all shadow-xs">
+              <i class="fa-solid fa-rotate-right mr-1.5"></i> Retry Connection
+            </button>
+          </div>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>

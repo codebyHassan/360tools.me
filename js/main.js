@@ -43,7 +43,8 @@ const TOOLS_REGISTRY = [
   { name: 'UK Stamp Duty Calculator', url: 'uk-stamp-duty-calculator.html', category: 'Real Estate & Tax', icon: 'fa-landmark', color: 'text-amber-700', keywords: 'sdlt england northern ireland property tax' },
   { name: '1031 Exchange Timeline Tracker', url: '1031-exchange-tracker.html', category: 'Real Estate & Tax', icon: 'fa-clock-rotate-left', color: 'text-purple-600', keywords: '1031 exchange 45 day 180 day deadline' },
   { name: 'STR Cleaning Fee Splitter', url: 'str-cleaning-splitter.html', category: 'Real Estate & Tax', icon: 'fa-broom', color: 'text-teal-600', keywords: 'airbnb vrbo cleaning fee co-host commission' },
-  { name: 'EU VAT OSS Calculator', url: 'eu-vat-oss-calculator.html', category: 'Real Estate & Tax', icon: 'fa-percent', color: 'text-blue-700', keywords: 'eu vat oss cross border 27 countries digital' }
+  { name: 'EU VAT OSS Calculator', url: 'eu-vat-oss-calculator.html', category: 'Real Estate & Tax', icon: 'fa-percent', color: 'text-blue-700', keywords: 'eu vat oss cross border 27 countries digital' },
+  { name: 'Blog & Editorial Guides', url: 'blog.html', category: 'Guides & Articles', icon: 'fa-newspaper', color: 'text-indigo-600', keywords: 'blog guide article tutorial howto documentation help' }
 ];
 
 // Quick Tool Finder Modal Manager
@@ -664,6 +665,12 @@ function renderGlobalHeader() {
             </div>
           </div>
 
+          <!-- Direct Blog & Guides Link -->
+          <a href="blog.html" class="flex items-center gap-1.5 px-3 py-2 rounded-xl text-slate-700 hover:text-[#146ebe] hover:bg-slate-50 transition-all cursor-pointer">
+            <i class="fa-solid fa-newspaper text-indigo-600 text-xs"></i>
+            <span>Blog & Guides</span>
+          </a>
+
         </nav>
       </div>
 
@@ -750,6 +757,17 @@ function renderGlobalHeader() {
         <a href="1031-exchange-tracker.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50">1031 Exchange Tracker</a>
         <a href="str-cleaning-splitter.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50">STR Cleaning Splitter</a>
         <a href="eu-vat-oss-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50">EU VAT OSS</a>
+      </div>
+
+      <!-- Blog & Editorial Guides (Mobile) -->
+      <div class="space-y-1 pt-2 border-t border-slate-100">
+        <a href="blog.html" class="flex items-center justify-between p-2.5 bg-gradient-to-r from-indigo-50 to-blue-50 border border-indigo-200/80 rounded-xl text-xs font-black text-indigo-900">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-newspaper text-indigo-600"></i>
+            <span>Blog & Engineering Guides</span>
+          </span>
+          <i class="fa-solid fa-arrow-right text-[10px] text-indigo-600"></i>
+        </a>
       </div>
 
     </div>
@@ -860,6 +878,7 @@ function renderGlobalFooter() {
             <li><a href="uk-stamp-duty-calculator.html" class="hover:text-[#146ebe]">UK Stamp Duty</a></li>
             <li><a href="privacy-policy.html" class="hover:text-[#146ebe]">Privacy Policy</a></li>
             <li><a href="terms-and-conditions.html" class="hover:text-[#146ebe]">Terms of Service</a></li>
+            <li><a href="blog.html" class="text-indigo-600 font-black hover:underline flex items-center gap-1"><i class="fa-solid fa-newspaper text-[10px]"></i> Blog & Guides</a></li>
           </ul>
         </div>
 

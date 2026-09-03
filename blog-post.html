@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Dynamic Meta Tags -->
+  <title id="pageTitle">Article Guide — 360tools.me</title>
+  <meta id="metaDesc" name="description" content="Read expert tutorials and software tool guides from 360tools.me.">
+  <meta id="metaKeywords" name="keywords" content="360tools, guide, online tools, free calculator">
+  <meta name="author" content="360tools.me">
+  <link id="canonicalLink" rel="canonical" href="https://360tools.me/blog.html">
+
+  <!-- Open Graph & Social Preview -->
+  <meta id="ogTitle" property="og:title" content="360tools Guide">
+  <meta id="ogDesc" property="og:description" content="Engineering tutorials and precision web utilities.">
+  <meta id="ogImage" property="og:image" content="images/logo.jpg">
+  <meta property="og:type" content="article">
+  <meta id="ogUrl" property="og:url" content="https://360tools.me/blog-post.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Marked.js (Safe Markdown Renderer) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- Highlight.js for Code Highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <style>
+    /* Prose Markdown Rich Text Styling */
+    .blog-prose {
+      color: #334155;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+    .blog-prose h2 {
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: #183153;
+      margin-top: 2rem;
+      margin-bottom: 0.85rem;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 0.5rem;
+    }
+    .blog-prose h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #183153;
+      margin-top: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+    .blog-prose p {
+      margin-bottom: 1.25rem;
+    }
+    .blog-prose ul {
+      list-style-type: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .blog-prose ol {
+      list-style-type: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .blog-prose li {
+      margin-bottom: 0.4rem;
+    }
+    .blog-prose a {
+      color: #146ebe;
+      text-decoration: underline;
+      font-weight: 700;
+      text-underline-offset: 3px;
+    }
+    .blog-prose a:hover {
+      color: #0369a1;
+    }
+    .blog-prose blockquote {
+      border-left: 4px solid #146ebe;
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: #475569;
+      background: #f8fafc;
+      padding: 0.8rem 1.2rem;
+      border-radius: 0 1rem 1rem 0;
+    }
+    .blog-prose code:not(pre code) {
+      background: #e2e8f0;
+      color: #0f172a;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.375rem;
+      font-size: 0.875em;
+      font-family: monospace;
+      font-weight: 700;
+    }
+    .blog-prose pre {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 1.25rem;
+      border-radius: 1rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+    .blog-prose img {
+      border-radius: 1rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      width: 100%;
+    }
+    .blog-prose table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      border-radius: 0.75rem;
+      overflow: hidden;
+    }
+    .blog-prose th, .blog-prose td {
+      padding: 0.75rem 1rem;
+      border: 1px solid #e2e8f0;
+      text-align: left;
+    }
+    .blog-prose th {
+      background: #f1f5f9;
+      font-weight: 800;
+      color: #183153;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#f8fafc]">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader"></header>
+
+  <!-- MAIN ARTICLE CONTAINER -->
+  <main class="w-full flex-1 py-8 sm:py-12 px-4 sm:px-6">
+    <div class="max-w-4xl mx-auto">
+      
+      <!-- Top Breadcrumb & Back Link -->
+      <nav class="flex items-center justify-between gap-2 text-xs font-bold text-slate-500 mb-6">
+        <div class="flex items-center gap-2">
+          <a href="index.html" class="hover:text-[#146ebe] transition-colors"><i class="fa-solid fa-house"></i> Home</a>
+          <span>/</span>
+          <a href="blog.html" class="hover:text-[#146ebe] transition-colors">Guides & Blog</a>
+          <span>/</span>
+          <span id="breadcrumbCategory" class="text-slate-700 truncate max-w-[200px]">Article</span>
+        </div>
+
+        <a href="blog.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 transition-all shadow-2xs">
+          <i class="fa-solid fa-arrow-left text-[10px]"></i>
+          <span>All Guides</span>
+        </a>
+      </nav>
+
+      <!-- Loading State -->
+      <div id="articleLoading" class="animate-pulse space-y-6 bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
+        <div class="h-4 bg-slate-200 rounded w-1/4"></div>
+        <div class="h-10 bg-slate-200 rounded w-3/4"></div>
+        <div class="h-64 bg-slate-200 rounded-2xl w-full"></div>
+        <div class="space-y-3">
+          <div class="h-4 bg-slate-200 rounded w-full"></div>
+          <div class="h-4 bg-slate-200 rounded w-5/6"></div>
+          <div class="h-4 bg-slate-200 rounded w-4/6"></div>
+        </div>
+      </div>
+
+      <!-- Main Article Card -->
+      <article id="articleContentWrapper" class="hidden bg-white rounded-3xl border border-slate-200/90 shadow-sm p-6 sm:p-10">
+        
+        <!-- Header: Category + Read Time + Date -->
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <span id="postCategoryBadge" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-blue-50 text-[#146ebe] border border-blue-200">
+            <i class="fa-solid fa-folder"></i> <span id="postCategoryName">Engineering</span>
+          </span>
+
+          <div class="flex items-center gap-3 text-xs font-bold text-slate-400">
+            <span id="postDate"><i class="fa-regular fa-calendar mr-1"></i> Date</span>
+            <span>•</span>
+            <span id="postReadTime"><i class="fa-regular fa-clock mr-1"></i> 4 min read</span>
+            <span>•</span>
+            <span id="postViews"><i class="fa-regular fa-eye mr-1"></i> 0 views</span>
+          </div>
+        </div>
+
+        <!-- Article Headline -->
+        <h1 id="postTitle" class="text-2xl sm:text-4xl font-black text-[#183153] leading-tight tracking-tight mb-6">
+          Article Headline
+        </h1>
+
+        <!-- Author Mini Header -->
+        <div class="flex items-center gap-3 pb-6 border-b border-slate-100 mb-8">
+          <img id="postAuthorAvatar" src="images/logo.jpg" alt="Author Avatar" class="w-11 h-11 rounded-2xl object-cover border border-slate-200 shadow-2xs">
+          <div>
+            <div id="postAuthorName" class="text-sm font-black text-[#183153]">360tools Engineering</div>
+            <div id="postAuthorRole" class="text-xs font-semibold text-slate-500">Product Specialist</div>
+          </div>
+        </div>
+
+        <!-- Featured Image (Hero) -->
+        <div id="featuredImageWrapper" class="mb-8 rounded-2xl overflow-hidden shadow-lg border border-slate-100">
+          <img id="postFeaturedImage" src="images/logo.jpg" alt="Featured Image" class="w-full h-auto max-h-[460px] object-cover">
+        </div>
+
+        <!-- Live Embedded Video Section (YouTube / Instagram / Facebook / TikTok) -->
+        <div id="featuredVideoContainer" class="my-6">
+          <!-- Dynamically Injected if post has a featured_video_url -->
+        </div>
+
+        <!-- Top Social Sharing Bar -->
+        <div id="topShareBar"></div>
+
+        <!-- Rendered Markdown Body Content -->
+        <div id="postMarkdownBody" class="blog-prose py-4"></div>
+
+        <!-- Interactive Tool Cross-Linking CTA Box -->
+        <div id="toolCalloutContainer"></div>
+
+        <!-- Bottom Social Sharing Bar -->
+        <div id="bottomShareBar"></div>
+
+        <!-- Author Profile & Social Handles Card -->
+        <div id="authorBioContainer"></div>
+
+      </article>
+
+      <!-- Error State -->
+      <div id="articleError" class="hidden text-center py-16 bg-white rounded-3xl border border-slate-200 p-8 space-y-4 shadow-sm">
+        <i class="fa-solid fa-circle-exclamation text-4xl text-rose-500"></i>
+        <h2 class="text-xl font-black text-[#183153]">Blog Article Not Found</h2>
+        <p class="text-xs sm:text-sm text-slate-500 max-w-md mx-auto">
+          The guide you are looking for might have been moved, renamed, or is waiting for publication.
+        </p>
+        <a href="blog.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#146ebe] text-white font-bold text-xs hover:bg-blue-700 transition-all shadow-md">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Return to All Guides</span>
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/blog-engine.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const slug = urlParams.get('slug') || urlParams.get('id');
+
+      if (!slug) {
+        showError();
+        return;
+      }
+
+      loadArticleDetail(slug);
+    });
+
+    async function loadArticleDetail(slug) {
+      const loading = document.getElementById('articleLoading');
+      const content = document.getElementById('articleContentWrapper');
+      const errorDiv = document.getElementById('articleError');
+
+      try {
+        const post = await fetchBlogApi(`/api/blogs/${encodeURIComponent(slug)}/`);
+
+        // 1. Update Document SEO Meta Tags
+        document.title = `${post.title} — 360tools.me`;
+        document.getElementById('metaDesc').setAttribute('content', post.excerpt || post.title);
+        if (post.meta_keywords) {
+          document.getElementById('metaKeywords').setAttribute('content', post.meta_keywords);
+        }
+        document.getElementById('canonicalLink').setAttribute('href', post.canonical_url || window.location.href);
+
+        // Open Graph
+        document.getElementById('ogTitle').setAttribute('content', post.title);
+        document.getElementById('ogDesc').setAttribute('content', post.excerpt || post.title);
+        document.getElementById('ogImage').setAttribute('content', post.featured_image_url || 'images/logo.jpg');
+        document.getElementById('ogUrl').setAttribute('content', window.location.href);
+
+        // 2. Populate Header Elements
+        document.getElementById('postTitle').textContent = post.title;
+        document.getElementById('postCategoryName').textContent = post.category?.name || 'Guide';
+        document.getElementById('breadcrumbCategory').textContent = post.category?.name || 'Guide';
+        document.getElementById('postDate').innerHTML = `<i class="fa-regular fa-calendar mr-1"></i> ${post.published_date_formatted || 'Recently'}`;
+        document.getElementById('postReadTime').innerHTML = `<i class="fa-regular fa-clock mr-1"></i> ${post.read_time_minutes || 4} min read`;
+        document.getElementById('postViews').innerHTML = `<i class="fa-regular fa-eye mr-1"></i> ${post.views_count || 1} views`;
+
+        // Author info
+        document.getElementById('postAuthorName').textContent = post.author_name || '360tools Engineering';
+        document.getElementById('postAuthorRole').textContent = post.author_role || 'Product Specialist';
+        document.getElementById('postAuthorAvatar').src = post.author_avatar || 'images/logo.jpg';
+
+        // Featured Image
+        if (post.featured_image_url) {
+          document.getElementById('postFeaturedImage').src = post.featured_image_url;
+        } else {
+          document.getElementById('featuredImageWrapper').style.display = 'none';
+        }
+
+        // 3. Smart Video Embed (YouTube, Instagram Reels, Facebook Video, TikTok)
+        const videoContainer = document.getElementById('featuredVideoContainer');
+        if (post.featured_video_url) {
+          const embedData = parseMediaEmbed(post.featured_video_url);
+          if (embedData) {
+            videoContainer.innerHTML = `
+              <div class="my-6">
+                <div class="flex items-center gap-2 mb-2 text-xs font-black text-slate-700">
+                  <i class="${embedData.icon}"></i>
+                  <span>Watch Embedded Video Preview (${embedData.platform})</span>
+                </div>
+                ${embedData.html}
+              </div>
+            `;
+          } else {
+            videoContainer.innerHTML = '';
+          }
+        } else {
+          videoContainer.innerHTML = '';
+        }
+
+        // 4. Render Markdown Content via Marked.js + Highlight.js
+        marked.setOptions({
+          highlight: function(code, lang) {
+            if (lang && hljs.getLanguage(lang)) {
+              return hljs.highlight(code, { language: lang }).value;
+            }
+            return hljs.highlightAuto(code).value;
+          },
+          breaks: true,
+          gfm: true
+        });
+
+        const rawMarkdown = post.content_markdown || post.excerpt || '';
+        document.getElementById('postMarkdownBody').innerHTML = marked.parse(rawMarkdown);
+
+        // 5. Social Share Bars
+        const currentUrl = window.location.href;
+        const shareHtml = createSocialShareButtons(post.title, currentUrl, post.excerpt);
+        document.getElementById('topShareBar').innerHTML = shareHtml;
+        document.getElementById('bottomShareBar').innerHTML = shareHtml;
+
+        // 6. Interactive Tool Cross-Linking CTA
+        document.getElementById('toolCalloutContainer').innerHTML = createToolCalloutCard(post);
+
+        // 7. Author Bio & Social Profiles Card
+        document.getElementById('authorBioContainer').innerHTML = createAuthorBioCard(post);
+
+        // Display Content
+        loading.classList.add('hidden');
+        content.classList.remove('hidden');
+
+      } catch (err) {
+        console.error('Failed to load blog detail:', err);
+        showError();
+      }
+    }
+
+    function showError() {
+      document.getElementById('articleLoading').classList.add('hidden');
+      document.getElementById('articleContentWrapper').classList.add('hidden');
+      document.getElementById('articleError').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
