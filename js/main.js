@@ -296,7 +296,7 @@ function createMobileAppDrawer() {
         <div class="flex items-center gap-2.5">
           <img src="images/logo.jpg" alt="Logo" class="w-8 h-8 rounded-xl">
           <div>
-            <h3 class="text-sm font-black text-[#183153]">360tools<span class="text-[#146ebe]">.me</span></h3>
+            <h3 class="text-sm font-black text-[#183153]">360Tools<span class="text-[#146ebe]">.me</span></h3>
             <p class="text-[10px] text-slate-400 font-bold">100% Free & Private Online Suite</p>
           </div>
         </div>
@@ -454,8 +454,8 @@ function renderGlobalHeader() {
       <!-- Brand Logo & Desktop Nav -->
       <div class="flex items-center gap-6">
         <a href="index.html" class="flex items-center gap-2.5 group">
-          <img src="images/logo.jpg" alt="360tools.me Logo" class="w-8 h-8 object-contain rounded-xl group-hover:scale-105 transition-transform">
-          <span class="text-xl font-black text-[#183153] tracking-tight">360tools<span class="text-[#146ebe]">.me</span></span>
+          <img src="images/logo.jpg" alt="360Tools Logo" class="w-8 h-8 object-contain rounded-xl group-hover:scale-105 transition-transform">
+          <span class="text-xl font-black text-[#183153] tracking-tight">360Tools<span class="text-[#146ebe]">.me</span></span>
         </a>
 
         <!-- Professional Desktop Navigation Mega Dropdowns -->
@@ -671,6 +671,12 @@ function renderGlobalHeader() {
             <span>Blog & Guides</span>
           </a>
 
+          <!-- Direct About Link -->
+          <a href="about.html" class="flex items-center gap-1.5 px-3 py-2 rounded-xl text-slate-700 hover:text-[#146ebe] hover:bg-slate-50 transition-all cursor-pointer">
+            <i class="fa-solid fa-circle-info text-blue-600 text-xs"></i>
+            <span>About</span>
+          </a>
+
         </nav>
       </div>
 
@@ -768,6 +774,13 @@ function renderGlobalHeader() {
           </span>
           <i class="fa-solid fa-arrow-right text-[10px] text-indigo-600"></i>
         </a>
+        <a href="about.html" class="flex items-center justify-between p-2.5 bg-slate-50 border border-slate-200/80 rounded-xl text-xs font-bold text-slate-800 hover:bg-blue-50">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-circle-info text-blue-600"></i>
+            <span>About 360Tools</span>
+          </span>
+          <i class="fa-solid fa-arrow-right text-[10px] text-slate-400"></i>
+        </a>
       </div>
 
     </div>
@@ -786,11 +799,11 @@ function renderGlobalFooter() {
         <!-- Brand Info -->
         <div class="space-y-4">
           <a href="index.html" class="flex items-center gap-3">
-            <img src="images/logo.jpg" alt="360tools.me Logo" class="w-8 h-8 object-contain rounded-xl">
-            <span class="text-xl font-black text-[#183153] tracking-tight">360tools<span class="text-[#146ebe]">.me</span></span>
+            <img src="images/logo.jpg" alt="360Tools Logo" class="w-8 h-8 object-contain rounded-xl">
+            <span class="text-xl font-black text-[#183153] tracking-tight">360Tools<span class="text-[#146ebe]">.me</span></span>
           </a>
           <p class="text-xs text-slate-500 font-medium leading-relaxed">
-            High-precision client-side AI image tools, speech synthesis engines, media compressors, and developer utilities. 100% free & private.
+            360Tools — Free, Private Online Tools for Work, Creators & Developers. 100% client-side browser processing with zero cloud data logging.
           </p>
           <div class="flex items-center gap-2">
             <span class="fa-badge-blue text-[10px]"><i class="fa-solid fa-shield-halved"></i> 100% In-Browser Private</span>
@@ -868,8 +881,9 @@ function renderGlobalFooter() {
 
         <!-- Finance & Legal -->
         <div class="space-y-3">
-          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">Finance & E-Commerce</h4>
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider">Company & Business</h4>
           <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="about.html" class="text-blue-600 font-black hover:underline flex items-center gap-1"><i class="fa-solid fa-circle-info text-[10px]"></i> About 360Tools</a></li>
             <li><a href="invoice-generator.html" class="text-[#146ebe] font-black hover:underline">Invoice Generator (New)</a></li>
             <li><a href="etsy-fee-calculator.html" class="hover:text-[#146ebe]">Etsy Fee Calculator</a></li>
             <li><a href="amazon-fba-calculator.html" class="hover:text-[#146ebe]">Amazon FBA Calculator</a></li>
@@ -886,7 +900,7 @@ function renderGlobalFooter() {
 
       <!-- Bottom Copyright Bar -->
       <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-semibold">
-        <div>© 2026 <a href="index.html" class="font-bold text-[#183153] hover:text-[#146ebe]">360tools.me</a>. All rights reserved.</div>
+        <div>© 2026 <a href="index.html" class="font-bold text-[#183153] hover:text-[#146ebe]">360Tools (360tools.me)</a>. All rights reserved.</div>
         <div class="flex items-center gap-3">
           <a href="https://www.youtube.com/@360tools" target="_blank" rel="noopener noreferrer" class="hover:text-red-600 transition-colors flex items-center gap-1 font-bold">
             <i class="fa-brands fa-youtube text-xs text-red-600"></i> YouTube
