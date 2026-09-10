@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="../">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Snake Game Online — Free Classic Retro Arcade Game | 360tools.me</title>
+  <meta name="title" content="Snake Game Online — Free Classic Retro Arcade Game | 360tools.me">
+  <meta name="description" content="Play the classic Retro Snake game online for free. Features 60FPS fluid canvas graphics, golden bonus apples, multiple speed modes, high score tracking, sound FX, and touch controls.">
+  <meta name="keywords" content="snake game, play snake, classic snake, retro snake, snake online, snake unblocked, free arcade game">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/snake/">
+
+  <!-- Favicon & Open Graph -->
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/snake/">
+  <meta property="og:title" content="Classic Snake Game Online — Superfast & Free">
+  <meta property="og:description" content="Play classic Nokia-style retro snake directly in your browser. 60 FPS, mobile touch support, and zero lag.">
+  <meta property="og:image" content="images/logo.jpg">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Classic Snake Arcade Game Online",
+    "operatingSystem": "All modern browsers",
+    "applicationCategory": "GameApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Play classic Snake game online with fluid canvas rendering, golden food bonuses, customizable speed tiers, and sound effects."
+  }
+  </script>
+
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .game-canvas-container {
+      background: #0f172a;
+      border: 3px solid #1e293b;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Native & Pseudo Fullscreen Styling */
+    :fullscreen #gameArenaContainer,
+    :-webkit-full-screen #gameArenaContainer,
+    :-moz-full-screen #gameArenaContainer,
+    :-ms-fullscreen #gameArenaContainer,
+    #gameArenaContainer.theater-mode {
+      background: #070b14 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      max-width: 100vw !important;
+      padding: 1.5rem !important;
+      z-index: 999999 !important;
+    }
+
+    #gameArenaContainer.theater-mode {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    :fullscreen #gameArenaContainer .game-canvas-container,
+    :-webkit-full-screen #gameArenaContainer .game-canvas-container,
+    #gameArenaContainer.theater-mode .game-canvas-container {
+      width: 82vmin !important;
+      height: 82vmin !important;
+      max-width: 82vmin !important;
+      max-height: 82vmin !important;
+      border: 4px solid #334155;
+      box-shadow: 0 0 50px rgba(16, 185, 129, 0.25);
+    }
+
+    :fullscreen #fsHud,
+    :-webkit-full-screen #fsHud,
+    #gameArenaContainer.theater-mode #fsHud {
+      display: flex !important;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#f8fafc] px-3 sm:px-6 py-4">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader"></header>
+
+  <!-- Main Game Container -->
+  <main class="max-w-4xl mx-auto w-full flex-1 mb-16 pt-2">
+    
+    <!-- Top Game Banner -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-1">
+          <span class="fa-badge-teal py-1 px-3 text-[11px] font-black uppercase">
+            <i class="fa-solid fa-gamepad mr-1 text-emerald-600"></i> Retro Arcade
+          </span>
+          <span class="text-xs font-bold text-emerald-600 flex items-center gap-1">
+            <i class="fa-solid fa-bolt text-xs"></i> 60 FPS Canvas
+          </span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight flex items-center gap-2">
+          <span>Classic Snake</span>
+          <span class="text-xs font-bold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded-md">Arcade Edition</span>
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-500 font-medium">
+          Eat apples, grow your snake, and beat your highest score!
+        </p>
+      </div>
+
+      <!-- Score Boards -->
+      <div class="flex items-center gap-2.5">
+        <div class="bg-slate-900 text-white px-4 py-2 rounded-2xl text-center min-w-[85px] border border-slate-800 shadow-xs">
+          <div class="text-[10px] font-black uppercase tracking-wider text-emerald-400">SCORE</div>
+          <div id="currentScore" class="text-lg sm:text-xl font-black leading-tight">0</div>
+        </div>
+        <div class="bg-slate-900 text-white px-4 py-2 rounded-2xl text-center min-w-[85px] border border-slate-800 shadow-xs">
+          <div class="text-[10px] font-black uppercase tracking-wider text-amber-400">BEST</div>
+          <div id="bestScore" class="text-lg sm:text-xl font-black leading-tight">0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Configuration & Action Controls Bar -->
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+      <div class="flex items-center flex-wrap gap-2">
+        <select id="speedSelect" onchange="changeSpeed(this.value)" class="fa-input py-1.5 px-3 text-xs font-bold rounded-xl cursor-pointer w-auto">
+          <option value="120">Normal Speed</option>
+          <option value="85">Fast Speed</option>
+          <option value="55">Insane (Hardcore)</option>
+        </select>
+
+        <button onclick="toggleAudio()" id="soundToggleBtn" class="fa-btn-secondary py-2 px-3 text-xs font-bold" title="Toggle Sound FX">
+          <i class="fa-solid fa-volume-high text-slate-600" id="soundIcon"></i>
+        </button>
+
+        <button onclick="toggleFullscreen()" id="fullscreenBtn" class="fa-btn-secondary py-2 px-3.5 text-xs font-bold text-[#146ebe] hover:bg-blue-50 border-blue-200" title="Expand to Big Screen / Fullscreen">
+          <i class="fa-solid fa-expand mr-1.5 text-[#146ebe]" id="fullscreenIcon"></i> <span id="fullscreenText">Big Screen</span>
+        </button>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="togglePause()" id="pauseBtn" class="fa-btn-secondary py-2 px-3 text-xs font-bold">
+          <i class="fa-solid fa-pause mr-1 text-[#146ebe]"></i> <span id="pauseBtnText">Pause</span>
+        </button>
+        <button onclick="restartGame()" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-md bg-emerald-600 hover:bg-emerald-700">
+          <i class="fa-solid fa-arrows-rotate mr-1"></i> New Game
+        </button>
+      </div>
+    </div>
+
+    <!-- Game Canvas Arena Container -->
+    <div class="flex justify-center mb-8">
+      <div id="gameArenaContainer" class="game-arena relative w-full max-w-[460px] aspect-square flex flex-col items-center justify-center">
+        
+        <!-- Fullscreen HUD Bar (Visible in Fullscreen Mode) -->
+        <div id="fsHud" class="hidden fullscreen-only w-full max-w-[85vmin] flex items-center justify-between px-3 py-2 mb-2 bg-slate-900/90 text-white rounded-xl border border-slate-700/60 backdrop-blur-md">
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-black text-emerald-400 uppercase tracking-wide">🐍 Snake Arcade</span>
+            <span class="text-xs text-slate-400 font-bold">Score: <span id="fsScore" class="text-white font-black text-sm">0</span></span>
+            <span class="text-xs text-slate-400 font-bold">Best: <span id="fsBestScore" class="text-amber-400 font-black text-sm">0</span></span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="togglePause()" class="px-2.5 py-1 text-xs font-bold bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-200">
+              <i class="fa-solid fa-pause mr-1"></i> Pause
+            </button>
+            <button onclick="toggleFullscreen()" class="px-2.5 py-1 text-xs font-bold bg-rose-600/80 hover:bg-rose-600 rounded-lg text-white">
+              <i class="fa-solid fa-compress mr-1"></i> Exit Fullscreen
+            </button>
+          </div>
+        </div>
+
+        <div class="relative w-full h-full max-w-full max-h-full flex items-center justify-center select-none touch-none">
+          <canvas id="snakeCanvas" width="800" height="800" class="game-canvas-container w-full h-full rounded-2xl touch-none"></canvas>
+
+          <!-- Game Start / Overlay Screen -->
+          <div id="startOverlay" class="absolute inset-0 bg-slate-900/80 backdrop-blur-xs rounded-2xl flex flex-col items-center justify-center p-6 text-center text-white z-20">
+            <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full flex items-center justify-center text-3xl mb-3 animate-pulse">
+              <i class="fa-solid fa-play ml-1"></i>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black mb-1">Ready to Play?</h2>
+            <p class="text-xs sm:text-sm text-slate-300 mb-6">Use Arrow Keys or Swipe to guide your snake.</p>
+            <button onclick="startGame()" class="fa-btn-yellow py-3 px-8 text-sm font-black shadow-lg">
+              Start Game
+            </button>
+          </div>
+
+          <!-- Game Over Modal Overlay -->
+          <div id="gameOverModal" class="hidden absolute inset-0 bg-slate-900/90 backdrop-blur-xs rounded-2xl flex flex-col items-center justify-center p-6 text-center text-white z-20 animate-in fade-in zoom-in-95">
+            <div class="w-16 h-16 bg-rose-500/20 text-rose-400 border border-rose-500/30 rounded-full flex items-center justify-center text-2xl mb-3">
+              <i class="fa-solid fa-skull"></i>
+            </div>
+            <h2 class="text-3xl font-black mb-1">Crash! Game Over</h2>
+            <p id="finalScoreText" class="text-xs sm:text-sm text-slate-300 mb-6">You scored 0 points.</p>
+            <button onclick="restartGame()" class="fa-btn-yellow py-3 px-6 text-sm font-black shadow-lg">
+              <i class="fa-solid fa-rotate-right mr-1.5"></i> Play Again
+            </button>
+          </div>
+
+          <!-- Pause Modal -->
+          <div id="pauseModal" class="hidden absolute inset-0 bg-slate-900/75 backdrop-blur-xs rounded-2xl flex flex-col items-center justify-center p-6 text-center text-white z-20">
+            <i class="fa-solid fa-pause text-4xl text-emerald-400 mb-2"></i>
+            <h2 class="text-2xl font-black mb-4">Game Paused</h2>
+            <button onclick="togglePause()" class="fa-btn-primary py-2.5 px-6 text-xs font-black">
+              Resume Playing
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- On-Screen Mobile D-Pad Controls -->
+    <div class="block sm:hidden max-w-[260px] mx-auto mb-10 select-none">
+      <div class="text-center text-[11px] font-black text-slate-400 uppercase tracking-wider mb-2">
+        <i class="fa-solid fa-hand-pointer mr-1 text-emerald-600"></i> Touch & Swipe D-Pad
+      </div>
+      <div class="grid grid-cols-3 gap-2 touch-manipulation">
+        <div></div>
+        <button onclick="mobileDir('up')" class="h-14 bg-white active:bg-emerald-100 border-2 border-slate-200 active:border-emerald-600 text-slate-700 active:text-emerald-700 rounded-2xl flex items-center justify-center text-xl font-black shadow-xs transition-transform active:scale-95">
+          <i class="fa-solid fa-arrow-up"></i>
+        </button>
+        <div></div>
+        
+        <button onclick="mobileDir('left')" class="h-14 bg-white active:bg-emerald-100 border-2 border-slate-200 active:border-emerald-600 text-slate-700 active:text-emerald-700 rounded-2xl flex items-center justify-center text-xl font-black shadow-xs transition-transform active:scale-95">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button onclick="mobileDir('down')" class="h-14 bg-white active:bg-emerald-100 border-2 border-slate-200 active:border-emerald-600 text-slate-700 active:text-emerald-700 rounded-2xl flex items-center justify-center text-xl font-black shadow-xs transition-transform active:scale-95">
+          <i class="fa-solid fa-arrow-down"></i>
+        </button>
+        <button onclick="mobileDir('right')" class="h-14 bg-white active:bg-emerald-100 border-2 border-slate-200 active:border-emerald-600 text-slate-700 active:text-emerald-700 rounded-2xl flex items-center justify-center text-xl font-black shadow-xs transition-transform active:scale-95">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Instructions Tip Banner -->
+    <div class="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs mb-12 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-600 font-medium">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-keyboard text-[#146ebe] text-base"></i>
+        <span><strong>Desktop:</strong> Use <strong>Arrow Keys</strong> or <strong>W, A, S, D</strong>. Press <strong>Space</strong> or <strong>P</strong> to pause.</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-apple-whole text-amber-500 text-base"></i>
+        <span><strong>Bonus:</strong> Golden apples appear periodically for +50 bonus points!</span>
+      </div>
+    </div>
+
+    <!-- Editorial & SEO Guide Section -->
+    <article class="fa-card p-6 sm:p-10 space-y-8 text-slate-700 text-sm leading-relaxed">
+      
+      <section class="space-y-3">
+        <h2 class="text-xl sm:text-2xl font-black text-[#183153] flex items-center gap-2">
+          <i class="fa-solid fa-gamepad text-emerald-600"></i> The History of the Classic Snake Arcade Game
+        </h2>
+        <p>
+          First introduced as the 1976 arcade game <em>Blockade</em> and popularized globally on Nokia mobile devices in 1997, <strong>Snake</strong> has remained one of the most beloved casual arcade games of all time.
+        </p>
+      </section>
+
+      <section class="space-y-4">
+        <h3 class="text-lg font-black text-[#183153] flex items-center gap-2">
+          <i class="fa-solid fa-trophy text-[#ffd43b]"></i> Top Strategies for Massive High Scores
+        </h3>
+        <ul class="list-disc pl-5 space-y-2 text-xs sm:text-sm text-slate-600 font-medium">
+          <li><strong>Stay Near the Perimeter:</strong> Circle the edges of the board to maximize open turning space in the center.</li>
+          <li><strong>Avoid Trapping Your Tail:</strong> Always plan your exit route before lunging for an apple in a narrow corridor.</li>
+          <li><strong>Master the Zig-Zag Pattern:</strong> As your snake grows beyond 20 segments, snake back and forth in tight S-curves to fill the board systematically.</li>
+        </ul>
+      </section>
+
+    </article>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script>
+    const canvas = document.getElementById('snakeCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const GRID_SIZE = 20; // 20x20 grid (800px / 20 = 40px cell HD)
+    const CELL_SIZE = 40;
+
+    let snake = [];
+    let direction = 'right';
+    let nextDirection = 'right';
+    let food = { x: 15, y: 10 };
+    let goldenApple = null;
+    let goldenTimer = null;
+    let score = 0;
+    let bestScore = parseInt(localStorage.getItem('360tools_snake_best') || '0', 10);
+    let speedMs = 120;
+    let gameLoop = null;
+    let isRunning = false;
+    let isPaused = false;
+    let soundEnabled = true;
+    let tickCount = 0;
+
+    // Web Audio Synthesizer
+    let audioCtx = null;
+    function getAudioCtx() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      return audioCtx;
+    }
+
+    function playSound(freq, type = 'sine', duration = 0.08) {
+      if (!soundEnabled) return;
+      try {
+        const c = getAudioCtx();
+        if (c.state === 'suspended') c.resume();
+        const osc = c.createOscillator();
+        const g = c.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, c.currentTime);
+        g.gain.setValueAtTime(0.08, c.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.001, c.currentTime + duration);
+        osc.connect(g);
+        g.connect(c.destination);
+        osc.start();
+        osc.stop(c.currentTime + duration);
+      } catch (e) {}
+    }
+
+    function toggleAudio() {
+      soundEnabled = !soundEnabled;
+      const icon = document.getElementById('soundIcon');
+      if (icon) {
+        icon.className = soundEnabled ? 'fa-solid fa-volume-high text-slate-600' : 'fa-solid fa-volume-xmark text-rose-500';
+      }
+    }
+
+    function changeSpeed(val) {
+      speedMs = parseInt(val, 10);
+      if (isRunning && !isPaused) {
+        clearInterval(gameLoop);
+        gameLoop = setInterval(step, speedMs);
+      }
+    }
+
+    function initGame() {
+      canvas.width = 800;
+      canvas.height = 800;
+      document.getElementById('bestScore').textContent = bestScore;
+      const fsBest = document.getElementById('fsBestScore');
+      if (fsBest) fsBest.textContent = bestScore;
+      drawGridBackground();
+    }
+
+    // Fullscreen / Big Screen Toggle
+    function toggleFullscreen() {
+      const arena = document.getElementById('gameArenaContainer');
+      const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || arena.classList.contains('theater-mode'));
+
+      if (!isFs) {
+        if (arena.requestFullscreen) {
+          arena.requestFullscreen().catch(() => toggleTheaterMode(true));
+        } else if (arena.webkitRequestFullscreen) {
+          arena.webkitRequestFullscreen();
+        } else if (arena.msRequestFullscreen) {
+          arena.msRequestFullscreen();
+        } else {
+          toggleTheaterMode(true);
+        }
+      } else {
+        if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
+          if (document.exitFullscreen) document.exitFullscreen();
+          else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+          else if (document.msExitFullscreen) document.msExitFullscreen();
+        }
+        toggleTheaterMode(false);
+      }
+    }
+
+    function toggleTheaterMode(forceState) {
+      const arena = document.getElementById('gameArenaContainer');
+      const icon = document.getElementById('fullscreenIcon');
+      const text = document.getElementById('fullscreenText');
+      const hud = document.getElementById('fsHud');
+
+      const shouldEnable = typeof forceState === 'boolean' ? forceState : !arena.classList.contains('theater-mode');
+      
+      if (shouldEnable) {
+        arena.classList.add('theater-mode');
+        if (icon) icon.className = 'fa-solid fa-compress mr-1.5 text-rose-500';
+        if (text) text.textContent = 'Exit Screen';
+        if (hud) hud.classList.remove('hidden');
+      } else {
+        arena.classList.remove('theater-mode');
+        if (icon) icon.className = 'fa-solid fa-expand mr-1.5 text-[#146ebe]';
+        if (text) text.textContent = 'Big Screen';
+        if (hud) hud.classList.add('hidden');
+      }
+    }
+
+    function handleFullscreenChange() {
+      const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement);
+      const icon = document.getElementById('fullscreenIcon');
+      const text = document.getElementById('fullscreenText');
+      const hud = document.getElementById('fsHud');
+
+      if (isFs) {
+        if (icon) icon.className = 'fa-solid fa-compress mr-1.5 text-rose-500';
+        if (text) text.textContent = 'Exit Screen';
+        if (hud) hud.classList.remove('hidden');
+      } else {
+        const arena = document.getElementById('gameArenaContainer');
+        if (!arena.classList.contains('theater-mode')) {
+          if (icon) icon.className = 'fa-solid fa-expand mr-1.5 text-[#146ebe]';
+          if (text) text.textContent = 'Big Screen';
+          if (hud) hud.classList.add('hidden');
+        }
+      }
+    }
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+
+    function startGame() {
+      document.getElementById('startOverlay').classList.add('hidden');
+      document.getElementById('gameOverModal').classList.add('hidden');
+      document.getElementById('pauseModal').classList.add('hidden');
+
+      snake = [
+        { x: 6, y: 10 },
+        { x: 5, y: 10 },
+        { x: 4, y: 10 }
+      ];
+      direction = 'right';
+      nextDirection = 'right';
+      score = 0;
+      tickCount = 0;
+      updateScoreUI();
+      spawnFood();
+      goldenApple = null;
+
+      isRunning = true;
+      isPaused = false;
+      document.getElementById('pauseBtnText').textContent = 'Pause';
+
+      if (gameLoop) clearInterval(gameLoop);
+      gameLoop = setInterval(step, speedMs);
+    }
+
+    function updateScoreUI() {
+      document.getElementById('currentScore').textContent = score;
+      const fsScore = document.getElementById('fsScore');
+      if (fsScore) fsScore.textContent = score;
+
+      if (score > bestScore) {
+        bestScore = score;
+        localStorage.setItem('360tools_snake_best', bestScore);
+        document.getElementById('bestScore').textContent = bestScore;
+        const fsBest = document.getElementById('fsBestScore');
+        if (fsBest) fsBest.textContent = bestScore;
+      }
+    }
+
+    function restartGame() {
+      startGame();
+    }
+
+    function togglePause() {
+      if (!isRunning) return;
+      isPaused = !isPaused;
+      const pauseModal = document.getElementById('pauseModal');
+      const pauseBtnText = document.getElementById('pauseBtnText');
+
+      if (isPaused) {
+        clearInterval(gameLoop);
+        pauseModal.classList.remove('hidden');
+        pauseBtnText.textContent = 'Resume';
+      } else {
+        pauseModal.classList.add('hidden');
+        pauseBtnText.textContent = 'Pause';
+        gameLoop = setInterval(step, speedMs);
+      }
+    }
+
+    function spawnFood() {
+      let valid = false;
+      while (!valid) {
+        const fx = Math.floor(Math.random() * GRID_SIZE);
+        const fy = Math.floor(Math.random() * GRID_SIZE);
+        if (!snake.some(segment => segment.x === fx && segment.y === fy)) {
+          food = { x: fx, y: fy };
+          valid = true;
+        }
+      }
+
+      // 25% chance to spawn Golden Apple if not active
+      if (!goldenApple && Math.random() < 0.25) {
+        spawnGoldenApple();
+      }
+    }
+
+    function spawnGoldenApple() {
+      let valid = false;
+      while (!valid) {
+        const gx = Math.floor(Math.random() * GRID_SIZE);
+        const gy = Math.floor(Math.random() * GRID_SIZE);
+        if (!snake.some(segment => segment.x === gx && segment.y === gy) && (gx !== food.x || gy !== food.y)) {
+          goldenApple = { x: gx, y: gy, expiry: Date.now() + 7000 };
+          valid = true;
+        }
+      }
+    }
+
+    function step() {
+      tickCount++;
+      direction = nextDirection;
+      const head = { ...snake[0] };
+
+      if (direction === 'right') head.x++;
+      else if (direction === 'left') head.x--;
+      else if (direction === 'up') head.y--;
+      else if (direction === 'down') head.y++;
+
+      // Wall Collision Detection
+      if (head.x < 0 || head.x >= GRID_SIZE || head.y < 0 || head.y >= GRID_SIZE) {
+        return gameOver();
+      }
+
+      // Self Collision Detection
+      if (snake.some(seg => seg.x === head.x && seg.y === head.y)) {
+        return gameOver();
+      }
+
+      snake.unshift(head);
+
+      // Check Normal Food
+      if (head.x === food.x && head.y === food.y) {
+        score += 10;
+        playSound(523.25, 'sine', 0.08); // C5
+        spawnFood();
+      } 
+      // Check Golden Apple
+      else if (goldenApple && head.x === goldenApple.x && head.y === goldenApple.y) {
+        score += 50;
+        playSound(880, 'square', 0.15); // A5 high chime
+        goldenApple = null;
+      } else {
+        snake.pop(); // normal move, remove tail
+      }
+
+      // Check Golden Apple Expiry
+      if (goldenApple && Date.now() > goldenApple.expiry) {
+        goldenApple = null;
+      }
+
+      // Update Scores
+      updateScoreUI();
+
+      draw();
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawGridBackground();
+
+      // Draw Normal Food (HD Red Apple with 3D gradient & shine)
+      const fx = food.x * CELL_SIZE + CELL_SIZE / 2;
+      const fy = food.y * CELL_SIZE + CELL_SIZE / 2;
+      const fr = CELL_SIZE * 0.42;
+
+      // Glow halo around apple
+      ctx.save();
+      ctx.shadowColor = 'rgba(239, 68, 68, 0.45)';
+      ctx.shadowBlur = 16;
+      
+      const appleGrad = ctx.createRadialGradient(fx - fr * 0.3, fy - fr * 0.3, fr * 0.1, fx, fy, fr);
+      appleGrad.addColorStop(0, '#f87171');
+      appleGrad.addColorStop(0.7, '#dc2626');
+      appleGrad.addColorStop(1, '#991b1b');
+
+      ctx.fillStyle = appleGrad;
+      ctx.beginPath();
+      ctx.arc(fx, fy + 2, fr, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      // Stem & Green Leaf
+      ctx.strokeStyle = '#78350f';
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(fx, fy - fr + 2);
+      ctx.quadraticCurveTo(fx + 4, fy - fr - 8, fx + 8, fy - fr - 6);
+      ctx.stroke();
+
+      ctx.fillStyle = '#22c55e';
+      ctx.beginPath();
+      ctx.ellipse(fx + 5, fy - fr - 4, 5, 2.5, Math.PI / 4, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Apple Specular Gloss
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.55)';
+      ctx.beginPath();
+      ctx.ellipse(fx - fr * 0.35, fy - fr * 0.25, fr * 0.28, fr * 0.16, -Math.PI / 6, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Draw Golden Bonus Apple (HD Shimmer & Pulsing Aura)
+      if (goldenApple) {
+        const gx = goldenApple.x * CELL_SIZE + CELL_SIZE / 2;
+        const gy = goldenApple.y * CELL_SIZE + CELL_SIZE / 2;
+        const gr = CELL_SIZE * 0.44;
+        const pulse = Math.sin(Date.now() / 150) * 4;
+
+        ctx.save();
+        ctx.shadowColor = '#facc15';
+        ctx.shadowBlur = 24 + pulse;
+
+        const goldGrad = ctx.createRadialGradient(gx - gr * 0.3, gy - gr * 0.3, gr * 0.1, gx, gy, gr);
+        goldGrad.addColorStop(0, '#fef08a');
+        goldGrad.addColorStop(0.5, '#eab308');
+        goldGrad.addColorStop(1, '#a16207');
+
+        ctx.fillStyle = goldGrad;
+        ctx.beginPath();
+        ctx.arc(gx, gy, gr + pulse * 0.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+
+        // Golden Sparkle
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.arc(gx - gr * 0.3, gy - gr * 0.3, 4, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Draw Snake with HD segmented styling
+      snake.forEach((seg, index) => {
+        const isHead = index === 0;
+        const sx = seg.x * CELL_SIZE;
+        const sy = seg.y * CELL_SIZE;
+        const pad = 2;
+        const size = CELL_SIZE - pad * 2;
+
+        ctx.save();
+        if (isHead) {
+          // Head Glow
+          ctx.shadowColor = 'rgba(16, 185, 129, 0.5)';
+          ctx.shadowBlur = 15;
+
+          const headGrad = ctx.createLinearGradient(sx, sy, sx + size, sy + size);
+          headGrad.addColorStop(0, '#34d399');
+          headGrad.addColorStop(1, '#059669');
+          ctx.fillStyle = headGrad;
+
+          ctx.beginPath();
+          ctx.roundRect(sx + pad, sy + pad, size, size, 14);
+          ctx.fill();
+          ctx.restore();
+
+          // Snake Eyes
+          ctx.fillStyle = '#ffffff';
+          const eyeOffset = CELL_SIZE / 3.8;
+          const eyeR = 5;
+
+          let e1x = sx + eyeOffset;
+          let e1y = sy + eyeOffset;
+          let e2x = sx + CELL_SIZE - eyeOffset;
+          let e2y = sy + eyeOffset;
+
+          if (direction === 'down') {
+            e1y = sy + CELL_SIZE - eyeOffset;
+            e2y = sy + CELL_SIZE - eyeOffset;
+          } else if (direction === 'left' || direction === 'right') {
+            e1x = direction === 'left' ? sx + eyeOffset : sx + CELL_SIZE - eyeOffset;
+            e2x = e1x;
+            e1y = sy + eyeOffset;
+            e2y = sy + CELL_SIZE - eyeOffset;
+          }
+
+          ctx.beginPath();
+          ctx.arc(e1x, e1y, eyeR, 0, Math.PI * 2);
+          ctx.arc(e2x, e2y, eyeR, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Pupils
+          ctx.fillStyle = '#090d16';
+          let pOffX = 0, pOffY = 0;
+          if (direction === 'right') pOffX = 1.5;
+          if (direction === 'left') pOffX = -1.5;
+          if (direction === 'down') pOffY = 1.5;
+          if (direction === 'up') pOffY = -1.5;
+
+          ctx.beginPath();
+          ctx.arc(e1x + pOffX, e1y + pOffY, 2.5, 0, Math.PI * 2);
+          ctx.arc(e2x + pOffX, e2y + pOffY, 2.5, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Pupil Specular Highlights
+          ctx.fillStyle = '#ffffff';
+          ctx.beginPath();
+          ctx.arc(e1x + pOffX - 0.8, e1y + pOffY - 0.8, 1, 0, Math.PI * 2);
+          ctx.arc(e2x + pOffX - 0.8, e2y + pOffY - 0.8, 1, 0, Math.PI * 2);
+          ctx.fill();
+
+        } else {
+          // Body Segments with smooth gradient shading
+          const ratio = index / snake.length;
+          const bodyGrad = ctx.createLinearGradient(sx, sy, sx + size, sy + size);
+          bodyGrad.addColorStop(0, '#10b981');
+          bodyGrad.addColorStop(1, '#047857');
+          ctx.fillStyle = bodyGrad;
+
+          ctx.beginPath();
+          ctx.roundRect(sx + pad, sy + pad, size, size, 10);
+          ctx.fill();
+          ctx.restore();
+
+          // Subtle Segment Center Highlight
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.12)';
+          ctx.beginPath();
+          ctx.roundRect(sx + pad + 4, sy + pad + 4, size - 8, size - 8, 6);
+          ctx.fill();
+        }
+      });
+    }
+
+    function drawGridBackground() {
+      ctx.fillStyle = '#070c18';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.strokeStyle = 'rgba(30, 41, 59, 0.7)';
+      ctx.lineWidth = 1;
+
+      for (let i = 0; i <= GRID_SIZE; i++) {
+        ctx.beginPath();
+        ctx.moveTo(i * CELL_SIZE, 0);
+        ctx.lineTo(i * CELL_SIZE, canvas.height);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(0, i * CELL_SIZE);
+        ctx.lineTo(canvas.width, i * CELL_SIZE);
+        ctx.stroke();
+      }
+    }
+
+    function gameOver() {
+      isRunning = false;
+      clearInterval(gameLoop);
+      playSound(180, 'sawtooth', 0.35); // Low crash sound
+      if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+      document.getElementById('finalScoreText').textContent = `You scored ${score} points!`;
+      document.getElementById('gameOverModal').classList.remove('hidden');
+    }
+
+    function changeDirection(newDir) {
+      if (
+        (newDir === 'up' && direction !== 'down') ||
+        (newDir === 'down' && direction !== 'up') ||
+        (newDir === 'left' && direction !== 'right') ||
+        (newDir === 'right' && direction !== 'left')
+      ) {
+        nextDirection = newDir;
+      }
+    }
+
+    // Mobile D-Pad Direction Trigger with Haptic
+    function mobileDir(dir) {
+      if (navigator.vibrate) navigator.vibrate(15);
+      changeDirection(dir);
+    }
+
+    // Keyboard Listeners
+    window.addEventListener('keydown', (e) => {
+      if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '].includes(e.key)) {
+        e.preventDefault();
+      }
+      switch (e.key) {
+        case 'ArrowUp':
+        case 'w':
+        case 'W':
+          changeDirection('up');
+          break;
+        case 'ArrowDown':
+        case 's':
+        case 'S':
+          changeDirection('down');
+          break;
+        case 'ArrowLeft':
+        case 'a':
+        case 'A':
+          changeDirection('left');
+          break;
+        case 'ArrowRight':
+        case 'd':
+        case 'D':
+          changeDirection('right');
+          break;
+        case ' ':
+        case 'p':
+        case 'P':
+          togglePause();
+          break;
+      }
+    });
+
+    // Touch Swipe Gesture Detection
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    canvas.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    canvas.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
+      const dx = touchEndX - touchStartX;
+      const dy = touchEndY - touchStartY;
+
+      if (Math.max(Math.abs(dx), Math.abs(dy)) > 20) {
+        if (navigator.vibrate) navigator.vibrate(15);
+        if (Math.abs(dx) > Math.abs(dy)) {
+          changeDirection(dx > 0 ? 'right' : 'left');
+        } else {
+          changeDirection(dy > 0 ? 'down' : 'up');
+        }
+      }
+    }, { passive: true });
+
+    document.addEventListener('DOMContentLoaded', initGame);
+  </script>
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="../">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Tic Tac Toe Online — Free Single Player vs AI & 2 Player | 360tools.me</title>
+  <meta name="title" content="Tic Tac Toe Online — Free Single Player vs AI & 2 Player | 360tools.me">
+  <meta name="description" content="Play Tic Tac Toe online for free. Features unbeatable Minimax AI, 2-player local mode, custom symbols, win streak tracking, sound effects, and animated winning strikes.">
+  <meta name="keywords" content="tic tac toe, play tic tac toe, tic tac toe vs ai, tic tac toe 2 player, noughts and crosses, xo game online, free puzzle game">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/tic-tac-toe/">
+
+  <!-- Favicon & Open Graph -->
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/tic-tac-toe/">
+  <meta property="og:title" content="Tic Tac Toe Online — Free & Unbeatable AI">
+  <meta property="og:description" content="Play classic XO / Tic Tac Toe in your browser. Challenge our Minimax AI or play with a friend. Zero ads.">
+  <meta property="og:image" content="images/logo.jpg">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Tic Tac Toe Online Game",
+    "operatingSystem": "All modern browsers",
+    "applicationCategory": "GameApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Play Tic Tac Toe (Noughts and Crosses) against an intelligent Minimax AI or 2-player mode with sound effects and win streaks."
+  }
+  </script>
+
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Canvas Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <style>
+    .ttt-cell {
+      background: #ffffff;
+      border: 3px solid #e2e8f0;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      cursor: pointer;
+      user-select: none;
+      touch-action: manipulation;
+      transition: all 0.15s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+    .ttt-cell:hover:not(.occupied) {
+      background: #f8fafc;
+      border-color: #146ebe;
+      transform: scale(1.02);
+    }
+    .ttt-cell.occupied {
+      cursor: default;
+    }
+    .ttt-cell.winner-cell {
+      background: #ecfdf5 !important;
+      border-color: #10b981 !important;
+      animation: winPulse 1s infinite alternate;
+    }
+    @keyframes winPulse {
+      0% { transform: scale(1); box-shadow: 0 0 10px rgba(16, 185, 129, 0.4); }
+      100% { transform: scale(1.04); box-shadow: 0 0 20px rgba(16, 185, 129, 0.8); }
+    }
+    .symbol-x {
+      color: #146ebe;
+      text-shadow: 0 2px 10px rgba(20, 110, 190, 0.25);
+    }
+    .symbol-o {
+      color: #e11d48;
+      text-shadow: 0 2px 10px rgba(225, 29, 72, 0.25);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#f8fafc] px-3 sm:px-6 py-4">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader"></header>
+
+  <!-- Main Game Container -->
+  <main class="max-w-4xl mx-auto w-full flex-1 mb-16 pt-2">
+    
+    <!-- Top Game Banner -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-1">
+          <span class="fa-badge-blue py-1 px-3 text-[11px] font-black uppercase">
+            <i class="fa-solid fa-gamepad mr-1 text-[#146ebe]"></i> Strategy Puzzle
+          </span>
+          <span class="text-xs font-bold text-emerald-600 flex items-center gap-1">
+            <i class="fa-solid fa-robot text-xs"></i> Smart Minimax AI
+          </span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight flex items-center gap-2">
+          <span>Tic Tac Toe</span>
+          <span class="text-xs font-bold px-2 py-0.5 bg-rose-100 text-rose-800 rounded-md">XO Arena</span>
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-500 font-medium">
+          Line up 3 matching symbols horizontally, vertically, or diagonally!
+        </p>
+      </div>
+
+      <!-- Scoreboard -->
+      <div class="flex items-center gap-2">
+        <div class="bg-blue-50 border border-blue-200 px-3.5 py-2 rounded-2xl text-center min-w-[75px] shadow-2xs">
+          <div id="p1Label" class="text-[10px] font-black uppercase tracking-wider text-[#146ebe]">PLAYER (X)</div>
+          <div id="p1Score" class="text-lg sm:text-xl font-black text-[#146ebe] leading-tight">0</div>
+        </div>
+        <div class="bg-slate-100 border border-slate-200 px-3.5 py-2 rounded-2xl text-center min-w-[65px] shadow-2xs">
+          <div class="text-[10px] font-black uppercase tracking-wider text-slate-500">TIES</div>
+          <div id="tiesScore" class="text-lg sm:text-xl font-black text-slate-700 leading-tight">0</div>
+        </div>
+        <div class="bg-rose-50 border border-rose-200 px-3.5 py-2 rounded-2xl text-center min-w-[75px] shadow-2xs">
+          <div id="p2Label" class="text-[10px] font-black uppercase tracking-wider text-rose-600">AI (O)</div>
+          <div id="p2Score" class="text-lg sm:text-xl font-black text-rose-600 leading-tight">0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mode Selector & Settings -->
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-6 bg-white p-3.5 rounded-2xl border border-slate-200 shadow-2xs">
+      <div class="flex items-center gap-2 flex-wrap">
+        <!-- Game Mode Toggle -->
+        <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl">
+          <button onclick="setMode('ai')" id="btnModeAi" class="px-3 py-1 rounded-lg text-xs font-bold transition-all bg-[#183153] text-white flex items-center gap-1.5">
+            <i class="fa-solid fa-robot"></i> vs AI
+          </button>
+          <button onclick="setMode('pvp')" id="btnModePvp" class="px-3 py-1 rounded-lg text-xs font-bold transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5">
+            <i class="fa-solid fa-user-group"></i> 2 Player
+          </button>
+        </div>
+
+        <!-- AI Difficulty Select (Hidden in 2P mode) -->
+        <div id="difficultyWrapper" class="flex items-center gap-1 text-xs font-bold text-slate-600">
+          <select id="aiDifficulty" onchange="changeAiDifficulty(this.value)" class="fa-input py-1 px-2.5 text-xs font-bold rounded-xl cursor-pointer w-auto">
+            <option value="hard">Impossible (Minimax AI)</option>
+            <option value="medium">Medium</option>
+            <option value="easy">Easy</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="toggleAudio()" id="soundToggleBtn" class="fa-btn-secondary py-1.5 px-3 text-xs font-bold" title="Toggle Sound FX">
+          <i class="fa-solid fa-volume-high text-slate-600" id="soundIcon"></i>
+        </button>
+        <button onclick="resetScoreboard()" class="fa-btn-secondary py-1.5 px-3 text-xs font-bold" title="Reset Scores">
+          <i class="fa-solid fa-trash text-slate-400"></i>
+        </button>
+        <button onclick="startNewRound()" class="fa-btn-primary py-1.5 px-4 text-xs font-black shadow-md">
+          <i class="fa-solid fa-arrows-rotate mr-1"></i> New Round
+        </button>
+      </div>
+    </div>
+
+    <!-- Status Banner -->
+    <div class="text-center mb-6">
+      <div id="statusBanner" class="inline-flex items-center gap-2 px-5 py-2 bg-white border border-slate-200 rounded-full text-xs sm:text-sm font-black text-[#183153] shadow-xs">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#146ebe] animate-ping"></span>
+        <span id="turnStatusText">Player X's Turn</span>
+      </div>
+    </div>
+
+    <!-- 3x3 Board Grid Wrapper -->
+    <div class="flex justify-center mb-10">
+      <div id="ticTacToeBoard" class="w-full max-w-[340px] sm:max-w-[380px] aspect-square grid grid-cols-3 grid-rows-3 gap-3 p-3 bg-slate-100 rounded-3xl border border-slate-200 shadow-lg">
+        <div class="ttt-cell text-4xl sm:text-5xl" data-index="0" onclick="handleCellClick(0)"></div>
+        <div class="ttt-cell text-4xl sm:text-5xl" data-index="1" onclick="handleCellClick(1)"></div>
+        <div class="ttt-cell text-4xl sm:text-5xl" data-index="2" onclick="handleCellClick(2)"></div>
+        <div class="ttt-cell text-4xl sm:text-5xl" data-index="3" onclick="handleCellClick(3)"></div>
+        <div class="ttt-cell text-4xl sm:text-5xl" data-index="4" onclick="handleCellClick(4)"></div>
+        <div class="ttt-cell text-4xl sm:text-5xl" data-index="5" onclick="handleCellClick(5)"></div>
+        <div class="ttt-cell text-4xl sm:text-5xl" data-index="6" onclick="handleCellClick(6)"></div>
+        <div class="ttt-cell text-4xl sm:text-5xl" data-index="7" onclick="handleCellClick(7)"></div>
+        <div class="ttt-cell text-4xl sm:text-5xl" data-index="8" onclick="handleCellClick(8)"></div>
+      </div>
+    </div>
+
+    <!-- Editorial & Strategy SEO Guide Section -->
+    <article class="fa-card p-6 sm:p-10 space-y-8 text-slate-700 text-sm leading-relaxed">
+      
+      <section class="space-y-3">
+        <h2 class="text-xl sm:text-2xl font-black text-[#183153] flex items-center gap-2">
+          <i class="fa-solid fa-robot text-[#146ebe]"></i> How the Minimax AI Algorithm Works
+        </h2>
+        <p>
+          In Impossible Mode, our AI computes a full **Minimax Decision Tree** with alpha-beta pruning. It evaluates all 255,168 possible game states to guarantee it will never lose a game.
+        </p>
+      </section>
+
+      <section class="space-y-4">
+        <h3 class="text-lg font-black text-[#183153] flex items-center gap-2">
+          <i class="fa-solid fa-lightbulb text-[#ffd43b]"></i> The Perfect Opening Strategy (Never Lose)
+        </h3>
+        <ul class="list-disc pl-5 space-y-2 text-xs sm:text-sm text-slate-600 font-medium">
+          <li><strong>If you move first:</strong> Always claim a <strong>Corner Cell</strong>. This creates the highest probability of a "Fork" (two winning avenues simultaneously).</li>
+          <li><strong>If you move second:</strong> If the opponent takes a corner, you MUST take the <strong>Center Cell</strong> to force a draw. If they take the center, claim a corner.</li>
+        </ul>
+      </section>
+
+    </article>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script>
+    let board = ['', '', '', '', '', '', '', '', ''];
+    let currentPlayer = 'X'; // X or O
+    let gameMode = 'ai'; // 'ai' or 'pvp'
+    let aiDifficulty = 'hard'; // 'easy', 'medium', 'hard'
+    let isGameOver = false;
+    let soundEnabled = true;
+
+    let scores = {
+      p1: parseInt(localStorage.getItem('360tools_ttt_p1') || '0', 10),
+      ties: parseInt(localStorage.getItem('360tools_ttt_ties') || '0', 10),
+      p2: parseInt(localStorage.getItem('360tools_ttt_p2') || '0', 10)
+    };
+
+    const WINNING_COMBOS = [
+      [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+      [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+      [0, 4, 8], [2, 4, 6]             // Diagonals
+    ];
+
+    // Web Audio Synthesizer
+    let audioCtx = null;
+    function getAudioCtx() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      return audioCtx;
+    }
+
+    function playTone(freq, type = 'sine', duration = 0.08) {
+      if (!soundEnabled) return;
+      try {
+        const c = getAudioCtx();
+        if (c.state === 'suspended') c.resume();
+        const osc = c.createOscillator();
+        const gain = c.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, c.currentTime);
+        gain.gain.setValueAtTime(0.08, c.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, c.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(c.destination);
+        osc.start();
+        osc.stop(c.currentTime + duration);
+      } catch (e) {}
+    }
+
+    function toggleAudio() {
+      soundEnabled = !soundEnabled;
+      const icon = document.getElementById('soundIcon');
+      if (icon) {
+        icon.className = soundEnabled ? 'fa-solid fa-volume-high text-slate-600' : 'fa-solid fa-volume-xmark text-rose-500';
+      }
+    }
+
+    function initGame() {
+      updateScoreboardUI();
+      startNewRound();
+    }
+
+    function setMode(mode) {
+      gameMode = mode;
+      document.getElementById('btnModeAi').className = mode === 'ai' 
+        ? 'px-3 py-1 rounded-lg text-xs font-bold transition-all bg-[#183153] text-white flex items-center gap-1.5' 
+        : 'px-3 py-1 rounded-lg text-xs font-bold transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5';
+      document.getElementById('btnModePvp').className = mode === 'pvp' 
+        ? 'px-3 py-1 rounded-lg text-xs font-bold transition-all bg-[#183153] text-white flex items-center gap-1.5' 
+        : 'px-3 py-1 rounded-lg text-xs font-bold transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5';
+
+      document.getElementById('p2Label').textContent = mode === 'ai' ? 'AI (O)' : 'PLAYER (O)';
+      document.getElementById('difficultyWrapper').style.display = mode === 'ai' ? 'flex' : 'none';
+      startNewRound();
+    }
+
+    function changeAiDifficulty(diff) {
+      aiDifficulty = diff;
+      startNewRound();
+    }
+
+    function startNewRound() {
+      board = ['', '', '', '', '', '', '', '', ''];
+      currentPlayer = 'X';
+      isGameOver = false;
+
+      const cells = document.querySelectorAll('.ttt-cell');
+      cells.forEach(cell => {
+        cell.textContent = '';
+        cell.className = 'ttt-cell text-4xl sm:text-5xl';
+      });
+
+      updateStatus(`Player X's Turn`);
+    }
+
+    function updateStatus(text) {
+      document.getElementById('turnStatusText').textContent = text;
+    }
+
+    function updateScoreboardUI() {
+      document.getElementById('p1Score').textContent = scores.p1;
+      document.getElementById('tiesScore').textContent = scores.ties;
+      document.getElementById('p2Score').textContent = scores.p2;
+    }
+
+    function resetScoreboard() {
+      scores = { p1: 0, ties: 0, p2: 0 };
+      localStorage.setItem('360tools_ttt_p1', '0');
+      localStorage.setItem('360tools_ttt_ties', '0');
+      localStorage.setItem('360tools_ttt_p2', '0');
+      updateScoreboardUI();
+      startNewRound();
+    }
+
+    function handleCellClick(index) {
+      if (board[index] !== '' || isGameOver) return;
+
+      makeMove(index, currentPlayer);
+
+      if (isGameOver) return;
+
+      if (gameMode === 'ai' && currentPlayer === 'O') {
+        // Disable user clicks while AI thinks
+        isGameOver = true;
+        updateStatus('AI is thinking...');
+        setTimeout(() => {
+          isGameOver = false;
+          const aiIndex = getBestAiMove();
+          if (aiIndex !== -1) {
+            makeMove(aiIndex, 'O');
+          }
+        }, 350);
+      }
+    }
+
+    function makeMove(index, player) {
+      board[index] = player;
+      const cell = document.querySelector(`.ttt-cell[data-index="${index}"]`);
+      if (cell) {
+        cell.textContent = player;
+        cell.classList.add('occupied', player === 'X' ? 'symbol-x' : 'symbol-o');
+      }
+
+      playTone(player === 'X' ? 440 : 523.25, 'sine', 0.06);
+
+      const winCombo = checkWinForPlayer(board, player);
+      if (winCombo) {
+        handleWin(player, winCombo);
+      } else if (board.every(c => c !== '')) {
+        handleTie();
+      } else {
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        updateStatus(gameMode === 'ai' && currentPlayer === 'O' ? `AI's Turn (O)` : `Player ${currentPlayer}'s Turn`);
+      }
+    }
+
+    function checkWinForPlayer(b, p) {
+      for (const combo of WINNING_COMBOS) {
+        if (b[combo[0]] === p && b[combo[1]] === p && b[combo[2]] === p) {
+          return combo;
+        }
+      }
+      return null;
+    }
+
+    function handleWin(winner, combo) {
+      isGameOver = true;
+      combo.forEach(idx => {
+        const c = document.querySelector(`.ttt-cell[data-index="${idx}"]`);
+        if (c) c.classList.add('winner-cell');
+      });
+
+      if (winner === 'X') {
+        scores.p1++;
+        localStorage.setItem('360tools_ttt_p1', scores.p1);
+        updateStatus(gameMode === 'ai' ? '🎉 You Won the Round!' : '🎉 Player X Won the Round!');
+        if (typeof confetti === 'function') {
+          confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
+        }
+        playTone(659.25, 'triangle', 0.15);
+      } else {
+        scores.p2++;
+        localStorage.setItem('360tools_ttt_p2', scores.p2);
+        updateStatus(gameMode === 'ai' ? '🤖 AI Won the Round!' : '🎉 Player O Won the Round!');
+        playTone(330, 'sawtooth', 0.2);
+      }
+      updateScoreboardUI();
+    }
+
+    function handleTie() {
+      isGameOver = true;
+      scores.ties++;
+      localStorage.setItem('360tools_ttt_ties', scores.ties);
+      updateStatus(`🤝 It's a Tie!`);
+      playTone(261.63, 'square', 0.15);
+      updateScoreboardUI();
+    }
+
+    // AI Move Calculation Engine
+    function getBestAiMove() {
+      const available = [];
+      board.forEach((val, idx) => { if (val === '') available.push(idx); });
+
+      if (available.length === 0) return -1;
+
+      // Easy Mode: Random Move
+      if (aiDifficulty === 'easy') {
+        return available[Math.floor(Math.random() * available.length)];
+      }
+
+      // Medium Mode: 60% Minimax, 40% Random
+      if (aiDifficulty === 'medium') {
+        if (Math.random() < 0.4) {
+          return available[Math.floor(Math.random() * available.length)];
+        }
+      }
+
+      // Hard Mode: Complete Minimax Algorithm
+      let bestScore = -Infinity;
+      let move = available[0];
+
+      for (const idx of available) {
+        board[idx] = 'O';
+        const currentScore = minimax(board, 0, false);
+        board[idx] = '';
+        if (currentScore > bestScore) {
+          bestScore = currentScore;
+          move = idx;
+        }
+      }
+      return move;
+    }
+
+    function minimax(tempBoard, depth, isMaximizing) {
+      if (checkWinForPlayer(tempBoard, 'O')) return 10 - depth;
+      if (checkWinForPlayer(tempBoard, 'X')) return depth - 10;
+      if (tempBoard.every(c => c !== '')) return 0;
+
+      if (isMaximizing) {
+        let maxScore = -Infinity;
+        for (let i = 0; i < 9; i++) {
+          if (tempBoard[i] === '') {
+            tempBoard[i] = 'O';
+            const score = minimax(tempBoard, depth + 1, false);
+            tempBoard[i] = '';
+            maxScore = Math.max(score, maxScore);
+          }
+        }
+        return maxScore;
+      } else {
+        let minScore = Infinity;
+        for (let i = 0; i < 9; i++) {
+          if (tempBoard[i] === '') {
+            tempBoard[i] = 'X';
+            const score = minimax(tempBoard, depth + 1, true);
+            tempBoard[i] = '';
+            minScore = Math.min(score, minScore);
+          }
+        }
+        return minScore;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initGame);
+  </script>
+</body>
+</html>

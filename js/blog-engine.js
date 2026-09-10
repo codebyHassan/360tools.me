@@ -12,7 +12,7 @@ const BLOG_CONFIG = {
   // Primary and fallback endpoints
   LOCAL_API: 'http://127.0.0.1:8000',
   REMOTE_API: 'https://360tools.pythonanywhere.com',
-  
+
   get API_BASE_URL() {
     // If opened via local development server or file://
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:') {
@@ -29,7 +29,7 @@ const BLOG_CONFIG = {
  */
 async function fetchBlogApi(endpointPath) {
   const path = endpointPath.startsWith('/') ? endpointPath : `/${endpointPath}`;
-  
+
   // Try preferred endpoint first
   const primaryUrl = `${BLOG_CONFIG.API_BASE_URL}${path}`;
   try {
@@ -40,10 +40,10 @@ async function fetchBlogApi(endpointPath) {
   }
 
   // If primary fails (e.g. localhost Django isn't running), try the other one
-  const fallbackBase = (BLOG_CONFIG.API_BASE_URL === BLOG_CONFIG.LOCAL_API) 
-    ? BLOG_CONFIG.REMOTE_API 
+  const fallbackBase = (BLOG_CONFIG.API_BASE_URL === BLOG_CONFIG.LOCAL_API)
+    ? BLOG_CONFIG.REMOTE_API
     : BLOG_CONFIG.LOCAL_API;
-  
+
   const fallbackUrl = `${fallbackBase}${path}`;
   const fallbackRes = await fetch(fallbackUrl);
   if (!fallbackRes.ok) throw new Error(`HTTP ${fallbackRes.status}`);

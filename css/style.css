@@ -384,6 +384,125 @@ details summary::-webkit-details-marker {
 }
 
 /* ==========================================================================
+   Modern SaaS Navbar & Mega Dropdown Styling
+   ========================================================================== */
+.nav-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-md);
+  color: var(--fa-navy);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+}
+
+.nav-link-btn:hover {
+  color: var(--fa-blue);
+  background-color: var(--fa-bg-subtle);
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding-top: 0.6rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 100;
+  pointer-events: none;
+}
+
+.nav-dropdown:hover .nav-dropdown-content,
+.nav-dropdown:focus-within .nav-dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.nav-dropdown-content.nav-dropdown-mega {
+  left: 0;
+  transform: translateY(6px);
+}
+
+.nav-dropdown:hover .nav-dropdown-content.nav-dropdown-mega,
+.nav-dropdown:focus-within .nav-dropdown-content.nav-dropdown-mega {
+  transform: translateY(0);
+}
+
+.nav-dropdown-card {
+  background: #ffffff;
+  border: 1px solid var(--fa-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 45px rgba(15, 28, 46, 0.14), 0 4px 12px rgba(15, 28, 46, 0.05);
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.nav-tool-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.nav-tool-item:hover {
+  background-color: var(--fa-bg-subtle);
+  transform: translateX(2px);
+}
+
+.nav-tool-item:hover .nav-tool-title {
+  color: var(--fa-blue);
+}
+
+.nav-tool-icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+
+.nav-tool-item:hover .nav-tool-icon {
+  transform: scale(1.08);
+}
+
+.nav-tool-title {
+  font-size: 0.785rem;
+  font-weight: 800;
+  color: var(--fa-navy);
+  line-height: 1.2;
+  transition: color 0.15s ease;
+}
+
+.nav-tool-desc {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--fa-text-sub);
+  line-height: 1.2;
+  margin-top: 1px;
+}
+
+/* ==========================================================================
    Mobile Native App Experience & Fixed Bottom Navigation Bar
    ========================================================================== */
 @media (max-width: 1023.98px) {
