@@ -385,6 +385,16 @@ const TOOLS_REGISTRY = [
     desc: 'Unscramble mixed letters with smart hints, combo streaks, timer, and score levels.',
     keywords: 'word scramble anagram unscramble letters vocabulary puzzle brain' 
   },
+  { 
+    name: 'Bhabhi Thulla Card Game', 
+    url: 'bhabhi-thulla/index.html', 
+    category: 'Games & Puzzles', 
+    icon: 'fa-spade', 
+    color: 'text-emerald-600', 
+    bg: 'bg-emerald-50 border-emerald-200/80',
+    desc: 'Classic 4-player traditional South Asian trick-taking card game. Shed your cards to escape!',
+    keywords: 'bhabhi thulla bhabi get away donkey pabho card game 4 player spades' 
+  },
 
   { 
     name: 'Blog & Editorial Guides', 
@@ -788,8 +798,11 @@ function createMobileAppDrawer() {
             <a href="tic-tac-toe/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-rose-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-xmark text-rose-500 text-sm"></i> Tic Tac Toe
             </a>
-            <a href="word-scramble/index.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
-              <i class="fa-solid fa-spell-check text-blue-500 text-sm"></i> Word Scramble Master
+            <a href="word-scramble/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-spell-check text-blue-500 text-sm"></i> Word Scramble
+            </a>
+            <a href="bhabhi-thulla/index.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-spade text-emerald-600 text-sm"></i> Bhabhi Thulla Card Game
             </a>
           </div>
         </div>
@@ -1110,6 +1123,13 @@ function renderGlobalHeader() {
                   <div>
                     <div class="nav-tool-title">Word Scramble Master</div>
                     <div class="nav-tool-desc">100+ vocabulary anagrams</div>
+                  </div>
+                </a>
+                <a href="bhabhi-thulla/index.html" class="nav-tool-item">
+                  <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-spade"></i></div>
+                  <div>
+                    <div class="nav-tool-title">Bhabhi Thulla (Get Away)</div>
+                    <div class="nav-tool-desc">4-player classic card evasion</div>
                   </div>
                 </a>
               </div>

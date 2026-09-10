@@ -1,0 +1,304 @@
+/* ==========================================================================
+   Bhabhi Thulla — Master Stylesheet
+   Card Game Table, Realistic CSS Playing Cards & Micro-Animations
+   ========================================================================== */
+
+:root {
+  --table-green: #0d4227;
+  --table-dark: #072315;
+  --felt-border: #165b37;
+  --card-red: #dc2626;
+  --card-black: #0f172a;
+  --gold-accent: #ffd43b;
+}
+
+/* Card Table Felt Surface */
+.card-table-felt {
+  background: radial-gradient(ellipse at center, #115332 0%, #0a331f 70%, #051c11 100%);
+  border: 4px solid #1a6b41;
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.6), 0 15px 35px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle table texture pattern */
+.card-table-felt::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 16px 16px;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Realistic CSS Playing Cards
+   ========================================================================== */
+.playing-card {
+  width: 76px;
+  height: 110px;
+  background: #ffffff;
+  border-radius: 9px;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.22), 0 1px 3px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px 6px;
+  position: relative;
+  user-select: none;
+  touch-action: manipulation;
+  transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.18s ease;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .playing-card {
+    width: 86px;
+    height: 124px;
+    border-radius: 11px;
+    padding: 6px 8px;
+  }
+}
+
+.playing-card.mini {
+  width: 58px;
+  height: 84px;
+  padding: 4px 5px;
+}
+
+/* Red & Black Suits */
+.playing-card.red {
+  color: var(--card-red);
+}
+
+.playing-card.black {
+  color: var(--card-black);
+}
+
+/* Card Corners (Rank & Mini Suit) */
+.card-corner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.card-corner.top-left {
+  align-self: flex-start;
+}
+
+.card-corner.bottom-right {
+  align-self: flex-end;
+  transform: rotate(180deg);
+}
+
+.card-rank {
+  font-size: 13px;
+  font-weight: 900;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@media (min-width: 640px) {
+  .card-rank {
+    font-size: 15px;
+  }
+}
+
+.card-suit {
+  font-size: 11px;
+}
+
+@media (min-width: 640px) {
+  .card-suit {
+    font-size: 13px;
+  }
+}
+
+/* Large Center Pip */
+.card-center-pip {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  pointer-events: none;
+  opacity: 0.92;
+}
+
+@media (min-width: 640px) {
+  .card-center-pip {
+    font-size: 38px;
+  }
+}
+
+.playing-card.mini .card-center-pip {
+  font-size: 22px;
+}
+
+/* Playable Card Hover Glow */
+.playing-card.playable {
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 0 12px rgba(250, 204, 21, 0.4);
+}
+
+.playing-card.playable:hover {
+  transform: translateY(-14px) scale(1.04);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35), 0 0 20px rgba(250, 204, 21, 0.7);
+  z-index: 30 !important;
+}
+
+.playing-card.not-playable {
+  opacity: 0.55;
+  cursor: not-allowed;
+  filter: grayscale(25%);
+}
+
+/* ==========================================================================
+   Human Hand Container (Horizontal Fanning & Negative Margin)
+   ========================================================================== */
+.human-hand-fanned {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 10px 15px 4px;
+  overflow-x: auto;
+  overflow-y: visible;
+  max-width: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: #1a6b41 transparent;
+}
+
+.human-hand-fanned > .playing-card {
+  margin-left: -32px;
+}
+
+@media (min-width: 640px) {
+  .human-hand-fanned > .playing-card {
+    margin-left: -40px;
+  }
+}
+
+.human-hand-fanned > .playing-card:first-child {
+  margin-left: 0;
+}
+
+/* ==========================================================================
+   Computer Hand Mini Card Backs
+   ========================================================================== */
+.card-back-mini {
+  width: 18px;
+  height: 28px;
+  background: #1e3a8a;
+  background-image: repeating-linear-gradient(45deg, #2563eb 0, #2563eb 2px, #1e3a8a 0, #1e3a8a 8px);
+  border: 1px solid #93c5fd;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  margin-left: -10px;
+}
+
+.card-back-mini:first-child {
+  margin-left: 0;
+}
+
+/* ==========================================================================
+   Player Boxes & Glow Turn Indicators
+   ========================================================================== */
+.player-box {
+  background: rgba(15, 23, 42, 0.85);
+  border: 2px solid rgba(51, 65, 85, 0.6);
+  backdrop-filter: blur(8px);
+  border-radius: 14px;
+  padding: 8px 12px;
+  color: #ffffff;
+  transition: all 0.25s ease;
+}
+
+.player-box.active-turn {
+  border-color: #ffd43b;
+  box-shadow: 0 0 20px rgba(255, 212, 59, 0.45);
+  background: rgba(30, 41, 59, 0.95);
+}
+
+.player-box.player-safe {
+  border-color: #10b981;
+  background: rgba(6, 78, 59, 0.85);
+}
+
+.badge-turn {
+  background: #ffd43b;
+  color: #183153;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.badge-thinking {
+  background: #38bdf8;
+  color: #082f49;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.badge-waiting {
+  background: #334155;
+  color: #94a3b8;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.badge-safe {
+  background: #10b981;
+  color: #ffffff;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+/* ==========================================================================
+   Center Trick Area Animations
+   ========================================================================== */
+.card-played-anim {
+  animation: cardPlayIn 0.25s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+}
+
+@keyframes cardPlayIn {
+  0% { opacity: 0; transform: scale(0.6) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.winning-card-glow {
+  animation: winningPulse 0.6s infinite alternate;
+  border: 2px solid #ffd43b !important;
+  z-index: 25;
+}
+
+@keyframes winningPulse {
+  0% { box-shadow: 0 0 10px rgba(255, 212, 59, 0.5); transform: scale(1.02); }
+  100% { box-shadow: 0 0 25px rgba(255, 212, 59, 0.95); transform: scale(1.07); }
+}
+
+.trick-clearing .playing-card {
+  transition: transform 0.4s ease-in, opacity 0.4s ease-in;
+  transform: scale(0.2) translate(150px, -150px) rotate(45deg);
+  opacity: 0;
+}
+
+.lead-suit-pill {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 900;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.lead-suit-pill.red { color: var(--card-red); }
+.lead-suit-pill.black { color: var(--card-black); }

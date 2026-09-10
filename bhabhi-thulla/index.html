@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="../">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Bhabhi Thulla Card Game Online — Free Classic 4-Player Card Game | 360tools.me</title>
+  <meta name="title" content="Bhabhi Thulla Card Game Online — Free Classic 4-Player Card Game | 360tools.me">
+  <meta name="description" content="Play the traditional Bhabhi Thulla (Get Away / Pabho / Donkey) card game online for free. Play against 3 smart AI players with real trick-taking mechanics, Ace of Spades start, beautiful CSS cards, and audio FX.">
+  <meta name="keywords" content="bhabhi card game, bhabhi thulla, bhabi game online, get away card game, pabho, donkey card game, 4 player card game, play bhabhi online, free card games">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/bhabhi-thulla/">
+
+  <!-- Favicon & Open Graph -->
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/bhabhi-thulla/">
+  <meta property="og:title" content="Bhabhi Thulla Card Game Online — Free 4-Player Classic">
+  <meta property="og:description" content="Get rid of all cards to escape! The last player holding cards becomes the Bhabhi. Zero ads, pure HTML/CSS/JS.">
+  <meta property="og:image" content="images/logo.jpg">
+
+  <!-- JSON-LD Structured Data: Game Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Bhabhi Thulla Card Game Online",
+    "operatingSystem": "All modern browsers",
+    "applicationCategory": "GameApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "Play traditional 4-player Bhabhi Thulla card game with smart computer opponents, Ace of Spades start, trick mechanics, and score tracking."
+  }
+  </script>
+
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Master Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="bhabhi-thulla/css/style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Canvas Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#0c1626] text-slate-100 px-2 sm:px-4 py-3">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader"></header>
+
+  <!-- Main Game Container -->
+  <main class="max-w-5xl mx-auto w-full flex-1 mb-12 pt-2">
+    
+    <!-- Top Game Banner & Navigation -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mb-4 bg-slate-900/80 p-3 sm:p-4 rounded-2xl border border-slate-800 backdrop-blur-md">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-0.5">
+          <span class="fa-badge-blue py-0.5 px-2.5 text-[10px] font-black uppercase">
+            <i class="fa-solid fa-spade mr-1 text-[#146ebe]"></i> 4-Player Card Game
+          </span>
+          <span class="text-xs font-bold text-amber-400 flex items-center gap-1">
+            <i class="fa-solid fa-crown text-xs"></i> Traditional Rules
+          </span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-black text-white tracking-tight flex items-center gap-2">
+          <span>Bhabhi Thulla</span>
+          <span class="text-xs font-bold px-2 py-0.5 bg-emerald-950 text-emerald-300 border border-emerald-500/30 rounded-md">Get Away</span>
+        </h1>
+      </div>
+
+      <!-- Action & Configuration Controls -->
+      <div class="flex items-center flex-wrap gap-2">
+        <select id="difficultySelect" class="bg-slate-800 text-xs font-bold text-slate-200 border border-slate-700 py-1.5 px-2.5 rounded-xl cursor-pointer">
+          <option value="easy">AI: Casual</option>
+          <option value="normal" selected>AI: Standard</option>
+          <option value="hard">AI: Expert</option>
+        </select>
+
+        <button id="lastTrickBtn" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold py-1.5 px-3 rounded-xl border border-slate-700" title="Review Last Trick">
+          <i class="fa-solid fa-clock-rotate-left mr-1 text-sky-400"></i> Last Trick
+        </button>
+
+        <button id="statsBtn" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold py-1.5 px-3 rounded-xl border border-slate-700" title="View Statistics">
+          <i class="fa-solid fa-chart-simple mr-1 text-amber-400"></i> Stats
+        </button>
+
+        <button id="rulesBtn" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold py-1.5 px-3 rounded-xl border border-slate-700" title="Game Rules Guide">
+          <i class="fa-solid fa-circle-question mr-1 text-emerald-400"></i> Rules
+        </button>
+
+        <button id="soundToggleBtn" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold py-1.5 px-3 rounded-xl border border-slate-700" title="Toggle Sound FX">
+          <i class="fa-solid fa-volume-high text-slate-300" id="soundIcon"></i>
+        </button>
+
+        <button id="newGameBtn" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black py-1.5 px-4 rounded-xl shadow-md transition-transform active:scale-95">
+          <i class="fa-solid fa-arrows-rotate mr-1"></i> New Game
+        </button>
+      </div>
+    </div>
+
+    <!-- Felt Card Table Arena -->
+    <div class="card-table-felt rounded-3xl p-3 sm:p-6 mb-8 flex flex-col justify-between min-h-[560px] sm:min-h-[640px]">
+      
+      <!-- TOP: Computer 1 -->
+      <div class="flex flex-col items-center justify-center">
+        <div id="playerBox_1" class="player-box flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-blue-600/30 border border-blue-400/40 flex items-center justify-center text-sm font-black text-blue-300">
+            C1
+          </div>
+          <div class="text-left">
+            <div class="flex items-center gap-2">
+              <span class="font-black text-xs sm:text-sm">Computer 1</span>
+              <span id="playerBadge_1"><span class="badge-waiting">WAITING</span></span>
+            </div>
+            <div id="computerCount_1" class="text-[11px] text-slate-300">13 cards</div>
+          </div>
+        </div>
+        <div id="computerCards_1" class="flex items-center justify-center mt-1.5"></div>
+      </div>
+
+      <!-- MIDDLE: Computer 2 (Left) + Center Trick Area + Computer 3 (Right) -->
+      <div class="grid grid-cols-4 items-center gap-2 my-auto py-2">
+        
+        <!-- LEFT: Computer 2 -->
+        <div class="col-span-1 flex flex-col items-start">
+          <div id="playerBox_2" class="player-box flex flex-col items-start gap-1 w-full max-w-[125px] sm:max-w-[150px]">
+            <div class="flex items-center gap-1.5 w-full">
+              <div class="w-6 h-6 rounded-full bg-purple-600/30 border border-purple-400/40 flex items-center justify-center text-xs font-black text-purple-300">
+                C2
+              </div>
+              <span class="font-black text-xs truncate">Comp 2</span>
+            </div>
+            <div id="playerBadge_2" class="w-full"><span class="badge-waiting">WAITING</span></div>
+            <div id="computerCount_2" class="text-[10px] text-slate-300">13 cards</div>
+          </div>
+          <div id="computerCards_2" class="flex flex-wrap gap-0.5 mt-1.5 max-w-[120px]"></div>
+        </div>
+
+        <!-- CENTER: Current Trick Play Area -->
+        <div class="col-span-2 flex flex-col items-center justify-center relative">
+          
+          <!-- Table Center Info & Lead Suit -->
+          <div class="flex items-center gap-2 mb-2">
+            <div id="leadSuitBadge" class="hidden"></div>
+            <span id="trickNumberDisplay" class="text-[10px] font-bold text-emerald-300/80 bg-emerald-950/80 px-2.5 py-0.5 rounded-full border border-emerald-700/40">
+              Trick #1
+            </span>
+            <span id="discardPileCount" class="text-[10px] font-bold text-slate-400 bg-slate-900/80 px-2 py-0.5 rounded-full border border-slate-700/50">
+              0 cards
+            </span>
+          </div>
+
+          <!-- 4-Directional Card Layout Slots -->
+          <div id="centerTrickArea" class="relative w-[190px] h-[190px] sm:w-[220px] sm:h-[220px] flex items-center justify-center bg-emerald-950/40 border border-emerald-600/20 rounded-full shadow-inner">
+            
+            <!-- Top Card (Computer 1) -->
+            <div id="trickSlot_top" class="absolute top-1 left-1/2 -translate-x-1/2 flex items-center justify-center"></div>
+
+            <!-- Left Card (Computer 2) -->
+            <div id="trickSlot_left" class="absolute left-1 top-1/2 -translate-y-1/2 flex items-center justify-center"></div>
+
+            <!-- Right Card (Computer 3) -->
+            <div id="trickSlot_right" class="absolute right-1 top-1/2 -translate-y-1/2 flex items-center justify-center"></div>
+
+            <!-- Bottom Card (You) -->
+            <div id="trickSlot_bottom" class="absolute bottom-1 left-1/2 -translate-x-1/2 flex items-center justify-center"></div>
+
+            <!-- Center Table Watermark -->
+            <div class="text-[11px] font-black uppercase tracking-widest text-emerald-500/20 pointer-events-none select-none">
+              BHABHI
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT: Computer 3 -->
+        <div class="col-span-1 flex flex-col items-end">
+          <div id="playerBox_3" class="player-box flex flex-col items-end gap-1 w-full max-w-[125px] sm:max-w-[150px]">
+            <div class="flex items-center gap-1.5 w-full justify-end">
+              <span class="font-black text-xs truncate">Comp 3</span>
+              <div class="w-6 h-6 rounded-full bg-amber-600/30 border border-amber-400/40 flex items-center justify-center text-xs font-black text-amber-300">
+                C3
+              </div>
+            </div>
+            <div id="playerBadge_3" class="w-full text-right"><span class="badge-waiting">WAITING</span></div>
+            <div id="computerCount_3" class="text-[10px] text-slate-300 text-right">13 cards</div>
+          </div>
+          <div id="computerCards_3" class="flex flex-wrap gap-0.5 mt-1.5 max-w-[120px] justify-end"></div>
+        </div>
+
+      </div>
+
+      <!-- BOTTOM: Human Player (You) -->
+      <div class="flex flex-col items-center justify-center mt-2">
+        <div id="playerBox_0" class="player-box flex items-center gap-3 mb-2">
+          <div class="w-8 h-8 rounded-full bg-emerald-600/40 border border-emerald-400/50 flex items-center justify-center text-sm font-black text-emerald-300">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <div class="text-left">
+            <div class="flex items-center gap-2">
+              <span class="font-black text-xs sm:text-sm text-white">You</span>
+              <span id="playerBadge_0"><span class="badge-turn">YOUR TURN</span></span>
+            </div>
+            <div class="text-[11px] text-emerald-200/80">Click a glowing card to play</div>
+          </div>
+        </div>
+
+        <!-- Human Playable Hand (Fanned Container) -->
+        <div id="humanHandContainer" class="human-hand-fanned">
+          <!-- Injected Dynamically -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Floating Toast Notification -->
+    <div id="gameToast" class="hidden"></div>
+
+    <!-- Rules Modal -->
+    <div id="rulesModal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-lg w-full p-6 sm:p-8 text-slate-200 space-y-4 shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <h2 class="text-xl font-black text-white flex items-center gap-2">
+            <i class="fa-solid fa-book-open text-emerald-400"></i> Bhabhi Thulla Rules
+          </h2>
+          <button id="closeRulesBtn" class="text-slate-400 hover:text-white text-lg">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="space-y-3 text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <p><strong>Goal:</strong> Empty your hand completely! The last player still holding cards becomes the <strong>Bhabhi</strong> and loses.</p>
+          
+          <div class="p-3 bg-slate-800/80 rounded-xl space-y-2">
+            <h3 class="font-black text-emerald-400 uppercase text-xs">1. Starting the Game</h3>
+            <p>All 52 cards are dealt among 4 players (13 each). The player holding the <strong>Ace of Spades (♠A)</strong> must play it to start the first trick.</p>
+          </div>
+
+          <div class="p-3 bg-slate-800/80 rounded-xl space-y-2">
+            <h3 class="font-black text-sky-400 uppercase text-xs">2. Following Suit (Lead Suit)</h3>
+            <p>The first card played in a trick establishes the lead suit. If you have any card of the lead suit, you <strong>MUST</strong> play that suit. If you have no cards of that suit, you can play (discard) ANY card!</p>
+          </div>
+
+          <div class="p-3 bg-slate-800/80 rounded-xl space-y-2">
+            <h3 class="font-black text-amber-400 uppercase text-xs">3. Winning the Trick</h3>
+            <p>The highest card of the lead suit wins the trick (2 &lt; 3 &lt; ... &lt; K &lt; A). All played cards are permanently discarded into the waste pile. The trick winner leads the next trick!</p>
+          </div>
+
+          <div class="p-3 bg-slate-800/80 rounded-xl space-y-2">
+            <h3 class="font-black text-rose-400 uppercase text-xs">4. Escaping & The Bhabhi</h3>
+            <p>As soon as a player empties all cards in their hand, they are <strong>SAFE</strong>. The game continues until only 1 player remains holding cards — that player is declared <strong>Bhabhi</strong>!</p>
+          </div>
+        </div>
+
+        <button onclick="document.getElementById('rulesModal').classList.add('hidden')" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 font-black rounded-xl text-white text-xs uppercase tracking-wider">
+          Got It, Let's Play
+        </button>
+      </div>
+    </div>
+
+    <!-- Statistics Modal -->
+    <div id="statsModal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-md w-full p-6 text-slate-200 space-y-5 shadow-2xl">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <h2 class="text-xl font-black text-white flex items-center gap-2">
+            <i class="fa-solid fa-chart-pie text-amber-400"></i> Your Game Stats
+          </h2>
+          <button id="closeStatsBtn" class="text-slate-400 hover:text-white text-lg">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 text-center">
+          <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700">
+            <div class="text-[10px] font-black text-slate-400 uppercase">Games Played</div>
+            <div id="statGamesPlayed" class="text-2xl font-black text-white">0</div>
+          </div>
+          <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700">
+            <div class="text-[10px] font-black text-emerald-400 uppercase">Escaped (Won)</div>
+            <div id="statGamesWon" class="text-2xl font-black text-emerald-400">0</div>
+          </div>
+          <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700">
+            <div class="text-[10px] font-black text-rose-400 uppercase">Times Bhabhi</div>
+            <div id="statTimesBhabhi" class="text-2xl font-black text-rose-400">0</div>
+          </div>
+          <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700">
+            <div class="text-[10px] font-black text-sky-400 uppercase">Escape Rate</div>
+            <div id="statWinRate" class="text-2xl font-black text-sky-400">0%</div>
+          </div>
+          <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700">
+            <div class="text-[10px] font-black text-amber-400 uppercase">Current Streak</div>
+            <div id="statCurrentStreak" class="text-xl font-black text-amber-400">0 🔥</div>
+          </div>
+          <div class="p-3.5 bg-slate-800/80 rounded-2xl border border-slate-700">
+            <div class="text-[10px] font-black text-purple-400 uppercase">Best Streak</div>
+            <div id="statBestStreak" class="text-xl font-black text-purple-400">0 🏆</div>
+          </div>
+        </div>
+
+        <button onclick="document.getElementById('statsModal').classList.add('hidden')" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 font-bold rounded-xl text-white text-xs">
+          Close
+        </button>
+      </div>
+    </div>
+
+    <!-- Last Trick Preview Modal -->
+    <div id="lastTrickModal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-lg w-full p-6 text-slate-200 space-y-4 shadow-2xl">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <h2 class="text-lg font-black text-white flex items-center gap-2">
+            <i class="fa-solid fa-clock-rotate-left text-sky-400"></i> Previous Trick Review
+          </h2>
+          <button id="closeLastTrickBtn" class="text-slate-400 hover:text-white text-lg">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div id="lastTrickContent">
+          <!-- Injected dynamically -->
+        </div>
+
+        <button onclick="document.getElementById('lastTrickModal').classList.add('hidden')" class="w-full py-2 bg-slate-800 hover:bg-slate-700 font-bold rounded-xl text-white text-xs">
+          Back to Game
+        </button>
+      </div>
+    </div>
+
+    <!-- Game Over Modal Overlay -->
+    <div id="gameOverModal" class="hidden fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-in fade-in zoom-in-95">
+      <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-md w-full p-6 sm:p-8 text-center space-y-4 shadow-2xl">
+        <div id="gameOverAvatar"></div>
+        <h2 id="gameOverTitle" class="text-3xl font-black"></h2>
+        <p id="gameOverSubtitle" class="text-xs sm:text-sm text-slate-400 font-medium"></p>
+
+        <!-- Podium breakdown -->
+        <div class="space-y-2 text-left pt-2">
+          <div class="text-[10px] font-black uppercase text-slate-400 tracking-wider">Finishing Results:</div>
+          <div id="podiumList" class="space-y-1.5"></div>
+        </div>
+
+        <div class="pt-3">
+          <button id="modalNewGameBtn" class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 font-black rounded-2xl text-white text-sm uppercase tracking-wider shadow-lg">
+            <i class="fa-solid fa-arrows-rotate mr-2"></i> Play Another Match
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editorial & Strategy Guide Section (SEO Optimized) -->
+    <article class="fa-card p-6 sm:p-10 space-y-8 text-slate-300 text-sm leading-relaxed mt-10 bg-slate-900/90 border border-slate-800">
+      
+      <section class="space-y-3">
+        <h2 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
+          <i class="fa-solid fa-spade text-emerald-400"></i> The Complete Guide to Bhabhi Thulla (Get Away)
+        </h2>
+        <p>
+          <strong>Bhabhi Thulla</strong> (also known as <em>Bhabi</em>, <em>Thulla</em>, <em>Get Away</em>, <em>Pabho</em>, or <em>Donkey</em>) is one of South Asia's most famous and thrilling traditional card games played across Pakistan, India, Bangladesh, and worldwide diaspora communities.
+        </p>
+        <p>
+          Unlike standard trick-taking games like Bridge or Spades where the objective is to collect points or tricks, Bhabhi Thulla is an <strong>evasion game</strong>. The ultimate goal is to <em>get away</em> by shedding all 13 cards from your hand. The last player left holding cards is branded the <strong>Bhabhi</strong> (the loser).
+        </p>
+      </section>
+
+      <section class="space-y-4">
+        <h3 class="text-lg font-black text-white flex items-center gap-2">
+          <i class="fa-solid fa-trophy text-[#ffd43b]"></i> Master Strategies to Escape Early
+        </h3>
+        <ul class="list-disc pl-5 space-y-2 text-xs sm:text-sm text-slate-300 font-medium">
+          <li><strong>Void a Suit Early:</strong> Play down short suits so you become void. Once you have no cards of a suit, you can freely discard heavy, dangerous cards whenever that suit is led.</li>
+          <li><strong>Duck When Leading is Dangerous:</strong> In Bhabhi, winning tricks is not always desirable because the winner must lead the next trick. If you hold low cards, play under the highest card to stay safe.</li>
+          <li><strong>Off-Suit Power Discard:</strong> When you cannot follow suit, discard your highest singletons (like an isolated King or Ace of another suit) to neutralize future liabilities.</li>
+        </ul>
+      </section>
+
+    </article>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Modular Scripts -->
+  <script src="bhabhi-thulla/js/deck.js"></script>
+  <script src="bhabhi-thulla/js/ai.js"></script>
+  <script src="bhabhi-thulla/js/ui.js"></script>
+  <script src="bhabhi-thulla/js/game.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
