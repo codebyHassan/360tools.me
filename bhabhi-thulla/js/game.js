@@ -853,14 +853,9 @@ class BhabhiGame {
       this.showLobbySection('waiting');
       
       const codeEl = document.getElementById('bhabhiDisplayCode');
-      const statusText = document.getElementById('bhabhiLobbyStatusText');
-      const startBtn = document.getElementById('bhabhiHostStartBtn');
       const waBtn = document.getElementById('bhabhiWaShareBtn');
 
       if (codeEl) codeEl.textContent = code;
-      const neededGuests = target - 1;
-      if (statusText) statusText.textContent = `Room Created (Host) — Waiting for ${neededGuests} Friend${neededGuests === 1 ? '' : 's'} (${target} Players Only, No Bots)`;
-      if (startBtn) startBtn.classList.remove('hidden');
 
       // Configure visible seats in lobby
       const col2 = document.getElementById('lobbySeatCol_2');
@@ -875,7 +870,8 @@ class BhabhiGame {
       }
 
       this.ui.updateLobbySeats(this.lobbySeats, 0);
-      this.ui.showToast(`Game Room #${code} created for ${target} players!`, 'success');
+      this.updateHostLobbyState();
+      this.ui.showToast(`Game Room #${code} created! Waiting for friends to join...`, 'success');
     });
 
     this.peer.on('connection', (conn) => {
@@ -890,6 +886,37 @@ class BhabhiGame {
         this.ui.showToast(`Multiplayer error: ${err.message || 'Connection failed'}`, 'danger');
       }
     });
+  }
+
+  updateHostLobbyState() {
+    if (!this.isHost) return;
+    const target = this.targetPlayers || 4;
+    const maxGuests = target - 1;
+    const connectedGuests = this.guestConnections.filter(c => c && c.open).length;
+    const allReady = connectedGuests >= maxGuests;
+
+    const statusText = document.getElementById('bhabhiLobbyStatusText');
+    const startBtn = document.getElementById('bhabhiHostStartBtn');
+
+    if (statusText) {
+      if (allReady) {
+        statusText.innerHTML = `<span class="text-emerald-400 font-black"><i class="fa-solid fa-circle-check text-emerald-400"></i> All ${target} Players Connected — Ready to Start!</span>`;
+      } else {
+        const remaining = maxGuests - connectedGuests;
+        statusText.innerHTML = `<span class="text-amber-300 font-bold flex items-center gap-1.5"><i class="fa-solid fa-spinner fa-spin text-amber-400"></i> Waiting for ${remaining} friend${remaining === 1 ? '' : 's'} to join (${connectedGuests + 1}/${target} Members)...</span>`;
+      }
+    }
+
+    if (startBtn) {
+      startBtn.classList.remove('hidden');
+      if (allReady) {
+        startBtn.className = 'py-2.5 px-6 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black rounded-xl shadow-lg flex items-center gap-2 transition-all transform hover:scale-105 active:scale-95 cursor-pointer ring-2 ring-emerald-400';
+        startBtn.innerHTML = `<i class="fa-solid fa-play"></i> Start Match Now (${target} Players Ready)`;
+      } else {
+        startBtn.className = 'py-2.5 px-6 bg-slate-800/90 border border-amber-500/40 text-amber-300 text-xs font-bold rounded-xl shadow-sm flex items-center gap-2 transition-all hover:bg-slate-800 cursor-pointer';
+        startBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-amber-400"></i> Waiting for Friends (${connectedGuests + 1}/${target})...`;
+      }
+    }
   }
 
   handleHostIncomingConnection(conn) {
@@ -935,11 +962,12 @@ class BhabhiGame {
       });
 
       this.ui.updateLobbySeats(this.lobbySeats, 0);
+      this.updateHostLobbyState();
 
       // Check if all selected friends have joined
       const connectedFriends = this.guestConnections.filter(c => c && c.open).length;
       if (connectedFriends >= maxGuests) {
-        this.ui.showToast(`🎉 All ${this.targetPlayers} players joined! Ready to start match.`, 'success');
+        this.ui.showToast(`🎉 All ${this.targetPlayers} players joined! Click "Start Match Now" to begin.`, 'success');
       } else {
         this.ui.showToast(`Friend joined into Seat ${assignedSeat + 1}! (${connectedFriends + 1}/${this.targetPlayers} Members)`, 'info');
       }
@@ -968,6 +996,7 @@ class BhabhiGame {
         if (!this.gameState.gameStarted) {
           this.broadcast({ type: 'lobbyUpdate', lobbySeats: this.lobbySeats, targetPlayers: target });
           this.ui.updateLobbySeats(this.lobbySeats, 0);
+          this.updateHostLobbyState();
           this.ui.showToast(`Player from Seat ${seat + 1} disconnected.`, 'info');
         } else {
           // If game in progress, convert that seat to AI
@@ -1046,13 +1075,28 @@ class BhabhiGame {
   }
 
   handleGuestReceiveData(data) {
-    if (data.type === 'joined') {
-      this.mySeat = data.seat;
+    if (data.type === 'joined' || data.type === 'lobbyUpdate') {
+      if (data.type === 'joined') {
+        this.mySeat = data.seat;
+        if (data.code) this.onlineRoomId = data.code;
+      }
       this.lobbySeats = data.lobbySeats;
+      const target = data.targetPlayers || this.targetPlayers || 4;
+      this.targetPlayers = target;
       this.ui.updateLobbySeats(this.lobbySeats, this.mySeat);
-    } else if (data.type === 'lobbyUpdate') {
-      this.lobbySeats = data.lobbySeats;
-      this.ui.updateLobbySeats(this.lobbySeats, this.mySeat);
+
+      const statusText = document.getElementById('bhabhiLobbyStatusText');
+      const startBtn = document.getElementById('bhabhiHostStartBtn');
+      if (startBtn) startBtn.classList.add('hidden');
+
+      const connectedCount = this.lobbySeats.filter(s => s.status === 'connected' || s.id === 0).length;
+      if (statusText) {
+        if (connectedCount >= target) {
+          statusText.innerHTML = `<span class="text-emerald-400 font-black"><i class="fa-solid fa-circle-check text-emerald-400"></i> All Players Connected (${target}/${target}) — Waiting for Host to Start...</span>`;
+        } else {
+          statusText.innerHTML = `<span class="text-blue-300 font-bold flex items-center gap-1.5"><i class="fa-solid fa-spinner fa-spin text-blue-400"></i> Connected! Waiting for other friends (${connectedCount}/${target} Members)...</span>`;
+        }
+      }
     } else if (data.type === 'gameStart') {
       this.mySeat = data.mySeat;
       const target = data.targetPlayers || data.players.length;
@@ -1233,6 +1277,17 @@ class BhabhiGame {
   hostStartMatch() {
     if (!this.isHost) return;
 
+    const target = this.targetPlayers || 4;
+    const maxGuests = target - 1;
+    const connectedGuests = this.guestConnections.filter(c => c && c.open).length;
+
+    if (connectedGuests < maxGuests) {
+      const remaining = maxGuests - connectedGuests;
+      this.ui.showToast(`⏳ Please wait! Waiting for ${remaining} more friend${remaining === 1 ? '' : 's'} to join room #${this.onlineRoomId}. Share the code with them!`, 'warning');
+      this.updateHostLobbyState();
+      return;
+    }
+
     document.getElementById('gameStartOverlay')?.classList.add('hidden');
     document.getElementById('gameTableArea')?.classList.remove('hidden');
 
@@ -1240,26 +1295,21 @@ class BhabhiGame {
     this.ui.playSound('deal');
     this.showLobbySection('connected');
 
-    const target = this.targetPlayers || 4;
-
     const liveBadge = document.getElementById('bhabhiLiveRoomBadge');
     const roleText = document.getElementById('bhabhiOnlineRoleText');
     if (liveBadge) liveBadge.textContent = `Room: ${this.onlineRoomId} (${target}P)`;
     if (roleText) roleText.textContent = `You are Host (Seat 1)`;
 
-    // 1. Initialize ONLY target players: Assign humans to active guest seats, AI only if guest slot was unoccupied
+    // 1. Initialize ONLY real human players (100% human players, NO AI BOTS!)
     this.gameState.players = [
       { id: 0, name: 'You (Host)', type: 'human', hand: [], active: true, finished: false, finishRank: null }
     ];
     for (let i = 1; i < target; i++) {
-      const isConnected = this.guestConnections[i]?.open;
-      const name = target === 2 
-        ? (isConnected ? 'Friend' : 'Computer') 
-        : (isConnected ? `Friend ${i}` : `Computer ${i}`);
+      const name = target === 2 ? 'Friend' : `Friend ${i}`;
       this.gameState.players.push({
         id: i,
         name: name,
-        type: isConnected ? 'human' : 'ai',
+        type: 'human',
         hand: [],
         active: true,
         finished: false,

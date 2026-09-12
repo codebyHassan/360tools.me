@@ -288,16 +288,16 @@ class BhabhiUI {
         el.className = 'text-xs font-bold text-white flex items-center gap-1.5 mt-1';
         el.innerHTML = isMe 
           ? `<i class="fa-solid fa-circle-check text-emerald-400 text-[11px]"></i> <span class="text-emerald-300 font-black">${seat.name} (You)</span>`
-          : `<i class="fa-solid fa-user text-blue-400 text-[11px]"></i> <span class="text-blue-200">${seat.name}</span>`;
+          : `<i class="fa-solid fa-circle-check text-emerald-400 text-[11px]"></i> <span class="text-emerald-300 font-bold">${seat.name} (Connected)</span>`;
       } else if (idx === 0) {
         el.className = 'text-xs font-bold text-white flex items-center gap-1.5 mt-1';
-        el.innerHTML = `<i class="fa-solid fa-crown text-amber-400 text-[11px]"></i> <span>${seat.name || 'You (Host)'}</span>`;
+        el.innerHTML = `<i class="fa-solid fa-crown text-amber-400 text-[11px]"></i> <span class="text-amber-300 font-black">${seat.name || 'You (Host)'}</span>`;
       } else if (seat.status === 'empty') {
-        el.className = 'text-xs font-bold text-amber-300 flex items-center gap-1.5 mt-1 animate-pulse';
-        el.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-amber-400 text-[11px]"></i> <span>Waiting for Friend...</span>`;
+        el.className = 'text-xs font-bold text-amber-300 flex items-center gap-1.5 mt-1';
+        el.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-amber-400 text-[11px]"></i> <span class="animate-pulse">Waiting for Friend...</span>`;
       } else {
         el.className = 'text-xs font-bold text-slate-400 flex items-center gap-1.5 mt-1';
-        el.innerHTML = `<i class="fa-solid fa-robot text-slate-500 text-[11px]"></i> <span>AI Bot (Auto-filled)</span>`;
+        el.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-amber-400 text-[11px]"></i> <span>Waiting...</span>`;
       }
     });
   }
