@@ -180,17 +180,72 @@ class BhabhiGame {
     if (connected) connected.classList.toggle('hidden', section !== 'connected');
   }
 
+  updateTableLayoutForPlayerCount(target) {
+    const count = target || this.targetPlayers || 4;
+    const sec1 = document.getElementById('playerSection_1'); // Top
+    const sec2 = document.getElementById('playerSection_2'); // Left
+    const sec3 = document.getElementById('playerSection_3'); // Right
+    const grid = document.getElementById('centerTrickGrid');
+    const col = document.getElementById('centerTrickCol');
+
+    if (count === 2) {
+      // 2-Player (1v1) Mode: Show Top & Bottom only. Hide Left and Right.
+      if (sec1) sec1.classList.remove('hidden');
+      if (sec2) sec2.classList.add('hidden');
+      if (sec3) sec3.classList.add('hidden');
+      if (grid) grid.className = 'flex items-center justify-center gap-2 my-auto py-2';
+      if (col) col.className = 'flex flex-col items-center justify-center relative';
+    } else if (count === 3) {
+      // 3-Player Mode: Show Top, Bottom, Left. Hide Right.
+      if (sec1) sec1.classList.remove('hidden');
+      if (sec2) sec2.classList.remove('hidden');
+      if (sec3) sec3.classList.add('hidden');
+      if (grid) grid.className = 'grid grid-cols-3 items-center gap-2 my-auto py-2';
+      if (sec2) sec2.className = 'col-span-1 flex flex-col items-start';
+      if (col) col.className = 'col-span-2 flex flex-col items-center justify-center relative';
+    } else {
+      // 4-Player Mode: Show All 4 seats.
+      if (sec1) sec1.classList.remove('hidden');
+      if (sec2) sec2.classList.remove('hidden');
+      if (sec3) sec3.classList.remove('hidden');
+      if (grid) grid.className = 'grid grid-cols-4 items-center gap-2 my-auto py-2';
+      if (sec2) sec2.className = 'col-span-1 flex flex-col items-start';
+      if (col) col.className = 'col-span-2 flex flex-col items-center justify-center relative';
+      if (sec3) sec3.className = 'col-span-1 flex flex-col items-end';
+    }
+  }
+
   setTargetPlayers(num) {
     this.targetPlayers = parseInt(num, 10) || 4;
     const labels = {
-      2: '2 Players (1 Friend + 2 AI Bots)',
-      3: '3 Players (2 Friends + 1 AI Bot)',
-      4: '4 Players (Full Room)'
+      2: '2 Players (1v1 Match — 26 Cards Each, No Bots)',
+      3: '3 Players (3-Way Match — No 4th Bot)',
+      4: '4 Players (4-Player Classic)'
     };
     const labelEl = document.getElementById('selectedPlayerCountLabel');
     if (labelEl) labelEl.textContent = labels[this.targetPlayers] || `${this.targetPlayers} Players`;
 
+    const overlayLabel = document.getElementById('startOverlayPlayerCountLabel');
+    if (overlayLabel) overlayLabel.textContent = labels[this.targetPlayers] || `${this.targetPlayers} Players`;
+
+    const overlayBtn = document.getElementById('startOverlayBtnText');
+    if (overlayBtn) {
+      if (this.startModeSelected === 'online') {
+        overlayBtn.textContent = 'Go to Online Lobby';
+      } else {
+        overlayBtn.textContent = this.targetPlayers === 2 ? 'Start Game (1v1)' : `Start Game (${this.targetPlayers} Players)`;
+      }
+    }
+
+    const aiDesc = document.getElementById('startOverlayAiDesc');
+    if (aiDesc) {
+      if (this.targetPlayers === 2) aiDesc.textContent = 'Play offline (1v1 against 1 Computer bot)';
+      else if (this.targetPlayers === 3) aiDesc.textContent = 'Play offline (against 2 Computer bots)';
+      else aiDesc.textContent = 'Play offline against 3 smart bots';
+    }
+
     [2, 3, 4].forEach(n => {
+      // Lobby buttons
       const btn = document.getElementById(`btnPlayers_${n}`);
       if (btn) {
         if (n === this.targetPlayers) {
@@ -203,7 +258,27 @@ class BhabhiGame {
           if (sub) sub.className = 'text-[9px] text-slate-400';
         }
       }
+
+      // Start Screen Overlay buttons
+      const overlayBtnN = document.getElementById(`btnOverlayPlayers_${n}`);
+      if (overlayBtnN) {
+        if (n === this.targetPlayers) {
+          overlayBtnN.className = 'py-2 px-2 text-center text-xs font-bold rounded-xl border-2 border-emerald-500 bg-emerald-950/70 text-emerald-200 flex flex-col items-center gap-0.5 shadow-sm transition-all';
+          const sub = overlayBtnN.querySelector('span:last-child');
+          if (sub) sub.className = 'text-[9px] text-emerald-400 font-semibold';
+        } else {
+          overlayBtnN.className = 'py-2 px-2 text-center text-xs font-bold rounded-xl border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white hover:border-emerald-500 transition-all flex flex-col items-center gap-0.5';
+          const sub = overlayBtnN.querySelector('span:last-child');
+          if (sub) sub.className = 'text-[9px] text-slate-400';
+        }
+      }
     });
+
+    // Configure Lobby waiting room seat columns
+    const col2 = document.getElementById('lobbySeatCol_2');
+    const col3 = document.getElementById('lobbySeatCol_3');
+    if (col2) col2.classList.toggle('hidden', this.targetPlayers < 3);
+    if (col3) col3.classList.toggle('hidden', this.targetPlayers < 4);
   }
 
   quickSelectStartMode(mode) {
@@ -215,7 +290,7 @@ class BhabhiGame {
     if (mode === 'ai') {
       if (cardAi) cardAi.className = 'p-3.5 rounded-2xl border-2 border-emerald-500 bg-emerald-950/60 cursor-pointer hover:border-emerald-400 transition-all flex items-center gap-3 shadow-md';
       if (cardOnline) cardOnline.className = 'p-3.5 rounded-2xl border border-slate-700 bg-slate-800/80 cursor-pointer hover:border-blue-400 transition-all flex items-center gap-3';
-      if (btnText) btnText.textContent = 'Start Game (vs AI)';
+      if (btnText) btnText.textContent = this.targetPlayers === 2 ? 'Start Game (1v1)' : `Start Game (${this.targetPlayers} Players)`;
     } else {
       if (cardOnline) cardOnline.className = 'p-3.5 rounded-2xl border-2 border-blue-500 bg-blue-950/60 cursor-pointer hover:border-blue-400 transition-all flex items-center gap-3 shadow-md';
       if (cardAi) cardAi.className = 'p-3.5 rounded-2xl border border-slate-700 bg-slate-800/80 cursor-pointer hover:border-emerald-400 transition-all flex items-center gap-3';
@@ -250,16 +325,26 @@ class BhabhiGame {
     this.ui.hideGameOverModal();
     this.ui.playSound('deal');
 
-    // 1. Initialize 4 Players
-    this.gameState.players = [
-      { id: 0, name: 'You', type: 'human', hand: [], active: true, finished: false, finishRank: null },
-      { id: 1, name: 'Computer 1', type: 'ai', hand: [], active: true, finished: false, finishRank: null },
-      { id: 2, name: 'Computer 2', type: 'ai', hand: [], active: true, finished: false, finishRank: null },
-      { id: 3, name: 'Computer 3', type: 'ai', hand: [], active: true, finished: false, finishRank: null }
-    ];
+    const target = this.targetPlayers || 4;
 
-    // 2. Deal 52 Cards (13 to each player)
-    const hands = this.deck.deal(4);
+    // 1. Initialize Active Players ONLY (no extra bots!)
+    this.gameState.players = [
+      { id: 0, name: 'You', type: 'human', hand: [], active: true, finished: false, finishRank: null }
+    ];
+    for (let i = 1; i < target; i++) {
+      this.gameState.players.push({
+        id: i,
+        name: target === 2 ? 'Computer' : `Computer ${i}`,
+        type: 'ai',
+        hand: [],
+        active: true,
+        finished: false,
+        finishRank: null
+      });
+    }
+
+    // 2. Deal 52 Cards (26 to each player in 2-player mode, 18/17/17 in 3-player, 13 each in 4-player)
+    const hands = this.deck.deal(target);
     this.gameState.players.forEach((p, idx) => {
       p.hand = hands[idx];
     });
@@ -283,14 +368,18 @@ class BhabhiGame {
     // 4. Locate player with Ace of Spades (♠A)
     let starterIndex = 0;
     this.gameState.players.forEach(p => {
-      if (p.hand.some(c => c.isAceOfSpades && c.isAceOfSpades())) {
+      if (p.hand.some(c => (c.isAceOfSpades && c.isAceOfSpades()) || (c.suit === 'spades' && c.rank === 'A'))) {
         starterIndex = p.id;
       }
     });
 
     this.gameState.currentPlayerIndex = starterIndex;
 
-    // 5. Update UI
+    // 5. Update Layout and Table Player Names
+    this.updateTableLayoutForPlayerCount(target);
+    this.ui.updatePlayerBoxNames(this.gameState.players, 0);
+
+    // 6. Update UI
     this.renderAll();
     this.ui.updateTableStats(this.gameState);
 
@@ -301,7 +390,7 @@ class BhabhiGame {
       this.ui.showToast(`${starter.name} holds Ace of Spades (♠A) and starts the game!`, 'info');
     }
 
-    // 6. Begin Turn Flow
+    // 7. Begin Turn Flow
     this.processTurn();
   }
 
@@ -478,14 +567,15 @@ class BhabhiGame {
         count++;
       }
     });
-    return Math.max(count, 2);
+    return Math.max(count, Math.min(2, this.gameState.players.length));
   }
 
   nextPlayerTurn() {
-    let nextIndex = (this.gameState.currentPlayerIndex + 1) % 4;
+    const numPlayers = this.gameState.players.length;
+    let nextIndex = (this.gameState.currentPlayerIndex + 1) % numPlayers;
     
     let attempts = 0;
-    while (attempts < 4) {
+    while (attempts < numPlayers) {
       const p = this.gameState.players[nextIndex];
       const hasPlayed = this.gameState.currentTrick.some(t => t.playerId === p.id);
       
@@ -494,7 +584,7 @@ class BhabhiGame {
         this.processTurn();
         return;
       }
-      nextIndex = (nextIndex + 1) % 4;
+      nextIndex = (nextIndex + 1) % numPlayers;
       attempts++;
     }
 
@@ -649,12 +739,13 @@ class BhabhiGame {
   }
 
   getNextActivePlayerIndex(startIndex) {
-    let next = (startIndex + 1) % 4;
-    for (let i = 0; i < 4; i++) {
+    const numPlayers = this.gameState.players.length;
+    let next = (startIndex + 1) % numPlayers;
+    for (let i = 0; i < numPlayers; i++) {
       if (!this.gameState.players[next].finished) {
         return next;
       }
-      next = (next + 1) % 4;
+      next = (next + 1) % numPlayers;
     }
     return 0;
   }
@@ -742,12 +833,13 @@ class BhabhiGame {
       { id: 0, name: 'You (Host)', type: 'human', status: 'ready' }
     ];
 
-    for (let i = 1; i <= 3; i++) {
-      if (i < target) {
-        this.lobbySeats.push({ id: i, name: 'Waiting for Friend...', type: 'human', status: 'empty' });
-      } else {
-        this.lobbySeats.push({ id: i, name: 'AI Bot', type: 'ai', status: 'bot' });
-      }
+    for (let i = 1; i < target; i++) {
+      this.lobbySeats.push({
+        id: i,
+        name: target === 2 ? 'Waiting for Friend...' : `Waiting for Friend ${i}...`,
+        type: 'human',
+        status: 'empty'
+      });
     }
 
     if (typeof Peer === 'undefined') {
@@ -766,12 +858,19 @@ class BhabhiGame {
       const waBtn = document.getElementById('bhabhiWaShareBtn');
 
       if (codeEl) codeEl.textContent = code;
-      if (statusText) statusText.textContent = `Room Created (Host) — Waiting for ${target - 1} Friend${target - 1 === 1 ? '' : 's'}`;
+      const neededGuests = target - 1;
+      if (statusText) statusText.textContent = `Room Created (Host) — Waiting for ${neededGuests} Friend${neededGuests === 1 ? '' : 's'} (${target} Players Only, No Bots)`;
       if (startBtn) startBtn.classList.remove('hidden');
+
+      // Configure visible seats in lobby
+      const col2 = document.getElementById('lobbySeatCol_2');
+      const col3 = document.getElementById('lobbySeatCol_3');
+      if (col2) col2.classList.toggle('hidden', target < 3);
+      if (col3) col3.classList.toggle('hidden', target < 4);
 
       if (waBtn) {
         const shareUrl = `${window.location.origin}${window.location.pathname}?room=${code}`;
-        const msg = encodeURIComponent(`🎴 Play Bhabhi Thulla Card Game Online with me! Click to join my ${target}-player game room:\n${shareUrl}\n\nOr enter Room Code: ${code}`);
+        const msg = encodeURIComponent(`🎴 Play Bhabhi Thulla Card Game Online with me! Click to join my ${target}-player 1v1 game room:\n${shareUrl}\n\nOr enter Room Code: ${code}`);
         waBtn.href = `https://api.whatsapp.com/send?text=${msg}`;
       }
 
@@ -795,7 +894,8 @@ class BhabhiGame {
 
   handleHostIncomingConnection(conn) {
     conn.on('open', () => {
-      const maxGuests = (this.targetPlayers || 4) - 1;
+      const target = this.targetPlayers || 4;
+      const maxGuests = target - 1;
       let assignedSeat = -1;
       for (let i = 1; i <= maxGuests; i++) {
         if (!this.guestConnections[i] || !this.guestConnections[i].open) {
@@ -813,7 +913,7 @@ class BhabhiGame {
       this.guestConnections[assignedSeat] = conn;
       this.lobbySeats[assignedSeat] = {
         id: assignedSeat,
-        name: `Friend (Player ${assignedSeat + 1})`,
+        name: target === 2 ? 'Friend' : `Friend (Player ${assignedSeat + 1})`,
         type: 'human',
         status: 'connected'
       };
@@ -823,12 +923,14 @@ class BhabhiGame {
         type: 'joined',
         seat: assignedSeat,
         code: this.onlineRoomId,
+        targetPlayers: target,
         lobbySeats: this.lobbySeats
       });
 
       // Broadcast updated lobby to everyone
       this.broadcast({
         type: 'lobbyUpdate',
+        targetPlayers: target,
         lobbySeats: this.lobbySeats
       });
 
@@ -837,7 +939,7 @@ class BhabhiGame {
       // Check if all selected friends have joined
       const connectedFriends = this.guestConnections.filter(c => c && c.open).length;
       if (connectedFriends >= maxGuests) {
-        this.ui.showToast(`🎉 All ${this.targetPlayers} members joined! Ready to start match.`, 'success');
+        this.ui.showToast(`🎉 All ${this.targetPlayers} players joined! Ready to start match.`, 'success');
       } else {
         this.ui.showToast(`Friend joined into Seat ${assignedSeat + 1}! (${connectedFriends + 1}/${this.targetPlayers} Members)`, 'info');
       }
@@ -855,17 +957,23 @@ class BhabhiGame {
       const seat = this.guestConnections.indexOf(conn);
       if (seat !== -1) {
         this.guestConnections[seat] = null;
-        this.lobbySeats[seat] = { id: seat, name: 'AI Bot', type: 'ai', status: 'empty' };
+        const target = this.targetPlayers || 4;
+        this.lobbySeats[seat] = { 
+          id: seat, 
+          name: target === 2 ? 'Waiting for Friend...' : `Waiting for Friend ${seat}...`, 
+          type: 'human', 
+          status: 'empty' 
+        };
 
         if (!this.gameState.gameStarted) {
-          this.broadcast({ type: 'lobbyUpdate', lobbySeats: this.lobbySeats });
+          this.broadcast({ type: 'lobbyUpdate', lobbySeats: this.lobbySeats, targetPlayers: target });
           this.ui.updateLobbySeats(this.lobbySeats, 0);
           this.ui.showToast(`Player from Seat ${seat + 1} disconnected.`, 'info');
         } else {
           // If game in progress, convert that seat to AI
           if (this.gameState.players[seat]) {
             this.gameState.players[seat].type = 'ai';
-            this.gameState.players[seat].name = `Computer ${seat}`;
+            this.gameState.players[seat].name = target === 2 ? 'Computer' : `Computer ${seat}`;
           }
           this.ui.showToast(`Player ${seat + 1} disconnected. Computer will play for them.`, 'warning');
         }
@@ -947,6 +1055,8 @@ class BhabhiGame {
       this.ui.updateLobbySeats(this.lobbySeats, this.mySeat);
     } else if (data.type === 'gameStart') {
       this.mySeat = data.mySeat;
+      const target = data.targetPlayers || data.players.length;
+      this.targetPlayers = target;
       this.showLobbySection('connected');
       document.getElementById('gameStartOverlay')?.classList.add('hidden');
       document.getElementById('gameTableArea')?.classList.remove('hidden');
@@ -954,10 +1064,11 @@ class BhabhiGame {
       // Update Role Strip
       const liveBadge = document.getElementById('bhabhiLiveRoomBadge');
       const roleText = document.getElementById('bhabhiOnlineRoleText');
-      if (liveBadge) liveBadge.textContent = `Room: ${this.onlineRoomId}`;
+      if (liveBadge) liveBadge.textContent = `Room: ${this.onlineRoomId} (${target}P)`;
       if (roleText) roleText.textContent = `You are playing in Seat ${this.mySeat + 1}`;
 
       // Initialize Players
+      const initialCardsPerPlayer = Math.floor(52 / data.players.length);
       this.gameState.players = data.players.map(p => {
         const isMe = p.id === this.mySeat;
         return {
@@ -965,14 +1076,15 @@ class BhabhiGame {
           name: isMe ? `${p.name} (You)` : p.name,
           type: isMe ? 'human' : p.type,
           hand: isMe ? data.myHand.map(c => Card.fromObject(c)) : [],
-          cardCount: 13,
+          cardCount: isMe ? (data.myHand?.length || initialCardsPerPlayer) : initialCardsPerPlayer,
           active: true,
           finished: false,
           finishRank: null
         };
       });
 
-      // Update Table Player Boxes
+      // Update Table Layout and Player Boxes
+      this.updateTableLayoutForPlayerCount(target);
       this.ui.updatePlayerBoxNames(this.gameState.players, this.mySeat);
 
       this.gameState.leadSuit = null;
@@ -1128,21 +1240,35 @@ class BhabhiGame {
     this.ui.playSound('deal');
     this.showLobbySection('connected');
 
+    const target = this.targetPlayers || 4;
+
     const liveBadge = document.getElementById('bhabhiLiveRoomBadge');
     const roleText = document.getElementById('bhabhiOnlineRoleText');
-    if (liveBadge) liveBadge.textContent = `Room: ${this.onlineRoomId}`;
+    if (liveBadge) liveBadge.textContent = `Room: ${this.onlineRoomId} (${target}P)`;
     if (roleText) roleText.textContent = `You are Host (Seat 1)`;
 
-    // 1. Initialize 4 players: Assign humans to active guest seats, AI to unoccupied seats
+    // 1. Initialize ONLY target players: Assign humans to active guest seats, AI only if guest slot was unoccupied
     this.gameState.players = [
-      { id: 0, name: 'You (Host)', type: 'human', hand: [], active: true, finished: false, finishRank: null },
-      { id: 1, name: (this.guestConnections[1]?.open ? 'Friend 1' : 'Computer 1'), type: (this.guestConnections[1]?.open ? 'human' : 'ai'), hand: [], active: true, finished: false, finishRank: null },
-      { id: 2, name: (this.guestConnections[2]?.open ? 'Friend 2' : 'Computer 2'), type: (this.guestConnections[2]?.open ? 'human' : 'ai'), hand: [], active: true, finished: false, finishRank: null },
-      { id: 3, name: (this.guestConnections[3]?.open ? 'Friend 3' : 'Computer 3'), type: (this.guestConnections[3]?.open ? 'human' : 'ai'), hand: [], active: true, finished: false, finishRank: null }
+      { id: 0, name: 'You (Host)', type: 'human', hand: [], active: true, finished: false, finishRank: null }
     ];
+    for (let i = 1; i < target; i++) {
+      const isConnected = this.guestConnections[i]?.open;
+      const name = target === 2 
+        ? (isConnected ? 'Friend' : 'Computer') 
+        : (isConnected ? `Friend ${i}` : `Computer ${i}`);
+      this.gameState.players.push({
+        id: i,
+        name: name,
+        type: isConnected ? 'human' : 'ai',
+        hand: [],
+        active: true,
+        finished: false,
+        finishRank: null
+      });
+    }
 
-    // 2. Deal 52 Cards
-    const hands = this.deck.deal(4);
+    // 2. Deal 52 Cards evenly (26 each for 2 players, 18/17/17 for 3, 13 for 4)
+    const hands = this.deck.deal(target);
     this.gameState.players.forEach((p, idx) => {
       p.hand = hands[idx];
     });
@@ -1174,11 +1300,12 @@ class BhabhiGame {
     this.gameState.currentPlayerIndex = starterIndex;
 
     // 5. Send Game Start packet to each connected guest with their own private hand
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i < target; i++) {
       const conn = this.guestConnections[i];
       if (conn && conn.open) {
         conn.send({
           type: 'gameStart',
+          targetPlayers: target,
           mySeat: i,
           myHand: hands[i],
           starterIndex: starterIndex,
@@ -1188,7 +1315,8 @@ class BhabhiGame {
       }
     }
 
-    // 6. Update Host UI
+    // 6. Update Host Layout and Names
+    this.updateTableLayoutForPlayerCount(target);
     this.ui.updatePlayerBoxNames(this.gameState.players, 0);
     this.renderAll();
     this.ui.updateTableStats(this.gameState);
@@ -1205,7 +1333,8 @@ class BhabhiGame {
   }
 
   broadcast(data) {
-    for (let i = 1; i <= 3; i++) {
+    const target = this.targetPlayers || 4;
+    for (let i = 1; i < target; i++) {
       const conn = this.guestConnections[i];
       if (conn && conn.open) {
         try {

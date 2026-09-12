@@ -525,21 +525,25 @@ class BhabhiUI {
     if (!lastTrick || lastTrick.length === 0) {
       content.innerHTML = `<p class="text-xs text-slate-400 italic py-6 text-center">No tricks completed yet in this game.</p>`;
     } else {
-      const posNames = { 0: 'You', 1: 'Computer 1', 2: 'Computer 2', 3: 'Computer 3' };
+      const posNames = { 0: 'You', 1: 'Player 2', 2: 'Player 3', 3: 'Player 4' };
       content.innerHTML = `
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 py-3">
-          ${lastTrick.map(item => `
-            <div class="flex flex-col items-center bg-slate-800/80 p-3 rounded-2xl border border-slate-700">
-              <span class="text-xs font-black text-slate-300 mb-2">${posNames[item.playerId]}</span>
-              <div class="playing-card mini ${item.card.color}">
-                <div class="card-corner top-left">
-                  <span class="card-rank">${item.card.rank}</span>
-                  <span class="card-suit">${item.card.symbol}</span>
+          ${lastTrick.map(item => {
+            const player = window.bhabhiGame?.gameState?.players?.find(p => p.id === item.playerId);
+            const displayName = player ? player.name : (posNames[item.playerId] || `Player ${item.playerId + 1}`);
+            return `
+              <div class="flex flex-col items-center bg-slate-800/80 p-3 rounded-2xl border border-slate-700">
+                <span class="text-xs font-black text-slate-300 mb-2 truncate max-w-[100px]">${displayName}</span>
+                <div class="playing-card mini ${item.card.color}">
+                  <div class="card-corner top-left">
+                    <span class="card-rank">${item.card.rank}</span>
+                    <span class="card-suit">${item.card.symbol}</span>
+                  </div>
+                  <div class="card-center-pip"><span>${item.card.symbol}</span></div>
                 </div>
-                <div class="card-center-pip"><span>${item.card.symbol}</span></div>
               </div>
-            </div>
-          `).join('')}
+            `;
+          }).join('')}
         </div>
       `;
     }

@@ -162,7 +162,7 @@
               <span>vs Computer AI</span>
               <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
             </div>
-            <div class="text-[10px] text-slate-400">Play offline against 3 smart bots</div>
+            <div id="startOverlayAiDesc" class="text-[10px] text-slate-400">Play offline (1v1 duel or multi-player)</div>
           </div>
         </div>
 
@@ -179,11 +179,50 @@
 
       </div>
 
+      <!-- Select Number of Players in Overlay -->
+      <div class="w-full max-w-md space-y-1.5 text-left">
+        <div class="flex items-center justify-between text-[11px] font-bold text-slate-300 px-1">
+          <span class="flex items-center gap-1.5">
+            <i class="fa-solid fa-users text-emerald-400"></i> Match Size:
+          </span>
+          <span id="startOverlayPlayerCountLabel" class="text-emerald-300 font-black">2 Players (1v1 Only - No Extra Bots)</span>
+        </div>
+        <div class="grid grid-cols-3 gap-2">
+          <button 
+            type="button" 
+            onclick="window.bhabhiGame.setTargetPlayers(2)" 
+            id="btnOverlayPlayers_2" 
+            class="py-2 px-2 text-center text-xs font-bold rounded-xl border-2 border-emerald-500 bg-emerald-950/70 text-emerald-200 flex flex-col items-center gap-0.5 shadow-sm transition-all"
+          >
+            <span class="font-black text-xs sm:text-sm text-white">2 Players</span>
+            <span class="text-[9px] text-emerald-400 font-semibold">1v1 (2 Only)</span>
+          </button>
+          <button 
+            type="button" 
+            onclick="window.bhabhiGame.setTargetPlayers(3)" 
+            id="btnOverlayPlayers_3" 
+            class="py-2 px-2 text-center text-xs font-bold rounded-xl border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white hover:border-emerald-500 transition-all flex flex-col items-center gap-0.5"
+          >
+            <span class="font-black text-xs sm:text-sm">3 Players</span>
+            <span class="text-[9px] text-slate-400">3-Way Match</span>
+          </button>
+          <button 
+            type="button" 
+            onclick="window.bhabhiGame.setTargetPlayers(4)" 
+            id="btnOverlayPlayers_4" 
+            class="py-2 px-2 text-center text-xs font-bold rounded-xl border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white hover:border-emerald-500 transition-all flex flex-col items-center gap-0.5"
+          >
+            <span class="font-black text-xs sm:text-sm">4 Players</span>
+            <span class="text-[9px] text-slate-400">4-Player Classic</span>
+          </button>
+        </div>
+      </div>
+
       <!-- Main "Start Game" Button -->
       <div class="w-full max-w-md">
         <button onclick="window.bhabhiGame.onStartGameClicked()" class="w-full py-3.5 px-6 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-sm sm:text-base uppercase tracking-wider rounded-2xl shadow-xl hover:shadow-emerald-500/20 flex items-center justify-center gap-2.5 transition-all transform active:scale-95">
           <i class="fa-solid fa-play"></i>
-          <span id="startOverlayBtnText">Start Game</span>
+          <span id="startOverlayBtnText">Start Game (1v1)</span>
         </button>
       </div>
 
@@ -209,26 +248,26 @@
               <i class="fa-solid fa-plus"></i>
             </div>
             <h3 class="text-base font-black text-white">Create a Game Room</h3>
-            <p class="text-xs text-slate-400 font-medium">Select how many members/friends will play in this room. Unfilled seats are filled by AI bots.</p>
+            <p class="text-xs text-slate-400 font-medium">Select match size (2, 3, or 4 players). When 2 players is selected, ONLY those 2 real players play without any computer bots!</p>
           </div>
 
           <!-- Select Number of Players / Members -->
           <div class="space-y-1.5">
             <div class="flex items-center justify-between text-[11px] font-bold text-slate-300">
               <span class="flex items-center gap-1.5">
-                <i class="fa-solid fa-users text-emerald-400"></i> Game Members:
+                <i class="fa-solid fa-users text-emerald-400"></i> Match Size:
               </span>
-              <span id="selectedPlayerCountLabel" class="text-emerald-300 font-black">4 Players (Full Room)</span>
+              <span id="selectedPlayerCountLabel" class="text-emerald-300 font-black">2 Players (1v1 Match — 26 Cards Each, No Bots)</span>
             </div>
             <div class="grid grid-cols-3 gap-2">
               <button 
                 type="button" 
                 onclick="window.bhabhiGame.setTargetPlayers(2)" 
                 id="btnPlayers_2" 
-                class="py-2 px-2 text-center text-xs font-bold rounded-xl border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white hover:border-emerald-500 transition-all flex flex-col items-center gap-0.5"
+                class="py-2 px-2 text-center text-xs font-bold rounded-xl border-2 border-emerald-500 bg-emerald-950/70 text-emerald-200 flex flex-col items-center gap-0.5 shadow-sm transition-all"
               >
-                <span class="font-black text-xs sm:text-sm">2 Players</span>
-                <span class="text-[9px] text-slate-400">1v1 (+2 Bots)</span>
+                <span class="font-black text-xs sm:text-sm text-white">2 Players</span>
+                <span class="text-[9px] text-emerald-400 font-semibold">1v1 (2 Only)</span>
               </button>
               <button 
                 type="button" 
@@ -237,16 +276,16 @@
                 class="py-2 px-2 text-center text-xs font-bold rounded-xl border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white hover:border-emerald-500 transition-all flex flex-col items-center gap-0.5"
               >
                 <span class="font-black text-xs sm:text-sm">3 Players</span>
-                <span class="text-[9px] text-slate-400">3 Friends (+1 Bot)</span>
+                <span class="text-[9px] text-slate-400">3-Way Match</span>
               </button>
               <button 
                 type="button" 
                 onclick="window.bhabhiGame.setTargetPlayers(4)" 
                 id="btnPlayers_4" 
-                class="py-2 px-2 text-center text-xs font-bold rounded-xl border-2 border-emerald-500 bg-emerald-950/70 text-emerald-200 flex flex-col items-center gap-0.5 shadow-sm transition-all"
+                class="py-2 px-2 text-center text-xs font-bold rounded-xl border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white hover:border-emerald-500 transition-all flex flex-col items-center gap-0.5"
               >
-                <span class="font-black text-xs sm:text-sm text-white">4 Players</span>
-                <span class="text-[9px] text-emerald-400 font-semibold">Full Room</span>
+                <span class="font-black text-xs sm:text-sm">4 Players</span>
+                <span class="text-[9px] text-slate-400">4-Player Classic</span>
               </button>
             </div>
           </div>
@@ -295,11 +334,11 @@
           </div>
         </div>
 
-        <!-- 4 Seats Table Preview in Lobby -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-left py-2">
+        <!-- Seats Table Preview in Lobby -->
+        <div id="lobbySeatsContainer" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-left py-2">
           
           <!-- Seat 0 (Bottom / Host) -->
-          <div class="p-3 bg-slate-800/90 rounded-xl border border-slate-700">
+          <div id="lobbySeatCol_0" class="p-3 bg-slate-800/90 rounded-xl border border-slate-700">
             <div class="text-[10px] font-black text-emerald-400 uppercase">Seat 1 (Bottom)</div>
             <div id="lobbySeat_0" class="text-xs font-bold text-white flex items-center gap-1.5 mt-1">
               <i class="fa-solid fa-crown text-amber-400 text-[11px]"></i> <span>You (Host)</span>
@@ -307,26 +346,26 @@
           </div>
 
           <!-- Seat 1 (Top) -->
-          <div class="p-3 bg-slate-800/90 rounded-xl border border-slate-700">
+          <div id="lobbySeatCol_1" class="p-3 bg-slate-800/90 rounded-xl border border-slate-700">
             <div class="text-[10px] font-black text-blue-400 uppercase">Seat 2 (Top)</div>
             <div id="lobbySeat_1" class="text-xs font-bold text-slate-400 flex items-center gap-1.5 mt-1">
-              <i class="fa-solid fa-robot text-slate-500 text-[11px]"></i> <span>AI Bot (Auto-filled)</span>
+              <i class="fa-solid fa-spinner fa-spin text-amber-400 text-[11px]"></i> <span>Waiting for Friend...</span>
             </div>
           </div>
 
           <!-- Seat 2 (Left) -->
-          <div class="p-3 bg-slate-800/90 rounded-xl border border-slate-700">
+          <div id="lobbySeatCol_2" class="p-3 bg-slate-800/90 rounded-xl border border-slate-700">
             <div class="text-[10px] font-black text-purple-400 uppercase">Seat 3 (Left)</div>
             <div id="lobbySeat_2" class="text-xs font-bold text-slate-400 flex items-center gap-1.5 mt-1">
-              <i class="fa-solid fa-robot text-slate-500 text-[11px]"></i> <span>AI Bot (Auto-filled)</span>
+              <i class="fa-solid fa-spinner fa-spin text-amber-400 text-[11px]"></i> <span>Waiting for Friend...</span>
             </div>
           </div>
 
           <!-- Seat 3 (Right) -->
-          <div class="p-3 bg-slate-800/90 rounded-xl border border-slate-700">
+          <div id="lobbySeatCol_3" class="p-3 bg-slate-800/90 rounded-xl border border-slate-700">
             <div class="text-[10px] font-black text-amber-400 uppercase">Seat 4 (Right)</div>
             <div id="lobbySeat_3" class="text-xs font-bold text-slate-400 flex items-center gap-1.5 mt-1">
-              <i class="fa-solid fa-robot text-slate-500 text-[11px]"></i> <span>AI Bot (Auto-filled)</span>
+              <i class="fa-solid fa-spinner fa-spin text-amber-400 text-[11px]"></i> <span>Waiting for Friend...</span>
             </div>
           </div>
 
@@ -380,15 +419,15 @@
     <!-- Felt Card Table Arena (Hidden until user clicks Start Game / Match starts) -->
     <div id="gameTableArea" class="hidden card-table-felt rounded-3xl p-3 sm:p-6 mb-8 flex flex-col justify-between min-h-[560px] sm:min-h-[640px]">
       
-      <!-- TOP: Computer 1 -->
-      <div class="flex flex-col items-center justify-center">
+      <!-- TOP: Player 2 (Top) -->
+      <div id="playerSection_1" class="flex flex-col items-center justify-center">
         <div id="playerBox_1" class="player-box flex items-center gap-3">
           <div id="playerAvatar_1" class="w-8 h-8 rounded-full bg-blue-600/30 border border-blue-400/40 flex items-center justify-center text-sm font-black text-blue-300">
-            C1
+            P2
           </div>
           <div class="text-left">
             <div class="flex items-center gap-2">
-              <span id="playerName_1" class="font-black text-xs sm:text-sm">Computer 1</span>
+              <span id="playerName_1" class="font-black text-xs sm:text-sm">Player 2</span>
               <span id="playerBadge_1"><span class="badge-waiting">WAITING</span></span>
             </div>
             <div id="computerCount_1" class="text-[11px] text-slate-300">13 cards</div>
@@ -397,17 +436,17 @@
         <div id="computerCards_1" class="flex items-center justify-center mt-1.5"></div>
       </div>
 
-      <!-- MIDDLE: Computer 2 (Left) + Center Trick Area + Computer 3 (Right) -->
-      <div class="grid grid-cols-4 items-center gap-2 my-auto py-2">
+      <!-- MIDDLE: Player 3 (Left) + Center Trick Area + Player 4 (Right) -->
+      <div id="centerTrickGrid" class="grid grid-cols-4 items-center gap-2 my-auto py-2">
         
-        <!-- LEFT: Computer 2 -->
-        <div class="col-span-1 flex flex-col items-start">
+        <!-- LEFT: Player 3 -->
+        <div id="playerSection_2" class="col-span-1 flex flex-col items-start">
           <div id="playerBox_2" class="player-box flex flex-col items-start gap-1 w-full max-w-[125px] sm:max-w-[150px]">
             <div class="flex items-center gap-1.5 w-full">
               <div id="playerAvatar_2" class="w-6 h-6 rounded-full bg-purple-600/30 border border-purple-400/40 flex items-center justify-center text-xs font-black text-purple-300">
-                C2
+                P3
               </div>
-              <span id="playerName_2" class="font-black text-xs truncate">Comp 2</span>
+              <span id="playerName_2" class="font-black text-xs truncate">Player 3</span>
             </div>
             <div id="playerBadge_2" class="w-full"><span class="badge-waiting">WAITING</span></div>
             <div id="computerCount_2" class="text-[10px] text-slate-300">13 cards</div>
@@ -416,7 +455,7 @@
         </div>
 
         <!-- CENTER: Current Trick Play Area -->
-        <div class="col-span-2 flex flex-col items-center justify-center relative">
+        <div id="centerTrickCol" class="col-span-2 flex flex-col items-center justify-center relative">
           
           <!-- Table Center Info & Lead Suit -->
           <div class="flex items-center gap-2 mb-2">
@@ -432,13 +471,13 @@
           <!-- 4-Directional Card Layout Slots -->
           <div id="centerTrickArea" class="relative w-[190px] h-[190px] sm:w-[220px] sm:h-[220px] flex items-center justify-center bg-emerald-950/40 border border-emerald-600/20 rounded-full shadow-inner">
             
-            <!-- Top Card (Computer 1) -->
+            <!-- Top Card (Player 2) -->
             <div id="trickSlot_top" class="absolute top-1 left-1/2 -translate-x-1/2 flex items-center justify-center"></div>
 
-            <!-- Left Card (Computer 2) -->
+            <!-- Left Card (Player 3) -->
             <div id="trickSlot_left" class="absolute left-1 top-1/2 -translate-y-1/2 flex items-center justify-center"></div>
 
-            <!-- Right Card (Computer 3) -->
+            <!-- Right Card (Player 4) -->
             <div id="trickSlot_right" class="absolute right-1 top-1/2 -translate-y-1/2 flex items-center justify-center"></div>
 
             <!-- Bottom Card (You) -->
@@ -453,13 +492,13 @@
 
         </div>
 
-        <!-- RIGHT: Computer 3 -->
-        <div class="col-span-1 flex flex-col items-end">
+        <!-- RIGHT: Player 4 -->
+        <div id="playerSection_3" class="col-span-1 flex flex-col items-end">
           <div id="playerBox_3" class="player-box flex flex-col items-end gap-1 w-full max-w-[125px] sm:max-w-[150px]">
             <div class="flex items-center gap-1.5 w-full justify-end">
-              <span id="playerName_3" class="font-black text-xs truncate">Comp 3</span>
+              <span id="playerName_3" class="font-black text-xs truncate">Player 4</span>
               <div id="playerAvatar_3" class="w-6 h-6 rounded-full bg-amber-600/30 border border-amber-400/40 flex items-center justify-center text-xs font-black text-amber-300">
-                C3
+                P4
               </div>
             </div>
             <div id="playerBadge_3" class="w-full text-right"><span class="badge-waiting">WAITING</span></div>
@@ -471,7 +510,7 @@
       </div>
 
       <!-- BOTTOM: Human Player (You) -->
-      <div class="flex flex-col items-center justify-center mt-2">
+      <div id="playerSection_0" class="flex flex-col items-center justify-center mt-2">
         <div id="playerBox_0" class="player-box flex items-center gap-3 mb-2">
           <div id="playerAvatar_0" class="w-8 h-8 rounded-full bg-emerald-600/40 border border-emerald-400/50 flex items-center justify-center text-sm font-black text-emerald-300">
             <i class="fa-solid fa-user"></i>
