@@ -39,6 +39,12 @@ class Card {
     this.id = `${this.suit}_${this.rank}`;
   }
 
+  static fromObject(obj) {
+    if (!obj) return null;
+    const card = new Card(obj.suit.toUpperCase(), { rank: obj.rank, value: obj.value });
+    return card;
+  }
+
   isAceOfSpades() {
     return this.suit === 'spades' && this.rank === 'A';
   }

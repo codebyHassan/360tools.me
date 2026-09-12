@@ -51,6 +51,9 @@
   <!-- Canvas Confetti Library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
+  <!-- PeerJS WebRTC P2P DataChannel Library (Zero Server / Zero DB) -->
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+
   <style>
     .ttt-cell {
       background: #ffffff;
@@ -91,6 +94,10 @@
       color: #e11d48;
       text-shadow: 0 2px 10px rgba(225, 29, 72, 0.25);
     }
+    .room-code-display {
+      letter-spacing: 0.25em;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#f8fafc] px-3 sm:px-6 py-4">
@@ -109,7 +116,7 @@
             <i class="fa-solid fa-gamepad mr-1 text-[#146ebe]"></i> Strategy Puzzle
           </span>
           <span class="text-xs font-bold text-emerald-600 flex items-center gap-1">
-            <i class="fa-solid fa-robot text-xs"></i> Smart Minimax AI
+            <i class="fa-solid fa-wifi text-xs"></i> Realtime P2P Online
           </span>
         </div>
         <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight flex items-center gap-2">
@@ -117,7 +124,7 @@
           <span class="text-xs font-bold px-2 py-0.5 bg-rose-100 text-rose-800 rounded-md">XO Arena</span>
         </h1>
         <p class="text-xs sm:text-sm text-slate-500 font-medium">
-          Line up 3 matching symbols horizontally, vertically, or diagonally!
+          Play with AI or create a room to play online with friends!
         </p>
       </div>
 
@@ -139,7 +146,7 @@
     </div>
 
     <!-- Mode Selector & Settings -->
-    <div class="flex flex-wrap items-center justify-between gap-3 mb-6 bg-white p-3.5 rounded-2xl border border-slate-200 shadow-2xs">
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-4 bg-white p-3.5 rounded-2xl border border-slate-200 shadow-2xs">
       <div class="flex items-center gap-2 flex-wrap">
         <!-- Game Mode Toggle -->
         <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl">
@@ -147,11 +154,14 @@
             <i class="fa-solid fa-robot"></i> vs AI
           </button>
           <button onclick="setMode('pvp')" id="btnModePvp" class="px-3 py-1 rounded-lg text-xs font-bold transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5">
-            <i class="fa-solid fa-user-group"></i> 2 Player
+            <i class="fa-solid fa-user-group"></i> Local 2P
+          </button>
+          <button onclick="setMode('online')" id="btnModeOnline" class="px-3 py-1 rounded-lg text-xs font-bold transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5">
+            <i class="fa-solid fa-globe text-emerald-600"></i> Online Room
           </button>
         </div>
 
-        <!-- AI Difficulty Select (Hidden in 2P mode) -->
+        <!-- AI Difficulty Select (Visible only in vs AI mode) -->
         <div id="difficultyWrapper" class="flex items-center gap-1 text-xs font-bold text-slate-600">
           <select id="aiDifficulty" onchange="changeAiDifficulty(this.value)" class="fa-input py-1 px-2.5 text-xs font-bold rounded-xl cursor-pointer w-auto">
             <option value="hard">Impossible (Minimax AI)</option>
@@ -172,6 +182,100 @@
           <i class="fa-solid fa-arrows-rotate mr-1"></i> New Round
         </button>
       </div>
+    </div>
+
+    <!-- ONLINE MULTIPLAYER LOBBY PANEL (Visible when Online Room mode is active) -->
+    <div id="onlineLobbyPanel" class="hidden mb-6 bg-white p-5 rounded-3xl border-2 border-emerald-200/80 shadow-md">
+      
+      <!-- Option A: Selection Buttons (Create Room / Join Room) -->
+      <div id="onlineInitialOptions" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        
+        <!-- Create Room Card -->
+        <div class="p-5 rounded-2xl bg-emerald-50/60 border border-emerald-200/70 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-lg mb-2 shadow-xs">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+            <h3 class="text-base font-black text-[#183153]">Create a Room</h3>
+            <p class="text-xs text-slate-500 font-medium">Generate a 6-digit room code and share the link with your friend.</p>
+          </div>
+          <button onclick="createOnlineRoom()" class="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black rounded-xl shadow-md flex items-center justify-center gap-2 transition-transform active:scale-95">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Create Room & Get Code
+          </button>
+        </div>
+
+        <!-- Join Room Card -->
+        <div class="p-5 rounded-2xl bg-blue-50/60 border border-blue-200/70 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-[#146ebe] text-white flex items-center justify-center text-lg mb-2 shadow-xs">
+              <i class="fa-solid fa-right-to-bracket"></i>
+            </div>
+            <h3 class="text-base font-black text-[#183153]">Join a Room</h3>
+            <p class="text-xs text-slate-500 font-medium">Enter the 6-digit code shared by your friend to join their match.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <input 
+              type="text" 
+              id="joinRoomInput" 
+              maxlength="6" 
+              placeholder="e.g. 782914" 
+              class="fa-input uppercase text-center font-mono font-black text-sm py-2 px-3 tracking-widest rounded-xl border-slate-300 focus:border-[#146ebe] w-full"
+            >
+            <button onclick="joinOnlineRoom()" class="py-2.5 px-4 bg-[#146ebe] hover:bg-blue-700 text-white text-xs font-black rounded-xl shadow-md shrink-0 flex items-center gap-1.5 transition-transform active:scale-95">
+              <span>Join</span> <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Option B: Waiting for Friend in Created Room (Host View) -->
+      <div id="onlineWaitingRoom" class="hidden p-5 bg-emerald-50 rounded-2xl border border-emerald-200 text-center space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs font-bold animate-pulse">
+          <span class="w-2 h-2 rounded-full bg-emerald-600 animate-ping"></span>
+          <span>Room Created — Waiting for Player 2...</span>
+        </div>
+        
+        <div>
+          <div class="text-xs font-black text-slate-500 uppercase tracking-wider mb-1">Your 6-Digit Room Code</div>
+          <div id="displayRoomCode" class="text-3xl sm:text-4xl font-black text-[#183153] room-code-display bg-white py-3 px-6 rounded-2xl border-2 border-emerald-400 inline-block shadow-xs">
+            ------
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center gap-2 flex-wrap">
+          <button onclick="copyRoomCode()" class="fa-btn-secondary py-2 px-4 text-xs font-bold flex items-center gap-1.5">
+            <i class="fa-solid fa-copy text-emerald-600"></i> <span id="copyCodeText">Copy 6-Digit Code</span>
+          </button>
+          <button onclick="copyRoomLink()" class="fa-btn-secondary py-2 px-4 text-xs font-bold flex items-center gap-1.5">
+            <i class="fa-solid fa-link text-[#146ebe]"></i> <span id="copyLinkText">Copy Invite Link</span>
+          </button>
+          <a id="whatsappShareBtn" href="#" target="_blank" class="py-2 px-4 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow-xs flex items-center gap-1.5">
+            <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Share
+          </a>
+          <button onclick="leaveOnlineRoom()" class="py-2 px-3 text-xs font-bold text-rose-600 hover:bg-rose-50 rounded-xl border border-rose-200">
+            Cancel
+          </button>
+        </div>
+      </div>
+
+      <!-- Option C: Connected Active Match Status -->
+      <div id="onlineConnectedStatus" class="hidden flex items-center justify-between p-3 bg-emerald-100/70 border border-emerald-300 rounded-2xl">
+        <div class="flex items-center gap-2.5">
+          <span class="w-3 h-3 rounded-full bg-emerald-600 animate-pulse"></span>
+          <div>
+            <div class="text-xs font-black text-emerald-950 flex items-center gap-2">
+              <span>Online Match Live</span>
+              <span id="connectedRoomBadge" class="bg-emerald-800 text-white text-[10px] px-2 py-0.5 rounded-full font-mono">Room: ------</span>
+            </div>
+            <div id="onlineRoleText" class="text-[11px] text-emerald-800 font-medium">You are Player X</div>
+          </div>
+        </div>
+        <button onclick="leaveOnlineRoom()" class="py-1 px-3 text-xs font-bold bg-white text-rose-600 hover:bg-rose-50 border border-rose-200 rounded-xl shadow-2xs">
+          <i class="fa-solid fa-right-from-bracket mr-1"></i> Leave Room
+        </button>
+      </div>
+
     </div>
 
     <!-- Status Banner -->
@@ -231,10 +335,17 @@
   <script>
     let board = ['', '', '', '', '', '', '', '', ''];
     let currentPlayer = 'X'; // X or O
-    let gameMode = 'ai'; // 'ai' or 'pvp'
+    let gameMode = 'ai'; // 'ai', 'pvp', 'online'
     let aiDifficulty = 'hard'; // 'easy', 'medium', 'hard'
     let isGameOver = false;
     let soundEnabled = true;
+
+    // Online Multiplayer P2P State
+    let peer = null;
+    let peerConn = null;
+    let onlineRoomId = null;
+    let onlineRole = null; // 'X' (Host) or 'O' (Guest)
+    let isOnlineConnected = false;
 
     let scores = {
       p1: parseInt(localStorage.getItem('360tools_ttt_p1') || '0', 10),
@@ -283,21 +394,56 @@
 
     function initGame() {
       updateScoreboardUI();
-      startNewRound();
+      
+      // Check if URL has ?room=123456 to auto-join
+      const urlParams = new URLSearchParams(window.location.search);
+      const roomParam = urlParams.get('room');
+
+      if (roomParam && roomParam.length >= 4) {
+        setMode('online');
+        const joinInput = document.getElementById('joinRoomInput');
+        if (joinInput) joinInput.value = roomParam;
+        setTimeout(() => joinOnlineRoom(roomParam), 300);
+      } else {
+        startNewRound();
+      }
     }
 
     function setMode(mode) {
+      if (gameMode === 'online' && mode !== 'online') {
+        leaveOnlineRoom();
+      }
+
       gameMode = mode;
+      
+      // Update Buttons
       document.getElementById('btnModeAi').className = mode === 'ai' 
-        ? 'px-3 py-1 rounded-lg text-xs font-bold transition-all bg-[#183153] text-white flex items-center gap-1.5' 
+        ? 'px-3 py-1 rounded-lg text-xs font-bold transition-all bg-[#183153] text-white flex items-center gap-1.5 shadow-xs' 
         : 'px-3 py-1 rounded-lg text-xs font-bold transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5';
       document.getElementById('btnModePvp').className = mode === 'pvp' 
-        ? 'px-3 py-1 rounded-lg text-xs font-bold transition-all bg-[#183153] text-white flex items-center gap-1.5' 
+        ? 'px-3 py-1 rounded-lg text-xs font-bold transition-all bg-[#183153] text-white flex items-center gap-1.5 shadow-xs' 
+        : 'px-3 py-1 rounded-lg text-xs font-bold transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5';
+      document.getElementById('btnModeOnline').className = mode === 'online' 
+        ? 'px-3 py-1 rounded-lg text-xs font-bold transition-all bg-emerald-600 text-white flex items-center gap-1.5 shadow-xs' 
         : 'px-3 py-1 rounded-lg text-xs font-bold transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5';
 
-      document.getElementById('p2Label').textContent = mode === 'ai' ? 'AI (O)' : 'PLAYER (O)';
-      document.getElementById('difficultyWrapper').style.display = mode === 'ai' ? 'flex' : 'none';
-      startNewRound();
+      // Toggle Lobby Panel & Settings Visibility
+      const lobbyPanel = document.getElementById('onlineLobbyPanel');
+      const diffWrapper = document.getElementById('difficultyWrapper');
+
+      if (mode === 'online') {
+        lobbyPanel.classList.remove('hidden');
+        diffWrapper.style.display = 'none';
+        document.getElementById('p1Label').textContent = 'HOST (X)';
+        document.getElementById('p2Label').textContent = 'GUEST (O)';
+        updateStatus('Select Create or Join Room below');
+      } else {
+        lobbyPanel.classList.add('hidden');
+        diffWrapper.style.display = mode === 'ai' ? 'flex' : 'none';
+        document.getElementById('p1Label').textContent = 'PLAYER (X)';
+        document.getElementById('p2Label').textContent = mode === 'ai' ? 'AI (O)' : 'PLAYER (O)';
+        startNewRound();
+      }
     }
 
     function changeAiDifficulty(diff) {
@@ -305,7 +451,7 @@
       startNewRound();
     }
 
-    function startNewRound() {
+    function startNewRound(isRemote = false) {
       board = ['', '', '', '', '', '', '', '', ''];
       currentPlayer = 'X';
       isGameOver = false;
@@ -316,7 +462,14 @@
         cell.className = 'ttt-cell text-4xl sm:text-5xl';
       });
 
-      updateStatus(`Player X's Turn`);
+      if (gameMode === 'online' && isOnlineConnected) {
+        if (!isRemote && peerConn && peerConn.open) {
+          peerConn.send({ type: 'restart' });
+        }
+        updateOnlineTurnStatus();
+      } else {
+        updateStatus(`Player X's Turn`);
+      }
     }
 
     function updateStatus(text) {
@@ -329,37 +482,271 @@
       document.getElementById('p2Score').textContent = scores.p2;
     }
 
-    function resetScoreboard() {
+    function resetScoreboard(isRemote = false) {
       scores = { p1: 0, ties: 0, p2: 0 };
       localStorage.setItem('360tools_ttt_p1', '0');
       localStorage.setItem('360tools_ttt_ties', '0');
       localStorage.setItem('360tools_ttt_p2', '0');
       updateScoreboardUI();
-      startNewRound();
+
+      if (gameMode === 'online' && isOnlineConnected && !isRemote && peerConn && peerConn.open) {
+        peerConn.send({ type: 'resetScore' });
+      }
+
+      startNewRound(isRemote);
     }
+
+    // ==========================================================================
+    // ONLINE MULTIPLAYER (WebRTC P2P DataChannel via PeerJS)
+    // ==========================================================================
+
+    function createOnlineRoom() {
+      // Generate clean 6-digit random code
+      const code = Math.floor(100000 + Math.random() * 900000).toString();
+      onlineRoomId = code;
+      onlineRole = 'X';
+
+      // UI state transition
+      document.getElementById('onlineInitialOptions').classList.add('hidden');
+      document.getElementById('onlineWaitingRoom').classList.remove('hidden');
+      document.getElementById('displayRoomCode').textContent = code;
+
+      // Update WhatsApp link
+      const shareUrl = `${window.location.origin}${window.location.pathname}?room=${code}`;
+      const waBtn = document.getElementById('whatsappShareBtn');
+      if (waBtn) {
+        waBtn.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(`Let's play Tic Tac Toe! 🎮 Join my room code: ${code}\nOr click here: ${shareUrl}`)}`;
+      }
+
+      updateStatus(`⏳ Room ${code} created. Waiting for friend to join...`);
+
+      // Initialize PeerJS Host
+      if (peer) { try { peer.destroy(); } catch (e) {} }
+
+      const peerId = `360tools-ttt-${code}`;
+      peer = new Peer(peerId, { debug: 1 });
+
+      peer.on('open', (id) => {
+        console.log('Host Peer Ready with Room ID:', code);
+      });
+
+      peer.on('connection', (conn) => {
+        peerConn = conn;
+        setupConnectionListeners(conn, 'X');
+      });
+
+      peer.on('error', (err) => {
+        console.warn('Peer error:', err);
+        if (err.type === 'unavailable-id') {
+          // Retry with new code
+          createOnlineRoom();
+        } else {
+          showNotification('Connection issue. Please try creating room again.');
+        }
+      });
+    }
+
+    function joinOnlineRoom(explicitCode) {
+      const input = document.getElementById('joinRoomInput');
+      const code = (explicitCode || input?.value || '').trim();
+
+      if (!code || code.length < 4) {
+        showNotification('Please enter a valid 6-digit Room Code!');
+        return;
+      }
+
+      onlineRoomId = code;
+      onlineRole = 'O';
+      updateStatus(`Connecting to room ${code}...`);
+
+      if (peer) { try { peer.destroy(); } catch (e) {} }
+
+      peer = new Peer(); // Random guest ID
+
+      peer.on('open', () => {
+        const hostPeerId = `360tools-ttt-${code}`;
+        peerConn = peer.connect(hostPeerId, { reliable: true });
+
+        peerConn.on('open', () => {
+          setupConnectionListeners(peerConn, 'O');
+        });
+
+        peer.on('error', (err) => {
+          showNotification('Could not find room. Please check the 6-digit code.');
+          leaveOnlineRoom();
+        });
+      });
+    }
+
+    function setupConnectionListeners(conn, myRole) {
+      isOnlineConnected = true;
+      onlineRole = myRole;
+
+      // UI update to Connected Match state
+      document.getElementById('onlineInitialOptions').classList.add('hidden');
+      document.getElementById('onlineWaitingRoom').classList.add('hidden');
+      document.getElementById('onlineConnectedStatus').classList.remove('hidden');
+      document.getElementById('connectedRoomBadge').textContent = `Room: ${onlineRoomId}`;
+      document.getElementById('onlineRoleText').textContent = myRole === 'X' 
+        ? 'You are Player X (Host) • You move first' 
+        : 'You are Player O (Guest) • Opponent moves first';
+
+      // Update player labels in scoreboard
+      document.getElementById('p1Label').textContent = myRole === 'X' ? 'YOU (X)' : 'OPPONENT (X)';
+      document.getElementById('p2Label').textContent = myRole === 'O' ? 'YOU (O)' : 'OPPONENT (O)';
+
+      playTone(587.33, 'triangle', 0.2); // D5 success chime
+      showNotification(`🎮 Connected! Playing in Room ${onlineRoomId}`);
+
+      startNewRound(true);
+
+      // Handle Data Messages
+      conn.on('data', (data) => {
+        handleIncomingPeerData(data);
+      });
+
+      conn.on('close', () => {
+        handlePeerDisconnect();
+      });
+    }
+
+    function handleIncomingPeerData(data) {
+      if (!data) return;
+
+      if (data.type === 'move') {
+        executeMove(data.index, data.player, true);
+      } else if (data.type === 'restart') {
+        startNewRound(true);
+        showNotification('Opponent started a new round!');
+      } else if (data.type === 'resetScore') {
+        resetScoreboard(true);
+        showNotification('Scoreboard was reset!');
+      }
+    }
+
+    function handlePeerDisconnect() {
+      if (!isOnlineConnected) return;
+      isOnlineConnected = false;
+      showNotification('⚠️ Opponent left or disconnected.');
+      leaveOnlineRoom();
+    }
+
+    function leaveOnlineRoom() {
+      if (peerConn) {
+        try { peerConn.close(); } catch (e) {}
+        peerConn = null;
+      }
+      if (peer) {
+        try { peer.destroy(); } catch (e) {}
+        peer = null;
+      }
+
+      isOnlineConnected = false;
+      onlineRoomId = null;
+      onlineRole = null;
+
+      // Reset lobby UI
+      document.getElementById('onlineInitialOptions')?.classList.remove('hidden');
+      document.getElementById('onlineWaitingRoom')?.classList.add('hidden');
+      document.getElementById('onlineConnectedStatus')?.classList.add('hidden');
+      const input = document.getElementById('joinRoomInput');
+      if (input) input.value = '';
+
+      if (gameMode === 'online') {
+        updateStatus('Select Create or Join Room below');
+      }
+    }
+
+    function updateOnlineTurnStatus() {
+      if (!isOnlineConnected) {
+        updateStatus(`Waiting for opponent...`);
+        return;
+      }
+
+      if (currentPlayer === onlineRole) {
+        updateStatus(`🟢 Your Turn (You are ${onlineRole})`);
+      } else {
+        updateStatus(`⏳ Opponent's Turn (${currentPlayer})`);
+      }
+    }
+
+    function copyRoomCode() {
+      if (!onlineRoomId) return;
+      navigator.clipboard.writeText(onlineRoomId).then(() => {
+        const btnText = document.getElementById('copyCodeText');
+        if (btnText) {
+          btnText.textContent = 'Copied!';
+          setTimeout(() => { btnText.textContent = 'Copy 6-Digit Code'; }, 2000);
+        }
+      });
+    }
+
+    function copyRoomLink() {
+      if (!onlineRoomId) return;
+      const shareUrl = `${window.location.origin}${window.location.pathname}?room=${onlineRoomId}`;
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        const btnText = document.getElementById('copyLinkText');
+        if (btnText) {
+          btnText.textContent = 'Link Copied!';
+          setTimeout(() => { btnText.textContent = 'Copy Invite Link'; }, 2000);
+        }
+      });
+    }
+
+    function showNotification(msg) {
+      if (typeof showToast === 'function') {
+        showToast(msg, 'fa-globe');
+      } else {
+        updateStatus(msg);
+      }
+    }
+
+    // ==========================================================================
+    // GAMEPLAY INTERACTIONS & MOVE DISPATCH
+    // ==========================================================================
 
     function handleCellClick(index) {
       if (board[index] !== '' || isGameOver) return;
 
-      makeMove(index, currentPlayer);
+      // Online Room Validation
+      if (gameMode === 'online') {
+        if (!isOnlineConnected) {
+          showNotification('Wait for player 2 to join the room!');
+          return;
+        }
+        if (currentPlayer !== onlineRole) {
+          showNotification(`Please wait for opponent's turn!`);
+          return;
+        }
+
+        // Execute local move & broadcast via WebRTC DataChannel
+        executeMove(index, onlineRole, false);
+        if (peerConn && peerConn.open) {
+          peerConn.send({ type: 'move', index: index, player: onlineRole });
+        }
+        return;
+      }
+
+      // Local 2P / AI Mode
+      executeMove(index, currentPlayer, false);
 
       if (isGameOver) return;
 
       if (gameMode === 'ai' && currentPlayer === 'O') {
-        // Disable user clicks while AI thinks
+        // AI Turn
         isGameOver = true;
         updateStatus('AI is thinking...');
         setTimeout(() => {
           isGameOver = false;
           const aiIndex = getBestAiMove();
           if (aiIndex !== -1) {
-            makeMove(aiIndex, 'O');
+            executeMove(aiIndex, 'O', false);
           }
         }, 350);
       }
     }
 
-    function makeMove(index, player) {
+    function executeMove(index, player, isRemote = false) {
       board[index] = player;
       const cell = document.querySelector(`.ttt-cell[data-index="${index}"]`);
       if (cell) {
@@ -376,7 +763,11 @@
         handleTie();
       } else {
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-        updateStatus(gameMode === 'ai' && currentPlayer === 'O' ? `AI's Turn (O)` : `Player ${currentPlayer}'s Turn`);
+        if (gameMode === 'online') {
+          updateOnlineTurnStatus();
+        } else {
+          updateStatus(gameMode === 'ai' && currentPlayer === 'O' ? `AI's Turn (O)` : `Player ${currentPlayer}'s Turn`);
+        }
       }
     }
 
@@ -399,7 +790,12 @@
       if (winner === 'X') {
         scores.p1++;
         localStorage.setItem('360tools_ttt_p1', scores.p1);
-        updateStatus(gameMode === 'ai' ? '🎉 You Won the Round!' : '🎉 Player X Won the Round!');
+        if (gameMode === 'online') {
+          updateStatus(onlineRole === 'X' ? '🎉 You Won the Round!' : 'Opponent Won the Round!');
+        } else {
+          updateStatus(gameMode === 'ai' ? '🎉 You Won the Round!' : '🎉 Player X Won the Round!');
+        }
+        
         if (typeof confetti === 'function') {
           confetti({ particleCount: 80, spread: 60, origin: { y: 0.6 } });
         }
@@ -407,7 +803,11 @@
       } else {
         scores.p2++;
         localStorage.setItem('360tools_ttt_p2', scores.p2);
-        updateStatus(gameMode === 'ai' ? '🤖 AI Won the Round!' : '🎉 Player O Won the Round!');
+        if (gameMode === 'online') {
+          updateStatus(onlineRole === 'O' ? '🎉 You Won the Round!' : 'Opponent Won the Round!');
+        } else {
+          updateStatus(gameMode === 'ai' ? '🤖 AI Won the Round!' : '🎉 Player O Won the Round!');
+        }
         playTone(330, 'sawtooth', 0.2);
       }
       updateScoreboardUI();

@@ -1,24 +1,32 @@
 /* ==========================================================================
-   Bhabhi Thulla — Master Stylesheet
-   Card Game Table, Realistic CSS Playing Cards & Micro-Animations
+   Bhabhi Thulla — Master Stylesheet & Mobile App Landscape Optimization
+   Realistic CSS Playing Cards, Felt Table & Responsive Micro-Animations
    ========================================================================== */
 
 :root {
   --table-green: #0d4227;
   --table-dark: #072315;
-  --felt-border: #165b37;
+  --felt-border: #1a6b41;
   --card-red: #dc2626;
   --card-black: #0f172a;
   --gold-accent: #ffd43b;
 }
 
+/* Base Mobile & Touch Reset */
+body {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
 /* Card Table Felt Surface */
 .card-table-felt {
   background: radial-gradient(ellipse at center, #115332 0%, #0a331f 70%, #051c11 100%);
-  border: 4px solid #1a6b41;
+  border: 4px solid var(--felt-border);
   box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.6), 0 15px 35px rgba(0, 0, 0, 0.35);
   position: relative;
   overflow: hidden;
+  user-select: none;
+  transition: all 0.3s ease;
 }
 
 /* Subtle table texture pattern */
@@ -35,16 +43,16 @@
    Realistic CSS Playing Cards
    ========================================================================== */
 .playing-card {
-  width: 76px;
-  height: 110px;
+  width: clamp(54px, 12vw, 78px);
+  height: clamp(78px, 17vw, 112px);
   background: #ffffff;
   border-radius: 9px;
   border: 1px solid #d1d5db;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.22), 0 1px 3px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.28), 0 1px 3px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 5px 6px;
+  padding: 4px 5px;
   position: relative;
   user-select: none;
   touch-action: manipulation;
@@ -62,9 +70,17 @@
 }
 
 .playing-card.mini {
-  width: 58px;
-  height: 84px;
-  padding: 4px 5px;
+  width: 48px;
+  height: 70px;
+  padding: 3px 4px;
+}
+
+@media (min-width: 640px) {
+  .playing-card.mini {
+    width: 58px;
+    height: 84px;
+    padding: 4px 5px;
+  }
 }
 
 /* Red & Black Suits */
@@ -94,19 +110,19 @@
 }
 
 .card-rank {
-  font-size: 13px;
+  font-size: clamp(11px, 2.5vw, 14px);
   font-weight: 900;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 @media (min-width: 640px) {
   .card-rank {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 
 .card-suit {
-  font-size: 11px;
+  font-size: clamp(9px, 2vw, 12px);
 }
 
 @media (min-width: 640px) {
@@ -122,61 +138,68 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
+  font-size: clamp(20px, 5vw, 32px);
   pointer-events: none;
   opacity: 0.92;
 }
 
 @media (min-width: 640px) {
   .card-center-pip {
-    font-size: 38px;
+    font-size: 40px;
   }
 }
 
 .playing-card.mini .card-center-pip {
-  font-size: 22px;
+  font-size: 18px;
 }
 
-/* Playable Card Hover Glow */
+/* Playable Card Glow & Interaction */
 .playing-card.playable {
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 0 12px rgba(250, 204, 21, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35), 0 0 14px rgba(250, 204, 21, 0.55);
+  border-color: #facc15;
 }
 
-.playing-card.playable:hover {
-  transform: translateY(-14px) scale(1.04);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35), 0 0 20px rgba(250, 204, 21, 0.7);
-  z-index: 30 !important;
+.playing-card.playable:hover,
+.playing-card.playable:active {
+  transform: translateY(-16px) scale(1.06);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45), 0 0 24px rgba(250, 204, 21, 0.85);
+  z-index: 35 !important;
 }
 
 .playing-card.not-playable {
-  opacity: 0.55;
+  opacity: 0.5;
   cursor: not-allowed;
-  filter: grayscale(25%);
+  filter: grayscale(30%);
 }
 
 /* ==========================================================================
-   Human Hand Container (Horizontal Fanning & Negative Margin)
+   Human Hand Container (Fanned & Responsive Mobile Overlap)
    ========================================================================== */
 .human-hand-fanned {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: 10px 15px 4px;
+  padding: 12px 10px 4px;
   overflow-x: auto;
   overflow-y: visible;
   max-width: 100%;
-  scrollbar-width: thin;
-  scrollbar-color: #1a6b41 transparent;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  -webkit-overflow-scrolling: touch;
+}
+
+.human-hand-fanned::-webkit-scrollbar {
+  display: none;
 }
 
 .human-hand-fanned > .playing-card {
-  margin-left: -32px;
+  margin-left: clamp(-36px, -6vw, -22px);
 }
 
 @media (min-width: 640px) {
   .human-hand-fanned > .playing-card {
-    margin-left: -40px;
+    margin-left: -42px;
   }
 }
 
@@ -188,14 +211,15 @@
    Computer Hand Mini Card Backs
    ========================================================================== */
 .card-back-mini {
-  width: 18px;
-  height: 28px;
+  width: clamp(14px, 2.5vw, 20px);
+  height: clamp(22px, 3.8vw, 30px);
   background: #1e3a8a;
   background-image: repeating-linear-gradient(45deg, #2563eb 0, #2563eb 2px, #1e3a8a 0, #1e3a8a 8px);
   border: 1px solid #93c5fd;
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  margin-left: -10px;
+  margin-left: clamp(-10px, -1.8vw, -8px);
+  flex-shrink: 0;
 }
 
 .card-back-mini:first-child {
@@ -206,24 +230,30 @@
    Player Boxes & Glow Turn Indicators
    ========================================================================== */
 .player-box {
-  background: rgba(15, 23, 42, 0.85);
-  border: 2px solid rgba(51, 65, 85, 0.6);
+  background: rgba(15, 23, 42, 0.88);
+  border: 2px solid rgba(51, 65, 85, 0.65);
   backdrop-filter: blur(8px);
   border-radius: 14px;
-  padding: 8px 12px;
+  padding: 6px 10px;
   color: #ffffff;
   transition: all 0.25s ease;
 }
 
+@media (min-width: 640px) {
+  .player-box {
+    padding: 8px 14px;
+  }
+}
+
 .player-box.active-turn {
   border-color: #ffd43b;
-  box-shadow: 0 0 20px rgba(255, 212, 59, 0.45);
+  box-shadow: 0 0 22px rgba(255, 212, 59, 0.55);
   background: rgba(30, 41, 59, 0.95);
 }
 
 .player-box.player-safe {
   border-color: #10b981;
-  background: rgba(6, 78, 59, 0.85);
+  background: rgba(6, 78, 59, 0.88);
 }
 
 .badge-turn {
@@ -296,9 +326,114 @@
   border-radius: 12px;
   font-size: 11px;
   font-weight: 900;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
 }
 
 .lead-suit-pill.red { color: var(--card-red); }
 .lead-suit-pill.black { color: var(--card-black); }
+
+/* ==========================================================================
+   LANDSCAPE MOBILE APP MODE & IMMERSIVE STYLES
+   ========================================================================== */
+@media (orientation: landscape) and (max-height: 600px) {
+  /* Prevent awkward vertical page scrolls in landscape app view */
+  body {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+  }
+
+  header#globalHeader,
+  footer#globalFooter {
+    display: none !important;
+  }
+
+  main {
+    margin-bottom: 4px !important;
+    padding-top: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Compact banner in landscape */
+  .bg-slate-900\/80 {
+    padding: 6px 12px !important;
+    margin-bottom: 6px !important;
+    border-radius: 12px !important;
+  }
+
+  /* Full viewport Felt Table Arena */
+  .card-table-felt {
+    min-h-[440px] !important;
+    padding: 8px 12px !important;
+    margin-bottom: 4px !important;
+    border-radius: 18px !important;
+  }
+
+  /* Scale Center Trick circle */
+  #centerTrickArea {
+    width: 140px !important;
+    height: 140px !important;
+  }
+
+  /* Adjust Center Trick Cards */
+  #centerTrickArea .playing-card {
+    width: 48px !important;
+    height: 68px !important;
+    padding: 3px 4px !important;
+  }
+
+  #centerTrickArea .card-rank { font-size: 11px !important; }
+  #centerTrickArea .card-center-pip { font-size: 18px !important; }
+
+  /* Compact Human Player Area */
+  #playerBox_0 {
+    margin-bottom: 2px !important;
+    padding: 4px 10px !important;
+  }
+
+  .human-hand-fanned {
+    padding-top: 4px !important;
+    padding-bottom: 2px !important;
+  }
+
+  .human-hand-fanned > .playing-card {
+    width: 52px !important;
+    height: 76px !important;
+    margin-left: -26px !important;
+    padding: 3px 4px !important;
+  }
+
+  .human-hand-fanned > .playing-card:first-child {
+    margin-left: 0 !important;
+  }
+
+  .human-hand-fanned .card-rank { font-size: 11px !important; }
+  .human-hand-fanned .card-center-pip { font-size: 19px !important; }
+
+  /* Player Side Boxes */
+  #playerBox_1, #playerBox_2, #playerBox_3 {
+    padding: 4px 8px !important;
+  }
+
+  /* Modals in landscape: scrollable & centered */
+  #rulesModal > div,
+  #statsModal > div,
+  #gameOverModal > div {
+    max-height: 94vh !important;
+    padding: 14px !important;
+    border-radius: 18px !important;
+  }
+}
+
+/* Fullscreen Native Class */
+.app-fullscreen-active {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: #0c1626 !important;
+  margin: 0 !important;
+  padding: 4px !important;
+  overflow: hidden !important;
+}

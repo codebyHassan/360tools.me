@@ -34,6 +34,7 @@ class BhabhiUI {
         osc.start();
         osc.stop(ctx.currentTime + 0.05);
       } else if (type === 'play') {
+        if (navigator.vibrate) navigator.vibrate(30);
         const osc = ctx.createOscillator();
         const gain = ctx.createGain();
         osc.type = 'sine';
@@ -72,6 +73,7 @@ class BhabhiUI {
         osc.stop(ctx.currentTime + 0.18);
       } else if (type === 'win') {
         // Victory Fanfare
+        if (navigator.vibrate) navigator.vibrate([100, 50, 100, 50, 200]);
         [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
@@ -84,6 +86,20 @@ class BhabhiUI {
           osc.start(ctx.currentTime + i * 0.1);
           osc.stop(ctx.currentTime + i * 0.1 + 0.3);
         });
+      } else if (type === 'thulla') {
+        // Dramatic impact thulla sound & haptics
+        if (navigator.vibrate) navigator.vibrate([60, 40, 80]);
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(240, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(70, ctx.currentTime + 0.3);
+        gain.gain.setValueAtTime(0.25, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.3);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.3);
       } else if (type === 'bhabhi') {
         // Defeat Sound
         [300, 260, 220, 180].forEach((freq, i) => {
@@ -144,13 +160,16 @@ class BhabhiUI {
   /**
    * Render Human Player's Hand
    */
+  /**
+   * Render Human / Local Player's Hand
+   */
   renderHumanHand(player, gameState, onCardSelected) {
     const handContainer = document.getElementById('humanHandContainer');
     if (!handContainer) return;
 
     handContainer.innerHTML = '';
 
-    if (player.finished || player.hand.length === 0) {
+    if (player.finished || (player.hand && player.hand.length === 0)) {
       handContainer.innerHTML = `
         <div class="text-emerald-400 font-black text-sm sm:text-base flex items-center gap-2 bg-emerald-950/80 border border-emerald-500/40 px-6 py-3 rounded-2xl animate-bounce">
           <i class="fa-solid fa-circle-check text-xl"></i> YOU HAVE ESCAPED! (SAFE)
@@ -160,9 +179,9 @@ class BhabhiUI {
     }
 
     const isMyTurn = gameState.currentPlayerIndex === player.id && !gameState.gameOver;
-    const legalCards = gameState.getLegalMoves(player);
+    const legalCards = gameState.getLegalMoves ? gameState.getLegalMoves(player) : [];
 
-    player.hand.forEach((card, index) => {
+    (player.hand || []).forEach((card, index) => {
       const isPlayable = isMyTurn && legalCards.some(lc => lc.id === card.id);
       
       const cardEl = this.createCardElement(card, isPlayable, (selectedCard) => {
@@ -188,34 +207,35 @@ class BhabhiUI {
       handContainer.appendChild(cardEl);
     });
 
-    // Update Human Status Pill
+    // Update Player Status Pill
     this.updatePlayerStatus(player, isMyTurn);
   }
 
   /**
-   * Render Computer Player Hands (Card backs & counts)
+   * Render Opponents / Computer Player Hands (Card backs & counts)
    */
-  renderComputerHands(players, gameState) {
+  renderComputerHands(players, gameState, mySeat = 0) {
     players.forEach(p => {
-      if (p.type === 'human') return;
+      if (p.id === mySeat) return;
 
       const container = document.getElementById(`computerCards_${p.id}`);
       const countEl = document.getElementById(`computerCount_${p.id}`);
       const isTurn = gameState.currentPlayerIndex === p.id && !gameState.gameOver;
+      const count = p.cardCount !== undefined ? p.cardCount : (p.hand ? p.hand.length : 0);
 
       if (countEl) {
         if (p.finished) {
-          countEl.innerHTML = `<span class="text-emerald-400 font-bold"><i class="fa-solid fa-check"></i> Safe (#${p.finishRank})</span>`;
+          countEl.innerHTML = `<span class="text-emerald-400 font-bold"><i class="fa-solid fa-check"></i> Safe (#${p.finishRank || '✓'})</span>`;
         } else {
-          countEl.innerHTML = `<span class="text-slate-300 font-bold">${p.hand.length} card${p.hand.length === 1 ? '' : 's'}</span>`;
+          countEl.innerHTML = `<span class="text-slate-300 font-bold">${count} card${count === 1 ? '' : 's'}</span>`;
         }
       }
 
       if (container) {
         container.innerHTML = '';
-        if (!p.finished && p.hand.length > 0) {
+        if (!p.finished && count > 0) {
           // Render overlapping miniature card backs
-          const cardCount = Math.min(p.hand.length, 13);
+          const cardCount = Math.min(count, 13);
           for (let i = 0; i < cardCount; i++) {
             const backEl = document.createElement('div');
             backEl.className = 'card-back-mini';
@@ -226,6 +246,59 @@ class BhabhiUI {
 
       // Update Turn glow
       this.updatePlayerStatus(p, isTurn);
+    });
+  }
+
+  /**
+   * Update Player Box Names & Avatars on Table
+   */
+  updatePlayerBoxNames(players, mySeat = 0) {
+    players.forEach(p => {
+      const nameEl = document.getElementById(`playerName_${p.id}`);
+      const avatarEl = document.getElementById(`playerAvatar_${p.id}`);
+      
+      if (nameEl) {
+        if (p.id === mySeat) {
+          nameEl.textContent = p.name ? `${p.name} (You)` : 'You';
+        } else {
+          nameEl.textContent = p.name || `Player ${p.id + 1}`;
+        }
+      }
+
+      if (avatarEl && p.type) {
+        if (p.type === 'human') {
+          avatarEl.innerHTML = `<i class="fa-solid fa-user"></i>`;
+        } else {
+          avatarEl.textContent = `C${p.id}`;
+        }
+      }
+    });
+  }
+
+  /**
+   * Update Waiting Room Lobby Seats
+   */
+  updateLobbySeats(seats = [], mySeat = 0) {
+    seats.forEach((seat, idx) => {
+      const el = document.getElementById(`lobbySeat_${idx}`);
+      if (!el) return;
+
+      if (seat.type === 'human' && seat.status === 'connected') {
+        const isMe = idx === mySeat;
+        el.className = 'text-xs font-bold text-white flex items-center gap-1.5 mt-1';
+        el.innerHTML = isMe 
+          ? `<i class="fa-solid fa-circle-check text-emerald-400 text-[11px]"></i> <span class="text-emerald-300 font-black">${seat.name} (You)</span>`
+          : `<i class="fa-solid fa-user text-blue-400 text-[11px]"></i> <span class="text-blue-200">${seat.name}</span>`;
+      } else if (idx === 0) {
+        el.className = 'text-xs font-bold text-white flex items-center gap-1.5 mt-1';
+        el.innerHTML = `<i class="fa-solid fa-crown text-amber-400 text-[11px]"></i> <span>${seat.name || 'You (Host)'}</span>`;
+      } else if (seat.status === 'empty') {
+        el.className = 'text-xs font-bold text-amber-300 flex items-center gap-1.5 mt-1 animate-pulse';
+        el.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-amber-400 text-[11px]"></i> <span>Waiting for Friend...</span>`;
+      } else {
+        el.className = 'text-xs font-bold text-slate-400 flex items-center gap-1.5 mt-1';
+        el.innerHTML = `<i class="fa-solid fa-robot text-slate-500 text-[11px]"></i> <span>AI Bot (Auto-filled)</span>`;
+      }
     });
   }
 

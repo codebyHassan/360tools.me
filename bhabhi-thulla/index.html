@@ -51,6 +51,9 @@
 
   <!-- Canvas Confetti Library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <!-- PeerJS WebRTC P2P DataChannel Library (Zero Server / Zero DB) -->
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
 </head>
 <body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#0c1626] text-slate-100 px-2 sm:px-4 py-3">
 
@@ -68,7 +71,7 @@
             <i class="fa-solid fa-spade mr-1 text-[#146ebe]"></i> 4-Player Card Game
           </span>
           <span class="text-xs font-bold text-amber-400 flex items-center gap-1">
-            <i class="fa-solid fa-crown text-xs"></i> Traditional Rules
+            <i class="fa-solid fa-wifi text-xs"></i> P2P Multiplayer Room
           </span>
         </div>
         <h1 class="text-2xl sm:text-3xl font-black text-white tracking-tight flex items-center gap-2">
@@ -79,6 +82,17 @@
 
       <!-- Action & Configuration Controls -->
       <div class="flex items-center flex-wrap gap-2">
+        
+        <!-- Game Mode Switcher -->
+        <div class="flex items-center gap-1 bg-slate-800 p-1 rounded-xl border border-slate-700">
+          <button onclick="window.bhabhiGame.setMode('ai')" id="btnBhabhiAi" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-[#183153] text-white flex items-center gap-1.5 transition-all">
+            <i class="fa-solid fa-robot text-purple-400"></i> vs AI
+          </button>
+          <button onclick="window.bhabhiGame.setMode('online')" id="btnBhabhiOnline" class="px-2.5 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white flex items-center gap-1.5 transition-all">
+            <i class="fa-solid fa-globe text-emerald-400"></i> Online Room
+          </button>
+        </div>
+
         <select id="difficultySelect" class="bg-slate-800 text-xs font-bold text-slate-200 border border-slate-700 py-1.5 px-2.5 rounded-xl cursor-pointer">
           <option value="easy">AI: Casual</option>
           <option value="normal" selected>AI: Standard</option>
@@ -97,6 +111,11 @@
           <i class="fa-solid fa-circle-question mr-1 text-emerald-400"></i> Rules
         </button>
 
+        <button onclick="window.bhabhiGame.toggleFullscreen()" id="fullscreenBtn" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold py-1.5 px-3 rounded-xl border border-slate-700 flex items-center gap-1.5" title="Toggle Immersive Fullscreen App Mode">
+          <i class="fa-solid fa-expand text-emerald-400" id="fullscreenIcon"></i>
+          <span class="hidden sm:inline">App View</span>
+        </button>
+
         <button id="soundToggleBtn" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold py-1.5 px-3 rounded-xl border border-slate-700" title="Toggle Sound FX">
           <i class="fa-solid fa-volume-high text-slate-300" id="soundIcon"></i>
         </button>
@@ -107,18 +126,269 @@
       </div>
     </div>
 
-    <!-- Felt Card Table Arena -->
-    <div class="card-table-felt rounded-3xl p-3 sm:p-6 mb-8 flex flex-col justify-between min-h-[560px] sm:min-h-[640px]">
+    <!-- START GAME WELCOME SCREEN OVERLAY -->
+    <div id="gameStartOverlay" class="mb-6 bg-slate-900/95 p-6 sm:p-8 rounded-3xl border-2 border-emerald-500/50 shadow-2xl backdrop-blur-md flex flex-col items-center text-center space-y-5">
+      
+      <!-- Top Icon & Badge -->
+      <div class="relative">
+        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white flex items-center justify-center text-3xl sm:text-4xl shadow-lg border border-emerald-400/30">
+          <i class="fa-solid fa-spade"></i>
+        </div>
+        <span class="absolute -top-1.5 -right-2 px-2 py-0.5 bg-amber-400 text-slate-900 font-black text-[9px] uppercase tracking-wider rounded-full shadow-xs">
+          4-Player
+        </span>
+      </div>
+
+      <!-- Heading & Description -->
+      <div class="space-y-1 max-w-md">
+        <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
+          Bhabhi Thulla (Get Away)
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
+          The ultimate classic South Asian card game! Shed all cards to escape safely. The last player holding cards becomes the <strong class="text-rose-400">Bhabhi</strong>!
+        </p>
+      </div>
+
+      <!-- Select Mode Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-md text-left">
+        
+        <!-- Mode: vs AI -->
+        <div onclick="window.bhabhiGame.quickSelectStartMode('ai')" id="startCard_ai" class="p-3.5 rounded-2xl border-2 border-emerald-500 bg-emerald-950/60 cursor-pointer hover:border-emerald-400 transition-all flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-purple-600/30 border border-purple-400/50 flex items-center justify-center text-purple-300 text-lg shrink-0">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-white flex items-center gap-1.5">
+              <span>vs Computer AI</span>
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            </div>
+            <div class="text-[10px] text-slate-400">Play offline against 3 smart bots</div>
+          </div>
+        </div>
+
+        <!-- Mode: Online Room -->
+        <div onclick="window.bhabhiGame.quickSelectStartMode('online')" id="startCard_online" class="p-3.5 rounded-2xl border border-slate-700 bg-slate-800/80 cursor-pointer hover:border-blue-400 transition-all flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-blue-600/30 border border-blue-400/50 flex items-center justify-center text-blue-300 text-lg shrink-0">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-white">Online Room</div>
+            <div class="text-[10px] text-slate-400">Create room & play with friends</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Main "Start Game" Button -->
+      <div class="w-full max-w-md">
+        <button onclick="window.bhabhiGame.onStartGameClicked()" class="w-full py-3.5 px-6 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-sm sm:text-base uppercase tracking-wider rounded-2xl shadow-xl hover:shadow-emerald-500/20 flex items-center justify-center gap-2.5 transition-all transform active:scale-95">
+          <i class="fa-solid fa-play"></i>
+          <span id="startOverlayBtnText">Start Game</span>
+        </button>
+      </div>
+
+      <!-- Highlights/Rules footer -->
+      <div class="flex items-center justify-center flex-wrap gap-2 text-[10px] text-slate-400 pt-1">
+        <span class="bg-slate-800/80 px-2.5 py-1 rounded-lg border border-slate-700/60">♠A Starts Trick #1</span>
+        <span class="bg-slate-800/80 px-2.5 py-1 rounded-lg border border-slate-700/60">Must Follow Suit</span>
+        <span class="bg-slate-800/80 px-2.5 py-1 rounded-lg border border-slate-700/60">Empty Hand to Escape</span>
+      </div>
+
+    </div>
+
+    <!-- ONLINE MULTIPLAYER ROOM LOBBY PANEL -->
+    <div id="bhabhiOnlineLobbyPanel" class="hidden mb-6 bg-slate-900/95 p-5 rounded-3xl border-2 border-emerald-500/40 shadow-xl backdrop-blur-md">
+      
+      <!-- State 1: Choose Create Room or Join Room -->
+      <div id="bhabhiLobbyInitial" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        
+        <!-- Create Room -->
+        <div class="p-5 rounded-2xl bg-emerald-950/40 border border-emerald-500/30 flex flex-col justify-between space-y-3.5">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-lg mb-2 shadow-xs">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+            <h3 class="text-base font-black text-white">Create a Game Room</h3>
+            <p class="text-xs text-slate-400 font-medium">Select how many members/friends will play in this room. Unfilled seats are filled by AI bots.</p>
+          </div>
+
+          <!-- Select Number of Players / Members -->
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between text-[11px] font-bold text-slate-300">
+              <span class="flex items-center gap-1.5">
+                <i class="fa-solid fa-users text-emerald-400"></i> Game Members:
+              </span>
+              <span id="selectedPlayerCountLabel" class="text-emerald-300 font-black">4 Players (Full Room)</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+              <button 
+                type="button" 
+                onclick="window.bhabhiGame.setTargetPlayers(2)" 
+                id="btnPlayers_2" 
+                class="py-2 px-2 text-center text-xs font-bold rounded-xl border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white hover:border-emerald-500 transition-all flex flex-col items-center gap-0.5"
+              >
+                <span class="font-black text-xs sm:text-sm">2 Players</span>
+                <span class="text-[9px] text-slate-400">1v1 (+2 Bots)</span>
+              </button>
+              <button 
+                type="button" 
+                onclick="window.bhabhiGame.setTargetPlayers(3)" 
+                id="btnPlayers_3" 
+                class="py-2 px-2 text-center text-xs font-bold rounded-xl border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-white hover:border-emerald-500 transition-all flex flex-col items-center gap-0.5"
+              >
+                <span class="font-black text-xs sm:text-sm">3 Players</span>
+                <span class="text-[9px] text-slate-400">3 Friends (+1 Bot)</span>
+              </button>
+              <button 
+                type="button" 
+                onclick="window.bhabhiGame.setTargetPlayers(4)" 
+                id="btnPlayers_4" 
+                class="py-2 px-2 text-center text-xs font-bold rounded-xl border-2 border-emerald-500 bg-emerald-950/70 text-emerald-200 flex flex-col items-center gap-0.5 shadow-sm transition-all"
+              >
+                <span class="font-black text-xs sm:text-sm text-white">4 Players</span>
+                <span class="text-[9px] text-emerald-400 font-semibold">Full Room</span>
+              </button>
+            </div>
+          </div>
+
+          <button onclick="window.bhabhiGame.createOnlineRoom()" class="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black rounded-xl shadow-md flex items-center justify-center gap-2 transition-transform active:scale-95">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Create Room & Get Code
+          </button>
+        </div>
+
+        <!-- Join Room -->
+        <div class="p-5 rounded-2xl bg-blue-950/40 border border-blue-500/30 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-[#146ebe] text-white flex items-center justify-center text-lg mb-2 shadow-xs">
+              <i class="fa-solid fa-right-to-bracket"></i>
+            </div>
+            <h3 class="text-base font-black text-white">Join a Friend's Room</h3>
+            <p class="text-xs text-slate-400 font-medium">Enter the 6-digit code shared by your friend or open their invite link to join.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <input 
+              type="text" 
+              id="bhabhiJoinInput" 
+              maxlength="6" 
+              placeholder="e.g. 849201" 
+              class="bg-slate-800 text-white uppercase text-center font-mono font-black text-sm py-2 px-3 tracking-widest rounded-xl border border-slate-700 focus:border-[#146ebe] w-full"
+            >
+            <button onclick="window.bhabhiGame.joinOnlineRoom()" class="py-2.5 px-4 bg-[#146ebe] hover:bg-blue-600 text-white text-xs font-black rounded-xl shadow-md shrink-0 flex items-center gap-1.5 transition-transform active:scale-95">
+              <span>Join</span> <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- State 2: Waiting Room / Lobby (Host View & Guests View) -->
+      <div id="bhabhiWaitingRoom" class="hidden p-5 bg-slate-950/60 rounded-2xl border border-emerald-500/40 text-center space-y-4">
+        
+        <div class="flex items-center justify-between flex-wrap gap-2 pb-2 border-b border-slate-800">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+            <span id="bhabhiLobbyStatusText" class="text-xs sm:text-sm font-black text-emerald-400">Room Created (Host)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-slate-400 font-bold">Room Code:</span>
+            <span id="bhabhiDisplayCode" class="text-base sm:text-lg font-mono font-black text-white bg-slate-800 px-3 py-0.5 rounded-lg border border-emerald-500/50">------</span>
+          </div>
+        </div>
+
+        <!-- 4 Seats Table Preview in Lobby -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-left py-2">
+          
+          <!-- Seat 0 (Bottom / Host) -->
+          <div class="p-3 bg-slate-800/90 rounded-xl border border-slate-700">
+            <div class="text-[10px] font-black text-emerald-400 uppercase">Seat 1 (Bottom)</div>
+            <div id="lobbySeat_0" class="text-xs font-bold text-white flex items-center gap-1.5 mt-1">
+              <i class="fa-solid fa-crown text-amber-400 text-[11px]"></i> <span>You (Host)</span>
+            </div>
+          </div>
+
+          <!-- Seat 1 (Top) -->
+          <div class="p-3 bg-slate-800/90 rounded-xl border border-slate-700">
+            <div class="text-[10px] font-black text-blue-400 uppercase">Seat 2 (Top)</div>
+            <div id="lobbySeat_1" class="text-xs font-bold text-slate-400 flex items-center gap-1.5 mt-1">
+              <i class="fa-solid fa-robot text-slate-500 text-[11px]"></i> <span>AI Bot (Auto-filled)</span>
+            </div>
+          </div>
+
+          <!-- Seat 2 (Left) -->
+          <div class="p-3 bg-slate-800/90 rounded-xl border border-slate-700">
+            <div class="text-[10px] font-black text-purple-400 uppercase">Seat 3 (Left)</div>
+            <div id="lobbySeat_2" class="text-xs font-bold text-slate-400 flex items-center gap-1.5 mt-1">
+              <i class="fa-solid fa-robot text-slate-500 text-[11px]"></i> <span>AI Bot (Auto-filled)</span>
+            </div>
+          </div>
+
+          <!-- Seat 3 (Right) -->
+          <div class="p-3 bg-slate-800/90 rounded-xl border border-slate-700">
+            <div class="text-[10px] font-black text-amber-400 uppercase">Seat 4 (Right)</div>
+            <div id="lobbySeat_3" class="text-xs font-bold text-slate-400 flex items-center gap-1.5 mt-1">
+              <i class="fa-solid fa-robot text-slate-500 text-[11px]"></i> <span>AI Bot (Auto-filled)</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Share Actions & Start Button -->
+        <div class="flex items-center justify-between flex-wrap gap-2 pt-2 border-t border-slate-800">
+          <div class="flex items-center gap-2 flex-wrap">
+            <button onclick="window.bhabhiGame.copyRoomCode()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold py-2 px-3.5 rounded-xl border border-slate-700 flex items-center gap-1.5">
+              <i class="fa-solid fa-copy text-emerald-400"></i> <span id="bhabhiCopyCodeText">Copy Code</span>
+            </button>
+            <button onclick="window.bhabhiGame.copyRoomLink()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold py-2 px-3.5 rounded-xl border border-slate-700 flex items-center gap-1.5">
+              <i class="fa-solid fa-link text-[#146ebe]"></i> <span id="bhabhiCopyLinkText">Copy Link</span>
+            </button>
+            <a id="bhabhiWaShareBtn" href="#" target="_blank" class="py-2 px-3.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-xl flex items-center gap-1.5">
+              <i class="fa-brands fa-whatsapp"></i> Share on WhatsApp
+            </a>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <button onclick="window.bhabhiGame.leaveOnlineRoom()" class="py-2 px-3 text-xs font-bold text-rose-400 hover:bg-rose-950/50 rounded-xl border border-rose-900/60">
+              Leave
+            </button>
+            <button id="bhabhiHostStartBtn" onclick="window.bhabhiGame.hostStartMatch()" class="py-2.5 px-6 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black rounded-xl shadow-lg flex items-center gap-2 transition-transform active:scale-95">
+              <i class="fa-solid fa-play"></i> Start Match Now
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- State 3: Connected Active Match Status Strip -->
+      <div id="bhabhiConnectedStatus" class="hidden flex items-center justify-between p-3 bg-emerald-950/60 border border-emerald-500/40 rounded-2xl">
+        <div class="flex items-center gap-2.5">
+          <span class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></span>
+          <div>
+            <div class="text-xs font-black text-white flex items-center gap-2">
+              <span>Online Match Live</span>
+              <span id="bhabhiLiveRoomBadge" class="bg-emerald-800 text-white text-[10px] px-2 py-0.5 rounded-full font-mono">Room: ------</span>
+            </div>
+            <div id="bhabhiOnlineRoleText" class="text-[11px] text-emerald-300 font-medium">You are in Seat 1 (Bottom)</div>
+          </div>
+        </div>
+        <button onclick="window.bhabhiGame.leaveOnlineRoom()" class="py-1 px-3 text-xs font-bold bg-slate-900 text-rose-400 hover:bg-rose-950 border border-rose-800 rounded-xl shadow-2xs">
+          <i class="fa-solid fa-right-from-bracket mr-1"></i> Leave Room
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Felt Card Table Arena (Hidden until user clicks Start Game / Match starts) -->
+    <div id="gameTableArea" class="hidden card-table-felt rounded-3xl p-3 sm:p-6 mb-8 flex flex-col justify-between min-h-[560px] sm:min-h-[640px]">
       
       <!-- TOP: Computer 1 -->
       <div class="flex flex-col items-center justify-center">
         <div id="playerBox_1" class="player-box flex items-center gap-3">
-          <div class="w-8 h-8 rounded-full bg-blue-600/30 border border-blue-400/40 flex items-center justify-center text-sm font-black text-blue-300">
+          <div id="playerAvatar_1" class="w-8 h-8 rounded-full bg-blue-600/30 border border-blue-400/40 flex items-center justify-center text-sm font-black text-blue-300">
             C1
           </div>
           <div class="text-left">
             <div class="flex items-center gap-2">
-              <span class="font-black text-xs sm:text-sm">Computer 1</span>
+              <span id="playerName_1" class="font-black text-xs sm:text-sm">Computer 1</span>
               <span id="playerBadge_1"><span class="badge-waiting">WAITING</span></span>
             </div>
             <div id="computerCount_1" class="text-[11px] text-slate-300">13 cards</div>
@@ -134,10 +404,10 @@
         <div class="col-span-1 flex flex-col items-start">
           <div id="playerBox_2" class="player-box flex flex-col items-start gap-1 w-full max-w-[125px] sm:max-w-[150px]">
             <div class="flex items-center gap-1.5 w-full">
-              <div class="w-6 h-6 rounded-full bg-purple-600/30 border border-purple-400/40 flex items-center justify-center text-xs font-black text-purple-300">
+              <div id="playerAvatar_2" class="w-6 h-6 rounded-full bg-purple-600/30 border border-purple-400/40 flex items-center justify-center text-xs font-black text-purple-300">
                 C2
               </div>
-              <span class="font-black text-xs truncate">Comp 2</span>
+              <span id="playerName_2" class="font-black text-xs truncate">Comp 2</span>
             </div>
             <div id="playerBadge_2" class="w-full"><span class="badge-waiting">WAITING</span></div>
             <div id="computerCount_2" class="text-[10px] text-slate-300">13 cards</div>
@@ -187,8 +457,8 @@
         <div class="col-span-1 flex flex-col items-end">
           <div id="playerBox_3" class="player-box flex flex-col items-end gap-1 w-full max-w-[125px] sm:max-w-[150px]">
             <div class="flex items-center gap-1.5 w-full justify-end">
-              <span class="font-black text-xs truncate">Comp 3</span>
-              <div class="w-6 h-6 rounded-full bg-amber-600/30 border border-amber-400/40 flex items-center justify-center text-xs font-black text-amber-300">
+              <span id="playerName_3" class="font-black text-xs truncate">Comp 3</span>
+              <div id="playerAvatar_3" class="w-6 h-6 rounded-full bg-amber-600/30 border border-amber-400/40 flex items-center justify-center text-xs font-black text-amber-300">
                 C3
               </div>
             </div>
@@ -203,15 +473,15 @@
       <!-- BOTTOM: Human Player (You) -->
       <div class="flex flex-col items-center justify-center mt-2">
         <div id="playerBox_0" class="player-box flex items-center gap-3 mb-2">
-          <div class="w-8 h-8 rounded-full bg-emerald-600/40 border border-emerald-400/50 flex items-center justify-center text-sm font-black text-emerald-300">
+          <div id="playerAvatar_0" class="w-8 h-8 rounded-full bg-emerald-600/40 border border-emerald-400/50 flex items-center justify-center text-sm font-black text-emerald-300">
             <i class="fa-solid fa-user"></i>
           </div>
           <div class="text-left">
             <div class="flex items-center gap-2">
-              <span class="font-black text-xs sm:text-sm text-white">You</span>
+              <span id="playerName_0" class="font-black text-xs sm:text-sm text-white">You</span>
               <span id="playerBadge_0"><span class="badge-turn">YOUR TURN</span></span>
             </div>
-            <div class="text-[11px] text-emerald-200/80">Click a glowing card to play</div>
+            <div id="playerSubtext_0" class="text-[11px] text-emerald-200/80">Click a glowing card to play</div>
           </div>
         </div>
 
@@ -241,24 +511,39 @@
         <div class="space-y-3 text-xs sm:text-sm text-slate-300 leading-relaxed">
           <p><strong>Goal:</strong> Empty your hand completely! The last player still holding cards becomes the <strong>Bhabhi</strong> and loses.</p>
           
-          <div class="p-3 bg-slate-800/80 rounded-xl space-y-2">
-            <h3 class="font-black text-emerald-400 uppercase text-xs">1. Starting the Game</h3>
-            <p>All 52 cards are dealt among 4 players (13 each). The player holding the <strong>Ace of Spades (♠A)</strong> must play it to start the first trick.</p>
+          <div class="p-3 bg-slate-800/80 rounded-xl space-y-1.5 border border-slate-700/60">
+            <h3 class="font-black text-emerald-400 uppercase text-xs flex items-center gap-1.5">
+              <i class="fa-solid fa-spade"></i> 1. The Opening Round (♠A Start)
+            </h3>
+            <p>The player holding the <strong>Ace of Spades (♠A)</strong> must lead it. All players must follow Spades. Round 1 has <strong>NO Thulla penalty</strong>; all cards are discarded into the waste pile, and the highest Spade gets "The Power" to start Round 2.</p>
           </div>
 
-          <div class="p-3 bg-slate-800/80 rounded-xl space-y-2">
-            <h3 class="font-black text-sky-400 uppercase text-xs">2. Following Suit (Lead Suit)</h3>
-            <p>The first card played in a trick establishes the lead suit. If you have any card of the lead suit, you <strong>MUST</strong> play that suit. If you have no cards of that suit, you can play (discard) ANY card!</p>
+          <div class="p-3 bg-slate-800/80 rounded-xl space-y-1.5 border border-slate-700/60">
+            <h3 class="font-black text-amber-400 uppercase text-xs flex items-center gap-1.5">
+              <i class="fa-solid fa-bolt"></i> 2. Having The Power & Leading
+            </h3>
+            <p>The player with "The Power" starts the round by throwing any card. All other players <strong>MUST follow that suit</strong> if they hold it.</p>
           </div>
 
-          <div class="p-3 bg-slate-800/80 rounded-xl space-y-2">
-            <h3 class="font-black text-amber-400 uppercase text-xs">3. Winning the Trick</h3>
-            <p>The highest card of the lead suit wins the trick (2 &lt; 3 &lt; ... &lt; K &lt; A). All played cards are permanently discarded into the waste pile. The trick winner leads the next trick!</p>
+          <div class="p-3 bg-rose-950/60 rounded-xl space-y-1.5 border border-rose-500/40">
+            <h3 class="font-black text-rose-400 uppercase text-xs flex items-center gap-1.5">
+              <i class="fa-solid fa-bomb"></i> 3. What is a "THULLA" (Penalty!)
+            </h3>
+            <p>If you don't have the lead suit, you throw a card from a different suit (called a <strong>Thulla</strong>). The round <strong>ends immediately</strong>! The player who threw the <strong>highest card of the lead suit</strong> is penalized and <strong>MUST PICK UP ALL table cards</strong> into their hand!</p>
           </div>
 
-          <div class="p-3 bg-slate-800/80 rounded-xl space-y-2">
-            <h3 class="font-black text-rose-400 uppercase text-xs">4. Escaping & The Bhabhi</h3>
-            <p>As soon as a player empties all cards in their hand, they are <strong>SAFE</strong>. The game continues until only 1 player remains holding cards — that player is declared <strong>Bhabhi</strong>!</p>
+          <div class="p-3 bg-slate-800/80 rounded-xl space-y-1.5 border border-slate-700/60">
+            <h3 class="font-black text-sky-400 uppercase text-xs flex items-center gap-1.5">
+              <i class="fa-solid fa-recycle"></i> 4. Clean Tricks (No Thulla)
+            </h3>
+            <p>If everyone follows suit, the highest card of the lead suit wins. All cards in this clean trick are <strong>permanently discarded</strong> into the waste pile, and the winner leads next.</p>
+          </div>
+
+          <div class="p-3 bg-emerald-950/60 rounded-xl space-y-1.5 border border-emerald-500/40">
+            <h3 class="font-black text-emerald-300 uppercase text-xs flex items-center gap-1.5">
+              <i class="fa-solid fa-trophy"></i> 5. Escaping & The Bhabhi
+            </h3>
+            <p>Empty all cards to safely <strong>ESCAPE</strong>. The very last player holding cards when everyone else escapes becomes the <strong>Bhabhi</strong>!</p>
           </div>
         </div>
 
