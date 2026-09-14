@@ -33,6 +33,13 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://360tools.me/appearance.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Free Games & Puzzles -->
   <url>
     <loc>https://360tools.me/2048/</loc>

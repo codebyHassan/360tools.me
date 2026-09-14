@@ -3,7 +3,50 @@
  * FontAwesome Style Interactive Engine & Quick Tool Finder (Ctrl + K)
  */
 
-// All Available Tools Registry for Quick Search & Cards
+// ==========================================================================
+// 360tools.me — Global User Theme & Typography Auto-Loader
+// Automatically applies customized font family, base size & colors from localStorage
+// ==========================================================================
+(function initGlobalUserTheme() {
+  try {
+    const saved = localStorage.getItem('360tools_user_theme');
+    if (!saved) return;
+    const theme = JSON.parse(saved);
+    if (!theme) return;
+    const root = document.documentElement;
+
+    if (theme.fontSans) root.style.setProperty('--font-sans', theme.fontSans);
+    if (theme.fontHeading) root.style.setProperty('--font-heading', theme.fontHeading);
+    if (theme.baseFontSize) root.style.setProperty('--base-font-size', theme.baseFontSize + 'px');
+    if (theme.lineHeight) root.style.setProperty('--line-height-scale', theme.lineHeight);
+    if (theme.letterSpacing) root.style.setProperty('--letter-spacing-scale', theme.letterSpacing + 'px');
+
+    if (theme.bg) root.style.setProperty('--fa-bg', theme.bg);
+    if (theme.bgSubtle) root.style.setProperty('--fa-bg-subtle', theme.bgSubtle);
+    if (theme.card) root.style.setProperty('--fa-card', theme.card);
+    if (theme.border) root.style.setProperty('--fa-border', theme.border);
+    if (theme.textMain) root.style.setProperty('--fa-text-main', theme.textMain);
+    if (theme.textSub) root.style.setProperty('--fa-text-sub', theme.textSub);
+    if (theme.primary) {
+      root.style.setProperty('--fa-blue', theme.primary);
+      root.style.setProperty('--fa-blue-hover', theme.primaryHover || theme.primary);
+    }
+    if (theme.navy) root.style.setProperty('--fa-navy', theme.navy);
+    if (theme.yellow) root.style.setProperty('--fa-yellow', theme.yellow);
+    if (theme.radiusMd) root.style.setProperty('--radius-md', theme.radiusMd + 'px');
+
+    if (theme.isDark) {
+      root.classList.add('dark');
+      root.setAttribute('data-theme', 'dark');
+    } else {
+      root.classList.remove('dark');
+      root.removeAttribute('data-theme');
+    }
+  } catch (e) {
+    console.warn('360tools: Theme auto-load error', e);
+  }
+})();
+
 // All Available Tools Registry for Quick Search & Cards
 const TOOLS_REGISTRY = [
   // Audio & Voice
@@ -426,6 +469,16 @@ const TOOLS_REGISTRY = [
     keywords: 'bhabhi thulla bhabi get away donkey pabho card game 4 player spades' 
   },
 
+  { 
+    name: 'Theme, Font & Color Customizer', 
+    url: 'appearance.html', 
+    category: 'Settings & Appearance', 
+    icon: 'fa-palette', 
+    color: 'text-purple-600', 
+    bg: 'bg-purple-50 border-purple-200/80',
+    desc: 'Personalize font family, reading size, dark mode, and custom color schemes across all 40+ tools.',
+    keywords: 'theme customizer font family font size dark mode color palette accessibility contrast appearance' 
+  },
   { 
     name: 'Blog & Editorial Guides', 
     url: 'blog.html', 
@@ -854,6 +907,9 @@ function createMobileAppDrawer() {
             <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-info"></i> Company & Help</span>
           </div>
           <div class="grid grid-cols-2 gap-2">
+            <a href="appearance.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-palette text-purple-600 text-sm"></i> Theme & Font Customizer
+            </a>
             <a href="about.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-circle-info text-blue-600 text-sm"></i> About Us
             </a>
@@ -1627,10 +1683,16 @@ function renderGlobalHeader() {
         <!-- Interactive Quick Search Bar Trigger -->
         <button onclick="openQuickSearch()" class="flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-100/90 hover:bg-slate-200/80 px-3.5 py-2 rounded-xl border border-slate-200/80 shadow-2xs transition-all cursor-pointer" aria-label="Quick tool search">
           <i class="fa-solid fa-magnifying-glass text-[#146ebe] text-xs"></i>
-          <span class="hidden xl:inline font-bold">Search 30+ tools...</span>
+          <span class="hidden xl:inline font-bold">Search 40+ tools...</span>
           <span class="hidden md:inline xl:hidden font-bold">Search...</span>
           <kbd class="hidden md:inline-block px-1.5 py-0.5 bg-white border border-slate-300 rounded-md text-[9px] text-slate-500 font-mono font-bold">Ctrl K</kbd>
         </button>
+
+        <!-- Theme & Appearance Quick Customizer Trigger -->
+        <a href="appearance.html" class="flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-purple-600 bg-slate-100/90 hover:bg-purple-50 px-3 py-2 rounded-xl border border-slate-200/80 shadow-2xs transition-all cursor-pointer" title="Customize Fonts & Theme">
+          <i class="fa-solid fa-palette text-purple-600 text-xs"></i>
+          <span class="hidden md:inline">Theme</span>
+        </a>
 
         <!-- All Tools Catalog Quick Link -->
         <a href="index.html#tools-catalog" class="fa-btn-primary px-4 py-2 text-xs font-black shadow-xs hidden sm:inline-flex items-center gap-1.5 rounded-xl">
@@ -1821,6 +1883,8 @@ function renderGlobalFooter() {
         </div>
 
         <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-slate-600 text-[11px] font-bold">
+          <a href="appearance.html" class="text-purple-600 hover:text-purple-800 transition-colors flex items-center gap-1"><i class="fa-solid fa-palette text-[10px]"></i> Theme Customizer</a>
+          <span>•</span>
           <a href="about.html" class="hover:text-[#146ebe] transition-colors">About</a>
           <span>•</span>
           <a href="contact.html" class="hover:text-[#146ebe] transition-colors">Contact</a>

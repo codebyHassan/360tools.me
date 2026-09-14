@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Theme, Font & Color Customizer | 360tools.me</title>
+  <meta name="title" content="Theme, Font & Color Customizer | 360tools.me">
+  <meta name="description" content="Personalize font family, reading size, dark mode, and custom color schemes across all 40+ tools on 360tools.me. Saved in your browser with live preview.">
+  <meta name="keywords" content="theme customizer, font size changer, dark mode switcher, color palette customizer, website accessibility settings, font family picker, urdu font switcher, custom css theme">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/appearance.html">
+
+  <!-- Favicon & Open Graph / Facebook -->
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/appearance.html">
+  <meta property="og:title" content="Theme, Font & Color Customizer | 360tools.me">
+  <meta property="og:description" content="Customize font family, font size, contrast, and color palette across 360tools.me with live sandbox preview.">
+  <meta property="og:image" content="images/logo.jpg">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/appearance.html">
+  <meta property="twitter:title" content="Theme, Font & Color Customizer | 360tools.me">
+  <meta property="twitter:description" content="Customize fonts, sizes, and colors across all tools in your browser.">
+  <meta property="twitter:image" content="images/logo.jpg">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "360Tools Appearance & Theme Customizer",
+    "url": "https://360tools.me/appearance.html",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "description": "Interactive typography, font size, dark mode, and color scheme customizer for 360tools.me.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .font-card {
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+    .font-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px -4px rgba(20, 110, 190, 0.15);
+    }
+    .font-card.active {
+      border-color: #146ebe !important;
+      background-color: rgba(20, 110, 190, 0.06) !important;
+      box-shadow: 0 0 0 2px #146ebe;
+    }
+    .theme-preset-card {
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .theme-preset-card:hover {
+      transform: translateY(-2px);
+    }
+    .theme-preset-card.active {
+      box-shadow: 0 0 0 3px #146ebe;
+    }
+    .tab-nav-btn {
+      transition: all 0.2s ease;
+    }
+    .tab-nav-btn.active {
+      background-color: #183153;
+      color: #ffffff;
+    }
+    .color-swatch-input {
+      appearance: none;
+      -webkit-appearance: none;
+      border: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      cursor: pointer;
+      padding: 0;
+      background: none;
+    }
+    .color-swatch-input::-webkit-color-swatch-wrapper {
+      padding: 0;
+    }
+    .color-swatch-input::-webkit-color-swatch {
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#f8fafc]">
+
+  <!-- Top Announcement Banner -->
+  <div class="bg-[#183153] text-white text-xs py-2.5 px-4 text-center font-semibold border-b border-[#25406b] flex items-center justify-center gap-2">
+    <span class="bg-[#ffd43b] text-[#183153] px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wide">Studio</span>
+    <span>Personalize typography, reading size & colors across all 40+ tools. Saved in your browser!</span>
+  </div>
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader"></header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="w-full flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8">
+
+    <!-- Hero Header -->
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span class="fa-badge-blue text-xs py-1.5 px-4 font-black uppercase tracking-wider inline-flex items-center gap-1.5 mb-3">
+        <i class="fa-solid fa-palette text-[#146ebe]"></i>
+        <span>Theme & Accessibility Studio</span>
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-black text-[#183153] tracking-tight leading-tight">
+        Customize Fonts, Sizes & Color Schemes
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed font-medium">
+        Tailor <strong>360tools.me</strong> to your personal taste, reading comfort, and visual preference. Adjust font family, font size scale, contrast, and color palettes with instant live preview.
+      </p>
+
+      <!-- Quick Action Buttons Top -->
+      <div class="flex flex-wrap items-center justify-center gap-3 mt-6">
+        <button onclick="saveAndApplyTheme(true)" class="fa-btn-primary py-2.5 px-6 text-xs font-black shadow-md flex items-center gap-2">
+          <i class="fa-solid fa-floppy-disk"></i>
+          <span>Save & Apply Globally</span>
+        </button>
+        <button onclick="resetThemeToDefault()" class="fa-btn-secondary py-2.5 px-5 text-xs font-bold flex items-center gap-1.5 text-slate-600">
+          <i class="fa-solid fa-arrow-rotate-left text-slate-400"></i>
+          <span>Reset Defaults</span>
+        </button>
+        <button onclick="copyShareableThemeLink()" class="fa-btn-secondary py-2.5 px-4 text-xs font-bold flex items-center gap-1.5 text-blue-600">
+          <i class="fa-solid fa-share-nodes"></i>
+          <span>Share Theme URL</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- MAIN TWO-COLUMN STUDIO LAYOUT -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- LEFT COLUMN: Customizer Controls Tabs (Span 7) -->
+      <div class="lg:col-span-7 space-y-6">
+        
+        <!-- Tab Navigation Switcher -->
+        <div class="bg-white p-2 rounded-2xl border border-slate-200 shadow-sm flex flex-wrap gap-1.5">
+          <button onclick="switchStudioTab('tab-fonts')" id="btn-tab-fonts" class="tab-nav-btn active flex-1 min-w-[120px] py-2.5 px-3 rounded-xl text-xs font-black flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-font text-sm"></i>
+            <span>Fonts & Typography</span>
+          </button>
+          <button onclick="switchStudioTab('tab-themes')" id="btn-tab-themes" class="tab-nav-btn flex-1 min-w-[120px] py-2.5 px-3 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-swatchbook text-sm text-purple-600"></i>
+            <span>Color Schemes</span>
+          </button>
+          <button onclick="switchStudioTab('tab-custom-colors')" id="btn-tab-custom-colors" class="tab-nav-btn flex-1 min-w-[120px] py-2.5 px-3 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-paintbrush text-sm text-emerald-600"></i>
+            <span>DIY Palette</span>
+          </button>
+          <button onclick="switchStudioTab('tab-ui-shape')" id="btn-tab-ui-shape" class="tab-nav-btn flex-1 min-w-[120px] py-2.5 px-3 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-shapes text-sm text-amber-600"></i>
+            <span>UI Shape & Feel</span>
+          </button>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- TAB 1: FONTS & TYPOGRAPHY -->
+        <!-- ============================================================ -->
+        <div id="tab-fonts" class="studio-tab-content space-y-6">
+          
+          <!-- Font Family Selection -->
+          <div class="fa-card p-6 bg-white space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+              <div>
+                <h3 class="text-base font-black text-[#183153] flex items-center gap-2">
+                  <i class="fa-solid fa-font text-[#146ebe]"></i>
+                  <span>1. Choose Font Family</span>
+                </h3>
+                <p class="text-xs text-slate-500 font-medium">Select primary typeface for UI, tools & content.</p>
+              </div>
+              <span id="currentFontBadge" class="px-2.5 py-1 bg-blue-50 text-[#146ebe] rounded-lg text-[11px] font-black">
+                Plus Jakarta Sans
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="fontGrid">
+              
+              <!-- Font Option: Plus Jakarta Sans (Default) -->
+              <div onclick="selectFontFamily('Plus Jakarta Sans', `'Plus Jakarta Sans', -apple-system, sans-serif`)" class="font-card active p-3.5 rounded-xl border border-slate-200 bg-slate-50/50" data-font="Plus Jakarta Sans">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-black text-[#183153]" style="font-family: 'Plus Jakarta Sans', sans-serif;">Plus Jakarta Sans</span>
+                  <span class="text-[9px] px-1.5 py-0.5 bg-blue-100 text-[#146ebe] font-bold rounded">Default Modern</span>
+                </div>
+                <p class="text-xs text-slate-500 mt-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">The quick brown fox jumps over the lazy dog.</p>
+              </div>
+
+              <!-- Font Option: Inter -->
+              <div onclick="selectFontFamily('Inter', `'Inter', sans-serif`)" class="font-card p-3.5 rounded-xl border border-slate-200 bg-white" data-font="Inter">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-black text-[#183153]" style="font-family: 'Inter', sans-serif;">Inter</span>
+                  <span class="text-[9px] px-1.5 py-0.5 bg-slate-100 text-slate-600 font-bold rounded">Ultra Clean</span>
+                </div>
+                <p class="text-xs text-slate-500 mt-1" style="font-family: 'Inter', sans-serif;">The quick brown fox jumps over the lazy dog.</p>
+              </div>
+
+              <!-- Font Option: Outfit -->
+              <div onclick="selectFontFamily('Outfit', `'Outfit', sans-serif`)" class="font-card p-3.5 rounded-xl border border-slate-200 bg-white" data-font="Outfit">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-black text-[#183153]" style="font-family: 'Outfit', sans-serif;">Outfit</span>
+                  <span class="text-[9px] px-1.5 py-0.5 bg-purple-100 text-purple-700 font-bold rounded">Geometric</span>
+                </div>
+                <p class="text-xs text-slate-500 mt-1" style="font-family: 'Outfit', sans-serif;">The quick brown fox jumps over the lazy dog.</p>
+              </div>
+
+              <!-- Font Option: Poppins -->
+              <div onclick="selectFontFamily('Poppins', `'Poppins', sans-serif`)" class="font-card p-3.5 rounded-xl border border-slate-200 bg-white" data-font="Poppins">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-black text-[#183153]" style="font-family: 'Poppins', sans-serif;">Poppins</span>
+                  <span class="text-[9px] px-1.5 py-0.5 bg-emerald-100 text-emerald-700 font-bold rounded">Friendly</span>
+                </div>
+                <p class="text-xs text-slate-500 mt-1" style="font-family: 'Poppins', sans-serif;">The quick brown fox jumps over the lazy dog.</p>
+              </div>
+
+              <!-- Font Option: Roboto -->
+              <div onclick="selectFontFamily('Roboto', `'Roboto', sans-serif`)" class="font-card p-3.5 rounded-xl border border-slate-200 bg-white" data-font="Roboto">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-black text-[#183153]" style="font-family: 'Roboto', sans-serif;">Roboto</span>
+                  <span class="text-[9px] px-1.5 py-0.5 bg-amber-100 text-amber-700 font-bold rounded">Google Standard</span>
+                </div>
+                <p class="text-xs text-slate-500 mt-1" style="font-family: 'Roboto', sans-serif;">The quick brown fox jumps over the lazy dog.</p>
+              </div>
+
+              <!-- Font Option: Space Grotesk -->
+              <div onclick="selectFontFamily('Space Grotesk', `'Space Grotesk', sans-serif`)" class="font-card p-3.5 rounded-xl border border-slate-200 bg-white" data-font="Space Grotesk">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-black text-[#183153]" style="font-family: 'Space Grotesk', sans-serif;">Space Grotesk</span>
+                  <span class="text-[9px] px-1.5 py-0.5 bg-cyan-100 text-cyan-700 font-bold rounded">Tech & Futuristic</span>
+                </div>
+                <p class="text-xs text-slate-500 mt-1" style="font-family: 'Space Grotesk', sans-serif;">The quick brown fox jumps over the lazy dog.</p>
+              </div>
+
+              <!-- Font Option: JetBrains Mono -->
+              <div onclick="selectFontFamily('JetBrains Mono', `'JetBrains Mono', monospace`)" class="font-card p-3.5 rounded-xl border border-slate-200 bg-white" data-font="JetBrains Mono">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-black text-[#183153]" style="font-family: 'JetBrains Mono', monospace;">JetBrains Mono</span>
+                  <span class="text-[9px] px-1.5 py-0.5 bg-slate-800 text-yellow-400 font-mono font-bold rounded">Developer</span>
+                </div>
+                <p class="text-xs text-slate-500 mt-1" style="font-family: 'JetBrains Mono', monospace;">const speed = 100 * fps;</p>
+              </div>
+
+              <!-- Font Option: Fira Code -->
+              <div onclick="selectFontFamily('Fira Code', `'Fira Code', monospace`)" class="font-card p-3.5 rounded-xl border border-slate-200 bg-white" data-font="Fira Code">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-black text-[#183153]" style="font-family: 'Fira Code', monospace;">Fira Code</span>
+                  <span class="text-[9px] px-1.5 py-0.5 bg-teal-100 text-teal-800 font-mono font-bold rounded">Ligatures</span>
+                </div>
+                <p class="text-xs text-slate-500 mt-1" style="font-family: 'Fira Code', monospace;">if (x !== null) return true;</p>
+              </div>
+
+              <!-- Font Option: Merriweather -->
+              <div onclick="selectFontFamily('Merriweather', `'Merriweather', serif`)" class="font-card p-3.5 rounded-xl border border-slate-200 bg-white" data-font="Merriweather">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm font-black text-[#183153]" style="font-family: 'Merriweather', serif;">Merriweather</span>
+                  <span class="text-[9px] px-1.5 py-0.5 bg-rose-100 text-rose-700 font-bold rounded">Editorial Serif</span>
+                </div>
+                <p class="text-xs text-slate-500 mt-1" style="font-family: 'Merriweather', serif;">Crisp reading serif for long-form articles.</p>
+              </div>
+
+              <!-- Font Option: Noto Nastaliq Urdu -->
+              <div onclick="selectFontFamily('Noto Nastaliq Urdu', `'Noto Nastaliq Urdu', serif`)" class="font-card p-3.5 rounded-xl border border-slate-200 bg-white" data-font="Noto Nastaliq Urdu">
+                <div class="flex items-center justify-between">
+                  <span class="text-base font-bold text-emerald-800" style="font-family: 'Noto Nastaliq Urdu', serif;">اردو نستعلیق</span>
+                  <span class="text-[9px] px-1.5 py-0.5 bg-emerald-100 text-emerald-800 font-bold rounded">Urdu Script</span>
+                </div>
+                <p class="text-xs text-emerald-700 mt-1" style="font-family: 'Noto Nastaliq Urdu', serif; direction: rtl;">تمام ٹولز مکمل اردو سپورٹ کے ساتھ دستیاب ہیں۔</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Base Font Size Scaling Slider -->
+          <div class="fa-card p-6 bg-white space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="text-base font-black text-[#183153] flex items-center gap-2">
+                  <i class="fa-solid fa-text-height text-[#146ebe]"></i>
+                  <span>2. Font Size Scaling</span>
+                </h3>
+                <p class="text-xs text-slate-500 font-medium">Scale overall text size for comfortable reading.</p>
+              </div>
+              <span id="fontSizeDisplay" class="text-sm font-black px-3 py-1 bg-slate-100 rounded-xl text-[#183153] border border-slate-200">
+                16px (100%)
+              </span>
+            </div>
+
+            <!-- Size Slider -->
+            <input 
+              type="range" 
+              id="fontSizeSlider" 
+              min="12" 
+              max="24" 
+              value="16" 
+              step="1"
+              oninput="updateFontSize(this.value)"
+              class="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#146ebe]"
+            >
+
+            <!-- Quick Preset Chips -->
+            <div class="flex flex-wrap items-center gap-2 pt-1">
+              <button onclick="updateFontSize(13)" class="size-preset-btn px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-bold text-slate-600">
+                Compact (13px)
+              </button>
+              <button onclick="updateFontSize(15)" class="size-preset-btn px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-bold text-slate-600">
+                Standard (15px)
+              </button>
+              <button onclick="updateFontSize(16)" class="size-preset-btn active px-3 py-1 bg-blue-100 text-[#146ebe] rounded-lg text-xs font-black">
+                Default (16px)
+              </button>
+              <button onclick="updateFontSize(18)" class="size-preset-btn px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-bold text-slate-600">
+                Large (18px)
+              </button>
+              <button onclick="updateFontSize(20)" class="size-preset-btn px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-bold text-slate-600">
+                Extra Large (20px)
+              </button>
+              <button onclick="updateFontSize(22)" class="size-preset-btn px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-bold text-slate-600">
+                Accessible (22px)
+              </button>
+            </div>
+          </div>
+
+          <!-- Line Height & Letter Spacing -->
+          <div class="fa-card p-6 bg-white space-y-5">
+            <h3 class="text-base font-black text-[#183153] flex items-center gap-2 pb-2 border-b border-slate-100">
+              <i class="fa-solid fa-arrows-up-down text-[#146ebe]"></i>
+              <span>3. Line Spacing & Letter Tracking</span>
+            </h3>
+
+            <!-- Line Height Slider -->
+            <div class="space-y-2">
+              <div class="flex justify-between text-xs font-bold text-slate-700">
+                <span>Line Height (Line Spacing)</span>
+                <span id="lineHeightDisplay" class="text-blue-600 font-mono font-black">1.50</span>
+              </div>
+              <input 
+                type="range" 
+                id="lineHeightSlider" 
+                min="1.2" 
+                max="2.2" 
+                value="1.5" 
+                step="0.05" 
+                oninput="updateLineHeight(this.value)"
+                class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#146ebe]"
+              >
+              <div class="flex justify-between text-[10px] text-slate-400 font-bold">
+                <span>Tight (1.2)</span>
+                <span>Balanced (1.5)</span>
+                <span>Spacious (2.2)</span>
+              </div>
+            </div>
+
+            <!-- Letter Spacing Slider -->
+            <div class="space-y-2 pt-2 border-t border-slate-100">
+              <div class="flex justify-between text-xs font-bold text-slate-700">
+                <span>Letter Spacing (Kerning)</span>
+                <span id="letterSpacingDisplay" class="text-blue-600 font-mono font-black">0.0px</span>
+              </div>
+              <input 
+                type="range" 
+                id="letterSpacingSlider" 
+                min="-1" 
+                max="3" 
+                value="0" 
+                step="0.2" 
+                oninput="updateLetterSpacing(this.value)"
+                class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#146ebe]"
+              >
+              <div class="flex justify-between text-[10px] text-slate-400 font-bold">
+                <span>Condensed (-1px)</span>
+                <span>Normal (0px)</span>
+                <span>Wide (+3px)</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- TAB 2: COLOR SCHEMES & PRESETS -->
+        <!-- ============================================================ -->
+        <div id="tab-themes" class="studio-tab-content hidden space-y-6">
+          
+          <div class="fa-card p-6 bg-white space-y-4">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+              <div>
+                <h3 class="text-base font-black text-[#183153] flex items-center gap-2">
+                  <i class="fa-solid fa-swatchbook text-purple-600"></i>
+                  <span>Curated Color Themes</span>
+                </h3>
+                <p class="text-xs text-slate-500 font-medium">1-Click instant themes with optimal contrast and aesthetics.</p>
+              </div>
+              <span id="currentThemeBadge" class="px-2.5 py-1 bg-purple-100 text-purple-800 rounded-lg text-[11px] font-black">
+                360Tools Classic
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="themesPresetGrid">
+              
+              <!-- 1. 360Tools Classic (Default) -->
+              <div onclick="applyThemePreset('classic')" class="theme-preset-card active p-4 rounded-2xl border border-slate-200 bg-white shadow-xs" data-theme="classic">
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-xs font-black text-[#183153]">360Tools Classic</span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#146ebe]"></span>
+                </div>
+                <div class="flex items-center gap-1.5 h-6 rounded-lg p-1 bg-slate-100">
+                  <span class="h-full flex-1 rounded bg-[#183153]"></span>
+                  <span class="h-full flex-1 rounded bg-[#146ebe]"></span>
+                  <span class="h-full flex-1 rounded bg-[#ffd43b]"></span>
+                  <span class="h-full flex-1 rounded bg-[#ffffff] border border-slate-200"></span>
+                  <span class="h-full flex-1 rounded bg-[#f8fafc]"></span>
+                </div>
+                <span class="text-[10px] text-slate-500 font-medium block mt-2">Crisp White & Precision Navy Blue</span>
+              </div>
+
+              <!-- 2. Midnight OLED Dark -->
+              <div onclick="applyThemePreset('midnight')" class="theme-preset-card p-4 rounded-2xl border border-slate-800 bg-[#0b1120] text-white shadow-xs" data-theme="midnight">
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-xs font-black text-white">Midnight OLED Dark</span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+                </div>
+                <div class="flex items-center gap-1.5 h-6 rounded-lg p-1 bg-slate-900">
+                  <span class="h-full flex-1 rounded bg-[#0b1120]"></span>
+                  <span class="h-full flex-1 rounded bg-[#111827]"></span>
+                  <span class="h-full flex-1 rounded bg-[#38bdf8]"></span>
+                  <span class="h-full flex-1 rounded bg-[#818cf8]"></span>
+                  <span class="h-full flex-1 rounded bg-[#1e293b]"></span>
+                </div>
+                <span class="text-[10px] text-slate-400 font-medium block mt-2">Ultra-deep dark mode for night focus</span>
+              </div>
+
+              <!-- 3. Cyberpunk Neon -->
+              <div onclick="applyThemePreset('cyberpunk')" class="theme-preset-card p-4 rounded-2xl border border-purple-900/60 bg-[#0f0728] text-purple-200 shadow-xs" data-theme="cyberpunk">
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-xs font-black text-pink-300">Cyberpunk Neon</span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-pink-500"></span>
+                </div>
+                <div class="flex items-center gap-1.5 h-6 rounded-lg p-1 bg-[#1a0f3d]">
+                  <span class="h-full flex-1 rounded bg-[#0f0728]"></span>
+                  <span class="h-full flex-1 rounded bg-[#1c103f]"></span>
+                  <span class="h-full flex-1 rounded bg-[#ec4899]"></span>
+                  <span class="h-full flex-1 rounded bg-[#a855f7]"></span>
+                  <span class="h-full flex-1 rounded bg-[#06b6d4]"></span>
+                </div>
+                <span class="text-[10px] text-purple-300 font-medium block mt-2">Vibrant Synthwave Violet & Hot Pink</span>
+              </div>
+
+              <!-- 4. Emerald Forest -->
+              <div onclick="applyThemePreset('emerald')" class="theme-preset-card p-4 rounded-2xl border border-emerald-900/50 bg-[#042018] text-emerald-200 shadow-xs" data-theme="emerald">
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-xs font-black text-emerald-300">Emerald Forest</span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                </div>
+                <div class="flex items-center gap-1.5 h-6 rounded-lg p-1 bg-[#063327]">
+                  <span class="h-full flex-1 rounded bg-[#042018]"></span>
+                  <span class="h-full flex-1 rounded bg-[#064e3b]"></span>
+                  <span class="h-full flex-1 rounded bg-[#10b981]"></span>
+                  <span class="h-full flex-1 rounded bg-[#34d399]"></span>
+                  <span class="h-full flex-1 rounded bg-[#022c22]"></span>
+                </div>
+                <span class="text-[10px] text-emerald-300 font-medium block mt-2">Calming botanical deep green & mint</span>
+              </div>
+
+              <!-- 5. Sunset Amber -->
+              <div onclick="applyThemePreset('sunset')" class="theme-preset-card p-4 rounded-2xl border border-amber-900/40 bg-[#1c0f06] text-amber-200 shadow-xs" data-theme="sunset">
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-xs font-black text-amber-300">Sunset Amber</span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                </div>
+                <div class="flex items-center gap-1.5 h-6 rounded-lg p-1 bg-[#2e190b]">
+                  <span class="h-full flex-1 rounded bg-[#1c0f06]"></span>
+                  <span class="h-full flex-1 rounded bg-[#3d210e]"></span>
+                  <span class="h-full flex-1 rounded bg-[#f97316]"></span>
+                  <span class="h-full flex-1 rounded bg-[#f59e0b]"></span>
+                  <span class="h-full flex-1 rounded bg-[#7c2d12]"></span>
+                </div>
+                <span class="text-[10px] text-amber-300 font-medium block mt-2">Warm copper, orange glow & espresso</span>
+              </div>
+
+              <!-- 6. Monokai Matrix -->
+              <div onclick="applyThemePreset('monokai')" class="theme-preset-card p-4 rounded-2xl border border-zinc-800 bg-[#18181b] text-zinc-200 shadow-xs" data-theme="monokai">
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-xs font-black text-yellow-300">Monokai Developer</span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                </div>
+                <div class="flex items-center gap-1.5 h-6 rounded-lg p-1 bg-[#27272a]">
+                  <span class="h-full flex-1 rounded bg-[#18181b]"></span>
+                  <span class="h-full flex-1 rounded bg-[#27272a]"></span>
+                  <span class="h-full flex-1 rounded bg-[#22c55e]"></span>
+                  <span class="h-full flex-1 rounded bg-[#eab308]"></span>
+                  <span class="h-full flex-1 rounded bg-[#f43f5e]"></span>
+                </div>
+                <span class="text-[10px] text-zinc-400 font-medium block mt-2">Classic hacker IDE high-contrast dark</span>
+              </div>
+
+              <!-- 7. Warm Coffee / Sepia -->
+              <div onclick="applyThemePreset('sepia')" class="theme-preset-card p-4 rounded-2xl border border-[#e8ded2] bg-[#fbf7ee] text-[#3e2723] shadow-xs" data-theme="sepia">
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-xs font-black text-[#3e2723]">Warm Coffee / Sepia</span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-[#c27803]"></span>
+                </div>
+                <div class="flex items-center gap-1.5 h-6 rounded-lg p-1 bg-[#ede4d8]">
+                  <span class="h-full flex-1 rounded bg-[#fbf7ee]"></span>
+                  <span class="h-full flex-1 rounded bg-[#f2ebd9]"></span>
+                  <span class="h-full flex-1 rounded bg-[#c27803]"></span>
+                  <span class="h-full flex-1 rounded bg-[#795548]"></span>
+                  <span class="h-full flex-1 rounded bg-[#3e2723]"></span>
+                </div>
+                <span class="text-[10px] text-[#795548] font-medium block mt-2">Soft paper texture, gentle on tired eyes</span>
+              </div>
+
+              <!-- 8. High Contrast Accessibility -->
+              <div onclick="applyThemePreset('contrast')" class="theme-preset-card p-4 rounded-2xl border-2 border-yellow-400 bg-black text-yellow-300 shadow-xs" data-theme="contrast">
+                <div class="flex items-center justify-between mb-2.5">
+                  <span class="text-xs font-black text-yellow-300">High Contrast (Accessibility)</span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                </div>
+                <div class="flex items-center gap-1.5 h-6 rounded-lg p-1 bg-zinc-900 border border-yellow-400">
+                  <span class="h-full flex-1 rounded bg-black"></span>
+                  <span class="h-full flex-1 rounded bg-black border border-yellow-400"></span>
+                  <span class="h-full flex-1 rounded bg-yellow-400"></span>
+                  <span class="h-full flex-1 rounded bg-white"></span>
+                  <span class="h-full flex-1 rounded bg-cyan-400"></span>
+                </div>
+                <span class="text-[10px] text-yellow-200 font-medium block mt-2">WCAG AAA Maximum Legibility for low vision</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- TAB 3: DIY CUSTOM PALETTE -->
+        <!-- ============================================================ -->
+        <div id="tab-custom-colors" class="studio-tab-content hidden space-y-6">
+          
+          <div class="fa-card p-6 bg-white space-y-5">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+              <div>
+                <h3 class="text-base font-black text-[#183153] flex items-center gap-2">
+                  <i class="fa-solid fa-paintbrush text-emerald-600"></i>
+                  <span>Custom Color Studio</span>
+                </h3>
+                <p class="text-xs text-slate-500 font-medium">Build your own bespoke color palette with hex accuracy.</p>
+              </div>
+              <button onclick="randomizePalette()" class="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-bold flex items-center gap-1">
+                <i class="fa-solid fa-dice"></i>
+                <span>Randomize</span>
+              </button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              
+              <!-- Primary Brand / Accent Color -->
+              <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/60 flex items-center justify-between">
+                <div>
+                  <span class="text-xs font-bold text-slate-800 block">Primary Accent</span>
+                  <span class="text-[10px] text-slate-500 font-medium">Buttons, links & badges</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <input type="text" id="hexPrimary" value="#146ebe" class="w-20 px-2 py-1 bg-white border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-700" onchange="updateCustomColor('primary', this.value)">
+                  <input type="color" id="pickerPrimary" value="#146ebe" class="color-swatch-input" oninput="updateCustomColor('primary', this.value)">
+                </div>
+              </div>
+
+              <!-- Page Background Color -->
+              <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/60 flex items-center justify-between">
+                <div>
+                  <span class="text-xs font-bold text-slate-800 block">Page Background</span>
+                  <span class="text-[10px] text-slate-500 font-medium">Main page canvas</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <input type="text" id="hexBg" value="#f8fafc" class="w-20 px-2 py-1 bg-white border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-700" onchange="updateCustomColor('bg', this.value)">
+                  <input type="color" id="pickerBg" value="#f8fafc" class="color-swatch-input" oninput="updateCustomColor('bg', this.value)">
+                </div>
+              </div>
+
+              <!-- Card Surface Color -->
+              <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/60 flex items-center justify-between">
+                <div>
+                  <span class="text-xs font-bold text-slate-800 block">Card Surface</span>
+                  <span class="text-[10px] text-slate-500 font-medium">Container & box background</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <input type="text" id="hexCard" value="#ffffff" class="w-20 px-2 py-1 bg-white border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-700" onchange="updateCustomColor('card', this.value)">
+                  <input type="color" id="pickerCard" value="#ffffff" class="color-swatch-input" oninput="updateCustomColor('card', this.value)">
+                </div>
+              </div>
+
+              <!-- Main Heading / Navy Color -->
+              <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/60 flex items-center justify-between">
+                <div>
+                  <span class="text-xs font-bold text-slate-800 block">Headings & Logo</span>
+                  <span class="text-[10px] text-slate-500 font-medium">H1, H2, brand title text</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <input type="text" id="hexNavy" value="#183153" class="w-20 px-2 py-1 bg-white border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-700" onchange="updateCustomColor('navy', this.value)">
+                  <input type="color" id="pickerNavy" value="#183153" class="color-swatch-input" oninput="updateCustomColor('navy', this.value)">
+                </div>
+              </div>
+
+              <!-- Text Main Color -->
+              <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/60 flex items-center justify-between">
+                <div>
+                  <span class="text-xs font-bold text-slate-800 block">Body Text</span>
+                  <span class="text-[10px] text-slate-500 font-medium">Primary paragraph font color</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <input type="text" id="hexTextMain" value="#183153" class="w-20 px-2 py-1 bg-white border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-700" onchange="updateCustomColor('textMain', this.value)">
+                  <input type="color" id="pickerTextMain" value="#183153" class="color-swatch-input" oninput="updateCustomColor('textMain', this.value)">
+                </div>
+              </div>
+
+              <!-- Border Color -->
+              <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/60 flex items-center justify-between">
+                <div>
+                  <span class="text-xs font-bold text-slate-800 block">Border Outlines</span>
+                  <span class="text-[10px] text-slate-500 font-medium">Card borders & dividers</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <input type="text" id="hexBorder" value="#e2e8f0" class="w-20 px-2 py-1 bg-white border border-slate-300 rounded-lg text-xs font-mono font-bold text-slate-700" onchange="updateCustomColor('border', this.value)">
+                  <input type="color" id="pickerBorder" value="#e2e8f0" class="color-swatch-input" oninput="updateCustomColor('border', this.value)">
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Dark Mode Mode Toggle Flag -->
+            <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="text-xs font-bold text-slate-800 block">Force Dark Inversion Engine</span>
+                <span class="text-[10px] text-slate-500 font-medium">Applies dark-mode CSS overrides to all Tailwind utility classes</span>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="darkEngineToggle" onchange="toggleDarkEngine(this.checked)" class="sr-only peer">
+                <div class="w-11 h-6 bg-slate-200 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#146ebe]"></div>
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- TAB 4: UI SHAPE & ACCESSIBILITY -->
+        <!-- ============================================================ -->
+        <div id="tab-ui-shape" class="studio-tab-content hidden space-y-6">
+          
+          <div class="fa-card p-6 bg-white space-y-5">
+            <h3 class="text-base font-black text-[#183153] flex items-center gap-2 pb-2 border-b border-slate-100">
+              <i class="fa-solid fa-shapes text-amber-600"></i>
+              <span>Corner Radius & UI Geometry</span>
+            </h3>
+
+            <!-- Radius Controls -->
+            <div class="space-y-3">
+              <div class="flex justify-between text-xs font-bold text-slate-700">
+                <span>Card & Button Corner Roundness</span>
+                <span id="radiusDisplay" class="text-blue-600 font-mono font-black">14px (Smooth)</span>
+              </div>
+              <input 
+                type="range" 
+                id="radiusSlider" 
+                min="0" 
+                max="32" 
+                value="14" 
+                step="2" 
+                oninput="updateCornerRadius(this.value)"
+                class="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#146ebe]"
+              >
+
+              <!-- Radius Presets -->
+              <div class="flex flex-wrap items-center gap-2 pt-1">
+                <button onclick="updateCornerRadius(0)" class="radius-preset-btn px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-none text-xs font-bold text-slate-600">
+                  Square (0px)
+                </button>
+                <button onclick="updateCornerRadius(6)" class="radius-preset-btn px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-md text-xs font-bold text-slate-600">
+                  Subtle (6px)
+                </button>
+                <button onclick="updateCornerRadius(14)" class="radius-preset-btn active px-3 py-1 bg-blue-100 text-[#146ebe] rounded-xl text-xs font-black">
+                  Default (14px)
+                </button>
+                <button onclick="updateCornerRadius(24)" class="radius-preset-btn px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-2xl text-xs font-bold text-slate-600">
+                  Curved (24px)
+                </button>
+              </div>
+            </div>
+
+            <!-- Accessibility Motion Toggles -->
+            <div class="pt-4 border-t border-slate-100 space-y-3">
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-xs font-bold text-slate-800 block">Reduce Motion</span>
+                  <span class="text-[10px] text-slate-500 font-medium">Disable hover animations & transitions for sensitive users</span>
+                </div>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" id="reduceMotionToggle" onchange="toggleReduceMotion(this.checked)" class="sr-only peer">
+                  <div class="w-11 h-6 bg-slate-200 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#146ebe]"></div>
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- RIGHT COLUMN: STICKY REAL-TIME LIVE PREVIEW SANDBOX (Span 5) -->
+      <!-- ============================================================ -->
+      <div class="lg:col-span-5 space-y-6 lg:sticky lg:top-20">
+        
+        <div class="fa-card p-6 bg-white space-y-5 border-2 border-blue-200/80 shadow-xl" id="sandboxCard">
+          
+          <!-- Sandbox Header -->
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span class="text-xs font-black uppercase tracking-wider text-[#183153]">Live Sandbox Preview</span>
+            </div>
+            <span class="text-[10px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-bold">
+              Real-time Output
+            </span>
+          </div>
+
+          <!-- Sandbox 1: Typography Sample -->
+          <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
+            <h2 class="text-xl font-black text-[#183153]" id="previewHeading">
+              Sample Heading 1
+            </h2>
+            <p class="text-xs text-slate-600 leading-relaxed" id="previewParagraph">
+              Experience the fast, 100% in-browser suite with your tailored font choice, comfortable reading scale, and personalized color theme.
+            </p>
+          </div>
+
+          <!-- Sandbox 2: Multilingual / Urdu Preview -->
+          <div class="p-3.5 rounded-xl border border-emerald-200 bg-emerald-50/40 text-right font-urdu" id="previewUrduBox">
+            <p class="text-sm font-bold text-emerald-950">
+              خوش آمدید! 360tools پر تمام ٹولز آپ کے براؤزر میں بالکل مفت اور پرائیویٹ کام کرتے ہیں۔
+            </p>
+          </div>
+
+          <!-- Sandbox 3: Interactive UI Elements -->
+          <div class="space-y-3 pt-2">
+            <span class="text-[10px] font-black uppercase tracking-wider text-slate-400 block">Interactive Components</span>
+            
+            <!-- Sample Search Bar -->
+            <div class="relative">
+              <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+              <input 
+                type="text" 
+                placeholder="Search tools..." 
+                value="Text to Speech"
+                class="fa-input pl-9 pr-3 py-2 text-xs w-full text-slate-800"
+              >
+            </div>
+
+            <!-- Sample Buttons Grid -->
+            <div class="grid grid-cols-2 gap-2">
+              <button class="fa-btn-primary py-2 px-3 text-xs font-black shadow-xs flex items-center justify-center gap-1.5 rounded-xl">
+                <i class="fa-solid fa-bolt text-[11px]"></i>
+                <span>Primary Action</span>
+              </button>
+              <button class="fa-btn-secondary py-2 px-3 text-xs font-bold flex items-center justify-center gap-1.5 rounded-xl">
+                <i class="fa-solid fa-sliders text-[11px]"></i>
+                <span>Secondary</span>
+              </button>
+            </div>
+
+            <!-- Sample Tool Card Mini -->
+            <div class="p-3.5 rounded-xl border border-slate-200 bg-white hover:border-blue-300 transition-all flex items-center justify-between group">
+              <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#146ebe] flex items-center justify-center text-xs shrink-0">
+                  <i class="fa-solid fa-volume-high"></i>
+                </div>
+                <div>
+                  <div class="text-xs font-black text-[#183153] group-hover:text-[#146ebe]">Audio & Voice Studio</div>
+                  <div class="text-[10px] text-slate-400 font-medium">100% In-Browser Synthesis</div>
+                </div>
+              </div>
+              <i class="fa-solid fa-arrow-right text-xs text-slate-300 group-hover:text-[#146ebe] transition-all"></i>
+            </div>
+          </div>
+
+          <!-- Sandbox 4: Live Generated CSS Code -->
+          <div class="space-y-2 pt-2 border-t border-slate-100">
+            <div class="flex items-center justify-between">
+              <span class="text-[10px] font-black uppercase tracking-wider text-slate-400">Generated CSS Variables</span>
+              <button onclick="copyGeneratedCSS()" class="text-[10px] text-[#146ebe] hover:underline font-bold flex items-center gap-1">
+                <i class="fa-solid fa-copy"></i>
+                <span>Copy CSS</span>
+              </button>
+            </div>
+            <pre class="p-3 bg-slate-900 text-emerald-400 font-mono text-[10px] rounded-xl overflow-x-auto max-h-36 leading-relaxed select-all" id="cssOutputBox">/* Live CSS Variables */</pre>
+          </div>
+
+          <!-- Bottom Action Buttons in Sandbox -->
+          <div class="pt-2 space-y-2">
+            <button onclick="saveAndApplyTheme(true)" class="w-full fa-btn-primary py-3 px-4 text-xs font-black rounded-xl shadow-lg flex items-center justify-center gap-2">
+              <i class="fa-solid fa-circle-check text-sm"></i>
+              <span>Save & Apply Across Entire Website</span>
+            </button>
+            <div class="flex items-center gap-2">
+              <button onclick="exportThemeJSON()" class="flex-1 py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-download text-[11px]"></i>
+                <span>Export JSON</span>
+              </button>
+              <button onclick="openImportModal()" class="flex-1 py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-upload text-[11px]"></i>
+                <span>Import JSON</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Import Theme Modal -->
+  <div id="importModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl border border-slate-200 shadow-2xl w-full max-w-md p-6 space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <h3 class="text-sm font-black text-[#183153] flex items-center gap-2">
+          <i class="fa-solid fa-file-import text-[#146ebe]"></i>
+          <span>Import Theme JSON</span>
+        </h3>
+        <button onclick="closeImportModal()" class="text-slate-400 hover:text-slate-700 text-xs">
+          <i class="fa-solid fa-xmark text-base"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-slate-600 font-medium">
+        Paste a previously exported 360Tools theme JSON object below to apply it:
+      </p>
+
+      <textarea id="importThemeInput" rows="5" placeholder='{"fontSans": "Inter", "baseFontSize": 16, ...}' class="fa-input w-full font-mono text-xs p-3"></textarea>
+
+      <div class="flex items-center justify-end gap-2 pt-2">
+        <button onclick="closeImportModal()" class="px-4 py-2 bg-slate-100 text-slate-600 rounded-xl text-xs font-bold">
+          Cancel
+        </button>
+        <button onclick="applyImportedTheme()" class="fa-btn-primary px-5 py-2 text-xs font-black rounded-xl">
+          Apply Theme
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Master Shared Logic (js/main.js) -->
+  <script src="js/main.js"></script>
+
+  <!-- Appearance Studio JavaScript Controller -->
+  <script>
+    // Master Current Theme State
+    const defaultThemeConfig = {
+      name: '360Tools Classic',
+      fontSans: `'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`,
+      fontHeading: `'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`,
+      fontFamilyName: 'Plus Jakarta Sans',
+      baseFontSize: 16,
+      lineHeight: 1.5,
+      letterSpacing: 0,
+      primary: '#146ebe',
+      primaryHover: '#0d5ca3',
+      navy: '#183153',
+      yellow: '#ffd43b',
+      bg: '#f8fafc',
+      bgSubtle: '#f1f5f9',
+      card: '#ffffff',
+      border: '#e2e8f0',
+      textMain: '#183153',
+      textSub: '#64748b',
+      radiusMd: 14,
+      radiusLg: 20,
+      isDark: false,
+      reduceMotion: false
+    };
+
+    let currentTheme = Object.assign({}, defaultThemeConfig);
+
+    // Pre-made Curated Presets
+    const themePresets = {
+      classic: {
+        name: '360Tools Classic',
+        primary: '#146ebe',
+        primaryHover: '#0d5ca3',
+        navy: '#183153',
+        yellow: '#ffd43b',
+        bg: '#f8fafc',
+        bgSubtle: '#f1f5f9',
+        card: '#ffffff',
+        border: '#e2e8f0',
+        textMain: '#183153',
+        textSub: '#64748b',
+        isDark: false
+      },
+      midnight: {
+        name: 'Midnight OLED Dark',
+        primary: '#38bdf8',
+        primaryHover: '#0284c7',
+        navy: '#f8fafc',
+        yellow: '#facc15',
+        bg: '#0b1120',
+        bgSubtle: '#0f172a',
+        card: '#111827',
+        border: '#1f2937',
+        textMain: '#f8fafc',
+        textSub: '#94a3b8',
+        isDark: true
+      },
+      cyberpunk: {
+        name: 'Cyberpunk Neon',
+        primary: '#ec4899',
+        primaryHover: '#db2777',
+        navy: '#f472b6',
+        yellow: '#a855f7',
+        bg: '#0f0728',
+        bgSubtle: '#180e3d',
+        card: '#1c103f',
+        border: '#3b1c7c',
+        textMain: '#fdf4ff',
+        textSub: '#c084fc',
+        isDark: true
+      },
+      emerald: {
+        name: 'Emerald Forest',
+        primary: '#10b981',
+        primaryHover: '#059669',
+        navy: '#ecfdf5',
+        yellow: '#34d399',
+        bg: '#042018',
+        bgSubtle: '#062d22',
+        card: '#064e3b',
+        border: '#0d6b52',
+        textMain: '#f0fdf4',
+        textSub: '#6ee7b7',
+        isDark: true
+      },
+      sunset: {
+        name: 'Sunset Amber',
+        primary: '#f97316',
+        primaryHover: '#ea580c',
+        navy: '#fff7ed',
+        yellow: '#f59e0b',
+        bg: '#1c0f06',
+        bgSubtle: '#2b170a',
+        card: '#3d210e',
+        border: '#5c3316',
+        textMain: '#ffedd5',
+        textSub: '#fdba74',
+        isDark: true
+      },
+      monokai: {
+        name: 'Monokai Developer',
+        primary: '#22c55e',
+        primaryHover: '#16a34a',
+        navy: '#facc15',
+        yellow: '#eab308',
+        bg: '#18181b',
+        bgSubtle: '#202024',
+        card: '#27272a',
+        border: '#3f3f46',
+        textMain: '#fafafa',
+        textSub: '#a1a1aa',
+        isDark: true
+      },
+      sepia: {
+        name: 'Warm Coffee / Sepia',
+        primary: '#c27803',
+        primaryHover: '#965b00',
+        navy: '#3e2723',
+        yellow: '#d97706',
+        bg: '#fbf7ee',
+        bgSubtle: '#f4ede1',
+        card: '#f2ebd9',
+        border: '#ded2be',
+        textMain: '#3e2723',
+        textSub: '#795548',
+        isDark: false
+      },
+      contrast: {
+        name: 'High Contrast (Accessibility)',
+        primary: '#ffff00',
+        primaryHover: '#facc15',
+        navy: '#ffffff',
+        yellow: '#ffff00',
+        bg: '#000000',
+        bgSubtle: '#111111',
+        card: '#000000',
+        border: '#ffff00',
+        textMain: '#ffffff',
+        textSub: '#ffff00',
+        isDark: true
+      }
+    };
+
+    // Initialize Page
+    document.addEventListener('DOMContentLoaded', () => {
+      loadSavedTheme();
+      checkUrlHashTheme();
+    });
+
+    function loadSavedTheme() {
+      try {
+        const saved = localStorage.getItem('360tools_user_theme');
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          currentTheme = Object.assign({}, defaultThemeConfig, parsed);
+        }
+      } catch (e) {
+        console.warn('Failed to parse theme from localStorage', e);
+      }
+      syncControlsWithState();
+      applyThemeLive(false);
+    }
+
+    function checkUrlHashTheme() {
+      try {
+        const hash = window.location.hash;
+        if (hash.startsWith('#theme=')) {
+          const raw = decodeURIComponent(hash.replace('#theme=', ''));
+          const parsed = JSON.parse(raw);
+          currentTheme = Object.assign({}, defaultThemeConfig, parsed);
+          syncControlsWithState();
+          applyThemeLive(false);
+          showToast('Loaded shared theme from URL!', 'fa-link');
+        }
+      } catch (e) {}
+    }
+
+    function syncControlsWithState() {
+      // 1. Font Family
+      document.querySelectorAll('#fontGrid .font-card').forEach(card => {
+        if (card.getAttribute('data-font') === currentTheme.fontFamilyName) {
+          card.classList.add('active');
+        } else {
+          card.classList.remove('active');
+        }
+      });
+      const badge = document.getElementById('currentFontBadge');
+      if (badge) badge.textContent = currentTheme.fontFamilyName || 'Plus Jakarta Sans';
+
+      // 2. Font Size
+      const sizeSlider = document.getElementById('fontSizeSlider');
+      if (sizeSlider) sizeSlider.value = currentTheme.baseFontSize || 16;
+      updateFontSizeDisplay(currentTheme.baseFontSize || 16);
+
+      // 3. Line Height & Letter Spacing
+      const lhSlider = document.getElementById('lineHeightSlider');
+      if (lhSlider) lhSlider.value = currentTheme.lineHeight || 1.5;
+      const lhDisplay = document.getElementById('lineHeightDisplay');
+      if (lhDisplay) lhDisplay.textContent = Number(currentTheme.lineHeight || 1.5).toFixed(2);
+
+      const lsSlider = document.getElementById('letterSpacingSlider');
+      if (lsSlider) lsSlider.value = currentTheme.letterSpacing || 0;
+      const lsDisplay = document.getElementById('letterSpacingDisplay');
+      if (lsDisplay) lsDisplay.textContent = (currentTheme.letterSpacing || 0) + 'px';
+
+      // 4. Corner Radius
+      const rSlider = document.getElementById('radiusSlider');
+      if (rSlider) rSlider.value = currentTheme.radiusMd || 14;
+      const rDisplay = document.getElementById('radiusDisplay');
+      if (rDisplay) rDisplay.textContent = (currentTheme.radiusMd || 14) + 'px';
+
+      // 5. DIY Colors
+      setInputValue('hexPrimary', currentTheme.primary);
+      setInputValue('pickerPrimary', currentTheme.primary);
+      setInputValue('hexBg', currentTheme.bg);
+      setInputValue('pickerBg', currentTheme.bg);
+      setInputValue('hexCard', currentTheme.card);
+      setInputValue('pickerCard', currentTheme.card);
+      setInputValue('hexNavy', currentTheme.navy);
+      setInputValue('pickerNavy', currentTheme.navy);
+      setInputValue('hexTextMain', currentTheme.textMain);
+      setInputValue('pickerTextMain', currentTheme.textMain);
+      setInputValue('hexBorder', currentTheme.border);
+      setInputValue('pickerBorder', currentTheme.border);
+
+      const darkToggle = document.getElementById('darkEngineToggle');
+      if (darkToggle) darkToggle.checked = !!currentTheme.isDark;
+
+      const motionToggle = document.getElementById('reduceMotionToggle');
+      if (motionToggle) motionToggle.checked = !!currentTheme.reduceMotion;
+
+      // 6. Theme Card Active State
+      document.querySelectorAll('#themesPresetGrid .theme-preset-card').forEach(card => {
+        if (card.getAttribute('data-theme') === currentTheme.themePresetKey) {
+          card.classList.add('active');
+        } else {
+          card.classList.remove('active');
+        }
+      });
+      const themeBadge = document.getElementById('currentThemeBadge');
+      if (themeBadge) themeBadge.textContent = currentTheme.name || 'Custom Theme';
+    }
+
+    function setInputValue(id, val) {
+      const el = document.getElementById(id);
+      if (el && val) el.value = val;
+    }
+
+    // Tab Switcher
+    function switchStudioTab(tabId) {
+      document.querySelectorAll('.studio-tab-content').forEach(t => t.classList.add('hidden'));
+      document.querySelectorAll('.tab-nav-btn').forEach(b => {
+        b.classList.remove('active');
+        b.classList.add('text-slate-600');
+      });
+
+      const targetTab = document.getElementById(tabId);
+      if (targetTab) targetTab.classList.remove('hidden');
+
+      const targetBtn = document.getElementById('btn-' + tabId);
+      if (targetBtn) {
+        targetBtn.classList.add('active');
+        targetBtn.classList.remove('text-slate-600');
+      }
+    }
+
+    // Font Selection Handlers
+    function selectFontFamily(name, cssVal) {
+      currentTheme.fontFamilyName = name;
+      currentTheme.fontSans = cssVal;
+      currentTheme.fontHeading = cssVal;
+      syncControlsWithState();
+      applyThemeLive(false);
+      showToast(`Font changed to ${name}`, 'fa-font');
+    }
+
+    // Font Size Scaling
+    function updateFontSize(val) {
+      val = parseInt(val, 10);
+      currentTheme.baseFontSize = val;
+      updateFontSizeDisplay(val);
+
+      // Update preset buttons active state
+      document.querySelectorAll('.size-preset-btn').forEach(btn => {
+        const text = btn.textContent;
+        if (text.includes(`${val}px`)) {
+          btn.className = 'size-preset-btn active px-3 py-1 bg-blue-100 text-[#146ebe] rounded-lg text-xs font-black';
+        } else {
+          btn.className = 'size-preset-btn px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-bold text-slate-600';
+        }
+      });
+
+      applyThemeLive(false);
+    }
+
+    function updateFontSizeDisplay(val) {
+      const disp = document.getElementById('fontSizeDisplay');
+      if (disp) {
+        const pct = Math.round((val / 16) * 100);
+        disp.textContent = `${val}px (${pct}%)`;
+      }
+    }
+
+    function updateLineHeight(val) {
+      currentTheme.lineHeight = parseFloat(val);
+      const disp = document.getElementById('lineHeightDisplay');
+      if (disp) disp.textContent = Number(val).toFixed(2);
+      applyThemeLive(false);
+    }
+
+    function updateLetterSpacing(val) {
+      currentTheme.letterSpacing = parseFloat(val);
+      const disp = document.getElementById('letterSpacingDisplay');
+      if (disp) disp.textContent = val + 'px';
+      applyThemeLive(false);
+    }
+
+    function updateCornerRadius(val) {
+      val = parseInt(val, 10);
+      currentTheme.radiusMd = val;
+      currentTheme.radiusLg = Math.min(val + 6, 32);
+      currentTheme.radiusXl = Math.min(val + 12, 40);
+      const disp = document.getElementById('radiusDisplay');
+      if (disp) disp.textContent = val + 'px';
+
+      document.querySelectorAll('.radius-preset-btn').forEach(btn => {
+        if (btn.textContent.includes(`${val}px`)) {
+          btn.className = 'radius-preset-btn active px-3 py-1 bg-blue-100 text-[#146ebe] rounded-lg text-xs font-black';
+        } else {
+          btn.className = 'radius-preset-btn px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-bold text-slate-600';
+        }
+      });
+
+      applyThemeLive(false);
+    }
+
+    function toggleDarkEngine(checked) {
+      currentTheme.isDark = checked;
+      applyThemeLive(false);
+    }
+
+    function toggleReduceMotion(checked) {
+      currentTheme.reduceMotion = checked;
+      applyThemeLive(false);
+    }
+
+    // Theme Preset Handlers
+    function applyThemePreset(key) {
+      const preset = themePresets[key];
+      if (!preset) return;
+
+      currentTheme.themePresetKey = key;
+      currentTheme.name = preset.name;
+      Object.assign(currentTheme, preset);
+
+      syncControlsWithState();
+      applyThemeLive(false);
+      showToast(`Applied ${preset.name} theme!`, 'fa-swatchbook');
+    }
+
+    // Custom DIY Palette Updates
+    function updateCustomColor(field, hexVal) {
+      currentTheme[field] = hexVal;
+      currentTheme.name = 'Custom Theme';
+      currentTheme.themePresetKey = 'custom';
+
+      // Sync hex and picker elements
+      const idMap = {
+        primary: ['hexPrimary', 'pickerPrimary'],
+        bg: ['hexBg', 'pickerBg'],
+        card: ['hexCard', 'pickerCard'],
+        navy: ['hexNavy', 'pickerNavy'],
+        textMain: ['hexTextMain', 'pickerTextMain'],
+        border: ['hexBorder', 'pickerBorder']
+      };
+
+      if (idMap[field]) {
+        idMap[field].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.value = hexVal;
+        });
+      }
+
+      applyThemeLive(false);
+    }
+
+    function randomizePalette() {
+      const randomHex = () => '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+      currentTheme.primary = randomHex();
+      currentTheme.navy = randomHex();
+      currentTheme.name = 'Randomized Palette';
+      currentTheme.themePresetKey = 'custom';
+      syncControlsWithState();
+      applyThemeLive(false);
+      showToast('Generated fresh color palette!', 'fa-dice');
+    }
+
+    // Live Apply to DOM
+    function applyThemeLive(isSaving = false) {
+      const root = document.documentElement;
+
+      // 1. Typography & Sizing
+      if (currentTheme.fontSans) root.style.setProperty('--font-sans', currentTheme.fontSans);
+      if (currentTheme.fontHeading) root.style.setProperty('--font-heading', currentTheme.fontHeading);
+      if (currentTheme.baseFontSize) root.style.setProperty('--base-font-size', currentTheme.baseFontSize + 'px');
+      if (currentTheme.lineHeight) root.style.setProperty('--line-height-scale', currentTheme.lineHeight);
+      if (currentTheme.letterSpacing) root.style.setProperty('--letter-spacing-scale', currentTheme.letterSpacing + 'px');
+
+      // 2. Colors
+      if (currentTheme.bg) root.style.setProperty('--fa-bg', currentTheme.bg);
+      if (currentTheme.bgSubtle) root.style.setProperty('--fa-bg-subtle', currentTheme.bgSubtle);
+      if (currentTheme.card) root.style.setProperty('--fa-card', currentTheme.card);
+      if (currentTheme.border) root.style.setProperty('--fa-border', currentTheme.border);
+      if (currentTheme.textMain) root.style.setProperty('--fa-text-main', currentTheme.textMain);
+      if (currentTheme.textSub) root.style.setProperty('--fa-text-sub', currentTheme.textSub);
+      if (currentTheme.primary) {
+        root.style.setProperty('--fa-blue', currentTheme.primary);
+        root.style.setProperty('--fa-blue-hover', currentTheme.primaryHover || currentTheme.primary);
+      }
+      if (currentTheme.navy) root.style.setProperty('--fa-navy', currentTheme.navy);
+      if (currentTheme.yellow) root.style.setProperty('--fa-yellow', currentTheme.yellow);
+
+      // 3. Radius
+      if (currentTheme.radiusMd) root.style.setProperty('--radius-md', currentTheme.radiusMd + 'px');
+      if (currentTheme.radiusLg) root.style.setProperty('--radius-lg', currentTheme.radiusLg + 'px');
+
+      // 4. Dark Mode Class
+      if (currentTheme.isDark) {
+        root.classList.add('dark');
+        root.setAttribute('data-theme', 'dark');
+      } else {
+        root.classList.remove('dark');
+        root.removeAttribute('data-theme');
+      }
+
+      // 5. Update CSS Box
+      updateCSSVariablesBox();
+    }
+
+    function updateCSSVariablesBox() {
+      const box = document.getElementById('cssOutputBox');
+      if (!box) return;
+
+      const css = `:root {
+  --font-sans: ${currentTheme.fontSans};
+  --font-heading: ${currentTheme.fontHeading};
+  --base-font-size: ${currentTheme.baseFontSize}px;
+  --line-height-scale: ${currentTheme.lineHeight};
+  --letter-spacing-scale: ${currentTheme.letterSpacing}px;
+  --fa-bg: ${currentTheme.bg};
+  --fa-card: ${currentTheme.card};
+  --fa-border: ${currentTheme.border};
+  --fa-text-main: ${currentTheme.textMain};
+  --fa-text-sub: ${currentTheme.textSub};
+  --fa-blue: ${currentTheme.primary};
+  --radius-md: ${currentTheme.radiusMd}px;
+}`;
+      box.textContent = css;
+    }
+
+    function copyGeneratedCSS() {
+      const box = document.getElementById('cssOutputBox');
+      if (box) copyToClipboard(box.textContent, 'Theme CSS copied to clipboard!');
+    }
+
+    // Save Theme Globally
+    function saveAndApplyTheme(notify = true) {
+      try {
+        localStorage.setItem('360tools_user_theme', JSON.stringify(currentTheme));
+        applyThemeLive(true);
+        if (notify) {
+          showToast('Theme saved! Applied to all 40+ tools across 360tools.me', 'fa-circle-check');
+        }
+      } catch (e) {
+        showToast('Failed to save to localStorage', 'fa-triangle-exclamation');
+      }
+    }
+
+    // Reset Defaults
+    function resetThemeToDefault() {
+      currentTheme = Object.assign({}, defaultThemeConfig);
+      localStorage.removeItem('360tools_user_theme');
+      syncControlsWithState();
+      applyThemeLive(false);
+      showToast('Theme reset to default 360Tools styling!', 'fa-arrow-rotate-left');
+    }
+
+    // Export / Share
+    function exportThemeJSON() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(currentTheme, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", `360tools_theme_${(currentTheme.name || 'custom').toLowerCase().replace(/\s+/g, '_')}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+      showToast('Theme exported as JSON!', 'fa-download');
+    }
+
+    function copyShareableThemeLink() {
+      const json = JSON.stringify(currentTheme);
+      const url = `${window.location.origin}${window.location.pathname}#theme=${encodeURIComponent(json)}`;
+      copyToClipboard(url, 'Shareable theme link copied to clipboard!');
+    }
+
+    // Modal Import
+    function openImportModal() {
+      const modal = document.getElementById('importModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeImportModal() {
+      const modal = document.getElementById('importModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function applyImportedTheme() {
+      const input = document.getElementById('importThemeInput');
+      if (!input || !input.value.trim()) return;
+
+      try {
+        const parsed = JSON.parse(input.value.trim());
+        currentTheme = Object.assign({}, defaultThemeConfig, parsed);
+        syncControlsWithState();
+        applyThemeLive(false);
+        saveAndApplyTheme(false);
+        closeImportModal();
+        showToast('Imported theme successfully applied!', 'fa-circle-check');
+      } catch (e) {
+        alert('Invalid JSON theme string. Please check the format and try again.');
+      }
+    }
+  </script>
+</body>
+</html>
