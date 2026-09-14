@@ -162,6 +162,21 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- AI & Media Creator Tools -->
+  <url>
+    <loc>https://360tools.me/watermark-remover.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://360tools.me/background-remover.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Dedicated Compression Tools -->
   <url>
     <loc>https://360tools.me/image-compressor.html</loc>

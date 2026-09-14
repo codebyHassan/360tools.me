@@ -80,6 +80,16 @@ const TOOLS_REGISTRY = [
 
   // Compression & AI Image
   { 
+    name: 'Free Watermark Remover (Image & Video)', 
+    url: 'watermark-remover.html', 
+    category: 'AI & Image', 
+    icon: 'fa-eraser', 
+    color: 'text-purple-600', 
+    bg: 'bg-purple-50 border-purple-200/80',
+    desc: 'Remove logos, timestamps, and watermarks from images and videos with client-side inpainting. 100% free.',
+    keywords: 'watermark remover erase logo delete text delogo video cleaner inpainting object remove stamp' 
+  },
+  { 
     name: 'Free AI Background Remover', 
     url: 'background-remover.html', 
     category: 'AI & Image', 
@@ -744,6 +754,9 @@ function createMobileAppDrawer() {
             <a href="compression-tools.html" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
           </div>
           <div class="grid grid-cols-2 gap-2">
+            <a href="watermark-remover.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-eraser text-purple-600 text-sm"></i> Watermark Remover (Img & Video)
+            </a>
             <a href="background-remover.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-teal-50 hover:bg-teal-100 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-wand-magic-sparkles text-teal-600 text-sm"></i> BG Remover
             </a>
@@ -1154,6 +1167,17 @@ function renderGlobalHeader() {
                       </div>
 
                       <div class="grid grid-cols-2 gap-2">
+                        <a href="watermark-remover.html" class="nav-tool-item bg-purple-50/70 hover:bg-purple-100/70 border border-purple-200/60">
+                          <div class="nav-tool-icon bg-purple-600 text-white"><i class="fa-solid fa-eraser"></i></div>
+                          <div>
+                            <div class="nav-tool-title text-purple-950 flex items-center gap-1.5">
+                              <span>Watermark Remover</span>
+                              <span class="bg-purple-600 text-white text-[8px] font-black px-1.5 py-0.2 rounded-full uppercase">NEW</span>
+                            </div>
+                            <div class="nav-tool-desc text-purple-700">Erase logos from image & video</div>
+                          </div>
+                        </a>
+
                         <a href="background-remover.html" class="nav-tool-item bg-teal-50/70 hover:bg-teal-100/70 border border-teal-200/60">
                           <div class="nav-tool-icon bg-teal-600 text-white"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                           <div>
@@ -1161,7 +1185,7 @@ function renderGlobalHeader() {
                               <span>AI Background Remover</span>
                               <span class="bg-teal-600 text-white text-[8px] font-black px-1.5 py-0.2 rounded-full uppercase">NEW</span>
                             </div>
-                            <div class="nav-tool-desc text-teal-700">Client-side AI cutout & transparent PNG</div>
+                            <div class="nav-tool-desc text-teal-700">Client-side AI cutout & PNG</div>
                           </div>
                         </a>
 
@@ -1741,13 +1765,13 @@ function renderGlobalFooter() {
             <span>Compression & AI</span>
           </h4>
           <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="watermark-remover.html" class="text-purple-700 hover:text-purple-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-eraser text-[9px] text-purple-600"></i> Watermark Remover</a></li>
             <li><a href="background-remover.html" class="text-teal-700 hover:text-teal-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-wand-magic-sparkles text-[9px] text-teal-600"></i> AI BG Remover</a></li>
             <li><a href="video-frame-extractor.html" class="text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1.5 font-bold"><i class="fa-solid fa-film text-[9px] text-indigo-600"></i> Frame Extractor</a></li>
             <li><a href="image-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Universal Compressor</a></li>
             <li><a href="jpg-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> JPG Compressor</a></li>
             <li><a href="png-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> PNG Compressor</a></li>
             <li><a href="webp-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> WebP Compressor</a></li>
-            <li><a href="pdf-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> PDF Compressor</a></li>
             <li><a href="video-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Video Compressor</a></li>
           </ul>
         </div>
