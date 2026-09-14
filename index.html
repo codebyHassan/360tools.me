@@ -14,13 +14,13 @@
   <link rel="canonical" href="https://360tools.me/">
 
   <!-- Favicon & Open Graph -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/">
   <meta property="og:title" content="360Tools — Free Online Tools, AI Voice, Compressors & Calculators">
   <meta property="og:description" content="360Tools (360tools.me): 100% free, browser-based AI voiceovers, media compression, developer minifiers, and financial calculators.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- JSON-LD Suite Schema Markup: WebSite & Organization -->
   <script type="application/ld+json">
@@ -91,26 +91,32 @@
   }
   </script>
 
-  <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <!-- Master Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- Preconnect External Domains for Instant DNS & TLS Handshake -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans with font-display swap -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons 6.5.1 (Asynchronous Non-Blocking Delivery) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  
+  <!-- Precompiled & Minified Master Stylesheet -->
+  <link rel="stylesheet" href="css/style.min.css">
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#f8fafc]">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] bg-[#fbf7ee]">
 
   <!-- Top Global Announcement Banner -->
-  <div class="bg-[#183153] text-white text-xs py-2.5 px-4 text-center font-semibold border-b border-[#25406b] flex items-center justify-center gap-2">
-    <span class="bg-[#ffd43b] text-[#183153] px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wide">360Tools 2026</span>
+  <div class="bg-[#3e2723] text-white text-xs py-2.5 px-4 text-center font-semibold border-b border-[#ded2be] flex items-center justify-center gap-2">
+    <span class="bg-[#ffd43b] text-[#3e2723] px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wide">360Tools 2026</span>
     <span>100% In-Browser Privacy • AI Voiceovers, Media Compressors & Developer Engines</span>
     <a href="#tools-catalog" class="text-[#ffd43b] hover:underline font-bold ml-1 inline-flex items-center gap-1">Explore all tools <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
   </div>
   
-  <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <!-- Centralized Pure JS Header Injection with Reserved Height to Prevent CLS -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- MAIN CONTENT CONTAINER -->
   <main class="w-full flex-1">
@@ -124,16 +130,16 @@
           
           <div class="inline-flex items-center gap-2">
             <span class="fa-badge-blue py-1.5 px-4 text-xs font-black uppercase tracking-wider">
-              <i class="fa-solid fa-shield-halved mr-1.5 text-[#146ebe]"></i> 360Tools — Free, Private Online Tools
+              <i class="fa-solid fa-shield-halved mr-1.5 text-[#c27803]"></i> 360Tools — Free, Private Online Tools
             </span>
           </div>
 
-          <h1 class="text-4xl sm:text-6xl font-black text-[#183153] tracking-tight leading-[1.15]">
+          <h1 class="text-4xl sm:text-6xl font-black text-[#3e2723] tracking-tight leading-[1.15]">
             Free Online Tools for Everyday Work
           </h1>
 
           <p class="text-slate-600 text-base sm:text-xl font-medium leading-relaxed max-w-2xl">
-            Synthesize natural AI speech, convert text to MP3, compress JPG/PNG/PDFs, remove image backgrounds, minify code, and calculate seller profits with <strong>360Tools</strong> (<a href="https://360tools.me" class="text-[#146ebe] hover:underline font-bold">360tools.me</a>) — 100% private in your browser.
+            Synthesize natural AI speech, convert text to MP3, compress JPG/PNG/PDFs, remove image backgrounds, minify code, and calculate seller profits with <strong>360Tools</strong> (<a href="https://360tools.me" class="text-[#c27803] hover:underline font-bold">360tools.me</a>) — 100% private in your browser.
           </p>
 
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
@@ -162,8 +168,11 @@
           <div class="absolute w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-70 pointer-events-none"></div>
           <div class="relative z-10 p-4 sm:p-6 flex items-center justify-center">
             <img 
-              src="images/logo.jpg" 
+              src="images/logo.webp" 
               alt="360Tools (360tools.me) Logo" 
+              width="512" 
+              height="503" 
+              fetchpriority="high" 
               class="w-full max-w-[320px] sm:max-w-[420px] h-auto object-contain hover:scale-105 transition-transform duration-300 rounded-3xl"
             >
           </div>
@@ -180,7 +189,7 @@
           <span class="fa-badge-blue text-xs py-1.5 px-4 font-black uppercase">
             Tools Directory
           </span>
-          <h2 class="text-3xl sm:text-4xl font-black text-[#183153] mt-2 tracking-tight">
+          <h2 class="text-3xl sm:text-4xl font-black text-[#3e2723] mt-2 tracking-tight">
             Explore All Specialized Tools
           </h2>
           <p class="text-slate-600 text-sm sm:text-base font-medium mt-1">
@@ -211,7 +220,7 @@
           <i class="fa-solid fa-grip mr-1"></i> All Tools
         </button>
         <button onclick="filterCategory('invoice')" class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="invoice">
-          <i class="fa-solid fa-file-invoice-dollar mr-1 text-[#146ebe]"></i> Invoice & Finance
+          <i class="fa-solid fa-file-invoice-dollar mr-1 text-[#c27803]"></i> Invoice & Finance
         </button>
         <button onclick="filterCategory('audio')" class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="audio">
           <i class="fa-solid fa-volume-high mr-1 text-purple-600"></i> AI Voice & Audio
@@ -226,7 +235,7 @@
           <i class="fa-solid fa-cart-shopping mr-1 text-[#f1641e]"></i> E-Commerce & POD
         </button>
         <button onclick="filterCategory('real-estate')" class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="real-estate">
-          <i class="fa-solid fa-house-chimney mr-1 text-[#146ebe]"></i> Real Estate & Tax
+          <i class="fa-solid fa-house-chimney mr-1 text-[#c27803]"></i> Real Estate & Tax
         </button>
         <button onclick="filterCategory('games')" class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="games">
           <i class="fa-solid fa-gamepad mr-1 text-purple-600"></i> Free Games (New)
@@ -245,9 +254,9 @@
             </div>
 
             <div>
-              <h3 class="text-xl font-black text-[#183153] group-hover:text-[#146ebe] transition-colors flex items-center gap-2">
+              <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors flex items-center gap-2">
                 <span>Free Invoice Generator</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-[#146ebe] transition-colors"></i>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-[#c27803] transition-colors"></i>
               </h3>
               <p class="text-xs text-slate-600 font-medium leading-relaxed mt-2">
                 Create, customize, and export printable A4 PDF invoices with logo upload, multi-currency support, custom tax/discount rates, and 4 printable themes.
@@ -272,9 +281,9 @@
             </div>
 
             <div>
-              <h3 class="text-xl font-black text-[#183153] group-hover:text-[#146ebe] transition-colors flex items-center gap-2">
+              <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors flex items-center gap-2">
                 <span>AI Background Remover</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-[#146ebe] transition-colors"></i>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-[#c27803] transition-colors"></i>
               </h3>
               <p class="text-xs text-slate-600 font-medium leading-relaxed mt-2">
                 Erase image backgrounds automatically using client-side AI. Interactive comparison slider, transparent PNG export, and background color replacer.
@@ -300,9 +309,9 @@
             </div>
 
             <div>
-              <h3 class="text-xl font-black text-[#183153] group-hover:text-[#146ebe] transition-colors flex items-center gap-2">
+              <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors flex items-center gap-2">
                 <span>Watermark Remover</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-[#146ebe] transition-colors"></i>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-[#c27803] transition-colors"></i>
               </h3>
               <p class="text-xs text-slate-600 font-medium leading-relaxed mt-2">
                 Erase logos, timestamps, and watermarks from images and videos. Interactive box selection, brush mask, content-aware inpainting with zero API keys.
@@ -321,13 +330,13 @@
         <!-- Tool: Text to Speech -->
         <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="audio" data-title="Text to Speech Converter Natural Voices Word Highlighting Speech Synthesis">
           <div class="space-y-3">
-            <span class="bg-blue-100 text-[#146ebe] text-[11px] py-1 px-3 rounded-full font-extrabold">Speech Engine</span>
-            <h3 class="text-xl font-black text-[#183153] group-hover:text-[#146ebe]">Text to Speech Converter</h3>
+            <span class="bg-blue-100 text-[#c27803] text-[11px] py-1 px-3 rounded-full font-extrabold">Speech Engine</span>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Text to Speech Converter</h3>
             <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
               Read any text aloud in natural voices with live word-by-word highlighting, speed adjustment, and zero delay.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
             <a href="text-to-speech.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
           </div>
         </div>
@@ -336,12 +345,12 @@
         <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="audio" data-title="Text to MP3 Converter Download Audio WAV Audio Downloader TTS">
           <div class="space-y-3">
             <span class="bg-emerald-100 text-emerald-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Audio Downloader</span>
-            <h3 class="text-xl font-black text-[#183153] group-hover:text-[#146ebe]">Text to MP3 Converter</h3>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Text to MP3 Converter</h3>
             <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
               Synthesize text directly into downloadable MP3 or WAV audio tracks with client-side progress encoding.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
             <a href="text-to-mp3.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
           </div>
         </div>
@@ -350,12 +359,12 @@
         <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="audio" data-title="AI Voice Generator Avatars Waveform Visualizer Realistic Voiceover Studio">
           <div class="space-y-3">
             <span class="bg-purple-100 text-purple-800 text-[11px] py-1 px-3 rounded-full font-extrabold">AI Studio</span>
-            <h3 class="text-xl font-black text-[#183153] group-hover:text-[#146ebe]">AI Voice Generator</h3>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">AI Voice Generator</h3>
             <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
               Generate lifelike voiceovers using character avatars (Corporate, Storyteller, Casual) with live audio waveforms.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
             <a href="ai-voice-generator.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
           </div>
         </div>
@@ -364,12 +373,12 @@
         <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="audio" data-title="PDF to Speech Reader Document Audiobook Ebook PDF.js Reader">
           <div class="space-y-3">
             <span class="bg-red-100 text-red-800 text-[11px] py-1 px-3 rounded-full font-extrabold">PDF Reader</span>
-            <h3 class="text-xl font-black text-[#183153] group-hover:text-[#146ebe]">PDF to Speech Reader</h3>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">PDF to Speech Reader</h3>
             <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
               Extract and listen to PDF documents and eBooks read aloud page-by-page in memory with zero cloud uploads.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
             <a href="pdf-to-speech.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
           </div>
         </div>
@@ -378,12 +387,12 @@
         <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="audio" data-title="YouTube Voiceover Generator Video Script Narrator Auto Split Scenes">
           <div class="space-y-3">
             <span class="bg-rose-100 text-rose-800 text-[11px] py-1 px-3 rounded-full font-extrabold">YouTube Narrator</span>
-            <h3 class="text-xl font-black text-[#183153] group-hover:text-[#146ebe]">YouTube Voiceover Generator</h3>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">YouTube Voiceover Generator</h3>
             <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
               Auto-split video scripts into sequential scenes, insert custom pause intervals, and generate master voiceovers.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
             <a href="youtube-voiceover-generator.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
           </div>
         </div>
@@ -392,12 +401,12 @@
         <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="audio" data-title="Urdu Text to Speech اردو آواز جنریٹر Nastaliq Roman Urdu TTS">
           <div class="space-y-3">
             <span class="bg-emerald-100 text-emerald-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Urdu TTS</span>
-            <h3 class="text-xl font-black text-[#183153] group-hover:text-[#146ebe]">Urdu Text to Speech (اردو آواز)</h3>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Urdu Text to Speech (اردو آواز)</h3>
             <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
               Authentic Pakistani Urdu voice engine supporting Urdu script, Nastaliq typography, and Roman Urdu.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
             <a href="urdu-text-to-speech.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
           </div>
         </div>
@@ -406,12 +415,12 @@
         <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="compression" data-title="Image Compressor Online Reduce JPG PNG WebP Size Photo Optimizer">
           <div class="space-y-3">
             <span class="bg-emerald-100 text-emerald-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Compression</span>
-            <h3 class="text-xl font-black text-[#183153] group-hover:text-[#146ebe]">Image Compressor</h3>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Image Compressor</h3>
             <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
               Compress JPG, PNG, and WebP images up to 90% without visible quality loss. Instant live before/after comparison.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
             <a href="image-compressor.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
           </div>
         </div>
@@ -420,12 +429,12 @@
         <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="compression" data-title="JPG Compressor Reduce JPG JPEG File Size Online Free">
           <div class="space-y-3">
             <span class="bg-amber-100 text-amber-800 text-[11px] py-1 px-3 rounded-full font-extrabold">JPG Engine</span>
-            <h3 class="text-xl font-black text-[#183153] group-hover:text-[#146ebe]">JPG Compressor</h3>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">JPG Compressor</h3>
             <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
               Fine-tune lossy JPEG quantization (60%–95%), resize large dimensions, or convert photos directly to WebP.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
             <a href="jpg-compressor.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
           </div>
         </div>
@@ -434,12 +443,12 @@
         <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="compression" data-title="PDF Compressor Online Reduce PDF File Size Free Client-Side DPI">
           <div class="space-y-3">
             <span class="bg-red-100 text-red-800 text-[11px] py-1 px-3 rounded-full font-extrabold">PDF Engine</span>
-            <h3 class="text-xl font-black text-[#183153] group-hover:text-[#146ebe]">Client-Side PDF Compressor</h3>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Client-Side PDF Compressor</h3>
             <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
               Compress multi-page PDF documents locally in your browser. DPI presets for email delivery and portals.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
             <a href="pdf-compressor.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
           </div>
         </div>
@@ -448,12 +457,12 @@
         <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="developer" data-title="HTML Minifier Minify HTML Online Free Code Compressor">
           <div class="space-y-3">
             <span class="bg-orange-100 text-orange-800 text-[11px] py-1 px-3 rounded-full font-extrabold">HTML5</span>
-            <h3 class="text-xl font-black text-[#183153] group-hover:text-[#146ebe]">HTML Minifier</h3>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">HTML Minifier</h3>
             <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
               Minify HTML markup, strip comments, collapse white-space, and calculate estimated Gzip savings.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
             <a href="html-minifier.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
           </div>
         </div>
@@ -462,12 +471,12 @@
         <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="ecommerce" data-title="Etsy Fee Calculator Profit Listing Transaction Offsite Ads Net Margin">
           <div class="space-y-3">
             <span class="bg-orange-100 text-orange-800 text-[11px] py-1 px-3 rounded-full font-extrabold">E-Commerce</span>
-            <h3 class="text-xl font-black text-[#183153] group-hover:text-[#146ebe]">Etsy Fee & Profit Calculator</h3>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Etsy Fee & Profit Calculator</h3>
             <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
               Calculate total seller fees, 6.5% transaction cut, country payment processing, offsite ads, and net profit.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
             <a href="etsy-fee-calculator.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
           </div>
         </div>
@@ -476,12 +485,12 @@
         <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="ecommerce" data-title="Amazon FBA Dimensional Weight Size Tier Checker Divisor 139 Fulfillment Fee">
           <div class="space-y-3">
             <span class="bg-amber-100 text-amber-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Amazon FBA</span>
-            <h3 class="text-xl font-black text-[#183153] group-hover:text-[#146ebe]">Amazon FBA Dim Weight Checker</h3>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Amazon FBA Dim Weight Checker</h3>
             <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
               Determine billable shipping weight vs scale weight ($L \times W \times H / 139$) and detect Amazon size tiers.
             </p>
           </div>
-          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
             <a href="amazon-fba-calculator.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
           </div>
         </div>
@@ -496,7 +505,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script>
     function renderCatalogGrid() {
       const grid = document.getElementById('toolsGrid');
@@ -552,7 +561,7 @@
               <div class="flex items-start justify-between gap-3">
                 <!-- Precision Vector Icon Container -->
                 <div class="w-12 h-12 rounded-2xl ${iconBg} border flex items-center justify-center text-xl shadow-2xs group-hover:scale-110 group-hover:-rotate-3 group-hover:shadow-md transition-all duration-300 shrink-0">
-                  <i class="fa-solid ${tool.icon} ${tool.color || 'text-[#146ebe]'}"></i>
+                  <i class="fa-solid ${tool.icon} ${tool.color || 'text-[#c27803]'}"></i>
                 </div>
 
                 <!-- Badges -->
@@ -567,9 +576,9 @@
 
               <!-- Tool Title & Description -->
               <div class="space-y-1.5">
-                <h3 class="text-lg sm:text-xl font-black text-[#183153] group-hover:text-[#146ebe] transition-colors flex items-center justify-between gap-2">
+                <h3 class="text-lg sm:text-xl font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors flex items-center justify-between gap-2">
                   <span>${tool.name}</span>
-                  <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-[#146ebe] transition-colors"></i>
+                  <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-[#c27803] transition-colors"></i>
                 </h3>
                 <p class="text-slate-600 text-xs font-medium leading-relaxed">
                   ${toolDesc}

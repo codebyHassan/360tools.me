@@ -16,21 +16,21 @@
   <link rel="canonical" href="https://360tools.me/invoice-generator.html">
 
   <!-- Favicon & Open Graph -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/invoice-generator.html">
   <meta property="og:title" content="Free Invoice Generator — Online PDF Invoice Maker | 360Tools">
   <meta property="og:description"
     content="Professional free online invoice generator on 360Tools. Create, customize, and export printable A4 PDF invoices instantly in browser.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Twitter Card Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Free Online Invoice Generator & PDF Maker | 360Tools">
   <meta name="twitter:description"
     content="100% Private, client-side online invoice generator on 360Tools. Logo upload, multi-currency, and printable A4 themes.">
-  <meta name="twitter:image" content="images/logo.jpg">
+  <meta name="twitter:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data: WebApplication Schema -->
   <script type="application/ld+json">
@@ -169,13 +169,20 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
   <!-- Master Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     /* ==========================================================================
@@ -395,13 +402,13 @@
 </head>
 
 <body
-  class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#f8fafc]">
+  class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] bg-[#fbf7ee]">
 
   <!-- Top Global Announcement Banner -->
   <div
-    class="no-print bg-[#183153] text-white text-xs py-2 px-4 text-center font-semibold border-b border-[#25406b] hidden sm:flex items-center justify-center gap-2">
+    class="no-print bg-[#3e2723] text-white text-xs py-2 px-4 text-center font-semibold border-b border-[#ded2be] hidden sm:flex items-center justify-center gap-2">
     <span
-      class="bg-[#ffd43b] text-[#183153] px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wide">New
+      class="bg-[#ffd43b] text-[#3e2723] px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wide">New
       Module</span>
     <span>100% Client-Side Free Online Invoice Generator & PDF Exporter</span>
     <a href="index.html" class="text-[#ffd43b] hover:underline font-bold ml-1 inline-flex items-center gap-1">All Tools
@@ -410,7 +417,7 @@
 
   <!-- Centralized Pure JS Header Injection -->
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Content Wrapper -->
   <main class="max-w-7xl mx-auto w-full px-4 sm:px-6 py-4 flex-grow">
@@ -420,10 +427,10 @@
 
       <!-- Breadcrumb Navigation -->
       <nav class="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-3" aria-label="Breadcrumb">
-        <a href="index.html" class="hover:text-[#146ebe] flex items-center gap-1"><i
+        <a href="index.html" class="hover:text-[#c27803] flex items-center gap-1"><i
             class="fa-solid fa-house text-[10px]"></i> Home</a>
         <span>/</span>
-        <a href="ecommerce-tools.html" class="hover:text-[#146ebe]">E-Commerce & Finance</a>
+        <a href="ecommerce-tools.html" class="hover:text-[#c27803]">E-Commerce & Finance</a>
         <span>/</span>
         <span class="text-slate-700 font-bold">Invoice Generator</span>
       </nav>
@@ -435,7 +442,7 @@
             <span class="fa-badge-blue"><i class="fa-solid fa-file-invoice-dollar"></i> Private & Free</span>
             <span class="text-xs text-slate-400 font-bold">• 100% In-Browser Engine</span>
           </div>
-          <h1 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">Free Online Invoice Generator</h1>
+          <h1 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight">Free Online Invoice Generator</h1>
           <p class="text-xs sm:text-sm text-slate-500 font-medium">Create, customize, and export professional PDF
             invoices instantly with zero sign-up.</p>
         </div>
@@ -461,7 +468,7 @@
     <!-- Mobile View Switcher Tabs (Visible on < lg screens) -->
     <div class="no-print mobile-view-tabs lg:hidden flex rounded-xl bg-slate-200 p-1 mb-4 text-xs font-bold">
       <button id="tabBtnEditor" onclick="switchMobileView('editor')"
-        class="flex-1 py-2 rounded-lg text-center bg-white text-[#146ebe] shadow-xs transition-all font-black">
+        class="flex-1 py-2 rounded-lg text-center bg-white text-[#c27803] shadow-xs transition-all font-black">
         <i class="fa-solid fa-pen-to-square mr-1"></i> Edit Invoice
       </button>
       <button id="tabBtnPreview" onclick="switchMobileView('preview')"
@@ -479,8 +486,8 @@
         <!-- Interactive Template Theme Cards Selection Section -->
         <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3.5">
           <div class="flex items-center justify-between">
-            <h2 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
-              <i class="fa-solid fa-layer-group text-[#146ebe]"></i> Select Invoice Template
+            <h2 class="text-sm font-black text-[#3e2723] uppercase tracking-wider flex items-center gap-2">
+              <i class="fa-solid fa-layer-group text-[#c27803]"></i> Select Invoice Template
             </h2>
             <span class="text-[10px] text-slate-400 font-extrabold uppercase">4 Designs</span>
           </div>
@@ -494,7 +501,7 @@
               <div class="flex items-center justify-between mb-2">
                 <div class="flex items-center gap-1.5">
                   <span class="w-3 h-3 rounded-full bg-[#146ebe] inline-block"></span>
-                  <span class="text-xs font-black text-[#183153]">Modern</span>
+                  <span class="text-xs font-black text-[#3e2723]">Modern</span>
                 </div>
                 <div
                   class="check-badge w-4 h-4 rounded-full bg-[#146ebe] text-white flex items-center justify-center text-[9px]">
@@ -513,8 +520,8 @@
               class="theme-card cursor-pointer p-3 rounded-xl border-2 border-slate-200 hover:border-blue-300 relative bg-white">
               <div class="flex items-center justify-between mb-2">
                 <div class="flex items-center gap-1.5">
-                  <span class="w-3 h-3 rounded-full bg-[#183153] inline-block"></span>
-                  <span class="text-xs font-black text-[#183153]">Corporate</span>
+                  <span class="w-3 h-3 rounded-full bg-[#3e2723] inline-block"></span>
+                  <span class="text-xs font-black text-[#3e2723]">Corporate</span>
                 </div>
                 <div
                   class="check-badge hidden w-4 h-4 rounded-full bg-[#146ebe] text-white flex items-center justify-center text-[9px]">
@@ -522,7 +529,7 @@
                 </div>
               </div>
               <div
-                class="h-7 rounded-lg bg-[#183153] p-1 flex items-center justify-between text-[9px] font-bold text-white">
+                class="h-7 rounded-lg bg-[#3e2723] p-1 flex items-center justify-between text-[9px] font-bold text-white">
                 <span class="font-black text-[8px] uppercase">Header</span>
                 <span class="text-slate-300">Navy Band</span>
               </div>
@@ -534,7 +541,7 @@
               <div class="flex items-center justify-between mb-2">
                 <div class="flex items-center gap-1.5">
                   <span class="w-3 h-3 rounded-full bg-[#20c997] inline-block"></span>
-                  <span class="text-xs font-black text-[#183153]">Compact</span>
+                  <span class="text-xs font-black text-[#3e2723]">Compact</span>
                 </div>
                 <div
                   class="check-badge hidden w-4 h-4 rounded-full bg-[#146ebe] text-white flex items-center justify-center text-[9px]">
@@ -554,7 +561,7 @@
               <div class="flex items-center justify-between mb-2">
                 <div class="flex items-center gap-1.5">
                   <span class="w-3 h-3 rounded-full bg-[#334155] inline-block"></span>
-                  <span class="text-xs font-black text-[#183153]">Executive</span>
+                  <span class="text-xs font-black text-[#3e2723]">Executive</span>
                 </div>
                 <div
                   class="check-badge hidden w-4 h-4 rounded-full bg-[#146ebe] text-white flex items-center justify-center text-[9px]">
@@ -589,7 +596,7 @@
 
         <!-- Seller / Business Info Card -->
         <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-          <h2 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
+          <h2 class="text-sm font-black text-[#3e2723] uppercase tracking-wider flex items-center gap-2">
             <i class="fa-solid fa-building text-purple-600"></i> Business Details (Your Company)
           </h2>
 
@@ -637,7 +644,7 @@
 
         <!-- Client Info Card -->
         <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-          <h2 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
+          <h2 class="text-sm font-black text-[#3e2723] uppercase tracking-wider flex items-center gap-2">
             <i class="fa-solid fa-user-tie text-emerald-600"></i> Client Info (Billed To)
           </h2>
 
@@ -653,7 +660,7 @@
 
         <!-- Invoice Details & Metadata -->
         <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-          <h2 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
+          <h2 class="text-sm font-black text-[#3e2723] uppercase tracking-wider flex items-center gap-2">
             <i class="fa-solid fa-calendar-days text-indigo-600"></i> Invoice Dates & Number
           </h2>
 
@@ -682,11 +689,11 @@
         <!-- Line Items Editor -->
         <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
           <div class="flex items-center justify-between">
-            <h2 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
+            <h2 class="text-sm font-black text-[#3e2723] uppercase tracking-wider flex items-center gap-2">
               <i class="fa-solid fa-list-check text-amber-600"></i> Line Items
             </h2>
             <button onclick="addLineItem()"
-              class="text-xs font-bold text-[#146ebe] hover:bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-200 transition-all cursor-pointer">
+              class="text-xs font-bold text-[#c27803] hover:bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-200 transition-all cursor-pointer">
               <i class="fa-solid fa-plus mr-1"></i> Add Line
             </button>
           </div>
@@ -698,7 +705,7 @@
 
         <!-- Adjustments (Tax, Discount, Shipping) -->
         <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-          <h2 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
+          <h2 class="text-sm font-black text-[#3e2723] uppercase tracking-wider flex items-center gap-2">
             <i class="fa-solid fa-calculator text-rose-600"></i> Tax, Discount & Fees
           </h2>
 
@@ -723,7 +730,7 @@
 
         <!-- Payment Notes / Instructions -->
         <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
-          <h2 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
+          <h2 class="text-sm font-black text-[#3e2723] uppercase tracking-wider flex items-center gap-2">
             <i class="fa-solid fa-note-sticky text-teal-600"></i> Payment Terms & Notes
           </h2>
           <textarea id="inputNotes" rows="3"
@@ -759,7 +766,7 @@
                   <div id="sheetLogoWrapper" class="mb-3 hidden">
                     <img id="sheetLogo" src="" alt="Company Logo" class="max-h-14 max-w-[180px] object-contain">
                   </div>
-                  <h1 id="sheetSellerName" class="text-2xl font-black text-[#183153] tracking-tight">Your Company Name
+                  <h1 id="sheetSellerName" class="text-2xl font-black text-[#3e2723] tracking-tight">Your Company Name
                   </h1>
                   <p id="sheetSellerAddress" class="text-xs text-slate-500 font-medium leading-relaxed mt-1">Street
                     Address, City, Country</p>
@@ -770,7 +777,7 @@
 
                 <div class="text-right">
                   <span
-                    class="inline-block px-3 py-1 bg-blue-50 text-[#146ebe] text-xs font-black rounded-full uppercase tracking-wider mb-2">INVOICE</span>
+                    class="inline-block px-3 py-1 bg-blue-50 text-[#c27803] text-xs font-black rounded-full uppercase tracking-wider mb-2">INVOICE</span>
                   <div class="text-xs font-bold text-slate-700 space-y-0.5">
                     <p><span class="text-slate-400">Invoice #:</span> <span id="sheetInvNumber"
                         class="text-slate-900 font-black">INV-2026-001</span></p>
@@ -783,9 +790,9 @@
 
               <!-- Billed To Section -->
               <div class="p-4 rounded-xl theme-accent-bg border border-slate-100/80">
-                <span class="text-[10px] font-black text-[#146ebe] uppercase tracking-wider block mb-1">Billed To /
+                <span class="text-[10px] font-black text-[#c27803] uppercase tracking-wider block mb-1">Billed To /
                   Customer:</span>
-                <h3 id="sheetClientName" class="text-base font-black text-[#183153]">Client Name</h3>
+                <h3 id="sheetClientName" class="text-base font-black text-[#3e2723]">Client Name</h3>
                 <p id="sheetClientEmail" class="text-xs text-slate-600 font-medium">client@example.com</p>
                 <p id="sheetClientAddress" class="text-xs text-slate-500 font-medium mt-0.5">Client Address Here</p>
               </div>
@@ -839,9 +846,9 @@
                     <span id="sheetShippingTotal" class="font-mono">$0.00</span>
                   </div>
                   <div
-                    class="border-t border-slate-200 pt-2 mt-2 flex items-center justify-between text-base font-black text-[#183153]">
+                    class="border-t border-slate-200 pt-2 mt-2 flex items-center justify-between text-base font-black text-[#3e2723]">
                     <span>Grand Total:</span>
-                    <span id="sheetGrandTotal" class="text-[#146ebe] font-mono">$0.00</span>
+                    <span id="sheetGrandTotal" class="text-[#c27803] font-mono">$0.00</span>
                   </div>
                 </div>
 
@@ -868,7 +875,7 @@
               <span class="fa-badge-blue"><i class="fa-solid fa-play"></i> Video Tutorial & Community</span>
               <span class="text-xs text-slate-400 font-bold">• Step-by-Step Walkthrough</span>
             </div>
-            <h2 class="text-xl sm:text-2xl font-black text-[#183153] tracking-tight">
+            <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] tracking-tight">
               Watch How It Works & Community Highlights
             </h2>
             <p class="text-xs sm:text-sm text-slate-500 font-medium">
@@ -888,7 +895,7 @@
                   <i class="fa-brands fa-youtube"></i>
                 </div>
                 <div>
-                  <h3 class="text-sm sm:text-base font-black text-[#183153]">Interactive Video Walkthrough</h3>
+                  <h3 class="text-sm sm:text-base font-black text-[#3e2723]">Interactive Video Walkthrough</h3>
                   <p class="text-[11px] text-slate-400 font-bold">Step-by-step invoice creation & PDF export</p>
                 </div>
               </div>
@@ -913,7 +920,7 @@
             <!-- Video Quick Takeaways Grid -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-slate-100 text-[11px]">
               <div class="p-2 rounded-xl bg-slate-50 border border-slate-200/60 text-slate-600 font-bold flex flex-col gap-0.5">
-                <span class="text-[#146ebe] font-black"><i class="fa-solid fa-palette mr-1"></i> 4 Themes</span>
+                <span class="text-[#c27803] font-black"><i class="fa-solid fa-palette mr-1"></i> 4 Themes</span>
                 <span class="text-[10px] text-slate-400">Custom layouts</span>
               </div>
               <div class="p-2 rounded-xl bg-slate-50 border border-slate-200/60 text-slate-600 font-bold flex flex-col gap-0.5">
@@ -942,7 +949,7 @@
                     <i class="fa-brands fa-facebook"></i>
                   </div>
                   <div>
-                    <h3 class="text-xs sm:text-sm font-black text-[#183153]">Facebook Community Post</h3>
+                    <h3 class="text-xs sm:text-sm font-black text-[#3e2723]">Facebook Community Post</h3>
                     <p class="text-[10px] text-slate-400 font-bold">@360tools.me on Facebook</p>
                   </div>
                 </div>
@@ -977,7 +984,7 @@
                     <i class="fa-brands fa-instagram"></i>
                   </div>
                   <div>
-                    <h3 class="text-xs sm:text-sm font-black text-[#183153]">Instagram Feature Highlight</h3>
+                    <h3 class="text-xs sm:text-sm font-black text-[#3e2723]">Instagram Feature Highlight</h3>
                     <p class="text-[10px] text-slate-400 font-bold">@360tools.me on Instagram</p>
                   </div>
                 </div>
@@ -1012,10 +1019,10 @@
       <!-- 1. Feature Highlights Cards -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="fa-card p-6 border-l-4 border-[#146ebe] space-y-2">
-          <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center text-lg font-black">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#c27803] flex items-center justify-center text-lg font-black">
             <i class="fa-solid fa-shield-halved"></i>
           </div>
-          <h3 class="text-base font-black text-[#183153]">100% In-Browser Privacy</h3>
+          <h3 class="text-base font-black text-[#3e2723]">100% In-Browser Privacy</h3>
           <p class="text-xs text-slate-600 leading-relaxed">
             All invoice details, rates, tax calculations, and uploaded company logos are processed entirely inside your local browser. Zero financial data ever reaches a remote server.
           </p>
@@ -1025,7 +1032,7 @@
           <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg font-black">
             <i class="fa-solid fa-file-pdf"></i>
           </div>
-          <h3 class="text-base font-black text-[#183153]">Pixel-Perfect A4 PDF Export</h3>
+          <h3 class="text-base font-black text-[#3e2723]">Pixel-Perfect A4 PDF Export</h3>
           <p class="text-xs text-slate-600 leading-relaxed">
             Optimized with native CSS print rules formatted specifically for standard 210mm × 297mm A4 sheets. Print or download high-resolution PDFs without watermarks or subscription walls.
           </p>
@@ -1035,7 +1042,7 @@
           <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-lg font-black">
             <i class="fa-solid fa-globe"></i>
           </div>
-          <h3 class="text-base font-black text-[#183153]">Multi-Currency & Tax Support</h3>
+          <h3 class="text-base font-black text-[#3e2723]">Multi-Currency & Tax Support</h3>
           <p class="text-xs text-slate-600 leading-relaxed">
             Bill international clients in USD, EUR, GBP, PKR, INR, CAD, AUD, AED, or SAR with dynamic subtotal, custom Tax/VAT, percentage discounts, and shipping adjustments.
           </p>
@@ -1046,7 +1053,7 @@
       <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm space-y-8">
         <div>
           <span class="fa-badge-blue py-1 px-3 text-xs font-black uppercase tracking-wider mb-2">Freelancer & Business Guide</span>
-          <h2 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight mt-2">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight mt-2">
             The Complete Guide to Creating Professional, Legally Compliant Invoices
           </h2>
           <p class="text-slate-600 text-sm leading-relaxed mt-2">
@@ -1056,7 +1063,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs text-slate-600 leading-relaxed">
           <div class="space-y-4">
-            <h3 class="text-sm font-black text-[#183153] flex items-center gap-2">
+            <h3 class="text-sm font-black text-[#3e2723] flex items-center gap-2">
               <i class="fa-solid fa-circle-check text-emerald-500"></i> Essential Elements of a Valid Invoice
             </h3>
             <ul class="space-y-2 list-disc list-inside">
@@ -1068,7 +1075,7 @@
           </div>
 
           <div class="space-y-4">
-            <h3 class="text-sm font-black text-[#183153] flex items-center gap-2">
+            <h3 class="text-sm font-black text-[#3e2723] flex items-center gap-2">
               <i class="fa-solid fa-bolt text-amber-500"></i> 4 Proven Invoicing Strategies to Get Paid 2x Faster
             </h3>
             <ul class="space-y-2 list-disc list-inside">
@@ -1082,13 +1089,13 @@
 
         <!-- Comparison Table: 360tools vs Cloud Invoicing Software -->
         <div class="pt-6 border-t border-slate-100">
-          <h3 class="text-sm font-black text-[#183153] mb-4">Comparison: Free Client-Side Invoicing vs Subscription Accounting SaaS</h3>
+          <h3 class="text-sm font-black text-[#3e2723] mb-4">Comparison: Free Client-Side Invoicing vs Subscription Accounting SaaS</h3>
           <div class="overflow-x-auto">
             <table class="w-full text-left border-collapse text-xs">
               <thead>
-                <tr class="bg-slate-50 text-[#183153] border-b border-slate-200 font-black">
+                <tr class="bg-slate-50 text-[#3e2723] border-b border-slate-200 font-black">
                   <th class="py-3 px-4">Feature / Benefit</th>
-                  <th class="py-3 px-4 text-[#146ebe]">360tools Invoice Maker</th>
+                  <th class="py-3 px-4 text-[#c27803]">360tools Invoice Maker</th>
                   <th class="py-3 px-4 text-slate-500">Traditional Cloud SaaS (QuickBooks / FreshBooks)</th>
                 </tr>
               </thead>
@@ -1123,15 +1130,15 @@
       <div class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm space-y-6">
         <div class="text-center max-w-2xl mx-auto space-y-1">
           <span class="fa-badge-blue py-1 px-3 text-xs font-black uppercase tracking-wider">Frequently Asked Questions</span>
-          <h2 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">Everything You Need to Know About Invoicing</h2>
+          <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight">Everything You Need to Know About Invoicing</h2>
           <p class="text-xs text-slate-500 font-medium">Quick answers to common questions about creating, formatting, and printing invoices on 360tools.</p>
         </div>
 
         <div class="space-y-3 max-w-4xl mx-auto">
           
           <details class="group bg-slate-50 p-4 rounded-2xl border border-slate-200 transition-all cursor-pointer open:bg-blue-50/40 open:border-blue-200">
-            <summary class="flex items-center justify-between font-bold text-xs sm:text-sm text-[#183153] list-none">
-              <span class="flex items-center gap-2.5"><i class="fa-solid fa-circle-question text-[#146ebe]"></i> Is the 360tools Invoice Generator completely free with no watermarks?</span>
+            <summary class="flex items-center justify-between font-bold text-xs sm:text-sm text-[#3e2723] list-none">
+              <span class="flex items-center gap-2.5"><i class="fa-solid fa-circle-question text-[#c27803]"></i> Is the 360tools Invoice Generator completely free with no watermarks?</span>
               <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
             </summary>
             <p class="text-xs text-slate-600 leading-relaxed mt-3 pl-6">
@@ -1140,8 +1147,8 @@
           </details>
 
           <details class="group bg-slate-50 p-4 rounded-2xl border border-slate-200 transition-all cursor-pointer open:bg-blue-50/40 open:border-blue-200">
-            <summary class="flex items-center justify-between font-bold text-xs sm:text-sm text-[#183153] list-none">
-              <span class="flex items-center gap-2.5"><i class="fa-solid fa-circle-question text-[#146ebe]"></i> How do I download or save my invoice as a clean PDF?</span>
+            <summary class="flex items-center justify-between font-bold text-xs sm:text-sm text-[#3e2723] list-none">
+              <span class="flex items-center gap-2.5"><i class="fa-solid fa-circle-question text-[#c27803]"></i> How do I download or save my invoice as a clean PDF?</span>
               <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
             </summary>
             <p class="text-xs text-slate-600 leading-relaxed mt-3 pl-6">
@@ -1150,8 +1157,8 @@
           </details>
 
           <details class="group bg-slate-50 p-4 rounded-2xl border border-slate-200 transition-all cursor-pointer open:bg-blue-50/40 open:border-blue-200">
-            <summary class="flex items-center justify-between font-bold text-xs sm:text-sm text-[#183153] list-none">
-              <span class="flex items-center gap-2.5"><i class="fa-solid fa-circle-question text-[#146ebe]"></i> Where is my business and client data stored?</span>
+            <summary class="flex items-center justify-between font-bold text-xs sm:text-sm text-[#3e2723] list-none">
+              <span class="flex items-center gap-2.5"><i class="fa-solid fa-circle-question text-[#c27803]"></i> Where is my business and client data stored?</span>
               <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
             </summary>
             <p class="text-xs text-slate-600 leading-relaxed mt-3 pl-6">
@@ -1160,8 +1167,8 @@
           </details>
 
           <details class="group bg-slate-50 p-4 rounded-2xl border border-slate-200 transition-all cursor-pointer open:bg-blue-50/40 open:border-blue-200">
-            <summary class="flex items-center justify-between font-bold text-xs sm:text-sm text-[#183153] list-none">
-              <span class="flex items-center gap-2.5"><i class="fa-solid fa-circle-question text-[#146ebe]"></i> What currencies and international tax systems are supported?</span>
+            <summary class="flex items-center justify-between font-bold text-xs sm:text-sm text-[#3e2723] list-none">
+              <span class="flex items-center gap-2.5"><i class="fa-solid fa-circle-question text-[#c27803]"></i> What currencies and international tax systems are supported?</span>
               <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
             </summary>
             <p class="text-xs text-slate-600 leading-relaxed mt-3 pl-6">
@@ -1170,8 +1177,8 @@
           </details>
 
           <details class="group bg-slate-50 p-4 rounded-2xl border border-slate-200 transition-all cursor-pointer open:bg-blue-50/40 open:border-blue-200">
-            <summary class="flex items-center justify-between font-bold text-xs sm:text-sm text-[#183153] list-none">
-              <span class="flex items-center gap-2.5"><i class="fa-solid fa-circle-question text-[#146ebe]"></i> Can I upload my company branding and logo?</span>
+            <summary class="flex items-center justify-between font-bold text-xs sm:text-sm text-[#3e2723] list-none">
+              <span class="flex items-center gap-2.5"><i class="fa-solid fa-circle-question text-[#c27803]"></i> Can I upload my company branding and logo?</span>
               <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
             </summary>
             <p class="text-xs text-slate-600 leading-relaxed mt-3 pl-6">
@@ -1180,8 +1187,8 @@
           </details>
 
           <details class="group bg-slate-50 p-4 rounded-2xl border border-slate-200 transition-all cursor-pointer open:bg-blue-50/40 open:border-blue-200">
-            <summary class="flex items-center justify-between font-bold text-xs sm:text-sm text-[#183153] list-none">
-              <span class="flex items-center gap-2.5"><i class="fa-solid fa-circle-question text-[#146ebe]"></i> What are standard invoice payment terms like Net 15 and Net 30?</span>
+            <summary class="flex items-center justify-between font-bold text-xs sm:text-sm text-[#3e2723] list-none">
+              <span class="flex items-center gap-2.5"><i class="fa-solid fa-circle-question text-[#c27803]"></i> What are standard invoice payment terms like Net 15 and Net 30?</span>
               <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
             </summary>
             <p class="text-xs text-slate-600 leading-relaxed mt-3 pl-6">
@@ -1196,10 +1203,10 @@
       <div class="space-y-4">
         <div class="flex items-center justify-between">
           <div>
-            <h3 class="text-lg font-black text-[#183153]">Explore Related E-Commerce & Financial Calculators</h3>
+            <h3 class="text-lg font-black text-[#3e2723]">Explore Related E-Commerce & Financial Calculators</h3>
             <p class="text-xs text-slate-500 font-medium">Free, browser-based financial utilities for online sellers, freelancers, and investors.</p>
           </div>
-          <a href="ecommerce-tools.html" class="text-xs font-black text-[#146ebe] hover:underline flex items-center gap-1">
+          <a href="ecommerce-tools.html" class="text-xs font-black text-[#c27803] hover:underline flex items-center gap-1">
             <span>View All Business Tools</span>
             <i class="fa-solid fa-arrow-right text-[10px]"></i>
           </a>
@@ -1211,7 +1218,7 @@
             <div class="w-8 h-8 rounded-lg bg-orange-50 text-[#f1641e] flex items-center justify-center text-sm font-black">
               <i class="fa-brands fa-etsy"></i>
             </div>
-            <h4 class="text-xs font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">Etsy Fee Calculator</h4>
+            <h4 class="text-xs font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Etsy Fee Calculator</h4>
             <p class="text-[11px] text-slate-500 leading-relaxed">Calculate transaction fees, listing costs, and net seller profit margins.</p>
           </a>
 
@@ -1219,7 +1226,7 @@
             <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-sm font-black">
               <i class="fa-brands fa-amazon"></i>
             </div>
-            <h4 class="text-xs font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">Amazon FBA Dim Weight</h4>
+            <h4 class="text-xs font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Amazon FBA Dim Weight</h4>
             <p class="text-[11px] text-slate-500 leading-relaxed">Check billable dimensional shipping tiers with Divisor 139.</p>
           </a>
 
@@ -1227,7 +1234,7 @@
             <div class="w-8 h-8 rounded-lg bg-pink-50 text-pink-600 flex items-center justify-center text-sm font-black">
               <i class="fa-brands fa-tiktok"></i>
             </div>
-            <h4 class="text-xs font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">TikTok Shop Payout</h4>
+            <h4 class="text-xs font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">TikTok Shop Payout</h4>
             <p class="text-[11px] text-slate-500 leading-relaxed">Estimate affiliate commissions, referral fees, and net bank payouts.</p>
           </a>
 
@@ -1235,7 +1242,7 @@
             <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center text-sm font-black">
               <i class="fa-solid fa-percent"></i>
             </div>
-            <h4 class="text-xs font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">EU VAT OSS Calculator</h4>
+            <h4 class="text-xs font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">EU VAT OSS Calculator</h4>
             <p class="text-[11px] text-slate-500 leading-relaxed">Compute standard cross-border VAT rates across 27 EU member states.</p>
           </a>
 
@@ -1249,7 +1256,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Master Shared JS Script -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
 
   <!-- Invoice Engine Script -->
             <script>
@@ -1603,12 +1610,12 @@
                 if (view === 'editor') {
                   editor.classList.remove('hidden');
                   preview.classList.add('hidden');
-                  btnEdit.className = 'flex-1 py-2 rounded-lg text-center bg-white text-[#146ebe] shadow-xs transition-all font-black';
+                  btnEdit.className = 'flex-1 py-2 rounded-lg text-center bg-white text-[#c27803] shadow-xs transition-all font-black';
                   btnPrev.className = 'flex-1 py-2 rounded-lg text-center text-slate-600 transition-all font-bold';
                 } else {
                   editor.classList.add('hidden');
                   preview.classList.remove('hidden');
-                  btnPrev.className = 'flex-1 py-2 rounded-lg text-center bg-white text-[#146ebe] shadow-xs transition-all font-black';
+                  btnPrev.className = 'flex-1 py-2 rounded-lg text-center bg-white text-[#c27803] shadow-xs transition-all font-black';
                   btnEdit.className = 'flex-1 py-2 rounded-lg text-center text-slate-600 transition-all font-bold';
                 }
               }

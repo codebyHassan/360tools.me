@@ -13,20 +13,20 @@
   <link rel="canonical" href="https://360tools.me/video-frame-extractor.html">
 
   <!-- Favicon & Open Graph / Facebook -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/video-frame-extractor.html">
   <meta property="og:title" content="Free Video Frame Extractor Online — Video to Image Sequence | 360tools.me">
   <meta property="og:description" content="Parse and extract high-definition image frames from any video directly in your browser. Download all frames as a ZIP or storyboard contact sheet with zero server uploads.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://360tools.me/video-frame-extractor.html">
   <meta property="twitter:title" content="Video Frame Extractor — 100% Private In-Browser Tool">
   <meta property="twitter:description" content="Convert video to full-resolution PNG/JPG frame sequence. Extract by FPS, interval, or snapshot with instant ZIP archive export.">
-  <meta property="twitter:image" content="images/logo.jpg">
+  <meta property="twitter:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -117,21 +117,28 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- JSZip for Client-Side ZIP Generation -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
@@ -145,7 +152,7 @@
           </span>
           <span class="text-xs font-bold text-slate-400">• 100% Private • Instant ZIP Export • Zero Watermarks</span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
           Video Frame Extractor
         </h1>
         <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
@@ -177,7 +184,7 @@
               <i class="fa-solid fa-file-video"></i>
             </div>
             
-            <h3 class="font-bold text-[#183153] text-base mb-1">
+            <h3 class="font-bold text-[#3e2723] text-base mb-1">
               Drop your video here or <span class="text-indigo-600 underline">browse</span>
             </h3>
             <p class="text-xs text-slate-500 mb-3">
@@ -216,15 +223,15 @@
             <div class="grid grid-cols-3 gap-2 bg-slate-50 rounded-xl p-3 text-center border border-slate-200/70 text-xs">
               <div>
                 <span class="text-slate-400 block text-[10px] font-bold uppercase">Duration</span>
-                <span id="metaDuration" class="font-bold text-[#183153]">--:--</span>
+                <span id="metaDuration" class="font-bold text-[#3e2723]">--:--</span>
               </div>
               <div class="border-x border-slate-200">
                 <span class="text-slate-400 block text-[10px] font-bold uppercase">Resolution</span>
-                <span id="metaResolution" class="font-bold text-[#183153]">-- × --</span>
+                <span id="metaResolution" class="font-bold text-[#3e2723]">-- × --</span>
               </div>
               <div>
                 <span class="text-slate-400 block text-[10px] font-bold uppercase">File Size</span>
-                <span id="metaFileSize" class="font-bold text-[#183153]">-- MB</span>
+                <span id="metaFileSize" class="font-bold text-[#3e2723]">-- MB</span>
               </div>
             </div>
 
@@ -244,7 +251,7 @@
             <i class="fa-solid fa-shield-halved"></i>
           </div>
           <div>
-            <h4 class="text-xs font-black text-[#183153] uppercase tracking-wide">Client-Side Canvas Processing</h4>
+            <h4 class="text-xs font-black text-[#3e2723] uppercase tracking-wide">Client-Side Canvas Processing</h4>
             <p class="text-xs text-slate-600 mt-0.5 leading-relaxed">
               Frames are rendered directly from your browser's video decoder onto HTML5 Canvas elements. Video bytes never leave your machine.
             </p>
@@ -260,7 +267,7 @@
         <div class="fa-card p-6 space-y-6">
           
           <div class="flex items-center justify-between pb-3 border-b border-slate-100">
-            <h2 class="text-lg font-black text-[#183153] flex items-center gap-2">
+            <h2 class="text-lg font-black text-[#3e2723] flex items-center gap-2">
               <i class="fa-solid fa-sliders text-indigo-600"></i> Extraction Configuration
             </h2>
             <span id="estimatedFrameBadge" class="text-xs bg-slate-100 text-slate-700 font-bold px-2.5 py-1 rounded-full border border-slate-200">
@@ -270,7 +277,7 @@
 
           <!-- 1. Extraction Mode Selector -->
           <div class="space-y-3">
-            <label class="block text-xs font-black text-[#183153] uppercase tracking-wider">
+            <label class="block text-xs font-black text-[#3e2723] uppercase tracking-wider">
               Extraction Mode
             </label>
 
@@ -279,7 +286,7 @@
               <label class="relative flex flex-col p-3 border-2 rounded-xl cursor-pointer transition-all has-[:checked]:border-indigo-600 has-[:checked]:bg-indigo-50/40 border-slate-200 hover:border-slate-300">
                 <input type="radio" name="extractionMode" value="fps" checked onchange="updateModeUI()" class="sr-only">
                 <div class="flex items-center justify-between mb-1">
-                  <span class="font-bold text-xs text-[#183153]">Frame Rate (FPS)</span>
+                  <span class="font-bold text-xs text-[#3e2723]">Frame Rate (FPS)</span>
                   <i class="fa-solid fa-gauge-high text-indigo-600"></i>
                 </div>
                 <span class="text-[11px] text-slate-500">e.g. 1 frame/sec, 5 fps, or every single frame</span>
@@ -289,7 +296,7 @@
               <label class="relative flex flex-col p-3 border-2 rounded-xl cursor-pointer transition-all has-[:checked]:border-indigo-600 has-[:checked]:bg-indigo-50/40 border-slate-200 hover:border-slate-300">
                 <input type="radio" name="extractionMode" value="interval" onchange="updateModeUI()" class="sr-only">
                 <div class="flex items-center justify-between mb-1">
-                  <span class="font-bold text-xs text-[#183153]">Time Interval</span>
+                  <span class="font-bold text-xs text-[#3e2723]">Time Interval</span>
                   <i class="fa-solid fa-stopwatch text-indigo-600"></i>
                 </div>
                 <span class="text-[11px] text-slate-500">e.g. 1 frame every 0.5s, 1s, 2s, or 5s</span>
@@ -299,7 +306,7 @@
               <label class="relative flex flex-col p-3 border-2 rounded-xl cursor-pointer transition-all has-[:checked]:border-indigo-600 has-[:checked]:bg-indigo-50/40 border-slate-200 hover:border-slate-300">
                 <input type="radio" name="extractionMode" value="total" onchange="updateModeUI()" class="sr-only">
                 <div class="flex items-center justify-between mb-1">
-                  <span class="font-bold text-xs text-[#183153]">Total Count</span>
+                  <span class="font-bold text-xs text-[#3e2723]">Total Count</span>
                   <i class="fa-solid fa-images text-indigo-600"></i>
                 </div>
                 <span class="text-[11px] text-slate-500">e.g. Exactly 10, 30, 50, or 100 frames</span>
@@ -313,7 +320,7 @@
             <!-- Parameters: FPS Mode -->
             <div id="paramBoxFps" class="space-y-2">
               <div class="flex items-center justify-between">
-                <label class="text-xs font-bold text-[#183153]" for="fpsPresetSelect">Frames Per Second (FPS):</label>
+                <label class="text-xs font-bold text-[#3e2723]" for="fpsPresetSelect">Frames Per Second (FPS):</label>
                 <span id="fpsValDisplay" class="text-xs font-black text-indigo-600">1 frame/sec</span>
               </div>
               <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -331,7 +338,7 @@
             <!-- Parameters: Time Interval Mode -->
             <div id="paramBoxInterval" class="hidden space-y-2">
               <div class="flex items-center justify-between">
-                <label class="text-xs font-bold text-[#183153]" for="intervalInput">Extract 1 frame every:</label>
+                <label class="text-xs font-bold text-[#3e2723]" for="intervalInput">Extract 1 frame every:</label>
                 <span id="intervalValDisplay" class="text-xs font-black text-indigo-600">1.0 second</span>
               </div>
               <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -349,7 +356,7 @@
             <!-- Parameters: Total Count Mode -->
             <div id="paramBoxTotal" class="hidden space-y-2">
               <div class="flex items-center justify-between">
-                <label class="text-xs font-bold text-[#183153]" for="totalCountInput">Total Evenly Spaced Frames:</label>
+                <label class="text-xs font-bold text-[#3e2723]" for="totalCountInput">Total Evenly Spaced Frames:</label>
                 <span id="totalCountValDisplay" class="text-xs font-black text-indigo-600">20 frames</span>
               </div>
               <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -369,7 +376,7 @@
           <!-- 2. Time Range (Full vs Trim Interval) -->
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <label class="text-xs font-black text-[#183153] uppercase tracking-wider">
+              <label class="text-xs font-black text-[#3e2723] uppercase tracking-wider">
                 Video Time Range
               </label>
               <label class="inline-flex items-center gap-1.5 cursor-pointer text-xs font-bold text-indigo-600">
@@ -407,7 +414,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 border-t border-slate-100">
             <!-- Format -->
             <div>
-              <label class="block text-xs font-bold text-[#183153] mb-1.5" for="exportFormat">Image Format</label>
+              <label class="block text-xs font-bold text-[#3e2723] mb-1.5" for="exportFormat">Image Format</label>
               <select id="exportFormat" onchange="handleFormatChange()" class="w-full px-3 py-2 text-xs font-bold border border-slate-300 rounded-lg bg-white">
                 <option value="image/png" selected>PNG (Lossless Quality)</option>
                 <option value="image/jpeg">JPEG (Fast / Small Size)</option>
@@ -417,7 +424,7 @@
 
             <!-- Resolution Scale -->
             <div>
-              <label class="block text-xs font-bold text-[#183153] mb-1.5" for="exportResolution">Output Scale</label>
+              <label class="block text-xs font-bold text-[#3e2723] mb-1.5" for="exportResolution">Output Scale</label>
               <select id="exportResolution" class="w-full px-3 py-2 text-xs font-bold border border-slate-300 rounded-lg bg-white">
                 <option value="1" selected>Original Resolution (100%)</option>
                 <option value="1080">Scale to 1080p Full HD</option>
@@ -430,7 +437,7 @@
 
             <!-- JPEG Quality (visible when JPG selected) -->
             <div id="jpgQualityBox" class="space-y-1">
-              <div class="flex items-center justify-between text-xs font-bold text-[#183153]">
+              <div class="flex items-center justify-between text-xs font-bold text-[#3e2723]">
                 <span>Quality</span>
                 <span id="jpgQualityVal">90%</span>
               </div>
@@ -466,7 +473,7 @@
 
             <!-- Progress Bar Card -->
             <div id="extractionProgressBox" class="hidden bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
-              <div class="flex items-center justify-between text-xs font-bold text-[#183153]">
+              <div class="flex items-center justify-between text-xs font-bold text-[#3e2723]">
                 <span id="progressStatusText"><i class="fa-solid fa-spinner fa-spin mr-1 text-indigo-600"></i> Parsing video frames...</span>
                 <span id="progressPercentText" class="text-indigo-600">0%</span>
               </div>
@@ -498,7 +505,7 @@
             <i class="fa-solid fa-images"></i>
           </div>
           <div>
-            <h3 class="text-base sm:text-lg font-black text-[#183153]">
+            <h3 class="text-base sm:text-lg font-black text-[#3e2723]">
               Extracted Frames Gallery (<span id="totalExtractedCount">0</span>)
             </h3>
             <p class="text-xs text-slate-500">
@@ -549,7 +556,7 @@
         <div class="w-16 h-16 mx-auto bg-slate-100 text-slate-400 rounded-2xl flex items-center justify-center text-2xl mb-3">
           <i class="fa-solid fa-photo-film"></i>
         </div>
-        <h4 class="font-bold text-[#183153] text-base mb-1">No Frames Extracted Yet</h4>
+        <h4 class="font-bold text-[#3e2723] text-base mb-1">No Frames Extracted Yet</h4>
         <p class="text-xs text-slate-500 max-w-md mx-auto">
           Upload a video and click "Extract Frames" or capture a snapshot with the video player above to parse image frames.
         </p>
@@ -686,7 +693,7 @@
       <div class="max-w-4xl mx-auto space-y-12">
         
         <div class="text-center">
-          <h2 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight">
             How In-Browser Video Frame Parsing Works
           </h2>
           <p class="text-slate-600 text-sm sm:text-base mt-2">
@@ -700,7 +707,7 @@
             <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg mb-3">
               <i class="fa-solid fa-bolt"></i>
             </div>
-            <h4 class="font-bold text-[#183153] text-sm mb-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2">
               High-Speed Canvas Decoding
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -712,7 +719,7 @@
             <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg mb-3">
               <i class="fa-solid fa-lock"></i>
             </div>
-            <h4 class="font-bold text-[#183153] text-sm mb-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2">
               100% Private & Confidential
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -724,7 +731,7 @@
             <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg mb-3">
               <i class="fa-solid fa-file-zipper"></i>
             </div>
-            <h4 class="font-bold text-[#183153] text-sm mb-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2">
               Instant ZIP & Storyboard
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -735,14 +742,14 @@
 
         <!-- Step-by-Step Guide -->
         <div class="fa-card p-6 sm:p-8 space-y-6">
-          <h3 class="text-xl font-black text-[#183153] flex items-center gap-2">
+          <h3 class="text-xl font-black text-[#3e2723] flex items-center gap-2">
             <i class="fa-solid fa-list-check text-indigo-600"></i> How to Extract Frames from Video (Step-by-Step)
           </h3>
 
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/70">
               <span class="w-7 h-7 bg-indigo-600 text-white rounded-full flex items-center justify-center font-black text-xs mb-3">1</span>
-              <h5 class="font-bold text-xs text-[#183153] mb-1">Upload Video File</h5>
+              <h5 class="font-bold text-xs text-[#3e2723] mb-1">Upload Video File</h5>
               <p class="text-[11px] text-slate-600 leading-relaxed">
                 Drag and drop your MP4, WebM, MOV, or MKV video into the drop zone, or use the "Generate Sample Video" button to test.
               </p>
@@ -750,7 +757,7 @@
 
             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/70">
               <span class="w-7 h-7 bg-indigo-600 text-white rounded-full flex items-center justify-center font-black text-xs mb-3">2</span>
-              <h5 class="font-bold text-xs text-[#183153] mb-1">Choose Extraction Mode</h5>
+              <h5 class="font-bold text-xs text-[#3e2723] mb-1">Choose Extraction Mode</h5>
               <p class="text-[11px] text-slate-600 leading-relaxed">
                 Select your preferred mode: Frame Rate (FPS), Time Interval, Total Frame Count, or snapshot the exact active frame on the player.
               </p>
@@ -758,7 +765,7 @@
 
             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/70">
               <span class="w-7 h-7 bg-indigo-600 text-white rounded-full flex items-center justify-center font-black text-xs mb-3">3</span>
-              <h5 class="font-bold text-xs text-[#183153] mb-1">Download PNG/JPG or ZIP</h5>
+              <h5 class="font-bold text-xs text-[#3e2723] mb-1">Download PNG/JPG or ZIP</h5>
               <p class="text-[11px] text-slate-600 leading-relaxed">
                 Preview your frames in the gallery, copy or download individual images, or export the entire sequence as a ZIP archive.
               </p>
@@ -768,13 +775,13 @@
 
         <!-- FAQ Section -->
         <div class="space-y-4">
-          <h3 class="text-xl font-black text-[#183153] text-center mb-6">
+          <h3 class="text-xl font-black text-[#3e2723] text-center mb-6">
             Frequently Asked Questions
           </h3>
 
           <div class="space-y-3">
             <details class="fa-card p-4 group cursor-pointer">
-              <summary class="font-bold text-sm text-[#183153] list-none flex items-center justify-between">
+              <summary class="font-bold text-sm text-[#3e2723] list-none flex items-center justify-between">
                 <span>Can I extract frames from 4K (2160p) and 60FPS videos?</span>
                 <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
               </summary>
@@ -784,7 +791,7 @@
             </details>
 
             <details class="fa-card p-4 group cursor-pointer">
-              <summary class="font-bold text-sm text-[#183153] list-none flex items-center justify-between">
+              <summary class="font-bold text-sm text-[#3e2723] list-none flex items-center justify-between">
                 <span>What is the difference between PNG and JPEG extraction?</span>
                 <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
               </summary>
@@ -794,7 +801,7 @@
             </details>
 
             <details class="fa-card p-4 group cursor-pointer">
-              <summary class="font-bold text-sm text-[#183153] list-none flex items-center justify-between">
+              <summary class="font-bold text-sm text-[#3e2723] list-none flex items-center justify-between">
                 <span>Can I capture a single frame snapshot at a specific second?</span>
                 <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
               </summary>
@@ -804,7 +811,7 @@
             </details>
 
             <details class="fa-card p-4 group cursor-pointer">
-              <summary class="font-bold text-sm text-[#183153] list-none flex items-center justify-between">
+              <summary class="font-bold text-sm text-[#3e2723] list-none flex items-center justify-between">
                 <span>Is there any limit on video duration or file size?</span>
                 <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
               </summary>
@@ -824,7 +831,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Master Main JS (Header/Footer/Search Registry) -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
 
   <!-- Video Frame Extractor Application Logic -->
   <script>
@@ -1286,7 +1293,7 @@
 
         <!-- Card Footer -->
         <div class="p-2 bg-white flex items-center justify-between text-xs border-t border-slate-100">
-          <span class="font-bold text-[#183153] text-[11px]">#${index}</span>
+          <span class="font-bold text-[#3e2723] text-[11px]">#${index}</span>
           <div class="flex items-center gap-1">
             <button type="button" onclick="copyFrameImage('${frameData.id}')" class="p-1 text-slate-400 hover:text-indigo-600 transition-colors" title="Copy frame image to clipboard">
               <i class="fa-regular fa-copy text-xs"></i>

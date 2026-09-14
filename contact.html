@@ -13,13 +13,13 @@
   <link rel="canonical" href="https://360tools.me/contact.html">
 
   <!-- Favicon & Open Graph -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/contact.html">
   <meta property="og:title" content="Contact Us — 360Tools (360tools.me)">
   <meta property="og:description" content="Get in touch with the 360Tools team for tool requests, feedback, bug reports, or partnership inquiries.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data: ContactPage -->
   <script type="application/ld+json">
@@ -33,7 +33,7 @@
       "@type": "Organization",
       "name": "360Tools",
       "url": "https://360tools.me/",
-      "logo": "https://360tools.me/images/logo.jpg",
+      "logo": "https://360tools.me/images/logo.webp",
       "contactPoint": [
         {
           "@type": "ContactPoint",
@@ -53,18 +53,25 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#f8fafc] px-3 sm:px-6 py-4">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] bg-[#fbf7ee] px-3 sm:px-6 py-4">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Content -->
   <main class="max-w-6xl mx-auto w-full flex-1 mb-16 pt-4">
@@ -73,11 +80,11 @@
     <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
       <div class="inline-flex items-center gap-2">
         <span class="fa-badge-blue py-1.5 px-4 text-xs font-black uppercase tracking-wider">
-          <i class="fa-solid fa-headset mr-1 text-[#146ebe]"></i> Help & Support Hub
+          <i class="fa-solid fa-headset mr-1 text-[#c27803]"></i> Help & Support Hub
         </span>
       </div>
-      <h1 class="text-3xl sm:text-5xl font-black text-[#183153] tracking-tight">
-        Get in Touch With <span class="text-[#146ebe]">360Tools</span>
+      <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight">
+        Get in Touch With <span class="text-[#c27803]">360Tools</span>
       </h1>
       <p class="text-slate-600 text-sm sm:text-lg font-medium leading-relaxed">
         Have a question, discovered a bug, or want to suggest a new tool? We'd love to hear from you. Our engineering team typically responds within 24 to 48 hours.
@@ -92,19 +99,19 @@
         
         <!-- Direct Email Channels Card -->
         <div class="fa-card p-6 sm:p-8 space-y-6">
-          <h2 class="text-xl font-black text-[#183153] flex items-center gap-2.5 border-b border-slate-100 pb-3">
-            <i class="fa-solid fa-envelope-open-text text-[#146ebe]"></i> Official Email Channels
+          <h2 class="text-xl font-black text-[#3e2723] flex items-center gap-2.5 border-b border-slate-100 pb-3">
+            <i class="fa-solid fa-envelope-open-text text-[#c27803]"></i> Official Email Channels
           </h2>
 
           <div class="space-y-4">
             <!-- Channel 1 -->
             <div class="flex items-start gap-3.5">
-              <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center shrink-0 text-base font-bold shadow-2xs">
+              <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#c27803] flex items-center justify-center shrink-0 text-base font-bold shadow-2xs">
                 <i class="fa-solid fa-life-ring"></i>
               </div>
               <div>
                 <span class="text-xs font-black text-slate-400 uppercase tracking-wider block">Technical Support</span>
-                <a href="mailto:support@360tools.me" class="text-sm font-black text-[#183153] hover:text-[#146ebe] transition-colors">
+                <a href="mailto:support@360tools.me" class="text-sm font-black text-[#3e2723] hover:text-[#c27803] transition-colors">
                   support@360tools.me
                 </a>
                 <p class="text-xs text-slate-500 font-medium mt-0.5">For tool calculation questions or error reports.</p>
@@ -118,7 +125,7 @@
               </div>
               <div>
                 <span class="text-xs font-black text-slate-400 uppercase tracking-wider block">General & Feature Requests</span>
-                <a href="mailto:contact@360tools.me" class="text-sm font-black text-[#183153] hover:text-[#146ebe] transition-colors">
+                <a href="mailto:contact@360tools.me" class="text-sm font-black text-[#3e2723] hover:text-[#c27803] transition-colors">
                   contact@360tools.me
                 </a>
                 <p class="text-xs text-slate-500 font-medium mt-0.5">Suggest new utilities or partnership proposals.</p>
@@ -132,7 +139,7 @@
               </div>
               <div>
                 <span class="text-xs font-black text-slate-400 uppercase tracking-wider block">Privacy & Legal Disclaimers</span>
-                <a href="mailto:privacy@360tools.me" class="text-sm font-black text-[#183153] hover:text-[#146ebe] transition-colors">
+                <a href="mailto:privacy@360tools.me" class="text-sm font-black text-[#3e2723] hover:text-[#c27803] transition-colors">
                   privacy@360tools.me
                 </a>
                 <p class="text-xs text-slate-500 font-medium mt-0.5">GDPR/CCPA queries or DMCA notices.</p>
@@ -142,7 +149,7 @@
 
           <!-- Response Time Box -->
           <div class="p-4 rounded-2xl bg-blue-50/70 border border-blue-100/80 text-xs text-slate-700 space-y-1.5">
-            <div class="flex items-center gap-2 font-black text-[#146ebe] uppercase tracking-wide">
+            <div class="flex items-center gap-2 font-black text-[#c27803] uppercase tracking-wide">
               <i class="fa-solid fa-clock"></i> Expected Response Time
             </div>
             <p class="font-medium text-slate-600">
@@ -153,8 +160,8 @@
 
         <!-- Social Media & Community Card -->
         <div class="fa-card p-6 sm:p-8 space-y-4">
-          <h3 class="text-base font-black text-[#183153] flex items-center gap-2">
-            <i class="fa-solid fa-share-nodes text-[#146ebe]"></i> Follow & Connect
+          <h3 class="text-base font-black text-[#3e2723] flex items-center gap-2">
+            <i class="fa-solid fa-share-nodes text-[#c27803]"></i> Follow & Connect
           </h3>
           <p class="text-xs text-slate-600 font-medium leading-relaxed">
             Stay updated with our newest browser tools, speed upgrades, and developer tips across our official channels:
@@ -184,7 +191,7 @@
       <div class="lg:col-span-7">
         <div class="fa-card p-6 sm:p-10 space-y-6">
           <div class="border-b border-slate-100 pb-4">
-            <h2 class="text-2xl font-black text-[#183153] tracking-tight">
+            <h2 class="text-2xl font-black text-[#3e2723] tracking-tight">
               Send Us a Message
             </h2>
             <p class="text-xs sm:text-sm text-slate-500 font-medium mt-1">
@@ -197,7 +204,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <!-- Full Name -->
               <div class="space-y-1.5">
-                <label for="contactName" class="text-xs font-black text-[#183153] uppercase tracking-wider block">
+                <label for="contactName" class="text-xs font-black text-[#3e2723] uppercase tracking-wider block">
                   Your Full Name <span class="text-rose-500">*</span>
                 </label>
                 <div class="relative">
@@ -215,7 +222,7 @@
 
               <!-- Email Address -->
               <div class="space-y-1.5">
-                <label for="contactEmail" class="text-xs font-black text-[#183153] uppercase tracking-wider block">
+                <label for="contactEmail" class="text-xs font-black text-[#3e2723] uppercase tracking-wider block">
                   Email Address <span class="text-rose-500">*</span>
                 </label>
                 <div class="relative">
@@ -234,7 +241,7 @@
 
             <!-- Subject Category -->
             <div class="space-y-1.5">
-              <label for="contactSubject" class="text-xs font-black text-[#183153] uppercase tracking-wider block">
+              <label for="contactSubject" class="text-xs font-black text-[#3e2723] uppercase tracking-wider block">
                 Subject / Inquiry Type <span class="text-rose-500">*</span>
               </label>
               <select id="contactSubject" name="subject" required class="fa-input text-xs sm:text-sm cursor-pointer">
@@ -249,7 +256,7 @@
 
             <!-- Message Text -->
             <div class="space-y-1.5">
-              <label for="contactMessage" class="text-xs font-black text-[#183153] uppercase tracking-wider block">
+              <label for="contactMessage" class="text-xs font-black text-[#3e2723] uppercase tracking-wider block">
                 Detailed Message <span class="text-rose-500">*</span>
               </label>
               <textarea 
@@ -304,14 +311,14 @@
     <section class="fa-card p-8 sm:p-12 mb-16 space-y-8">
       <div class="text-center max-w-2xl mx-auto space-y-2">
         <span class="fa-badge-yellow text-xs font-black uppercase"><i class="fa-solid fa-circle-question"></i> Help Center</span>
-        <h2 class="text-2xl sm:text-3xl font-black text-[#183153]">Frequently Asked Questions</h2>
+        <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723]">Frequently Asked Questions</h2>
         <p class="text-xs sm:text-sm text-slate-500 font-medium">Quick answers to common questions about contacting 360Tools and our utility suite.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
         <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
-          <h4 class="font-black text-[#183153] text-sm flex items-center gap-2">
-            <i class="fa-solid fa-circle-check text-[#146ebe]"></i> Can I request a specific online tool?
+          <h4 class="font-black text-[#3e2723] text-sm flex items-center gap-2">
+            <i class="fa-solid fa-circle-check text-[#c27803]"></i> Can I request a specific online tool?
           </h4>
           <p class="text-xs text-slate-600 leading-relaxed font-medium">
             Yes! We actively build new tools based on community suggestions. Use the form above, select "Request a New Tool", and specify the formulas or workflows you need.
@@ -319,8 +326,8 @@
         </div>
 
         <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
-          <h4 class="font-black text-[#183153] text-sm flex items-center gap-2">
-            <i class="fa-solid fa-circle-check text-[#146ebe]"></i> Is there any paid tier or subscription on 360Tools?
+          <h4 class="font-black text-[#3e2723] text-sm flex items-center gap-2">
+            <i class="fa-solid fa-circle-check text-[#c27803]"></i> Is there any paid tier or subscription on 360Tools?
           </h4>
           <p class="text-xs text-slate-600 leading-relaxed font-medium">
             No. All 30+ tools on 360tools.me are 100% free with zero paywalls, zero watermarks, and no mandatory registration.
@@ -328,8 +335,8 @@
         </div>
 
         <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
-          <h4 class="font-black text-[#183153] text-sm flex items-center gap-2">
-            <i class="fa-solid fa-circle-check text-[#146ebe]"></i> How do I report an incorrect calculation or bug?
+          <h4 class="font-black text-[#3e2723] text-sm flex items-center gap-2">
+            <i class="fa-solid fa-circle-check text-[#c27803]"></i> How do I report an incorrect calculation or bug?
           </h4>
           <p class="text-xs text-slate-600 leading-relaxed font-medium">
             Select "Report a Bug", describe which tool you were using, your input values, and your expected result. Our engineering team will review the algorithm promptly.
@@ -337,8 +344,8 @@
         </div>
 
         <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
-          <h4 class="font-black text-[#183153] text-sm flex items-center gap-2">
-            <i class="fa-solid fa-circle-check text-[#146ebe]"></i> How are my files and calculations protected?
+          <h4 class="font-black text-[#3e2723] text-sm flex items-center gap-2">
+            <i class="fa-solid fa-circle-check text-[#c27803]"></i> How are my files and calculations protected?
           </h4>
           <p class="text-xs text-slate-600 leading-relaxed font-medium">
             Every tool on 360tools.me executes locally in your browser memory using HTML5 Canvas, Web Audio, and WebAssembly. Nothing is ever uploaded to our servers.
@@ -353,7 +360,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script>
     function handleContactSubmit(event) {
       event.preventDefault();

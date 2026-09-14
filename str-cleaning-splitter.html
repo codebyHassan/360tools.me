@@ -13,13 +13,13 @@
   <link rel="canonical" href="https://360tools.me/str-cleaning-splitter.html">
 
   <!-- Favicon & Open Graph / Facebook -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/str-cleaning-splitter.html">
   <meta property="og:title" content="Short-Term Rental Cleaning Fee Splitter (2026 Updated) - Airbnb & VRBO Payout Tool">
   <meta property="og:description" content="Calculate and split short-term rental turnover cleaning fees, property manager commission bases, and net host take-home pay.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
@@ -100,21 +100,28 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet (FontAwesome Theme) -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Chart.js CDN for Donut Breakdown Chart -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
@@ -127,7 +134,7 @@
             <i class="fa-solid fa-certificate mr-1 text-[#20c997]"></i> Airbnb & VRBO Standard • Tax Year 2026
           </span>
         </div>
-        <h1 class="text-3xl sm:text-5xl font-black text-[#183153] tracking-tight">
+        <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight">
           STR Cleaning Fee Splitter
         </h1>
         <p class="text-slate-600 text-sm sm:text-base mt-1.5 max-w-2xl font-medium leading-relaxed">
@@ -151,8 +158,8 @@
         <div class="fa-card p-6 sm:p-8 space-y-6">
           
           <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-            <h2 class="font-black text-[#183153] text-base uppercase tracking-wider flex items-center gap-2.5">
-              <i class="fa-solid fa-sliders text-[#146ebe]"></i> Reservation & Fee Parameters
+            <h2 class="font-black text-[#3e2723] text-base uppercase tracking-wider flex items-center gap-2.5">
+              <i class="fa-solid fa-sliders text-[#c27803]"></i> Reservation & Fee Parameters
             </h2>
             <span class="fa-badge-teal text-[11px] py-1 px-3">Payout Breakdown</span>
           </div>
@@ -166,7 +173,7 @@
               </div>
               <div class="relative">
                 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <span class="text-[#146ebe] font-mono text-base font-bold">$</span>
+                  <span class="text-[#c27803] font-mono text-base font-bold">$</span>
                 </div>
                 <input 
                   type="number" 
@@ -212,7 +219,7 @@
               </div>
               <div class="relative">
                 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <span class="text-[#146ebe] font-mono text-base font-bold">$</span>
+                  <span class="text-[#c27803] font-mono text-base font-bold">$</span>
                 </div>
                 <input 
                   type="number" 
@@ -304,7 +311,7 @@
             <span class="fa-badge-teal text-xs font-extrabold uppercase py-1.5 px-4">
               Host Net Take-Home Pay
             </span>
-            <div class="text-5xl sm:text-6xl font-black text-[#183153] font-mono tracking-tight mt-3" id="hostNetDisplay">
+            <div class="text-5xl sm:text-6xl font-black text-[#3e2723] font-mono tracking-tight mt-3" id="hostNetDisplay">
               $751.35
             </div>
             <div class="text-sm text-slate-500 mt-1 font-mono font-bold">
@@ -327,7 +334,7 @@
             </div>
             <div class="flex justify-between text-slate-600">
               <span class="font-sans">Cleaner Direct Payout:</span>
-              <span class="font-bold text-[#146ebe]" id="outCleanerPayout">-$135.00</span>
+              <span class="font-bold text-[#c27803]" id="outCleanerPayout">-$135.00</span>
             </div>
             <div class="flex justify-between text-slate-600">
               <span class="font-sans">Manager Commission (<span id="outMgrPct">15%</span>):</span>
@@ -364,26 +371,26 @@
     <article class="fa-card p-8 sm:p-12 space-y-10 text-slate-700 text-base leading-relaxed mb-16">
       
       <section class="space-y-4">
-        <h2 class="text-2xl sm:text-3xl font-black text-[#183153] flex items-center gap-3">
-          <i class="fa-solid fa-broom text-[#146ebe]"></i> Short-Term Rental Cleaning & Commission Mechanics
+        <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] flex items-center gap-3">
+          <i class="fa-solid fa-broom text-[#c27803]"></i> Short-Term Rental Cleaning & Commission Mechanics
         </h2>
         <p>
           Managing turnovers for vacation rentals on Airbnb and VRBO requires precise accounting between pass-through expenses, third-party vendor invoices, property management commissions, and host net operating income (NOI).
         </p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 not-prose my-6">
           <div class="p-6 rounded-2xl fa-card space-y-2">
-            <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center font-black text-sm font-mono">1</div>
-            <h3 class="font-black text-[#183153] text-base">Pass-Through vs. Profit</h3>
+            <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#c27803] flex items-center justify-center font-black text-sm font-mono">1</div>
+            <h3 class="font-black text-[#3e2723] text-base">Pass-Through vs. Profit</h3>
             <p class="text-xs text-slate-600 font-medium leading-relaxed">If guest cleaning fee matches cleaner invoice, it's 100% pass-through. Surplus is host margin.</p>
           </div>
           <div class="p-6 rounded-2xl fa-card space-y-2">
-            <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center font-black text-sm font-mono">2</div>
-            <h3 class="font-black text-[#183153] text-base">Commission Base Impact</h3>
+            <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#c27803] flex items-center justify-center font-black text-sm font-mono">2</div>
+            <h3 class="font-black text-[#3e2723] text-base">Commission Base Impact</h3>
             <p class="text-xs text-slate-600 font-medium leading-relaxed">Calculating manager fees on Nightly Rate only saves hosts hundreds of dollars per year.</p>
           </div>
           <div class="p-6 rounded-2xl fa-card space-y-2">
-            <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center font-black text-sm font-mono">3</div>
-            <h3 class="font-black text-[#183153] text-base">Platform Deductions</h3>
+            <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#c27803] flex items-center justify-center font-black text-sm font-mono">3</div>
+            <h3 class="font-black text-[#3e2723] text-base">Platform Deductions</h3>
             <p class="text-xs text-slate-600 font-medium leading-relaxed">Airbnb automatically deducts 3% host channel fee from entire total including cleaning.</p>
           </div>
         </div>
@@ -395,15 +402,15 @@
     <section class="mb-16">
       <div class="mb-6">
         <span class="fa-badge-teal text-xs py-1.5 px-4 font-black">Frequently Asked Questions</span>
-        <h2 class="text-3xl font-black text-[#183153] mt-2">STR Cleaning & Payout FAQs</h2>
+        <h2 class="text-3xl font-black text-[#3e2723] mt-2">STR Cleaning & Payout FAQs</h2>
       </div>
 
       <div class="space-y-4">
         
         <details class="group fa-card p-6 transition-all [&_svg]:open:-rotate-180">
-          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-[#183153] cursor-pointer list-none">
+          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-[#3e2723] cursor-pointer list-none">
             <span>Should property management commission be calculated on the cleaning fee?</span>
-            <svg class="w-5 h-5 text-[#146ebe] transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="w-5 h-5 text-[#c27803] transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
             </svg>
           </summary>
@@ -413,9 +420,9 @@
         </details>
 
         <details class="group fa-card p-6 transition-all [&_svg]:open:-rotate-180">
-          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-[#183153] cursor-pointer list-none">
+          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-[#3e2723] cursor-pointer list-none">
             <span>Does Airbnb charge their 3% host platform fee on the cleaning fee?</span>
-            <svg class="w-5 h-5 text-[#146ebe] transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="w-5 h-5 text-[#c27803] transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
             </svg>
           </summary>
@@ -431,23 +438,23 @@
     <section class="mb-16">
       <div class="mb-6">
         <span class="fa-badge-blue text-xs py-1.5 px-4 font-black">Related Utilities</span>
-        <h2 class="text-2xl font-black text-[#183153] mt-2">More Precision Calculators</h2>
+        <h2 class="text-2xl font-black text-[#3e2723] mt-2">More Precision Calculators</h2>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         
         <a href="section8-estimator.html" class="p-6 fa-card fa-card-interactive group">
           <div class="flex items-center gap-3 mb-2">
-            <span class="w-8 h-8 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center text-xs font-black font-mono">HCV</span>
-            <span class="text-sm font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">Section 8 Estimator</span>
+            <span class="w-8 h-8 rounded-xl bg-blue-50 text-[#c27803] flex items-center justify-center text-xs font-black font-mono">HCV</span>
+            <span class="text-sm font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Section 8 Estimator</span>
           </div>
           <p class="text-xs text-slate-600 font-medium">Calculate HUD voucher payment standards.</p>
         </a>
 
         <a href="1031-exchange-tracker.html" class="p-6 fa-card fa-card-interactive group">
           <div class="flex items-center gap-3 mb-2">
-            <span class="w-8 h-8 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center text-xs font-black font-mono">1031</span>
-            <span class="text-sm font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">1031 Exchange</span>
+            <span class="w-8 h-8 rounded-xl bg-blue-50 text-[#c27803] flex items-center justify-center text-xs font-black font-mono">1031</span>
+            <span class="text-sm font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">1031 Exchange</span>
           </div>
           <p class="text-xs text-slate-600 font-medium">Track 45-day ID & 180-day purchase closing deadlines.</p>
         </a>
@@ -455,15 +462,15 @@
         <a href="uk-stamp-duty-calculator.html" class="p-6 fa-card fa-card-interactive group">
           <div class="flex items-center gap-3 mb-2">
             <span class="w-8 h-8 rounded-xl bg-yellow-50 text-amber-600 flex items-center justify-center text-xs font-black font-mono">SDLT</span>
-            <span class="text-sm font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">UK Stamp Duty</span>
+            <span class="text-sm font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">UK Stamp Duty</span>
           </div>
           <p class="text-xs text-slate-600 font-medium">Calculate First-Time Buyer SDLT relief savings.</p>
         </a>
 
         <a href="eu-vat-oss-calculator.html" class="p-6 fa-card fa-card-interactive group">
           <div class="flex items-center gap-3 mb-2">
-            <span class="w-8 h-8 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center text-xs font-black font-mono">OSS</span>
-            <span class="text-sm font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">EU VAT OSS</span>
+            <span class="w-8 h-8 rounded-xl bg-blue-50 text-[#c27803] flex items-center justify-center text-xs font-black font-mono">OSS</span>
+            <span class="text-sm font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">EU VAT OSS</span>
           </div>
           <p class="text-xs text-slate-600 font-medium">Calculate cross-border EU digital VAT across 27 nations.</p>
         </a>
@@ -477,7 +484,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Shared JavaScript File -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
 
   <!-- Core JavaScript Logic -->
   <script>

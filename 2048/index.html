@@ -14,13 +14,13 @@
   <link rel="canonical" href="https://360tools.me/2048/">
 
   <!-- Favicon & Open Graph -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/2048/">
   <meta property="og:title" content="2048 Game Online — Free & Superfast Puzzle">
   <meta property="og:description" content="Join the numbers and get to the 2048 tile! Superfast, smooth animations, undo support, and zero ads.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data: Game Schema -->
   <script type="application/ld+json">
@@ -40,13 +40,20 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     /* 2048 Grid & Tile Styles */
@@ -111,10 +118,10 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#f8fafc] px-3 sm:px-6 py-4">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] bg-[#fbf7ee] px-3 sm:px-6 py-4">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Game Container -->
   <main class="max-w-4xl mx-auto w-full flex-1 mb-16 pt-2">
@@ -130,12 +137,12 @@
             <i class="fa-solid fa-bolt text-xs"></i> 60 FPS Superfast
           </span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight flex items-center gap-2">
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight flex items-center gap-2">
           <span>2048</span>
           <span class="text-xs font-bold px-2 py-0.5 bg-blue-100 text-blue-800 rounded-md">Classic Edition</span>
         </h1>
         <p class="text-xs sm:text-sm text-slate-500 font-medium">
-          Join the numbers and reach the <strong class="text-[#183153]">2048 tile!</strong>
+          Join the numbers and reach the <strong class="text-[#3e2723]">2048 tile!</strong>
         </p>
       </div>
 
@@ -156,7 +163,7 @@
     <div class="flex items-center justify-between gap-2 mb-4">
       <div class="flex items-center gap-2">
         <button onclick="undoMove()" id="undoBtn" class="fa-btn-secondary py-2 px-3 text-xs font-bold" title="Undo last move">
-          <i class="fa-solid fa-rotate-left mr-1 text-[#146ebe]"></i> Undo
+          <i class="fa-solid fa-rotate-left mr-1 text-[#c27803]"></i> Undo
         </button>
         <button onclick="toggleAudio()" id="soundToggleBtn" class="fa-btn-secondary py-2 px-3 text-xs font-bold" title="Toggle Sound FX">
           <i class="fa-solid fa-volume-high text-slate-600" id="soundIcon"></i>
@@ -199,7 +206,7 @@
         </div>
 
         <!-- Win 2048 Modal Overlay -->
-        <div id="gameWinModal" class="hidden absolute inset-0 bg-[#183153]/90 backdrop-blur-xs rounded-2xl flex flex-col items-center justify-center p-6 text-center text-white z-20 animate-in fade-in zoom-in-95">
+        <div id="gameWinModal" class="hidden absolute inset-0 bg-[#3e2723]/90 backdrop-blur-xs rounded-2xl flex flex-col items-center justify-center p-6 text-center text-white z-20 animate-in fade-in zoom-in-95">
           <div class="w-16 h-16 bg-[#ffd43b]/20 text-[#ffd43b] border border-[#ffd43b]/40 rounded-full flex items-center justify-center text-3xl mb-3 animate-bounce">
             <i class="fa-solid fa-trophy"></i>
           </div>
@@ -245,7 +252,7 @@
     <!-- Keyboard Controls Tip Banner -->
     <div class="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs mb-12 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-600 font-medium">
       <div class="flex items-center gap-2">
-        <i class="fa-solid fa-keyboard text-[#146ebe] text-base"></i>
+        <i class="fa-solid fa-keyboard text-[#c27803] text-base"></i>
         <span><strong>Desktop Controls:</strong> Use <strong>Arrow Keys</strong> or <strong>W, A, S, D</strong> to slide tiles.</span>
       </div>
       <div class="flex items-center gap-2">
@@ -258,7 +265,7 @@
     <article class="fa-card p-6 sm:p-10 space-y-8 text-slate-700 text-sm leading-relaxed">
       
       <section class="space-y-3">
-        <h2 class="text-xl sm:text-2xl font-black text-[#183153] flex items-center gap-2">
+        <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] flex items-center gap-2">
           <i class="fa-solid fa-lightbulb text-[#ffd43b]"></i> How to Play & Win at 2048
         </h2>
         <p>
@@ -267,8 +274,8 @@
       </section>
 
       <section class="space-y-4">
-        <h3 class="text-lg font-black text-[#183153] flex items-center gap-2">
-          <i class="fa-solid fa-chess-knight text-[#146ebe]"></i> The Corner Strategy (Pro Tip)
+        <h3 class="text-lg font-black text-[#3e2723] flex items-center gap-2">
+          <i class="fa-solid fa-chess-knight text-[#c27803]"></i> The Corner Strategy (Pro Tip)
         </h3>
         <p>
           To reach the 2048 tile and beyond (4096 or 8192), master the <strong>Corner Building Technique</strong>:
@@ -283,7 +290,7 @@
       <!-- Comparison / Feature Highlights Grid -->
       <section class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
         <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
-          <div class="text-xs font-black text-[#146ebe] uppercase"><i class="fa-solid fa-rotate-left mr-1"></i> Unlimited Undo</div>
+          <div class="text-xs font-black text-[#c27803] uppercase"><i class="fa-solid fa-rotate-left mr-1"></i> Unlimited Undo</div>
           <p class="text-xs text-slate-600">Made a mistake? Hit Undo to step back and preserve your high-score streak.</p>
         </div>
         <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
@@ -304,7 +311,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script>
     // 2048 Engine Logic
     let board = [

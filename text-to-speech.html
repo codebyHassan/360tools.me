@@ -13,13 +13,13 @@
   <link rel="canonical" href="https://360tools.me/text-to-speech.html">
 
   <!-- Open Graph / Twitter -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/text-to-speech.html">
   <meta property="og:title" content="Text to Speech Online — Free AI Speech Synthesis | 360Tools">
   <meta property="og:description" content="Read any text aloud in natural voices. Adjustable speed, pitch, and accents with zero server delay.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -102,23 +102,30 @@
   </script>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="css/style.min.css">
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4 bg-[#f8fafc]">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
     
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4" aria-label="Breadcrumb">
-      <a href="index.html" class="hover:text-[#146ebe]">Home</a>
+      <a href="index.html" class="hover:text-[#c27803]">Home</a>
       <span>/</span>
-      <a href="audio-voice-tools.html" class="hover:text-[#146ebe]">Audio & Speech</a>
+      <a href="audio-voice-tools.html" class="hover:text-[#c27803]">Audio & Speech</a>
       <span>/</span>
       <span class="text-slate-700">Text to Speech</span>
     </nav>
@@ -127,12 +134,12 @@
     <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
         <div class="inline-flex items-center gap-2 mb-2">
-          <span class="bg-blue-50 text-[#146ebe] text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+          <span class="bg-blue-50 text-[#c27803] text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
             <i class="fa-solid fa-volume-high mr-1"></i> Web Speech Synthesis Engine
           </span>
           <span class="text-xs font-bold text-slate-400">• Real-Time Speech • Word Highlighting</span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
           Free Text to Speech Online Converter
         </h1>
         <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
@@ -166,8 +173,8 @@
         
         <div class="fa-card p-6 shadow-sm space-y-4">
           <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-            <span class="text-xs font-black uppercase tracking-wider text-[#183153] flex items-center gap-1.5">
-              <i class="fa-solid fa-keyboard text-[#146ebe]"></i> Text Input & Script Reader
+            <span class="text-xs font-black uppercase tracking-wider text-[#3e2723] flex items-center gap-1.5">
+              <i class="fa-solid fa-keyboard text-[#c27803]"></i> Text Input & Script Reader
             </span>
             <div class="flex items-center gap-3 text-xs font-mono text-slate-500 font-bold">
               <span id="charCountStat">0 chars</span>
@@ -192,14 +199,14 @@
               <button onclick="clearTtsText()" class="text-xs font-bold text-slate-400 hover:text-slate-600 px-2.5 py-1 rounded-lg border border-slate-200">
                 <i class="fa-solid fa-trash mr-1"></i> Clear
               </button>
-              <button onclick="copyTtsText()" class="text-xs font-bold text-slate-500 hover:text-[#146ebe] px-2.5 py-1 rounded-lg border border-slate-200">
+              <button onclick="copyTtsText()" class="text-xs font-bold text-slate-500 hover:text-[#c27803] px-2.5 py-1 rounded-lg border border-slate-200">
                 <i class="fa-solid fa-copy mr-1"></i> Copy Text
               </button>
             </div>
             <div class="flex items-center gap-2">
-              <button onclick="loadSampleText('pitch')" class="text-xs font-bold text-slate-500 hover:text-[#146ebe]">Corporate Sample</button>
+              <button onclick="loadSampleText('pitch')" class="text-xs font-bold text-slate-500 hover:text-[#c27803]">Corporate Sample</button>
               <span>•</span>
-              <button onclick="loadSampleText('news')" class="text-xs font-bold text-slate-500 hover:text-[#146ebe]">News Sample</button>
+              <button onclick="loadSampleText('news')" class="text-xs font-bold text-slate-500 hover:text-[#c27803]">News Sample</button>
             </div>
           </div>
         </div>
@@ -211,8 +218,8 @@
         
         <div class="fa-card p-6 shadow-md border-2 border-blue-500/20 bg-gradient-to-b from-white to-slate-50 space-y-5">
           <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-            <h3 class="text-xs font-black uppercase tracking-wider text-[#183153] flex items-center gap-1.5">
-              <i class="fa-solid fa-sliders text-[#146ebe]"></i> Voice Synthesis Settings
+            <h3 class="text-xs font-black uppercase tracking-wider text-[#3e2723] flex items-center gap-1.5">
+              <i class="fa-solid fa-sliders text-[#c27803]"></i> Voice Synthesis Settings
             </h3>
             <span id="speechStatusBadge" class="text-xs font-black font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded-lg">
               Idle
@@ -233,7 +240,7 @@
           <div>
             <div class="flex justify-between items-center mb-1">
               <label for="speedSlider" class="text-xs font-bold uppercase tracking-wider text-slate-600">Reading Speed</label>
-              <span id="speedVal" class="text-xs font-black font-mono bg-blue-100 text-[#146ebe] px-2 py-0.5 rounded-lg">1.0x</span>
+              <span id="speedVal" class="text-xs font-black font-mono bg-blue-100 text-[#c27803] px-2 py-0.5 rounded-lg">1.0x</span>
             </div>
             <input type="range" id="speedSlider" min="0.5" max="2.0" step="0.1" value="1.0" class="w-full accent-[#146ebe] cursor-pointer" oninput="updateSpeed(this.value)">
             <div class="flex justify-between text-[10px] text-slate-400 font-bold mt-0.5">
@@ -247,7 +254,7 @@
           <div>
             <div class="flex justify-between items-center mb-1">
               <label for="pitchSlider" class="text-xs font-bold uppercase tracking-wider text-slate-600">Voice Pitch</label>
-              <span id="pitchVal" class="text-xs font-black font-mono bg-blue-100 text-[#146ebe] px-2 py-0.5 rounded-lg">1.0</span>
+              <span id="pitchVal" class="text-xs font-black font-mono bg-blue-100 text-[#c27803] px-2 py-0.5 rounded-lg">1.0</span>
             </div>
             <input type="range" id="pitchSlider" min="0.5" max="1.5" step="0.1" value="1.0" class="w-full accent-[#146ebe] cursor-pointer" oninput="updatePitch(this.value)">
             <div class="flex justify-between text-[10px] text-slate-400 font-bold mt-0.5">
@@ -291,15 +298,15 @@
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="fa-card p-6">
-            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
-              <i class="fa-solid fa-bolt text-[#146ebe]"></i> Zero Server Delay
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-bolt text-[#c27803]"></i> Zero Server Delay
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
               Synthesizes phonemes instantly using your device's built-in speech engine without waiting for cloud queues.
             </p>
           </div>
           <div class="fa-card p-6">
-            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2 flex items-center gap-2">
               <i class="fa-solid fa-highlighter text-amber-500"></i> Word Tracking
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -307,7 +314,7 @@
             </p>
           </div>
           <div class="fa-card p-6">
-            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2 flex items-center gap-2">
               <i class="fa-solid fa-infinity text-emerald-600"></i> Unlimited Words
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -318,10 +325,10 @@
 
         <!-- FAQs -->
         <div class="space-y-4" id="faqSection">
-          <h2 class="text-2xl font-black text-[#183153] mb-4">Frequently Asked Questions</h2>
+          <h2 class="text-2xl font-black text-[#3e2723] mb-4">Frequently Asked Questions</h2>
           
           <details class="group fa-card p-5 transition-all">
-            <summary class="flex justify-between items-center font-bold text-sm text-[#183153] cursor-pointer list-none">
+            <summary class="flex justify-between items-center font-bold text-sm text-[#3e2723] cursor-pointer list-none">
               <span>Why do voice options vary across different devices?</span>
               <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
             </summary>
@@ -331,22 +338,22 @@
           </details>
 
           <details class="group fa-card p-5 transition-all">
-            <summary class="flex justify-between items-center font-bold text-sm text-[#183153] cursor-pointer list-none">
+            <summary class="flex justify-between items-center font-bold text-sm text-[#3e2723] cursor-pointer list-none">
               <span>How can I convert this text into an MP3 download?</span>
               <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
             </summary>
             <p class="text-xs text-slate-600 mt-3 leading-relaxed">
-              Use our dedicated <a href="text-to-mp3.html" class="text-[#146ebe] underline font-bold">Text to MP3 Converter</a> tool, which encodes your spoken audio directly into a downloadable MP3/WAV audio file.
+              Use our dedicated <a href="text-to-mp3.html" class="text-[#c27803] underline font-bold">Text to MP3 Converter</a> tool, which encodes your spoken audio directly into a downloadable MP3/WAV audio file.
             </p>
           </details>
 
           <details class="group fa-card p-5 transition-all">
-            <summary class="flex justify-between items-center font-bold text-sm text-[#183153] cursor-pointer list-none">
+            <summary class="flex justify-between items-center font-bold text-sm text-[#3e2723] cursor-pointer list-none">
               <span>Can I listen to PDF documents?</span>
               <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
             </summary>
             <p class="text-xs text-slate-600 mt-3 leading-relaxed">
-              Yes! Check out our <a href="pdf-to-speech.html" class="text-[#146ebe] underline font-bold">PDF to Speech Document Reader</a> which automatically extracts and reads multi-page PDF ebooks and contracts.
+              Yes! Check out our <a href="pdf-to-speech.html" class="text-[#c27803] underline font-bold">PDF to Speech Document Reader</a> which automatically extracts and reads multi-page PDF ebooks and contracts.
             </p>
           </details>
         </div>
@@ -355,16 +362,16 @@
         <div class="pt-8 border-t border-slate-200">
           <h3 class="text-xs font-black text-slate-400 uppercase tracking-wider mb-4">Related Speech & Audio Tools</h3>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <a href="text-to-mp3.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+            <a href="text-to-mp3.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-solid fa-file-audio text-emerald-600 mr-1.5"></i> Text to MP3
             </a>
-            <a href="ai-voice-generator.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+            <a href="ai-voice-generator.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-solid fa-wand-magic-sparkles text-purple-600 mr-1.5"></i> AI Voice Studio
             </a>
-            <a href="pdf-to-speech.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+            <a href="pdf-to-speech.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-solid fa-file-pdf text-red-600 mr-1.5"></i> PDF to Speech
             </a>
-            <a href="youtube-voiceover-generator.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+            <a href="youtube-voiceover-generator.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-brands fa-youtube text-red-600 mr-1.5"></i> YouTube Narrator
             </a>
           </div>
@@ -379,7 +386,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script>
     let synth = window.speechSynthesis;
     let voices = [];
@@ -546,7 +553,7 @@
       if (match) {
         const word = match[0];
         const container = document.getElementById('highlightWords');
-        container.innerHTML = `${before}<span class="bg-[#ffd43b] text-[#183153] font-black px-1 rounded">${word}</span>${remaining.substring(word.length)}`;
+        container.innerHTML = `${before}<span class="bg-[#ffd43b] text-[#3e2723] font-black px-1 rounded">${word}</span>${remaining.substring(word.length)}`;
       }
     }
 

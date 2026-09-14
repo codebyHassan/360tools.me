@@ -13,20 +13,20 @@
   <link rel="canonical" href="https://360tools.me/appearance.html">
 
   <!-- Favicon & Open Graph / Facebook -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/appearance.html">
   <meta property="og:title" content="Theme, Font & Color Customizer | 360tools.me">
   <meta property="og:description" content="Customize font family, font size, contrast, and color palette across 360tools.me with live sandbox preview.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://360tools.me/appearance.html">
   <meta property="twitter:title" content="Theme, Font & Color Customizer | 360tools.me">
   <meta property="twitter:description" content="Customize fonts, sizes, and colors across all tools in your browser.">
-  <meta property="twitter:image" content="images/logo.jpg">
+  <meta property="twitter:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -47,13 +47,20 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     .font-card {
@@ -106,16 +113,16 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#f8fafc]">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] bg-[#fbf7ee]">
 
   <!-- Top Announcement Banner -->
-  <div class="bg-[#183153] text-white text-xs py-2.5 px-4 text-center font-semibold border-b border-[#25406b] flex items-center justify-center gap-2">
-    <span class="bg-[#ffd43b] text-[#183153] px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wide">Studio</span>
+  <div class="bg-[#3e2723] text-white text-xs py-2.5 px-4 text-center font-semibold border-b border-[#ded2be] flex items-center justify-center gap-2">
+    <span class="bg-[#ffd43b] text-[#3e2723] px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wide">Studio</span>
     <span>Personalize typography, reading size & colors across all 40+ tools. Saved in your browser!</span>
   </div>
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- MAIN CONTENT CONTAINER -->
   <main class="w-full flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8">
@@ -123,10 +130,10 @@
     <!-- Hero Header -->
     <div class="text-center max-w-3xl mx-auto mb-10">
       <span class="fa-badge-blue text-xs py-1.5 px-4 font-black uppercase tracking-wider inline-flex items-center gap-1.5 mb-3">
-        <i class="fa-solid fa-palette text-[#146ebe]"></i>
+        <i class="fa-solid fa-palette text-[#c27803]"></i>
         <span>Theme & Accessibility Studio</span>
       </span>
-      <h1 class="text-3xl sm:text-5xl font-black text-[#183153] tracking-tight leading-tight">
+      <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight leading-tight">
         Customize Fonts, Sizes & Color Schemes
       </h1>
       <p class="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed font-medium">
@@ -185,13 +192,13 @@
           <div class="fa-card p-6 bg-white space-y-4">
             <div class="flex items-center justify-between pb-3 border-b border-slate-100">
               <div>
-                <h3 class="text-base font-black text-[#183153] flex items-center gap-2">
-                  <i class="fa-solid fa-font text-[#146ebe]"></i>
+                <h3 class="text-base font-black text-[#3e2723] flex items-center gap-2">
+                  <i class="fa-solid fa-font text-[#c27803]"></i>
                   <span>1. Choose Font Family</span>
                 </h3>
                 <p class="text-xs text-slate-500 font-medium">Select primary typeface for UI, tools & content.</p>
               </div>
-              <span id="currentFontBadge" class="px-2.5 py-1 bg-blue-50 text-[#146ebe] rounded-lg text-[11px] font-black">
+              <span id="currentFontBadge" class="px-2.5 py-1 bg-blue-50 text-[#c27803] rounded-lg text-[11px] font-black">
                 Plus Jakarta Sans
               </span>
             </div>
@@ -201,8 +208,8 @@
               <!-- Font Option: Plus Jakarta Sans (Default) -->
               <div onclick="selectFontFamily('Plus Jakarta Sans', `'Plus Jakarta Sans', -apple-system, sans-serif`)" class="font-card active p-3.5 rounded-xl border border-slate-200 bg-slate-50/50" data-font="Plus Jakarta Sans">
                 <div class="flex items-center justify-between">
-                  <span class="text-sm font-black text-[#183153]" style="font-family: 'Plus Jakarta Sans', sans-serif;">Plus Jakarta Sans</span>
-                  <span class="text-[9px] px-1.5 py-0.5 bg-blue-100 text-[#146ebe] font-bold rounded">Default Modern</span>
+                  <span class="text-sm font-black text-[#3e2723]" style="font-family: 'Plus Jakarta Sans', sans-serif;">Plus Jakarta Sans</span>
+                  <span class="text-[9px] px-1.5 py-0.5 bg-blue-100 text-[#c27803] font-bold rounded">Default Modern</span>
                 </div>
                 <p class="text-xs text-slate-500 mt-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">The quick brown fox jumps over the lazy dog.</p>
               </div>
@@ -210,7 +217,7 @@
               <!-- Font Option: Inter -->
               <div onclick="selectFontFamily('Inter', `'Inter', sans-serif`)" class="font-card p-3.5 rounded-xl border border-slate-200 bg-white" data-font="Inter">
                 <div class="flex items-center justify-between">
-                  <span class="text-sm font-black text-[#183153]" style="font-family: 'Inter', sans-serif;">Inter</span>
+                  <span class="text-sm font-black text-[#3e2723]" style="font-family: 'Inter', sans-serif;">Inter</span>
                   <span class="text-[9px] px-1.5 py-0.5 bg-slate-100 text-slate-600 font-bold rounded">Ultra Clean</span>
                 </div>
                 <p class="text-xs text-slate-500 mt-1" style="font-family: 'Inter', sans-serif;">The quick brown fox jumps over the lazy dog.</p>
@@ -219,7 +226,7 @@
               <!-- Font Option: Outfit -->
               <div onclick="selectFontFamily('Outfit', `'Outfit', sans-serif`)" class="font-card p-3.5 rounded-xl border border-slate-200 bg-white" data-font="Outfit">
                 <div class="flex items-center justify-between">
-                  <span class="text-sm font-black text-[#183153]" style="font-family: 'Outfit', sans-serif;">Outfit</span>
+                  <span class="text-sm font-black text-[#3e2723]" style="font-family: 'Outfit', sans-serif;">Outfit</span>
                   <span class="text-[9px] px-1.5 py-0.5 bg-purple-100 text-purple-700 font-bold rounded">Geometric</span>
                 </div>
                 <p class="text-xs text-slate-500 mt-1" style="font-family: 'Outfit', sans-serif;">The quick brown fox jumps over the lazy dog.</p>
@@ -228,7 +235,7 @@
               <!-- Font Option: Poppins -->
               <div onclick="selectFontFamily('Poppins', `'Poppins', sans-serif`)" class="font-card p-3.5 rounded-xl border border-slate-200 bg-white" data-font="Poppins">
                 <div class="flex items-center justify-between">
-                  <span class="text-sm font-black text-[#183153]" style="font-family: 'Poppins', sans-serif;">Poppins</span>
+                  <span class="text-sm font-black text-[#3e2723]" style="font-family: 'Poppins', sans-serif;">Poppins</span>
                   <span class="text-[9px] px-1.5 py-0.5 bg-emerald-100 text-emerald-700 font-bold rounded">Friendly</span>
                 </div>
                 <p class="text-xs text-slate-500 mt-1" style="font-family: 'Poppins', sans-serif;">The quick brown fox jumps over the lazy dog.</p>
@@ -237,7 +244,7 @@
               <!-- Font Option: Roboto -->
               <div onclick="selectFontFamily('Roboto', `'Roboto', sans-serif`)" class="font-card p-3.5 rounded-xl border border-slate-200 bg-white" data-font="Roboto">
                 <div class="flex items-center justify-between">
-                  <span class="text-sm font-black text-[#183153]" style="font-family: 'Roboto', sans-serif;">Roboto</span>
+                  <span class="text-sm font-black text-[#3e2723]" style="font-family: 'Roboto', sans-serif;">Roboto</span>
                   <span class="text-[9px] px-1.5 py-0.5 bg-amber-100 text-amber-700 font-bold rounded">Google Standard</span>
                 </div>
                 <p class="text-xs text-slate-500 mt-1" style="font-family: 'Roboto', sans-serif;">The quick brown fox jumps over the lazy dog.</p>
@@ -246,7 +253,7 @@
               <!-- Font Option: Space Grotesk -->
               <div onclick="selectFontFamily('Space Grotesk', `'Space Grotesk', sans-serif`)" class="font-card p-3.5 rounded-xl border border-slate-200 bg-white" data-font="Space Grotesk">
                 <div class="flex items-center justify-between">
-                  <span class="text-sm font-black text-[#183153]" style="font-family: 'Space Grotesk', sans-serif;">Space Grotesk</span>
+                  <span class="text-sm font-black text-[#3e2723]" style="font-family: 'Space Grotesk', sans-serif;">Space Grotesk</span>
                   <span class="text-[9px] px-1.5 py-0.5 bg-cyan-100 text-cyan-700 font-bold rounded">Tech & Futuristic</span>
                 </div>
                 <p class="text-xs text-slate-500 mt-1" style="font-family: 'Space Grotesk', sans-serif;">The quick brown fox jumps over the lazy dog.</p>
@@ -255,7 +262,7 @@
               <!-- Font Option: JetBrains Mono -->
               <div onclick="selectFontFamily('JetBrains Mono', `'JetBrains Mono', monospace`)" class="font-card p-3.5 rounded-xl border border-slate-200 bg-white" data-font="JetBrains Mono">
                 <div class="flex items-center justify-between">
-                  <span class="text-sm font-black text-[#183153]" style="font-family: 'JetBrains Mono', monospace;">JetBrains Mono</span>
+                  <span class="text-sm font-black text-[#3e2723]" style="font-family: 'JetBrains Mono', monospace;">JetBrains Mono</span>
                   <span class="text-[9px] px-1.5 py-0.5 bg-slate-800 text-yellow-400 font-mono font-bold rounded">Developer</span>
                 </div>
                 <p class="text-xs text-slate-500 mt-1" style="font-family: 'JetBrains Mono', monospace;">const speed = 100 * fps;</p>
@@ -264,7 +271,7 @@
               <!-- Font Option: Fira Code -->
               <div onclick="selectFontFamily('Fira Code', `'Fira Code', monospace`)" class="font-card p-3.5 rounded-xl border border-slate-200 bg-white" data-font="Fira Code">
                 <div class="flex items-center justify-between">
-                  <span class="text-sm font-black text-[#183153]" style="font-family: 'Fira Code', monospace;">Fira Code</span>
+                  <span class="text-sm font-black text-[#3e2723]" style="font-family: 'Fira Code', monospace;">Fira Code</span>
                   <span class="text-[9px] px-1.5 py-0.5 bg-teal-100 text-teal-800 font-mono font-bold rounded">Ligatures</span>
                 </div>
                 <p class="text-xs text-slate-500 mt-1" style="font-family: 'Fira Code', monospace;">if (x !== null) return true;</p>
@@ -273,7 +280,7 @@
               <!-- Font Option: Merriweather -->
               <div onclick="selectFontFamily('Merriweather', `'Merriweather', serif`)" class="font-card p-3.5 rounded-xl border border-slate-200 bg-white" data-font="Merriweather">
                 <div class="flex items-center justify-between">
-                  <span class="text-sm font-black text-[#183153]" style="font-family: 'Merriweather', serif;">Merriweather</span>
+                  <span class="text-sm font-black text-[#3e2723]" style="font-family: 'Merriweather', serif;">Merriweather</span>
                   <span class="text-[9px] px-1.5 py-0.5 bg-rose-100 text-rose-700 font-bold rounded">Editorial Serif</span>
                 </div>
                 <p class="text-xs text-slate-500 mt-1" style="font-family: 'Merriweather', serif;">Crisp reading serif for long-form articles.</p>
@@ -295,13 +302,13 @@
           <div class="fa-card p-6 bg-white space-y-4">
             <div class="flex items-center justify-between">
               <div>
-                <h3 class="text-base font-black text-[#183153] flex items-center gap-2">
-                  <i class="fa-solid fa-text-height text-[#146ebe]"></i>
+                <h3 class="text-base font-black text-[#3e2723] flex items-center gap-2">
+                  <i class="fa-solid fa-text-height text-[#c27803]"></i>
                   <span>2. Font Size Scaling</span>
                 </h3>
                 <p class="text-xs text-slate-500 font-medium">Scale overall text size for comfortable reading.</p>
               </div>
-              <span id="fontSizeDisplay" class="text-sm font-black px-3 py-1 bg-slate-100 rounded-xl text-[#183153] border border-slate-200">
+              <span id="fontSizeDisplay" class="text-sm font-black px-3 py-1 bg-slate-100 rounded-xl text-[#3e2723] border border-slate-200">
                 16px (100%)
               </span>
             </div>
@@ -326,7 +333,7 @@
               <button onclick="updateFontSize(15)" class="size-preset-btn px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-bold text-slate-600">
                 Standard (15px)
               </button>
-              <button onclick="updateFontSize(16)" class="size-preset-btn active px-3 py-1 bg-blue-100 text-[#146ebe] rounded-lg text-xs font-black">
+              <button onclick="updateFontSize(16)" class="size-preset-btn active px-3 py-1 bg-blue-100 text-[#c27803] rounded-lg text-xs font-black">
                 Default (16px)
               </button>
               <button onclick="updateFontSize(18)" class="size-preset-btn px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-bold text-slate-600">
@@ -343,8 +350,8 @@
 
           <!-- Line Height & Letter Spacing -->
           <div class="fa-card p-6 bg-white space-y-5">
-            <h3 class="text-base font-black text-[#183153] flex items-center gap-2 pb-2 border-b border-slate-100">
-              <i class="fa-solid fa-arrows-up-down text-[#146ebe]"></i>
+            <h3 class="text-base font-black text-[#3e2723] flex items-center gap-2 pb-2 border-b border-slate-100">
+              <i class="fa-solid fa-arrows-up-down text-[#c27803]"></i>
               <span>3. Line Spacing & Letter Tracking</span>
             </h3>
 
@@ -405,7 +412,7 @@
           <div class="fa-card p-6 bg-white space-y-4">
             <div class="flex items-center justify-between pb-3 border-b border-slate-100">
               <div>
-                <h3 class="text-base font-black text-[#183153] flex items-center gap-2">
+                <h3 class="text-base font-black text-[#3e2723] flex items-center gap-2">
                   <i class="fa-solid fa-swatchbook text-purple-600"></i>
                   <span>Curated Color Themes</span>
                 </h3>
@@ -421,15 +428,15 @@
               <!-- 1. 360Tools Classic (Default) -->
               <div onclick="applyThemePreset('classic')" class="theme-preset-card active p-4 rounded-2xl border border-slate-200 bg-white shadow-xs" data-theme="classic">
                 <div class="flex items-center justify-between mb-2.5">
-                  <span class="text-xs font-black text-[#183153]">360Tools Classic</span>
+                  <span class="text-xs font-black text-[#3e2723]">360Tools Classic</span>
                   <span class="w-2.5 h-2.5 rounded-full bg-[#146ebe]"></span>
                 </div>
                 <div class="flex items-center gap-1.5 h-6 rounded-lg p-1 bg-slate-100">
-                  <span class="h-full flex-1 rounded bg-[#183153]"></span>
+                  <span class="h-full flex-1 rounded bg-[#3e2723]"></span>
                   <span class="h-full flex-1 rounded bg-[#146ebe]"></span>
                   <span class="h-full flex-1 rounded bg-[#ffd43b]"></span>
                   <span class="h-full flex-1 rounded bg-[#ffffff] border border-slate-200"></span>
-                  <span class="h-full flex-1 rounded bg-[#f8fafc]"></span>
+                  <span class="h-full flex-1 rounded bg-[#fbf7ee]"></span>
                 </div>
                 <span class="text-[10px] text-slate-500 font-medium block mt-2">Crisp White & Precision Navy Blue</span>
               </div>
@@ -559,7 +566,7 @@
           <div class="fa-card p-6 bg-white space-y-5">
             <div class="flex items-center justify-between pb-3 border-b border-slate-100">
               <div>
-                <h3 class="text-base font-black text-[#183153] flex items-center gap-2">
+                <h3 class="text-base font-black text-[#3e2723] flex items-center gap-2">
                   <i class="fa-solid fa-paintbrush text-emerald-600"></i>
                   <span>Custom Color Studio</span>
                 </h3>
@@ -668,7 +675,7 @@
         <div id="tab-ui-shape" class="studio-tab-content hidden space-y-6">
           
           <div class="fa-card p-6 bg-white space-y-5">
-            <h3 class="text-base font-black text-[#183153] flex items-center gap-2 pb-2 border-b border-slate-100">
+            <h3 class="text-base font-black text-[#3e2723] flex items-center gap-2 pb-2 border-b border-slate-100">
               <i class="fa-solid fa-shapes text-amber-600"></i>
               <span>Corner Radius & UI Geometry</span>
             </h3>
@@ -698,7 +705,7 @@
                 <button onclick="updateCornerRadius(6)" class="radius-preset-btn px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-md text-xs font-bold text-slate-600">
                   Subtle (6px)
                 </button>
-                <button onclick="updateCornerRadius(14)" class="radius-preset-btn active px-3 py-1 bg-blue-100 text-[#146ebe] rounded-xl text-xs font-black">
+                <button onclick="updateCornerRadius(14)" class="radius-preset-btn active px-3 py-1 bg-blue-100 text-[#c27803] rounded-xl text-xs font-black">
                   Default (14px)
                 </button>
                 <button onclick="updateCornerRadius(24)" class="radius-preset-btn px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-2xl text-xs font-bold text-slate-600">
@@ -738,7 +745,7 @@
           <div class="flex items-center justify-between pb-3 border-b border-slate-100">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span class="text-xs font-black uppercase tracking-wider text-[#183153]">Live Sandbox Preview</span>
+              <span class="text-xs font-black uppercase tracking-wider text-[#3e2723]">Live Sandbox Preview</span>
             </div>
             <span class="text-[10px] font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-bold">
               Real-time Output
@@ -747,7 +754,7 @@
 
           <!-- Sandbox 1: Typography Sample -->
           <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50 space-y-2">
-            <h2 class="text-xl font-black text-[#183153]" id="previewHeading">
+            <h2 class="text-xl font-black text-[#3e2723]" id="previewHeading">
               Sample Heading 1
             </h2>
             <p class="text-xs text-slate-600 leading-relaxed" id="previewParagraph">
@@ -792,15 +799,15 @@
             <!-- Sample Tool Card Mini -->
             <div class="p-3.5 rounded-xl border border-slate-200 bg-white hover:border-blue-300 transition-all flex items-center justify-between group">
               <div class="flex items-center gap-2.5">
-                <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#146ebe] flex items-center justify-center text-xs shrink-0">
+                <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] flex items-center justify-center text-xs shrink-0">
                   <i class="fa-solid fa-volume-high"></i>
                 </div>
                 <div>
-                  <div class="text-xs font-black text-[#183153] group-hover:text-[#146ebe]">Audio & Voice Studio</div>
+                  <div class="text-xs font-black text-[#3e2723] group-hover:text-[#c27803]">Audio & Voice Studio</div>
                   <div class="text-[10px] text-slate-400 font-medium">100% In-Browser Synthesis</div>
                 </div>
               </div>
-              <i class="fa-solid fa-arrow-right text-xs text-slate-300 group-hover:text-[#146ebe] transition-all"></i>
+              <i class="fa-solid fa-arrow-right text-xs text-slate-300 group-hover:text-[#c27803] transition-all"></i>
             </div>
           </div>
 
@@ -808,7 +815,7 @@
           <div class="space-y-2 pt-2 border-t border-slate-100">
             <div class="flex items-center justify-between">
               <span class="text-[10px] font-black uppercase tracking-wider text-slate-400">Generated CSS Variables</span>
-              <button onclick="copyGeneratedCSS()" class="text-[10px] text-[#146ebe] hover:underline font-bold flex items-center gap-1">
+              <button onclick="copyGeneratedCSS()" class="text-[10px] text-[#c27803] hover:underline font-bold flex items-center gap-1">
                 <i class="fa-solid fa-copy"></i>
                 <span>Copy CSS</span>
               </button>
@@ -846,8 +853,8 @@
   <div id="importModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs hidden items-center justify-center p-4">
     <div class="bg-white rounded-3xl border border-slate-200 shadow-2xl w-full max-w-md p-6 space-y-4">
       <div class="flex items-center justify-between pb-3 border-b border-slate-100">
-        <h3 class="text-sm font-black text-[#183153] flex items-center gap-2">
-          <i class="fa-solid fa-file-import text-[#146ebe]"></i>
+        <h3 class="text-sm font-black text-[#3e2723] flex items-center gap-2">
+          <i class="fa-solid fa-file-import text-[#c27803]"></i>
           <span>Import Theme JSON</span>
         </h3>
         <button onclick="closeImportModal()" class="text-slate-400 hover:text-slate-700 text-xs">
@@ -876,7 +883,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Master Shared Logic (js/main.js) -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
 
   <!-- Appearance Studio JavaScript Controller -->
   <script>
@@ -1166,7 +1173,7 @@
       document.querySelectorAll('.size-preset-btn').forEach(btn => {
         const text = btn.textContent;
         if (text.includes(`${val}px`)) {
-          btn.className = 'size-preset-btn active px-3 py-1 bg-blue-100 text-[#146ebe] rounded-lg text-xs font-black';
+          btn.className = 'size-preset-btn active px-3 py-1 bg-blue-100 text-[#c27803] rounded-lg text-xs font-black';
         } else {
           btn.className = 'size-preset-btn px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-bold text-slate-600';
         }
@@ -1207,7 +1214,7 @@
 
       document.querySelectorAll('.radius-preset-btn').forEach(btn => {
         if (btn.textContent.includes(`${val}px`)) {
-          btn.className = 'radius-preset-btn active px-3 py-1 bg-blue-100 text-[#146ebe] rounded-lg text-xs font-black';
+          btn.className = 'radius-preset-btn active px-3 py-1 bg-blue-100 text-[#c27803] rounded-lg text-xs font-black';
         } else {
           btn.className = 'radius-preset-btn px-3 py-1 bg-slate-100 hover:bg-slate-200 rounded-lg text-xs font-bold text-slate-600';
         }

@@ -13,13 +13,13 @@
   <link rel="canonical" href="https://360tools.me/youtube-voiceover-generator.html">
 
   <!-- Open Graph -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/youtube-voiceover-generator.html">
   <meta property="og:title" content="YouTube Voiceover Generator & Script Narrator | 360tools">
   <meta property="og:description" content="Auto-split video scripts into scenes with custom pauses and natural voiceover synthesis.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -94,30 +94,37 @@
   </script>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="css/style.min.css">
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4 bg-[#f8fafc]">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
     
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4" aria-label="Breadcrumb">
-      <a href="index.html" class="hover:text-[#146ebe]">Home</a>
+      <a href="index.html" class="hover:text-[#c27803]">Home</a>
       <span>/</span>
-      <a href="audio-voice-tools.html" class="hover:text-[#146ebe]">Audio & Speech</a>
+      <a href="audio-voice-tools.html" class="hover:text-[#c27803]">Audio & Speech</a>
       <span>/</span>
       <span class="text-slate-700">YouTube Voiceover Generator</span>
     </nav>
 
     <!-- H1 & Description -->
     <div class="mb-8">
-      <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+      <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
         YouTube Voiceover Generator & Script Narrator
       </h1>
       <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-3xl leading-relaxed">
@@ -133,7 +140,7 @@
         
         <div class="fa-card p-6 shadow-sm space-y-3">
           <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-            <span class="text-xs font-black uppercase tracking-wider text-[#183153] flex items-center gap-1.5">
+            <span class="text-xs font-black uppercase tracking-wider text-[#3e2723] flex items-center gap-1.5">
               <i class="fa-brands fa-youtube text-red-600"></i> Video Script Input
             </span>
             <button onclick="autoSplitScript()" class="fa-btn-primary py-1.5 px-3 text-xs font-black bg-red-600 hover:bg-red-700">
@@ -163,7 +170,7 @@
         
         <div class="fa-card p-6 shadow-md border-2 border-red-500/20 bg-gradient-to-b from-white to-slate-50 space-y-5">
           <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-            <h3 class="text-xs font-black uppercase tracking-wider text-[#183153]">YouTube Narrator Studio</h3>
+            <h3 class="text-xs font-black uppercase tracking-wider text-[#3e2723]">YouTube Narrator Studio</h3>
             <span id="ytStatusBadge" class="text-xs font-black font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded-lg">Ready</span>
           </div>
 
@@ -212,17 +219,17 @@
         <div>
           <h3 class="text-xs font-black text-slate-400 uppercase tracking-wider mb-4">Related Video & Voice Utilities</h3>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <a href="video-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+            <a href="video-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-solid fa-video text-rose-600 mr-1.5"></i> Video Compressor
             </a>
-            <a href="text-to-mp3.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+            <a href="text-to-mp3.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-solid fa-file-audio text-emerald-600 mr-1.5"></i> Text to MP3
             </a>
-            <a href="ai-voice-generator.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+            <a href="ai-voice-generator.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-solid fa-wand-magic-sparkles text-purple-600 mr-1.5"></i> AI Voice Studio
             </a>
-            <a href="text-to-speech.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
-              <i class="fa-solid fa-volume-high text-[#146ebe] mr-1.5"></i> Text to Speech
+            <a href="text-to-speech.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
+              <i class="fa-solid fa-volume-high text-[#c27803] mr-1.5"></i> Text to Speech
             </a>
           </div>
         </div>
@@ -235,7 +242,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script>
     let ytVoices = [];
     let scenes = [];

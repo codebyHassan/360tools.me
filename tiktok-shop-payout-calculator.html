@@ -13,20 +13,20 @@
   <link rel="canonical" href="https://360tools.me/tiktok-shop-payout-calculator.html">
 
   <!-- Favicon & Open Graph / Facebook -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/tiktok-shop-payout-calculator.html">
   <meta property="og:title" content="TikTok Shop Fee & Payout Estimator | 360tools.me">
   <meta property="og:description" content="Calculate TikTok Shop referral fees, creator affiliate commissions, shipping subsidies, and real seller take-home payouts.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://360tools.me/tiktok-shop-payout-calculator.html">
   <meta property="twitter:title" content="TikTok Shop Fee & Seller Payout Estimator">
   <meta property="twitter:description" content="Dynamic social-commerce profit calculator for TikTok Shop sellers and affiliate managers.">
-  <meta property="twitter:image" content="images/logo.jpg">
+  <meta property="twitter:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -109,18 +109,25 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
@@ -129,12 +136,12 @@
     <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
         <div class="inline-flex items-center gap-2 mb-2">
-          <span class="bg-[#183153] text-[#ffd43b] text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+          <span class="bg-[#3e2723] text-[#ffd43b] text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
             <i class="fa-brands fa-tiktok mr-1"></i> Social Commerce 2026
           </span>
           <span class="text-xs font-bold text-slate-400">• US & UK Shop Marketplace Rates</span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
           TikTok Shop Seller Payout Estimator
         </h1>
         <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
@@ -165,7 +172,7 @@
               <div class="w-8 h-8 rounded-xl bg-pink-100 text-[#fe2c55] flex items-center justify-center font-bold">
                 <i class="fa-solid fa-bag-shopping"></i>
               </div>
-              <h2 class="text-lg font-black text-[#183153]">1. Order Details & Retail Price</h2>
+              <h2 class="text-lg font-black text-[#3e2723]">1. Order Details & Retail Price</h2>
             </div>
             <span class="text-xs text-slate-400 font-bold">Step 1 of 3</span>
           </div>
@@ -228,7 +235,7 @@
               <div class="w-8 h-8 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center font-bold">
                 <i class="fa-solid fa-users"></i>
               </div>
-              <h2 class="text-lg font-black text-[#183153]">2. Affiliate Commission & Promotions</h2>
+              <h2 class="text-lg font-black text-[#3e2723]">2. Affiliate Commission & Promotions</h2>
             </div>
             <span class="text-xs text-slate-400 font-bold">Step 2 of 3</span>
           </div>
@@ -280,10 +287,10 @@
         <div class="fa-card p-6 sm:p-7 shadow-sm">
           <div class="flex items-center justify-between mb-5 border-b border-slate-100 pb-4">
             <div class="flex items-center gap-2.5">
-              <div class="w-8 h-8 rounded-xl bg-blue-100 text-[#146ebe] flex items-center justify-center font-bold">
+              <div class="w-8 h-8 rounded-xl bg-blue-100 text-[#c27803] flex items-center justify-center font-bold">
                 <i class="fa-solid fa-cubes"></i>
               </div>
-              <h2 class="text-lg font-black text-[#183153]">3. Product Cost & Postage (COGS)</h2>
+              <h2 class="text-lg font-black text-[#3e2723]">3. Product Cost & Postage (COGS)</h2>
             </div>
             <span class="text-xs text-slate-400 font-bold">Step 3 of 3</span>
           </div>
@@ -327,7 +334,7 @@
             <span class="text-xs font-black uppercase tracking-wider text-[#fe2c55] bg-pink-50 px-2.5 py-1 rounded-full">
               Estimated Bank Payout
             </span>
-            <button onclick="copyTikTokBreakdown()" class="text-xs font-bold text-slate-500 hover:text-[#146ebe] flex items-center gap-1">
+            <button onclick="copyTikTokBreakdown()" class="text-xs font-bold text-slate-500 hover:text-[#c27803] flex items-center gap-1">
               <i class="fa-solid fa-copy"></i> Copy Payout
             </button>
           </div>
@@ -335,7 +342,7 @@
           <!-- Hero Metric: Net Bank Deposit -->
           <div class="my-6 text-center bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
             <span class="text-xs font-bold text-slate-500 uppercase tracking-widest block mb-1">TikTok Settlement Payout</span>
-            <div id="resTikTokPayout" class="text-4xl sm:text-5xl font-black text-[#183153] font-mono tracking-tight">
+            <div id="resTikTokPayout" class="text-4xl sm:text-5xl font-black text-[#3e2723] font-mono tracking-tight">
               $23.09
             </div>
             <span class="text-[11px] font-bold text-slate-400 mt-1 block">Deposited to your bank after TikTok deductions</span>
@@ -382,7 +389,7 @@
 
             <div class="flex justify-between items-center pt-2 border-t border-slate-100 font-bold text-slate-900">
               <span>TikTok Bank Payout:</span>
-              <span id="resPayoutLine" class="font-mono text-[#183153]">$23.09</span>
+              <span id="resPayoutLine" class="font-mono text-[#3e2723]">$23.09</span>
             </div>
 
             <div class="flex justify-between items-center text-blue-700 font-bold">
@@ -412,7 +419,7 @@
       <div class="max-w-4xl mx-auto space-y-12">
         
         <div class="text-center">
-          <h2 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight">
             TikTok Shop Seller Fee Policies & Payout Mechanics (2026)
           </h2>
           <p class="text-slate-600 text-sm sm:text-base mt-2">
@@ -424,7 +431,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="fa-card p-6">
             <div class="text-[#fe2c55] text-2xl font-bold mb-2">6% + $0.30</div>
-            <h4 class="font-bold text-[#183153] text-sm mb-1">Standard US Referral Fee</h4>
+            <h4 class="font-bold text-[#3e2723] text-sm mb-1">Standard US Referral Fee</h4>
             <p class="text-xs text-slate-600 leading-relaxed">
               Charged on the customer-paid subtotal across apparel, beauty, home goods, and wellness products.
             </p>
@@ -432,7 +439,7 @@
 
           <div class="fa-card p-6">
             <div class="text-purple-600 text-2xl font-bold mb-2">10% – 20%</div>
-            <h4 class="font-bold text-[#183153] text-sm mb-1">Affiliate Commission Range</h4>
+            <h4 class="font-bold text-[#3e2723] text-sm mb-1">Affiliate Commission Range</h4>
             <p class="text-xs text-slate-600 leading-relaxed">
               Open plan vs. Target plan commission rates paid to creators who generate viral live streams and video showcases.
             </p>
@@ -440,7 +447,7 @@
 
           <div class="fa-card p-6">
             <div class="text-emerald-600 text-2xl font-bold mb-2">T+1 to T+5</div>
-            <h4 class="font-bold text-[#183153] text-sm mb-1">Settlement Speed</h4>
+            <h4 class="font-bold text-[#3e2723] text-sm mb-1">Settlement Speed</h4>
             <p class="text-xs text-slate-600 leading-relaxed">
               Standard payout funds are deposited into verified bank accounts 1 to 5 days after verified customer delivery.
             </p>
@@ -456,7 +463,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Script: TikTok Shop Logic -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script>
     function calculateTikTok() {
       const market = document.getElementById('ttMarket').value;

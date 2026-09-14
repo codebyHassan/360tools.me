@@ -14,13 +14,13 @@
   <link rel="canonical" href="https://360tools.me/memory-game/">
 
   <!-- Favicon & Open Graph -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/memory-game/">
   <meta property="og:title" content="Memory Card Game Online — Free Brain Puzzle">
   <meta property="og:description" content="Test your recall and concentration with our 3D card matching memory game. 100% free with zero ads.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -40,13 +40,20 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Canvas Confetti Library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
@@ -101,10 +108,10 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#f8fafc] px-3 sm:px-6 py-4">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] bg-[#fbf7ee] px-3 sm:px-6 py-4">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Game Container -->
   <main class="max-w-4xl mx-auto w-full flex-1 mb-16 pt-2">
@@ -114,13 +121,13 @@
       <div>
         <div class="inline-flex items-center gap-2 mb-1">
           <span class="fa-badge-blue py-1 px-3 text-[11px] font-black uppercase">
-            <i class="fa-solid fa-brain mr-1 text-[#146ebe]"></i> Brain Fitness
+            <i class="fa-solid fa-brain mr-1 text-[#c27803]"></i> Brain Fitness
           </span>
           <span class="text-xs font-bold text-emerald-600 flex items-center gap-1">
             <i class="fa-solid fa-bolt text-xs"></i> 3D Flip Engine
           </span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight flex items-center gap-2">
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight flex items-center gap-2">
           <span>Memory Card Match</span>
           <span class="text-xs font-bold px-2 py-0.5 bg-blue-100 text-blue-800 rounded-md">Pro</span>
         </h1>
@@ -133,11 +140,11 @@
       <div class="flex items-center gap-2.5">
         <div class="bg-white border border-slate-200 px-3.5 py-2 rounded-2xl text-center min-w-[75px] shadow-2xs">
           <div class="text-[10px] font-black uppercase tracking-wider text-slate-400">MOVES</div>
-          <div id="movesCounter" class="text-lg sm:text-xl font-black text-[#183153] leading-tight">0</div>
+          <div id="movesCounter" class="text-lg sm:text-xl font-black text-[#3e2723] leading-tight">0</div>
         </div>
         <div class="bg-white border border-slate-200 px-3.5 py-2 rounded-2xl text-center min-w-[75px] shadow-2xs">
           <div class="text-[10px] font-black uppercase tracking-wider text-slate-400">TIME</div>
-          <div id="timerDisplay" class="text-lg sm:text-xl font-black text-[#146ebe] leading-tight">00:00</div>
+          <div id="timerDisplay" class="text-lg sm:text-xl font-black text-[#c27803] leading-tight">00:00</div>
         </div>
         <div class="bg-white border border-slate-200 px-3.5 py-2 rounded-2xl text-center min-w-[75px] shadow-2xs">
           <div class="text-[10px] font-black uppercase tracking-wider text-slate-400">RATING</div>
@@ -154,7 +161,7 @@
           <span>Difficulty:</span>
           <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl">
             <button onclick="setDifficulty('easy')" id="btnDiffEasy" class="diff-btn px-2.5 py-1 rounded-lg text-xs font-bold transition-all">Easy (12)</button>
-            <button onclick="setDifficulty('medium')" id="btnDiffMedium" class="diff-btn active px-2.5 py-1 rounded-lg text-xs font-bold transition-all bg-[#183153] text-white">Medium (16)</button>
+            <button onclick="setDifficulty('medium')" id="btnDiffMedium" class="diff-btn active px-2.5 py-1 rounded-lg text-xs font-bold transition-all bg-[#3e2723] text-white">Medium (16)</button>
             <button onclick="setDifficulty('hard')" id="btnDiffHard" class="diff-btn px-2.5 py-1 rounded-lg text-xs font-bold transition-all">Hard (24)</button>
           </div>
         </div>
@@ -190,7 +197,7 @@
         <div class="w-16 h-16 bg-[#ffd43b]/20 text-[#ffd43b] border border-[#ffd43b]/40 rounded-full flex items-center justify-center text-3xl mx-auto animate-bounce">
           <i class="fa-solid fa-trophy"></i>
         </div>
-        <h2 class="text-3xl font-black text-[#183153]">Stage Cleared!</h2>
+        <h2 class="text-3xl font-black text-[#3e2723]">Stage Cleared!</h2>
         <p class="text-xs sm:text-sm text-slate-500 font-medium">
           Fantastic! You matched all pairs in record time.
         </p>
@@ -199,11 +206,11 @@
         <div class="grid grid-cols-3 gap-2 py-2">
           <div class="p-3 bg-slate-50 rounded-2xl border border-slate-100">
             <div class="text-[10px] font-black uppercase text-slate-400">Total Moves</div>
-            <div id="modalMoves" class="text-base font-black text-[#183153]">16</div>
+            <div id="modalMoves" class="text-base font-black text-[#3e2723]">16</div>
           </div>
           <div class="p-3 bg-slate-50 rounded-2xl border border-slate-100">
             <div class="text-[10px] font-black uppercase text-slate-400">Time Taken</div>
-            <div id="modalTime" class="text-base font-black text-[#146ebe]">00:45</div>
+            <div id="modalTime" class="text-base font-black text-[#c27803]">00:45</div>
           </div>
           <div class="p-3 bg-slate-50 rounded-2xl border border-slate-100">
             <div class="text-[10px] font-black uppercase text-slate-400">Star Rating</div>
@@ -226,7 +233,7 @@
     <article class="fa-card p-6 sm:p-10 space-y-8 text-slate-700 text-sm leading-relaxed">
       
       <section class="space-y-3">
-        <h2 class="text-xl sm:text-2xl font-black text-[#183153] flex items-center gap-2">
+        <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] flex items-center gap-2">
           <i class="fa-solid fa-brain text-purple-600"></i> Cognitive Benefits of Memory Card Puzzles
         </h2>
         <p>
@@ -235,8 +242,8 @@
       </section>
 
       <section class="space-y-4">
-        <h3 class="text-lg font-black text-[#183153] flex items-center gap-2">
-          <i class="fa-solid fa-chess-knight text-[#146ebe]"></i> Memory Recall Tips for Fewer Moves
+        <h3 class="text-lg font-black text-[#3e2723] flex items-center gap-2">
+          <i class="fa-solid fa-chess-knight text-[#c27803]"></i> Memory Recall Tips for Fewer Moves
         </h3>
         <ul class="list-disc pl-5 space-y-2 text-xs sm:text-sm text-slate-600 font-medium">
           <li><strong>Grid Association:</strong> Subdivide the board into 4 quadrants in your mind and label cards by quadrant (e.g. "React in Top-Left, Python in Bottom-Right").</li>
@@ -253,7 +260,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script>
     // Theme Icon Data
     const THEMES = {
@@ -349,10 +356,10 @@
     function setDifficulty(diff) {
       difficulty = diff;
       document.querySelectorAll('.diff-btn').forEach(btn => {
-        btn.classList.remove('bg-[#183153]', 'text-white');
+        btn.classList.remove('bg-[#3e2723]', 'text-white');
       });
       const targetBtn = diff === 'easy' ? 'btnDiffEasy' : (diff === 'medium' ? 'btnDiffMedium' : 'btnDiffHard');
-      document.getElementById(targetBtn).classList.add('bg-[#183153]', 'text-white');
+      document.getElementById(targetBtn).classList.add('bg-[#3e2723]', 'text-white');
       initGame();
     }
 

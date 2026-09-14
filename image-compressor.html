@@ -13,20 +13,20 @@
   <link rel="canonical" href="https://360tools.me/image-compressor.html">
 
   <!-- Favicon & Open Graph / Facebook -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/image-compressor.html">
   <meta property="og:title" content="Image Compressor — Free Online Photo Size Reducer | 360Tools">
   <meta property="og:description" content="Compress JPG, PNG, and WebP images client-side on 360Tools. Zero server uploads, custom quality slider, and instant before/after preview.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://360tools.me/image-compressor.html">
   <meta property="twitter:title" content="Free Image Compressor Online — 100% Private">
   <meta property="twitter:description" content="Reduce image file size up to 90% in your browser. Fast, free, and completely secure.">
-  <meta property="twitter:image" content="images/logo.jpg">
+  <meta property="twitter:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -109,18 +109,25 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
@@ -134,7 +141,7 @@
           </span>
           <span class="text-xs font-bold text-slate-400">• Zero Server Uploads • Zero Loss</span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
           Free Image Compressor Online
         </h1>
         <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
@@ -158,8 +165,8 @@
         <!-- Upload Drop Zone -->
         <div class="fa-card p-6 sm:p-7 shadow-sm">
           <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-            <h2 class="text-base font-black text-[#183153] flex items-center gap-2">
-              <i class="fa-solid fa-cloud-arrow-up text-[#146ebe]"></i>
+            <h2 class="text-base font-black text-[#3e2723] flex items-center gap-2">
+              <i class="fa-solid fa-cloud-arrow-up text-[#c27803]"></i>
               Upload Image
             </h2>
             <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
@@ -169,7 +176,7 @@
 
           <div id="dropZone" class="border-2 border-dashed border-slate-300 hover:border-[#146ebe] hover:bg-blue-50/30 transition-all rounded-2xl p-8 text-center cursor-pointer mb-2" onclick="document.getElementById('imageFileInput').click()">
             <input type="file" id="imageFileInput" accept="image/jpeg,image/png,image/webp,image/bmp,image/gif" class="hidden" onchange="handleImageUpload(event)">
-            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#146ebe] mx-auto flex items-center justify-center text-xl mb-3">
+            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#c27803] mx-auto flex items-center justify-center text-xl mb-3">
               <i class="fa-solid fa-photo-film"></i>
             </div>
             <p class="text-sm font-bold text-slate-700 mb-1">Click to upload or drag & drop</p>
@@ -180,8 +187,8 @@
         <!-- Compression Settings Card -->
         <div class="fa-card p-6 sm:p-7 shadow-sm space-y-5">
           <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-            <h3 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
-              <i class="fa-solid fa-sliders text-[#146ebe]"></i>
+            <h3 class="text-sm font-black text-[#3e2723] uppercase tracking-wider flex items-center gap-2">
+              <i class="fa-solid fa-sliders text-[#c27803]"></i>
               Compression Settings
             </h3>
             <button onclick="resetSettings()" class="text-xs font-bold text-slate-400 hover:text-slate-600">Reset</button>
@@ -193,7 +200,7 @@
               <label for="qualitySlider" class="text-xs font-bold uppercase tracking-wider text-slate-600">
                 Compression Quality
               </label>
-              <span id="qualityVal" class="text-xs font-black font-mono bg-blue-100 text-[#146ebe] px-2 py-0.5 rounded-lg">80%</span>
+              <span id="qualityVal" class="text-xs font-black font-mono bg-blue-100 text-[#c27803] px-2 py-0.5 rounded-lg">80%</span>
             </div>
             <input type="range" id="qualitySlider" min="5" max="100" value="80" class="w-full accent-[#146ebe] cursor-pointer" oninput="updateQuality(this.value)">
             <div class="flex justify-between text-[10px] text-slate-400 font-bold mt-1">
@@ -271,8 +278,8 @@
               <span id="statCompressedSize" class="text-base sm:text-lg font-black font-mono text-emerald-700">--</span>
             </div>
             <div class="p-3 bg-blue-50 rounded-xl border border-blue-200">
-              <span class="text-[10px] font-bold text-[#146ebe] block uppercase tracking-wider">Saved</span>
-              <span id="statSavedBytes" class="text-base sm:text-lg font-black font-mono text-[#146ebe]">--</span>
+              <span class="text-[10px] font-bold text-[#c27803] block uppercase tracking-wider">Saved</span>
+              <span id="statSavedBytes" class="text-base sm:text-lg font-black font-mono text-[#c27803]">--</span>
             </div>
           </div>
 
@@ -301,7 +308,7 @@
       <div class="max-w-4xl mx-auto space-y-12">
         
         <div class="text-center">
-          <h2 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight">
             How Client-Side Image Compression Works
           </h2>
           <p class="text-slate-600 text-sm sm:text-base mt-2">
@@ -311,7 +318,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="fa-card p-6">
-            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2 flex items-center gap-2">
               <i class="fa-solid fa-gauge-high text-emerald-600"></i> Faster Page Speeds
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -320,8 +327,8 @@
           </div>
 
           <div class="fa-card p-6">
-            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
-              <i class="fa-solid fa-lock text-[#146ebe]"></i> Zero Server Data Risk
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-lock text-[#c27803]"></i> Zero Server Data Risk
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
               Unlike cloud compression APIs that harvest your images, this tool compresses pixels in local canvas memory. GDPR-compliant and safe for confidential documents.
@@ -329,7 +336,7 @@
           </div>
 
           <div class="fa-card p-6">
-            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2 flex items-center gap-2">
               <i class="fa-solid fa-wand-magic-sparkles text-purple-600"></i> WebP Next-Gen Format
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -347,7 +354,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Script: Image Compressor Logic -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script>
     let originalImage = null;
     let originalFile = null;

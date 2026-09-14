@@ -13,13 +13,13 @@
   <link rel="canonical" href="https://360tools.me/png-compressor.html">
 
   <!-- Favicon & Open Graph -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/png-compressor.html">
   <meta property="og:title" content="PNG Compressor – Compress PNG Images Online | 360tools">
   <meta property="og:description" content="Compress PNG images online with full alpha transparency preservation and zero server uploads.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -102,30 +102,37 @@
   </script>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="css/style.min.css">
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4 bg-[#f8fafc]">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
     
     <!-- 2. Breadcrumb -->
     <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4" aria-label="Breadcrumb">
-      <a href="index.html" class="hover:text-[#146ebe]">Home</a>
+      <a href="index.html" class="hover:text-[#c27803]">Home</a>
       <span>/</span>
-      <a href="compression-tools.html" class="hover:text-[#146ebe]">Compression Tools</a>
+      <a href="compression-tools.html" class="hover:text-[#c27803]">Compression Tools</a>
       <span>/</span>
       <span class="text-slate-700">PNG Compressor</span>
     </nav>
 
     <!-- 3. H1 & 4. Introductory Description -->
     <div class="mb-8">
-      <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+      <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
         PNG Compressor – Compress PNG Images
       </h1>
       <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-3xl leading-relaxed">
@@ -153,7 +160,7 @@
         <!-- Upload Box -->
         <div class="fa-card p-6 shadow-sm">
           <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-            <h2 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
+            <h2 class="text-sm font-black text-[#3e2723] uppercase tracking-wider flex items-center gap-2">
               <i class="fa-solid fa-shapes text-emerald-600"></i> Upload PNG Image
             </h2>
             <span class="text-[11px] font-bold text-slate-400">PNG Format</span>
@@ -172,8 +179,8 @@
         <!-- Controls -->
         <div class="fa-card p-6 shadow-sm space-y-5">
           <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-            <h3 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
-              <i class="fa-solid fa-sliders text-[#146ebe]"></i> PNG Controls
+            <h3 class="text-xs font-black text-[#3e2723] uppercase tracking-wider flex items-center gap-2">
+              <i class="fa-solid fa-sliders text-[#c27803]"></i> PNG Controls
             </h3>
             <button onclick="resetPngSettings()" class="text-xs font-bold text-slate-400 hover:text-slate-600">Reset</button>
           </div>
@@ -182,7 +189,7 @@
           <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Optimization Mode</label>
             <div class="grid grid-cols-2 gap-2">
-              <button onclick="setPngMode('webp')" id="btnModeWebp" class="p-2.5 rounded-xl border-2 border-[#146ebe] bg-blue-50 text-xs font-bold text-[#146ebe] text-center">
+              <button onclick="setPngMode('webp')" id="btnModeWebp" class="p-2.5 rounded-xl border-2 border-[#146ebe] bg-blue-50 text-xs font-bold text-[#c27803] text-center">
                 WebP Alpha (Recommended)
               </button>
               <button onclick="setPngMode('png')" id="btnModePng" class="p-2.5 rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-700 text-center hover:border-slate-300">
@@ -234,8 +241,8 @@
               <span id="pngStatComp" class="text-base sm:text-lg font-black font-mono text-emerald-700">--</span>
             </div>
             <div class="p-3 bg-blue-50 rounded-xl border border-blue-200">
-              <span class="text-[10px] font-bold text-[#146ebe] block uppercase tracking-wider">Saved</span>
-              <span id="pngStatSaved" class="text-base sm:text-lg font-black font-mono text-[#146ebe]">--</span>
+              <span class="text-[10px] font-bold text-[#c27803] block uppercase tracking-wider">Saved</span>
+              <span id="pngStatSaved" class="text-base sm:text-lg font-black font-mono text-[#c27803]">--</span>
             </div>
           </div>
 
@@ -268,7 +275,7 @@
     <section class="my-16 pt-10 border-t border-slate-200">
       <div class="max-w-4xl mx-auto space-y-12">
         <div class="fa-card p-8 space-y-4">
-          <h3 class="text-lg font-black text-[#183153]">Lossless vs. Lossy PNG Compression</h3>
+          <h3 class="text-lg font-black text-[#3e2723]">Lossless vs. Lossy PNG Compression</h3>
           <p class="text-xs text-slate-600 leading-relaxed font-medium">
             PNG files use lossless DEFLATE compression. Because PNG is designed for pixel-perfect reproduction, shrinking a PNG losslessly only removes unnecessary ancillary chunks (such as creation timestamps and color profiles). To achieve massive 70%+ file size reductions for web performance, converting transparent PNGs to transparent WebP format provides the best of both worlds: 100% alpha transparency with cutting-edge predictive compression.
           </p>
@@ -277,16 +284,16 @@
         <div class="pt-8 border-t border-slate-200">
           <h3 class="text-xs font-black text-slate-400 uppercase tracking-wider mb-4">Related Compression Tools</h3>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <a href="jpg-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+            <a href="jpg-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-solid fa-camera text-amber-600 mr-1.5"></i> JPG Compressor
             </a>
-            <a href="webp-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+            <a href="webp-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-solid fa-bolt text-blue-600 mr-1.5"></i> WebP Compressor
             </a>
-            <a href="bulk-image-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+            <a href="bulk-image-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-solid fa-layer-group text-purple-600 mr-1.5"></i> Bulk Compressor
             </a>
-            <a href="compress-image-to-100kb.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+            <a href="compress-image-to-100kb.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-solid fa-bullseye text-indigo-600 mr-1.5"></i> Target 100KB
             </a>
           </div>
@@ -300,7 +307,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script src="js/image-engine.js"></script>
   <script>
     let currentPngFile = null;
@@ -340,10 +347,10 @@
     function setPngMode(mode) {
       pngMode = mode;
       if (mode === 'webp') {
-        document.getElementById('btnModeWebp').className = 'p-2.5 rounded-xl border-2 border-[#146ebe] bg-blue-50 text-xs font-bold text-[#146ebe] text-center';
+        document.getElementById('btnModeWebp').className = 'p-2.5 rounded-xl border-2 border-[#146ebe] bg-blue-50 text-xs font-bold text-[#c27803] text-center';
         document.getElementById('btnModePng').className = 'p-2.5 rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-700 text-center hover:border-slate-300';
       } else {
-        document.getElementById('btnModePng').className = 'p-2.5 rounded-xl border-2 border-[#146ebe] bg-blue-50 text-xs font-bold text-[#146ebe] text-center';
+        document.getElementById('btnModePng').className = 'p-2.5 rounded-xl border-2 border-[#146ebe] bg-blue-50 text-xs font-bold text-[#c27803] text-center';
         document.getElementById('btnModeWebp').className = 'p-2.5 rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-700 text-center hover:border-slate-300';
       }
       runPngCompression();

@@ -13,20 +13,20 @@
   <link rel="canonical" href="https://360tools.me/code-minifier.html">
 
   <!-- Favicon & Open Graph / Facebook -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/code-minifier.html">
   <meta property="og:title" content="HTML, CSS & JS Minifier & Beautifier | 360tools.me">
   <meta property="og:description" content="Minify and format HTML, CSS, and JS code client-side with real-time Gzip payload estimation.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://360tools.me/code-minifier.html">
   <meta property="twitter:title" content="Free Code Minifier & Beautifier (HTML/CSS/JS)">
   <meta property="twitter:description" content="Minify code and estimate Gzip compression savings with instant copy and file export.">
-  <meta property="twitter:image" content="images/logo.jpg">
+  <meta property="twitter:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -101,18 +101,25 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
@@ -126,7 +133,7 @@
           </span>
           <span class="text-xs font-bold text-slate-400">• HTML5, CSS3, JS & JSON • Gzip Estimator</span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
           HTML, CSS & JavaScript Minifier & Beautifier
         </h1>
         <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
@@ -162,7 +169,7 @@
 
       <!-- Action Buttons -->
       <div class="flex items-center gap-2">
-        <button onclick="processCode('minify')" class="fa-btn-primary px-4 py-2 text-xs font-black bg-[#183153] hover:bg-[#25406b] flex items-center gap-1.5">
+        <button onclick="processCode('minify')" class="fa-btn-primary px-4 py-2 text-xs font-black bg-[#3e2723] hover:bg-[#25406b] flex items-center gap-1.5">
           <i class="fa-solid fa-compress"></i> Minify Code
         </button>
         <button onclick="processCode('beautify')" class="fa-btn-secondary px-4 py-2 text-xs font-bold flex items-center gap-1.5">
@@ -196,10 +203,10 @@
             <i class="fa-solid fa-bolt text-emerald-600"></i> Processed Output
           </span>
           <div class="flex items-center gap-2">
-            <button onclick="copyProcessedCode()" class="text-xs font-bold text-slate-500 hover:text-[#146ebe] flex items-center gap-1">
+            <button onclick="copyProcessedCode()" class="text-xs font-bold text-slate-500 hover:text-[#c27803] flex items-center gap-1">
               <i class="fa-solid fa-copy"></i> Copy
             </button>
-            <button onclick="downloadCodeFile()" class="text-xs font-bold text-slate-500 hover:text-[#146ebe] flex items-center gap-1">
+            <button onclick="downloadCodeFile()" class="text-xs font-bold text-slate-500 hover:text-[#c27803] flex items-center gap-1">
               <i class="fa-solid fa-download"></i> Save
             </button>
           </div>
@@ -221,8 +228,8 @@
           <span id="statMinBytes" class="text-base sm:text-lg font-black font-mono text-emerald-700">0 B</span>
         </div>
         <div class="p-3 bg-blue-50 rounded-xl border border-blue-200">
-          <span class="text-[10px] font-bold text-[#146ebe] block uppercase tracking-wider">Size Reduction</span>
-          <span id="statReductionPct" class="text-base sm:text-lg font-black font-mono text-[#146ebe]">0%</span>
+          <span class="text-[10px] font-bold text-[#c27803] block uppercase tracking-wider">Size Reduction</span>
+          <span id="statReductionPct" class="text-base sm:text-lg font-black font-mono text-[#c27803]">0%</span>
         </div>
         <div class="p-3 bg-purple-50 rounded-xl border border-purple-200">
           <span class="text-[10px] font-bold text-purple-800 block uppercase tracking-wider">Est. Gzip Payload</span>
@@ -236,7 +243,7 @@
       <div class="max-w-4xl mx-auto space-y-12">
         
         <div class="text-center">
-          <h2 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight">
             Frontend Code Optimization & Minification Best Practices
           </h2>
           <p class="text-slate-600 text-sm sm:text-base mt-2">
@@ -246,7 +253,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="fa-card p-6">
-            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2 flex items-center gap-2">
               <i class="fa-brands fa-html5 text-orange-500"></i> HTML Minification
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -255,7 +262,7 @@
           </div>
 
           <div class="fa-card p-6">
-            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2 flex items-center gap-2">
               <i class="fa-brands fa-css3-alt text-blue-500"></i> CSS Compression
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -264,7 +271,7 @@
           </div>
 
           <div class="fa-card p-6">
-            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2 flex items-center gap-2">
               <i class="fa-brands fa-js text-yellow-500"></i> JavaScript Optimization
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -282,7 +289,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Script: Code Minifier Logic -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script>
     let activeLang = 'html';
 
@@ -458,7 +465,7 @@
 
     function loadSampleCode() {
       if (activeLang === 'html') {
-        document.getElementById('rawCodeInput').value = `<!DOCTYPE html>\n<!-- Sample Webpage Header -->\n<html lang="en">\n  <head>\n    <title>360tools Performance</title>\n    <meta charset="UTF-8">\n    <link rel="stylesheet" href="css/style.css">\n  </head>\n  <body>\n    <!-- Main Navigation Bar -->\n    <nav class="navbar">\n      <a href="/" class="brand-link">360tools</a>\n    </nav>\n    <main>\n      <h1>Fast Web Performance</h1>\n      <p>Clean client-side minification.</p>\n    </main>\n  </body>\n</html>`;
+        document.getElementById('rawCodeInput').value = `<!DOCTYPE html>\n<!-- Sample Webpage Header -->\n<html lang="en">\n  <head>\n    <title>360tools Performance</title>\n    <meta charset="UTF-8">\n    <link rel="stylesheet" href="css/style.min.css">\n  </head>\n  <body>\n    <!-- Main Navigation Bar -->\n    <nav class="navbar">\n      <a href="/" class="brand-link">360tools</a>\n    </nav>\n    <main>\n      <h1>Fast Web Performance</h1>\n      <p>Clean client-side minification.</p>\n    </main>\n  </body>\n</html>`;
       } else if (activeLang === 'css') {
         document.getElementById('rawCodeInput').value = `/* Master Stylesheet */\n.header-container {\n  background-color: #ffffff;\n  margin: 0px 10px 0px 10px;\n  padding: 20px;\n  border-radius: 12px;\n}\n\n/* Interactive Buttons */\n.btn-primary {\n  color: #ffffff;\n  background-color: #146ebe;\n  font-weight: 700;\n  border: none;\n}`;
       } else if (activeLang === 'js') {

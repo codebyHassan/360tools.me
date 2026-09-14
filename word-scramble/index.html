@@ -14,13 +14,13 @@
   <link rel="canonical" href="https://360tools.me/word-scramble/">
 
   <!-- Favicon & Open Graph -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/word-scramble/">
   <meta property="og:title" content="Word Scramble Online — Free Brain Word Puzzle">
   <meta property="og:description" content="Unscramble jumbled letters and test your vocabulary speed in this free online word puzzle. Zero ads.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -40,13 +40,20 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Canvas Confetti Library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
@@ -88,10 +95,10 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#f8fafc] px-3 sm:px-6 py-4">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] bg-[#fbf7ee] px-3 sm:px-6 py-4">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Game Container -->
   <main class="max-w-4xl mx-auto w-full flex-1 mb-16 pt-2">
@@ -107,7 +114,7 @@
             <i class="fa-solid fa-bolt text-xs"></i> 100+ Vocabulary Bank
           </span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight flex items-center gap-2">
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight flex items-center gap-2">
           <span>Word Scramble</span>
           <span class="text-xs font-bold px-2 py-0.5 bg-amber-100 text-amber-800 rounded-md">Vocabulary Master</span>
         </h1>
@@ -120,7 +127,7 @@
       <div class="flex items-center gap-2.5">
         <div class="bg-white border border-slate-200 px-3.5 py-2 rounded-2xl text-center min-w-[75px] shadow-2xs">
           <div class="text-[10px] font-black uppercase tracking-wider text-slate-400">SCORE</div>
-          <div id="currentScore" class="text-lg sm:text-xl font-black text-[#183153] leading-tight">0</div>
+          <div id="currentScore" class="text-lg sm:text-xl font-black text-[#3e2723] leading-tight">0</div>
         </div>
         <div class="bg-white border border-slate-200 px-3.5 py-2 rounded-2xl text-center min-w-[75px] shadow-2xs">
           <div class="text-[10px] font-black uppercase tracking-wider text-slate-400">STREAK</div>
@@ -128,7 +135,7 @@
         </div>
         <div class="bg-white border border-slate-200 px-3.5 py-2 rounded-2xl text-center min-w-[75px] shadow-2xs">
           <div class="text-[10px] font-black uppercase tracking-wider text-slate-400">TIME</div>
-          <div id="timerDisplay" class="text-lg sm:text-xl font-black text-[#146ebe] leading-tight">30s</div>
+          <div id="timerDisplay" class="text-lg sm:text-xl font-black text-[#c27803] leading-tight">30s</div>
         </div>
       </div>
     </div>
@@ -233,8 +240,8 @@
     <article class="fa-card p-6 sm:p-10 space-y-8 text-slate-700 text-sm leading-relaxed">
       
       <section class="space-y-3">
-        <h2 class="text-xl sm:text-2xl font-black text-[#183153] flex items-center gap-2">
-          <i class="fa-solid fa-book-open text-[#146ebe]"></i> How Anagram & Scramble Puzzles Sharpen the Mind
+        <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] flex items-center gap-2">
+          <i class="fa-solid fa-book-open text-[#c27803]"></i> How Anagram & Scramble Puzzles Sharpen the Mind
         </h2>
         <p>
           Solving word anagrams activates the left hemisphere of the brain, specifically the **Broca's and Wernicke's language areas**. It trains rapid lexical retrieval, phonological processing, and pattern recognition.
@@ -242,7 +249,7 @@
       </section>
 
       <section class="space-y-4">
-        <h3 class="text-lg font-black text-[#183153] flex items-center gap-2">
+        <h3 class="text-lg font-black text-[#3e2723] flex items-center gap-2">
           <i class="fa-solid fa-bolt text-amber-500"></i> Fast Solving Techniques
         </h3>
         <ul class="list-disc pl-5 space-y-2 text-xs sm:text-sm text-slate-600 font-medium">
@@ -260,7 +267,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script>
     const WORD_BANKS = {
       tech: [

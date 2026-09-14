@@ -13,27 +13,34 @@
   <link rel="canonical" href="https://360tools.me/blog.html">
 
   <!-- Favicon & Open Graph -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/blog.html">
   <meta property="og:title" content="360tools Blog & Tutorials Hub">
   <meta property="og:description" content="Explore expert tutorials and engineering deep-dives on browser privacy, AI voiceovers, and calculation utilities.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#f8fafc]">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] bg-[#fbf7ee]">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- MAIN CONTENT CONTAINER -->
   <main class="w-full flex-1">
@@ -42,12 +49,12 @@
     <section class="bg-gradient-to-b from-white to-slate-50 border-b border-slate-200/80 pt-10 pb-14 px-4 sm:px-6">
       <div class="max-w-6xl mx-auto text-center space-y-4">
         
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#146ebe] text-xs font-black uppercase tracking-wider">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#c27803] text-xs font-black uppercase tracking-wider">
           <i class="fa-solid fa-book-open"></i> Knowledge Base & Editorial Guides
         </div>
 
-        <h1 class="text-3xl sm:text-5xl font-black text-[#183153] tracking-tight">
-          360tools <span class="text-[#146ebe]">Engineering & Guides</span>
+        <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight">
+          360tools <span class="text-[#c27803]">Engineering & Guides</span>
         </h1>
 
         <p class="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto font-medium">
@@ -74,7 +81,7 @@
 
         <!-- Categories Pill Bar -->
         <div id="categoryTabs" class="flex items-center justify-center flex-wrap gap-2 pt-4">
-          <button data-category="" class="cat-pill active px-4 py-2 rounded-xl text-xs font-black bg-[#183153] text-white shadow-xs transition-all cursor-pointer">
+          <button data-category="" class="cat-pill active px-4 py-2 rounded-xl text-xs font-black bg-[#3e2723] text-white shadow-xs transition-all cursor-pointer">
             All Guides
           </button>
           <!-- Dynamic Category Pills Injected Here -->
@@ -93,8 +100,8 @@
 
       <!-- Section Title & Live Count -->
       <div class="flex items-center justify-between mb-8 pb-3 border-b border-slate-200">
-        <h2 id="gridSectionTitle" class="text-xl sm:text-2xl font-black text-[#183153] flex items-center gap-2.5">
-          <i class="fa-solid fa-newspaper text-[#146ebe]"></i>
+        <h2 id="gridSectionTitle" class="text-xl sm:text-2xl font-black text-[#3e2723] flex items-center gap-2.5">
+          <i class="fa-solid fa-newspaper text-[#c27803]"></i>
           <span>Latest Articles & Guides</span>
         </h2>
         <span id="postsCountBadge" class="text-xs font-bold text-slate-500 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-2xs">
@@ -130,7 +137,7 @@
       <!-- Empty State / Fallback -->
       <div id="noResultsState" class="hidden text-center py-16 bg-white rounded-3xl border border-dashed border-slate-300 p-8 my-8">
         <i class="fa-solid fa-file-circle-question text-4xl text-slate-300 mb-3"></i>
-        <h3 class="text-lg font-black text-[#183153]">No articles found</h3>
+        <h3 class="text-lg font-black text-[#3e2723]">No articles found</h3>
         <p class="text-xs text-slate-500 max-w-sm mx-auto mt-1">
           Try searching with different keywords or check back soon as our team publishes new guides.
         </p>
@@ -147,7 +154,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script src="js/blog-engine.js"></script>
   
   <script>
@@ -200,13 +207,13 @@
         const tabsContainer = document.getElementById('categoryTabs');
         tabsContainer.innerHTML = `
           <button data-category="" onclick="setCategoryFilter('')" 
-                  class="cat-pill px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer ${currentCategory === '' ? 'bg-[#183153] text-white shadow-xs' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}">
+                  class="cat-pill px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer ${currentCategory === '' ? 'bg-[#3e2723] text-white shadow-xs' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}">
             All Guides
           </button>
         ` + allCategoriesList.map(cat => `
           <button data-category="${cat.slug}" onclick="setCategoryFilter('${cat.slug}')" 
-                  class="cat-pill px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-1.5 ${currentCategory === cat.slug ? 'bg-[#183153] text-white shadow-xs' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}">
-            <i class="${cat.icon || 'fa-solid fa-folder'} ${cat.color || 'text-[#146ebe]'} text-xs"></i>
+                  class="cat-pill px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-1.5 ${currentCategory === cat.slug ? 'bg-[#3e2723] text-white shadow-xs' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}">
+            <i class="${cat.icon || 'fa-solid fa-folder'} ${cat.color || 'text-[#c27803]'} text-xs"></i>
             <span>${cat.name}</span>
             <span class="text-[10px] opacity-70 bg-slate-100/50 px-1.5 py-0.2 rounded-full">${cat.posts_count || 0}</span>
           </button>
@@ -222,7 +229,7 @@
       // Update UI button styles
       document.querySelectorAll('.cat-pill').forEach(btn => {
         const isSelected = btn.getAttribute('data-category') === categorySlug;
-        btn.className = `cat-pill px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-1.5 ${isSelected ? 'bg-[#183153] text-white shadow-xs' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}`;
+        btn.className = `cat-pill px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-1.5 ${isSelected ? 'bg-[#3e2723] text-white shadow-xs' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}`;
       });
 
       loadBlogs();
@@ -268,8 +275,8 @@
           featuredContainer.innerHTML = `
             <div class="bg-gradient-to-br from-white to-blue-50/40 rounded-3xl border border-slate-200 shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 sm:p-8 items-center">
               <div class="lg:col-span-6 relative overflow-hidden rounded-2xl group">
-                <img src="${feat.featured_image_url || 'images/logo.jpg'}" alt="${feat.title}" class="w-full h-64 sm:h-80 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-300">
-                <span class="absolute top-3 left-3 bg-[#ffd43b] text-[#183153] px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider flex items-center gap-1 shadow-md">
+                <img src="${feat.featured_image_url || 'images/logo.webp'}" alt="${feat.title}" class="w-full h-64 sm:h-80 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-300">
+                <span class="absolute top-3 left-3 bg-[#ffd43b] text-[#3e2723] px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider flex items-center gap-1 shadow-md">
                   <i class="fa-solid fa-star"></i> Featured Guide
                 </span>
                 ${feat.featured_video_url ? `
@@ -281,13 +288,13 @@
 
               <div class="lg:col-span-6 space-y-4">
                 <div class="flex items-center gap-2">
-                  <span class="text-xs font-black text-[#146ebe] uppercase tracking-wider bg-blue-50 px-2.5 py-1 rounded-lg">
+                  <span class="text-xs font-black text-[#c27803] uppercase tracking-wider bg-blue-50 px-2.5 py-1 rounded-lg">
                     ${feat.category?.name || 'General'}
                   </span>
                   <span class="text-xs text-slate-400 font-semibold">• ${feat.read_time_minutes || 4} min read</span>
                 </div>
 
-                <h3 class="text-2xl sm:text-3xl font-black text-[#183153] leading-tight hover:text-[#146ebe] transition-colors">
+                <h3 class="text-2xl sm:text-3xl font-black text-[#3e2723] leading-tight hover:text-[#c27803] transition-colors">
                   <a href="blog-post.html?slug=${feat.slug}">${feat.title}</a>
                 </h3>
 
@@ -297,9 +304,9 @@
 
                 <div class="pt-2 flex flex-wrap items-center justify-between gap-4">
                   <div class="flex items-center gap-3">
-                    <img src="${feat.author_avatar || 'images/logo.jpg'}" class="w-9 h-9 rounded-xl object-cover border border-slate-200">
+                    <img src="${feat.author_avatar || 'images/logo.webp'}" class="w-9 h-9 rounded-xl object-cover border border-slate-200">
                     <div>
-                      <div class="text-xs font-black text-[#183153]">${feat.author_name}</div>
+                      <div class="text-xs font-black text-[#3e2723]">${feat.author_name}</div>
                       <div class="text-[10px] text-slate-400">${feat.published_date_formatted || ''}</div>
                     </div>
                   </div>
@@ -322,11 +329,11 @@
           <article class="bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group">
             <!-- Card Thumbnail -->
             <div class="relative overflow-hidden aspect-16/10 bg-slate-100">
-              <img src="${post.featured_image_url || 'images/logo.jpg'}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+              <img src="${post.featured_image_url || 'images/logo.webp'}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
               
               <!-- Category Badge -->
-              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs text-[#183153] border border-slate-200 px-2.5 py-1 rounded-xl text-[11px] font-black shadow-xs flex items-center gap-1.5">
-                <i class="${post.category?.icon || 'fa-solid fa-folder'} ${post.category?.color || 'text-[#146ebe]'} text-xs"></i>
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs text-[#3e2723] border border-slate-200 px-2.5 py-1 rounded-xl text-[11px] font-black shadow-xs flex items-center gap-1.5">
+                <i class="${post.category?.icon || 'fa-solid fa-folder'} ${post.category?.color || 'text-[#c27803]'} text-xs"></i>
                 <span>${post.category?.name || 'Guide'}</span>
               </span>
 
@@ -347,7 +354,7 @@
                   <span><i class="fa-regular fa-clock"></i> ${post.read_time_minutes || 4} min read</span>
                 </div>
 
-                <h3 class="text-base sm:text-lg font-black text-[#183153] group-hover:text-[#146ebe] transition-colors leading-snug line-clamp-2">
+                <h3 class="text-base sm:text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors leading-snug line-clamp-2">
                   <a href="blog-post.html?slug=${post.slug}">${post.title}</a>
                 </h3>
 
@@ -359,11 +366,11 @@
               <!-- Card Footer: Author + CTA -->
               <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                  <img src="${post.author_avatar || 'images/logo.jpg'}" class="w-7 h-7 rounded-lg object-cover border border-slate-200">
+                  <img src="${post.author_avatar || 'images/logo.webp'}" class="w-7 h-7 rounded-lg object-cover border border-slate-200">
                   <span class="text-xs font-bold text-slate-700 truncate max-w-[120px]">${post.author_name}</span>
                 </div>
 
-                <a href="blog-post.html?slug=${post.slug}" class="text-xs font-black text-[#146ebe] hover:text-blue-800 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                <a href="blog-post.html?slug=${post.slug}" class="text-xs font-black text-[#c27803] hover:text-blue-800 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                   <span>Read Guide</span>
                   <i class="fa-solid fa-arrow-right text-[10px]"></i>
                 </a>
@@ -372,7 +379,7 @@
               <!-- Linked Tool Tag (If Connected) -->
               ${post.primary_tool_name ? `
                 <div class="pt-1">
-                  <a href="${post.primary_tool_url || '#'}" class="w-full flex items-center justify-between p-2 rounded-xl bg-blue-50 hover:bg-blue-100/80 text-[11px] font-bold text-[#146ebe] transition-colors">
+                  <a href="${post.primary_tool_url || '#'}" class="w-full flex items-center justify-between p-2 rounded-xl bg-blue-50 hover:bg-blue-100/80 text-[11px] font-bold text-[#c27803] transition-colors">
                     <span class="flex items-center gap-1.5 truncate">
                       <i class="fa-solid fa-screwdriver-wrench"></i> ${post.primary_tool_name}
                     </span>
@@ -390,7 +397,7 @@
         grid.innerHTML = `
           <div class="col-span-full text-center py-12 bg-white rounded-3xl border border-slate-200 p-8 space-y-4">
             <i class="fa-solid fa-triangle-exclamation text-3xl text-amber-500"></i>
-            <h3 class="text-lg font-black text-[#183153]">Connecting to Blog Server...</h3>
+            <h3 class="text-lg font-black text-[#3e2723]">Connecting to Blog Server...</h3>
             <p class="text-xs text-slate-500 max-w-md mx-auto">
               If the PythonAnywhere server is currently sleeping on the free tier, it will wake up in a few moments.
             </p>

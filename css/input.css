@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ==========================================================================
    360tools.me — FontAwesome Theme & Design System
    Aesthetic: FontAwesome.com Precision UI (Deep Navy #183153, FA Blue #146ebe,
@@ -5,13 +9,13 @@
    ========================================================================== */
 
 :root {
-  /* Core Warm Theme Palette */
-  --fa-navy-dark: #2c1b18;
-  --fa-navy: #3e2723;
-  --fa-navy-light: #52342f;
-  --fa-blue: #c27803;
-  --fa-blue-hover: #9a5f02;
-  --fa-blue-light: #fef7e7;
+  /* FontAwesome Core Palette */
+  --fa-navy-dark: #0f1c2e;
+  --fa-navy: #183153;
+  --fa-navy-light: #25406b;
+  --fa-blue: #146ebe;
+  --fa-blue-hover: #0d5ca3;
+  --fa-blue-light: #e8f3fc;
   --fa-yellow: #ffd43b;
   --fa-yellow-hover: #fcc419;
   --fa-yellow-light: #fff9db;
@@ -21,21 +25,21 @@
   --fa-rose-light: #ffe3e3;
 
   /* Surfaces & Backgrounds */
-  --fa-bg: #fbf7ee;
-  --fa-bg-subtle: #f5edd8;
-  --fa-card: #f2ebd9;
-  --fa-card-hover: #ebdcb9;
-  --fa-border: #ded2be;
-  --fa-border-focus: #c27803;
+  --fa-bg: #f8fafc;
+  --fa-bg-subtle: #f1f5f9;
+  --fa-card: #ffffff;
+  --fa-card-hover: #ffffff;
+  --fa-border: #e2e8f0;
+  --fa-border-focus: #146ebe;
 
   /* Typography */
-  --fa-text-main: #3e2723;
-  --fa-text-sub: #6d554f;
-  --fa-text-muted: #9c857f;
+  --fa-text-main: #183153;
+  --fa-text-sub: #64748b;
+  --fa-text-muted: #94a3b8;
   --fa-text-white: #ffffff;
 
   /* Fonts & Dynamic Scaling */
-  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-urdu: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
@@ -45,10 +49,10 @@
   --font-weight-scale: 400;
 
   /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(62, 39, 35, 0.05);
-  --shadow-md: 0 4px 16px rgba(62, 39, 35, 0.08), 0 1px 3px rgba(62, 39, 35, 0.04);
-  --shadow-lg: 0 12px 32px rgba(62, 39, 35, 0.12), 0 2px 6px rgba(62, 39, 35, 0.04);
-  --shadow-hover: 0 16px 40px rgba(194, 120, 3, 0.16), 0 4px 12px rgba(62, 39, 35, 0.06);
+  --shadow-sm: 0 2px 4px rgba(24, 49, 83, 0.05);
+  --shadow-md: 0 4px 16px rgba(24, 49, 83, 0.08), 0 1px 3px rgba(24, 49, 83, 0.04);
+  --shadow-lg: 0 12px 32px rgba(24, 49, 83, 0.12), 0 2px 6px rgba(24, 49, 83, 0.04);
+  --shadow-hover: 0 16px 40px rgba(20, 110, 190, 0.16), 0 4px 12px rgba(24, 49, 83, 0.06);
 
   /* Radii */
   --radius-sm: 8px;
@@ -467,21 +471,6 @@ details summary::-webkit-details-marker {
   text-decoration: none;
 }
 
-.nav-link-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.5rem 0.75rem;
-  border-radius: var(--radius-md);
-  font-size: 0.8125rem;
-  font-weight: 700;
-  color: var(--fa-navy);
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
 .nav-link-btn:hover {
   color: var(--fa-blue);
   background-color: var(--fa-bg-subtle);
@@ -514,8 +503,6 @@ details summary::-webkit-details-marker {
 
 .nav-dropdown-content.nav-dropdown-mega {
   left: 0;
-  width: 820px;
-  max-width: 90vw;
   transform: translateY(6px);
 }
 
@@ -529,22 +516,8 @@ details summary::-webkit-details-marker {
   border: 1px solid var(--fa-border);
   border-radius: var(--radius-lg);
   box-shadow: 0 20px 45px rgba(15, 28, 46, 0.14), 0 4px 12px rgba(15, 28, 46, 0.05);
-  padding: 0.625rem;
+  padding: 1rem;
   overflow: hidden;
-}
-
-.nav-dropdown-mega .nav-dropdown-card {
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-}
-
-.w-72 {
-  width: 18rem !important;
-}
-
-.w-60 {
-  width: 15rem !important;
 }
 
 .nav-tool-item {

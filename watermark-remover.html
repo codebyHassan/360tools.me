@@ -16,14 +16,14 @@
   <link rel="canonical" href="https://360tools.me/watermark-remover.html">
 
   <!-- Favicon & Open Graph / Facebook -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/watermark-remover.html">
   <meta property="og:title" content="Free Image & Video Watermark Remover Online | 360tools.me">
   <meta property="og:description"
     content="Erase watermarks, logos, timestamps, and subtitles from images and videos with zero server uploads and no API keys required.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
@@ -31,7 +31,7 @@
   <meta property="twitter:title" content="Free Image & Video Watermark Remover Online">
   <meta property="twitter:description"
     content="Select watermark region and erase logos from images and videos 100% in-browser.">
-  <meta property="twitter:image" content="images/logo.jpg">
+  <meta property="twitter:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -114,13 +114,20 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
   <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     .selection-box {
@@ -203,10 +210,10 @@
 </head>
 
 <body
-  class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4 bg-[#f8fafc]">
+  class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
@@ -221,7 +228,7 @@
           </span>
           <span class="text-xs font-bold text-slate-400">• Zero API Keys • Image & Video • 100% Private</span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
           Free Image & Video Watermark Remover
         </h1>
         <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
@@ -250,7 +257,7 @@
       <div class="flex items-center justify-between bg-white p-2 rounded-2xl border border-slate-200 shadow-xs">
         <div class="flex items-center gap-2">
           <button type="button" id="tabModeImage" onclick="switchMediaType('image')"
-            class="px-4 py-2 rounded-xl text-xs font-black bg-[#183153] text-white transition-all flex items-center gap-2 shadow-xs">
+            class="px-4 py-2 rounded-xl text-xs font-black bg-[#3e2723] text-white transition-all flex items-center gap-2 shadow-xs">
             <i class="fa-solid fa-image text-indigo-300"></i> Image Watermark Remover
           </button>
           <button type="button" id="tabModeVideo" onclick="switchMediaType('video')"
@@ -273,7 +280,7 @@
           <!-- Upload Box -->
           <div class="fa-card p-5 space-y-4">
             <div class="flex items-center justify-between pb-2 border-b border-slate-100">
-              <h2 class="text-sm font-black text-[#183153] flex items-center gap-2">
+              <h2 class="text-sm font-black text-[#3e2723] flex items-center gap-2">
                 <i class="fa-solid fa-cloud-arrow-up text-indigo-600"></i> 1. Select Media File
               </h2>
               <span id="mediaTypeBadge"
@@ -289,7 +296,7 @@
                 class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-600 mx-auto flex items-center justify-center text-xl mb-3">
                 <i id="dropZoneIcon" class="fa-solid fa-image"></i>
               </div>
-              <h3 class="text-xs font-black text-[#183153]" id="dropZonePrompt">Click or Drag & Drop Image Here</h3>
+              <h3 class="text-xs font-black text-[#3e2723]" id="dropZonePrompt">Click or Drag & Drop Image Here</h3>
               <p class="text-[11px] text-slate-500 mt-1" id="dropZoneFormats">Supports JPG, PNG, WebP, BMP (Up to 50MB)
               </p>
             </div>
@@ -299,7 +306,7 @@
               class="hidden p-3 bg-indigo-50/60 border border-indigo-200/80 rounded-xl flex items-center justify-between text-xs">
               <div class="flex items-center gap-2 truncate pr-2">
                 <i class="fa-solid fa-file-circle-check text-indigo-600"></i>
-                <span id="loadedFileName" class="font-bold text-[#183153] truncate">sample.jpg</span>
+                <span id="loadedFileName" class="font-bold text-[#3e2723] truncate">sample.jpg</span>
               </div>
               <span id="loadedFileMeta" class="text-[10px] font-black text-slate-500 shrink-0">1920x1080</span>
             </div>
@@ -307,7 +314,7 @@
 
           <!-- Watermark Masking & Removal Tools -->
           <div class="fa-card p-5 space-y-4">
-            <h2 class="text-sm font-black text-[#183153] flex items-center gap-2 pb-2 border-b border-slate-100">
+            <h2 class="text-sm font-black text-[#3e2723] flex items-center gap-2 pb-2 border-b border-slate-100">
               <i class="fa-solid fa-crop-simple text-indigo-600"></i> 2. Watermark Selection & Mode
             </h2>
 
@@ -357,7 +364,7 @@
             <!-- Active Boxes Counter & Reset -->
             <div class="flex items-center justify-between pt-2 border-t border-slate-100 text-xs">
               <span class="text-slate-500 font-medium">
-                Active Masks: <b id="maskCountBadge" class="text-[#183153]">1 Area</b>
+                Active Masks: <b id="maskCountBadge" class="text-[#3e2723]">1 Area</b>
               </span>
               <button type="button" onclick="clearAllMasks()"
                 class="text-rose-600 hover:text-rose-700 font-bold flex items-center gap-1">
@@ -375,7 +382,7 @@
           <!-- Video Controls (Shown when video is loaded) -->
           <div id="videoExportPanel"
             class="hidden fa-card p-5 space-y-3 border-2 border-rose-200 bg-gradient-to-br from-white to-rose-50/20">
-            <h3 class="text-xs font-black text-[#183153] flex items-center gap-2">
+            <h3 class="text-xs font-black text-[#3e2723] flex items-center gap-2">
               <i class="fa-solid fa-video text-rose-600"></i> Video Export Settings
             </h3>
 
@@ -424,7 +431,7 @@
 
             <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-100">
               <div class="flex items-center gap-2">
-                <h2 class="text-base font-black text-[#183153] flex items-center gap-2">
+                <h2 class="text-base font-black text-[#3e2723] flex items-center gap-2">
                   <i class="fa-solid fa-display text-indigo-600"></i> Interactive Canvas Workspace
                 </h2>
                 <span id="activeToolHint"
@@ -535,7 +542,7 @@
                   <i class="fa-solid fa-rotate-left mr-1"></i> Revert Original
                 </button>
                 <button type="button" id="downloadCleanBtn" onclick="downloadCleanResult()"
-                  class="fa-btn-primary text-xs px-4 py-2 font-bold bg-[#183153] hover:bg-[#25406b] flex items-center gap-2 shadow-sm">
+                  class="fa-btn-primary text-xs px-4 py-2 font-bold bg-[#3e2723] hover:bg-[#25406b] flex items-center gap-2 shadow-sm">
                   <i class="fa-solid fa-download text-emerald-400"></i> Download Clean Image (.PNG)
                 </button>
               </div>
@@ -555,7 +562,7 @@
       <div class="max-w-4xl mx-auto space-y-12">
 
         <div class="text-center">
-          <h2 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight">
             How Client-Side Inpainting Removes Watermarks
           </h2>
           <p class="text-slate-600 text-sm sm:text-base mt-2">
@@ -571,7 +578,7 @@
               class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg mb-3">
               <i class="fa-solid fa-brain"></i>
             </div>
-            <h4 class="font-bold text-[#183153] text-sm mb-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2">
               Content-Aware Infill
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -585,7 +592,7 @@
               class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg mb-3">
               <i class="fa-solid fa-lock"></i>
             </div>
-            <h4 class="font-bold text-[#183153] text-sm mb-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2">
               100% Client-Side Privacy
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -598,7 +605,7 @@
             <div class="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-lg mb-3">
               <i class="fa-solid fa-film"></i>
             </div>
-            <h4 class="font-bold text-[#183153] text-sm mb-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2">
               Frame-by-Frame Video Delogo
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -610,13 +617,13 @@
 
         <!-- FAQ Accordion -->
         <div class="space-y-4">
-          <h3 class="text-xl font-black text-[#183153] text-center mb-6">
+          <h3 class="text-xl font-black text-[#3e2723] text-center mb-6">
             Frequently Asked Questions
           </h3>
 
           <div class="space-y-3">
             <details class="fa-card p-4 group cursor-pointer">
-              <summary class="font-bold text-sm text-[#183153] list-none flex items-center justify-between">
+              <summary class="font-bold text-sm text-[#3e2723] list-none flex items-center justify-between">
                 <span>What is the best way to select a watermark for clean removal?</span>
                 <i
                   class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
@@ -629,7 +636,7 @@
             </details>
 
             <details class="fa-card p-4 group cursor-pointer">
-              <summary class="font-bold text-sm text-[#183153] list-none flex items-center justify-between">
+              <summary class="font-bold text-sm text-[#3e2723] list-none flex items-center justify-between">
                 <span>Which inpainting method should I choose?</span>
                 <i
                   class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
@@ -642,7 +649,7 @@
             </details>
 
             <details class="fa-card p-4 group cursor-pointer">
-              <summary class="font-bold text-sm text-[#183153] list-none flex items-center justify-between">
+              <summary class="font-bold text-sm text-[#3e2723] list-none flex items-center justify-between">
                 <span>Are output downloads labeled with 360tools.me branding?</span>
                 <i
                   class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
@@ -664,7 +671,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Master Main JS (Header/Footer/Search Registry) -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
 
   <!-- WATERMARK REMOVER ENGINE JAVASCRIPT -->
   <script>
@@ -737,11 +744,11 @@
       const isImg = type === 'image';
 
       document.getElementById('tabModeImage').className = isImg
-        ? 'px-4 py-2 rounded-xl text-xs font-black bg-[#183153] text-white transition-all flex items-center gap-2 shadow-xs'
+        ? 'px-4 py-2 rounded-xl text-xs font-black bg-[#3e2723] text-white transition-all flex items-center gap-2 shadow-xs'
         : 'px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 transition-all flex items-center gap-2';
 
       document.getElementById('tabModeVideo').className = !isImg
-        ? 'px-4 py-2 rounded-xl text-xs font-black bg-[#183153] text-white transition-all flex items-center gap-2 shadow-xs'
+        ? 'px-4 py-2 rounded-xl text-xs font-black bg-[#3e2723] text-white transition-all flex items-center gap-2 shadow-xs'
         : 'px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 transition-all flex items-center gap-2';
 
       document.getElementById('mediaTypeBadge').textContent = isImg ? 'Image Mode' : 'Video Mode';

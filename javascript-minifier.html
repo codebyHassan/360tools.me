@@ -13,13 +13,13 @@
   <link rel="canonical" href="https://360tools.me/javascript-minifier.html">
 
   <!-- Open Graph -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/javascript-minifier.html">
   <meta property="og:title" content="JavaScript Minifier – Minify JS Online | 360tools">
   <meta property="og:description" content="Minify JavaScript code client-side with instant Gzip payload estimation and 1-click export.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -94,30 +94,37 @@
   </script>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="css/style.min.css">
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4 bg-[#f8fafc]">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
     
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4" aria-label="Breadcrumb">
-      <a href="index.html" class="hover:text-[#146ebe]">Home</a>
+      <a href="index.html" class="hover:text-[#c27803]">Home</a>
       <span>/</span>
-      <a href="developer-tools.html" class="hover:text-[#146ebe]">Developer Tools</a>
+      <a href="developer-tools.html" class="hover:text-[#c27803]">Developer Tools</a>
       <span>/</span>
       <span class="text-slate-700">JavaScript Minifier</span>
     </nav>
 
     <!-- H1 & Description -->
     <div class="mb-8">
-      <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+      <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
         JavaScript Minifier – Minify JavaScript Online
       </h1>
       <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-3xl leading-relaxed">
@@ -143,13 +150,13 @@
           <i class="fa-solid fa-file-arrow-up mr-1 text-yellow-500"></i> Upload .js File
           <input type="file" id="jsFileInput" accept=".js" class="hidden" onchange="uploadJsFile(event)">
         </label>
-        <button onclick="loadSampleJs()" class="text-xs font-bold text-slate-500 hover:text-[#146ebe] px-3 py-1.5 rounded-xl border border-slate-200 bg-white">
+        <button onclick="loadSampleJs()" class="text-xs font-bold text-slate-500 hover:text-[#c27803] px-3 py-1.5 rounded-xl border border-slate-200 bg-white">
           <i class="fa-solid fa-code mr-1"></i> Load Sample
         </button>
       </div>
 
       <div class="flex items-center gap-2">
-        <button onclick="runJsMinify()" class="fa-btn-primary px-4 py-2 text-xs font-black bg-[#183153] hover:bg-[#25406b] flex items-center gap-1.5">
+        <button onclick="runJsMinify()" class="fa-btn-primary px-4 py-2 text-xs font-black bg-[#3e2723] hover:bg-[#25406b] flex items-center gap-1.5">
           <i class="fa-solid fa-compress"></i> Minify JS
         </button>
         <button onclick="runJsBeautify()" class="fa-btn-secondary px-4 py-2 text-xs font-bold flex items-center gap-1.5">
@@ -180,10 +187,10 @@
             <i class="fa-solid fa-bolt text-emerald-600"></i> Minified Output
           </span>
           <div class="flex items-center gap-2">
-            <button onclick="copyJs()" class="text-xs font-bold text-slate-500 hover:text-[#146ebe] flex items-center gap-1">
+            <button onclick="copyJs()" class="text-xs font-bold text-slate-500 hover:text-[#c27803] flex items-center gap-1">
               <i class="fa-solid fa-copy"></i> Copy
             </button>
-            <button onclick="downloadJs()" class="text-xs font-bold text-slate-500 hover:text-[#146ebe] flex items-center gap-1">
+            <button onclick="downloadJs()" class="text-xs font-bold text-slate-500 hover:text-[#c27803] flex items-center gap-1">
               <i class="fa-solid fa-download"></i> Save .js
             </button>
           </div>
@@ -205,8 +212,8 @@
           <span id="statJsMin" class="text-base sm:text-lg font-black font-mono text-emerald-700">0 B</span>
         </div>
         <div class="p-3 bg-blue-50 rounded-xl border border-blue-200">
-          <span class="text-[10px] font-bold text-[#146ebe] block uppercase tracking-wider">Reduction</span>
-          <span id="statJsReduction" class="text-base sm:text-lg font-black font-mono text-[#146ebe]">0%</span>
+          <span class="text-[10px] font-bold text-[#c27803] block uppercase tracking-wider">Reduction</span>
+          <span id="statJsReduction" class="text-base sm:text-lg font-black font-mono text-[#c27803]">0%</span>
         </div>
         <div class="p-3 bg-purple-50 rounded-xl border border-purple-200">
           <span class="text-[10px] font-bold text-purple-800 block uppercase tracking-wider">Est. Gzip Payload</span>
@@ -226,17 +233,17 @@
         <div>
           <h3 class="text-xs font-black text-slate-400 uppercase tracking-wider mb-4">Related Developer Tools</h3>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <a href="html-minifier.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+            <a href="html-minifier.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-brands fa-html5 text-orange-500 mr-1.5"></i> HTML Minifier
             </a>
-            <a href="css-minifier.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+            <a href="css-minifier.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-brands fa-css3-alt text-blue-600 mr-1.5"></i> CSS Minifier
             </a>
-            <a href="shopify-csv-validator.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+            <a href="shopify-csv-validator.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-brands fa-shopify text-emerald-600 mr-1.5"></i> Shopify CSV Validator
             </a>
-            <a href="image-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
-              <i class="fa-solid fa-image text-[#146ebe] mr-1.5"></i> Image Compressor
+            <a href="image-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
+              <i class="fa-solid fa-image text-[#c27803] mr-1.5"></i> Image Compressor
             </a>
           </div>
         </div>
@@ -249,7 +256,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script>
     function formatBytes(bytes) {
       if (!bytes || bytes === 0) return '0 B';

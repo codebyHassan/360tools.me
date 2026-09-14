@@ -16,14 +16,14 @@
   <link rel="canonical" href="https://360tools.me/ats-resume-checker.html">
 
   <!-- Favicon & Open Graph / Facebook -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/ats-resume-checker.html">
   <meta property="og:title" content="Free ATS Resume Checker & CV Score Analyzer | 360tools.me">
   <meta property="og:description"
     content="Scan your CV for ATS compatibility, keyword match percentage, power verbs, and formatting errors. 100% private in-browser analysis.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
@@ -31,7 +31,7 @@
   <meta property="twitter:title" content="Free ATS Resume & CV Checker Online">
   <meta property="twitter:description"
     content="Instant ATS compatibility score, keyword gap analysis, and formatting suggestions for your CV.">
-  <meta property="twitter:image" content="images/logo.jpg">
+  <meta property="twitter:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -122,13 +122,20 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
   <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- PDF.js CDN for PDF Parsing -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -159,10 +166,10 @@
 </head>
 
 <body
-  class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4 bg-[#f8fafc]">
+  class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
@@ -177,7 +184,7 @@
           </span>
           <span class="text-xs font-bold text-slate-400">• 100% Private • PDF / DOCX • Zero Uploads</span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
           Free ATS Resume Checker & CV Scorer
         </h1>
         <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
@@ -209,7 +216,7 @@
           <div class="fa-card p-5 sm:p-6 space-y-4">
 
             <div class="flex items-center justify-between pb-3 border-b border-slate-100">
-              <h2 class="text-base font-black text-[#183153] flex items-center gap-2">
+              <h2 class="text-base font-black text-[#3e2723] flex items-center gap-2">
                 <i class="fa-solid fa-file-lines text-indigo-600"></i> 1. Your Resume / CV Content
               </h2>
 
@@ -239,7 +246,7 @@
                   <i class="fa-solid fa-file-pdf"></i>
                 </div>
 
-                <h4 class="font-black text-[#183153] text-sm sm:text-base mb-1">
+                <h4 class="font-black text-[#3e2723] text-sm sm:text-base mb-1">
                   Drop your Resume (PDF, DOCX, TXT) here or <span class="text-indigo-600 underline">browse</span>
                 </h4>
                 <p class="text-xs text-slate-500 max-w-sm mx-auto mb-3">
@@ -258,7 +265,7 @@
                 <div class="flex items-center gap-2.5 overflow-hidden">
                   <i id="loadedFileIcon" class="fa-solid fa-file-pdf text-indigo-600 text-lg"></i>
                   <div class="truncate">
-                    <span id="loadedFileName" class="text-xs font-black text-[#183153] block truncate">resume.pdf</span>
+                    <span id="loadedFileName" class="text-xs font-black text-[#3e2723] block truncate">resume.pdf</span>
                     <span id="loadedFileSize" class="text-[10px] text-slate-500 font-bold">142 KB</span>
                   </div>
                 </div>
@@ -290,7 +297,7 @@
           <div class="fa-card p-5 sm:p-6 space-y-4">
 
             <div class="flex items-center justify-between pb-3 border-b border-slate-100">
-              <h2 class="text-base font-black text-[#183153] flex items-center gap-2">
+              <h2 class="text-base font-black text-[#3e2723] flex items-center gap-2">
                 <i class="fa-solid fa-briefcase text-indigo-600"></i> 2. Target Job Description <span
                   class="text-xs font-normal text-slate-400">(Optional)</span>
               </h2>
@@ -324,7 +331,7 @@
               <i class="fa-solid fa-shield-halved"></i>
             </div>
             <div>
-              <h4 class="text-xs font-black text-[#183153]">100% Client-Side Privacy Guarantee</h4>
+              <h4 class="text-xs font-black text-[#3e2723]">100% Client-Side Privacy Guarantee</h4>
               <p class="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
                 Your resume never touches any remote database or AI server. All scoring heuristics execute in real-time
                 in your browser memory.
@@ -356,7 +363,7 @@
                   d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
               </svg>
               <div class="absolute flex flex-col items-center justify-center">
-                <span id="overallScoreNumber" class="text-3xl font-black text-[#183153]">0</span>
+                <span id="overallScoreNumber" class="text-3xl font-black text-[#3e2723]">0</span>
                 <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider">/ 100</span>
               </div>
             </div>
@@ -368,7 +375,7 @@
                   A</span>
                 <span id="scoreVerdictText" class="text-xs font-bold text-slate-500">Strong ATS Compatibility</span>
               </div>
-              <h3 class="text-xl sm:text-2xl font-black text-[#183153] tracking-tight">
+              <h3 class="text-xl sm:text-2xl font-black text-[#3e2723] tracking-tight">
                 Resume ATS Audit Summary
               </h3>
               <p id="scoreSummaryDesc" class="text-xs sm:text-sm text-slate-600 mt-1 max-w-xl">
@@ -455,7 +462,7 @@
       <div class="space-y-4">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
-            <h4 class="text-base font-black text-[#183153] flex items-center gap-2">
+            <h4 class="text-base font-black text-[#3e2723] flex items-center gap-2">
               <i class="fa-solid fa-chart-pie text-indigo-600"></i> Interactive ATS Visual Analytics & Benchmarks
             </h4>
             <p class="text-xs text-slate-500 mt-0.5">Visualized breakdown of competency dimensions vs industry standard
@@ -473,7 +480,7 @@
           <div class="fa-card p-5 space-y-3 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between pb-2 border-b border-slate-100">
-                <span class="text-xs font-black text-[#183153] flex items-center gap-1.5">
+                <span class="text-xs font-black text-[#3e2723] flex items-center gap-1.5">
                   <i class="fa-solid fa-compass text-indigo-600"></i> ATS Competency Radar
                 </span>
                 <span class="text-[10px] font-black bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full">5
@@ -498,7 +505,7 @@
           <div class="fa-card p-5 space-y-3 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between pb-2 border-b border-slate-100">
-                <span class="text-xs font-black text-[#183153] flex items-center gap-1.5">
+                <span class="text-xs font-black text-[#3e2723] flex items-center gap-1.5">
                   <i class="fa-solid fa-chart-column text-indigo-600"></i> Score vs Benchmark
                 </span>
                 <span class="text-[10px] font-black bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full">Recruiter
@@ -523,7 +530,7 @@
           <div class="fa-card p-5 space-y-3 flex flex-col justify-between">
             <div>
               <div class="flex items-center justify-between pb-2 border-b border-slate-100">
-                <span class="text-xs font-black text-[#183153] flex items-center gap-1.5">
+                <span class="text-xs font-black text-[#3e2723] flex items-center gap-1.5">
                   <i class="fa-solid fa-chart-pie text-indigo-600"></i> Content & Keyword Mix
                 </span>
                 <span
@@ -559,7 +566,7 @@
 
           <!-- Action Items & Top Fixes -->
           <div class="fa-card p-6 space-y-4">
-            <h4 class="text-base font-black text-[#183153] flex items-center gap-2">
+            <h4 class="text-base font-black text-[#3e2723] flex items-center gap-2">
               <i class="fa-solid fa-list-check text-indigo-600"></i> Top Priority ATS Fixes & Insights
             </h4>
             <div id="topFixesList" class="space-y-2.5">
@@ -569,7 +576,7 @@
 
           <!-- Section Headings Detection Audit -->
           <div class="fa-card p-6 space-y-4">
-            <h4 class="text-base font-black text-[#183153] flex items-center gap-2">
+            <h4 class="text-base font-black text-[#3e2723] flex items-center gap-2">
               <i class="fa-solid fa-heading text-indigo-600"></i> Standard ATS Section Headings
             </h4>
             <div id="sectionHeadingsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
@@ -579,7 +586,7 @@
 
           <!-- Action Verbs & Measurable KPIs Audit -->
           <div class="fa-card p-6 space-y-4">
-            <h4 class="text-base font-black text-[#183153] flex items-center gap-2">
+            <h4 class="text-base font-black text-[#3e2723] flex items-center gap-2">
               <i class="fa-solid fa-bolt text-amber-500"></i> Impact Verbs & Quantifiable Results
             </h4>
 
@@ -622,7 +629,7 @@
           <div id="jobMatchCard"
             class="hidden fa-card p-6 space-y-4 border-2 border-emerald-200 bg-gradient-to-br from-white to-emerald-50/20">
             <div class="flex items-center justify-between">
-              <h4 class="text-base font-black text-[#183153] flex items-center gap-2">
+              <h4 class="text-base font-black text-[#3e2723] flex items-center gap-2">
                 <i class="fa-solid fa-bullseye text-emerald-600"></i> Job Description Match
               </h4>
               <span id="jdMatchRateBadge" class="bg-emerald-600 text-white font-black text-xs px-2.5 py-1 rounded-full">
@@ -654,7 +661,7 @@
           <!-- Extracted Skills Cloud -->
           <div class="fa-card p-6 space-y-4">
             <div class="flex items-center justify-between pb-2 border-b border-slate-100">
-              <h4 class="text-base font-black text-[#183153] flex items-center gap-2">
+              <h4 class="text-base font-black text-[#3e2723] flex items-center gap-2">
                 <i class="fa-solid fa-tags text-indigo-600"></i> Extracted Skills & Keywords
               </h4>
               <span id="totalSkillsCountBadge"
@@ -670,32 +677,32 @@
 
           <!-- Document Formatting & Readability Stats -->
           <div class="fa-card p-6 space-y-3">
-            <h4 class="text-base font-black text-[#183153] flex items-center gap-2">
+            <h4 class="text-base font-black text-[#3e2723] flex items-center gap-2">
               <i class="fa-solid fa-chart-simple text-indigo-600"></i> Readability & Length Metrics
             </h4>
 
             <div class="grid grid-cols-2 gap-3 text-xs">
               <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
                 <span class="text-slate-400 block text-[10px] font-bold uppercase">Total Word Count</span>
-                <span id="statWordCount" class="text-base font-black text-[#183153]">0 words</span>
+                <span id="statWordCount" class="text-base font-black text-[#3e2723]">0 words</span>
                 <span id="statWordVerdict" class="text-[10px] text-emerald-600 font-bold block">Ideal Length</span>
               </div>
 
               <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
                 <span class="text-slate-400 block text-[10px] font-bold uppercase">Reading Time</span>
-                <span id="statReadingTime" class="text-base font-black text-[#183153]">0 min</span>
+                <span id="statReadingTime" class="text-base font-black text-[#3e2723]">0 min</span>
                 <span class="text-[10px] text-slate-500 font-medium block">Recruiter average ~30s</span>
               </div>
 
               <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
                 <span class="text-slate-400 block text-[10px] font-bold uppercase">Bullet Points</span>
-                <span id="statBulletCount" class="text-base font-black text-[#183153]">0 bullets</span>
+                <span id="statBulletCount" class="text-base font-black text-[#3e2723]">0 bullets</span>
                 <span id="statBulletVerdict" class="text-[10px] text-slate-500 font-bold block">Good Density</span>
               </div>
 
               <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
                 <span class="text-slate-400 block text-[10px] font-bold uppercase">Avg Sentence Words</span>
-                <span id="statAvgSentence" class="text-base font-black text-[#183153]">0 words</span>
+                <span id="statAvgSentence" class="text-base font-black text-[#3e2723]">0 words</span>
                 <span class="text-[10px] text-slate-500 font-medium block">Clear & concise</span>
               </div>
             </div>
@@ -712,7 +719,7 @@
       <div class="max-w-4xl mx-auto space-y-12">
 
         <div class="text-center">
-          <h2 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight">
             How Applicant Tracking Systems (ATS) Parse Resumes
           </h2>
           <p class="text-slate-600 text-sm sm:text-base mt-2">
@@ -728,7 +735,7 @@
               class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg mb-3">
               <i class="fa-solid fa-magnifying-glass-chart"></i>
             </div>
-            <h4 class="font-bold text-[#183153] text-sm mb-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2">
               Exact Keyword Matching
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -742,7 +749,7 @@
               class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg mb-3">
               <i class="fa-solid fa-lock"></i>
             </div>
-            <h4 class="font-bold text-[#183153] text-sm mb-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2">
               100% In-Browser Privacy
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -755,7 +762,7 @@
             <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg mb-3">
               <i class="fa-solid fa-bullseye"></i>
             </div>
-            <h4 class="font-bold text-[#183153] text-sm mb-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2">
               Impact & KPI Detection
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -767,13 +774,13 @@
 
         <!-- Step-by-Step Optimization Guide -->
         <div class="fa-card p-6 sm:p-8 space-y-6">
-          <h3 class="text-xl font-black text-[#183153] flex items-center gap-2">
+          <h3 class="text-xl font-black text-[#3e2723] flex items-center gap-2">
             <i class="fa-solid fa-check-double text-indigo-600"></i> Top Rules to Pass Any ATS Resume Filter
           </h3>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/70 space-y-1.5">
-              <span class="font-bold text-[#183153] flex items-center gap-1.5 text-indigo-700">
+              <span class="font-bold text-[#3e2723] flex items-center gap-1.5 text-indigo-700">
                 <i class="fa-solid fa-circle-check"></i> Use Standard Section Headings
               </span>
               <p class="text-slate-600 leading-relaxed">
@@ -783,7 +790,7 @@
             </div>
 
             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/70 space-y-1.5">
-              <span class="font-bold text-[#183153] flex items-center gap-1.5 text-indigo-700">
+              <span class="font-bold text-[#3e2723] flex items-center gap-1.5 text-indigo-700">
                 <i class="fa-solid fa-circle-check"></i> Avoid Complex Multi-Column Layouts
               </span>
               <p class="text-slate-600 leading-relaxed">
@@ -793,7 +800,7 @@
             </div>
 
             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/70 space-y-1.5">
-              <span class="font-bold text-[#183153] flex items-center gap-1.5 text-indigo-700">
+              <span class="font-bold text-[#3e2723] flex items-center gap-1.5 text-indigo-700">
                 <i class="fa-solid fa-circle-check"></i> Match Hard Skills to the Job Post
               </span>
               <p class="text-slate-600 leading-relaxed">
@@ -803,7 +810,7 @@
             </div>
 
             <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/70 space-y-1.5">
-              <span class="font-bold text-[#183153] flex items-center gap-1.5 text-indigo-700">
+              <span class="font-bold text-[#3e2723] flex items-center gap-1.5 text-indigo-700">
                 <i class="fa-solid fa-circle-check"></i> Quantify Your Accomplishments
               </span>
               <p class="text-slate-600 leading-relaxed">
@@ -816,13 +823,13 @@
 
         <!-- FAQ Accordion -->
         <div class="space-y-4">
-          <h3 class="text-xl font-black text-[#183153] text-center mb-6">
+          <h3 class="text-xl font-black text-[#3e2723] text-center mb-6">
             Frequently Asked Questions
           </h3>
 
           <div class="space-y-3">
             <details class="fa-card p-4 group cursor-pointer">
-              <summary class="font-bold text-sm text-[#183153] list-none flex items-center justify-between">
+              <summary class="font-bold text-sm text-[#3e2723] list-none flex items-center justify-between">
                 <span>Is a PDF or Word (.docx) resume better for ATS?</span>
                 <i
                   class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
@@ -835,7 +842,7 @@
             </details>
 
             <details class="fa-card p-4 group cursor-pointer">
-              <summary class="font-bold text-sm text-[#183153] list-none flex items-center justify-between">
+              <summary class="font-bold text-sm text-[#3e2723] list-none flex items-center justify-between">
                 <span>What is a good ATS Score?</span>
                 <i
                   class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
@@ -848,7 +855,7 @@
             </details>
 
             <details class="fa-card p-4 group cursor-pointer">
-              <summary class="font-bold text-sm text-[#183153] list-none flex items-center justify-between">
+              <summary class="font-bold text-sm text-[#3e2723] list-none flex items-center justify-between">
                 <span>Can I copy and paste my report results?</span>
                 <i
                   class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
@@ -870,7 +877,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Master Main JS (Header/Footer/Search Registry) -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
 
   <!-- ATS Resume Checker Application Logic -->
   <script>
@@ -1364,7 +1371,7 @@ Looking for a performance marketing leader with:
       const headingsGrid = document.getElementById('sectionHeadingsGrid');
       headingsGrid.innerHTML = report.sections.map(sec => `
         <div class="flex items-center justify-between p-2.5 rounded-xl border ${sec.found ? 'bg-emerald-50/50 border-emerald-200' : 'bg-rose-50/50 border-rose-200'}">
-          <span class="font-bold text-[#183153] flex items-center gap-2">
+          <span class="font-bold text-[#3e2723] flex items-center gap-2">
             <i class="fa-solid ${sec.found ? 'fa-check text-emerald-600' : 'fa-xmark text-rose-500'}"></i>
             ${sec.name}
           </span>

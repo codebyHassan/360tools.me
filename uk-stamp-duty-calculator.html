@@ -13,13 +13,13 @@
   <link rel="canonical" href="https://360tools.me/uk-stamp-duty-calculator.html">
 
   <!-- Favicon & Open Graph / Facebook -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/uk-stamp-duty-calculator.html">
   <meta property="og:title" content="UK Stamp Duty Calculator for First-Time Buyers (2026 Updated) - SDLT Relief Tool">
   <meta property="og:description" content="Calculate UK Stamp Duty Land Tax (SDLT) in England & Northern Ireland with First-Time Buyer relief tiers, savings badges, and bracket breakdowns.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
@@ -100,19 +100,26 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet (FontAwesome Theme) -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4">
 
   <!-- Header -->
     <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
@@ -125,7 +132,7 @@
             <i class="fa-solid fa-certificate mr-1 text-amber-600"></i> Official HMRC Rules • Tax Year 2026
           </span>
         </div>
-        <h1 class="text-3xl sm:text-5xl font-black text-[#183153] tracking-tight">
+        <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight">
           UK First-Time Buyer Stamp Duty Calculator
         </h1>
         <p class="text-slate-600 text-sm sm:text-base mt-1.5 max-w-2xl font-medium leading-relaxed">
@@ -149,8 +156,8 @@
         <div class="fa-card p-6 sm:p-8 space-y-6">
           
           <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-            <h2 class="font-black text-[#183153] text-base uppercase tracking-wider flex items-center gap-2.5">
-              <i class="fa-solid fa-sliders text-[#146ebe]"></i> Property & Buyer Parameters
+            <h2 class="font-black text-[#3e2723] text-base uppercase tracking-wider flex items-center gap-2.5">
+              <i class="fa-solid fa-sliders text-[#c27803]"></i> Property & Buyer Parameters
             </h2>
             <span class="fa-badge-blue text-[11px] py-1 px-3">Finance Act 2003 / 2018</span>
           </div>
@@ -190,7 +197,7 @@
             <!-- Number Input with Inline Currency Badges -->
             <div class="relative">
               <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <span class="text-[#146ebe] font-mono text-lg font-black">£</span>
+                <span class="text-[#c27803] font-mono text-lg font-black">£</span>
               </div>
               <input 
                 type="number" 
@@ -221,7 +228,7 @@
               >
               <div class="flex justify-between text-xs text-slate-500 font-mono font-bold mt-2">
                 <span>£50k</span>
-                <span class="text-[#146ebe] font-extrabold">£300k (0% Cap)</span>
+                <span class="text-[#c27803] font-extrabold">£300k (0% Cap)</span>
                 <span class="text-amber-600 font-extrabold">£500k (Ceiling)</span>
                 <span>£1M+</span>
               </div>
@@ -233,7 +240,7 @@
               <button type="button" onclick="setQuickPrice(250000)" class="fa-btn-secondary text-xs px-3 py-1.5">£250,000</button>
               <button type="button" onclick="setQuickPrice(300000)" class="fa-btn-secondary text-xs px-3 py-1.5">£300,000 (0% Max)</button>
               <button type="button" onclick="setQuickPrice(425000)" class="fa-btn-secondary text-xs px-3 py-1.5">£425,000</button>
-              <button type="button" onclick="setQuickPrice(500000)" class="fa-btn-secondary text-xs px-3 py-1.5 text-[#146ebe] font-extrabold">£500,000 (Ceiling)</button>
+              <button type="button" onclick="setQuickPrice(500000)" class="fa-btn-secondary text-xs px-3 py-1.5 text-[#c27803] font-extrabold">£500,000 (Ceiling)</button>
               <button type="button" onclick="setQuickPrice(550000)" class="fa-btn-secondary text-xs px-3 py-1.5 text-rose-600">£550,000 (No Relief)</button>
             </div>
 
@@ -254,8 +261,8 @@
 
         <!-- Dynamic Itemized Bracket Breakdown Table -->
         <div class="fa-card p-6 sm:p-8 space-y-4">
-          <h3 class="font-black text-[#183153] text-base uppercase tracking-wider flex items-center gap-2.5">
-            <i class="fa-solid fa-table-list text-[#146ebe]"></i> Dynamic SDLT Rate Band Breakdown
+          <h3 class="font-black text-[#3e2723] text-base uppercase tracking-wider flex items-center gap-2.5">
+            <i class="fa-solid fa-table-list text-[#c27803]"></i> Dynamic SDLT Rate Band Breakdown
           </h3>
           <div class="overflow-x-auto">
             <table class="w-full text-sm text-left">
@@ -269,10 +276,10 @@
               </thead>
               <tbody id="bracketTableBody" class="divide-y divide-slate-100 text-slate-700 font-mono font-semibold"></tbody>
               <tfoot>
-                <tr class="font-black text-[#183153] bg-slate-50 font-mono">
+                <tr class="font-black text-[#3e2723] bg-slate-50 font-mono">
                   <td class="py-4 px-4 font-sans text-base" colspan="2">Total SDLT Payable:</td>
                   <td class="py-4 px-4 text-base" id="tableTotalTaxable">£350,000</td>
-                  <td class="py-4 px-4 text-right text-[#146ebe] text-lg" id="tableTotalTax">£2,500</td>
+                  <td class="py-4 px-4 text-right text-[#c27803] text-lg" id="tableTotalTax">£2,500</td>
                 </tr>
               </tfoot>
             </table>
@@ -291,7 +298,7 @@
             <span class="fa-badge-blue text-xs font-extrabold uppercase py-1.5 px-4" id="resultCardTitle">
               Stamp Duty Land Tax (SDLT) Due
             </span>
-            <div class="text-5xl sm:text-6xl font-black text-[#183153] font-mono tracking-tight mt-3" id="sdltPayableDisplay">
+            <div class="text-5xl sm:text-6xl font-black text-[#3e2723] font-mono tracking-tight mt-3" id="sdltPayableDisplay">
               £2,500
             </div>
             <div class="flex items-center justify-center gap-2 mt-2">
@@ -323,7 +330,7 @@
                 <span class="w-3 h-3 rounded-full bg-[#146ebe]"></span>
                 <span class="text-slate-800 font-sans font-bold">First-Time Buyer:</span>
               </div>
-              <span class="font-extrabold text-[#146ebe]" id="compFtbAmount">£2,500</span>
+              <span class="font-extrabold text-[#c27803]" id="compFtbAmount">£2,500</span>
             </div>
 
             <div class="p-3.5 rounded-xl fa-card flex items-center justify-between">
@@ -364,26 +371,26 @@
     <article class="fa-card p-8 sm:p-12 space-y-10 text-slate-700 text-base leading-relaxed mb-16">
       
       <section class="space-y-4">
-        <h2 class="text-2xl sm:text-3xl font-black text-[#183153] flex items-center gap-3">
-          <i class="fa-solid fa-sterling-sign text-[#146ebe]"></i> How UK First-Time Buyer Stamp Duty Relief Works
+        <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] flex items-center gap-3">
+          <i class="fa-solid fa-sterling-sign text-[#c27803]"></i> How UK First-Time Buyer Stamp Duty Relief Works
         </h2>
         <p>
           Stamp Duty Land Tax (SDLT) is a progressive tax charged on land and property transactions in England and Northern Ireland. To support first-time buyers entering the property market, HMRC applies special relief thresholds for properties priced up to £500,000.
         </p>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 not-prose my-6">
           <div class="p-6 rounded-2xl fa-card space-y-2">
-            <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center font-black text-sm font-mono">£0</div>
-            <h3 class="font-black text-[#183153] text-base">0% Tax up to £300,000</h3>
+            <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#c27803] flex items-center justify-center font-black text-sm font-mono">£0</div>
+            <h3 class="font-black text-[#3e2723] text-base">0% Tax up to £300,000</h3>
             <p class="text-xs text-slate-600 font-medium leading-relaxed">Purchases up to £300,000 incur zero Stamp Duty Land Tax for qualifying buyers.</p>
           </div>
           <div class="p-6 rounded-2xl fa-card space-y-2">
-            <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center font-black text-sm font-mono">5%</div>
-            <h3 class="font-black text-[#183153] text-base">5% on Portion £300k - £500k</h3>
+            <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#c27803] flex items-center justify-center font-black text-sm font-mono">5%</div>
+            <h3 class="font-black text-[#3e2723] text-base">5% on Portion £300k - £500k</h3>
             <p class="text-xs text-slate-600 font-medium leading-relaxed">Pay 5% only on excess over £300k, saving up to £2,500 vs. standard home movers.</p>
           </div>
           <div class="p-6 rounded-2xl fa-card space-y-2">
             <div class="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center font-black text-sm font-mono">⚠️</div>
-            <h3 class="font-black text-[#183153] text-base">Over £500k Cliff Edge</h3>
+            <h3 class="font-black text-[#3e2723] text-base">Over £500k Cliff Edge</h3>
             <p class="text-xs text-slate-600 font-medium leading-relaxed">If price exceeds £500,000, all relief is lost and standard rates apply to the entire price.</p>
           </div>
         </div>
@@ -395,15 +402,15 @@
     <section class="mb-16">
       <div class="mb-6">
         <span class="fa-badge-blue text-xs py-1.5 px-4 font-black">Frequently Asked Questions</span>
-        <h2 class="text-3xl font-black text-[#183153] mt-2">UK Stamp Duty & Relief FAQs</h2>
+        <h2 class="text-3xl font-black text-[#3e2723] mt-2">UK Stamp Duty & Relief FAQs</h2>
       </div>
 
       <div class="space-y-4">
         
         <details class="group fa-card p-6 transition-all [&_svg]:open:-rotate-180">
-          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-[#183153] cursor-pointer list-none">
+          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-[#3e2723] cursor-pointer list-none">
             <span>How does First-Time Buyer Stamp Duty relief work in England and Northern Ireland?</span>
-            <svg class="w-5 h-5 text-[#146ebe] transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="w-5 h-5 text-[#c27803] transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
             </svg>
           </summary>
@@ -413,9 +420,9 @@
         </details>
 
         <details class="group fa-card p-6 transition-all [&_svg]:open:-rotate-180">
-          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-[#183153] cursor-pointer list-none">
+          <summary class="flex justify-between items-center font-bold text-base sm:text-lg text-[#3e2723] cursor-pointer list-none">
             <span>What happens if a first-time buyer purchases a home for £500,001?</span>
-            <svg class="w-5 h-5 text-[#146ebe] transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="w-5 h-5 text-[#c27803] transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
             </svg>
           </summary>
@@ -431,23 +438,23 @@
     <section class="mb-16">
       <div class="mb-6">
         <span class="fa-badge-blue text-xs py-1.5 px-4 font-black">Related Utilities</span>
-        <h2 class="text-2xl font-black text-[#183153] mt-2">More Precision Calculators</h2>
+        <h2 class="text-2xl font-black text-[#3e2723] mt-2">More Precision Calculators</h2>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         
         <a href="section8-estimator.html" class="p-6 fa-card fa-card-interactive group">
           <div class="flex items-center gap-3 mb-2">
-            <span class="w-8 h-8 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center text-xs font-black font-mono">HCV</span>
-            <span class="text-sm font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">Section 8 Estimator</span>
+            <span class="w-8 h-8 rounded-xl bg-blue-50 text-[#c27803] flex items-center justify-center text-xs font-black font-mono">HCV</span>
+            <span class="text-sm font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Section 8 Estimator</span>
           </div>
           <p class="text-xs text-slate-600 font-medium">Calculate HUD voucher payment standards.</p>
         </a>
 
         <a href="1031-exchange-tracker.html" class="p-6 fa-card fa-card-interactive group">
           <div class="flex items-center gap-3 mb-2">
-            <span class="w-8 h-8 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center text-xs font-black font-mono">1031</span>
-            <span class="text-sm font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">1031 Exchange</span>
+            <span class="w-8 h-8 rounded-xl bg-blue-50 text-[#c27803] flex items-center justify-center text-xs font-black font-mono">1031</span>
+            <span class="text-sm font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">1031 Exchange</span>
           </div>
           <p class="text-xs text-slate-600 font-medium">Track 45-day ID & 180-day purchase closing deadlines.</p>
         </a>
@@ -455,15 +462,15 @@
         <a href="str-cleaning-splitter.html" class="p-6 fa-card fa-card-interactive group">
           <div class="flex items-center gap-3 mb-2">
             <span class="w-8 h-8 rounded-xl bg-teal-50 text-[#20c997] flex items-center justify-center text-xs font-black font-mono">STR</span>
-            <span class="text-sm font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">STR Splitter</span>
+            <span class="text-sm font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">STR Splitter</span>
           </div>
           <p class="text-xs text-slate-600 font-medium">Split Airbnb turnover fees and host net margins.</p>
         </a>
 
         <a href="eu-vat-oss-calculator.html" class="p-6 fa-card fa-card-interactive group">
           <div class="flex items-center gap-3 mb-2">
-            <span class="w-8 h-8 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center text-xs font-black font-mono">OSS</span>
-            <span class="text-sm font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">EU VAT OSS</span>
+            <span class="w-8 h-8 rounded-xl bg-blue-50 text-[#c27803] flex items-center justify-center text-xs font-black font-mono">OSS</span>
+            <span class="text-sm font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">EU VAT OSS</span>
           </div>
           <p class="text-xs text-slate-600 font-medium">Calculate cross-border EU digital VAT across 27 nations.</p>
         </a>
@@ -477,7 +484,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Shared JavaScript File -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
 
   <!-- Core JavaScript Logic -->
   <script>
@@ -654,10 +661,10 @@
         const tr = document.createElement('tr');
         tr.className = 'hover:bg-slate-50 transition-colors';
         tr.innerHTML = `
-          <td class="py-3 px-4 font-bold text-[#183153] font-sans">${b.band}</td>
+          <td class="py-3 px-4 font-bold text-[#3e2723] font-sans">${b.band}</td>
           <td class="py-3 px-4 text-slate-500">${b.rate}</td>
           <td class="py-3 px-4 text-slate-700">£${b.taxable.toLocaleString()}</td>
-          <td class="py-3 px-4 text-right font-black ${b.tax > 0 ? 'text-[#146ebe]' : 'text-slate-400'}">£${b.tax.toLocaleString()}</td>
+          <td class="py-3 px-4 text-right font-black ${b.tax > 0 ? 'text-[#c27803]' : 'text-slate-400'}">£${b.tax.toLocaleString()}</td>
         `;
         tbody.appendChild(tr);
       });

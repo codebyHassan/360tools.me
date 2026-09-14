@@ -13,13 +13,13 @@
   <link rel="canonical" href="https://360tools.me/developer-tools.html">
 
   <!-- Open Graph -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/developer-tools.html">
   <meta property="og:title" content="Free Online Developer Tools | 360tools">
   <meta property="og:description" content="100% Client-side developer performance and minification tools.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Structured Data: CollectionPage -->
   <script type="application/ld+json">
@@ -39,14 +39,21 @@
   </script>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="css/style.min.css">
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4 bg-[#f8fafc]">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
@@ -56,7 +63,7 @@
       <span class="fa-badge-blue text-xs py-1.5 px-4 font-black uppercase tracking-wider mb-2">
         <i class="fa-solid fa-code mr-1"></i> Web Performance Suite
       </span>
-      <h1 class="text-3xl sm:text-5xl font-black text-[#183153] tracking-tight mt-2">
+      <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight mt-2">
         Frontend Developer Tools & Minifiers
       </h1>
       <p class="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
@@ -73,12 +80,12 @@
           <div class="w-12 h-12 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
             <i class="fa-brands fa-html5"></i>
           </div>
-          <h3 class="text-lg font-black text-[#183153] group-hover:text-[#146ebe]">HTML Minifier</h3>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803]">HTML Minifier</h3>
           <p class="text-xs text-slate-600 leading-relaxed font-medium">
             Strip HTML comments, collapse unnecessary spaces, and compress HTML5 documents.
           </p>
         </div>
-        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
           <span>Launch Tool</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
@@ -90,12 +97,12 @@
           <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
             <i class="fa-brands fa-css3-alt"></i>
           </div>
-          <h3 class="text-lg font-black text-[#183153] group-hover:text-[#146ebe]">CSS Minifier</h3>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803]">CSS Minifier</h3>
           <p class="text-xs text-slate-600 leading-relaxed font-medium">
             Shorten hex codes (<code>#fff</code>), purge CSS comments, and optimize stylesheet syntax.
           </p>
         </div>
-        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
           <span>Launch Tool</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
@@ -107,12 +114,12 @@
           <div class="w-12 h-12 rounded-2xl bg-yellow-50 text-yellow-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
             <i class="fa-brands fa-js"></i>
           </div>
-          <h3 class="text-lg font-black text-[#183153] group-hover:text-[#146ebe]">JavaScript Minifier</h3>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803]">JavaScript Minifier</h3>
           <p class="text-xs text-slate-600 leading-relaxed font-medium">
             Clean inline/block comments and optimize JavaScript whitespace safely in browser memory.
           </p>
         </div>
-        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
           <span>Launch Tool</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
@@ -124,12 +131,12 @@
           <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
             <i class="fa-brands fa-shopify"></i>
           </div>
-          <h3 class="text-lg font-black text-[#183153] group-hover:text-[#146ebe]">Shopify CSV Validator</h3>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803]">Shopify CSV Validator</h3>
           <p class="text-xs text-slate-600 leading-relaxed font-medium">
             Validate product CSVs for 20+ Shopify schema errors and export clean CSVs with 1 click.
           </p>
         </div>
-        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
           <span>Launch Tool</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
@@ -142,6 +149,6 @@
   <!-- Centralized Pure JS Footer Injection -->
   <footer id="globalFooter"></footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
 </body>
 </html>

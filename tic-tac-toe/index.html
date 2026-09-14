@@ -14,13 +14,13 @@
   <link rel="canonical" href="https://360tools.me/tic-tac-toe/">
 
   <!-- Favicon & Open Graph -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/tic-tac-toe/">
   <meta property="og:title" content="Tic Tac Toe Online — Free & Unbeatable AI">
   <meta property="og:description" content="Play classic XO / Tic Tac Toe in your browser. Challenge our Minimax AI or play with a friend. Zero ads.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -40,13 +40,20 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Canvas Confetti Library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
@@ -100,10 +107,10 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#f8fafc] px-3 sm:px-6 py-4">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] bg-[#fbf7ee] px-3 sm:px-6 py-4">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Game Container -->
   <main class="max-w-4xl mx-auto w-full flex-1 mb-16 pt-2">
@@ -113,13 +120,13 @@
       <div>
         <div class="inline-flex items-center gap-2 mb-1">
           <span class="fa-badge-blue py-1 px-3 text-[11px] font-black uppercase">
-            <i class="fa-solid fa-gamepad mr-1 text-[#146ebe]"></i> Strategy Puzzle
+            <i class="fa-solid fa-gamepad mr-1 text-[#c27803]"></i> Strategy Puzzle
           </span>
           <span class="text-xs font-bold text-emerald-600 flex items-center gap-1">
             <i class="fa-solid fa-wifi text-xs"></i> Realtime P2P Online
           </span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight flex items-center gap-2">
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight flex items-center gap-2">
           <span>Tic Tac Toe</span>
           <span class="text-xs font-bold px-2 py-0.5 bg-rose-100 text-rose-800 rounded-md">XO Arena</span>
         </h1>
@@ -131,8 +138,8 @@
       <!-- Scoreboard -->
       <div class="flex items-center gap-2">
         <div class="bg-blue-50 border border-blue-200 px-3.5 py-2 rounded-2xl text-center min-w-[75px] shadow-2xs">
-          <div id="p1Label" class="text-[10px] font-black uppercase tracking-wider text-[#146ebe]">PLAYER (X)</div>
-          <div id="p1Score" class="text-lg sm:text-xl font-black text-[#146ebe] leading-tight">0</div>
+          <div id="p1Label" class="text-[10px] font-black uppercase tracking-wider text-[#c27803]">PLAYER (X)</div>
+          <div id="p1Score" class="text-lg sm:text-xl font-black text-[#c27803] leading-tight">0</div>
         </div>
         <div class="bg-slate-100 border border-slate-200 px-3.5 py-2 rounded-2xl text-center min-w-[65px] shadow-2xs">
           <div class="text-[10px] font-black uppercase tracking-wider text-slate-500">TIES</div>
@@ -150,7 +157,7 @@
       <div class="flex items-center gap-2 flex-wrap">
         <!-- Game Mode Toggle -->
         <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl">
-          <button onclick="setMode('ai')" id="btnModeAi" class="px-3 py-1 rounded-lg text-xs font-bold transition-all bg-[#183153] text-white flex items-center gap-1.5">
+          <button onclick="setMode('ai')" id="btnModeAi" class="px-3 py-1 rounded-lg text-xs font-bold transition-all bg-[#3e2723] text-white flex items-center gap-1.5">
             <i class="fa-solid fa-robot"></i> vs AI
           </button>
           <button onclick="setMode('pvp')" id="btnModePvp" class="px-3 py-1 rounded-lg text-xs font-bold transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5">
@@ -196,7 +203,7 @@
             <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-lg mb-2 shadow-xs">
               <i class="fa-solid fa-plus"></i>
             </div>
-            <h3 class="text-base font-black text-[#183153]">Create a Room</h3>
+            <h3 class="text-base font-black text-[#3e2723]">Create a Room</h3>
             <p class="text-xs text-slate-500 font-medium">Generate a 6-digit room code and share the link with your friend.</p>
           </div>
           <button onclick="createOnlineRoom()" class="w-full py-2.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-black rounded-xl shadow-md flex items-center justify-center gap-2 transition-transform active:scale-95">
@@ -210,7 +217,7 @@
             <div class="w-10 h-10 rounded-xl bg-[#146ebe] text-white flex items-center justify-center text-lg mb-2 shadow-xs">
               <i class="fa-solid fa-right-to-bracket"></i>
             </div>
-            <h3 class="text-base font-black text-[#183153]">Join a Room</h3>
+            <h3 class="text-base font-black text-[#3e2723]">Join a Room</h3>
             <p class="text-xs text-slate-500 font-medium">Enter the 6-digit code shared by your friend to join their match.</p>
           </div>
           <div class="flex items-center gap-2">
@@ -238,7 +245,7 @@
         
         <div>
           <div class="text-xs font-black text-slate-500 uppercase tracking-wider mb-1">Your 6-Digit Room Code</div>
-          <div id="displayRoomCode" class="text-3xl sm:text-4xl font-black text-[#183153] room-code-display bg-white py-3 px-6 rounded-2xl border-2 border-emerald-400 inline-block shadow-xs">
+          <div id="displayRoomCode" class="text-3xl sm:text-4xl font-black text-[#3e2723] room-code-display bg-white py-3 px-6 rounded-2xl border-2 border-emerald-400 inline-block shadow-xs">
             ------
           </div>
         </div>
@@ -248,7 +255,7 @@
             <i class="fa-solid fa-copy text-emerald-600"></i> <span id="copyCodeText">Copy 6-Digit Code</span>
           </button>
           <button onclick="copyRoomLink()" class="fa-btn-secondary py-2 px-4 text-xs font-bold flex items-center gap-1.5">
-            <i class="fa-solid fa-link text-[#146ebe]"></i> <span id="copyLinkText">Copy Invite Link</span>
+            <i class="fa-solid fa-link text-[#c27803]"></i> <span id="copyLinkText">Copy Invite Link</span>
           </button>
           <a id="whatsappShareBtn" href="#" target="_blank" class="py-2 px-4 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow-xs flex items-center gap-1.5">
             <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp Share
@@ -280,7 +287,7 @@
 
     <!-- Status Banner -->
     <div class="text-center mb-6">
-      <div id="statusBanner" class="inline-flex items-center gap-2 px-5 py-2 bg-white border border-slate-200 rounded-full text-xs sm:text-sm font-black text-[#183153] shadow-xs">
+      <div id="statusBanner" class="inline-flex items-center gap-2 px-5 py-2 bg-white border border-slate-200 rounded-full text-xs sm:text-sm font-black text-[#3e2723] shadow-xs">
         <span class="w-2.5 h-2.5 rounded-full bg-[#146ebe] animate-ping"></span>
         <span id="turnStatusText">Player X's Turn</span>
       </div>
@@ -305,8 +312,8 @@
     <article class="fa-card p-6 sm:p-10 space-y-8 text-slate-700 text-sm leading-relaxed">
       
       <section class="space-y-3">
-        <h2 class="text-xl sm:text-2xl font-black text-[#183153] flex items-center gap-2">
-          <i class="fa-solid fa-robot text-[#146ebe]"></i> How the Minimax AI Algorithm Works
+        <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] flex items-center gap-2">
+          <i class="fa-solid fa-robot text-[#c27803]"></i> How the Minimax AI Algorithm Works
         </h2>
         <p>
           In Impossible Mode, our AI computes a full **Minimax Decision Tree** with alpha-beta pruning. It evaluates all 255,168 possible game states to guarantee it will never lose a game.
@@ -314,7 +321,7 @@
       </section>
 
       <section class="space-y-4">
-        <h3 class="text-lg font-black text-[#183153] flex items-center gap-2">
+        <h3 class="text-lg font-black text-[#3e2723] flex items-center gap-2">
           <i class="fa-solid fa-lightbulb text-[#ffd43b]"></i> The Perfect Opening Strategy (Never Lose)
         </h3>
         <ul class="list-disc pl-5 space-y-2 text-xs sm:text-sm text-slate-600 font-medium">
@@ -331,7 +338,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script>
     let board = ['', '', '', '', '', '', '', '', ''];
     let currentPlayer = 'X'; // X or O
@@ -418,10 +425,10 @@
       
       // Update Buttons
       document.getElementById('btnModeAi').className = mode === 'ai' 
-        ? 'px-3 py-1 rounded-lg text-xs font-bold transition-all bg-[#183153] text-white flex items-center gap-1.5 shadow-xs' 
+        ? 'px-3 py-1 rounded-lg text-xs font-bold transition-all bg-[#3e2723] text-white flex items-center gap-1.5 shadow-xs' 
         : 'px-3 py-1 rounded-lg text-xs font-bold transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5';
       document.getElementById('btnModePvp').className = mode === 'pvp' 
-        ? 'px-3 py-1 rounded-lg text-xs font-bold transition-all bg-[#183153] text-white flex items-center gap-1.5 shadow-xs' 
+        ? 'px-3 py-1 rounded-lg text-xs font-bold transition-all bg-[#3e2723] text-white flex items-center gap-1.5 shadow-xs' 
         : 'px-3 py-1 rounded-lg text-xs font-bold transition-all text-slate-600 hover:text-slate-900 flex items-center gap-1.5';
       document.getElementById('btnModeOnline').className = mode === 'online' 
         ? 'px-3 py-1 rounded-lg text-xs font-bold transition-all bg-emerald-600 text-white flex items-center gap-1.5 shadow-xs' 

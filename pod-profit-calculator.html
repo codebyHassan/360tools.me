@@ -13,20 +13,20 @@
   <link rel="canonical" href="https://360tools.me/pod-profit-calculator.html">
 
   <!-- Favicon & Open Graph / Facebook -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/pod-profit-calculator.html">
   <meta property="og:title" content="Print-on-Demand Profit Margin Grid | 360tools.me">
   <meta property="og:description" content="Compare live profit margins across Printify, Printful, and Gelato for apparel, mugs, posters, and phone cases.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://360tools.me/pod-profit-calculator.html">
   <meta property="twitter:title" content="Print-on-Demand Margin Comparison Grid">
   <meta property="twitter:description" content="Printify vs Printful vs Gelato net profit matrix for US, Canada, UK, and Europe.">
-  <meta property="twitter:image" content="images/logo.jpg">
+  <meta property="twitter:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -109,18 +109,25 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
@@ -129,12 +136,12 @@
     <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
         <div class="inline-flex items-center gap-2 mb-2">
-          <span class="bg-[#146ebe]/10 text-[#146ebe] text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+          <span class="bg-[#146ebe]/10 text-[#c27803] text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
             <i class="fa-solid fa-shirt mr-1"></i> Multi-Provider POD Matrix
           </span>
           <span class="text-xs font-bold text-slate-400">• Printify vs Printful vs Gelato 2026</span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
           Print-on-Demand Profit Margin Grid
         </h1>
         <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
@@ -216,18 +223,18 @@
 
         <div>
           <label for="podMonthlyVolume" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
-            Projected Monthly Volume: <span id="volLabel" class="text-[#146ebe] font-bold">100 units</span>
+            Projected Monthly Volume: <span id="volLabel" class="text-[#c27803] font-bold">100 units</span>
           </label>
           <input type="range" id="podMonthlyVolume" min="10" max="1000" step="10" value="100" class="w-full accent-[#146ebe] cursor-pointer" oninput="updateVolumeSlider()">
         </div>
 
         <div class="lg:col-span-2 flex flex-wrap gap-4 text-xs font-bold text-slate-700">
           <label class="flex items-center gap-2 cursor-pointer">
-            <input type="checkbox" id="chkPrintifyPremium" class="w-4 h-4 rounded text-[#146ebe]" onchange="calculatePOD()">
+            <input type="checkbox" id="chkPrintifyPremium" class="w-4 h-4 rounded text-[#c27803]" onchange="calculatePOD()">
             <span>Use Printify Premium (~20% off)</span>
           </label>
           <label class="flex items-center gap-2 cursor-pointer">
-            <input type="checkbox" id="chkPrintfulGrowth" class="w-4 h-4 rounded text-[#146ebe]" onchange="calculatePOD()">
+            <input type="checkbox" id="chkPrintfulGrowth" class="w-4 h-4 rounded text-[#c27803]" onchange="calculatePOD()">
             <span>Use Printful Growth (~15% off)</span>
           </label>
         </div>
@@ -244,7 +251,7 @@
             <div class="flex items-center gap-2">
               <span class="w-8 h-8 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-black text-sm">P</span>
               <div>
-                <h3 class="text-base font-black text-[#183153]">Printify</h3>
+                <h3 class="text-base font-black text-[#3e2723]">Printify</h3>
                 <span id="tierPrintify" class="text-[10px] font-bold text-slate-400">Standard Plan</span>
               </div>
             </div>
@@ -294,7 +301,7 @@
             <div class="flex items-center gap-2">
               <span class="w-8 h-8 rounded-xl bg-red-100 text-red-700 flex items-center justify-center font-black text-sm">Pf</span>
               <div>
-                <h3 class="text-base font-black text-[#183153]">Printful</h3>
+                <h3 class="text-base font-black text-[#3e2723]">Printful</h3>
                 <span id="tierPrintful" class="text-[10px] font-bold text-slate-400">Standard Plan</span>
               </div>
             </div>
@@ -342,9 +349,9 @@
         <div>
           <div class="flex items-center justify-between pb-3 border-b border-slate-100">
             <div class="flex items-center gap-2">
-              <span class="w-8 h-8 rounded-xl bg-blue-100 text-[#146ebe] flex items-center justify-center font-black text-sm">G</span>
+              <span class="w-8 h-8 rounded-xl bg-blue-100 text-[#c27803] flex items-center justify-center font-black text-sm">G</span>
               <div>
-                <h3 class="text-base font-black text-[#183153]">Gelato</h3>
+                <h3 class="text-base font-black text-[#3e2723]">Gelato</h3>
                 <span class="text-[10px] font-bold text-slate-400">Global Localized Print</span>
               </div>
             </div>
@@ -394,7 +401,7 @@
       <div class="max-w-4xl mx-auto space-y-12">
         
         <div class="text-center">
-          <h2 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight">
             Printify vs Printful vs Gelato: 2026 Profit Margin Breakdown
           </h2>
           <p class="text-slate-600 text-sm sm:text-base mt-2">
@@ -405,7 +412,7 @@
         <!-- Strategy Guides Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="fa-card p-6">
-            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2 flex items-center gap-2">
               <i class="fa-solid fa-tags text-emerald-600"></i> Printify Advantage
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -414,7 +421,7 @@
           </div>
 
           <div class="fa-card p-6">
-            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2 flex items-center gap-2">
               <i class="fa-solid fa-crown text-red-600"></i> Printful Quality
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -423,8 +430,8 @@
           </div>
 
           <div class="fa-card p-6">
-            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
-              <i class="fa-solid fa-earth-americas text-[#146ebe]"></i> Gelato Global Speed
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-earth-americas text-[#c27803]"></i> Gelato Global Speed
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
               Gelato routes orders to over 100 localized production hubs across 32 countries. For posters, acrylics, and calendars, local production slashes cross-border customs delays and international shipping fees.
@@ -441,7 +448,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Script: POD Margin Grid Logic -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script>
     // Comprehensive POD Catalog Cost Database
     const POD_CATALOG = {

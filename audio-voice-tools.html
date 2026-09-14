@@ -13,13 +13,13 @@
   <link rel="canonical" href="https://360tools.me/audio-voice-tools.html">
 
   <!-- Open Graph -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/audio-voice-tools.html">
   <meta property="og:title" content="Free Online Audio, Speech & Voiceover Tools Hub | 360tools">
   <meta property="og:description" content="100% in-browser speech synthesis, audio converters, and voiceover generators.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Structured Data: CollectionPage -->
   <script type="application/ld+json">
@@ -42,14 +42,21 @@
   </script>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="css/style.min.css">
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4 bg-[#f8fafc]">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
@@ -59,7 +66,7 @@
       <span class="fa-badge-blue text-xs py-1.5 px-4 font-black uppercase tracking-wider mb-2">
         <i class="fa-solid fa-volume-high mr-1"></i> 100% In-Browser Speech & Voice Suite
       </span>
-      <h1 class="text-3xl sm:text-5xl font-black text-[#183153] tracking-tight mt-2">
+      <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight mt-2">
         Free Audio, Speech & Voiceover Tools
       </h1>
       <p class="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
@@ -73,17 +80,17 @@
       <!-- Tool 1: Text to Speech -->
       <a href="text-to-speech.html" class="fa-card fa-card-interactive p-7 flex flex-col justify-between group">
         <div class="space-y-4">
-          <div class="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200/80 text-[#146ebe] flex items-center justify-center text-xl shadow-2xs group-hover:scale-110 group-hover:-rotate-3 transition-transform">
+          <div class="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200/80 text-[#c27803] flex items-center justify-center text-xl shadow-2xs group-hover:scale-110 group-hover:-rotate-3 transition-transform">
             <i class="fa-solid fa-volume-high"></i>
           </div>
           <div class="space-y-1.5">
-            <h3 class="text-lg font-black text-[#183153] group-hover:text-[#146ebe]">Text to Speech (Natural Reader)</h3>
+            <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803]">Text to Speech (Natural Reader)</h3>
             <p class="text-xs text-slate-600 leading-relaxed font-medium">
               Listen to written text in natural voices with live word-by-word highlighting and speed/pitch sliders.
             </p>
           </div>
         </div>
-        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
           <span>Launch Tool</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
@@ -96,13 +103,13 @@
             <i class="fa-solid fa-file-audio"></i>
           </div>
           <div class="space-y-1.5">
-            <h3 class="text-lg font-black text-[#183153] group-hover:text-[#146ebe]">Text to MP3 Converter</h3>
+            <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803]">Text to MP3 Converter</h3>
             <p class="text-xs text-slate-600 leading-relaxed font-medium">
               Convert text scripts into downloadable MP3 or WAV audio tracks with client-side audio encoding.
             </p>
           </div>
         </div>
-        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
           <span>Launch Tool</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
@@ -115,13 +122,13 @@
             <i class="fa-solid fa-wand-magic-sparkles"></i>
           </div>
           <div class="space-y-1.5">
-            <h3 class="text-lg font-black text-[#183153] group-hover:text-[#146ebe]">AI Voice Generator & Avatars</h3>
+            <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803]">AI Voice Generator & Avatars</h3>
             <p class="text-xs text-slate-600 leading-relaxed font-medium">
               Choose from realistic character avatars (Corporate, Storyteller, Casual) with real-time waveform visualizers.
             </p>
           </div>
         </div>
-        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
           <span>Launch Tool</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
@@ -134,13 +141,13 @@
             <i class="fa-solid fa-file-pdf"></i>
           </div>
           <div class="space-y-1.5">
-            <h3 class="text-lg font-black text-[#183153] group-hover:text-[#146ebe]">PDF to Speech Document Reader</h3>
+            <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803]">PDF to Speech Document Reader</h3>
             <p class="text-xs text-slate-600 leading-relaxed font-medium">
               Drag and drop PDF ebooks and research reports to extract text and listen to page-by-page narration.
             </p>
           </div>
         </div>
-        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
           <span>Launch Tool</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
@@ -153,13 +160,13 @@
             <i class="fa-brands fa-youtube"></i>
           </div>
           <div class="space-y-1.5">
-            <h3 class="text-lg font-black text-[#183153] group-hover:text-[#146ebe]">YouTube Script Voiceover Generator</h3>
+            <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803]">YouTube Script Voiceover Generator</h3>
             <p class="text-xs text-slate-600 leading-relaxed font-medium">
               Auto-split video scripts into sequential scenes, set custom pause intervals, and generate master voiceover tracks.
             </p>
           </div>
         </div>
-        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
           <span>Launch Tool</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
@@ -172,13 +179,13 @@
             <i class="fa-solid fa-feather"></i>
           </div>
           <div class="space-y-1.5">
-            <h3 class="text-lg font-black text-[#183153] group-hover:text-[#146ebe]">Urdu Text to Speech (اردو آواز)</h3>
+            <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803]">Urdu Text to Speech (اردو آواز)</h3>
             <p class="text-xs text-slate-600 leading-relaxed font-medium">
               Authentic Pakistani Urdu voiceover generator supporting Urdu script, Nastaliq fonts, and Roman Urdu.
             </p>
           </div>
         </div>
-        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
           <span>Launch Tool</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
@@ -191,13 +198,13 @@
             <i class="fa-solid fa-newspaper"></i>
           </div>
           <div class="space-y-1.5">
-            <h3 class="text-lg font-black text-[#183153] group-hover:text-[#146ebe]">Article to Speech (Web Reader)</h3>
+            <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803]">Article to Speech (Web Reader)</h3>
             <p class="text-xs text-slate-600 leading-relaxed font-medium">
               Strip ads, navigation, and web clutter to listen to articles, blog posts, and news with clean audio playback.
             </p>
           </div>
         </div>
-        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#146ebe]">
+        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
           <span>Launch Tool</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
@@ -210,6 +217,6 @@
   <!-- Centralized Pure JS Footer Injection -->
   <footer id="globalFooter"></footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
 </body>
 </html>

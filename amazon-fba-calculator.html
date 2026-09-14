@@ -13,20 +13,20 @@
   <link rel="canonical" href="https://360tools.me/amazon-fba-calculator.html">
 
   <!-- Favicon & Open Graph / Facebook -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/amazon-fba-calculator.html">
   <meta property="og:title" content="Amazon FBA Calculator — Dimensional Weight & Size Tier Checker | 360Tools">
   <meta property="og:description" content="Determine whether Amazon will charge you based on actual or dimensional weight on 360Tools.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://360tools.me/amazon-fba-calculator.html">
   <meta property="twitter:title" content="Amazon FBA Dimensional Weight vs. Actual Weight Checker">
   <meta property="twitter:description" content="Precision FBA dimensional weight and size tier calculator for US, Canada, UK, and European Amazon sellers.">
-  <meta property="twitter:image" content="images/logo.jpg">
+  <meta property="twitter:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -117,18 +117,25 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
@@ -137,12 +144,12 @@
     <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
       <div>
         <div class="inline-flex items-center gap-2 mb-2">
-          <span class="bg-[#ffd43b]/20 text-[#183153] text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+          <span class="bg-[#ffd43b]/20 text-[#3e2723] text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
             <i class="fa-brands fa-amazon mr-1 text-[#ff9900]"></i> 2026 Amazon FBA Divisor 139
           </span>
           <span class="text-xs font-bold text-slate-400">• US, CA, UK & EU Standards</span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
           Free Amazon FBA Dimensional Weight Calculator
         </h1>
         <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
@@ -173,7 +180,7 @@
               <div class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
                 <i class="fa-solid fa-ruler-combined"></i>
               </div>
-              <h2 class="text-lg font-black text-[#183153]">1. Marketplace & Measurement Units</h2>
+              <h2 class="text-lg font-black text-[#3e2723]">1. Marketplace & Measurement Units</h2>
             </div>
             <span class="text-xs text-slate-400 font-bold">Step 1 of 3</span>
           </div>
@@ -207,10 +214,10 @@
         <div class="fa-card p-6 sm:p-7 shadow-sm">
           <div class="flex items-center justify-between mb-5 border-b border-slate-100 pb-4">
             <div class="flex items-center gap-2.5">
-              <div class="w-8 h-8 rounded-xl bg-blue-100 text-[#146ebe] flex items-center justify-center font-bold">
+              <div class="w-8 h-8 rounded-xl bg-blue-100 text-[#c27803] flex items-center justify-center font-bold">
                 <i class="fa-solid fa-box"></i>
               </div>
-              <h2 class="text-lg font-black text-[#183153]">2. Packaged Item Dimensions & Weight</h2>
+              <h2 class="text-lg font-black text-[#3e2723]">2. Packaged Item Dimensions & Weight</h2>
             </div>
             <span class="text-xs text-slate-400 font-bold">Step 2 of 3</span>
           </div>
@@ -294,7 +301,7 @@
             <span class="text-xs font-black uppercase tracking-wider text-amber-800 bg-amber-100 px-2.5 py-1 rounded-full flex items-center gap-1.5">
               <i class="fa-solid fa-tag"></i> <span id="resSizeTierBadge">Large Standard-Size</span>
             </span>
-            <button onclick="copyFbaBreakdown()" class="text-xs font-bold text-slate-500 hover:text-[#146ebe] flex items-center gap-1">
+            <button onclick="copyFbaBreakdown()" class="text-xs font-bold text-slate-500 hover:text-[#c27803] flex items-center gap-1">
               <i class="fa-solid fa-copy"></i> Copy Specs
             </button>
           </div>
@@ -302,7 +309,7 @@
           <!-- Hero Metric: Billable Weight & Winning Rule -->
           <div class="my-6 text-center bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
             <span class="text-xs font-bold text-slate-500 uppercase tracking-widest block mb-1">Amazon Billable Weight</span>
-            <div id="resBillableWeight" class="text-4xl sm:text-5xl font-black text-[#183153] font-mono tracking-tight">
+            <div id="resBillableWeight" class="text-4xl sm:text-5xl font-black text-[#3e2723] font-mono tracking-tight">
               3.24 lbs
             </div>
             <div class="mt-2 text-xs font-bold text-amber-700 flex items-center justify-center gap-1">
@@ -359,7 +366,7 @@
           <!-- Packaging Optimization Recommendation Box -->
           <div id="boxOptimization" class="mt-6 p-4 rounded-xl bg-blue-50 border border-blue-200 text-xs text-blue-900">
             <div class="flex items-center gap-2 font-bold mb-1">
-              <i class="fa-solid fa-wand-magic-sparkles text-[#146ebe]"></i>
+              <i class="fa-solid fa-wand-magic-sparkles text-[#c27803]"></i>
               <span id="optTitle">Packaging Optimization Insight</span>
             </div>
             <p id="optDescription" class="text-blue-800 leading-relaxed">
@@ -378,7 +385,7 @@
       <div class="max-w-4xl mx-auto space-y-12">
         
         <div class="text-center">
-          <h2 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight">
             Amazon FBA Size Tier Classification & Fee Standards (2026)
           </h2>
           <p class="text-slate-600 text-sm sm:text-base mt-2">
@@ -388,8 +395,8 @@
 
         <!-- Size Tier Matrix Table -->
         <div class="fa-card p-6 sm:p-8 overflow-x-auto">
-          <h3 class="text-lg font-black text-[#183153] mb-4 flex items-center gap-2">
-            <i class="fa-solid fa-table-list text-[#146ebe]"></i>
+          <h3 class="text-lg font-black text-[#3e2723] mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-table-list text-[#c27803]"></i>
             Amazon FBA Size Tier Thresholds Matrix (US Imperial)
           </h3>
           <table class="w-full text-left text-xs sm:text-sm border-collapse">
@@ -413,7 +420,7 @@
                 <td class="py-3 px-3 text-slate-400">—</td>
               </tr>
               <tr>
-                <td class="py-3 px-3 font-bold text-[#146ebe]">Large Standard</td>
+                <td class="py-3 px-3 font-bold text-[#c27803]">Large Standard</td>
                 <td class="py-3 px-3 font-mono">20 lbs</td>
                 <td class="py-3 px-3 font-mono">≤ 18"</td>
                 <td class="py-3 px-3 font-mono">≤ 14"</td>
@@ -451,8 +458,8 @@
         <!-- Strategy Guides Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="fa-card p-6">
-            <h4 class="font-black text-[#183153] text-base mb-2 flex items-center gap-2">
-              <i class="fa-solid fa-compress text-[#146ebe]"></i>
+            <h4 class="font-black text-[#3e2723] text-base mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-compress text-[#c27803]"></i>
               The 0.75-Inch Thickness Cliff
             </h4>
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -461,7 +468,7 @@
           </div>
 
           <div class="fa-card p-6">
-            <h4 class="font-black text-[#183153] text-base mb-2 flex items-center gap-2">
+            <h4 class="font-black text-[#3e2723] text-base mb-2 flex items-center gap-2">
               <i class="fa-solid fa-boxes-stacked text-amber-600"></i>
               Why Divisor 139 Matters
             </h4>
@@ -480,7 +487,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Script: Amazon FBA Checker Logic -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script>
     let currentUnitSystem = 'imperial'; // 'imperial' or 'metric'
 

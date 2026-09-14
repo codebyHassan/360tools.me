@@ -13,20 +13,20 @@
   <link rel="canonical" href="https://360tools.me/shopify-csv-validator.html">
 
   <!-- Favicon & Open Graph / Facebook -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/shopify-csv-validator.html">
   <meta property="og:title" content="Shopify CSV Import Pre-Validator & Error Fixer | 360tools.me">
   <meta property="og:description" content="Scan Shopify product CSV files for errors client-side before uploading to your store. 100% private with instant error highlighting.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://360tools.me/shopify-csv-validator.html">
   <meta property="twitter:title" content="Shopify CSV Import Pre-Validator (100% Private)">
   <meta property="twitter:description" content="Scan Shopify product CSV files client-side. Catch duplicate variants, handle errors, and malformed prices before importing.">
-  <meta property="twitter:image" content="images/logo.jpg">
+  <meta property="twitter:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -109,21 +109,28 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- PapaParse for Client-Side Parsing -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
@@ -137,7 +144,7 @@
           </span>
           <span class="text-xs font-bold text-slate-400">• Zero Server Upload • 100% Private</span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
           Shopify CSV Import Pre-Validator & Error Fixer
         </h1>
         <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
@@ -149,7 +156,7 @@
         <button onclick="loadSampleBrokenCSV()" class="fa-btn-secondary text-xs px-3.5 py-2 text-rose-700 bg-rose-50 hover:bg-rose-100 border-rose-200">
           <i class="fa-solid fa-bug"></i> Test Broken CSV
         </button>
-        <button onclick="loadSampleValidCSV()" class="fa-btn-primary text-xs px-3.5 py-2 bg-[#95bf47] text-[#183153] hover:bg-[#82a83b]">
+        <button onclick="loadSampleValidCSV()" class="fa-btn-primary text-xs px-3.5 py-2 bg-[#95bf47] text-[#3e2723] hover:bg-[#82a83b]">
           <i class="fa-solid fa-circle-check"></i> Test Valid CSV
         </button>
       </div>
@@ -164,7 +171,7 @@
         <!-- Drag & Drop Zone -->
         <div class="fa-card p-6 sm:p-7 shadow-sm">
           <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-            <h2 class="text-base font-black text-[#183153] flex items-center gap-2">
+            <h2 class="text-base font-black text-[#3e2723] flex items-center gap-2">
               <i class="fa-solid fa-file-csv text-[#95bf47] text-lg"></i>
               Upload or Paste Shopify Product CSV
             </h2>
@@ -178,7 +185,7 @@
             <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-500 mx-auto flex items-center justify-center text-xl mb-3">
               <i class="fa-solid fa-cloud-arrow-up"></i>
             </div>
-            <p class="text-sm font-bold text-slate-700 mb-1">Click to browse or drag & drop your <span class="text-[#146ebe]">.csv file</span></p>
+            <p class="text-sm font-bold text-slate-700 mb-1">Click to browse or drag & drop your <span class="text-[#c27803]">.csv file</span></p>
             <p class="text-xs text-slate-400">Supports standard Shopify product export & vendor feed files</p>
           </div>
 
@@ -191,7 +198,7 @@
           </div>
 
           <div class="mt-4 flex items-center justify-between">
-            <button onclick="parseRawCSV()" class="fa-btn-primary text-xs px-4 py-2 bg-[#183153] hover:bg-[#25406b]">
+            <button onclick="parseRawCSV()" class="fa-btn-primary text-xs px-4 py-2 bg-[#3e2723] hover:bg-[#25406b]">
               <i class="fa-solid fa-stethoscope"></i> Run Deep Pre-Validation
             </button>
             <button id="btnAutoClean" onclick="autoSanitizeAndDownload()" class="fa-btn-primary text-xs px-4 py-2 bg-emerald-600 hover:bg-emerald-700 hidden">
@@ -203,8 +210,8 @@
         <!-- Issue Table / Diagnostic Inspector -->
         <div id="diagnosticCard" class="fa-card p-6 sm:p-7 shadow-sm hidden">
           <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-            <h3 class="text-base font-black text-[#183153] flex items-center gap-2">
-              <i class="fa-solid fa-list-check text-[#146ebe]"></i>
+            <h3 class="text-base font-black text-[#3e2723] flex items-center gap-2">
+              <i class="fa-solid fa-list-check text-[#c27803]"></i>
               Detailed Diagnostic Report (<span id="issueCount">0</span> issues)
             </h3>
             <div class="flex gap-2">
@@ -318,7 +325,7 @@
       <div class="max-w-4xl mx-auto space-y-12">
         
         <div class="text-center">
-          <h2 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight">
             Common Shopify CSV Import Errors & How to Fix Them
           </h2>
           <p class="text-slate-600 text-sm sm:text-base mt-2">
@@ -378,7 +385,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Script: Shopify CSV Validator Logic -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script>
     let parsedCsvData = null;
     let parsedErrors = [];

@@ -13,13 +13,13 @@
   <link rel="canonical" href="https://360tools.me/webp-compressor.html">
 
   <!-- Favicon & Open Graph -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/webp-compressor.html">
   <meta property="og:title" content="WebP Compressor – Reduce WebP File Size Online | 360tools">
   <meta property="og:description" content="Optimize WebP images client-side in your browser. Fast, free, and completely secure.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -94,30 +94,37 @@
   </script>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="css/style.min.css">
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4 bg-[#f8fafc]">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
     
     <!-- 2. Breadcrumb -->
     <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4" aria-label="Breadcrumb">
-      <a href="index.html" class="hover:text-[#146ebe]">Home</a>
+      <a href="index.html" class="hover:text-[#c27803]">Home</a>
       <span>/</span>
-      <a href="compression-tools.html" class="hover:text-[#146ebe]">Compression Tools</a>
+      <a href="compression-tools.html" class="hover:text-[#c27803]">Compression Tools</a>
       <span>/</span>
       <span class="text-slate-700">WebP Compressor</span>
     </nav>
 
     <!-- 3. H1 & 4. Introductory Description -->
     <div class="mb-8">
-      <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+      <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
         WebP Compressor – Reduce WebP File Size
       </h1>
       <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-3xl leading-relaxed">
@@ -145,15 +152,15 @@
         <!-- Upload Box -->
         <div class="fa-card p-6 shadow-sm">
           <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-            <h2 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
-              <i class="fa-solid fa-bolt text-[#146ebe]"></i> Upload WebP Image
+            <h2 class="text-sm font-black text-[#3e2723] uppercase tracking-wider flex items-center gap-2">
+              <i class="fa-solid fa-bolt text-[#c27803]"></i> Upload WebP Image
             </h2>
             <span class="text-[11px] font-bold text-slate-400">WebP Format</span>
           </div>
 
           <div id="webpDropZone" class="border-2 border-dashed border-slate-300 hover:border-[#146ebe] hover:bg-blue-50/20 transition-all rounded-2xl p-8 text-center cursor-pointer" onclick="document.getElementById('webpFileInput').click()">
             <input type="file" id="webpFileInput" accept="image/webp,image/png,image/jpeg" class="hidden" onchange="handleWebpUpload(event)">
-            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#146ebe] mx-auto flex items-center justify-center text-xl mb-3">
+            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#c27803] mx-auto flex items-center justify-center text-xl mb-3">
               <i class="fa-solid fa-cloud-arrow-up"></i>
             </div>
             <p class="text-sm font-bold text-slate-700 mb-1">Click to select WebP or drag & drop</p>
@@ -164,8 +171,8 @@
         <!-- Controls -->
         <div class="fa-card p-6 shadow-sm space-y-5">
           <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-            <h3 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
-              <i class="fa-solid fa-sliders text-[#146ebe]"></i> WebP Quality Controls
+            <h3 class="text-xs font-black text-[#3e2723] uppercase tracking-wider flex items-center gap-2">
+              <i class="fa-solid fa-sliders text-[#c27803]"></i> WebP Quality Controls
             </h3>
             <button onclick="resetWebpSettings()" class="text-xs font-bold text-slate-400 hover:text-slate-600">Reset</button>
           </div>
@@ -174,7 +181,7 @@
           <div>
             <div class="flex justify-between items-center mb-1.5">
               <label for="webpQuality" class="text-xs font-bold uppercase tracking-wider text-slate-600">WebP Quality</label>
-              <span id="webpQualityVal" class="text-xs font-black font-mono bg-blue-100 text-[#146ebe] px-2 py-0.5 rounded-lg">80%</span>
+              <span id="webpQualityVal" class="text-xs font-black font-mono bg-blue-100 text-[#c27803] px-2 py-0.5 rounded-lg">80%</span>
             </div>
             <input type="range" id="webpQuality" min="10" max="100" value="80" class="w-full accent-[#146ebe] cursor-pointer" oninput="updateWebpQuality(this.value)">
             <div class="flex justify-between text-[10px] text-slate-400 font-bold mt-1">
@@ -200,7 +207,7 @@
         
         <div class="fa-card p-6 shadow-lg border-2 border-blue-500/30 bg-gradient-to-b from-white to-slate-50">
           <div class="flex items-center justify-between pb-3 border-b border-slate-200">
-            <span class="text-xs font-black uppercase tracking-wider text-[#146ebe] bg-blue-50 px-2.5 py-1 rounded-full">
+            <span class="text-xs font-black uppercase tracking-wider text-[#c27803] bg-blue-50 px-2.5 py-1 rounded-full">
               WebP Performance Stats
             </span>
             <span id="webpSavingsBadge" class="text-xs font-mono font-black text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-lg">
@@ -214,8 +221,8 @@
               <span id="webpStatOrig" class="text-base sm:text-lg font-black font-mono text-slate-800">--</span>
             </div>
             <div class="p-3 bg-blue-50 rounded-xl border border-blue-200">
-              <span class="text-[10px] font-bold text-[#146ebe] block uppercase tracking-wider">Compressed</span>
-              <span id="webpStatComp" class="text-base sm:text-lg font-black font-mono text-[#146ebe]">--</span>
+              <span class="text-[10px] font-bold text-[#c27803] block uppercase tracking-wider">Compressed</span>
+              <span id="webpStatComp" class="text-base sm:text-lg font-black font-mono text-[#c27803]">--</span>
             </div>
             <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200">
               <span class="text-[10px] font-bold text-emerald-800 block uppercase tracking-wider">Saved</span>
@@ -234,7 +241,7 @@
 
           <div class="mt-4 flex items-center justify-between text-xs text-slate-500">
             <span id="webpDims">Dimensions: -- × -- px</span>
-            <span class="text-[#146ebe] font-bold">Next-Gen WebP Engine</span>
+            <span class="text-[#c27803] font-bold">Next-Gen WebP Engine</span>
           </div>
         </div>
 
@@ -253,16 +260,16 @@
         <div>
           <h3 class="text-xs font-black text-slate-400 uppercase tracking-wider mb-4">Related Compression Tools</h3>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <a href="jpg-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+            <a href="jpg-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-solid fa-camera text-amber-600 mr-1.5"></i> JPG Compressor
             </a>
-            <a href="png-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+            <a href="png-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-solid fa-file-image text-emerald-600 mr-1.5"></i> PNG Compressor
             </a>
-            <a href="bulk-image-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+            <a href="bulk-image-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-solid fa-layer-group text-purple-600 mr-1.5"></i> Bulk Compressor
             </a>
-            <a href="compress-image-to-500kb.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#183153] hover:text-[#146ebe] transition-all block">
+            <a href="compress-image-to-500kb.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-solid fa-bullseye text-indigo-600 mr-1.5"></i> Target 500KB
             </a>
           </div>
@@ -276,7 +283,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script src="js/image-engine.js"></script>
   <script>
     let currentWebpFile = null;

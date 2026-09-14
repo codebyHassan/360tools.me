@@ -14,19 +14,19 @@
   <link rel="canonical" href="https://360tools.me/background-remover.html">
 
   <!-- Favicon & Open Graph -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/background-remover.html">
   <meta property="og:title" content="Background Remover — Free AI Image Background Eraser | 360Tools">
   <meta property="og:description" content="Remove backgrounds from photos instantly in your browser on 360Tools. 100% private, client-side AI processing, transparent PNG download, and background replacement.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Twitter Card Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Free AI Background Remover | 360tools.me">
   <meta name="twitter:description" content="Instant browser-based AI background remover. Zero cloud uploads, 100% private photo cutout tool.">
-  <meta name="twitter:image" content="images/logo.jpg">
+  <meta name="twitter:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data: WebApplication Schema -->
   <script type="application/ld+json">
@@ -81,13 +81,20 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- imgly Background Removal UMD Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/dist/index.umd.js" crossorigin="anonymous"></script>
@@ -163,18 +170,18 @@
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#f8fafc]">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] bg-[#fbf7ee]">
 
   <!-- Top Global Announcement Banner -->
-  <div class="no-print bg-[#183153] text-white text-xs py-2 px-4 text-center font-semibold border-b border-[#25406b] hidden sm:flex items-center justify-center gap-2">
-    <span class="bg-[#ffd43b] text-[#183153] px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wide">New AI Module</span>
+  <div class="no-print bg-[#3e2723] text-white text-xs py-2 px-4 text-center font-semibold border-b border-[#ded2be] hidden sm:flex items-center justify-center gap-2">
+    <span class="bg-[#ffd43b] text-[#3e2723] px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wide">New AI Module</span>
     <span>100% In-Browser Private AI Background Removal Engine</span>
     <a href="index.html" class="text-[#ffd43b] hover:underline font-bold ml-1 inline-flex items-center gap-1">All Tools <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
   </div>
 
   <!-- Centralized Pure JS Header Injection -->
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Content Area -->
   <main class="max-w-6xl mx-auto w-full px-4 sm:px-6 py-6 flex-grow">
@@ -184,9 +191,9 @@
       
       <!-- Breadcrumb Navigation -->
       <nav class="flex items-center justify-center gap-2 text-xs font-semibold text-slate-400 mb-3" aria-label="Breadcrumb">
-        <a href="index.html" class="hover:text-[#146ebe] flex items-center gap-1"><i class="fa-solid fa-house text-[10px]"></i> Home</a>
+        <a href="index.html" class="hover:text-[#c27803] flex items-center gap-1"><i class="fa-solid fa-house text-[10px]"></i> Home</a>
         <span>/</span>
-        <a href="compression-tools.html" class="hover:text-[#146ebe]">AI & Media Tools</a>
+        <a href="compression-tools.html" class="hover:text-[#c27803]">AI & Media Tools</a>
         <span>/</span>
         <span class="text-slate-700 font-bold">AI Background Remover</span>
       </nav>
@@ -195,7 +202,7 @@
         <span class="fa-badge-blue"><i class="fa-solid fa-shield-halved"></i> 100% In-Browser Privacy</span>
         <span class="fa-badge-teal"><i class="fa-solid fa-bolt"></i> Fast AI Cutout</span>
       </div>
-      <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+      <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
         Free AI Background Remover Online
       </h1>
       <p class="text-slate-600 text-sm sm:text-base font-medium">
@@ -216,7 +223,7 @@
           <input type="file" id="fileInput" accept="image/png, image/jpeg, image/webp" class="hidden" onchange="handleFileSelect(event)">
           
           <div class="space-y-4 pointer-events-none">
-            <div class="w-16 h-16 rounded-2xl bg-blue-600/20 text-[#146ebe] flex items-center justify-center mx-auto text-2xl group-hover:scale-110 transition-transform">
+            <div class="w-16 h-16 rounded-2xl bg-blue-600/20 text-[#c27803] flex items-center justify-center mx-auto text-2xl group-hover:scale-110 transition-transform">
               <i class="fa-solid fa-wand-magic-sparkles"></i>
             </div>
             
@@ -386,14 +393,14 @@
     <!-- SEO FAQ Section -->
     <section class="no-print mt-12 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 space-y-6">
       <div>
-        <h2 class="text-xl font-black text-[#183153] mb-1">Frequently Asked Questions — Free AI Background Remover</h2>
+        <h2 class="text-xl font-black text-[#3e2723] mb-1">Frequently Asked Questions — Free AI Background Remover</h2>
         <p class="text-xs text-slate-500 font-medium">Everything you need to know about browser-based AI background erasure.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs leading-relaxed">
         <div class="space-y-1.5">
           <h3 class="font-black text-slate-800 text-sm flex items-center gap-2">
-            <i class="fa-solid fa-lock text-[#146ebe]"></i> Are my photos sent to any server?
+            <i class="fa-solid fa-lock text-[#c27803]"></i> Are my photos sent to any server?
           </h3>
           <p class="text-slate-600">No. 100% of the image segmentation, alpha cutout, and color replacement process run locally in your web browser. Zero images or personal data are stored or transmitted anywhere.</p>
         </div>
@@ -428,7 +435,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Master Shared JS Script -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
 
   <!-- AI Background Eraser Script -->
   <script>

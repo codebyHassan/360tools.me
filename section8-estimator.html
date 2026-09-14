@@ -15,14 +15,14 @@
   <link rel="canonical" href="https://360tools.me/section8-estimator.html">
 
   <!-- Favicon & Open Graph / Facebook -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/section8-estimator.html">
   <meta property="og:title" content="Section 8 Max Rent Estimator (2026 Updated) - Free HUD Voucher Calculator">
   <meta property="og:description"
     content="Calculate maximum allowable Section 8 rent, HUD voucher subsidy share, and tenant 30% contribution instantly based on local PHA payment standards and FMR.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
@@ -128,20 +128,27 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
   <!-- Master Stylesheet (FontAwesome Theme) -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body
-  class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4">
+  class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
@@ -151,10 +158,10 @@
       <div>
         <div class="inline-flex items-center gap-2 mb-2">
           <span class="fa-badge-blue py-1.5 px-4 text-xs font-black uppercase">
-            <i class="fa-solid fa-certificate mr-1 text-[#146ebe]"></i> Official HUD Standard • Tax Year 2026
+            <i class="fa-solid fa-certificate mr-1 text-[#c27803]"></i> Official HUD Standard • Tax Year 2026
           </span>
         </div>
-        <h1 class="text-3xl sm:text-5xl font-black text-[#183153] tracking-tight">
+        <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight">
           Section 8 Max Rent Estimator
         </h1>
         <p class="text-slate-600 text-sm sm:text-base mt-1.5 max-w-2xl font-medium leading-relaxed">
@@ -180,8 +187,8 @@
         <div class="fa-card p-6 sm:p-8 space-y-6">
 
           <div class="flex items-center justify-between pb-4 border-b border-slate-100">
-            <h2 class="font-black text-[#183153] text-base uppercase tracking-wider flex items-center gap-2.5">
-              <i class="fa-solid fa-sliders text-[#146ebe]"></i> Property & Tenant Parameters
+            <h2 class="font-black text-[#3e2723] text-base uppercase tracking-wider flex items-center gap-2.5">
+              <i class="fa-solid fa-sliders text-[#c27803]"></i> Property & Tenant Parameters
             </h2>
             <span class="fa-badge-yellow text-[11px] py-1 px-3">24 CFR § 982.503</span>
           </div>
@@ -206,7 +213,7 @@
 
             <div class="relative">
               <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <i class="fa-solid fa-location-dot text-[#146ebe]"></i>
+                <i class="fa-solid fa-location-dot text-[#c27803]"></i>
               </div>
               <input type="text" id="zipInput" maxlength="5" value="30301"
                 class="fa-input pl-11 pr-28 py-3.5 text-base font-mono font-bold uppercase tracking-wider"
@@ -238,7 +245,7 @@
               <label class="text-sm font-bold text-slate-800">
                 Bedroom Count (Voucher Size)
               </label>
-              <span class="text-xs text-[#146ebe] font-mono font-bold" id="brRatioBadge">2 BR Baseline (1.00x)</span>
+              <span class="text-xs text-[#c27803] font-mono font-bold" id="brRatioBadge">2 BR Baseline (1.00x)</span>
             </div>
             <div class="grid grid-cols-3 sm:grid-cols-6 gap-2.5">
               <button type="button" onclick="setBedrooms(0)" id="brBtn-0"
@@ -274,7 +281,7 @@
             </div>
             <div class="relative">
               <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <span class="text-[#146ebe] font-mono text-base font-bold">$</span>
+                <span class="text-[#c27803] font-mono text-base font-bold">$</span>
               </div>
               <input type="number" id="fmrInput" min="100" max="10000" step="25" value="1780"
                 class="fa-input pl-9 pr-20 py-3 text-base text-slate-900 font-mono font-bold"
@@ -332,7 +339,7 @@
             </div>
             <div class="relative">
               <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <span class="text-[#146ebe] font-mono text-base font-bold">$</span>
+                <span class="text-[#c27803] font-mono text-base font-bold">$</span>
               </div>
               <input type="number" id="tenantIncome" min="0" max="20000" step="50" value="1500"
                 class="fa-input pl-9 pr-20 py-3 text-base text-slate-900 font-mono font-bold"
@@ -387,19 +394,19 @@
             <span class="fa-badge-blue text-xs font-extrabold uppercase py-1.5 px-4">
               Total Max Allowable Gross Rent
             </span>
-            <div class="text-5xl sm:text-6xl font-black text-[#183153] font-mono tracking-tight mt-3"
+            <div class="text-5xl sm:text-6xl font-black text-[#3e2723] font-mono tracking-tight mt-3"
               id="totalRentDisplay">
               $1,780
             </div>
             <div class="text-sm text-slate-500 mt-1 font-mono font-bold">
-              Annual Gross: <span id="annualGrossDisplay" class="font-extrabold text-[#146ebe]">$21,360 / yr</span>
+              Annual Gross: <span id="annualGrossDisplay" class="font-extrabold text-[#c27803]">$21,360 / yr</span>
             </div>
           </div>
 
           <!-- Dual Progress Bar Breakdown -->
           <div class="mt-6 space-y-2">
             <div class="flex justify-between items-center text-xs font-mono font-extrabold">
-              <span class="text-[#146ebe] flex items-center gap-1.5">
+              <span class="text-[#c27803] flex items-center gap-1.5">
                 <span class="w-2.5 h-2.5 rounded-full bg-[#146ebe] inline-block"></span>
                 HUD Voucher: <strong id="hudPercentText">74.7%</strong>
               </span>
@@ -421,10 +428,10 @@
           <div class="grid grid-cols-2 gap-4 mt-6">
             <div class="fa-stat-box-blue p-4 text-center rounded-2xl">
               <div
-                class="text-[11px] font-black text-[#146ebe] uppercase tracking-wider flex items-center justify-center gap-1">
+                class="text-[11px] font-black text-[#c27803] uppercase tracking-wider flex items-center justify-center gap-1">
                 <i class="fa-solid fa-building-columns"></i> HUD Check
               </div>
-              <div class="text-3xl font-black text-[#183153] font-mono mt-1" id="hudAmountDisplay">$1,330</div>
+              <div class="text-3xl font-black text-[#3e2723] font-mono mt-1" id="hudAmountDisplay">$1,330</div>
               <div class="text-[10px] text-slate-600 font-medium">Direct Deposit (1st)</div>
             </div>
 
@@ -433,7 +440,7 @@
                 class="text-[11px] font-black text-[#0ca678] uppercase tracking-wider flex items-center justify-center gap-1">
                 <i class="fa-solid fa-user"></i> Tenant Share
               </div>
-              <div class="text-3xl font-black text-[#183153] font-mono mt-1" id="tenantAmountDisplay">$450</div>
+              <div class="text-3xl font-black text-[#3e2723] font-mono mt-1" id="tenantAmountDisplay">$450</div>
               <div class="text-[10px] text-slate-600 font-medium">30% Monthly Income</div>
             </div>
           </div>
@@ -458,7 +465,7 @@
             </div>
             <div
               class="flex justify-between text-slate-900 font-black pt-3 border-t border-slate-100 text-sm sm:text-base">
-              <span class="text-[#146ebe] font-sans">Guaranteed Landlord Wire:</span>
+              <span class="text-[#c27803] font-sans">Guaranteed Landlord Wire:</span>
               <span class="text-[#20c997] font-extrabold" id="mathNetCheck">$1,330 / mo</span>
             </div>
           </div>
@@ -486,8 +493,8 @@
     <article class="fa-card p-8 sm:p-12 space-y-10 text-slate-700 text-base leading-relaxed mb-16">
 
       <section class="space-y-4">
-        <h2 class="text-2xl sm:text-3xl font-black text-[#183153] flex items-center gap-3">
-          <i class="fa-solid fa-book-open text-[#146ebe]"></i> How to Use the Section 8 Max Rent Estimator
+        <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] flex items-center gap-3">
+          <i class="fa-solid fa-book-open text-[#c27803]"></i> How to Use the Section 8 Max Rent Estimator
         </h2>
         <p>
           The Section 8 Housing Choice Voucher (HCV) program is the federal government's primary mechanism for
@@ -497,25 +504,25 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 not-prose my-6">
           <div class="p-6 rounded-2xl fa-card space-y-2">
             <div
-              class="w-10 h-10 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center font-black text-sm font-mono">
+              class="w-10 h-10 rounded-xl bg-blue-50 text-[#c27803] flex items-center justify-center font-black text-sm font-mono">
               1</div>
-            <h3 class="font-black text-[#183153] text-base">Enter Zip & Voucher Size</h3>
+            <h3 class="font-black text-[#3e2723] text-base">Enter Zip & Voucher Size</h3>
             <p class="text-xs text-slate-600 font-medium leading-relaxed">Input the 5-digit property Zip Code to
               populate local HUD Fair Market Rent (FMR) baseline rates for Studios up to 5+ Bedrooms.</p>
           </div>
           <div class="p-6 rounded-2xl fa-card space-y-2">
             <div
-              class="w-10 h-10 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center font-black text-sm font-mono">
+              class="w-10 h-10 rounded-xl bg-blue-50 text-[#c27803] flex items-center justify-center font-black text-sm font-mono">
               2</div>
-            <h3 class="font-black text-[#183153] text-base">Adjust PHA Standard</h3>
+            <h3 class="font-black text-[#3e2723] text-base">Adjust PHA Standard</h3>
             <p class="text-xs text-slate-600 font-medium leading-relaxed">Set the PHA Payment Standard between 90% and
               110% according to your local housing authority's published schedule.</p>
           </div>
           <div class="p-6 rounded-2xl fa-card space-y-2">
             <div
-              class="w-10 h-10 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center font-black text-sm font-mono">
+              class="w-10 h-10 rounded-xl bg-blue-50 text-[#c27803] flex items-center justify-center font-black text-sm font-mono">
               3</div>
-            <h3 class="font-black text-[#183153] text-base">Input Tenant Income</h3>
+            <h3 class="font-black text-[#3e2723] text-base">Input Tenant Income</h3>
             <p class="text-xs text-slate-600 font-medium leading-relaxed">Enter the voucher holder's adjusted household
               income to see the exact 30% tenant contribution vs. the guaranteed HUD wire.</p>
           </div>
@@ -524,15 +531,15 @@
 
       <!-- Section 2: Real-World Case Study -->
       <section class="space-y-4">
-        <h2 class="text-2xl sm:text-3xl font-black text-[#183153] flex items-center gap-3">
-          <i class="fa-solid fa-calculator text-[#146ebe]"></i> Practical Real-World Example: 2-Bedroom in Atlanta, GA
+        <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] flex items-center gap-3">
+          <i class="fa-solid fa-calculator text-[#c27803]"></i> Practical Real-World Example: 2-Bedroom in Atlanta, GA
         </h2>
         <p>
           Let's review a realistic investment scenario to see how the mathematics work for an investor purchasing a
           2-bedroom rental property in Atlanta, GA (Zip Code 30301):
         </p>
         <div class="p-6 rounded-2xl fa-stat-box-blue space-y-4 not-prose">
-          <div class="font-black text-[#183153] text-base">Case Study Parameters:</div>
+          <div class="font-black text-[#3e2723] text-base">Case Study Parameters:</div>
           <ul class="space-y-2 text-sm text-slate-700 font-medium">
             <li>• <strong class="text-slate-900">HUD 2-Bedroom FMR Benchmark:</strong> $1,780 per month.</li>
             <li>• <strong class="text-slate-900">Local Atlanta Housing Authority Payment Standard:</strong> 100% of FMR
@@ -543,11 +550,11 @@
               electric.</li>
           </ul>
           <div class="p-4 rounded-xl fa-card text-xs sm:text-sm space-y-2 font-mono">
-            <div class="text-[#146ebe] font-black font-sans">Calculation Breakdown:</div>
+            <div class="text-[#c27803] font-black font-sans">Calculation Breakdown:</div>
             <div>1. <strong class="text-slate-900 font-sans">Tenant Contribution (TTP):</strong> $1,500 × 30% = <span
                 class="text-[#0ca678] font-black">$450.00/mo</span></div>
             <div>2. <strong class="text-slate-900 font-sans">HUD Housing Assistance Payment (HAP):</strong> $1,780 −
-              $450 = <span class="text-[#146ebe] font-black">$1,330.00/mo</span></div>
+              $450 = <span class="text-[#c27803] font-black">$1,330.00/mo</span></div>
             <div>3. <strong class="text-slate-900 font-sans">Total Gross Rent Collected by Landlord:</strong> $1,330
               (HUD) + $450 (Tenant) = <span class="text-slate-900 font-black">$1,780.00/mo</span> ($21,360 annually).
             </div>
@@ -561,16 +568,16 @@
     <section class="mb-16">
       <div class="mb-6">
         <span class="fa-badge-blue text-xs py-1.5 px-4 font-black">Frequently Asked Questions</span>
-        <h2 class="text-3xl font-black text-[#183153] mt-2">Section 8 Voucher & FMR FAQs</h2>
+        <h2 class="text-3xl font-black text-[#3e2723] mt-2">Section 8 Voucher & FMR FAQs</h2>
       </div>
 
       <div class="space-y-4">
 
         <details class="group fa-card p-6 transition-all [&_svg]:open:-rotate-180">
           <summary
-            class="flex justify-between items-center font-bold text-base sm:text-lg text-[#183153] cursor-pointer list-none">
+            class="flex justify-between items-center font-bold text-base sm:text-lg text-[#3e2723] cursor-pointer list-none">
             <span>How does HUD determine the maximum Section 8 rent a landlord can charge?</span>
-            <svg class="w-5 h-5 text-[#146ebe] transition-transform duration-200" fill="none" viewBox="0 0 24 24"
+            <svg class="w-5 h-5 text-[#c27803] transition-transform duration-200" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
             </svg>
@@ -585,9 +592,9 @@
 
         <details class="group fa-card p-6 transition-all [&_svg]:open:-rotate-180">
           <summary
-            class="flex justify-between items-center font-bold text-base sm:text-lg text-[#183153] cursor-pointer list-none">
+            class="flex justify-between items-center font-bold text-base sm:text-lg text-[#3e2723] cursor-pointer list-none">
             <span>How is the tenant's share of the Section 8 rent calculated?</span>
-            <svg class="w-5 h-5 text-[#146ebe] transition-transform duration-200" fill="none" viewBox="0 0 24 24"
+            <svg class="w-5 h-5 text-[#c27803] transition-transform duration-200" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
             </svg>
@@ -602,9 +609,9 @@
 
         <details class="group fa-card p-6 transition-all [&_svg]:open:-rotate-180">
           <summary
-            class="flex justify-between items-center font-bold text-base sm:text-lg text-[#183153] cursor-pointer list-none">
+            class="flex justify-between items-center font-bold text-base sm:text-lg text-[#3e2723] cursor-pointer list-none">
             <span>What is the 40% maximum rent burden rule for new Section 8 leases?</span>
-            <svg class="w-5 h-5 text-[#146ebe] transition-transform duration-200" fill="none" viewBox="0 0 24 24"
+            <svg class="w-5 h-5 text-[#c27803] transition-transform duration-200" fill="none" viewBox="0 0 24 24"
               stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
             </svg>
@@ -624,7 +631,7 @@
     <section class="mb-16">
       <div class="mb-6">
         <span class="fa-badge-blue text-xs py-1.5 px-4 font-black">Related Utilities</span>
-        <h2 class="text-2xl font-black text-[#183153] mt-2">More Precision Calculators</h2>
+        <h2 class="text-2xl font-black text-[#3e2723] mt-2">More Precision Calculators</h2>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -632,8 +639,8 @@
         <a href="1031-exchange-tracker.html" class="p-6 fa-card fa-card-interactive group">
           <div class="flex items-center gap-3 mb-2">
             <span
-              class="w-8 h-8 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center text-xs font-black font-mono">1031</span>
-            <span class="text-sm font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">1031
+              class="w-8 h-8 rounded-xl bg-blue-50 text-[#c27803] flex items-center justify-center text-xs font-black font-mono">1031</span>
+            <span class="text-sm font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">1031
               Exchange</span>
           </div>
           <p class="text-xs text-slate-600 font-medium">Track 45-day ID & 180-day purchase closing deadlines.</p>
@@ -643,7 +650,7 @@
           <div class="flex items-center gap-3 mb-2">
             <span
               class="w-8 h-8 rounded-xl bg-yellow-50 text-amber-600 flex items-center justify-center text-xs font-black font-mono">SDLT</span>
-            <span class="text-sm font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">UK Stamp
+            <span class="text-sm font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">UK Stamp
               Duty</span>
           </div>
           <p class="text-xs text-slate-600 font-medium">Calculate First-Time Buyer SDLT relief savings.</p>
@@ -653,7 +660,7 @@
           <div class="flex items-center gap-3 mb-2">
             <span
               class="w-8 h-8 rounded-xl bg-teal-50 text-[#20c997] flex items-center justify-center text-xs font-black font-mono">STR</span>
-            <span class="text-sm font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">STR
+            <span class="text-sm font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">STR
               Splitter</span>
           </div>
           <p class="text-xs text-slate-600 font-medium">Split Airbnb turnover fees and manager commissions.</p>
@@ -662,8 +669,8 @@
         <a href="eu-vat-oss-calculator.html" class="p-6 fa-card fa-card-interactive group">
           <div class="flex items-center gap-3 mb-2">
             <span
-              class="w-8 h-8 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center text-xs font-black font-mono">OSS</span>
-            <span class="text-sm font-black text-[#183153] group-hover:text-[#146ebe] transition-colors">EU VAT
+              class="w-8 h-8 rounded-xl bg-blue-50 text-[#c27803] flex items-center justify-center text-xs font-black font-mono">OSS</span>
+            <span class="text-sm font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">EU VAT
               OSS</span>
           </div>
           <p class="text-xs text-slate-600 font-medium">Calculate cross-border EU digital VAT across 27 nations.</p>
@@ -678,7 +685,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Shared JavaScript File -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
 
   <!-- Core JavaScript Logic -->
   <script>

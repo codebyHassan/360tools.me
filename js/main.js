@@ -758,7 +758,7 @@ function createMobileAppDrawer() {
       
       <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
         <div class="flex items-center gap-2.5">
-          <img src="images/logo.jpg" alt="Logo" class="w-8 h-8 rounded-xl">
+          <img src="images/logo-icon.webp" alt="360Tools Logo" width="32" height="32" class="w-8 h-8 rounded-xl">
           <div>
             <h3 class="text-sm font-black text-[#183153]">360Tools<span class="text-[#146ebe]">.me</span></h3>
             <p class="text-[10px] text-slate-400 font-bold">100% Free & Private Online Suite</p>
@@ -1015,7 +1015,7 @@ function renderGlobalHeader() {
       <!-- Brand Logo & Desktop Nav -->
       <div class="flex items-center gap-8">
         <a href="index.html" class="flex items-center gap-2.5 group shrink-0">
-          <img src="images/logo.jpg" alt="360Tools Logo" class="w-9 h-9 rounded-full object-cover border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform">
+          <img src="images/logo-icon.webp" alt="360Tools Logo" width="36" height="36" class="w-9 h-9 rounded-full object-cover border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform">
           <div class="flex flex-col">
             <span class="text-lg font-black text-[#183153] leading-none tracking-tight group-hover:text-[#146ebe] transition-colors">360Tools<span class="text-[#146ebe]">.me</span></span>
             <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider leading-none mt-1 hidden sm:block">Private Online Suite</span>
@@ -1760,7 +1760,7 @@ function renderGlobalFooter() {
         <!-- Brand Info Column (Span 4) -->
         <div class="sm:col-span-2 lg:col-span-4 space-y-5">
           <a href="index.html" class="inline-flex items-center gap-3 group">
-            <img src="images/logo.jpg" alt="360Tools Logo" class="w-9 h-9 object-contain rounded-xl border border-slate-200 shadow-sm group-hover:scale-105 transition-transform">
+            <img src="images/logo-icon.webp" alt="360Tools Logo" width="36" height="36" class="w-9 h-9 object-contain rounded-xl border border-slate-200 shadow-sm group-hover:scale-105 transition-transform">
             <span class="text-2xl font-black text-[#183153] tracking-tight">360Tools<span class="text-[#146ebe]">.me</span></span>
           </a>
           

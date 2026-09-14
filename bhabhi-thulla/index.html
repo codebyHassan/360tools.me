@@ -14,13 +14,13 @@
   <link rel="canonical" href="https://360tools.me/bhabhi-thulla/">
 
   <!-- Favicon & Open Graph -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/bhabhi-thulla/">
   <meta property="og:title" content="Bhabhi Thulla Card Game Online — Free 4-Player Classic">
   <meta property="og:description" content="Get rid of all cards to escape! The last player holding cards becomes the Bhabhi. Zero ads, pure HTML/CSS/JS.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data: Game Schema -->
   <script type="application/ld+json">
@@ -40,14 +40,21 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheets -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
   <link rel="stylesheet" href="bhabhi-thulla/css/style.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Canvas Confetti Library -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
@@ -55,10 +62,10 @@
   <!-- PeerJS WebRTC P2P DataChannel Library (Zero Server / Zero DB) -->
   <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] bg-[#0c1626] text-slate-100 px-2 sm:px-4 py-3">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] bg-[#0c1626] text-slate-100 px-2 sm:px-4 py-3">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Game Container -->
   <main class="max-w-5xl mx-auto w-full flex-1 mb-12 pt-2">
@@ -68,7 +75,7 @@
       <div>
         <div class="inline-flex items-center gap-2 mb-0.5">
           <span class="fa-badge-blue py-0.5 px-2.5 text-[10px] font-black uppercase">
-            <i class="fa-solid fa-spade mr-1 text-[#146ebe]"></i> 4-Player Card Game
+            <i class="fa-solid fa-spade mr-1 text-[#c27803]"></i> 4-Player Card Game
           </span>
           <span class="text-xs font-bold text-amber-400 flex items-center gap-1">
             <i class="fa-solid fa-wifi text-xs"></i> P2P Multiplayer Room
@@ -85,7 +92,7 @@
         
         <!-- Game Mode Switcher -->
         <div class="flex items-center gap-1 bg-slate-800 p-1 rounded-xl border border-slate-700">
-          <button onclick="window.bhabhiGame.setMode('ai')" id="btnBhabhiAi" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-[#183153] text-white flex items-center gap-1.5 transition-all">
+          <button onclick="window.bhabhiGame.setMode('ai')" id="btnBhabhiAi" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-[#3e2723] text-white flex items-center gap-1.5 transition-all">
             <i class="fa-solid fa-robot text-purple-400"></i> vs AI
           </button>
           <button onclick="window.bhabhiGame.setMode('online')" id="btnBhabhiOnline" class="px-2.5 py-1 rounded-lg text-xs font-bold text-slate-300 hover:text-white flex items-center gap-1.5 transition-all">
@@ -378,7 +385,7 @@
               <i class="fa-solid fa-copy text-emerald-400"></i> <span id="bhabhiCopyCodeText">Copy Code</span>
             </button>
             <button onclick="window.bhabhiGame.copyRoomLink()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold py-2 px-3.5 rounded-xl border border-slate-700 flex items-center gap-1.5">
-              <i class="fa-solid fa-link text-[#146ebe]"></i> <span id="bhabhiCopyLinkText">Copy Link</span>
+              <i class="fa-solid fa-link text-[#c27803]"></i> <span id="bhabhiCopyLinkText">Copy Link</span>
             </button>
             <a id="bhabhiWaShareBtn" href="#" target="_blank" class="py-2 px-3.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-xl flex items-center gap-1.5">
               <i class="fa-brands fa-whatsapp"></i> Share on WhatsApp
@@ -718,6 +725,6 @@
   <script src="bhabhi-thulla/js/ai.js"></script>
   <script src="bhabhi-thulla/js/ui.js"></script>
   <script src="bhabhi-thulla/js/game.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
 </body>
 </html>

@@ -13,20 +13,20 @@
   <link rel="canonical" href="https://360tools.me/target-size-compressor.html">
 
   <!-- Favicon & Open Graph / Facebook -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/target-size-compressor.html">
   <meta property="og:title" content="Compress Image to Exact KB Online (100% Private) | 360tools.me">
   <meta property="og:description" content="Compress your photo down to exact target limits like 50KB, 100KB, or 200KB with binary search precision.">
-  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:image" content="images/logo.webp">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://360tools.me/target-size-compressor.html">
   <meta property="twitter:title" content="Compress Image to Exact KB Online">
   <meta property="twitter:description" content="Automated binary search compression engine to hit strict portal file size limits (50KB, 100KB, 200KB).">
-  <meta property="twitter:image" content="images/logo.jpg">
+  <meta property="twitter:image" content="images/logo.webp">
 
   <!-- JSON-LD Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -101,18 +101,25 @@
   </script>
 
   <!-- Font Awesome Icons 6.5.1 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4">
 
   <!-- Centralized Pure JS Header Injection -->
-  <header id="globalHeader"></header>
+  <header id="globalHeader" class="min-h-[58px]"></header>
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
@@ -126,7 +133,7 @@
           </span>
           <span class="text-xs font-bold text-slate-400">• Passports, Visas & Portals</span>
         </div>
-        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
           Compress Image to Exact Target Size (KB / MB)
         </h1>
         <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
@@ -150,7 +157,7 @@
         <!-- Upload Zone -->
         <div class="fa-card p-6 sm:p-7 shadow-sm">
           <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-            <h2 class="text-base font-black text-[#183153] flex items-center gap-2">
+            <h2 class="text-base font-black text-[#3e2723] flex items-center gap-2">
               <i class="fa-solid fa-upload text-indigo-600"></i>
               Upload Source Photo
             </h2>
@@ -172,7 +179,7 @@
         <!-- Target Size Selector -->
         <div class="fa-card p-6 sm:p-7 shadow-sm space-y-5">
           <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-            <h3 class="text-sm font-black text-[#183153] uppercase tracking-wider flex items-center gap-2">
+            <h3 class="text-sm font-black text-[#3e2723] uppercase tracking-wider flex items-center gap-2">
               <i class="fa-solid fa-weight-scale text-indigo-600"></i>
               Set Target Max File Size
             </h3>
@@ -294,7 +301,7 @@
       <div class="max-w-4xl mx-auto space-y-12">
         
         <div class="text-center">
-          <h2 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight">
             How to Meet Strict Government & Application File Size Limits
           </h2>
           <p class="text-slate-600 text-sm sm:text-base mt-2">
@@ -304,7 +311,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="fa-card p-6">
-            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2 flex items-center gap-2">
               <i class="fa-solid fa-passport text-indigo-600"></i> Passport & Visa Specs
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -313,7 +320,7 @@
           </div>
 
           <div class="fa-card p-6">
-            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2 flex items-center gap-2">
               <i class="fa-solid fa-graduation-cap text-emerald-600"></i> Exam & University Forms
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -322,8 +329,8 @@
           </div>
 
           <div class="fa-card p-6">
-            <h4 class="font-bold text-[#183153] text-sm mb-2 flex items-center gap-2">
-              <i class="fa-solid fa-id-card text-[#146ebe]"></i> Zero Server Data Logging
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-id-card text-[#c27803]"></i> Zero Server Data Logging
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
               Your biometric face photos, driver's licenses, and government ID cards are processed strictly inside your web browser memory with 100% confidentiality.
@@ -340,7 +347,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Script: Target Size Compressor Logic -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
   <script>
     let targetSourceImg = null;
     let targetSourceFile = null;

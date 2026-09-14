@@ -12,15 +12,22 @@
   <link rel="canonical" href="https://360tools.me/404.html">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
-  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="css/style.min.css">
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4 bg-[#f8fafc]">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
 
   <!-- Header Navigation -->
     <!-- Standard Header Navigation -->
@@ -32,8 +39,8 @@
       <!-- Brand Logo -->
       <div class="flex items-center gap-8">
         <a href="index.html" class="flex items-center gap-3 group">
-          <img src="images/logo.jpg" alt="360tools.me Logo" class="w-10 h-10 object-contain rounded-2xl group-hover:scale-105 transition-transform">
-          <span class="text-2xl font-black text-[#183153] tracking-tight">360tools<span class="text-[#146ebe]">.me</span></span>
+          <img src="images/logo-icon.webp" alt="360tools.me Logo" class="w-10 h-10 object-contain rounded-2xl group-hover:scale-105 transition-transform">
+          <span class="text-2xl font-black text-[#3e2723] tracking-tight">360tools<span class="text-[#c27803]">.me</span></span>
         </a>
 
         <!-- Desktop Navigation with Quick Dropdowns -->
@@ -41,36 +48,36 @@
           
           <!-- Dropdown 1: Audio & Voice -->
           <div class="relative group">
-            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#c27803] hover:bg-slate-50 transition-all">
               <i class="fa-solid fa-volume-high text-purple-600 text-xs"></i>
               <span>Audio & Voice</span>
               <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
             </button>
             <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
               <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
-                <a href="text-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
-                  <i class="fa-solid fa-volume-high text-[#146ebe] w-4 text-center"></i> Text to Speech
+                <a href="text-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
+                  <i class="fa-solid fa-volume-high text-[#c27803] w-4 text-center"></i> Text to Speech
                 </a>
-                <a href="text-to-mp3.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="text-to-mp3.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-solid fa-file-audio text-emerald-600 w-4 text-center"></i> Text to MP3
                 </a>
-                <a href="ai-voice-generator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="ai-voice-generator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-solid fa-wand-magic-sparkles text-purple-600 w-4 text-center"></i> AI Voice Generator
                 </a>
-                <a href="pdf-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="pdf-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-solid fa-file-pdf text-red-600 w-4 text-center"></i> PDF to Speech
                 </a>
-                <a href="youtube-voiceover-generator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="youtube-voiceover-generator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-brands fa-youtube text-rose-600 w-4 text-center"></i> YouTube Voiceovers
                 </a>
-                <a href="urdu-text-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="urdu-text-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-solid fa-feather text-emerald-700 w-4 text-center"></i> Urdu TTS (اردو)
                 </a>
-                <a href="article-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="article-to-speech.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-solid fa-newspaper text-amber-600 w-4 text-center"></i> Article Reader
                 </a>
                 <div class="border-t border-slate-100 pt-1 mt-1">
-                  <a href="audio-voice-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                  <a href="audio-voice-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#c27803] hover:bg-blue-50">
                     <span>View All Audio Tools</span>
                     <i class="fa-solid fa-arrow-right text-[10px]"></i>
                   </a>
@@ -81,39 +88,39 @@
 
           <!-- Dropdown 2: Compression -->
           <div class="relative group">
-            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#c27803] hover:bg-slate-50 transition-all">
               <i class="fa-solid fa-compress text-emerald-600 text-xs"></i>
               <span>Compression</span>
               <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
             </button>
             <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
               <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
-                <a href="image-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="image-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-solid fa-image text-emerald-600 w-4 text-center"></i> Image Compressor
                 </a>
-                <a href="jpg-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="jpg-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-solid fa-camera text-amber-600 w-4 text-center"></i> JPG Compressor
                 </a>
-                <a href="png-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="png-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-solid fa-file-image text-emerald-600 w-4 text-center"></i> PNG Compressor
                 </a>
-                <a href="webp-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="webp-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-solid fa-bolt text-blue-600 w-4 text-center"></i> WebP Compressor
                 </a>
-                <a href="pdf-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="pdf-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-solid fa-file-pdf text-red-600 w-4 text-center"></i> PDF Compressor
                 </a>
-                <a href="video-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="video-compressor.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-solid fa-video text-rose-600 w-4 text-center"></i> Video Compressor
                 </a>
-                <a href="compress-image-to-100kb.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="compress-image-to-100kb.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-solid fa-bullseye text-indigo-600 w-4 text-center"></i> Compress to 100KB
                 </a>
-                <a href="compress-image-to-500kb.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="compress-image-to-500kb.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-solid fa-bullseye text-indigo-600 w-4 text-center"></i> Compress to 500KB
                 </a>
                 <div class="border-t border-slate-100 pt-1 mt-1">
-                  <a href="compression-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                  <a href="compression-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#c27803] hover:bg-blue-50">
                     <span>View All Compression</span>
                     <i class="fa-solid fa-arrow-right text-[10px]"></i>
                   </a>
@@ -124,27 +131,27 @@
 
           <!-- Dropdown 3: Developer -->
           <div class="relative group">
-            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#c27803] hover:bg-slate-50 transition-all">
               <i class="fa-solid fa-code text-cyan-600 text-xs"></i>
               <span>Developer</span>
               <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
             </button>
             <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block transition-all z-50">
               <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
-                <a href="html-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="html-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-brands fa-html5 text-orange-600 w-4 text-center"></i> HTML Minifier
                 </a>
-                <a href="css-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="css-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-brands fa-css3-alt text-blue-600 w-4 text-center"></i> CSS Minifier
                 </a>
-                <a href="javascript-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="javascript-minifier.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-brands fa-js text-yellow-500 w-4 text-center"></i> JavaScript Minifier
                 </a>
-                <a href="shopify-csv-validator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="shopify-csv-validator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-brands fa-shopify text-emerald-600 w-4 text-center"></i> Shopify CSV Validator
                 </a>
                 <div class="border-t border-slate-100 pt-1 mt-1">
-                  <a href="developer-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                  <a href="developer-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#c27803] hover:bg-blue-50">
                     <span>View All Dev Tools</span>
                     <i class="fa-solid fa-arrow-right text-[10px]"></i>
                   </a>
@@ -155,42 +162,42 @@
 
           <!-- Dropdown 4: E-Commerce & Financial -->
           <div class="relative group">
-            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#146ebe] hover:bg-slate-50 transition-all">
+            <button class="flex items-center gap-1.5 px-3 py-2 rounded-xl hover:text-[#c27803] hover:bg-slate-50 transition-all">
               <i class="fa-solid fa-cart-shopping text-[#f1641e] text-xs"></i>
               <span>E-Commerce & Tax</span>
               <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
             </button>
             <div class="absolute top-full left-0 pt-2 w-72 hidden group-hover:block transition-all z-50">
               <div class="bg-white rounded-2xl border border-slate-200 shadow-xl p-2.5 space-y-1">
-                <a href="etsy-fee-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="etsy-fee-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-brands fa-etsy text-[#f1641e] w-4 text-center"></i> Etsy Fee Calculator
                 </a>
-                <a href="amazon-fba-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="amazon-fba-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-brands fa-amazon text-amber-600 w-4 text-center"></i> Amazon FBA Dim Weight
                 </a>
-                <a href="tiktok-shop-payout-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="tiktok-shop-payout-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-brands fa-tiktok text-[#fe2c55] w-4 text-center"></i> TikTok Shop Payout
                 </a>
-                <a href="pod-profit-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="pod-profit-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-solid fa-shirt text-blue-600 w-4 text-center"></i> POD Margin Grid
                 </a>
-                <a href="section8-estimator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
-                  <i class="fa-solid fa-house-user text-[#146ebe] w-4 text-center"></i> Section 8 Estimator
+                <a href="section8-estimator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
+                  <i class="fa-solid fa-house-user text-[#c27803] w-4 text-center"></i> Section 8 Estimator
                 </a>
-                <a href="uk-stamp-duty-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="uk-stamp-duty-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-solid fa-landmark text-amber-700 w-4 text-center"></i> UK Stamp Duty
                 </a>
-                <a href="1031-exchange-tracker.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="1031-exchange-tracker.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-solid fa-clock-rotate-left text-purple-600 w-4 text-center"></i> 1031 Exchange Tracker
                 </a>
-                <a href="str-cleaning-splitter.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="str-cleaning-splitter.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-solid fa-broom text-teal-600 w-4 text-center"></i> STR Cleaning Splitter
                 </a>
-                <a href="eu-vat-oss-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#183153] hover:bg-blue-50 hover:text-[#146ebe] transition-all">
+                <a href="eu-vat-oss-calculator.html" class="flex items-center gap-2.5 p-2 rounded-xl text-xs font-bold text-[#3e2723] hover:bg-blue-50 hover:text-[#c27803] transition-all">
                   <i class="fa-solid fa-percent text-blue-700 w-4 text-center"></i> EU VAT OSS
                 </a>
                 <div class="border-t border-slate-100 pt-1 mt-1">
-                  <a href="ecommerce-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#146ebe] hover:bg-blue-50">
+                  <a href="ecommerce-tools.html" class="flex items-center justify-between p-2 rounded-xl text-[11px] font-black text-[#c27803] hover:bg-blue-50">
                     <span>View All E-Commerce Tools</span>
                     <i class="fa-solid fa-arrow-right text-[10px]"></i>
                   </a>
@@ -205,7 +212,7 @@
       <!-- Right Header Actions: Interactive Command Palette Quick Search -->
       <div class="flex items-center gap-2.5">
         <button onclick="openQuickSearch()" class="flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200/80 px-3.5 py-2 rounded-xl border border-slate-200/60 shadow-2xs transition-all cursor-pointer">
-          <i class="fa-solid fa-magnifying-glass text-[#146ebe]"></i>
+          <i class="fa-solid fa-magnifying-glass text-[#c27803]"></i>
           <span class="hidden sm:inline">Search Tools...</span>
           <kbd class="hidden sm:inline-block px-1.5 py-0.5 bg-white border border-slate-300 rounded text-[10px] text-slate-500 font-mono font-bold shadow-2xs">Ctrl K</kbd>
         </button>
@@ -228,44 +235,44 @@
         <div class="text-[11px] font-black text-purple-700 uppercase tracking-wider px-2 mb-1 flex items-center gap-1.5">
           <i class="fa-solid fa-volume-high"></i> AI Voice & Audio
         </div>
-        <a href="text-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Text to Speech</a>
-        <a href="text-to-mp3.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Text to MP3</a>
-        <a href="ai-voice-generator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">AI Voice Generator</a>
-        <a href="pdf-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">PDF to Speech</a>
-        <a href="youtube-voiceover-generator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">YouTube Narrator</a>
-        <a href="urdu-text-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Urdu TTS</a>
-        <a href="article-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Article Reader</a>
+        <a href="text-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">Text to Speech</a>
+        <a href="text-to-mp3.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">Text to MP3</a>
+        <a href="ai-voice-generator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">AI Voice Generator</a>
+        <a href="pdf-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">PDF to Speech</a>
+        <a href="youtube-voiceover-generator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">YouTube Narrator</a>
+        <a href="urdu-text-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">Urdu TTS</a>
+        <a href="article-to-speech.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">Article Reader</a>
 
         <div class="text-[11px] font-black text-emerald-700 uppercase tracking-wider px-2 pt-3 mb-1 border-t border-slate-100 flex items-center gap-1.5">
           <i class="fa-solid fa-compress"></i> Media Compression
         </div>
-        <a href="image-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Image Compressor</a>
-        <a href="jpg-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">JPG Compressor</a>
-        <a href="png-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">PNG Compressor</a>
-        <a href="webp-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">WebP Compressor</a>
-        <a href="pdf-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">PDF Compressor</a>
-        <a href="video-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Video Compressor</a>
+        <a href="image-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">Image Compressor</a>
+        <a href="jpg-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">JPG Compressor</a>
+        <a href="png-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">PNG Compressor</a>
+        <a href="webp-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">WebP Compressor</a>
+        <a href="pdf-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">PDF Compressor</a>
+        <a href="video-compressor.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">Video Compressor</a>
 
         <div class="text-[11px] font-black text-cyan-700 uppercase tracking-wider px-2 pt-3 mb-1 border-t border-slate-100 flex items-center gap-1.5">
           <i class="fa-solid fa-code"></i> Developer Minifiers
         </div>
-        <a href="html-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">HTML Minifier</a>
-        <a href="css-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">CSS Minifier</a>
-        <a href="javascript-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">JS Minifier</a>
-        <a href="shopify-csv-validator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Shopify CSV</a>
+        <a href="html-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">HTML Minifier</a>
+        <a href="css-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">CSS Minifier</a>
+        <a href="javascript-minifier.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">JS Minifier</a>
+        <a href="shopify-csv-validator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">Shopify CSV</a>
 
         <div class="text-[11px] font-black text-orange-700 uppercase tracking-wider px-2 pt-3 mb-1 border-t border-slate-100 flex items-center gap-1.5">
           <i class="fa-solid fa-cart-shopping"></i> E-Commerce & Financial
         </div>
-        <a href="etsy-fee-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Etsy Calculator</a>
-        <a href="amazon-fba-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Amazon FBA</a>
-        <a href="tiktok-shop-payout-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">TikTok Shop</a>
-        <a href="pod-profit-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">POD Margins</a>
-        <a href="section8-estimator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">Section 8</a>
-        <a href="uk-stamp-duty-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">UK Stamp Duty</a>
-        <a href="1031-exchange-tracker.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">1031 Exchange</a>
-        <a href="str-cleaning-splitter.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">STR Cleaning</a>
-        <a href="eu-vat-oss-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#183153]">EU VAT OSS</a>
+        <a href="etsy-fee-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">Etsy Calculator</a>
+        <a href="amazon-fba-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">Amazon FBA</a>
+        <a href="tiktok-shop-payout-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">TikTok Shop</a>
+        <a href="pod-profit-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">POD Margins</a>
+        <a href="section8-estimator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">Section 8</a>
+        <a href="uk-stamp-duty-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">UK Stamp Duty</a>
+        <a href="1031-exchange-tracker.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">1031 Exchange</a>
+        <a href="str-cleaning-splitter.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">STR Cleaning</a>
+        <a href="eu-vat-oss-calculator.html" class="flex items-center gap-2.5 p-1.5 rounded-xl text-xs font-bold text-[#3e2723]">EU VAT OSS</a>
       </div>
     </div>
   </header>
@@ -273,15 +280,15 @@
   <!-- Main Container -->
   <main class="max-w-4xl mx-auto w-full flex-1 flex flex-col items-center justify-center text-center py-12">
     
-    <div class="w-20 h-20 rounded-3xl bg-blue-50 text-[#146ebe] flex items-center justify-center text-4xl mb-6 shadow-md border border-blue-100">
+    <div class="w-20 h-20 rounded-3xl bg-blue-50 text-[#c27803] flex items-center justify-center text-4xl mb-6 shadow-md border border-blue-100">
       <i class="fa-solid fa-compass-drafting"></i>
     </div>
 
-    <span class="bg-blue-100 text-[#146ebe] text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider mb-3">
+    <span class="bg-blue-100 text-[#c27803] text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider mb-3">
       404 Error • Page Not Found
     </span>
 
-    <h1 class="text-3xl sm:text-5xl font-black text-[#183153] tracking-tight mb-3">
+    <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight mb-3">
       Oops! Tool or Page Not Found
     </h1>
 
@@ -306,7 +313,7 @@
         <div class="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-sm font-bold mb-2">
           <i class="fa-solid fa-volume-high"></i>
         </div>
-        <h3 class="text-xs font-black text-[#183153] group-hover:text-[#146ebe]">Audio & Voice</h3>
+        <h3 class="text-xs font-black text-[#3e2723] group-hover:text-[#c27803]">Audio & Voice</h3>
         <p class="text-[11px] text-slate-400 font-medium">Text to Speech, MP3, YouTube TTS</p>
       </a>
 
@@ -314,7 +321,7 @@
         <div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm font-bold mb-2">
           <i class="fa-solid fa-compress"></i>
         </div>
-        <h3 class="text-xs font-black text-[#183153] group-hover:text-[#146ebe]">Compression</h3>
+        <h3 class="text-xs font-black text-[#3e2723] group-hover:text-[#c27803]">Compression</h3>
         <p class="text-[11px] text-slate-400 font-medium">Image, JPG, PNG, PDF, Video</p>
       </a>
 
@@ -322,7 +329,7 @@
         <div class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-sm font-bold mb-2">
           <i class="fa-solid fa-code"></i>
         </div>
-        <h3 class="text-xs font-black text-[#183153] group-hover:text-[#146ebe]">Developer</h3>
+        <h3 class="text-xs font-black text-[#3e2723] group-hover:text-[#c27803]">Developer</h3>
         <p class="text-[11px] text-slate-400 font-medium">HTML, CSS, JS Minifiers</p>
       </a>
 
@@ -330,7 +337,7 @@
         <div class="w-8 h-8 rounded-xl bg-orange-50 text-[#f1641e] flex items-center justify-center text-sm font-bold mb-2">
           <i class="fa-solid fa-cart-shopping"></i>
         </div>
-        <h3 class="text-xs font-black text-[#183153] group-hover:text-[#146ebe]">E-Commerce</h3>
+        <h3 class="text-xs font-black text-[#3e2723] group-hover:text-[#c27803]">E-Commerce</h3>
         <p class="text-[11px] text-slate-400 font-medium">Etsy, Amazon, TikTok Shop</p>
       </a>
 
@@ -341,6 +348,6 @@
   <!-- Centralized Pure JS Footer Injection -->
   <footer id="globalFooter"></footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
 </body>
 </html>
