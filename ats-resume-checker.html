@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Primary Meta Tags -->
+  <title>Free ATS Resume Checker & CV Scorer Online | 360tools.me</title>
+  <meta name="title" content="Free ATS Resume Checker & CV Scorer Online | 360tools.me">
+  <meta name="description"
+    content="Check your resume against ATS algorithms for free. Score your CV, detect missing keywords, and audit formatting. 100% private in-browser analysis.">
+  <meta name="keywords"
+    content="ats resume checker, free cv checker, ats score calculator, resume keyword scanner, cv ats compatibility, resume parser online, job description match score, free ats cv review, client side resume checker">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/ats-resume-checker.html">
+
+  <!-- Favicon & Open Graph / Facebook -->
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/ats-resume-checker.html">
+  <meta property="og:title" content="Free ATS Resume Checker & CV Score Analyzer | 360tools.me">
+  <meta property="og:description"
+    content="Scan your CV for ATS compatibility, keyword match percentage, power verbs, and formatting errors. 100% private in-browser analysis.">
+  <meta property="og:image" content="images/logo.jpg">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/ats-resume-checker.html">
+  <meta property="twitter:title" content="Free ATS Resume & CV Checker Online">
+  <meta property="twitter:description"
+    content="Instant ATS compatibility score, keyword gap analysis, and formatting suggestions for your CV.">
+  <meta property="twitter:image" content="images/logo.jpg">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Client-Side ATS Resume Checker",
+    "url": "https://360tools.me/ats-resume-checker.html",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "100% Client-side ATS resume scanner and CV scorer. Parses PDF, DOCX, and text resumes locally in browser memory with zero server uploads.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is my confidential resume or CV uploaded to any external server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Never. All text parsing, keyword scoring, and ATS compatibility checks run 100% locally in your web browser using JavaScript, PDF.js, and Mammoth.js. Your sensitive contact information and career history never leave your computer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What file formats are supported by this ATS resume scanner?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can upload PDF (.pdf), Microsoft Word (.docx), and plain text (.txt) files, or copy and paste your CV text directly into the text editor."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is the ATS Score calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The ATS score (0–100) evaluates 5 essential recruitment dimensions: standard ATS section headings, contact information completeness, power action verbs, quantifiable metrics/KPIs, and hard/soft keyword density (including matching against a target job description)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I compare my CV against a specific Job Description?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Paste the target job posting into the optional Job Description field to calculate your Match Rate percentage and discover missing keywords that recruiter ATS algorithms look for."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Career & Developer Tools",
+        "item": "https://360tools.me/#tools-catalog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "ATS Resume Checker",
+        "item": "https://360tools.me/ats-resume-checker.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- PDF.js CDN for PDF Parsing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    if (typeof pdfjsLib !== 'undefined') {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
+  </script>
+
+  <!-- Mammoth.js CDN for DOCX Parsing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+
+  <!-- Chart.js CDN for Visual Interactive Charts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+  <!-- jsPDF CDN for Client-Side PDF Report Generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- Print Stylesheet for High-Quality Native Print-to-PDF -->
+  <style>
+    @media print {
+      body { background: #ffffff !important; padding: 0 !important; color: #0f172a !important; }
+      #globalHeader, #globalFooter, section:first-of-type, section.mt-16, #toastContainer, button, .fa-btn-primary, .fa-btn-secondary { display: none !important; }
+      #resultsSection { display: block !important; margin: 0 !important; padding: 0 !important; }
+      .fa-card { box-shadow: none !important; border: 1px solid #cbd5e1 !important; break-inside: avoid; page-break-inside: avoid; }
+    }
+  </style>
+</head>
+
+<body
+  class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4 bg-[#f8fafc]">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto w-full flex-1">
+
+    <!-- Hero / Headline Above the Fold -->
+    <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span
+            class="bg-indigo-50 text-indigo-700 text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-solid fa-file-circle-check mr-1"></i> ATS Compatibility & Scoring Engine
+          </span>
+          <span class="text-xs font-bold text-slate-400">• 100% Private • PDF / DOCX • Zero Uploads</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+          Free ATS Resume Checker & CV Scorer
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
+          Upload your resume to get an instant ATS compatibility score, detect missing hard/soft keywords, audit action
+          verbs, and verify recruiter formatting in seconds.
+        </p>
+      </div>
+
+      <!-- Quick Sample Buttons -->
+      <div class="flex flex-wrap items-center gap-2 self-start sm:self-center">
+        <button onclick="loadSampleResume('tech')" class="fa-btn-secondary text-xs px-3 py-2"
+          title="Load sample senior software engineer resume">
+          <i class="fa-solid fa-code text-indigo-600"></i> Sample Tech CV
+        </button>
+        <button onclick="loadSampleResume('marketing')" class="fa-btn-secondary text-xs px-3 py-2"
+          title="Load sample marketing manager resume">
+          <i class="fa-solid fa-bullhorn text-amber-600"></i> Sample Marketing CV
+        </button>
+      </div>
+    </div>
+
+    <!-- MAIN WORKSPACE SECTION (Input Grid) -->
+    <section class="space-y-6">
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+        <!-- LEFT COLUMN: Resume File Upload & Text Input (7 cols) -->
+        <div class="lg:col-span-7 space-y-4">
+          <div class="fa-card p-5 sm:p-6 space-y-4">
+
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+              <h2 class="text-base font-black text-[#183153] flex items-center gap-2">
+                <i class="fa-solid fa-file-lines text-indigo-600"></i> 1. Your Resume / CV Content
+              </h2>
+
+              <!-- Tab Switcher (Upload vs Paste) -->
+              <div class="inline-flex items-center gap-1 bg-slate-100 p-1 rounded-xl text-xs font-bold">
+                <button type="button" id="tabBtnUpload" onclick="switchInputTab('upload')"
+                  class="px-3 py-1.5 rounded-lg bg-white shadow-xs text-indigo-600 transition-all">
+                  <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Upload File
+                </button>
+                <button type="button" id="tabBtnPaste" onclick="switchInputTab('paste')"
+                  class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all">
+                  <i class="fa-solid fa-paste mr-1"></i> Paste Text
+                </button>
+              </div>
+            </div>
+
+            <!-- Tab Content 1: Drag & Drop File Upload Area -->
+            <div id="inputUploadArea" class="space-y-3">
+              <div id="cvDropZone"
+                class="border-2 border-dashed border-slate-300 rounded-2xl p-8 text-center bg-slate-50/70 hover:bg-indigo-50/30 hover:border-indigo-400 transition-all cursor-pointer group">
+                <input type="file" id="cvFileInput"
+                  accept=".pdf,.docx,.txt,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain"
+                  class="hidden" onchange="handleCvFileUpload(event)">
+
+                <div
+                  class="w-14 h-14 mx-auto bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center text-2xl mb-3 group-hover:scale-110 transition-transform shadow-xs">
+                  <i class="fa-solid fa-file-pdf"></i>
+                </div>
+
+                <h4 class="font-black text-[#183153] text-sm sm:text-base mb-1">
+                  Drop your Resume (PDF, DOCX, TXT) here or <span class="text-indigo-600 underline">browse</span>
+                </h4>
+                <p class="text-xs text-slate-500 max-w-sm mx-auto mb-3">
+                  Parsed 100% locally in browser memory. Sensitive contact data never touches any server.
+                </p>
+
+                <button type="button" onclick="document.getElementById('cvFileInput').click()"
+                  class="fa-btn-primary text-xs px-4 py-2">
+                  <i class="fa-solid fa-folder-open"></i> Choose Resume File
+                </button>
+              </div>
+
+              <!-- Loaded File Pill (Hidden by default) -->
+              <div id="loadedFilePill"
+                class="hidden p-3 bg-indigo-50/80 border border-indigo-200 rounded-xl flex items-center justify-between">
+                <div class="flex items-center gap-2.5 overflow-hidden">
+                  <i id="loadedFileIcon" class="fa-solid fa-file-pdf text-indigo-600 text-lg"></i>
+                  <div class="truncate">
+                    <span id="loadedFileName" class="text-xs font-black text-[#183153] block truncate">resume.pdf</span>
+                    <span id="loadedFileSize" class="text-[10px] text-slate-500 font-bold">142 KB</span>
+                  </div>
+                </div>
+                <button type="button" onclick="resetLoadedFile()"
+                  class="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors"
+                  title="Remove file">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Tab Content 2: Textarea Editor (Hidden by default or synchronized) -->
+            <div id="inputPasteArea" class="hidden space-y-2">
+              <div class="flex items-center justify-between text-xs text-slate-500 font-bold">
+                <span>Paste plain text or raw markdown from your resume:</span>
+                <span id="cvWordCountDisplay">0 words • 0 chars</span>
+              </div>
+              <textarea id="cvTextInput" rows="10"
+                placeholder="Paste your CV text here (e.g. Summary, Work Experience, Education, Technical Skills)..."
+                class="w-full p-4 border border-slate-300 rounded-xl text-xs font-mono leading-relaxed focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 bg-slate-50/50 outline-hidden"
+                oninput="updateCvWordCount()"></textarea>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Optional Target Job Description & Analyze Action (5 cols) -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="fa-card p-5 sm:p-6 space-y-4">
+
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+              <h2 class="text-base font-black text-[#183153] flex items-center gap-2">
+                <i class="fa-solid fa-briefcase text-indigo-600"></i> 2. Target Job Description <span
+                  class="text-xs font-normal text-slate-400">(Optional)</span>
+              </h2>
+              <span class="text-[10px] bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded-md">Keyword
+                Match</span>
+            </div>
+
+            <div class="space-y-2">
+              <label class="block text-xs font-bold text-slate-600" for="jobDescInput">
+                Paste the job posting to calculate ATS Keyword Match Rate (%):
+              </label>
+              <textarea id="jobDescInput" rows="7"
+                placeholder="Paste job requirements, required technical skills, qualifications, or responsibilities..."
+                class="w-full p-3.5 border border-slate-300 rounded-xl text-xs font-mono leading-relaxed focus:border-indigo-600 focus:ring-1 focus:ring-indigo-600 bg-slate-50/50 outline-hidden"></textarea>
+            </div>
+
+            <!-- Action Button -->
+            <div class="pt-2">
+              <button id="btnAnalyzeResume" type="button" onclick="analyzeResume()"
+                class="fa-btn-primary w-full py-3 text-sm font-black shadow-md flex items-center justify-center gap-2">
+                <i class="fa-solid fa-wand-magic-sparkles text-amber-300"></i> Scan & Score Resume Now
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Privacy Guarantee Box -->
+          <div class="bg-indigo-50/50 border border-indigo-100 rounded-2xl p-4 flex items-start gap-3">
+            <div
+              class="w-8 h-8 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0 text-sm">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <h4 class="text-xs font-black text-[#183153]">100% Client-Side Privacy Guarantee</h4>
+              <p class="text-[11px] text-slate-600 mt-0.5 leading-relaxed">
+                Your resume never touches any remote database or AI server. All scoring heuristics execute in real-time
+                in your browser memory.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- REPORT DASHBOARD (Initially Hidden, appears after analysis) -->
+    <section id="resultsSection" class="hidden mt-10 space-y-8 animate-in fade-in duration-300">
+
+      <!-- Report Header Banner with Overall ATS Score -->
+      <div
+        class="fa-card p-6 sm:p-8 bg-gradient-to-br from-white via-slate-50 to-indigo-50/30 border-2 border-indigo-200">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+
+          <!-- Left: Score Circular Meter & Grade -->
+          <div class="flex items-center gap-6">
+            <div class="relative w-28 h-28 flex items-center justify-center shrink-0">
+              <svg class="w-28 h-28 transform -rotate-90" viewBox="0 0 36 36">
+                <path class="text-slate-200" stroke-width="3.5" stroke="currentColor" fill="none"
+                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path id="scoreCirclePath" class="text-indigo-600 transition-all duration-1000 ease-out"
+                  stroke-dasharray="0, 100" stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none"
+                  d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              </svg>
+              <div class="absolute flex flex-col items-center justify-center">
+                <span id="overallScoreNumber" class="text-3xl font-black text-[#183153]">0</span>
+                <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider">/ 100</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="inline-flex items-center gap-2 mb-1">
+                <span id="scoreGradeBadge"
+                  class="bg-indigo-600 text-white text-xs font-black px-2.5 py-0.5 rounded-full uppercase">Grade
+                  A</span>
+                <span id="scoreVerdictText" class="text-xs font-bold text-slate-500">Strong ATS Compatibility</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-black text-[#183153] tracking-tight">
+                Resume ATS Audit Summary
+              </h3>
+              <p id="scoreSummaryDesc" class="text-xs sm:text-sm text-slate-600 mt-1 max-w-xl">
+                Your resume demonstrates clean section hierarchy and solid keyword relevance. Review the critical issues
+                and recommendations below.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: Report Actions -->
+          <div class="flex flex-wrap items-center gap-2 shrink-0 w-full md:w-auto">
+            <button type="button" onclick="downloadReportPdf()"
+              class="fa-btn-primary text-xs px-4 py-2.5 w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 shadow-md font-bold">
+              <i class="fa-solid fa-file-pdf mr-1.5 text-rose-300"></i> Download PDF Report
+            </button>
+            <button type="button" onclick="downloadReportTxt()"
+              class="fa-btn-secondary text-xs px-3.5 py-2.5 w-full sm:w-auto font-bold"
+              title="Download Plain Text Report">
+              <i class="fa-solid fa-file-lines text-slate-500 mr-1"></i> .TXT
+            </button>
+            <button type="button" onclick="copyReportToClipboard()"
+              class="fa-btn-secondary text-xs px-3.5 py-2.5 w-full sm:w-auto font-bold" title="Copy to Clipboard">
+              <i class="fa-regular fa-copy mr-1"></i> Copy
+            </button>
+            <button type="button" onclick="window.print()"
+              class="fa-btn-secondary text-xs px-3.5 py-2.5 w-full sm:w-auto font-bold" title="Print or Save via Browser Print">
+              <i class="fa-solid fa-print text-slate-500 mr-1"></i> Print
+            </button>
+          </div>
+
+        </div>
+
+        <!-- 4 Sub-Score Gauges Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-slate-200/80">
+
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+            <div class="flex items-center justify-between text-xs font-bold text-slate-500 mb-1">
+              <span>ATS Parsability</span>
+              <span id="subScoreFormat" class="font-black text-indigo-600">0/25</span>
+            </div>
+            <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+              <div id="subBarFormat" class="bg-indigo-600 h-2 rounded-full transition-all duration-700"
+                style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+            <div class="flex items-center justify-between text-xs font-bold text-slate-500 mb-1">
+              <span>Contact & Profiles</span>
+              <span id="subScoreContact" class="font-black text-indigo-600">0/15</span>
+            </div>
+            <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+              <div id="subBarContact" class="bg-indigo-600 h-2 rounded-full transition-all duration-700"
+                style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+            <div class="flex items-center justify-between text-xs font-bold text-slate-500 mb-1">
+              <span>Action Verbs & Impact</span>
+              <span id="subScoreVerbs" class="font-black text-indigo-600">0/25</span>
+            </div>
+            <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+              <div id="subBarVerbs" class="bg-indigo-600 h-2 rounded-full transition-all duration-700"
+                style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+            <div class="flex items-center justify-between text-xs font-bold text-slate-500 mb-1">
+              <span>Metrics & Numbers</span>
+              <span id="subScoreMetrics" class="font-black text-indigo-600">0/20</span>
+            </div>
+            <div class="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+              <div id="subBarMetrics" class="bg-indigo-600 h-2 rounded-full transition-all duration-700"
+                style="width: 0%"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- VISUAL ATS PERFORMANCE CHARTS -->
+      <div class="space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <h4 class="text-base font-black text-[#183153] flex items-center gap-2">
+              <i class="fa-solid fa-chart-pie text-indigo-600"></i> Interactive ATS Visual Analytics & Benchmarks
+            </h4>
+            <p class="text-xs text-slate-500 mt-0.5">Visualized breakdown of competency dimensions vs industry standard
+              recruiter benchmarks.</p>
+          </div>
+          <span
+            class="text-xs font-bold text-slate-400 inline-flex items-center gap-1.5 self-start sm:self-center bg-white px-3 py-1.5 rounded-xl border border-slate-200 shadow-2xs">
+            <i class="fa-solid fa-chart-line text-indigo-600"></i> Real-time Heuristics
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- Chart 1: Competency Radar -->
+          <div class="fa-card p-5 space-y-3 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+                <span class="text-xs font-black text-[#183153] flex items-center gap-1.5">
+                  <i class="fa-solid fa-compass text-indigo-600"></i> ATS Competency Radar
+                </span>
+                <span class="text-[10px] font-black bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full">5
+                  Pillars</span>
+              </div>
+              <p class="text-[11px] text-slate-500 mt-2">Balance across formatting, contact info, power verbs, metrics,
+                and skill density.</p>
+            </div>
+            <div class="relative w-full h-64 flex items-center justify-center pt-2">
+              <canvas id="radarChartCanvas"></canvas>
+            </div>
+            <div
+              class="text-[11px] text-slate-500 text-center border-t border-slate-100 pt-2 flex items-center justify-center gap-4">
+              <span class="inline-flex items-center gap-1"><span
+                  class="w-2.5 h-2.5 rounded-full bg-indigo-600 inline-block"></span> Your CV</span>
+              <span class="inline-flex items-center gap-1"><span
+                  class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span> Benchmark (85%)</span>
+            </div>
+          </div>
+
+          <!-- Chart 2: Category Score vs Benchmark Bar Chart -->
+          <div class="fa-card p-5 space-y-3 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+                <span class="text-xs font-black text-[#183153] flex items-center gap-1.5">
+                  <i class="fa-solid fa-chart-column text-indigo-600"></i> Score vs Benchmark
+                </span>
+                <span class="text-[10px] font-black bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full">Recruiter
+                  Target</span>
+              </div>
+              <p class="text-[11px] text-slate-500 mt-2">Comparison of your category scores against standard ATS passing
+                thresholds.</p>
+            </div>
+            <div class="relative w-full h-64 flex items-center justify-center pt-2">
+              <canvas id="barChartCanvas"></canvas>
+            </div>
+            <div
+              class="text-[11px] text-slate-500 text-center border-t border-slate-100 pt-2 flex items-center justify-center gap-4">
+              <span class="inline-flex items-center gap-1"><span
+                  class="w-2.5 h-2.5 rounded-sm bg-indigo-600 inline-block"></span> Your Score</span>
+              <span class="inline-flex items-center gap-1"><span
+                  class="w-2.5 h-2.5 rounded-sm bg-slate-300 inline-block"></span> Target Max</span>
+            </div>
+          </div>
+
+          <!-- Chart 3: Extracted Elements Donut Chart -->
+          <div class="fa-card p-5 space-y-3 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+                <span class="text-xs font-black text-[#183153] flex items-center gap-1.5">
+                  <i class="fa-solid fa-chart-pie text-indigo-600"></i> Content & Keyword Mix
+                </span>
+                <span
+                  class="text-[10px] font-black bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full">Composition</span>
+              </div>
+              <p class="text-[11px] text-slate-500 mt-2">Distribution of detected power verbs, technical skills,
+                quantifiable KPIs, and headings.</p>
+            </div>
+            <div class="relative w-full h-64 flex items-center justify-center pt-2">
+              <canvas id="donutChartCanvas"></canvas>
+            </div>
+            <div
+              class="text-[11px] text-slate-500 text-center border-t border-slate-100 pt-2 flex items-center justify-center gap-3 flex-wrap">
+              <span class="inline-flex items-center gap-1"><span
+                  class="w-2 h-2 rounded-full bg-indigo-600 inline-block"></span> Skills</span>
+              <span class="inline-flex items-center gap-1"><span
+                  class="w-2 h-2 rounded-full bg-amber-500 inline-block"></span> Verbs</span>
+              <span class="inline-flex items-center gap-1"><span
+                  class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span> Metrics</span>
+              <span class="inline-flex items-center gap-1"><span
+                  class="w-2 h-2 rounded-full bg-sky-500 inline-block"></span> Sections</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- DETAILED CHECKS & RECOMMENDATIONS GRID (2 Cols) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+        <!-- LEFT: Section Checklists & Action Items (7 cols) -->
+        <div class="lg:col-span-7 space-y-6">
+
+          <!-- Action Items & Top Fixes -->
+          <div class="fa-card p-6 space-y-4">
+            <h4 class="text-base font-black text-[#183153] flex items-center gap-2">
+              <i class="fa-solid fa-list-check text-indigo-600"></i> Top Priority ATS Fixes & Insights
+            </h4>
+            <div id="topFixesList" class="space-y-2.5">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Section Headings Detection Audit -->
+          <div class="fa-card p-6 space-y-4">
+            <h4 class="text-base font-black text-[#183153] flex items-center gap-2">
+              <i class="fa-solid fa-heading text-indigo-600"></i> Standard ATS Section Headings
+            </h4>
+            <div id="sectionHeadingsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Action Verbs & Measurable KPIs Audit -->
+          <div class="fa-card p-6 space-y-4">
+            <h4 class="text-base font-black text-[#183153] flex items-center gap-2">
+              <i class="fa-solid fa-bolt text-amber-500"></i> Impact Verbs & Quantifiable Results
+            </h4>
+
+            <div class="space-y-3 text-xs">
+              <div>
+                <span class="font-bold text-slate-700 block mb-1">
+                  Strong Power Action Verbs (<span id="countPowerVerbs">0</span> found):
+                </span>
+                <div id="powerVerbsBadges" class="flex flex-wrap gap-1.5">
+                  <!-- Badges -->
+                </div>
+              </div>
+
+              <div id="weakVerbsBox" class="hidden pt-2 border-t border-slate-100">
+                <span class="font-bold text-amber-700 block mb-1">
+                  Passive / Cliché Words (<span id="countWeakVerbs">0</span> detected — consider replacing):
+                </span>
+                <div id="weakVerbsBadges" class="flex flex-wrap gap-1.5">
+                  <!-- Badges -->
+                </div>
+              </div>
+
+              <div class="pt-2 border-t border-slate-100">
+                <span class="font-bold text-slate-700 block mb-1">
+                  Measurable Quantifiable Metrics & KPIs (<span id="countMetrics">0</span> found):
+                </span>
+                <div id="metricsListBadges" class="flex flex-wrap gap-1.5">
+                  <!-- Badges -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: Keywords & Job Description Gap Analyzer (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+
+          <!-- Job Description Match Card (if provided) -->
+          <div id="jobMatchCard"
+            class="hidden fa-card p-6 space-y-4 border-2 border-emerald-200 bg-gradient-to-br from-white to-emerald-50/20">
+            <div class="flex items-center justify-between">
+              <h4 class="text-base font-black text-[#183153] flex items-center gap-2">
+                <i class="fa-solid fa-bullseye text-emerald-600"></i> Job Description Match
+              </h4>
+              <span id="jdMatchRateBadge" class="bg-emerald-600 text-white font-black text-xs px-2.5 py-1 rounded-full">
+                0% Match
+              </span>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              <div>
+                <span class="font-bold text-emerald-800 block mb-1.5">
+                  Matching Job Keywords (<span id="jdMatchedCount">0</span>):
+                </span>
+                <div id="jdMatchedBadges" class="flex flex-wrap gap-1.5 max-h-40 overflow-y-auto">
+                  <!-- Badges -->
+                </div>
+              </div>
+
+              <div class="pt-2 border-t border-slate-200/80">
+                <span class="font-bold text-rose-800 block mb-1.5">
+                  Missing Target Keywords (<span id="jdMissingCount">0</span>):
+                </span>
+                <div id="jdMissingBadges" class="flex flex-wrap gap-1.5 max-h-40 overflow-y-auto">
+                  <!-- Badges -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Extracted Skills Cloud -->
+          <div class="fa-card p-6 space-y-4">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+              <h4 class="text-base font-black text-[#183153] flex items-center gap-2">
+                <i class="fa-solid fa-tags text-indigo-600"></i> Extracted Skills & Keywords
+              </h4>
+              <span id="totalSkillsCountBadge"
+                class="text-xs bg-indigo-50 text-indigo-700 font-bold px-2.5 py-0.5 rounded-full">
+                0 Skills
+              </span>
+            </div>
+
+            <div id="extractedSkillsContainer" class="flex flex-wrap gap-1.5 text-xs max-h-72 overflow-y-auto">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Document Formatting & Readability Stats -->
+          <div class="fa-card p-6 space-y-3">
+            <h4 class="text-base font-black text-[#183153] flex items-center gap-2">
+              <i class="fa-solid fa-chart-simple text-indigo-600"></i> Readability & Length Metrics
+            </h4>
+
+            <div class="grid grid-cols-2 gap-3 text-xs">
+              <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                <span class="text-slate-400 block text-[10px] font-bold uppercase">Total Word Count</span>
+                <span id="statWordCount" class="text-base font-black text-[#183153]">0 words</span>
+                <span id="statWordVerdict" class="text-[10px] text-emerald-600 font-bold block">Ideal Length</span>
+              </div>
+
+              <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                <span class="text-slate-400 block text-[10px] font-bold uppercase">Reading Time</span>
+                <span id="statReadingTime" class="text-base font-black text-[#183153]">0 min</span>
+                <span class="text-[10px] text-slate-500 font-medium block">Recruiter average ~30s</span>
+              </div>
+
+              <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                <span class="text-slate-400 block text-[10px] font-bold uppercase">Bullet Points</span>
+                <span id="statBulletCount" class="text-base font-black text-[#183153]">0 bullets</span>
+                <span id="statBulletVerdict" class="text-[10px] text-slate-500 font-bold block">Good Density</span>
+              </div>
+
+              <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                <span class="text-slate-400 block text-[10px] font-bold uppercase">Avg Sentence Words</span>
+                <span id="statAvgSentence" class="text-base font-black text-[#183153]">0 words</span>
+                <span class="text-[10px] text-slate-500 font-medium block">Clear & concise</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SEO Content Section: Guides & ATS Best Practices -->
+    <section class="mt-16 pt-12 border-t border-slate-200">
+      <div class="max-w-4xl mx-auto space-y-12">
+
+        <div class="text-center">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">
+            How Applicant Tracking Systems (ATS) Parse Resumes
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2">
+            Over 95% of Fortune 500 companies and modern tech startups use automated ATS software (Workday, Greenhouse,
+            Lever, Taleo, iCIMS) to filter job applicants before a human recruiter ever sees them.
+          </p>
+        </div>
+
+        <!-- 3 Feature Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="fa-card p-6">
+            <div
+              class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg mb-3">
+              <i class="fa-solid fa-magnifying-glass-chart"></i>
+            </div>
+            <h4 class="font-bold text-[#183153] text-sm mb-2">
+              Exact Keyword Matching
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              ATS parsers scan candidate resumes for specific technical keywords, job titles, and hard skills found in
+              the original job description.
+            </p>
+          </div>
+
+          <div class="fa-card p-6">
+            <div
+              class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg mb-3">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <h4 class="font-bold text-[#183153] text-sm mb-2">
+              100% In-Browser Privacy
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Your contact details, email address, home location, and work history remain 100% confidential and are
+              never stored or logged on any external server.
+            </p>
+          </div>
+
+          <div class="fa-card p-6">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg mb-3">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <h4 class="font-bold text-[#183153] text-sm mb-2">
+              Impact & KPI Detection
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Resumes with quantifiable metrics (e.g. "Increased revenue by 28%") and active power verbs receive
+              significantly higher interview call-back rates.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step-by-Step Optimization Guide -->
+        <div class="fa-card p-6 sm:p-8 space-y-6">
+          <h3 class="text-xl font-black text-[#183153] flex items-center gap-2">
+            <i class="fa-solid fa-check-double text-indigo-600"></i> Top Rules to Pass Any ATS Resume Filter
+          </h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/70 space-y-1.5">
+              <span class="font-bold text-[#183153] flex items-center gap-1.5 text-indigo-700">
+                <i class="fa-solid fa-circle-check"></i> Use Standard Section Headings
+              </span>
+              <p class="text-slate-600 leading-relaxed">
+                Stick to recognized titles: "Work Experience", "Education", "Skills", "Projects", "Summary". Avoid fancy
+                names like "Where I've Been" or "My Toolbox".
+              </p>
+            </div>
+
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/70 space-y-1.5">
+              <span class="font-bold text-[#183153] flex items-center gap-1.5 text-indigo-700">
+                <i class="fa-solid fa-circle-check"></i> Avoid Complex Multi-Column Layouts
+              </span>
+              <p class="text-slate-600 leading-relaxed">
+                Complex tables, graphics, text boxes, and side-by-side multi-column layouts frequently cause ATS parsers
+                to scramble your job history out of chronological order.
+              </p>
+            </div>
+
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/70 space-y-1.5">
+              <span class="font-bold text-[#183153] flex items-center gap-1.5 text-indigo-700">
+                <i class="fa-solid fa-circle-check"></i> Match Hard Skills to the Job Post
+              </span>
+              <p class="text-slate-600 leading-relaxed">
+                If the posting specifies "Python", "Docker", and "PostgreSQL", ensure those exact keywords appear
+                verbatim in your skills and experience bullets.
+              </p>
+            </div>
+
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/70 space-y-1.5">
+              <span class="font-bold text-[#183153] flex items-center gap-1.5 text-indigo-700">
+                <i class="fa-solid fa-circle-check"></i> Quantify Your Accomplishments
+              </span>
+              <p class="text-slate-600 leading-relaxed">
+                Use numbers, percentages, team sizes, and time saved to validate your impact. Example: "Managed a team
+                of 8 engineers and boosted pipeline throughput by 34%."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div class="space-y-4">
+          <h3 class="text-xl font-black text-[#183153] text-center mb-6">
+            Frequently Asked Questions
+          </h3>
+
+          <div class="space-y-3">
+            <details class="fa-card p-4 group cursor-pointer">
+              <summary class="font-bold text-sm text-[#183153] list-none flex items-center justify-between">
+                <span>Is a PDF or Word (.docx) resume better for ATS?</span>
+                <i
+                  class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Both PDF and DOCX are widely supported by modern ATS systems like Workday and Greenhouse. A
+                text-selectable PDF is usually preferred because it preserves your exact visual styling and typography
+                across all operating systems.
+              </p>
+            </details>
+
+            <details class="fa-card p-4 group cursor-pointer">
+              <summary class="font-bold text-sm text-[#183153] list-none flex items-center justify-between">
+                <span>What is a good ATS Score?</span>
+                <i
+                  class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                A score of 80+ indicates strong ATS compatibility and high keyword alignment. Scores below 65 indicate
+                missing contact details, missing standard sections, weak verbs, or low keyword overlap with the target
+                job.
+              </p>
+            </details>
+
+            <details class="fa-card p-4 group cursor-pointer">
+              <summary class="font-bold text-sm text-[#183153] list-none flex items-center justify-between">
+                <span>Can I copy and paste my report results?</span>
+                <i
+                  class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Yes! You can copy the full summary report to your clipboard or download it as a structured text file
+                starting with <code>360tools.me_ats_resume_report.txt</code>.
+              </p>
+            </details>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Master Main JS (Header/Footer/Search Registry) -->
+  <script src="js/main.js"></script>
+
+  <!-- ATS Resume Checker Application Logic -->
+  <script>
+    // State
+    let activeInputTab = 'upload';
+    let loadedFileName = '';
+    let lastAnalysisReport = null;
+    let radarChartInstance = null;
+    let barChartInstance = null;
+    let donutChartInstance = null;
+
+    // Power action verbs dictionary
+    const POWER_VERBS = [
+      'achieved', 'accelerated', 'administered', 'advocated', 'analyzed', 'architected',
+      'automated', 'built', 'championed', 'coached', 'collaborated', 'constructed',
+      'converted', 'created', 'customized', 'decreased', 'delivered', 'deployed',
+      'designed', 'developed', 'devised', 'directed', 'doubled', 'drove', 'engineered',
+      'enhanced', 'established', 'evaluated', 'executed', 'expanded', 'expedited',
+      'facilitated', 'formulated', 'fostered', 'generated', 'guided', 'headed',
+      'identified', 'implemented', 'improved', 'increased', 'initiated', 'innovated',
+      'inspected', 'integrated', 'invented', 'launched', 'led', 'leveraged', 'managed',
+      'maximized', 'mentored', 'minimized', 'modernized', 'negotiated', 'optimized',
+      'orchestrated', 'organized', 'overhauled', 'oversaw', 'pioneered', 'planned',
+      'programmed', 'reduced', 'refactored', 'resolved', 'restructured', 'revamped',
+      'scaled', 'simplified', 'spearheaded', 'standardized', 'streamlined', 'strengthened',
+      'supervised', 'trained', 'transformed', 'upgraded', 'validated', 'yielded'
+    ];
+
+    // Weak / passive verbs and clichés to avoid
+    const WEAK_VERBS = [
+      'responsible for', 'duties included', 'worked on', 'helped with', 'assisted with',
+      'handled', 'attempted', 'tried to', 'participated in', 'hard worker', 'team player',
+      'go-getter', 'results-driven', 'detail-oriented', 'think outside the box', 'synergy'
+    ];
+
+    // Common skills catalog across domains
+    const TECH_SKILLS = [
+      'javascript', 'typescript', 'python', 'java', 'c++', 'c#', 'ruby', 'php', 'golang', 'rust', 'swift', 'kotlin',
+      'react', 'angular', 'vue', 'next.js', 'node.js', 'express', 'django', 'fastapi', 'flask', 'spring boot', '.net',
+      'html5', 'css3', 'tailwind', 'bootstrap', 'sass', 'graphql', 'rest api', 'json', 'microservices', 'websocket',
+      'sql', 'postgresql', 'mysql', 'mongodb', 'redis', 'elasticsearch', 'dynamodb', 'oracle', 'sqlite', 'prisma',
+      'aws', 'azure', 'gcp', 'docker', 'kubernetes', 'terraform', 'ci/cd', 'git', 'github', 'gitlab', 'jenkins', 'linux',
+      'machine learning', 'deep learning', 'tensorflow', 'pytorch', 'nlp', 'computer vision', 'data analysis', 'pandas',
+      'numpy', 'scikit-learn', 'tableau', 'power bi', 'excel', 'agile', 'scrum', 'jira', 'figma', 'ui/ux', 'seo',
+      'unit testing', 'jest', 'cypress', 'selenium', 'pytest', 'cybersecurity', 'devops', 'cloud architecture'
+    ];
+
+    // Drag and Drop listeners
+    const dropZone = document.getElementById('cvDropZone');
+    ['dragenter', 'dragover'].forEach(name => {
+      dropZone.addEventListener(name, (e) => {
+        e.preventDefault();
+        dropZone.classList.add('border-indigo-500', 'bg-indigo-50/40');
+      });
+    });
+    ['dragleave', 'drop'].forEach(name => {
+      dropZone.addEventListener(name, (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('border-indigo-500', 'bg-indigo-50/40');
+      });
+    });
+    dropZone.addEventListener('drop', (e) => {
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        processUploadedCvFile(e.dataTransfer.files[0]);
+      }
+    });
+
+    function handleCvFileUpload(e) {
+      if (e.target.files && e.target.files.length > 0) {
+        processUploadedCvFile(e.target.files[0]);
+      }
+    }
+
+    function switchInputTab(tab) {
+      activeInputTab = tab;
+      const isUpload = tab === 'upload';
+
+      document.getElementById('inputUploadArea').classList.toggle('hidden', !isUpload);
+      document.getElementById('inputPasteArea').classList.toggle('hidden', isUpload);
+
+      document.getElementById('tabBtnUpload').className = isUpload
+        ? 'px-3 py-1.5 rounded-lg bg-white shadow-xs text-indigo-600 transition-all font-bold'
+        : 'px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all font-bold';
+
+      document.getElementById('tabBtnPaste').className = !isUpload
+        ? 'px-3 py-1.5 rounded-lg bg-white shadow-xs text-indigo-600 transition-all font-bold'
+        : 'px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all font-bold';
+    }
+
+    function formatBytes(bytes) {
+      if (!bytes || bytes === 0) return '0 Bytes';
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+    }
+
+    function updateCvWordCount() {
+      const text = document.getElementById('cvTextInput').value.trim();
+      const words = text ? text.split(/\s+/).length : 0;
+      const chars = text.length;
+      document.getElementById('cvWordCountDisplay').textContent = `${words} words • ${chars} chars`;
+    }
+
+    function resetLoadedFile() {
+      loadedFileName = '';
+      document.getElementById('cvFileInput').value = '';
+      document.getElementById('loadedFilePill').classList.add('hidden');
+      document.getElementById('cvTextInput').value = '';
+      updateCvWordCount();
+      showToast('Cleared uploaded resume', 'fa-trash-can');
+    }
+
+    // Process PDF, DOCX, or TXT file
+    async function processUploadedCvFile(file) {
+      loadedFileName = file.name;
+      const ext = file.name.split('.').pop().toLowerCase();
+
+      document.getElementById('loadedFileName').textContent = file.name;
+      document.getElementById('loadedFileSize').textContent = formatBytes(file.size);
+      document.getElementById('loadedFilePill').classList.remove('hidden');
+
+      showToast(`Reading ${file.name}...`, 'fa-spinner');
+
+      try {
+        let extractedText = '';
+
+        if (ext === 'pdf') {
+          extractedText = await extractTextFromPdf(file);
+        } else if (ext === 'docx') {
+          extractedText = await extractTextFromDocx(file);
+        } else {
+          extractedText = await file.text();
+        }
+
+        if (!extractedText || extractedText.trim().length === 0) {
+          showToast('Could not extract text. Please paste text directly.', 'fa-triangle-exclamation');
+          return;
+        }
+
+        document.getElementById('cvTextInput').value = extractedText;
+        updateCvWordCount();
+        showToast('Extracted resume text successfully!', 'fa-circle-check');
+
+        // Auto trigger analysis
+        analyzeResume();
+      } catch (err) {
+        showToast('Error reading file. Please paste text directly.', 'fa-triangle-exclamation');
+      }
+    }
+
+    // PDF.js Text Extractor
+    async function extractTextFromPdf(file) {
+      if (typeof pdfjsLib === 'undefined') {
+        throw new Error('PDF.js not loaded');
+      }
+      const arrayBuffer = await file.arrayBuffer();
+      const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+      let fullText = '';
+
+      for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+        const page = await pdf.getPage(pageNum);
+        const textContent = await page.getTextContent();
+        const pageItems = textContent.items.map(item => item.str).join(' ');
+        fullText += pageItems + '\n\n';
+      }
+      return fullText;
+    }
+
+    // Mammoth.js DOCX Text Extractor
+    async function extractTextFromDocx(file) {
+      if (typeof mammoth === 'undefined') {
+        throw new Error('Mammoth.js not loaded');
+      }
+      const arrayBuffer = await file.arrayBuffer();
+      const result = await mammoth.extractRawText({ arrayBuffer: arrayBuffer });
+      return result.value;
+    }
+
+    // Sample Resume loader
+    function loadSampleResume(type) {
+      let sampleText = '';
+      let sampleJobDesc = '';
+
+      if (type === 'tech') {
+        sampleText = `ALEXANDER WRIGHT
+San Francisco, CA | (555) 382-9104 | alex.wright@email.com | linkedin.com/in/alexwright-dev | github.com/alexwright
+
+PROFESSIONAL SUMMARY
+Senior Full-Stack Software Engineer with 6+ years of experience designing and scaling high-concurrency microservices, cloud applications, and responsive web platforms. Spearheaded backend architecture transformations that reduced query latency by 45% and automated deployment pipelines for 2M+ active users.
+
+CORE SKILLS & TECHNOLOGIES
+Languages & Frameworks: JavaScript, TypeScript, Python, Node.js, React, Next.js, FastAPI, GraphQL, HTML5, CSS3, Tailwind CSS
+Databases & Cloud: PostgreSQL, MongoDB, Redis, AWS (ECS, Lambda, S3), Docker, Kubernetes, Terraform, CI/CD, Git
+Engineering Practices: Agile/Scrum, Microservices, REST API Design, Unit Testing (Jest, Cypress), System Architecture
+
+WORK EXPERIENCE
+Senior Software Engineer | CloudScale Systems | San Francisco, CA | 2021 – Present
+• Architected and deployed a distributed real-time messaging pipeline using Node.js, Redis, and WebSocket, supporting over 150,000 concurrent connections.
+• Optimized PostgreSQL indexing and query execution plans, slashing average API response latency by 42% across 12 core endpoints.
+• Spearheaded migration of legacy monolith to containerized Docker & Kubernetes services on AWS, increasing infrastructure reliability to 99.98% uptime.
+• Mentored a team of 6 junior engineers and implemented automated CI/CD GitHub Actions workflows, cutting release cycle times from 2 weeks to 2 days.
+
+Full-Stack Developer | Innovatech Solutions | Austin, TX | 2018 – 2021
+• Developed responsive client portals in React and TypeScript with Tailwind CSS, increasing user onboarding conversion rate by 28%.
+• Engineered scalable RESTful APIs with Python FastAPI and PostgreSQL, handling $3.5M in quarterly payment transactions.
+• Collaborated with product and UI/UX designers in 2-week Agile sprints to deliver 14 high-impact enterprise features.
+
+EDUCATION
+Bachelor of Science in Computer Science | University of Texas at Austin | 2014 – 2018
+
+CERTIFICATIONS & PROJECTS
+• AWS Certified Solutions Architect – Associate
+• Project: Open-Source Async Task Queue (GitHub: 1.2k stars)`;
+
+        sampleJobDesc = `Senior Software Engineer (Full-Stack)
+Requirements:
+- 5+ years of software engineering experience with JavaScript, TypeScript, Node.js, and React.
+- Strong expertise with cloud platforms (AWS, Docker, Kubernetes) and microservices architecture.
+- Experience with PostgreSQL, Redis, REST APIs, GraphQL, and CI/CD automation pipelines.
+- Proven track record of improving system performance, scaling systems, and mentoring team members.`;
+      } else {
+        sampleText = `EMILY CHEN
+New York, NY | (555) 749-2041 | emily.chen@email.com | linkedin.com/in/emilychen-marketing
+
+PROFESSIONAL SUMMARY
+Data-driven Senior Digital Marketing & Growth Manager with 7+ years of experience leading multi-channel acquisition campaigns, SEO strategies, and lifecycle email marketing. Managed $1.8M annual ad spend across Google and Meta, generating a 340% ROI and acquiring over 250,000 paid subscribers.
+
+CORE SKILLS
+Performance Marketing: Google Ads, Meta Ads Manager, TikTok Ads, LinkedIn Ads, Retargeting
+SEO & Content: Technical SEO, Keyword Research, Content Strategy, Google Analytics 4, Ahrefs, SEMrush
+Automation & CRM: HubSpot, Klaviyo, Salesforce, Mailchimp, A/B Testing, Conversion Rate Optimization (CRO)
+Strategy & Leadership: Budget Allocation, ROI Analysis, Team Leadership, E-Commerce Growth
+
+WORK EXPERIENCE
+Senior Growth Marketing Manager | BrandPulse Media | New York, NY | 2021 – Present
+• Managed an annual paid acquisition budget of $1.4M across Google Search and Meta, delivering an average 3.8x ROAS.
+• Spearheaded comprehensive technical SEO overhaul, growing organic search traffic by 185% YoY (from 80k to 228k monthly visits).
+• Implemented automated email lifecycle drip sequences in Klaviyo, generating $420,000 in incremental quarterly revenue.
+• Led a high-performing team of 4 growth marketers, content writers, and graphic designers.
+
+Digital Marketing Specialist | Apex Commerce | Boston, MA | 2018 – 2021
+• Designed and executed multi-variant A/B landing page experiments, boosting sign-up conversion rate by 34%.
+• Reduced customer acquisition cost (CAC) by 22% through keyword negative-matching and audience segmentation.
+
+EDUCATION
+Bachelor of Business Administration in Marketing | Boston University | 2014 – 2018`;
+
+        sampleJobDesc = `Growth Marketing Manager
+Looking for a performance marketing leader with:
+- 5+ years experience in Digital Marketing, Google Ads, Meta Ads, and Paid Acquisition.
+- Proven track record with SEO, Google Analytics, Conversion Rate Optimization (CRO), and A/B Testing.
+- Experience with HubSpot, Klaviyo, CRM lifecycle marketing, and managing ad budgets.`;
+      }
+
+      document.getElementById('cvTextInput').value = sampleText;
+      document.getElementById('jobDescInput').value = sampleJobDesc;
+      updateCvWordCount();
+      switchInputTab('paste');
+      showToast('Loaded sample resume & job description!', 'fa-file-lines');
+      analyzeResume();
+    }
+
+    // Core ATS Analysis Function
+    function analyzeResume() {
+      const cvText = document.getElementById('cvTextInput').value.trim();
+      const jobDesc = document.getElementById('jobDescInput').value.trim();
+
+      if (!cvText || cvText.length < 50) {
+        showToast('Please upload or paste your resume text first (minimum 50 characters).', 'fa-triangle-exclamation');
+        return;
+      }
+
+      showToast('Auditing resume against ATS algorithms...', 'fa-wand-magic-sparkles');
+
+      const lowerCv = cvText.toLowerCase();
+      const words = cvText.split(/\s+/).filter(Boolean);
+      const totalWords = words.length;
+
+      // 1. SECTION HEADINGS AUDIT (25 pts max)
+      const sections = [
+        { name: 'Contact Info', keywords: ['email', 'phone', '@', 'linkedin', 'github', 'tel:'], found: false },
+        { name: 'Summary / Objective', keywords: ['summary', 'objective', 'profile', 'about me', 'professional summary'], found: false },
+        { name: 'Work Experience', keywords: ['experience', 'work experience', 'employment', 'work history', 'professional experience'], found: false },
+        { name: 'Skills & Competencies', keywords: ['skills', 'technical skills', 'core competencies', 'technologies', 'expertise'], found: false },
+        { name: 'Education', keywords: ['education', 'university', 'bachelor', 'master', 'degree', 'college', 'gpa'], found: false },
+        { name: 'Projects / Certifications', keywords: ['projects', 'certifications', 'certificates', 'credentials', 'achievements'], found: false }
+      ];
+
+      let sectionsFoundCount = 0;
+      sections.forEach(sec => {
+        sec.found = sec.keywords.some(k => lowerCv.includes(k));
+        if (sec.found) sectionsFoundCount++;
+      });
+      const formatScore = Math.round((sectionsFoundCount / sections.length) * 25);
+
+      // 2. CONTACT INFORMATION AUDIT (15 pts max)
+      const hasEmail = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/.test(cvText);
+      const hasPhone = /(\+?\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/.test(cvText);
+      const hasLinkedIn = /linkedin\.com\/in\/[a-zA-Z0-9_-]+/i.test(cvText) || lowerCv.includes('linkedin');
+      const hasLocation = /(san francisco|new york|austin|chicago|london|remote|seattle|toronto|boston|ca|ny|tx|wa|ma|[a-zA-Z]+,\s*[a-zA-Z]{2})/i.test(cvText);
+
+      let contactPoints = 0;
+      if (hasEmail) contactPoints += 5;
+      if (hasPhone) contactPoints += 4;
+      if (hasLinkedIn) contactPoints += 3;
+      if (hasLocation) contactPoints += 3;
+      const contactScore = Math.min(15, contactPoints);
+
+      // 3. POWER ACTION VERBS & CLICHE AUDIT (25 pts max)
+      const matchedPowerVerbs = [];
+      POWER_VERBS.forEach(verb => {
+        const regex = new RegExp(`\\b${verb}\\b`, 'gi');
+        if (regex.test(cvText)) {
+          matchedPowerVerbs.push(verb);
+        }
+      });
+
+      const matchedWeakVerbs = [];
+      WEAK_VERBS.forEach(weak => {
+        if (lowerCv.includes(weak)) {
+          matchedWeakVerbs.push(weak);
+        }
+      });
+
+      // Target at least 6-10 distinct action verbs
+      let verbsScore = Math.min(25, Math.round((matchedPowerVerbs.length / 8) * 25));
+      if (matchedWeakVerbs.length > 2) {
+        verbsScore = Math.max(0, verbsScore - 3); // Deduct for clichés
+      }
+
+      // 4. QUANTIFIABLE METRICS & KPIS (20 pts max)
+      const metricMatches = cvText.match(/(\$\d+[\d,.]*[kKmMbB]?|\b\d+%\b|\b\d+x\b|\b\d{1,3}(,\d{3})+\b|\b\d+\+\b|\b\d+\s*(users|clients|engineers|members|conversions|revenue|leads|endpoints|dollars|hours|days|weeks|months|years|stars)\b)/gi) || [];
+      const uniqueMetrics = [...new Set(metricMatches.map(m => m.trim()))];
+      const metricsScore = Math.min(20, Math.round((uniqueMetrics.length / 5) * 20));
+
+      // 5. HARD SKILLS & DOMAIN KEYWORDS (15 pts max)
+      const detectedSkills = [];
+      TECH_SKILLS.forEach(skill => {
+        const regex = new RegExp(`\\b${skill.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
+        if (regex.test(cvText)) {
+          detectedSkills.push(skill);
+        }
+      });
+      const skillsScore = Math.min(15, Math.round((detectedSkills.length / 8) * 15));
+
+      // 6. TOTAL SCORE CALCULATION (0-100)
+      let overallScore = formatScore + contactScore + verbsScore + metricsScore + skillsScore;
+
+      // Length bonus/penalty
+      if (totalWords < 250) overallScore = Math.max(20, overallScore - 15);
+      if (totalWords > 1200) overallScore = Math.max(30, overallScore - 10);
+      overallScore = Math.min(100, Math.max(10, overallScore));
+
+      // 7. JOB DESCRIPTION MATCH ANALYSIS (if JD is provided)
+      let jdMatchData = null;
+      if (jobDesc && jobDesc.length > 20) {
+        const jdWords = jobDesc.toLowerCase().match(/\b[a-z0-9+#.-]{3,}\b/g) || [];
+        const stopWords = new Set(['and', 'the', 'for', 'with', 'you', 'our', 'will', 'have', 'from', 'this', 'that', 'are', 'your', 'team', 'work', 'role', 'responsibilities', 'requirements', 'experience', 'looking', 'plus', 'must', 'about', 'company', 'apply']);
+        const jdKeywords = [...new Set(jdWords.filter(w => !stopWords.has(w) && isNaN(w)))];
+
+        const matchedJdKeywords = [];
+        const missingJdKeywords = [];
+
+        jdKeywords.forEach(kw => {
+          if (lowerCv.includes(kw)) {
+            matchedJdKeywords.push(kw);
+          } else {
+            missingJdKeywords.push(kw);
+          }
+        });
+
+        const matchRate = jdKeywords.length > 0
+          ? Math.round((matchedJdKeywords.length / jdKeywords.length) * 100)
+          : 0;
+
+        jdMatchData = {
+          matchRate: matchRate,
+          matched: matchedJdKeywords,
+          missing: missingJdKeywords
+        };
+      }
+
+      // Store analysis report in memory for downloads
+      lastAnalysisReport = {
+        overallScore,
+        formatScore,
+        contactScore,
+        verbsScore,
+        metricsScore,
+        skillsScore,
+        sections,
+        contactInfo: { hasEmail, hasPhone, hasLinkedIn, hasLocation },
+        matchedPowerVerbs,
+        matchedWeakVerbs,
+        uniqueMetrics,
+        detectedSkills,
+        totalWords,
+        jdMatchData,
+        timestamp: new Date().toISOString()
+      };
+
+      // RENDER REPORT TO UI
+      renderAnalysisReport(lastAnalysisReport);
+    }
+
+    function renderAnalysisReport(report) {
+      const resultsSec = document.getElementById('resultsSection');
+      resultsSec.classList.remove('hidden');
+
+      // Overall Score Display & Circle Animation
+      const scoreNum = document.getElementById('overallScoreNumber');
+      const scoreCircle = document.getElementById('scoreCirclePath');
+      scoreNum.textContent = report.overallScore;
+      scoreCircle.setAttribute('stroke-dasharray', `${report.overallScore}, 100`);
+
+      // Grade & Verdict text
+      const gradeBadge = document.getElementById('scoreGradeBadge');
+      const verdictText = document.getElementById('scoreVerdictText');
+      const descText = document.getElementById('scoreSummaryDesc');
+
+      if (report.overallScore >= 85) {
+        gradeBadge.textContent = 'Grade A+';
+        gradeBadge.className = 'bg-emerald-600 text-white text-xs font-black px-2.5 py-0.5 rounded-full uppercase';
+        verdictText.textContent = 'Excellent ATS Ready';
+        descText.textContent = 'Your resume shows exceptional structure, high power-verb density, quantifiable metrics, and complete contact details.';
+      } else if (report.overallScore >= 70) {
+        gradeBadge.textContent = 'Grade B+';
+        gradeBadge.className = 'bg-indigo-600 text-white text-xs font-black px-2.5 py-0.5 rounded-full uppercase';
+        verdictText.textContent = 'Good ATS Compatibility';
+        descText.textContent = 'Solid foundation. Adding more quantifiable metrics and matching specific job description keywords will elevate your score to top tier.';
+      } else if (report.overallScore >= 50) {
+        gradeBadge.textContent = 'Grade C';
+        gradeBadge.className = 'bg-amber-600 text-white text-xs font-black px-2.5 py-0.5 rounded-full uppercase';
+        verdictText.textContent = 'Needs Improvement';
+        descText.textContent = 'Some essential section headings, contact details, or measurable KPI metrics are missing. Follow the priority action items below.';
+      } else {
+        gradeBadge.textContent = 'Grade D';
+        gradeBadge.className = 'bg-rose-600 text-white text-xs font-black px-2.5 py-0.5 rounded-full uppercase';
+        verdictText.textContent = 'High ATS Rejection Risk';
+        descText.textContent = 'Your CV is missing critical sections and quantifiable data. Standardize your headings and add strong action verbs to pass automated filters.';
+      }
+
+      // 4 Sub-Scores
+      document.getElementById('subScoreFormat').textContent = `${report.formatScore}/25`;
+      document.getElementById('subBarFormat').style.width = `${(report.formatScore / 25) * 100}%`;
+
+      document.getElementById('subScoreContact').textContent = `${report.contactScore}/15`;
+      document.getElementById('subBarContact').style.width = `${(report.contactScore / 15) * 100}%`;
+
+      document.getElementById('subScoreVerbs').textContent = `${report.verbsScore}/25`;
+      document.getElementById('subBarVerbs').style.width = `${(report.verbsScore / 25) * 100}%`;
+
+      document.getElementById('subScoreMetrics').textContent = `${report.metricsScore}/20`;
+      document.getElementById('subBarMetrics').style.width = `${(report.metricsScore / 20) * 100}%`;
+
+      // Top Fixes
+      const fixesList = document.getElementById('topFixesList');
+      fixesList.innerHTML = '';
+      const actionItems = [];
+
+      if (!report.contactInfo.hasLinkedIn) {
+        actionItems.push({ icon: 'fa-triangle-exclamation', color: 'text-amber-600 bg-amber-50', text: 'Add your LinkedIn profile link to your header. Over 85% of recruiters cross-reference LinkedIn profiles.' });
+      }
+      if (!report.contactInfo.hasPhone) {
+        actionItems.push({ icon: 'fa-circle-xmark', color: 'text-rose-600 bg-rose-50', text: 'Phone number was not detected. Ensure your phone number is listed at the top of your CV.' });
+      }
+      if (report.uniqueMetrics.length < 3) {
+        actionItems.push({ icon: 'fa-arrow-up-right-dots', color: 'text-indigo-600 bg-indigo-50', text: 'Add more quantifiable numbers ($ revenue, % growth, hours saved, team size) to prove tangible impact.' });
+      }
+      if (report.matchedPowerVerbs.length < 5) {
+        actionItems.push({ icon: 'fa-bolt', color: 'text-amber-600 bg-amber-50', text: 'Replace passive phrases with strong action verbs like Spearheaded, Automated, Delivered, Engineered.' });
+      }
+      if (report.totalWords < 350) {
+        actionItems.push({ icon: 'fa-file-lines', color: 'text-blue-600 bg-blue-50', text: 'Resume is somewhat short (under 350 words). Expand on your project contributions and technologies.' });
+      }
+      if (actionItems.length === 0) {
+        actionItems.push({ icon: 'fa-circle-check', color: 'text-emerald-600 bg-emerald-50', text: 'Outstanding! Your resume meets all primary ATS structure, contact, metric, and verb benchmarks.' });
+      }
+
+      actionItems.forEach(item => {
+        fixesList.innerHTML += `
+          <div class="flex items-start gap-3 p-3 rounded-xl border border-slate-100 ${item.color.split(' ')[1]}">
+            <i class="fa-solid ${item.icon} ${item.color.split(' ')[0]} mt-0.5 text-sm"></i>
+            <span class="text-xs font-semibold text-slate-800 leading-relaxed">${item.text}</span>
+          </div>
+        `;
+      });
+
+      // Section Headings Grid
+      const headingsGrid = document.getElementById('sectionHeadingsGrid');
+      headingsGrid.innerHTML = report.sections.map(sec => `
+        <div class="flex items-center justify-between p-2.5 rounded-xl border ${sec.found ? 'bg-emerald-50/50 border-emerald-200' : 'bg-rose-50/50 border-rose-200'}">
+          <span class="font-bold text-[#183153] flex items-center gap-2">
+            <i class="fa-solid ${sec.found ? 'fa-check text-emerald-600' : 'fa-xmark text-rose-500'}"></i>
+            ${sec.name}
+          </span>
+          <span class="text-[10px] font-black uppercase ${sec.found ? 'text-emerald-700' : 'text-rose-600'}">
+            ${sec.found ? 'Detected' : 'Missing'}
+          </span>
+        </div>
+      `).join('');
+
+      // Power Verbs Badges
+      document.getElementById('countPowerVerbs').textContent = report.matchedPowerVerbs.length;
+      const powerBadges = document.getElementById('powerVerbsBadges');
+      powerBadges.innerHTML = report.matchedPowerVerbs.length > 0
+        ? report.matchedPowerVerbs.map(v => `<span class="bg-indigo-50 text-indigo-700 font-bold px-2.5 py-1 rounded-md border border-indigo-200/60">${v}</span>`).join('')
+        : '<span class="text-slate-400 italic">No strong power verbs detected.</span>';
+
+      // Weak Verbs
+      const weakBox = document.getElementById('weakVerbsBox');
+      if (report.matchedWeakVerbs.length > 0) {
+        weakBox.classList.remove('hidden');
+        document.getElementById('countWeakVerbs').textContent = report.matchedWeakVerbs.length;
+        document.getElementById('weakVerbsBadges').innerHTML = report.matchedWeakVerbs.map(v => `<span class="bg-amber-50 text-amber-800 font-bold px-2 py-0.5 rounded-md border border-amber-200">${v}</span>`).join('');
+      } else {
+        weakBox.classList.add('hidden');
+      }
+
+      // Metrics Badges
+      document.getElementById('countMetrics').textContent = report.uniqueMetrics.length;
+      const metricsBadges = document.getElementById('metricsListBadges');
+      metricsBadges.innerHTML = report.uniqueMetrics.length > 0
+        ? report.uniqueMetrics.map(m => `<span class="bg-emerald-50 text-emerald-700 font-bold px-2.5 py-1 rounded-md border border-emerald-200/60">${m}</span>`).join('')
+        : '<span class="text-slate-400 italic">No quantifiable numbers or percentages found.</span>';
+
+      // Extracted Skills
+      document.getElementById('totalSkillsCountBadge').textContent = `${report.detectedSkills.length} Skills`;
+      const skillsContainer = document.getElementById('extractedSkillsContainer');
+      skillsContainer.innerHTML = report.detectedSkills.length > 0
+        ? report.detectedSkills.map(s => `<span class="bg-slate-100 text-slate-800 font-bold px-2.5 py-1 rounded-lg border border-slate-200">${s}</span>`).join('')
+        : '<span class="text-slate-400 italic">No standard technical skills detected.</span>';
+
+      // Job Description Match Card
+      const jdCard = document.getElementById('jobMatchCard');
+      if (report.jdMatchData) {
+        jdCard.classList.remove('hidden');
+        document.getElementById('jdMatchRateBadge').textContent = `${report.jdMatchData.matchRate}% Match`;
+        document.getElementById('jdMatchedCount').textContent = report.jdMatchData.matched.length;
+        document.getElementById('jdMissingCount').textContent = report.jdMatchData.missing.length;
+
+        document.getElementById('jdMatchedBadges').innerHTML = report.jdMatchData.matched.map(k => `
+          <span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-md">${k}</span>
+        `).join('') || '<span class="text-slate-400 italic">None</span>';
+
+        document.getElementById('jdMissingBadges').innerHTML = report.jdMatchData.missing.slice(0, 25).map(k => `
+          <span class="bg-rose-50 text-rose-700 font-bold px-2 py-0.5 rounded-md border border-rose-200/60">${k}</span>
+        `).join('') || '<span class="text-slate-400 italic">None</span>';
+      } else {
+        jdCard.classList.add('hidden');
+      }
+
+      // Readability Stats
+      document.getElementById('statWordCount').textContent = `${report.totalWords} words`;
+      document.getElementById('statWordVerdict').textContent = report.totalWords >= 400 && report.totalWords <= 900 ? 'Ideal Length' : (report.totalWords < 400 ? 'A bit short' : 'Consider trimming');
+      document.getElementById('statReadingTime').textContent = `~${Math.max(1, Math.round(report.totalWords / 200))} min`;
+
+      const bulletMatches = (document.getElementById('cvTextInput').value.match(/[•\-\*]\s+/g) || []).length;
+      document.getElementById('statBulletCount').textContent = `${bulletMatches} bullets`;
+
+      const sentences = document.getElementById('cvTextInput').value.split(/[.!?]+/).filter(Boolean);
+      const avgSentLen = sentences.length > 0 ? Math.round(report.totalWords / sentences.length) : 0;
+      document.getElementById('statAvgSentence').textContent = `${avgSentLen} words`;
+
+      // Render Visual Interactive Charts (Radar, Bar, Donut)
+      renderCharts(report);
+
+      // Smooth scroll to results
+      resultsSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      showToast('ATS Resume Audit Complete!', 'fa-circle-check');
+    }
+
+    // Chart.js Rendering Engine for Visual ATS Insights
+    function renderCharts(report) {
+      if (typeof Chart === 'undefined') return;
+
+      // 1. Radar Chart: 5 Normalized Dimensions (0-100%)
+      const formatPct = Math.round((report.formatScore / 25) * 100);
+      const contactPct = Math.round((report.contactScore / 15) * 100);
+      const verbsPct = Math.round((report.verbsScore / 25) * 100);
+      const metricsPct = Math.round((report.metricsScore / 20) * 100);
+      const skillsPct = report.jdMatchData
+        ? report.jdMatchData.matchRate
+        : Math.min(100, Math.round((report.skillsScore / 15) * 100));
+
+      const radarCanvas = document.getElementById('radarChartCanvas');
+      if (radarCanvas) {
+        if (radarChartInstance) radarChartInstance.destroy();
+
+        radarChartInstance = new Chart(radarCanvas, {
+          type: 'radar',
+          data: {
+            labels: ['Heading Structure', 'Contact Profiles', 'Action Verbs', 'Metrics & KPIs', 'Keyword Relevance'],
+            datasets: [
+              {
+                label: 'Your Resume',
+                data: [formatPct, contactPct, verbsPct, metricsPct, skillsPct],
+                backgroundColor: 'rgba(79, 70, 229, 0.22)',
+                borderColor: '#4f46e5',
+                borderWidth: 2.5,
+                pointBackgroundColor: '#4f46e5',
+                pointBorderColor: '#ffffff',
+                pointHoverBackgroundColor: '#ffffff',
+                pointHoverBorderColor: '#4f46e5',
+                pointRadius: 4,
+                pointHoverRadius: 6
+              },
+              {
+                label: 'Benchmark Target (85%)',
+                data: [85, 85, 85, 85, 85],
+                backgroundColor: 'rgba(16, 185, 129, 0.06)',
+                borderColor: '#10b981',
+                borderWidth: 1.5,
+                borderDash: [4, 4],
+                pointBackgroundColor: '#10b981',
+                pointRadius: 2
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: ctx => ` ${ctx.dataset.label}: ${ctx.raw}%`
+                }
+              }
+            },
+            scales: {
+              r: {
+                suggestedMin: 0,
+                suggestedMax: 100,
+                ticks: { stepSize: 20, display: false },
+                pointLabels: {
+                  font: { size: 10, weight: '700', family: 'system-ui, sans-serif' },
+                  color: '#475569'
+                },
+                grid: { color: 'rgba(226, 232, 240, 0.8)' },
+                angleLines: { color: 'rgba(226, 232, 240, 0.8)' }
+              }
+            }
+          }
+        });
+      }
+
+      // 2. Bar Chart: Category Sub-Scores vs Benchmark
+      const barCanvas = document.getElementById('barChartCanvas');
+      if (barCanvas) {
+        if (barChartInstance) barChartInstance.destroy();
+
+        barChartInstance = new Chart(barCanvas, {
+          type: 'bar',
+          data: {
+            labels: ['Structure (25)', 'Contact (15)', 'Verbs (25)', 'Metrics (20)', 'Skills (15)'],
+            datasets: [
+              {
+                label: 'Your Score',
+                data: [report.formatScore, report.contactScore, report.verbsScore, report.metricsScore, report.skillsScore],
+                backgroundColor: '#4f46e5',
+                borderRadius: 6,
+                barPercentage: 0.55
+              },
+              {
+                label: 'Target Max',
+                data: [25, 15, 25, 20, 15],
+                backgroundColor: '#e2e8f0',
+                borderRadius: 6,
+                barPercentage: 0.55
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: ctx => ` ${ctx.dataset.label}: ${ctx.raw} pts`
+                }
+              }
+            },
+            scales: {
+              x: {
+                grid: { display: false },
+                ticks: {
+                  font: { size: 9, weight: '600', family: 'system-ui, sans-serif' },
+                  color: '#64748b'
+                }
+              },
+              y: {
+                beginAtZero: true,
+                max: 25,
+                grid: { color: '#f8fafc' },
+                ticks: { stepSize: 5, font: { size: 9 }, color: '#94a3b8' }
+              }
+            }
+          }
+        });
+      }
+
+      // 3. Donut Chart: Extracted Elements Breakdown
+      const donutCanvas = document.getElementById('donutChartCanvas');
+      if (donutCanvas) {
+        if (donutChartInstance) donutChartInstance.destroy();
+
+        const skillsCount = report.detectedSkills.length || 0;
+        const verbsCount = report.matchedPowerVerbs.length || 0;
+        const metricsCount = report.uniqueMetrics.length || 0;
+        const sectionsCount = report.sections.filter(s => s.found).length || 0;
+
+        // Fallback placeholder values if all 0
+        const displayData = (skillsCount === 0 && verbsCount === 0 && metricsCount === 0 && sectionsCount === 0)
+          ? [1, 1, 1, 1]
+          : [skillsCount, verbsCount, metricsCount, sectionsCount];
+
+        donutChartInstance = new Chart(donutCanvas, {
+          type: 'doughnut',
+          data: {
+            labels: ['Hard Skills', 'Action Verbs', 'Quantifiable Metrics', 'Sections Detected'],
+            datasets: [{
+              data: displayData,
+              backgroundColor: [
+                '#4f46e5', // indigo
+                '#f59e0b', // amber
+                '#10b981', // emerald
+                '#0284c7'  // sky
+              ],
+              borderWidth: 2,
+              borderColor: '#ffffff',
+              hoverOffset: 4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '70%',
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: ctx => ` ${ctx.label}: ${ctx.raw} detected`
+                }
+              }
+            }
+          }
+        });
+      }
+    }
+
+    // Export & Download functions
+    function generateReportSummaryText() {
+      if (!lastAnalysisReport) return '';
+      const r = lastAnalysisReport;
+
+      return `=====================================================
+360tools.me — ATS Resume Audit & CV Compatibility Report
+Generated: ${new Date().toLocaleString()}
+=====================================================
+
+OVERALL ATS SCORE: ${r.overallScore} / 100
+
+SUB-SCORES BREAKDOWN:
+• ATS Parsability & Format: ${r.formatScore} / 25
+• Contact Info & Links:    ${r.contactScore} / 15
+• Action Verbs & Impact:   ${r.verbsScore} / 25
+• Quantifiable Metrics:    ${r.metricsScore} / 20
+• Skills & Keywords:       ${r.skillsScore} / 15
+
+SECTION HEADINGS DETECTED:
+${r.sections.map(s => `[${s.found ? 'PASS' : 'FAIL'}] ${s.name}`).join('\n')}
+
+CONTACT INFORMATION:
+• Email Address:       ${r.contactInfo.hasEmail ? 'Found' : 'MISSING'}
+• Phone Number:        ${r.contactInfo.hasPhone ? 'Found' : 'MISSING'}
+• LinkedIn Profile:    ${r.contactInfo.hasLinkedIn ? 'Found' : 'MISSING'}
+• Location / City:     ${r.contactInfo.hasLocation ? 'Found' : 'MISSING'}
+
+ACTION VERBS FOUND (${r.matchedPowerVerbs.length}):
+${r.matchedPowerVerbs.join(', ') || 'None'}
+
+QUANTIFIABLE METRICS FOUND (${r.uniqueMetrics.length}):
+${r.uniqueMetrics.join(', ') || 'None'}
+
+EXTRACTED SKILLS (${r.detectedSkills.length}):
+${r.detectedSkills.join(', ') || 'None'}
+
+${r.jdMatchData ? `JOB DESCRIPTION MATCH:
+• Match Rate: ${r.jdMatchData.matchRate}%
+• Matched Keywords: ${r.jdMatchData.matched.join(', ')}
+• Missing Keywords: ${r.jdMatchData.missing.slice(0, 20).join(', ')}
+` : ''}
+DOCUMENT STATS:
+• Word Count: ${r.totalWords} words
+• Estimated Read Time: ~${Math.max(1, Math.round(r.totalWords / 200))} min
+
+=====================================================
+Checked with 100% Privacy on https://360tools.me/ats-resume-checker.html
+`;
+    }
+
+    function copyReportToClipboard() {
+      const reportText = generateReportSummaryText();
+      if (!reportText) return;
+      copyToClipboard(reportText, 'ATS Audit Report copied to clipboard!');
+    }
+
+    function downloadReportTxt() {
+      const reportText = generateReportSummaryText();
+      if (!reportText) return;
+
+      const blob = new Blob([reportText], { type: 'text/plain;charset=utf-8' });
+      const link = document.createElement('a');
+      const baseName = loadedFileName ? loadedFileName.replace(/\.[^/.]+$/, '').replace(/[^a-zA-Z0-9_-]/g, '_') : 'my_resume';
+      link.download = `360tools.me_ats_report_${baseName}_${Date.now()}.txt`;
+      link.href = URL.createObjectURL(blob);
+      document.body.removeChild(link);
+      showToast('Downloaded ATS Audit Report (.txt)!', 'fa-download');
+    }
+
+    // High-Resolution Native Vector PDF Report Generator (Crystal Clear, Multi-Page Paginated)
+    function downloadReportPdf() {
+      if (!lastAnalysisReport) {
+        showToast('Please analyze your resume first before downloading the PDF report.', 'fa-triangle-exclamation');
+        return;
+      }
+
+      if (!window.jspdf || !window.jspdf.jsPDF) {
+        showToast('PDF generator library is loading, please try again in a moment.', 'fa-clock');
+        return;
+      }
+
+      showToast('Generating executive PDF report...', 'fa-file-pdf');
+
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({
+        orientation: 'portrait',
+        unit: 'mm',
+        format: 'a4'
+      });
+
+      const r = lastAnalysisReport;
+      const baseName = loadedFileName ? loadedFileName.replace(/\.[^/.]+$/, '').replace(/[^a-zA-Z0-9_-]/g, '_') : 'my_resume';
+      
+      const pageWidth = 210;
+      const margin = 14;
+      const contentWidth = pageWidth - (margin * 2); // 182mm
+      let cursorY = margin;
+      let currentPage = 1;
+
+      function drawHeader() {
+        doc.setFillColor(24, 49, 83); // Navy #183153
+        doc.roundedRect(margin, 10, contentWidth, 18, 2, 2, 'F');
+
+        doc.setTextColor(255, 255, 255);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(13);
+        doc.text('360tools.me', margin + 6, 18);
+
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(8);
+        doc.setTextColor(203, 213, 225);
+        doc.text('ATS Resume Audit & CV Compatibility Report', margin + 6, 24);
+
+        const dateStr = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+        doc.setFontSize(7.5);
+        doc.setTextColor(226, 232, 240);
+        doc.text(dateStr, pageWidth - margin - 6, 20, { align: 'right' });
+      }
+
+      function drawFooter(pageNum) {
+        doc.setDrawColor(226, 232, 240);
+        doc.line(margin, 285, pageWidth - margin, 285);
+
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(7);
+        doc.setTextColor(148, 163, 184);
+        doc.text('360tools.me — Free Developer & Career Tools • 100% Private In-Browser Scan', margin, 290);
+        doc.text(`Page ${pageNum}`, pageWidth - margin, 290, { align: 'right' });
+      }
+
+      function ensureSpace(neededHeight) {
+        if (cursorY + neededHeight > 275) {
+          drawFooter(currentPage);
+          doc.addPage();
+          currentPage++;
+          drawHeader();
+          cursorY = 34;
+        }
+      }
+
+      // 1. Initial Page Header
+      drawHeader();
+      cursorY = 34;
+
+      // 2. OVERALL SCORE CARD
+      doc.setFillColor(248, 250, 252);
+      doc.setDrawColor(226, 232, 240);
+      doc.roundedRect(margin, cursorY, contentWidth, 26, 2, 2, 'FD');
+
+      // Score Badge Box
+      let scoreColor = [79, 70, 229]; // Indigo
+      let gradeLabel = 'Grade B+ • Good ATS Compatibility';
+      if (r.overallScore >= 85) {
+        scoreColor = [16, 185, 129]; // Emerald
+        gradeLabel = 'Grade A+ • Excellent ATS Compatibility';
+      } else if (r.overallScore < 50) {
+        scoreColor = [225, 29, 72]; // Rose
+        gradeLabel = 'Grade D • High ATS Rejection Risk';
+      } else if (r.overallScore < 70) {
+        scoreColor = [217, 119, 6]; // Amber
+        gradeLabel = 'Grade C • Needs ATS Optimization';
+      }
+
+      doc.setFillColor(scoreColor[0], scoreColor[1], scoreColor[2]);
+      doc.roundedRect(margin + 4, cursorY + 3.5, 34, 19, 2, 2, 'F');
+
+      doc.setTextColor(255, 255, 255);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(16);
+      doc.text(`${r.overallScore}`, margin + 21, cursorY + 12.5, { align: 'center' });
+      doc.setFontSize(6.5);
+      doc.text('/ 100 ATS SCORE', margin + 21, cursorY + 18, { align: 'center' });
+
+      // Score Info Text
+      doc.setTextColor(scoreColor[0], scoreColor[1], scoreColor[2]);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(10);
+      doc.text(gradeLabel, margin + 42, cursorY + 8);
+
+      doc.setTextColor(24, 49, 83);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(8.5);
+      const nameStr = doc.splitTextToSize(`Target Resume: ${loadedFileName || 'Pasted Resume Text'}`, contentWidth - 46)[0];
+      doc.text(nameStr, margin + 42, cursorY + 14);
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(7.5);
+      doc.setTextColor(100, 116, 139);
+      doc.text(`Word Count: ${r.totalWords} words   •   Est. Read Time: ~${Math.max(1, Math.round(r.totalWords / 200))} min   •   5 Heuristic Dimensions`, margin + 42, cursorY + 20);
+
+      cursorY += 32;
+
+      // 3. 5 SUB-SCORES BREAKDOWN (Horizontal Cards)
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(9);
+      doc.setTextColor(24, 49, 83);
+      doc.text('1. CATEGORY HEURISTIC SCORES', margin, cursorY);
+      cursorY += 4;
+
+      const colW = (contentWidth - 8) / 5;
+      const subScores = [
+        { label: 'Structure', val: `${r.formatScore}/25`, pct: Math.round((r.formatScore / 25) * 100) },
+        { label: 'Contact Info', val: `${r.contactScore}/15`, pct: Math.round((r.contactScore / 15) * 100) },
+        { label: 'Action Verbs', val: `${r.verbsScore}/25`, pct: Math.round((r.verbsScore / 25) * 100) },
+        { label: 'Metrics/KPIs', val: `${r.metricsScore}/20`, pct: Math.round((r.metricsScore / 20) * 100) },
+        { label: 'Skills Density', val: `${r.skillsScore}/15`, pct: Math.round((r.skillsScore / 15) * 100) }
+      ];
+
+      subScores.forEach((s, idx) => {
+        const boxX = margin + (idx * (colW + 2));
+        doc.setFillColor(255, 255, 255);
+        doc.setDrawColor(226, 232, 240);
+        doc.roundedRect(boxX, cursorY, colW, 16, 1.5, 1.5, 'FD');
+
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(7);
+        doc.setTextColor(100, 116, 139);
+        doc.text(s.label, boxX + 2.5, cursorY + 4.5);
+
+        doc.setFontSize(9.5);
+        doc.setTextColor(79, 70, 229);
+        doc.text(s.val, boxX + 2.5, cursorY + 10.5);
+
+        doc.setFontSize(6.5);
+        doc.setTextColor(148, 163, 184);
+        doc.text(`${s.pct}%`, boxX + colW - 2.5, cursorY + 10.5, { align: 'right' });
+
+        // Mini bar
+        doc.setFillColor(241, 245, 249);
+        doc.rect(boxX + 2.5, cursorY + 12.5, colW - 5, 1.8, 'F');
+        doc.setFillColor(79, 70, 229);
+        doc.rect(boxX + 2.5, cursorY + 12.5, (colW - 5) * (s.pct / 100), 1.8, 'F');
+      });
+
+      cursorY += 22;
+
+      // 4. SECTION HEADINGS & CONTACT AUDIT (2 Side-by-side columns)
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(9);
+      doc.setTextColor(24, 49, 83);
+      doc.text('2. SECTION HEADINGS & CONTACT DETAILS AUDIT', margin, cursorY);
+      cursorY += 4;
+
+      const halfW = (contentWidth - 4) / 2;
+
+      // Left Box: Headings
+      doc.setFillColor(255, 255, 255);
+      doc.setDrawColor(226, 232, 240);
+      doc.roundedRect(margin, cursorY, halfW, 30, 2, 2, 'FD');
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7.5);
+      doc.setTextColor(24, 49, 83);
+      doc.text('Standard Section Headings:', margin + 3.5, cursorY + 5);
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(7);
+      r.sections.forEach((sec, sIdx) => {
+        const itemY = cursorY + 9.5 + (sIdx * 3.4);
+        if (sec.found) {
+          doc.setTextColor(16, 185, 129);
+          doc.setFont('helvetica', 'bold');
+          doc.text('[PASS]', margin + 3.5, itemY);
+        } else {
+          doc.setTextColor(225, 29, 72);
+          doc.setFont('helvetica', 'bold');
+          doc.text('[MISS]', margin + 3.5, itemY);
+        }
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(51, 65, 85);
+        doc.text(sec.name, margin + 16, itemY);
+      });
+
+      // Right Box: Contact Info
+      doc.setFillColor(255, 255, 255);
+      doc.setDrawColor(226, 232, 240);
+      doc.roundedRect(margin + halfW + 4, cursorY, halfW, 30, 2, 2, 'FD');
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7.5);
+      doc.setTextColor(24, 49, 83);
+      doc.text('Contact & Profile Details:', margin + halfW + 7.5, cursorY + 5);
+
+      const contactItems = [
+        { label: 'Email Address', found: r.contactInfo.hasEmail },
+        { label: 'Phone Number', found: r.contactInfo.hasPhone },
+        { label: 'LinkedIn Profile', found: r.contactInfo.hasLinkedIn },
+        { label: 'Location / City', found: r.contactInfo.hasLocation }
+      ];
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(7);
+      contactItems.forEach((ci, cIdx) => {
+        const itemY = cursorY + 10.5 + (cIdx * 4.5);
+        if (ci.found) {
+          doc.setTextColor(16, 185, 129);
+          doc.setFont('helvetica', 'bold');
+          doc.text('[FOUND]', margin + halfW + 7.5, itemY);
+        } else {
+          doc.setTextColor(225, 29, 72);
+          doc.setFont('helvetica', 'bold');
+          doc.text('[MISSING]', margin + halfW + 7.5, itemY);
+        }
+        doc.setFont('helvetica', 'normal');
+        doc.setTextColor(51, 65, 85);
+        doc.text(ci.label, margin + halfW + 24, itemY);
+      });
+
+      cursorY += 35;
+
+      // 5. CONTENT & IMPACT HEURISTICS (Dynamic Height)
+      ensureSpace(35);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(9);
+      doc.setTextColor(24, 49, 83);
+      doc.text('3. IMPACT & KEYWORD DENSITY ANALYSIS', margin, cursorY);
+      cursorY += 5;
+
+      // Block A: Power Verbs
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7.5);
+      doc.setTextColor(79, 70, 229);
+      doc.text(`Strong Power Action Verbs (${r.matchedPowerVerbs.length} detected):`, margin + 2, cursorY);
+      cursorY += 3.8;
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(7);
+      doc.setTextColor(51, 65, 85);
+      const verbsText = r.matchedPowerVerbs.join(', ') || 'No strong power action verbs found.';
+      const verbLines = doc.splitTextToSize(verbsText, contentWidth - 4);
+      doc.text(verbLines, margin + 2, cursorY);
+      cursorY += (verbLines.length * 3.4) + 4;
+
+      // Block B: Quantifiable Metrics
+      ensureSpace(20);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7.5);
+      doc.setTextColor(16, 185, 129);
+      doc.text(`Measurable Quantifiable Metrics & KPIs (${r.uniqueMetrics.length} found):`, margin + 2, cursorY);
+      cursorY += 3.8;
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(7);
+      doc.setTextColor(51, 65, 85);
+      const metricsText = r.uniqueMetrics.join(', ') || 'No quantifiable percentages, numbers, or KPIs found.';
+      const metricLines = doc.splitTextToSize(metricsText, contentWidth - 4);
+      doc.text(metricLines, margin + 2, cursorY);
+      cursorY += (metricLines.length * 3.4) + 4;
+
+      // Block C: Technical Skills
+      ensureSpace(20);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7.5);
+      doc.setTextColor(24, 49, 83);
+      doc.text(`Extracted Technical Skills & Technologies (${r.detectedSkills.length} found):`, margin + 2, cursorY);
+      cursorY += 3.8;
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(7);
+      doc.setTextColor(51, 65, 85);
+      const skillsText = r.detectedSkills.join(', ') || 'No standard technical keywords detected.';
+      const skillLines = doc.splitTextToSize(skillsText, contentWidth - 4);
+      doc.text(skillLines, margin + 2, cursorY);
+      cursorY += (skillLines.length * 3.4) + 5;
+
+      // 6. JOB DESCRIPTION GAP ANALYSIS (If JD provided)
+      if (r.jdMatchData) {
+        ensureSpace(32);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(9);
+        doc.setTextColor(24, 49, 83);
+        doc.text(`4. TARGET JOB DESCRIPTION MATCH: ${r.jdMatchData.matchRate}% MATCH RATE`, margin, cursorY);
+        cursorY += 5;
+
+        // Matched Keywords
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(7.5);
+        doc.setTextColor(16, 185, 129);
+        doc.text(`Matched Job Keywords (${r.jdMatchData.matched.length}):`, margin + 2, cursorY);
+        cursorY += 3.8;
+
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(7);
+        doc.setTextColor(51, 65, 85);
+        const matchText = r.jdMatchData.matched.join(', ') || 'None';
+        const matchLines = doc.splitTextToSize(matchText, contentWidth - 4);
+        doc.text(matchLines, margin + 2, cursorY);
+        cursorY += (matchLines.length * 3.4) + 3.5;
+
+        // Missing Keywords
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(7.5);
+        doc.setTextColor(225, 29, 72);
+        doc.text(`Missing Recommended Keywords (${r.jdMatchData.missing.length}):`, margin + 2, cursorY);
+        cursorY += 3.8;
+
+        doc.setFont('helvetica', 'normal');
+        doc.setFontSize(7);
+        doc.setTextColor(225, 29, 72);
+        const missText = r.jdMatchData.missing.join(', ') || 'None';
+        const missLines = doc.splitTextToSize(missText, contentWidth - 4);
+        doc.text(missLines, margin + 2, cursorY);
+        cursorY += (missLines.length * 3.4) + 5;
+      }
+
+      // 7. PRIORITY RECOMMENDATIONS
+      ensureSpace(28);
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(9);
+      doc.setTextColor(24, 49, 83);
+      doc.text(`${r.jdMatchData ? '5' : '4'}. PRIORITY ATS RECOMMENDATIONS`, margin, cursorY);
+      cursorY += 4;
+
+      doc.setFillColor(248, 250, 252);
+      doc.setDrawColor(226, 232, 240);
+      doc.roundedRect(margin, cursorY, contentWidth, 24, 2, 2, 'FD');
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(7);
+      doc.setTextColor(51, 65, 85);
+
+      const tips = [];
+      if (!r.contactInfo.hasLinkedIn) tips.push('• Add your LinkedIn profile URL at the top of your resume header.');
+      if (!r.contactInfo.hasPhone) tips.push('• Ensure a clearly formatted phone number is visible in contact details.');
+      if (r.uniqueMetrics.length < 3) tips.push('• Quantify results with numbers, % growth, revenue figures, or time saved.');
+      if (r.matchedPowerVerbs.length < 6) tips.push('• Replace passive phrasing with strong verbs (e.g. Spearheaded, Engineered, Delivered).');
+      tips.push('• Keep resume text in standard single-column format for optimal parsing across modern ATS platforms.');
+
+      tips.slice(0, 4).forEach((tip, tIdx) => {
+        doc.text(tip, margin + 4, cursorY + 5.5 + (tIdx * 4.4));
+      });
+
+      // Draw footer on current (final) page
+      drawFooter(currentPage);
+
+      // Save PDF
+      const fileName = `360tools.me_ats_resume_report_${baseName}_${Date.now()}.pdf`;
+      doc.save(fileName);
+      showToast('Downloaded PDF Audit Report!', 'fa-file-pdf');
+    }
+  </script>
+</body>
+</html>

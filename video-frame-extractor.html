@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Free Video Frame Extractor Online (Video to Images) | 360tools</title>
+  <meta name="title" content="Free Video Frame Extractor Online (Video to Images) | 360tools">
+  <meta name="description" content="Extract high-quality image frames from any video online for free. Capture snapshots, export sequences as JPG/PNG/WebP, and download ZIP in-browser.">
+  <meta name="keywords" content="video frame extractor, extract frames from video, video to frames, video to images, parse video frames, video frame capture, mp4 to png frames, video to jpg sequence, export video frames zip, video storyboard generator, client side video frame parser">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/video-frame-extractor.html">
+
+  <!-- Favicon & Open Graph / Facebook -->
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/video-frame-extractor.html">
+  <meta property="og:title" content="Free Video Frame Extractor Online — Video to Image Sequence | 360tools.me">
+  <meta property="og:description" content="Parse and extract high-definition image frames from any video directly in your browser. Download all frames as a ZIP or storyboard contact sheet with zero server uploads.">
+  <meta property="og:image" content="images/logo.jpg">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/video-frame-extractor.html">
+  <meta property="twitter:title" content="Video Frame Extractor — 100% Private In-Browser Tool">
+  <meta property="twitter:description" content="Convert video to full-resolution PNG/JPG frame sequence. Extract by FPS, interval, or snapshot with instant ZIP archive export.">
+  <meta property="twitter:image" content="images/logo.jpg">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Client-Side Video Frame Extractor",
+    "url": "https://360tools.me/video-frame-extractor.html",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "description": "100% Client-side video to image frame extractor for MP4, WebM, MOV, and MKV files. Extracts frames at custom FPS, intervals, or exact counts in browser memory without server uploads.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are my video files uploaded to any server to extract frames?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. All video decoding, frame rendering, and ZIP packaging run 100% locally inside your web browser using HTML5 Video and Canvas APIs. Your video files never leave your computer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What image formats can I export the extracted video frames to?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can export frames in lossless PNG, high-quality JPEG (with custom compression quality), or lightweight WebP format."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I download all extracted video frames in a single ZIP file?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! You can download all extracted frames or only selected frames in a single organized ZIP archive, or export a multi-frame storyboard contact sheet image."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I extract a single frame snapshot at a specific timestamp?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Play or scrub the video to your desired scene in the video player, then click the 'Capture Current Frame' button for an instant full-resolution snapshot."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Media & Compression",
+        "item": "https://360tools.me/#media-tools"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Video Frame Extractor",
+        "item": "https://360tools.me/video-frame-extractor.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- JSZip for Client-Side ZIP Generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#183153] px-3 sm:px-6 py-4">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto w-full flex-1">
+    
+    <!-- Hero / Headline Above the Fold -->
+    <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="bg-indigo-50 text-indigo-700 text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-solid fa-film mr-1"></i> In-Browser Frame Extraction Engine
+          </span>
+          <span class="text-xs font-bold text-slate-400">• 100% Private • Instant ZIP Export • Zero Watermarks</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-[#183153] tracking-tight">
+          Video Frame Extractor
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
+          Upload any video to extract high-resolution image frames. Parse by FPS, time interval, or total count. Download individual photos, batch ZIP package, or storyboard contact sheet.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 self-start sm:self-center">
+        <button onclick="generateSampleVideo()" class="fa-btn-secondary text-xs px-3.5 py-2" title="Generate a 5-second test video with moving shapes and timestamps">
+          <i class="fa-solid fa-wand-magic-sparkles text-amber-500"></i> Generate Sample Video
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Workspace Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+      <!-- LEFT COLUMN: Video Player & Source Info (5 cols) -->
+      <div class="lg:col-span-5 space-y-6">
+
+        <!-- Drop Zone & Player Card -->
+        <div class="fa-card p-5 relative">
+          
+          <!-- Drop Area (visible before video load) -->
+          <div id="videoDropZone" class="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center bg-slate-50/60 hover:bg-slate-50 transition-all cursor-pointer group">
+            <input type="file" id="videoFileInput" accept="video/mp4,video/webm,video/ogg,video/quicktime,video/x-matroska,video/*" class="hidden" onchange="handleVideoUpload(event)">
+            
+            <div class="w-16 h-16 mx-auto bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center text-2xl mb-3 group-hover:scale-110 transition-transform shadow-sm">
+              <i class="fa-solid fa-file-video"></i>
+            </div>
+            
+            <h3 class="font-bold text-[#183153] text-base mb-1">
+              Drop your video here or <span class="text-indigo-600 underline">browse</span>
+            </h3>
+            <p class="text-xs text-slate-500 mb-3">
+              Supports MP4, WebM, MOV, MKV, AVI (Processed 100% locally in browser memory)
+            </p>
+
+            <button type="button" onclick="document.getElementById('videoFileInput').click()" class="fa-btn-primary text-xs px-4 py-2">
+              <i class="fa-solid fa-folder-open"></i> Choose Video File
+            </button>
+          </div>
+
+          <!-- Video Player Box (visible after video load) -->
+          <div id="videoPlayerBox" class="hidden space-y-3">
+            <div class="relative bg-black rounded-xl overflow-hidden shadow-inner flex items-center justify-center max-h-[360px] aspect-video">
+              <video id="videoPlayer" class="w-full h-full object-contain max-h-[360px]" playsinline controls></video>
+            </div>
+
+            <!-- Video Quick Controls & Frame Steppers -->
+            <div class="flex items-center justify-between gap-2 pt-1 border-t border-slate-100">
+              <div class="flex items-center gap-1.5">
+                <button type="button" onclick="stepFrame(-1)" class="px-2.5 py-1.5 text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition-colors" title="Step backward 1 frame (~0.033s)">
+                  <i class="fa-solid fa-backward-step"></i> -1 Frame
+                </button>
+                <button type="button" onclick="stepFrame(1)" class="px-2.5 py-1.5 text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition-colors" title="Step forward 1 frame (~0.033s)">
+                  +1 Frame <i class="fa-solid fa-forward-step"></i>
+                </button>
+              </div>
+
+              <!-- Instant Capture Single Frame Button -->
+              <button type="button" onclick="captureCurrentFrameSnapshot()" class="fa-btn-yellow text-xs px-3 py-1.5" title="Take immediate snapshot of current video frame">
+                <i class="fa-solid fa-camera"></i> Snapshot Frame
+              </button>
+            </div>
+
+            <!-- Video File Metadata Badges -->
+            <div class="grid grid-cols-3 gap-2 bg-slate-50 rounded-xl p-3 text-center border border-slate-200/70 text-xs">
+              <div>
+                <span class="text-slate-400 block text-[10px] font-bold uppercase">Duration</span>
+                <span id="metaDuration" class="font-bold text-[#183153]">--:--</span>
+              </div>
+              <div class="border-x border-slate-200">
+                <span class="text-slate-400 block text-[10px] font-bold uppercase">Resolution</span>
+                <span id="metaResolution" class="font-bold text-[#183153]">-- × --</span>
+              </div>
+              <div>
+                <span class="text-slate-400 block text-[10px] font-bold uppercase">File Size</span>
+                <span id="metaFileSize" class="font-bold text-[#183153]">-- MB</span>
+              </div>
+            </div>
+
+            <!-- Replace Video Button -->
+            <div class="text-center pt-1">
+              <button type="button" onclick="document.getElementById('videoFileInput').click()" class="text-xs text-slate-500 hover:text-indigo-600 font-semibold inline-flex items-center gap-1">
+                <i class="fa-solid fa-arrow-rotate-left"></i> Change / Upload Another Video
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Quick Summary Box / Privacy Guarantee -->
+        <div class="bg-indigo-50/50 border border-indigo-100 rounded-2xl p-4 flex items-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center flex-shrink-0 text-lg">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-black text-[#183153] uppercase tracking-wide">Client-Side Canvas Processing</h4>
+            <p class="text-xs text-slate-600 mt-0.5 leading-relaxed">
+              Frames are rendered directly from your browser's video decoder onto HTML5 Canvas elements. Video bytes never leave your machine.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Extraction Controls & Configuration (7 cols) -->
+      <div class="lg:col-span-7 space-y-6">
+
+        <!-- Extraction Settings Form Card -->
+        <div class="fa-card p-6 space-y-6">
+          
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <h2 class="text-lg font-black text-[#183153] flex items-center gap-2">
+              <i class="fa-solid fa-sliders text-indigo-600"></i> Extraction Configuration
+            </h2>
+            <span id="estimatedFrameBadge" class="text-xs bg-slate-100 text-slate-700 font-bold px-2.5 py-1 rounded-full border border-slate-200">
+              Estimated: ~0 frames
+            </span>
+          </div>
+
+          <!-- 1. Extraction Mode Selector -->
+          <div class="space-y-3">
+            <label class="block text-xs font-black text-[#183153] uppercase tracking-wider">
+              Extraction Mode
+            </label>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+              <!-- Mode: By FPS / Frame Rate -->
+              <label class="relative flex flex-col p-3 border-2 rounded-xl cursor-pointer transition-all has-[:checked]:border-indigo-600 has-[:checked]:bg-indigo-50/40 border-slate-200 hover:border-slate-300">
+                <input type="radio" name="extractionMode" value="fps" checked onchange="updateModeUI()" class="sr-only">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-bold text-xs text-[#183153]">Frame Rate (FPS)</span>
+                  <i class="fa-solid fa-gauge-high text-indigo-600"></i>
+                </div>
+                <span class="text-[11px] text-slate-500">e.g. 1 frame/sec, 5 fps, or every single frame</span>
+              </label>
+
+              <!-- Mode: By Time Interval -->
+              <label class="relative flex flex-col p-3 border-2 rounded-xl cursor-pointer transition-all has-[:checked]:border-indigo-600 has-[:checked]:bg-indigo-50/40 border-slate-200 hover:border-slate-300">
+                <input type="radio" name="extractionMode" value="interval" onchange="updateModeUI()" class="sr-only">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-bold text-xs text-[#183153]">Time Interval</span>
+                  <i class="fa-solid fa-stopwatch text-indigo-600"></i>
+                </div>
+                <span class="text-[11px] text-slate-500">e.g. 1 frame every 0.5s, 1s, 2s, or 5s</span>
+              </label>
+
+              <!-- Mode: By Total Frame Count -->
+              <label class="relative flex flex-col p-3 border-2 rounded-xl cursor-pointer transition-all has-[:checked]:border-indigo-600 has-[:checked]:bg-indigo-50/40 border-slate-200 hover:border-slate-300">
+                <input type="radio" name="extractionMode" value="total" onchange="updateModeUI()" class="sr-only">
+                <div class="flex items-center justify-between mb-1">
+                  <span class="font-bold text-xs text-[#183153]">Total Count</span>
+                  <i class="fa-solid fa-images text-indigo-600"></i>
+                </div>
+                <span class="text-[11px] text-slate-500">e.g. Exactly 10, 30, 50, or 100 frames</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Dynamic Mode Parameters Options -->
+          <div class="bg-slate-50/80 p-4 rounded-xl border border-slate-200/80 space-y-4">
+            
+            <!-- Parameters: FPS Mode -->
+            <div id="paramBoxFps" class="space-y-2">
+              <div class="flex items-center justify-between">
+                <label class="text-xs font-bold text-[#183153]" for="fpsPresetSelect">Frames Per Second (FPS):</label>
+                <span id="fpsValDisplay" class="text-xs font-black text-indigo-600">1 frame/sec</span>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <button type="button" onclick="setFpsValue(1)" class="fps-btn px-2 py-1.5 text-xs font-bold rounded-lg border border-slate-300 bg-white hover:bg-slate-100 active:scale-95 transition-all text-slate-700">1 FPS</button>
+                <button type="button" onclick="setFpsValue(2)" class="fps-btn px-2 py-1.5 text-xs font-bold rounded-lg border border-slate-300 bg-white hover:bg-slate-100 active:scale-95 transition-all text-slate-700">2 FPS</button>
+                <button type="button" onclick="setFpsValue(5)" class="fps-btn px-2 py-1.5 text-xs font-bold rounded-lg border border-slate-300 bg-white hover:bg-slate-100 active:scale-95 transition-all text-slate-700">5 FPS</button>
+                <button type="button" onclick="setFpsValue(10)" class="fps-btn px-2 py-1.5 text-xs font-bold rounded-lg border border-slate-300 bg-white hover:bg-slate-100 active:scale-95 transition-all text-slate-700">10 FPS</button>
+              </div>
+              <div class="flex items-center gap-3 pt-1">
+                <input type="range" id="fpsSlider" min="0.2" max="30" step="0.2" value="1" oninput="handleFpsSlider(this.value)" class="w-full accent-indigo-600">
+                <input type="number" id="fpsCustomInput" min="0.1" max="60" step="0.1" value="1" oninput="handleFpsCustom(this.value)" class="w-20 px-2 py-1 text-xs border border-slate-300 rounded font-bold text-center">
+              </div>
+            </div>
+
+            <!-- Parameters: Time Interval Mode -->
+            <div id="paramBoxInterval" class="hidden space-y-2">
+              <div class="flex items-center justify-between">
+                <label class="text-xs font-bold text-[#183153]" for="intervalInput">Extract 1 frame every:</label>
+                <span id="intervalValDisplay" class="text-xs font-black text-indigo-600">1.0 second</span>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <button type="button" onclick="setIntervalValue(0.25)" class="interval-btn px-2 py-1.5 text-xs font-bold rounded-lg border border-slate-300 bg-white hover:bg-slate-100 text-slate-700">Every 0.25s</button>
+                <button type="button" onclick="setIntervalValue(0.5)" class="interval-btn px-2 py-1.5 text-xs font-bold rounded-lg border border-slate-300 bg-white hover:bg-slate-100 text-slate-700">Every 0.5s</button>
+                <button type="button" onclick="setIntervalValue(1.0)" class="interval-btn px-2 py-1.5 text-xs font-bold rounded-lg border border-slate-300 bg-white hover:bg-slate-100 text-slate-700">Every 1s</button>
+                <button type="button" onclick="setIntervalValue(2.0)" class="interval-btn px-2 py-1.5 text-xs font-bold rounded-lg border border-slate-300 bg-white hover:bg-slate-100 text-slate-700">Every 2s</button>
+              </div>
+              <div class="flex items-center gap-3 pt-1">
+                <input type="range" id="intervalSlider" min="0.1" max="10" step="0.1" value="1.0" oninput="handleIntervalSlider(this.value)" class="w-full accent-indigo-600">
+                <input type="number" id="intervalCustomInput" min="0.05" max="60" step="0.05" value="1.0" oninput="handleIntervalCustom(this.value)" class="w-20 px-2 py-1 text-xs border border-slate-300 rounded font-bold text-center">
+              </div>
+            </div>
+
+            <!-- Parameters: Total Count Mode -->
+            <div id="paramBoxTotal" class="hidden space-y-2">
+              <div class="flex items-center justify-between">
+                <label class="text-xs font-bold text-[#183153]" for="totalCountInput">Total Evenly Spaced Frames:</label>
+                <span id="totalCountValDisplay" class="text-xs font-black text-indigo-600">20 frames</span>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <button type="button" onclick="setTotalCountValue(10)" class="total-btn px-2 py-1.5 text-xs font-bold rounded-lg border border-slate-300 bg-white hover:bg-slate-100 text-slate-700">10 Frames</button>
+                <button type="button" onclick="setTotalCountValue(20)" class="total-btn px-2 py-1.5 text-xs font-bold rounded-lg border border-slate-300 bg-white hover:bg-slate-100 text-slate-700">20 Frames</button>
+                <button type="button" onclick="setTotalCountValue(50)" class="total-btn px-2 py-1.5 text-xs font-bold rounded-lg border border-slate-300 bg-white hover:bg-slate-100 text-slate-700">50 Frames</button>
+                <button type="button" onclick="setTotalCountValue(100)" class="total-btn px-2 py-1.5 text-xs font-bold rounded-lg border border-slate-300 bg-white hover:bg-slate-100 text-slate-700">100 Frames</button>
+              </div>
+              <div class="flex items-center gap-3 pt-1">
+                <input type="range" id="totalCountSlider" min="2" max="200" step="1" value="20" oninput="handleTotalCountSlider(this.value)" class="w-full accent-indigo-600">
+                <input type="number" id="totalCountCustomInput" min="2" max="500" step="1" value="20" oninput="handleTotalCountCustom(this.value)" class="w-20 px-2 py-1 text-xs border border-slate-300 rounded font-bold text-center">
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 2. Time Range (Full vs Trim Interval) -->
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <label class="text-xs font-black text-[#183153] uppercase tracking-wider">
+                Video Time Range
+              </label>
+              <label class="inline-flex items-center gap-1.5 cursor-pointer text-xs font-bold text-indigo-600">
+                <input type="checkbox" id="chkTrimRange" onchange="toggleTrimRangeUI()" class="rounded text-indigo-600 accent-indigo-600">
+                <span>Trim Custom Range</span>
+              </label>
+            </div>
+
+            <div id="trimRangeBox" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-3 bg-slate-50 p-3.5 rounded-xl border border-slate-200">
+              <!-- Start Time -->
+              <div class="space-y-1">
+                <div class="flex items-center justify-between text-xs">
+                  <span class="font-bold text-slate-700">Start Time (sec):</span>
+                  <button type="button" onclick="setTrimStartCurrent()" class="text-[11px] text-indigo-600 hover:underline font-semibold">
+                    Set Current Player Time
+                  </button>
+                </div>
+                <input type="number" id="trimStartTime" min="0" step="0.1" value="0" onchange="recalculateEstimatedFrames()" class="w-full px-3 py-1.5 text-xs font-bold border border-slate-300 rounded-lg">
+              </div>
+
+              <!-- End Time -->
+              <div class="space-y-1">
+                <div class="flex items-center justify-between text-xs">
+                  <span class="font-bold text-slate-700">End Time (sec):</span>
+                  <button type="button" onclick="setTrimEndCurrent()" class="text-[11px] text-indigo-600 hover:underline font-semibold">
+                    Set Current Player Time
+                  </button>
+                </div>
+                <input type="number" id="trimEndTime" min="0.1" step="0.1" value="5" onchange="recalculateEstimatedFrames()" class="w-full px-3 py-1.5 text-xs font-bold border border-slate-300 rounded-lg">
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Output Format, Scaling & Watermark Options -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 border-t border-slate-100">
+            <!-- Format -->
+            <div>
+              <label class="block text-xs font-bold text-[#183153] mb-1.5" for="exportFormat">Image Format</label>
+              <select id="exportFormat" onchange="handleFormatChange()" class="w-full px-3 py-2 text-xs font-bold border border-slate-300 rounded-lg bg-white">
+                <option value="image/png" selected>PNG (Lossless Quality)</option>
+                <option value="image/jpeg">JPEG (Fast / Small Size)</option>
+                <option value="image/webp">WebP (Modern Optimized)</option>
+              </select>
+            </div>
+
+            <!-- Resolution Scale -->
+            <div>
+              <label class="block text-xs font-bold text-[#183153] mb-1.5" for="exportResolution">Output Scale</label>
+              <select id="exportResolution" class="w-full px-3 py-2 text-xs font-bold border border-slate-300 rounded-lg bg-white">
+                <option value="1" selected>Original Resolution (100%)</option>
+                <option value="1080">Scale to 1080p Full HD</option>
+                <option value="720">Scale to 720p HD</option>
+                <option value="480">Scale to 480p SD</option>
+                <option value="0.5">50% Original Size</option>
+                <option value="0.25">25% Original Size</option>
+              </select>
+            </div>
+
+            <!-- JPEG Quality (visible when JPG selected) -->
+            <div id="jpgQualityBox" class="space-y-1">
+              <div class="flex items-center justify-between text-xs font-bold text-[#183153]">
+                <span>Quality</span>
+                <span id="jpgQualityVal">90%</span>
+              </div>
+              <input type="range" id="jpgQualitySlider" min="0.2" max="1.0" step="0.05" value="0.9" oninput="document.getElementById('jpgQualityVal').textContent = Math.round(this.value*100)+'%'" class="w-full accent-indigo-600 mt-2">
+            </div>
+          </div>
+
+          <!-- Timecode Overlay Option & Custom Prefix -->
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-100 text-xs">
+            <label class="inline-flex items-center gap-2 cursor-pointer text-slate-700 font-semibold">
+              <input type="checkbox" id="chkTimestampOverlay" class="rounded text-indigo-600 accent-indigo-600">
+              <span>Stamp Timecode Overlay onto Images (e.g. <code class="text-indigo-600">00:03.250</code>)</span>
+            </label>
+
+            <div class="inline-flex items-center gap-1.5">
+              <span class="text-slate-500 font-bold">Prefix:</span>
+              <input type="text" id="framePrefixInput" value="360tools.me_frame_" class="px-2 py-1 text-xs border border-slate-300 rounded font-mono w-44 text-center">
+            </div>
+          </div>
+
+          <!-- Primary Action Buttons & Live Progress Area -->
+          <div class="space-y-3 pt-2">
+            
+            <div class="flex items-center gap-3">
+              <button id="btnStartExtract" type="button" onclick="startFrameExtraction()" disabled class="fa-btn-primary flex-1 py-3 text-sm disabled:opacity-50 disabled:cursor-not-allowed">
+                <i class="fa-solid fa-play"></i> Extract Frames
+              </button>
+
+              <button id="btnCancelExtract" type="button" onclick="cancelFrameExtraction()" class="hidden px-4 py-3 bg-rose-50 text-rose-600 border border-rose-200 hover:bg-rose-100 font-bold rounded-xl text-xs transition-colors">
+                <i class="fa-solid fa-stop"></i> Cancel
+              </button>
+            </div>
+
+            <!-- Progress Bar Card -->
+            <div id="extractionProgressBox" class="hidden bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+              <div class="flex items-center justify-between text-xs font-bold text-[#183153]">
+                <span id="progressStatusText"><i class="fa-solid fa-spinner fa-spin mr-1 text-indigo-600"></i> Parsing video frames...</span>
+                <span id="progressPercentText" class="text-indigo-600">0%</span>
+              </div>
+              <div class="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden">
+                <div id="extractionProgressBar" class="bg-indigo-600 h-2.5 rounded-full transition-all duration-100" style="width: 0%"></div>
+              </div>
+              <div class="flex items-center justify-between text-[11px] text-slate-500 pt-0.5">
+                <span id="progressCountText">Frames: 0 / 0</span>
+                <span id="progressSpeedText">Extracting...</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- GALLERY SECTION: Extracted Frames Display & Batch Tools -->
+    <section id="framesGallerySection" class="mt-12 space-y-6">
+      
+      <!-- Gallery Action Toolbar -->
+      <div class="fa-card p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-black text-base shadow-sm">
+            <i class="fa-solid fa-images"></i>
+          </div>
+          <div>
+            <h3 class="text-base sm:text-lg font-black text-[#183153]">
+              Extracted Frames Gallery (<span id="totalExtractedCount">0</span>)
+            </h3>
+            <p class="text-xs text-slate-500">
+              <span id="selectedCountText">0 selected</span> • Click any frame to zoom, preview, copy, or download
+            </p>
+          </div>
+        </div>
+
+        <!-- Toolbar Buttons -->
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- Selection Controls -->
+          <div class="inline-flex items-center gap-1 bg-slate-100 p-1 rounded-lg border border-slate-200">
+            <button type="button" onclick="selectAllFrames(true)" class="px-2.5 py-1 text-xs font-bold text-slate-700 hover:bg-white rounded transition-all">Select All</button>
+            <button type="button" onclick="selectAllFrames(false)" class="px-2.5 py-1 text-xs font-bold text-slate-700 hover:bg-white rounded transition-all">Deselect</button>
+            <button type="button" onclick="invertSelection()" class="px-2.5 py-1 text-xs font-bold text-slate-700 hover:bg-white rounded transition-all">Invert</button>
+          </div>
+
+          <!-- Contact Sheet Storyboard Generator -->
+          <button type="button" onclick="generateContactSheetModal()" id="btnContactSheet" disabled class="fa-btn-secondary text-xs px-3 py-2 disabled:opacity-50 disabled:cursor-not-allowed" title="Combine all frames into a single storyboard contact sheet grid">
+            <i class="fa-solid fa-table-cells text-indigo-600"></i> Storyboard Grid
+          </button>
+
+          <!-- Frame Animation Player Modal Trigger -->
+          <button type="button" onclick="openAnimationPlayerModal()" id="btnAnimPlayer" disabled class="fa-btn-secondary text-xs px-3 py-2 disabled:opacity-50 disabled:cursor-not-allowed" title="Play sequence of extracted frames as a live looping animation">
+            <i class="fa-solid fa-play text-emerald-600"></i> Animation Loop
+          </button>
+
+          <!-- Download Selected ZIP -->
+          <button type="button" onclick="downloadFramesZip(true)" id="btnDownloadSelectedZip" disabled class="fa-btn-secondary text-xs px-3 py-2 disabled:opacity-50 disabled:cursor-not-allowed">
+            <i class="fa-solid fa-file-arrow-down text-blue-600"></i> Download Selected (<span id="btnSelectedBadge">0</span>)
+          </button>
+
+          <!-- Download All ZIP Button -->
+          <button type="button" onclick="downloadFramesZip(false)" id="btnDownloadAllZip" disabled class="fa-btn-primary text-xs px-4 py-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-md">
+            <i class="fa-solid fa-file-zipper"></i> Download All ZIP
+          </button>
+
+          <!-- Clear All -->
+          <button type="button" onclick="clearAllFrames()" id="btnClearFrames" disabled class="p-2 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors" title="Clear all frames">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Empty Gallery Placeholder -->
+      <div id="galleryEmptyState" class="border-2 border-dashed border-slate-200 rounded-2xl p-12 text-center bg-white">
+        <div class="w-16 h-16 mx-auto bg-slate-100 text-slate-400 rounded-2xl flex items-center justify-center text-2xl mb-3">
+          <i class="fa-solid fa-photo-film"></i>
+        </div>
+        <h4 class="font-bold text-[#183153] text-base mb-1">No Frames Extracted Yet</h4>
+        <p class="text-xs text-slate-500 max-w-md mx-auto">
+          Upload a video and click "Extract Frames" or capture a snapshot with the video player above to parse image frames.
+        </p>
+      </div>
+
+      <!-- Frames Grid Container -->
+      <div id="framesGrid" class="hidden grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5">
+        <!-- Frame Cards Injected Dynamically via JS -->
+      </div>
+
+    </section>
+
+    <!-- HIDDEN PROCESSING CANVAS -->
+    <canvas id="hiddenExtractCanvas" class="hidden"></canvas>
+
+    <!-- LIGHTBOX / ZOOM MODAL -->
+    <div id="lightboxModal" class="fixed inset-0 bg-black/90 z-50 hidden flex flex-col justify-between p-4 backdrop-blur-sm transition-opacity">
+      <!-- Top Modal Header -->
+      <div class="flex items-center justify-between text-white max-w-6xl mx-auto w-full px-2">
+        <div class="flex items-center gap-3">
+          <span id="modalFrameBadge" class="bg-indigo-600 text-xs font-black px-3 py-1 rounded-full">Frame #1</span>
+          <span id="modalTimecode" class="text-xs font-mono text-slate-300">00:00.000</span>
+          <span id="modalResolution" class="text-xs text-slate-400">1920 × 1080</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="copyCurrentModalImage()" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-xs font-bold rounded-lg text-white transition-colors" title="Copy to clipboard">
+            <i class="fa-regular fa-copy"></i> Copy
+          </button>
+          <button type="button" onclick="downloadCurrentModalImage()" class="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-xs font-bold rounded-lg text-white transition-colors" title="Download image">
+            <i class="fa-solid fa-download"></i> Download
+          </button>
+          <button type="button" onclick="closeLightboxModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Center Modal Image & Nav Arrows -->
+      <div class="relative flex-1 flex items-center justify-center my-4 overflow-hidden max-w-6xl mx-auto w-full">
+        <button type="button" onclick="navigateLightbox(-1)" class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center text-lg z-10 transition-colors">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        
+        <img id="lightboxImage" src="" alt="High-Res Video Frame" class="max-h-[80vh] max-w-full object-contain rounded-lg shadow-2xl">
+
+        <button type="button" onclick="navigateLightbox(1)" class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center text-lg z-10 transition-colors">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <!-- Bottom Hint -->
+      <div class="text-center text-slate-400 text-xs py-1">
+        Use <kbd class="px-1.5 py-0.5 bg-white/10 rounded font-mono">←</kbd> and <kbd class="px-1.5 py-0.5 bg-white/10 rounded font-mono">→</kbd> keys to navigate • Press <kbd class="px-1.5 py-0.5 bg-white/10 rounded font-mono">Esc</kbd> to close
+      </div>
+    </div>
+
+    <!-- STORYBOARD / CONTACT SHEET MODAL -->
+    <div id="contactSheetModal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
+      <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden shadow-2xl">
+        <div class="p-4 bg-slate-900 text-white flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-table-cells text-indigo-400"></i>
+            <h3 class="font-black text-sm">Storyboard Contact Sheet</h3>
+          </div>
+          <button type="button" onclick="closeContactSheetModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="flex-1 overflow-auto p-4 bg-slate-100 text-center flex items-center justify-center">
+          <div id="contactSheetPreviewContainer" class="max-w-full">
+            <canvas id="contactSheetCanvas" class="max-w-full h-auto rounded-lg shadow-md border border-slate-300"></canvas>
+          </div>
+        </div>
+
+        <div class="p-4 bg-white border-t border-slate-200 flex items-center justify-between gap-3">
+          <span class="text-xs text-slate-500 font-semibold">
+            Multi-frame grid with timestamps and video title
+          </span>
+          <div class="flex items-center gap-2">
+            <button type="button" onclick="closeContactSheetModal()" class="px-4 py-2 text-xs font-bold text-slate-600 hover:bg-slate-100 rounded-lg">
+              Close
+            </button>
+            <button type="button" onclick="downloadContactSheetImage()" class="fa-btn-primary text-xs px-4 py-2">
+              <i class="fa-solid fa-download"></i> Download Contact Sheet Image
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANIMATION PLAYER MODAL -->
+    <div id="animPlayerModal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
+      <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] flex flex-col overflow-hidden shadow-2xl">
+        <div class="p-4 bg-slate-900 text-white flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-film text-emerald-400"></i>
+            <h3 class="font-black text-sm">Extracted Frames Animation Preview</h3>
+          </div>
+          <button type="button" onclick="closeAnimationPlayerModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="p-6 bg-slate-950 flex flex-col items-center justify-center text-center">
+          <div class="relative max-h-[50vh] aspect-video flex items-center justify-center">
+            <img id="animPlayerImg" src="" alt="Frame Animation" class="max-h-[50vh] max-w-full object-contain rounded-lg shadow-lg">
+          </div>
+          <div class="mt-3 flex items-center gap-3 text-white text-xs font-mono">
+            <span id="animFrameIndex">Frame 1 / 1</span>
+            <span class="text-slate-500">•</span>
+            <span id="animFrameTime">00:00.000</span>
+          </div>
+        </div>
+
+        <div class="p-4 bg-white border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-2">
+            <button type="button" id="btnAnimPlayPause" onclick="toggleAnimPlayback()" class="fa-btn-primary text-xs px-4 py-2">
+              <i id="animPlayIcon" class="fa-solid fa-pause"></i> <span id="animPlayText">Pause</span>
+            </button>
+          </div>
+
+          <div class="flex items-center gap-3 text-xs font-bold text-slate-700">
+            <span>Playback Speed:</span>
+            <input type="range" id="animFpsSlider" min="1" max="30" value="8" oninput="updateAnimFps(this.value)" class="accent-indigo-600 w-28">
+            <span id="animFpsDisplay" class="text-indigo-600 font-black w-14">8 FPS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO Content Section: Guides & Features -->
+    <section class="mt-16 pt-12 border-t border-slate-200">
+      <div class="max-w-4xl mx-auto space-y-12">
+        
+        <div class="text-center">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#183153] tracking-tight">
+            How In-Browser Video Frame Parsing Works
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2">
+            Learn how modern HTML5 Canvas, Media APIs, and GPU hardware acceleration extract pristine video frames directly on your device.
+          </p>
+        </div>
+
+        <!-- 3 Feature Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="fa-card p-6">
+            <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg mb-3">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h4 class="font-bold text-[#183153] text-sm mb-2">
+              High-Speed Canvas Decoding
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Leverages your computer's GPU hardware video decoding pipeline to seek across video timestamps in milliseconds and render crisp frames into memory.
+            </p>
+          </div>
+
+          <div class="fa-card p-6">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg mb-3">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <h4 class="font-bold text-[#183153] text-sm mb-2">
+              100% Private & Confidential
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Security camera footage, personal phone videos, confidential corporate captures, and copyrighted movies never leave your local browser sandbox.
+            </p>
+          </div>
+
+          <div class="fa-card p-6">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg mb-3">
+              <i class="fa-solid fa-file-zipper"></i>
+            </div>
+            <h4 class="font-bold text-[#183153] text-sm mb-2">
+              Instant ZIP & Storyboard
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Export all frames into a zipped archive with sequential numbering, or generate a high-definition contact sheet image for video storyboard analysis.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step-by-Step Guide -->
+        <div class="fa-card p-6 sm:p-8 space-y-6">
+          <h3 class="text-xl font-black text-[#183153] flex items-center gap-2">
+            <i class="fa-solid fa-list-check text-indigo-600"></i> How to Extract Frames from Video (Step-by-Step)
+          </h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/70">
+              <span class="w-7 h-7 bg-indigo-600 text-white rounded-full flex items-center justify-center font-black text-xs mb-3">1</span>
+              <h5 class="font-bold text-xs text-[#183153] mb-1">Upload Video File</h5>
+              <p class="text-[11px] text-slate-600 leading-relaxed">
+                Drag and drop your MP4, WebM, MOV, or MKV video into the drop zone, or use the "Generate Sample Video" button to test.
+              </p>
+            </div>
+
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/70">
+              <span class="w-7 h-7 bg-indigo-600 text-white rounded-full flex items-center justify-center font-black text-xs mb-3">2</span>
+              <h5 class="font-bold text-xs text-[#183153] mb-1">Choose Extraction Mode</h5>
+              <p class="text-[11px] text-slate-600 leading-relaxed">
+                Select your preferred mode: Frame Rate (FPS), Time Interval, Total Frame Count, or snapshot the exact active frame on the player.
+              </p>
+            </div>
+
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200/70">
+              <span class="w-7 h-7 bg-indigo-600 text-white rounded-full flex items-center justify-center font-black text-xs mb-3">3</span>
+              <h5 class="font-bold text-xs text-[#183153] mb-1">Download PNG/JPG or ZIP</h5>
+              <p class="text-[11px] text-slate-600 leading-relaxed">
+                Preview your frames in the gallery, copy or download individual images, or export the entire sequence as a ZIP archive.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="space-y-4">
+          <h3 class="text-xl font-black text-[#183153] text-center mb-6">
+            Frequently Asked Questions
+          </h3>
+
+          <div class="space-y-3">
+            <details class="fa-card p-4 group cursor-pointer">
+              <summary class="font-bold text-sm text-[#183153] list-none flex items-center justify-between">
+                <span>Can I extract frames from 4K (2160p) and 60FPS videos?</span>
+                <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Yes! Since the processing is powered by your browser's native hardware decoder and canvas engine, 4K, 1080p, and high-framerate 60FPS videos can be extracted at full original fidelity.
+              </p>
+            </details>
+
+            <details class="fa-card p-4 group cursor-pointer">
+              <summary class="font-bold text-sm text-[#183153] list-none flex items-center justify-between">
+                <span>What is the difference between PNG and JPEG extraction?</span>
+                <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                PNG produces 100% lossless images without compression artifacts, ideal for graphic design, thumbnail creation, and visual analysis. JPEG produces much smaller file sizes with adjustable quality (e.g. 90%), perfect when extracting hundreds of frames.
+              </p>
+            </details>
+
+            <details class="fa-card p-4 group cursor-pointer">
+              <summary class="font-bold text-sm text-[#183153] list-none flex items-center justify-between">
+                <span>Can I capture a single frame snapshot at a specific second?</span>
+                <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Yes. Use the video player controls or the -1 / +1 frame step buttons to find your exact desired moment, then click the "Snapshot Frame" button to capture and add it to your gallery instantly.
+              </p>
+            </details>
+
+            <details class="fa-card p-4 group cursor-pointer">
+              <summary class="font-bold text-sm text-[#183153] list-none flex items-center justify-between">
+                <span>Is there any limit on video duration or file size?</span>
+                <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                There are no artificial server limits or paywalls. The only limit is your device's available RAM memory. If you are working with very long videos (over 30 minutes), we recommend using the Time Interval mode or Trim Range feature.
+              </p>
+            </details>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Master Main JS (Header/Footer/Search Registry) -->
+  <script src="js/main.js"></script>
+
+  <!-- Video Frame Extractor Application Logic -->
+  <script>
+    // State Variables
+    let loadedVideoFile = null;
+    let loadedVideoUrl = '';
+    let isExtracting = false;
+    let shouldCancelExtraction = false;
+    let extractedFrames = []; // Array of { id, time, timecode, blob, dataUrl, width, height, selected }
+    let activeLightboxIndex = 0;
+    let animPlayerInterval = null;
+    let animPlayerIndex = 0;
+
+    // DOM Elements
+    const dropZone = document.getElementById('videoDropZone');
+    const playerBox = document.getElementById('videoPlayerBox');
+    const videoPlayer = document.getElementById('videoPlayer');
+    const btnStartExtract = document.getElementById('btnStartExtract');
+    const btnCancelExtract = document.getElementById('btnCancelExtract');
+    const hiddenCanvas = document.getElementById('hiddenExtractCanvas');
+    const framesGrid = document.getElementById('framesGrid');
+    const galleryEmptyState = document.getElementById('galleryEmptyState');
+
+    // Drag and drop handlers
+    ['dragenter', 'dragover'].forEach(name => {
+      dropZone.addEventListener(name, (e) => {
+        e.preventDefault();
+        dropZone.classList.add('border-indigo-500', 'bg-indigo-50/40');
+      });
+    });
+    ['dragleave', 'drop'].forEach(name => {
+      dropZone.addEventListener(name, (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('border-indigo-500', 'bg-indigo-50/40');
+      });
+    });
+    dropZone.addEventListener('drop', (e) => {
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        loadVideoSource(e.dataTransfer.files[0]);
+      }
+    });
+
+    function handleVideoUpload(e) {
+      if (e.target.files && e.target.files.length > 0) {
+        loadVideoSource(e.target.files[0]);
+      }
+    }
+
+    function formatBytes(bytes) {
+      if (!bytes || bytes === 0) return '0 Bytes';
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    function formatTimecode(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      const ms = Math.floor((seconds % 1) * 1000);
+      return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}.${String(ms).padStart(3, '0')}`;
+    }
+
+    function loadVideoSource(file) {
+      loadedVideoFile = file;
+      if (loadedVideoUrl) URL.revokeObjectURL(loadedVideoUrl);
+      loadedVideoUrl = URL.createObjectURL(file);
+
+      videoPlayer.src = loadedVideoUrl;
+      dropZone.classList.add('hidden');
+      playerBox.classList.remove('hidden');
+
+      videoPlayer.onloadedmetadata = function() {
+        const duration = videoPlayer.duration || 0;
+        const width = videoPlayer.videoWidth || 0;
+        const height = videoPlayer.videoHeight || 0;
+
+        document.getElementById('metaDuration').textContent = `${Math.floor(duration / 60)}m ${Math.floor(duration % 60)}s`;
+        document.getElementById('metaResolution').textContent = `${width} × ${height} px`;
+        document.getElementById('metaFileSize').textContent = formatBytes(file.size);
+
+        // Update Trim End default
+        document.getElementById('trimEndTime').value = parseFloat(duration.toFixed(2));
+        document.getElementById('trimEndTime').max = parseFloat(duration.toFixed(2));
+        document.getElementById('trimStartTime').max = parseFloat(duration.toFixed(2));
+
+        btnStartExtract.removeAttribute('disabled');
+        recalculateEstimatedFrames();
+        showToast(`Loaded video: ${file.name}`, 'fa-video');
+      };
+    }
+
+    function stepFrame(direction) {
+      if (!videoPlayer || isNaN(videoPlayer.duration)) return;
+      const step = 0.0333 * direction; // approx 1 frame @ 30fps
+      videoPlayer.currentTime = Math.max(0, Math.min(videoPlayer.duration, videoPlayer.currentTime + step));
+    }
+
+    // Mode selection and parameter handlers
+    function updateModeUI() {
+      const mode = document.querySelector('input[name="extractionMode"]:checked').value;
+      document.getElementById('paramBoxFps').classList.toggle('hidden', mode !== 'fps');
+      document.getElementById('paramBoxInterval').classList.toggle('hidden', mode !== 'interval');
+      document.getElementById('paramBoxTotal').classList.toggle('hidden', mode !== 'total');
+      recalculateEstimatedFrames();
+    }
+
+    function setFpsValue(val) {
+      document.getElementById('fpsSlider').value = val;
+      document.getElementById('fpsCustomInput').value = val;
+      document.getElementById('fpsValDisplay').textContent = `${val} frame${val > 1 ? 's' : ''}/sec`;
+      recalculateEstimatedFrames();
+    }
+    function handleFpsSlider(val) {
+      document.getElementById('fpsCustomInput').value = val;
+      document.getElementById('fpsValDisplay').textContent = `${val} frame/sec`;
+      recalculateEstimatedFrames();
+    }
+    function handleFpsCustom(val) {
+      document.getElementById('fpsSlider').value = Math.min(30, val);
+      document.getElementById('fpsValDisplay').textContent = `${val} frame/sec`;
+      recalculateEstimatedFrames();
+    }
+
+    function setIntervalValue(val) {
+      document.getElementById('intervalSlider').value = val;
+      document.getElementById('intervalCustomInput').value = val;
+      document.getElementById('intervalValDisplay').textContent = `${val} second${val !== 1 ? 's' : ''}`;
+      recalculateEstimatedFrames();
+    }
+    function handleIntervalSlider(val) {
+      document.getElementById('intervalCustomInput').value = val;
+      document.getElementById('intervalValDisplay').textContent = `${val}s`;
+      recalculateEstimatedFrames();
+    }
+    function handleIntervalCustom(val) {
+      document.getElementById('intervalSlider').value = Math.min(10, val);
+      document.getElementById('intervalValDisplay').textContent = `${val}s`;
+      recalculateEstimatedFrames();
+    }
+
+    function setTotalCountValue(val) {
+      document.getElementById('totalCountSlider').value = val;
+      document.getElementById('totalCountCustomInput').value = val;
+      document.getElementById('totalCountValDisplay').textContent = `${val} frames`;
+      recalculateEstimatedFrames();
+    }
+    function handleTotalCountSlider(val) {
+      document.getElementById('totalCountCustomInput').value = val;
+      document.getElementById('totalCountValDisplay').textContent = `${val} frames`;
+      recalculateEstimatedFrames();
+    }
+    function handleTotalCountCustom(val) {
+      document.getElementById('totalCountSlider').value = Math.min(200, val);
+      document.getElementById('totalCountValDisplay').textContent = `${val} frames`;
+      recalculateEstimatedFrames();
+    }
+
+    function toggleTrimRangeUI() {
+      const isTrim = document.getElementById('chkTrimRange').checked;
+      document.getElementById('trimRangeBox').classList.toggle('hidden', !isTrim);
+      recalculateEstimatedFrames();
+    }
+
+    function setTrimStartCurrent() {
+      if (!videoPlayer) return;
+      document.getElementById('trimStartTime').value = parseFloat(videoPlayer.currentTime.toFixed(2));
+      recalculateEstimatedFrames();
+    }
+
+    function setTrimEndCurrent() {
+      if (!videoPlayer) return;
+      document.getElementById('trimEndTime').value = parseFloat(videoPlayer.currentTime.toFixed(2));
+      recalculateEstimatedFrames();
+    }
+
+    function handleFormatChange() {
+      const fmt = document.getElementById('exportFormat').value;
+      document.getElementById('jpgQualityBox').style.display = fmt === 'image/jpeg' ? 'block' : 'none';
+    }
+
+    function getExtractionTimestamps() {
+      if (!videoPlayer || isNaN(videoPlayer.duration) || videoPlayer.duration <= 0) return [];
+      
+      const isTrim = document.getElementById('chkTrimRange').checked;
+      let startTime = isTrim ? Math.max(0, parseFloat(document.getElementById('trimStartTime').value) || 0) : 0;
+      let endTime = isTrim ? Math.min(videoPlayer.duration, parseFloat(document.getElementById('trimEndTime').value) || videoPlayer.duration) : videoPlayer.duration;
+
+      if (startTime >= endTime) {
+        startTime = 0;
+        endTime = videoPlayer.duration;
+      }
+
+      const duration = endTime - startTime;
+      const mode = document.querySelector('input[name="extractionMode"]:checked').value;
+      const timestamps = [];
+
+      if (mode === 'fps') {
+        const fps = Math.max(0.05, parseFloat(document.getElementById('fpsCustomInput').value) || 1);
+        const step = 1 / fps;
+        for (let t = startTime; t <= endTime; t += step) {
+          timestamps.push(t);
+        }
+      } else if (mode === 'interval') {
+        const interval = Math.max(0.05, parseFloat(document.getElementById('intervalCustomInput').value) || 1);
+        for (let t = startTime; t <= endTime; t += interval) {
+          timestamps.push(t);
+        }
+      } else if (mode === 'total') {
+        const total = Math.max(2, parseInt(document.getElementById('totalCountCustomInput').value) || 20);
+        const step = duration / (total - 1 || 1);
+        for (let i = 0; i < total; i++) {
+          timestamps.push(Math.min(endTime, startTime + (i * step)));
+        }
+      }
+
+      return timestamps;
+    }
+
+    function recalculateEstimatedFrames() {
+      const badge = document.getElementById('estimatedFrameBadge');
+      if (!videoPlayer || isNaN(videoPlayer.duration) || videoPlayer.duration <= 0) {
+        badge.textContent = 'Estimated: ~0 frames';
+        return;
+      }
+      const timestamps = getExtractionTimestamps();
+      badge.textContent = `Estimated: ~${timestamps.length} frames`;
+    }
+
+    // Snapshot current active video frame
+    async function captureCurrentFrameSnapshot() {
+      if (!videoPlayer || isNaN(videoPlayer.duration)) {
+        showToast('Please upload a video first!', 'fa-triangle-exclamation');
+        return;
+      }
+
+      const time = videoPlayer.currentTime;
+      const frameData = await renderFrameAtTime(time);
+      if (frameData) {
+        addFrameToGallery(frameData);
+        showToast(`Captured frame at ${formatTimecode(time)}`, 'fa-camera');
+      }
+    }
+
+    // Render single frame from video at given timestamp to Blob & DataURL
+    async function renderFrameAtTime(timestamp) {
+      return new Promise((resolve) => {
+        // Create an offscreen video element to avoid jittering the main player
+        const offVideo = document.createElement('video');
+        offVideo.src = loadedVideoUrl;
+        offVideo.muted = true;
+        offVideo.playsInline = true;
+        offVideo.crossOrigin = 'anonymous';
+
+        let hasResolved = false;
+
+        const cleanupAndResolve = (result) => {
+          if (hasResolved) return;
+          hasResolved = true;
+          offVideo.removeAttribute('src');
+          offVideo.load();
+          resolve(result);
+        };
+
+        const timeoutId = setTimeout(() => {
+          // If seeking took too long, fallback
+          cleanupAndResolve(null);
+        }, 4000);
+
+        offVideo.onloadedmetadata = () => {
+          offVideo.currentTime = Math.min(offVideo.duration, Math.max(0, timestamp));
+        };
+
+        offVideo.onseeked = () => {
+          clearTimeout(timeoutId);
+          try {
+            const origW = offVideo.videoWidth || 1280;
+            const origH = offVideo.videoHeight || 720;
+            const scaleSetting = document.getElementById('exportResolution').value;
+            let targetW = origW;
+            let targetH = origH;
+
+            if (scaleSetting === '1080') {
+              targetH = 1080;
+              targetW = Math.round((origW * 1080) / origH);
+            } else if (scaleSetting === '720') {
+              targetH = 720;
+              targetW = Math.round((origW * 720) / origH);
+            } else if (scaleSetting === '480') {
+              targetH = 480;
+              targetW = Math.round((origW * 480) / origH);
+            } else if (scaleSetting === '0.5') {
+              targetW = Math.round(origW * 0.5);
+              targetH = Math.round(origH * 0.5);
+            } else if (scaleSetting === '0.25') {
+              targetW = Math.round(origW * 0.25);
+              targetH = Math.round(origH * 0.25);
+            }
+
+            hiddenCanvas.width = targetW;
+            hiddenCanvas.height = targetH;
+            const ctx = hiddenCanvas.getContext('2d');
+            ctx.drawImage(offVideo, 0, 0, targetW, targetH);
+
+            // Optional Timecode overlay
+            const stampOverlay = document.getElementById('chkTimestampOverlay').checked;
+            if (stampOverlay) {
+              const tc = formatTimecode(timestamp);
+              ctx.font = `bold ${Math.max(14, Math.round(targetH * 0.04))}px monospace`;
+              const textWidth = ctx.measureText(tc).width;
+              const padX = 12;
+              const padY = 8;
+              const posX = targetW - textWidth - padX * 2 - 16;
+              const posY = targetH - 16;
+
+              ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+              ctx.fillRect(posX, posY - Math.round(targetH * 0.04) - padY + 4, textWidth + padX * 2, Math.round(targetH * 0.04) + padY);
+
+              ctx.fillStyle = '#ffffff';
+              ctx.fillText(tc, posX + padX, posY - 2);
+            }
+
+            const mimeType = document.getElementById('exportFormat').value;
+            const quality = parseFloat(document.getElementById('jpgQualitySlider').value) || 0.9;
+
+            hiddenCanvas.toBlob((blob) => {
+              if (!blob) {
+                cleanupAndResolve(null);
+                return;
+              }
+              const dataUrl = URL.createObjectURL(blob);
+              cleanupAndResolve({
+                id: 'frame_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
+                time: timestamp,
+                timecode: formatTimecode(timestamp),
+                blob: blob,
+                dataUrl: dataUrl,
+                width: targetW,
+                height: targetH,
+                selected: true
+              });
+            }, mimeType, quality);
+          } catch (err) {
+            cleanupAndResolve(null);
+          }
+        };
+
+        offVideo.onerror = () => {
+          clearTimeout(timeoutId);
+          cleanupAndResolve(null);
+        };
+      });
+    }
+
+    // Start Batch Frame Extraction
+    async function startFrameExtraction() {
+      if (!loadedVideoFile || isExtracting) return;
+
+      const timestamps = getExtractionTimestamps();
+      if (timestamps.length === 0) {
+        showToast('No frames to extract with current settings.', 'fa-circle-info');
+        return;
+      }
+
+      if (timestamps.length > 300) {
+        const confirmBulk = confirm(`You are about to extract ${timestamps.length} frames. This may use significant memory. Continue?`);
+        if (!confirmBulk) return;
+      }
+
+      isExtracting = true;
+      shouldCancelExtraction = false;
+
+      btnStartExtract.classList.add('hidden');
+      btnCancelExtract.classList.remove('hidden');
+
+      const progressBox = document.getElementById('extractionProgressBox');
+      const progressBar = document.getElementById('extractionProgressBar');
+      const progressPercent = document.getElementById('progressPercentText');
+      const progressCount = document.getElementById('progressCountText');
+      const progressSpeed = document.getElementById('progressSpeedText');
+      const progressStatus = document.getElementById('progressStatusText');
+
+      progressBox.classList.remove('hidden');
+      progressStatus.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1 text-indigo-600"></i> Parsing video frames...';
+
+      const total = timestamps.length;
+      let completed = 0;
+      const startTimeStamp = performance.now();
+
+      for (let i = 0; i < total; i++) {
+        if (shouldCancelExtraction) {
+          showToast('Frame extraction cancelled.', 'fa-ban');
+          break;
+        }
+
+        const t = timestamps[i];
+        const frameData = await renderFrameAtTime(t);
+
+        if (frameData) {
+          addFrameToGallery(frameData);
+        }
+
+        completed++;
+        const pct = Math.round((completed / total) * 100);
+        progressBar.style.width = `${pct}%`;
+        progressPercent.textContent = `${pct}%`;
+        progressCount.textContent = `Frames: ${completed} / ${total}`;
+
+        const elapsedSec = (performance.now() - startTimeStamp) / 1000;
+        const fpsRate = (completed / (elapsedSec || 1)).toFixed(1);
+        progressSpeed.textContent = `${fpsRate} frames/sec`;
+      }
+
+      // Finish up
+      isExtracting = false;
+      btnStartExtract.classList.remove('hidden');
+      btnCancelExtract.classList.add('hidden');
+      progressBox.classList.add('hidden');
+
+      if (!shouldCancelExtraction) {
+        showToast(`Successfully extracted ${completed} frames!`, 'fa-circle-check');
+      }
+    }
+
+    function cancelFrameExtraction() {
+      shouldCancelExtraction = true;
+    }
+
+    // Add frame to dynamic gallery UI
+    function addFrameToGallery(frameData) {
+      extractedFrames.push(frameData);
+      galleryEmptyState.classList.add('hidden');
+      framesGrid.classList.remove('hidden');
+
+      const index = extractedFrames.length;
+      const card = document.createElement('div');
+      card.id = `frameCard_${frameData.id}`;
+      card.className = 'fa-card group overflow-hidden flex flex-col justify-between border border-slate-200/90 hover:border-indigo-500 hover:shadow-md transition-all relative';
+      
+      card.innerHTML = `
+        <div class="relative aspect-video bg-slate-900 overflow-hidden cursor-pointer" onclick="openLightbox(${index - 1})">
+          <img src="${frameData.dataUrl}" alt="Frame ${index}" loading="lazy" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200">
+          
+          <!-- Checkbox Selection -->
+          <div class="absolute top-1.5 left-1.5 z-10" onclick="event.stopPropagation()">
+            <input type="checkbox" id="chk_${frameData.id}" checked onchange="toggleFrameSelection('${frameData.id}', this.checked)" class="w-4 h-4 rounded text-indigo-600 accent-indigo-600 cursor-pointer shadow">
+          </div>
+
+          <!-- Timecode Tag -->
+          <div class="absolute bottom-1.5 left-1.5 bg-black/75 text-white text-[10px] font-mono px-1.5 py-0.5 rounded backdrop-blur-xs">
+            ${frameData.timecode}
+          </div>
+
+          <!-- Zoom Overlay Icon -->
+          <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white transition-opacity">
+            <i class="fa-solid fa-magnifying-glass-plus text-base"></i>
+          </div>
+        </div>
+
+        <!-- Card Footer -->
+        <div class="p-2 bg-white flex items-center justify-between text-xs border-t border-slate-100">
+          <span class="font-bold text-[#183153] text-[11px]">#${index}</span>
+          <div class="flex items-center gap-1">
+            <button type="button" onclick="copyFrameImage('${frameData.id}')" class="p-1 text-slate-400 hover:text-indigo-600 transition-colors" title="Copy frame image to clipboard">
+              <i class="fa-regular fa-copy text-xs"></i>
+            </button>
+            <button type="button" onclick="downloadSingleFrame('${frameData.id}')" class="p-1 text-slate-400 hover:text-indigo-600 transition-colors" title="Download single frame">
+              <i class="fa-solid fa-download text-xs"></i>
+            </button>
+            <button type="button" onclick="deleteFrame('${frameData.id}')" class="p-1 text-slate-400 hover:text-rose-600 transition-colors" title="Delete frame">
+              <i class="fa-solid fa-trash-can text-xs"></i>
+            </button>
+          </div>
+        </div>
+      `;
+
+      framesGrid.appendChild(card);
+      updateGalleryStats();
+    }
+
+    function updateGalleryStats() {
+      const total = extractedFrames.length;
+      const selected = extractedFrames.filter(f => f.selected).length;
+
+      document.getElementById('totalExtractedCount').textContent = total;
+      document.getElementById('selectedCountText').textContent = `${selected} of ${total} selected`;
+      document.getElementById('btnSelectedBadge').textContent = selected;
+
+      const hasFrames = total > 0;
+      document.getElementById('btnContactSheet').disabled = !hasFrames;
+      document.getElementById('btnAnimPlayer').disabled = !hasFrames;
+      document.getElementById('btnDownloadAllZip').disabled = !hasFrames;
+      document.getElementById('btnDownloadSelectedZip').disabled = selected === 0;
+      document.getElementById('btnClearFrames').disabled = !hasFrames;
+    }
+
+    function toggleFrameSelection(id, isSelected) {
+      const frame = extractedFrames.find(f => f.id === id);
+      if (frame) {
+        frame.selected = isSelected;
+        updateGalleryStats();
+      }
+    }
+
+    function selectAllFrames(select) {
+      extractedFrames.forEach(f => {
+        f.selected = select;
+        const chk = document.getElementById(`chk_${f.id}`);
+        if (chk) chk.checked = select;
+      });
+      updateGalleryStats();
+    }
+
+    function invertSelection() {
+      extractedFrames.forEach(f => {
+        f.selected = !f.selected;
+        const chk = document.getElementById(`chk_${f.id}`);
+        if (chk) chk.checked = f.selected;
+      });
+      updateGalleryStats();
+    }
+
+    function deleteFrame(id) {
+      const idx = extractedFrames.findIndex(f => f.id === id);
+      if (idx !== -1) {
+        URL.revokeObjectURL(extractedFrames[idx].dataUrl);
+        extractedFrames.splice(idx, 1);
+        const el = document.getElementById(`frameCard_${id}`);
+        if (el) el.remove();
+
+        if (extractedFrames.length === 0) {
+          galleryEmptyState.classList.remove('hidden');
+          framesGrid.classList.add('hidden');
+        }
+        updateGalleryStats();
+      }
+    }
+
+    function clearAllFrames() {
+      if (extractedFrames.length === 0) return;
+      if (!confirm('Are you sure you want to clear all extracted frames?')) return;
+
+      extractedFrames.forEach(f => URL.revokeObjectURL(f.dataUrl));
+      extractedFrames = [];
+      framesGrid.innerHTML = '';
+      galleryEmptyState.classList.remove('hidden');
+      framesGrid.classList.add('hidden');
+      updateGalleryStats();
+      showToast('Cleared all frames.', 'fa-trash-can');
+    }
+
+    function downloadSingleFrame(id) {
+      const frame = extractedFrames.find(f => f.id === id);
+      if (!frame) return;
+
+      const ext = frame.blob.type.includes('png') ? 'png' : (frame.blob.type.includes('webp') ? 'webp' : 'jpg');
+      let prefix = document.getElementById('framePrefixInput').value.trim() || '360tools.me_frame_';
+      if (!prefix.startsWith('360tools.me')) {
+        prefix = '360tools.me_' + prefix;
+      }
+      const filename = `${prefix}${frame.timecode.replace(/:/g, '-').replace(/\./g, '_')}.${ext}`;
+
+      const link = document.createElement('a');
+      link.href = frame.dataUrl;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast(`Downloaded ${filename}`, 'fa-download');
+    }
+
+    async function copyFrameImage(id) {
+      const frame = extractedFrames.find(f => f.id === id);
+      if (!frame) return;
+
+      try {
+        // Clipboard API expects PNG blob
+        let pngBlob = frame.blob;
+        if (!frame.blob.type.includes('png')) {
+          const img = new Image();
+          img.src = frame.dataUrl;
+          await new Promise(r => img.onload = r);
+          const c = document.createElement('canvas');
+          c.width = img.naturalWidth;
+          c.height = img.naturalHeight;
+          c.getContext('2d').drawImage(img, 0, 0);
+          pngBlob = await new Promise(r => c.toBlob(r, 'image/png'));
+        }
+
+        await navigator.clipboard.write([
+          new ClipboardItem({ 'image/png': pngBlob })
+        ]);
+        showToast('Image copied to clipboard!', 'fa-copy');
+      } catch (err) {
+        showToast('Clipboard copy failed. Direct download instead.', 'fa-triangle-exclamation');
+        downloadSingleFrame(id);
+      }
+    }
+
+    // ZIP Archive Generation & Download
+    async function downloadFramesZip(onlySelected = false) {
+      const targets = onlySelected ? extractedFrames.filter(f => f.selected) : extractedFrames;
+      if (targets.length === 0) {
+        showToast('No frames selected to export.', 'fa-circle-info');
+        return;
+      }
+
+      if (typeof JSZip === 'undefined') {
+        showToast('ZIP library is loading. Please wait...', 'fa-spinner');
+        return;
+      }
+
+      showToast(`Packaging ${targets.length} frames into ZIP archive...`, 'fa-file-zipper');
+
+      const zip = new JSZip();
+      let prefix = document.getElementById('framePrefixInput').value.trim() || '360tools.me_frame_';
+      if (!prefix.startsWith('360tools.me')) {
+        prefix = '360tools.me_' + prefix;
+      }
+      const baseName = loadedVideoFile ? loadedVideoFile.name.replace(/\.[^/.]+$/, '').replace(/[^a-zA-Z0-9_-]/g, '_') : 'video';
+
+      targets.forEach((frame, idx) => {
+        const ext = frame.blob.type.includes('png') ? 'png' : (frame.blob.type.includes('webp') ? 'webp' : 'jpg');
+        const numStr = String(idx + 1).padStart(4, '0');
+        const fileName = `${prefix}${numStr}_${frame.timecode.replace(/:/g, '-').replace(/\./g, '_')}.${ext}`;
+        zip.file(fileName, frame.blob);
+      });
+
+      const zipBlob = await zip.generateAsync({ type: 'blob' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(zipBlob);
+      link.download = `360tools.me_${baseName}_frames_pack.zip`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast('ZIP archive downloaded successfully!', 'fa-circle-check');
+    }
+
+    // Lightbox / Zoom Modal
+    function openLightbox(index) {
+      if (index < 0 || index >= extractedFrames.length) return;
+      activeLightboxIndex = index;
+      const frame = extractedFrames[index];
+
+      document.getElementById('lightboxImage').src = frame.dataUrl;
+      document.getElementById('modalFrameBadge').textContent = `Frame #${index + 1} of ${extractedFrames.length}`;
+      document.getElementById('modalTimecode').textContent = frame.timecode;
+      document.getElementById('modalResolution').textContent = `${frame.width} × ${frame.height} px`;
+
+      document.getElementById('lightboxModal').classList.remove('hidden');
+    }
+
+    function closeLightboxModal() {
+      document.getElementById('lightboxModal').classList.add('hidden');
+    }
+
+    function navigateLightbox(dir) {
+      let newIdx = activeLightboxIndex + dir;
+      if (newIdx < 0) newIdx = extractedFrames.length - 1;
+      if (newIdx >= extractedFrames.length) newIdx = 0;
+      openLightbox(newIdx);
+    }
+
+    function downloadCurrentModalImage() {
+      if (extractedFrames[activeLightboxIndex]) {
+        downloadSingleFrame(extractedFrames[activeLightboxIndex].id);
+      }
+    }
+
+    function copyCurrentModalImage() {
+      if (extractedFrames[activeLightboxIndex]) {
+        copyFrameImage(extractedFrames[activeLightboxIndex].id);
+      }
+    }
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('lightboxModal');
+      if (!modal.classList.contains('hidden')) {
+        if (e.key === 'ArrowLeft') navigateLightbox(-1);
+        if (e.key === 'ArrowRight') navigateLightbox(1);
+        if (e.key === 'Escape') closeLightboxModal();
+      }
+      const csModal = document.getElementById('contactSheetModal');
+      if (!csModal.classList.contains('hidden') && e.key === 'Escape') {
+        closeContactSheetModal();
+      }
+      const animModal = document.getElementById('animPlayerModal');
+      if (!animModal.classList.contains('hidden') && e.key === 'Escape') {
+        closeAnimationPlayerModal();
+      }
+    });
+
+    // Storyboard / Contact Sheet Generator
+    async function generateContactSheetModal() {
+      if (extractedFrames.length === 0) return;
+
+      const modal = document.getElementById('contactSheetModal');
+      const canvas = document.getElementById('contactSheetCanvas');
+      const ctx = canvas.getContext('2d');
+
+      const count = extractedFrames.length;
+      const cols = count <= 4 ? 2 : (count <= 12 ? 3 : (count <= 24 ? 4 : 5));
+      const rows = Math.ceil(count / cols);
+
+      const thumbW = 320;
+      const thumbH = Math.round((thumbW * 9) / 16);
+      const pad = 16;
+      const headerH = 70;
+      const footerCardH = 26;
+
+      canvas.width = (cols * thumbW) + ((cols + 1) * pad);
+      canvas.height = headerH + (rows * (thumbH + footerCardH)) + ((rows + 1) * pad);
+
+      // Background
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Header title & metadata
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 22px Outfit, sans-serif';
+      ctx.fillText(`Video Storyboard Contact Sheet (${count} Frames)`, pad, 36);
+
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '12px "Plus Jakarta Sans", sans-serif';
+      const vName = loadedVideoFile ? loadedVideoFile.name : 'Sample Video';
+      ctx.fillText(`Source: ${vName}  •  Extracted on 360tools.me Video Frame Parser`, pad, 56);
+
+      // Draw each frame
+      for (let i = 0; i < count; i++) {
+        const frame = extractedFrames[i];
+        const r = Math.floor(i / cols);
+        const c = i % cols;
+
+        const x = pad + c * (thumbW + pad);
+        const y = headerH + pad + r * (thumbH + footerCardH + pad);
+
+        // Load image
+        const img = new Image();
+        img.src = frame.dataUrl;
+        await new Promise(res => img.onload = res);
+
+        ctx.drawImage(img, x, y, thumbW, thumbH);
+
+        // Frame badge card underneath
+        ctx.fillStyle = '#1e293b';
+        ctx.fillRect(x, y + thumbH, thumbW, footerCardH);
+
+        ctx.fillStyle = '#cbd5e1';
+        ctx.font = 'bold 11px monospace';
+        ctx.fillText(`#${i + 1}  •  ${frame.timecode}`, x + 8, y + thumbH + 17);
+      }
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeContactSheetModal() {
+      document.getElementById('contactSheetModal').classList.add('hidden');
+    }
+
+    function downloadContactSheetImage() {
+      const canvas = document.getElementById('contactSheetCanvas');
+      const link = document.createElement('a');
+      const baseName = loadedVideoFile ? loadedVideoFile.name.replace(/\.[^/.]+$/, '').replace(/[^a-zA-Z0-9_-]/g, '_') : 'video';
+      link.download = `360tools.me_${baseName}_storyboard_${Date.now()}.png`;
+      link.href = canvas.toDataURL('image/png');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast('Downloaded storyboard image!', 'fa-circle-check');
+    }
+
+    // Animation Loop Player
+    function openAnimationPlayerModal() {
+      if (extractedFrames.length === 0) return;
+      const modal = document.getElementById('animPlayerModal');
+      modal.classList.remove('hidden');
+
+      animPlayerIndex = 0;
+      updateAnimFrameDisplay();
+      startAnimLoop();
+    }
+
+    function closeAnimationPlayerModal() {
+      stopAnimLoop();
+      document.getElementById('animPlayerModal').classList.add('hidden');
+    }
+
+    function startAnimLoop() {
+      stopAnimLoop();
+      const fps = parseInt(document.getElementById('animFpsSlider').value) || 8;
+      const delay = Math.round(1000 / fps);
+
+      animPlayerInterval = setInterval(() => {
+        animPlayerIndex = (animPlayerIndex + 1) % extractedFrames.length;
+        updateAnimFrameDisplay();
+      }, delay);
+
+      document.getElementById('animPlayIcon').className = 'fa-solid fa-pause';
+      document.getElementById('animPlayText').textContent = 'Pause';
+    }
+
+    function stopAnimLoop() {
+      if (animPlayerInterval) {
+        clearInterval(animPlayerInterval);
+        animPlayerInterval = null;
+      }
+      document.getElementById('animPlayIcon').className = 'fa-solid fa-play';
+      document.getElementById('animPlayText').textContent = 'Play';
+    }
+
+    function toggleAnimPlayback() {
+      if (animPlayerInterval) {
+        stopAnimLoop();
+      } else {
+        startAnimLoop();
+      }
+    }
+
+    function updateAnimFps(val) {
+      document.getElementById('animFpsDisplay').textContent = `${val} FPS`;
+      if (animPlayerInterval) {
+        startAnimLoop();
+      }
+    }
+
+    function updateAnimFrameDisplay() {
+      const frame = extractedFrames[animPlayerIndex];
+      if (!frame) return;
+
+      document.getElementById('animPlayerImg').src = frame.dataUrl;
+      document.getElementById('animFrameIndex').textContent = `Frame ${animPlayerIndex + 1} / ${extractedFrames.length}`;
+      document.getElementById('animFrameTime').textContent = frame.timecode;
+    }
+
+    // Dynamic Sample Video Generator (5 seconds canvas animation @ 30fps)
+    function generateSampleVideo() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 1280;
+      canvas.height = 720;
+      const ctx = canvas.getContext('2d');
+
+      const stream = canvas.captureStream(30);
+      const recorder = new MediaRecorder(stream, { mimeType: 'video/webm', videoBitsPerSecond: 4000000 });
+      const chunks = [];
+      recorder.ondataavailable = e => chunks.push(e.data);
+
+      recorder.onstop = () => {
+        const blob = new Blob(chunks, { type: 'video/webm' });
+        const file = new File([blob], 'sample_motion_countdown.webm', { type: 'video/webm' });
+        loadVideoSource(file);
+      };
+
+      recorder.start();
+      let frame = 0;
+      const maxFrames = 150; // 5s @ 30fps
+
+      function animate() {
+        frame++;
+        const timeSec = (frame / 30).toFixed(2);
+        
+        // Background gradient
+        const grad = ctx.createLinearGradient(0, 0, 1280, 720);
+        grad.addColorStop(0, '#0f172a');
+        grad.addColorStop(1, '#1e1b4b');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, 1280, 720);
+
+        // Dynamic moving ball
+        const x = (frame * 16) % 1280;
+        const y = 360 + Math.sin(frame * 0.15) * 120;
+        ctx.fillStyle = '#6366f1';
+        ctx.beginPath();
+        ctx.arc(x, y, 60, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Pulsing core
+        ctx.fillStyle = '#ffd43b';
+        ctx.beginPath();
+        ctx.arc(x, y, 25, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Grid lines
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+        ctx.lineWidth = 2;
+        for (let gx = 0; gx < 1280; gx += 80) {
+          ctx.beginPath();
+          ctx.moveTo(gx, 0);
+          ctx.lineTo(gx, 720);
+          ctx.stroke();
+        }
+
+        // Header Title
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 44px sans-serif';
+        ctx.fillText('360tools Video Frame Test', 80, 140);
+
+        // Live Countdown / Frame timestamp
+        ctx.fillStyle = '#ffd43b';
+        ctx.font = 'bold 72px monospace';
+        ctx.fillText(`00:0${Math.floor(timeSec)}.${String(Math.floor((timeSec%1)*1000)).padStart(3,'0')}`, 80, 240);
+
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = 'bold 24px monospace';
+        ctx.fillText(`FRAME #${String(frame).padStart(3, '0')} / ${maxFrames} (30 FPS)`, 80, 290);
+
+        if (frame < maxFrames) {
+          requestAnimationFrame(animate);
+        } else {
+          recorder.stop();
+        }
+      }
+
+      animate();
+      showToast('Generating 5s HD Motion Sample...', 'fa-film');
+    }
+  </script>
+</body>
+</html>

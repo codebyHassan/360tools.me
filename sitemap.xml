@@ -26,6 +26,13 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://360tools.me/blog.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Free Games & Puzzles -->
   <url>
     <loc>https://360tools.me/2048/</loc>
@@ -164,6 +171,13 @@
   </url>
 
   <url>
+    <loc>https://360tools.me/image-converter-compressor.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
     <loc>https://360tools.me/jpg-compressor.html</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -228,7 +242,14 @@
 
   <url>
     <loc>https://360tools.me/video-compressor.html</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://360tools.me/video-frame-extractor.html</loc>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -265,6 +286,20 @@
   <url>
     <loc>https://360tools.me/shopify-csv-validator.html</loc>
     <lastmod>2026-08-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://360tools.me/ats-resume-checker.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://360tools.me/cv-checker.html</loc>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>

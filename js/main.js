@@ -150,6 +150,16 @@ const TOOLS_REGISTRY = [
     keywords: 'mp4 webm reduce video size client side' 
   },
   { 
+    name: 'Video Frame Extractor', 
+    url: 'video-frame-extractor.html', 
+    category: 'AI & Image', 
+    icon: 'fa-film', 
+    color: 'text-indigo-600', 
+    bg: 'bg-indigo-50 border-indigo-200/80',
+    desc: 'Extract high-res image frames from video by FPS, interval, or count with instant ZIP & storyboard export.',
+    keywords: 'video to frames parse video extract frames mp4 to png jpg sequence storyboard snapshot' 
+  },
+  { 
     name: 'Compress Image to 100KB', 
     url: 'compress-image-to-100kb.html', 
     category: 'Compression', 
@@ -230,6 +240,16 @@ const TOOLS_REGISTRY = [
     bg: 'bg-emerald-50 border-emerald-200/80',
     desc: 'Audit product CSV files for schema errors, missing headers, and invalid handles.',
     keywords: 'shopify products csv schema error fix' 
+  },
+  { 
+    name: 'Free ATS Resume Checker', 
+    url: 'ats-resume-checker.html', 
+    category: 'Career & Productivity', 
+    icon: 'fa-file-circle-check', 
+    color: 'text-indigo-600', 
+    bg: 'bg-indigo-50 border-indigo-200/80',
+    desc: 'Audit your CV for ATS compatibility, keyword match percentage, power verbs, and formatting errors.',
+    keywords: 'ats resume checker cv score keyword gap scanner resume parser job description match' 
   },
 
   // E-Commerce & Financial
@@ -724,14 +744,20 @@ function createMobileAppDrawer() {
             <a href="compression-tools.html" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
           </div>
           <div class="grid grid-cols-2 gap-2">
+            <a href="background-remover.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-teal-50 hover:bg-teal-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-wand-magic-sparkles text-teal-600 text-sm"></i> BG Remover
+            </a>
+            <a href="video-frame-extractor.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-film text-indigo-600 text-sm"></i> Frame Extractor
+            </a>
             <a href="image-compressor.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-image text-emerald-600 text-sm"></i> Image Compressor
             </a>
-            <a href="pdf-compressor.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
-              <i class="fa-solid fa-file-pdf text-red-600 text-sm"></i> PDF Compressor
-            </a>
             <a href="video-compressor.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-video text-rose-600 text-sm"></i> Video Compressor
+            </a>
+            <a href="pdf-compressor.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-file-pdf text-red-600 text-sm"></i> PDF Compressor
             </a>
             <a href="compress-image-to-100kb.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-bullseye text-indigo-600 text-sm"></i> 100KB Target
@@ -756,6 +782,9 @@ function createMobileAppDrawer() {
             </a>
             <a href="shopify-csv-validator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-brands fa-shopify text-emerald-600 text-sm"></i> Shopify CSV
+            </a>
+            <a href="ats-resume-checker.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-file-circle-check text-indigo-600 text-sm"></i> Free ATS Resume Checker
             </a>
           </div>
         </div>
@@ -865,6 +894,42 @@ if (typeof toggleMobileMenu === 'function') {
   }
 }
 
+// Category-Hover Mega Menu Submenu Controller
+function switchNavCategory(catId) {
+  // 1. Update Category Sidebar active states
+  const tabs = document.querySelectorAll('.nav-cat-tab');
+  tabs.forEach(tab => {
+    const isTarget = tab.getAttribute('data-cat') === catId;
+    if (isTarget) {
+      tab.classList.add('active');
+      const chev = tab.querySelector('.nav-cat-chevron');
+      if (chev) {
+        chev.classList.remove('opacity-40');
+        chev.classList.add('opacity-100', 'text-indigo-600');
+      }
+    } else {
+      tab.classList.remove('active');
+      const chev = tab.querySelector('.nav-cat-chevron');
+      if (chev) {
+        chev.classList.remove('opacity-100', 'text-indigo-600');
+        chev.classList.add('opacity-40');
+      }
+    }
+  });
+
+  // 2. Hide all panels and show the targeted category tools panel
+  const panels = document.querySelectorAll('.nav-cat-panel');
+  panels.forEach(panel => {
+    if (panel.id === catId) {
+      panel.classList.remove('hidden');
+      panel.classList.add('flex');
+    } else {
+      panel.classList.add('hidden');
+      panel.classList.remove('flex');
+    }
+  });
+}
+
 // ==========================================
 // Centralized Pure JS Header & Footer Component Injector
 // Single Source of Truth across 360tools.me
@@ -891,187 +956,533 @@ function renderGlobalHeader() {
         <!-- Professional Desktop Navigation: Clean, Spacious & Uncluttered -->
         <nav class="hidden lg:flex items-center gap-2 text-xs font-bold text-slate-700">
           
-          <!-- 1. All Tools Mega Menu (Holds All 30+ Utilities Elegantly) -->
+          <!-- 1. All Tools Mega Menu (Category Sidebar with Hover-Activated Tools Submenu) -->
           <div class="nav-dropdown">
             <button class="nav-link-btn">
               <i class="fa-solid fa-screwdriver-wrench text-[#146ebe] text-xs"></i>
               <span>All Tools</span>
               <i class="fa-solid fa-chevron-down text-[9px] text-slate-400 ml-0.5"></i>
             </button>
-            <div class="nav-dropdown-content nav-dropdown-mega w-[740px]">
-              <div class="nav-dropdown-card p-5 space-y-4">
-                <div class="grid grid-cols-2 gap-x-6 gap-y-4">
+            <div class="nav-dropdown-content nav-dropdown-mega w-[820px]">
+              <div class="nav-dropdown-card p-0 overflow-hidden shadow-2xl border border-slate-200 flex">
+                
+                <!-- LEFT COLUMN: Categories Navigation Sidebar -->
+                <div class="w-[260px] bg-slate-50/80 p-3 border-r border-slate-200/80 flex flex-col justify-between shrink-0">
+                  <div>
+                    <div class="px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-slate-400 mb-1 flex items-center justify-between">
+                      <span>Tool Categories</span>
+                      <span class="text-[9px] font-bold text-slate-400">Hover Category</span>
+                    </div>
+
+                    <div class="space-y-1" id="navCategorySidebar">
+                      <!-- Category 1: Audio & AI Voice -->
+                      <button type="button" onmouseenter="switchNavCategory('nav-cat-audio')" onclick="switchNavCategory('nav-cat-audio')" class="nav-cat-tab active" data-cat="nav-cat-audio">
+                        <div class="flex items-center gap-2.5">
+                          <div class="w-7 h-7 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center text-xs shrink-0">
+                            <i class="fa-solid fa-volume-high"></i>
+                          </div>
+                          <div class="text-left">
+                            <div class="text-xs font-bold leading-tight">Audio & AI Voice</div>
+                            <div class="text-[10px] text-slate-400 font-medium">7 Tools</div>
+                          </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] nav-cat-chevron opacity-100 text-indigo-600 transition-all"></i>
+                      </button>
+
+                      <!-- Category 2: Media & Compression -->
+                      <button type="button" onmouseenter="switchNavCategory('nav-cat-media')" onclick="switchNavCategory('nav-cat-media')" class="nav-cat-tab" data-cat="nav-cat-media">
+                        <div class="flex items-center gap-2.5">
+                          <div class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs shrink-0">
+                            <i class="fa-solid fa-compress"></i>
+                          </div>
+                          <div class="text-left">
+                            <div class="text-xs font-bold leading-tight">Media & Compression</div>
+                            <div class="text-[10px] text-slate-400 font-medium">12 Tools</div>
+                          </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] nav-cat-chevron opacity-40 transition-all"></i>
+                      </button>
+
+                      <!-- Category 3: Developer & Minifiers -->
+                      <button type="button" onmouseenter="switchNavCategory('nav-cat-dev')" onclick="switchNavCategory('nav-cat-dev')" class="nav-cat-tab" data-cat="nav-cat-dev">
+                        <div class="flex items-center gap-2.5">
+                          <div class="w-7 h-7 rounded-lg bg-cyan-100 text-cyan-700 flex items-center justify-center text-xs shrink-0">
+                            <i class="fa-solid fa-code"></i>
+                          </div>
+                          <div class="text-left">
+                            <div class="text-xs font-bold leading-tight">Developer & Web</div>
+                            <div class="text-[10px] text-slate-400 font-medium">5 Tools</div>
+                          </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] nav-cat-chevron opacity-40 transition-all"></i>
+                      </button>
+
+                      <!-- Category 4: E-Commerce & Finance -->
+                      <button type="button" onmouseenter="switchNavCategory('nav-cat-ecom')" onclick="switchNavCategory('nav-cat-ecom')" class="nav-cat-tab" data-cat="nav-cat-ecom">
+                        <div class="flex items-center gap-2.5">
+                          <div class="w-7 h-7 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center text-xs shrink-0">
+                            <i class="fa-solid fa-calculator"></i>
+                          </div>
+                          <div class="text-left">
+                            <div class="text-xs font-bold leading-tight">E-Commerce & POD</div>
+                            <div class="text-[10px] text-slate-400 font-medium">5 Tools</div>
+                          </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] nav-cat-chevron opacity-40 transition-all"></i>
+                      </button>
+
+                      <!-- Category 5: Real Estate & Tax -->
+                      <button type="button" onmouseenter="switchNavCategory('nav-cat-re')" onclick="switchNavCategory('nav-cat-re')" class="nav-cat-tab" data-cat="nav-cat-re">
+                        <div class="flex items-center gap-2.5">
+                          <div class="w-7 h-7 rounded-lg bg-blue-100 text-[#146ebe] flex items-center justify-center text-xs shrink-0">
+                            <i class="fa-solid fa-house-user"></i>
+                          </div>
+                          <div class="text-left">
+                            <div class="text-xs font-bold leading-tight">Real Estate & Tax</div>
+                            <div class="text-[10px] text-slate-400 font-medium">5 Tools</div>
+                          </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] nav-cat-chevron opacity-40 transition-all"></i>
+                      </button>
+
+                      <!-- Category 6: Free Games & Puzzles -->
+                      <button type="button" onmouseenter="switchNavCategory('nav-cat-games')" onclick="switchNavCategory('nav-cat-games')" class="nav-cat-tab" data-cat="nav-cat-games">
+                        <div class="flex items-center gap-2.5">
+                          <div class="w-7 h-7 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center text-xs shrink-0">
+                            <i class="fa-solid fa-gamepad"></i>
+                          </div>
+                          <div class="text-left">
+                            <div class="text-xs font-bold leading-tight">Mini Games & Fun</div>
+                            <div class="text-[10px] text-slate-400 font-medium">6 Games</div>
+                          </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] nav-cat-chevron opacity-40 transition-all"></i>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Left Sidebar Bottom Badge -->
+                  <div class="pt-3 border-t border-slate-200/70 mt-2 px-1 text-[11px] font-bold text-slate-500 flex items-center gap-1.5">
+                    <i class="fa-solid fa-shield-halved text-emerald-600"></i>
+                    <span>100% In-Browser Privacy</span>
+                  </div>
+                </div>
+
+                <!-- RIGHT COLUMN: Dynamic Tools Panels Display -->
+                <div class="flex-1 p-5 min-h-[420px] flex flex-col justify-between bg-white overflow-hidden">
                   
-                  <!-- Column 1: Audio & AI Voice -->
-                  <div class="space-y-1.5">
-                    <div class="flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-purple-700 pb-1.5 border-b border-slate-100">
-                      <span class="flex items-center gap-1.5"><i class="fa-solid fa-volume-high"></i> Audio & AI Voice</span>
-                      <a href="audio-voice-tools.html" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
-                    </div>
-                    <div class="space-y-0.5">
-                      <a href="text-to-speech.html" class="nav-tool-item">
-                        <div class="nav-tool-icon bg-blue-50 text-[#146ebe]"><i class="fa-solid fa-volume-high"></i></div>
-                        <div>
-                          <div class="nav-tool-title">Text to Speech</div>
-                          <div class="nav-tool-desc">Natural voices with live highlighting</div>
+                  <!-- PANEL 1: Audio & AI Voice -->
+                  <div id="nav-cat-audio" class="nav-cat-panel flex flex-col justify-between h-full space-y-3">
+                    <div>
+                      <div class="flex items-center justify-between pb-2 border-b border-slate-100 mb-2.5">
+                        <div class="flex items-center gap-2">
+                          <span class="w-2 h-2 rounded-full bg-purple-600"></span>
+                          <span class="text-xs font-black uppercase tracking-wider text-purple-800">AI Voice & Audio Tools</span>
                         </div>
-                      </a>
-                      <a href="text-to-mp3.html" class="nav-tool-item">
-                        <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-file-audio"></i></div>
-                        <div>
-                          <div class="nav-tool-title">Text to MP3 Converter</div>
-                          <div class="nav-tool-desc">Instant audio download</div>
-                        </div>
-                      </a>
-                      <a href="ai-voice-generator.html" class="nav-tool-item">
-                        <div class="nav-tool-icon bg-purple-50 text-purple-600"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                        <div>
-                          <div class="nav-tool-title">AI Voice Generator</div>
-                          <div class="nav-tool-desc">Studio waveforms & avatars</div>
-                        </div>
-                      </a>
-                      <a href="urdu-text-to-speech.html" class="nav-tool-item">
-                        <div class="nav-tool-icon bg-emerald-50 text-emerald-700"><i class="fa-solid fa-feather"></i></div>
-                        <div>
-                          <div class="nav-tool-title">Urdu TTS (اردو)</div>
-                          <div class="nav-tool-desc">Nastaliq script synthesis</div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
+                        <a href="audio-voice-tools.html" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
+                          <span>View All Audio Tools</span>
+                          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                      </div>
 
-                  <!-- Column 2: Media & AI Image -->
-                  <div class="space-y-1.5">
-                    <div class="flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-teal-700 pb-1.5 border-b border-slate-100">
-                      <span class="flex items-center gap-1.5"><i class="fa-solid fa-compress"></i> Media & Compression</span>
-                      <a href="compression-tools.html" class="text-[10px] text-teal-700 hover:underline font-bold">View All &rarr;</a>
-                    </div>
-                    <div class="space-y-0.5">
-                      <a href="background-remover.html" class="nav-tool-item bg-teal-50/70 hover:bg-teal-100/70 border border-teal-200/60">
-                        <div class="nav-tool-icon bg-teal-600 text-white"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                        <div>
-                          <div class="nav-tool-title text-teal-950 flex items-center gap-1.5">
-                            <span>AI Background Remover</span>
-                            <span class="bg-teal-600 text-white text-[8px] font-black px-1.5 py-0.2 rounded-full uppercase">NEW</span>
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="text-to-speech.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-blue-50 text-[#146ebe]"><i class="fa-solid fa-volume-high"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Text to Speech</div>
+                            <div class="nav-tool-desc">Natural voices with live word highlight</div>
                           </div>
-                          <div class="nav-tool-desc text-teal-700">100% in-browser photo cutout</div>
-                        </div>
-                      </a>
-                      <a href="image-compressor.html" class="nav-tool-item">
-                        <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-image"></i></div>
-                        <div>
-                          <div class="nav-tool-title">Image Compressor</div>
-                          <div class="nav-tool-desc">JPG, PNG, WebP quantization</div>
-                        </div>
-                      </a>
-                      <a href="pdf-compressor.html" class="nav-tool-item">
-                        <div class="nav-tool-icon bg-red-50 text-red-600"><i class="fa-solid fa-file-pdf"></i></div>
-                        <div>
-                          <div class="nav-tool-title">PDF Compressor</div>
-                          <div class="nav-tool-desc">Client-side DPI optimizer</div>
-                        </div>
-                      </a>
-                      <a href="compress-image-to-100kb.html" class="nav-tool-item">
-                        <div class="nav-tool-icon bg-indigo-50 text-indigo-600"><i class="fa-solid fa-bullseye"></i></div>
-                        <div>
-                          <div class="nav-tool-title">Target Size (100KB/500KB)</div>
-                          <div class="nav-tool-desc">Fast portal & form optimizer</div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <!-- Column 3: Developer & Code -->
-                  <div class="space-y-1.5">
-                    <div class="flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-cyan-700 pb-1.5 border-b border-slate-100">
-                      <span class="flex items-center gap-1.5"><i class="fa-solid fa-code"></i> Developer & Minifiers</span>
-                      <a href="developer-tools.html" class="text-[10px] text-cyan-700 hover:underline font-bold">View All &rarr;</a>
-                    </div>
-                    <div class="space-y-0.5">
-                      <a href="html-minifier.html" class="nav-tool-item">
-                        <div class="nav-tool-icon bg-orange-50 text-orange-600"><i class="fa-brands fa-html5"></i></div>
-                        <div>
-                          <div class="nav-tool-title">HTML Minifier</div>
-                          <div class="nav-tool-desc">Collapse whitespace & comments</div>
-                        </div>
-                      </a>
-                      <a href="css-minifier.html" class="nav-tool-item">
-                        <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-brands fa-css3-alt"></i></div>
-                        <div>
-                          <div class="nav-tool-title">CSS Minifier</div>
-                          <div class="nav-tool-desc">Compress style sheets</div>
-                        </div>
-                      </a>
-                      <a href="javascript-minifier.html" class="nav-tool-item">
-                        <div class="nav-tool-icon bg-yellow-50 text-yellow-600"><i class="fa-brands fa-js"></i></div>
-                        <div>
-                          <div class="nav-tool-title">JavaScript Minifier</div>
-                          <div class="nav-tool-desc">Compress frontend scripts</div>
-                        </div>
-                      </a>
-                      <a href="shopify-csv-validator.html" class="nav-tool-item">
-                        <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-brands fa-shopify"></i></div>
-                        <div>
-                          <div class="nav-tool-title">Shopify CSV Validator</div>
-                          <div class="nav-tool-desc">Fix product schema errors</div>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-
-                  <!-- Column 4: Business & Calculators -->
-                  <div class="space-y-1.5">
-                    <div class="flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-amber-700 pb-1.5 border-b border-slate-100">
-                      <span class="flex items-center gap-1.5"><i class="fa-solid fa-calculator"></i> Business & Finance</span>
-                      <a href="ecommerce-tools.html" class="text-[10px] text-amber-700 hover:underline font-bold">View All &rarr;</a>
-                    </div>
-                    <div class="space-y-0.5">
-                      <a href="invoice-generator.html" class="nav-tool-item bg-blue-50/70 hover:bg-blue-100/70 border border-blue-200/60">
-                        <div class="nav-tool-icon bg-[#146ebe] text-white"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-                        <div>
-                          <div class="nav-tool-title text-blue-950 flex items-center gap-1.5">
-                            <span>Free Invoice Generator</span>
-                            <span class="bg-[#146ebe] text-white text-[8px] font-black px-1.5 py-0.2 rounded-full uppercase">NEW</span>
+                        </a>
+                        <a href="text-to-mp3.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-file-audio"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Text to MP3 Converter</div>
+                            <div class="nav-tool-desc">Direct MP3 & WAV audio export</div>
                           </div>
-                          <div class="nav-tool-desc text-blue-700">Printable A4 PDF invoices</div>
-                        </div>
-                      </a>
-                      <a href="etsy-fee-calculator.html" class="nav-tool-item">
-                        <div class="nav-tool-icon bg-orange-50 text-orange-600"><i class="fa-brands fa-etsy"></i></div>
-                        <div>
-                          <div class="nav-tool-title">Etsy Fee Calculator</div>
-                          <div class="nav-tool-desc">6.5% + offsite ads profit</div>
-                        </div>
-                      </a>
-                      <a href="amazon-fba-calculator.html" class="nav-tool-item">
-                        <div class="nav-tool-icon bg-amber-50 text-amber-600"><i class="fa-brands fa-amazon"></i></div>
-                        <div>
-                          <div class="nav-tool-title">Amazon FBA Checker</div>
-                          <div class="nav-tool-desc">Divisor 139 dim weights</div>
-                        </div>
-                      </a>
-                      <a href="section8-estimator.html" class="nav-tool-item">
-                        <div class="nav-tool-icon bg-blue-50 text-[#146ebe]"><i class="fa-solid fa-house-user"></i></div>
-                        <div>
-                          <div class="nav-tool-title">Section 8 Estimator</div>
-                          <div class="nav-tool-desc">HUD FMR voucher rent</div>
-                        </div>
-                      </a>
+                        </a>
+                        <a href="ai-voice-generator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-purple-50 text-purple-600"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                          <div>
+                            <div class="nav-tool-title">AI Voice Generator</div>
+                            <div class="nav-tool-desc">Studio avatars & dynamic waveforms</div>
+                          </div>
+                        </a>
+                        <a href="pdf-to-speech.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-red-50 text-red-600"><i class="fa-solid fa-file-pdf"></i></div>
+                          <div>
+                            <div class="nav-tool-title">PDF to Speech Reader</div>
+                            <div class="nav-tool-desc">Listen to multi-page eBooks & documents</div>
+                          </div>
+                        </a>
+                        <a href="youtube-voiceover-generator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-rose-50 text-rose-600"><i class="fa-brands fa-youtube"></i></div>
+                          <div>
+                            <div class="nav-tool-title">YouTube Voiceover</div>
+                            <div class="nav-tool-desc">Scene splitter & timing narration</div>
+                          </div>
+                        </a>
+                        <a href="urdu-text-to-speech.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-emerald-50 text-emerald-700"><i class="fa-solid fa-feather"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Urdu TTS (اردو)</div>
+                            <div class="nav-tool-desc">Nastaliq script & Roman Urdu synthesis</div>
+                          </div>
+                        </a>
+                        <a href="article-to-speech.html" class="nav-tool-item col-span-2">
+                          <div class="nav-tool-icon bg-amber-50 text-amber-600"><i class="fa-solid fa-newspaper"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Article to Speech Reader</div>
+                            <div class="nav-tool-desc">Strip clutter from blog posts & listen hands-free</div>
+                          </div>
+                        </a>
+                      </div>
                     </div>
+                  </div>
+
+                  <!-- PANEL 2: Media & Compression -->
+                  <div id="nav-cat-media" class="nav-cat-panel hidden flex-col justify-between h-full space-y-3">
+                    <div>
+                      <div class="flex items-center justify-between pb-2 border-b border-slate-100 mb-2.5">
+                        <div class="flex items-center gap-2">
+                          <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+                          <span class="text-xs font-black uppercase tracking-wider text-emerald-800">Media, AI Image & Video Tools</span>
+                        </div>
+                        <a href="compression-tools.html" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
+                          <span>View All Media Tools</span>
+                          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                      </div>
+
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="background-remover.html" class="nav-tool-item bg-teal-50/70 hover:bg-teal-100/70 border border-teal-200/60">
+                          <div class="nav-tool-icon bg-teal-600 text-white"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                          <div>
+                            <div class="nav-tool-title text-teal-950 flex items-center gap-1.5">
+                              <span>AI Background Remover</span>
+                              <span class="bg-teal-600 text-white text-[8px] font-black px-1.5 py-0.2 rounded-full uppercase">NEW</span>
+                            </div>
+                            <div class="nav-tool-desc text-teal-700">Client-side AI cutout & transparent PNG</div>
+                          </div>
+                        </a>
+
+                        <a href="video-frame-extractor.html" class="nav-tool-item bg-indigo-50/70 hover:bg-indigo-100/70 border border-indigo-200/60">
+                          <div class="nav-tool-icon bg-indigo-600 text-white"><i class="fa-solid fa-film"></i></div>
+                          <div>
+                            <div class="nav-tool-title text-indigo-950 flex items-center gap-1.5">
+                              <span>Video Frame Extractor</span>
+                              <span class="bg-indigo-600 text-white text-[8px] font-black px-1.5 py-0.2 rounded-full uppercase">NEW</span>
+                            </div>
+                            <div class="nav-tool-desc text-indigo-700">Parse frames to ZIP & storyboard</div>
+                          </div>
+                        </a>
+
+                        <a href="video-compressor.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-rose-50 text-rose-600"><i class="fa-solid fa-video"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Video Compressor</div>
+                            <div class="nav-tool-desc">Reduce MP4 & WebM without watermarks</div>
+                          </div>
+                        </a>
+
+                        <a href="image-compressor.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-image"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Universal Image Compressor</div>
+                            <div class="nav-tool-desc">JPG, PNG, WebP up to 90% savings</div>
+                          </div>
+                        </a>
+
+                        <a href="bulk-image-compressor.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-purple-50 text-purple-600"><i class="fa-solid fa-layer-group"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Bulk Image Compressor (ZIP)</div>
+                            <div class="nav-tool-desc">Batch compress 50+ images at once</div>
+                          </div>
+                        </a>
+
+                        <a href="pdf-compressor.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-red-50 text-red-600"><i class="fa-solid fa-file-pdf"></i></div>
+                          <div>
+                            <div class="nav-tool-title">PDF Compressor</div>
+                            <div class="nav-tool-desc">Multi-page DPI reduction for portals</div>
+                          </div>
+                        </a>
+
+                        <a href="compress-image-to-100kb.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-indigo-50 text-indigo-600"><i class="fa-solid fa-bullseye"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Target Size (100KB / 500KB)</div>
+                            <div class="nav-tool-desc">Exact file size limits for job & passport forms</div>
+                          </div>
+                        </a>
+
+                        <a href="webp-compressor.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-solid fa-bolt"></i></div>
+                          <div>
+                            <div class="nav-tool-title">WebP Compressor</div>
+                            <div class="nav-tool-desc">Convert photos to next-gen WebP</div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- PANEL 3: Developer & Minifiers -->
+                  <div id="nav-cat-dev" class="nav-cat-panel hidden flex-col justify-between h-full space-y-3">
+                    <div>
+                      <div class="flex items-center justify-between pb-2 border-b border-slate-100 mb-2.5">
+                        <div class="flex items-center gap-2">
+                          <span class="w-2 h-2 rounded-full bg-cyan-600"></span>
+                          <span class="text-xs font-black uppercase tracking-wider text-cyan-800">Developer & Web Tools</span>
+                        </div>
+                        <a href="developer-tools.html" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
+                          <span>View All Dev Tools</span>
+                          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                      </div>
+
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="html-minifier.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-orange-50 text-orange-600"><i class="fa-brands fa-html5"></i></div>
+                          <div>
+                            <div class="nav-tool-title">HTML Minifier</div>
+                            <div class="nav-tool-desc">Strip comments, collapse whitespace & check Gzip</div>
+                          </div>
+                        </a>
+
+                        <a href="css-minifier.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-brands fa-css3-alt"></i></div>
+                          <div>
+                            <div class="nav-tool-title">CSS Minifier</div>
+                            <div class="nav-tool-desc">Compress stylesheets & eliminate dead rules</div>
+                          </div>
+                        </a>
+
+                        <a href="javascript-minifier.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-yellow-50 text-yellow-600"><i class="fa-brands fa-js"></i></div>
+                          <div>
+                            <div class="nav-tool-title">JavaScript Minifier</div>
+                            <div class="nav-tool-desc">Minify JS scripts & strip console.logs</div>
+                          </div>
+                        </a>
+
+                        <a href="shopify-csv-validator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-brands fa-shopify"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Shopify CSV Validator</div>
+                            <div class="nav-tool-desc">Audit product CSVs for schema & handle errors</div>
+                          </div>
+                        </a>
+
+                        <a href="ats-resume-checker.html" class="nav-tool-item bg-indigo-50/70 hover:bg-indigo-100/70 border border-indigo-200/60 col-span-2">
+                          <div class="nav-tool-icon bg-indigo-600 text-white"><i class="fa-solid fa-file-circle-check"></i></div>
+                          <div>
+                            <div class="nav-tool-title text-indigo-950 flex items-center gap-1.5">
+                              <span>Free ATS Resume Checker</span>
+                              <span class="bg-indigo-600 text-white text-[8px] font-black px-1.5 py-0.2 rounded-full uppercase">NEW</span>
+                            </div>
+                            <div class="nav-tool-desc text-indigo-700">Audit CV compatibility, power verbs & keyword match score</div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- PANEL 4: E-Commerce & Finance -->
+                  <div id="nav-cat-ecom" class="nav-cat-panel hidden flex-col justify-between h-full space-y-3">
+                    <div>
+                      <div class="flex items-center justify-between pb-2 border-b border-slate-100 mb-2.5">
+                        <div class="flex items-center gap-2">
+                          <span class="w-2 h-2 rounded-full bg-amber-600"></span>
+                          <span class="text-xs font-black uppercase tracking-wider text-amber-800">E-Commerce, POD & Seller Tools</span>
+                        </div>
+                        <a href="ecommerce-tools.html" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
+                          <span>View All E-Commerce Tools</span>
+                          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                      </div>
+
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="invoice-generator.html" class="nav-tool-item bg-blue-50/70 hover:bg-blue-100/70 border border-blue-200/60 col-span-2">
+                          <div class="nav-tool-icon bg-[#146ebe] text-white"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                          <div>
+                            <div class="nav-tool-title text-blue-950 flex items-center gap-1.5">
+                              <span>Free Online Invoice Generator</span>
+                              <span class="bg-[#146ebe] text-white text-[8px] font-black px-1.5 py-0.2 rounded-full uppercase">NEW</span>
+                            </div>
+                            <div class="nav-tool-desc text-blue-700">Printable A4 PDF invoices with logo, tax & multi-currency</div>
+                          </div>
+                        </a>
+
+                        <a href="etsy-fee-calculator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-orange-50 text-orange-600"><i class="fa-brands fa-etsy"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Etsy Fee Calculator</div>
+                            <div class="nav-tool-desc">6.5% transaction, listing & net profit</div>
+                          </div>
+                        </a>
+
+                        <a href="amazon-fba-calculator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-amber-50 text-amber-600"><i class="fa-brands fa-amazon"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Amazon FBA Checker</div>
+                            <div class="nav-tool-desc">Billable dim weight divisor 139 tiers</div>
+                          </div>
+                        </a>
+
+                        <a href="tiktok-shop-payout-calculator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-pink-50 text-pink-600"><i class="fa-brands fa-tiktok"></i></div>
+                          <div>
+                            <div class="nav-tool-title">TikTok Shop Payout</div>
+                            <div class="nav-tool-desc">Creator affiliate commissions & payouts</div>
+                          </div>
+                        </a>
+
+                        <a href="pod-profit-calculator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-solid fa-shirt"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Print-on-Demand Profit Grid</div>
+                            <div class="nav-tool-desc">Printify, Printful & Gelato margins</div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- PANEL 5: Real Estate & Tax -->
+                  <div id="nav-cat-re" class="nav-cat-panel hidden flex-col justify-between h-full space-y-3">
+                    <div>
+                      <div class="flex items-center justify-between pb-2 border-b border-slate-100 mb-2.5">
+                        <div class="flex items-center gap-2">
+                          <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                          <span class="text-xs font-black uppercase tracking-wider text-blue-800">Real Estate & Tax Calculators</span>
+                        </div>
+                        <a href="index.html#tools-catalog" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
+                          <span>View All in Catalog</span>
+                          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                      </div>
+
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="section8-estimator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-blue-50 text-[#146ebe]"><i class="fa-solid fa-house-user"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Section 8 Max Rent Estimator</div>
+                            <div class="nav-tool-desc">HUD FMR voucher limits & landlord caps</div>
+                          </div>
+                        </a>
+
+                        <a href="uk-stamp-duty-calculator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-amber-50 text-amber-700"><i class="fa-solid fa-landmark"></i></div>
+                          <div>
+                            <div class="nav-tool-title">UK Stamp Duty Calculator</div>
+                            <div class="nav-tool-desc">SDLT property tax tiers for England & NI</div>
+                          </div>
+                        </a>
+
+                        <a href="1031-exchange-tracker.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-purple-50 text-purple-600"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                          <div>
+                            <div class="nav-tool-title">1031 Exchange Timeline Tracker</div>
+                            <div class="nav-tool-desc">45-day identification & 180-day closing</div>
+                          </div>
+                        </a>
+
+                        <a href="str-cleaning-splitter.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-teal-50 text-teal-600"><i class="fa-solid fa-broom"></i></div>
+                          <div>
+                            <div class="nav-tool-title">STR Cleaning Fee Splitter</div>
+                            <div class="nav-tool-desc">Airbnb & VRBO turnover co-host payouts</div>
+                          </div>
+                        </a>
+
+                        <a href="eu-vat-oss-calculator.html" class="nav-tool-item col-span-2">
+                          <div class="nav-tool-icon bg-blue-50 text-blue-700"><i class="fa-solid fa-percent"></i></div>
+                          <div>
+                            <div class="nav-tool-title">EU VAT OSS Calculator</div>
+                            <div class="nav-tool-desc">One-stop-shop VAT rates across 27 EU member states</div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- PANEL 6: Free Games & Puzzles -->
+                  <div id="nav-cat-games" class="nav-cat-panel hidden flex-col justify-between h-full space-y-3">
+                    <div>
+                      <div class="flex items-center justify-between pb-2 border-b border-slate-100 mb-2.5">
+                        <div class="flex items-center gap-2">
+                          <span class="w-2 h-2 rounded-full bg-purple-600"></span>
+                          <span class="text-xs font-black uppercase tracking-wider text-purple-800">Free Browser Games & Brain Puzzles</span>
+                        </div>
+                        <span class="text-[10px] bg-purple-100 text-purple-800 font-bold px-2 py-0.5 rounded-full">100% Free & No Ads</span>
+                      </div>
+
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="2048/index.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-amber-50 text-amber-600"><i class="fa-solid fa-cubes"></i></div>
+                          <div>
+                            <div class="nav-tool-title">2048 Classic</div>
+                            <div class="nav-tool-desc">Slide & join numbered tiles to reach 2048</div>
+                          </div>
+                        </a>
+
+                        <a href="snake/index.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-worm"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Retro Snake Arcade</div>
+                            <div class="nav-tool-desc">Classic 60fps movement & bonus apples</div>
+                          </div>
+                        </a>
+
+                        <a href="memory-game/index.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-purple-50 text-purple-600"><i class="fa-solid fa-brain"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Memory Card Match</div>
+                            <div class="nav-tool-desc">3D card flip brain trainer with timers</div>
+                          </div>
+                        </a>
+
+                        <a href="tic-tac-toe/index.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-rose-50 text-rose-600"><i class="fa-solid fa-xmark"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Tic Tac Toe (XO vs AI)</div>
+                            <div class="nav-tool-desc">Play vs smart Minimax AI or 2-player</div>
+                          </div>
+                        </a>
+
+                        <a href="word-scramble/index.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-solid fa-spell-check"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Word Scramble Master</div>
+                            <div class="nav-tool-desc">Unscramble mixed letters & combo streaks</div>
+                          </div>
+                        </a>
+
+                        <a href="bhabhi-thulla/index.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-spade"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Bhabhi Thulla Card Game</div>
+                            <div class="nav-tool-desc">4-player classic trick-taking evasion</div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Mega Menu Sub-Footer Bar -->
+                  <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold px-1 mt-3">
+                    <span class="text-slate-400 text-[11px] flex items-center gap-1.5">
+                      <i class="fa-solid fa-bolt text-amber-500"></i> Instant processing with zero server delays
+                    </span>
+                    <a href="index.html#tools-catalog" class="text-[#146ebe] hover:underline flex items-center gap-1 font-black">
+                      <span>Explore All 30+ Tools</span>
+                      <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </a>
                   </div>
 
                 </div>
 
-                <!-- Mega Menu Footer Bar -->
-                <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold px-1">
-                  <span class="text-slate-500 text-[11px] flex items-center gap-1.5">
-                    <i class="fa-solid fa-shield-halved text-emerald-600"></i> 100% In-Browser Private • Zero Cloud Logging
-                  </span>
-                  <a href="index.html#tools-catalog" class="text-[#146ebe] hover:underline flex items-center gap-1 font-black">
-                    <span>Explore All 30+ Tools</span>
-                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                  </a>
-                </div>
               </div>
             </div>
           </div>
@@ -1331,13 +1742,13 @@ function renderGlobalFooter() {
           </h4>
           <ul class="text-xs font-bold text-slate-600 space-y-2">
             <li><a href="background-remover.html" class="text-teal-700 hover:text-teal-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-wand-magic-sparkles text-[9px] text-teal-600"></i> AI BG Remover</a></li>
+            <li><a href="video-frame-extractor.html" class="text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1.5 font-bold"><i class="fa-solid fa-film text-[9px] text-indigo-600"></i> Frame Extractor</a></li>
             <li><a href="image-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Universal Compressor</a></li>
             <li><a href="jpg-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> JPG Compressor</a></li>
             <li><a href="png-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> PNG Compressor</a></li>
             <li><a href="webp-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> WebP Compressor</a></li>
             <li><a href="pdf-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> PDF Compressor</a></li>
             <li><a href="video-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Video Compressor</a></li>
-            <li><a href="compress-image-to-100kb.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> 100KB / 500KB Tool</a></li>
           </ul>
         </div>
 
@@ -1345,9 +1756,10 @@ function renderGlobalFooter() {
         <div class="lg:col-span-2 space-y-3">
           <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
             <i class="fa-solid fa-code text-cyan-600 text-[11px]"></i>
-            <span>Dev & Business</span>
+            <span>Dev & Career</span>
           </h4>
           <ul class="text-xs font-bold text-slate-600 space-y-2">
+            <li><a href="ats-resume-checker.html" class="text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-file-circle-check text-[9px] text-indigo-600"></i> ATS Resume Checker</a></li>
             <li><a href="invoice-generator.html" class="text-blue-700 hover:text-blue-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-file-invoice-dollar text-[9px] text-blue-600"></i> Invoice Maker</a></li>
             <li><a href="html-minifier.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> HTML Minifier</a></li>
             <li><a href="css-minifier.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> CSS Minifier</a></li>
@@ -1355,7 +1767,6 @@ function renderGlobalFooter() {
             <li><a href="etsy-fee-calculator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Etsy Fee Calculator</a></li>
             <li><a href="amazon-fba-calculator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Amazon FBA</a></li>
             <li><a href="tiktok-shop-payout-calculator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> TikTok Payout</a></li>
-            <li><a href="section8-estimator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Section 8 / SDLT</a></li>
           </ul>
         </div>
 
