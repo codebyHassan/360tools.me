@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base href="../">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -14,8 +13,8 @@
   <link rel="canonical" href="https://360tools.me/image-tools/compress-image-to-200kb.html">
 
   <!-- Open Graph -->
-  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
-  <link rel="apple-touch-icon" href="images/logo-icon.webp">
+  <link rel="icon" type="image/webp" href="../images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="../images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/compress-image-to-200kb.html">
   <meta property="og:title" content="Compress Image to 200KB Online | 360tools">
@@ -78,7 +77,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="../css/style.min.css">
 </head>
 <body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
 
@@ -90,9 +89,9 @@
     
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4" aria-label="Breadcrumb">
-      <a href="index.html" class="hover:text-[#c27803]">Home</a>
+      <a href="../index.html" class="hover:text-[#c27803]">Home</a>
       <span>/</span>
-      <a href="compression-tools.html" class="hover:text-[#c27803]">Compression Tools</a>
+      <a href="./" class="hover:text-[#c27803]">Compression Tools</a>
       <span>/</span>
       <span class="text-slate-700">Compress to 200KB</span>
     </nav>
@@ -147,9 +146,9 @@
             <h3 class="text-xs font-black text-[#3e2723] uppercase tracking-wider">Other Target Sizes</h3>
           </div>
           <div class="grid grid-cols-3 gap-2">
-            <a href="compress-image-to-100kb.html" class="p-2.5 rounded-xl border border-slate-200 hover:border-indigo-600 text-xs font-bold text-slate-700 text-center block">100 KB</a>
+            <a href="/image-tools/compress-image-to-100kb.html" class="p-2.5 rounded-xl border border-slate-200 hover:border-indigo-600 text-xs font-bold text-slate-700 text-center block">100 KB</a>
             <span class="p-2.5 rounded-xl border-2 border-indigo-600 bg-indigo-50 text-xs font-black text-indigo-900 text-center block">200 KB</span>
-            <a href="compress-image-to-500kb.html" class="p-2.5 rounded-xl border border-slate-200 hover:border-indigo-600 text-xs font-bold text-slate-700 text-center block">500 KB</a>
+            <a href="/image-tools/compress-image-to-500kb.html" class="p-2.5 rounded-xl border border-slate-200 hover:border-indigo-600 text-xs font-bold text-slate-700 text-center block">500 KB</a>
           </div>
           <div class="pt-3 border-t border-slate-100">
             <button id="btnDownload200" onclick="download200()" class="fa-btn-primary py-3 text-sm font-black w-full bg-indigo-600 hover:bg-indigo-700 flex items-center justify-center gap-2 disabled:opacity-50" disabled>
@@ -219,10 +218,10 @@
         <div>
           <h3 class="text-xs font-black text-slate-400 uppercase tracking-wider mb-4">Related Target Size Tools</h3>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <a href="compress-image-to-100kb.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
+            <a href="/image-tools/compress-image-to-100kb.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-solid fa-bullseye text-indigo-600 mr-1.5"></i> Compress to 100KB
             </a>
-            <a href="compress-image-to-500kb.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
+            <a href="/image-tools/compress-image-to-500kb.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
               <i class="fa-solid fa-bullseye text-indigo-600 mr-1.5"></i> Compress to 500KB
             </a>
             <a href="target-size-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
@@ -242,8 +241,8 @@
   <footer id="globalFooter"></footer>
 
   <!-- Scripts -->
-  <script src="js/main.min.js"></script>
-  <script src="js/image-engine.js"></script>
+  <script src="../js/main.min.js"></script>
+  <script src="../js/image-engine.js"></script>
   <script>
     let current200File = null;
     let result200 = null;

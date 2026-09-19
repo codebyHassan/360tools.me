@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base href="../">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- SEO Primary Meta Tags -->
   <title>Free Online Developer Tools & Code Minifiers | 360tools</title>
   <meta name="title" content="Free Online Developer Tools & Code Minifiers | 360tools">
-  <meta name="description" content="Explore our suite of client-side developer tools: HTML Minifier, CSS Minifier, JavaScript Minifier, and Shopify CSV Validator with instant Gzip payload estimators.">
-  <meta name="keywords" content="developer tools online, html minifier, css minifier, javascript minifier, shopify csv validator, code minifiers free">
+  <meta name="description" content="Explore our suite of client-side developer utilities: HTML Minifier, CSS Minifier, JavaScript Minifier, Shopify CSV Validator, and Free ATS Resume Checker.">
+  <meta name="keywords" content="developer tools online, html minifier, css minifier, javascript minifier, shopify csv validator, ats resume checker, code minifiers free">
   <meta name="author" content="360tools.me">
   <link rel="canonical" href="https://360tools.me/developer-tools/">
 
   <!-- Open Graph -->
-  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
-  <link rel="apple-touch-icon" href="images/logo-icon.webp">
+  <link rel="icon" type="image/webp" href="../images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="../images/logo-icon.webp">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://360tools.me/developer-tools.html">
+  <meta property="og:url" content="https://360tools.me/developer-tools/">
   <meta property="og:title" content="Free Online Developer Tools | 360tools">
   <meta property="og:description" content="100% Client-side developer performance and minification tools.">
-  <meta property="og:image" content="images/logo.webp">
+  <meta property="og:image" content="/images/logo.webp">
 
   <!-- Structured Data: CollectionPage -->
   <script type="application/ld+json">
@@ -28,28 +27,25 @@
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Developer Tools Hub",
-    "url": "https://360tools.me/developer-tools.html",
-    "description": "Collection of frontend developer utilities including HTML, CSS, JavaScript minifiers, and schema validators.",
+    "url": "https://360tools.me/developer-tools/",
+    "description": "Collection of frontend developer utilities including HTML, CSS, JavaScript minifiers, schema validators, and resume checkers.",
     "hasPart": [
-      { "@type": "WebApplication", "name": "HTML Minifier", "url": "https://360tools.me/html-minifier.html" },
-      { "@type": "WebApplication", "name": "CSS Minifier", "url": "https://360tools.me/css-minifier.html" },
-      { "@type": "WebApplication", "name": "JavaScript Minifier", "url": "https://360tools.me/javascript-minifier.html" },
-      { "@type": "WebApplication", "name": "Shopify CSV Validator", "url": "https://360tools.me/shopify-csv-validator.html" }
+      { "@type": "WebApplication", "name": "HTML Minifier", "url": "https://360tools.me/developer-tools/html-minifier.html" },
+      { "@type": "WebApplication", "name": "CSS Minifier", "url": "https://360tools.me/developer-tools/css-minifier.html" },
+      { "@type": "WebApplication", "name": "JavaScript Minifier", "url": "https://360tools.me/developer-tools/javascript-minifier.html" },
+      { "@type": "WebApplication", "name": "Shopify CSV Validator", "url": "https://360tools.me/developer-tools/shopify-csv-validator.html" },
+      { "@type": "WebApplication", "name": "Free ATS Resume Checker", "url": "https://360tools.me/developer-tools/ats-resume-checker.html" }
     ]
   }
   </script>
 
-  <!-- Stylesheets -->
-    <!-- Preconnect External Domains -->
+  <!-- Google Fonts & Stylesheets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="../css/style.min.css">
 </head>
 <body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
 
@@ -58,6 +54,13 @@
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
+
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-6" aria-label="Breadcrumb">
+      <a href="../index.html" class="hover:text-[#c27803] transition-colors"><i class="fa-solid fa-house mr-1"></i>Home</a>
+      <span class="text-slate-300">/</span>
+      <span class="text-[#3e2723] font-black">Developer Tools</span>
+    </nav>
     
     <!-- Hero / H1 Section -->
     <div class="text-center max-w-3xl mx-auto mb-12">
@@ -68,81 +71,121 @@
         Frontend Developer Tools & Minifiers
       </h1>
       <p class="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
-        Minify source code, strip comments, validate CSV schemas, and estimate Gzip bandwidth savings. 100% in-browser security.
+        Minify source code, strip comments, validate CSV schemas, audit resumes for ATS, and estimate Gzip bandwidth savings. 100% in-browser security.
       </p>
     </div>
 
     <!-- Hub Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
       
+      <!-- Card 0: ATS Resume Checker (Featured) -->
+      <a href="/developer-tools/ats-resume-checker.html" class="fa-card fa-card-interactive p-7 flex flex-col justify-between group border-2 border-indigo-200 bg-gradient-to-br from-white to-indigo-50/30">
+        <div class="space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-50 border border-indigo-200 text-indigo-600 flex items-center justify-center text-xl shadow-2xs group-hover:scale-110 group-hover:-rotate-3 transition-transform">
+            <i class="fa-solid fa-file-circle-check"></i>
+          </div>
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2">
+              <h3 class="text-xl font-black text-[#3e2723] group-hover:text-indigo-600 transition-colors">Free ATS Resume Checker</h3>
+              <span class="text-[9px] bg-indigo-600 text-white font-black px-2 py-0.5 rounded-full uppercase">NEW</span>
+            </div>
+            <p class="text-xs text-slate-600 leading-relaxed font-medium">
+              Audit your CV for ATS compatibility, keyword match percentage, power verbs, and formatting errors.
+            </p>
+          </div>
+        </div>
+        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-indigo-600">
+          <span>Launch Tool</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </a>
+
       <!-- Card 1: HTML Minifier -->
-      <a href="html-minifier.html" class="fa-card fa-card-interactive p-7 flex flex-col justify-between group">
-        <div class="space-y-3">
-          <div class="w-12 h-12 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+      <a href="/developer-tools/html-minifier.html" class="fa-card fa-card-interactive p-7 flex flex-col justify-between group">
+        <div class="space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-200 text-orange-600 flex items-center justify-center text-xl shadow-2xs group-hover:scale-110 group-hover:-rotate-3 transition-transform">
             <i class="fa-brands fa-html5"></i>
           </div>
-          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803]">HTML Minifier</h3>
-          <p class="text-xs text-slate-600 leading-relaxed font-medium">
-            Strip HTML comments, collapse unnecessary spaces, and compress HTML5 documents.
-          </p>
+          <div class="space-y-1.5">
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-orange-600 transition-colors">HTML Minifier</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-medium">
+              Strip HTML comments, collapse whitespace, and compress HTML5 documents client-side.
+            </p>
+          </div>
         </div>
-        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-orange-600">
           <span>Launch Tool</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
       </a>
 
       <!-- Card 2: CSS Minifier -->
-      <a href="css-minifier.html" class="fa-card fa-card-interactive p-7 flex flex-col justify-between group">
-        <div class="space-y-3">
-          <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+      <a href="/developer-tools/css-minifier.html" class="fa-card fa-card-interactive p-7 flex flex-col justify-between group">
+        <div class="space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center text-xl shadow-2xs group-hover:scale-110 group-hover:-rotate-3 transition-transform">
             <i class="fa-brands fa-css3-alt"></i>
           </div>
-          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803]">CSS Minifier</h3>
-          <p class="text-xs text-slate-600 leading-relaxed font-medium">
-            Shorten hex codes (<code>#fff</code>), purge CSS comments, and optimize stylesheet syntax.
-          </p>
+          <div class="space-y-1.5">
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-blue-600 transition-colors">CSS Minifier</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-medium">
+              Shorten hex codes, purge CSS comments, and optimize stylesheet syntax with zero delays.
+            </p>
+          </div>
         </div>
-        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-blue-600">
           <span>Launch Tool</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
       </a>
 
       <!-- Card 3: JS Minifier -->
-      <a href="javascript-minifier.html" class="fa-card fa-card-interactive p-7 flex flex-col justify-between group">
-        <div class="space-y-3">
-          <div class="w-12 h-12 rounded-2xl bg-yellow-50 text-yellow-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+      <a href="/developer-tools/javascript-minifier.html" class="fa-card fa-card-interactive p-7 flex flex-col justify-between group">
+        <div class="space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-yellow-50 border border-yellow-200 text-yellow-600 flex items-center justify-center text-xl shadow-2xs group-hover:scale-110 group-hover:-rotate-3 transition-transform">
             <i class="fa-brands fa-js"></i>
           </div>
-          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803]">JavaScript Minifier</h3>
-          <p class="text-xs text-slate-600 leading-relaxed font-medium">
-            Clean inline/block comments and optimize JavaScript whitespace safely in browser memory.
-          </p>
+          <div class="space-y-1.5">
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-yellow-600 transition-colors">JavaScript Minifier</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-medium">
+              Clean inline/block comments and optimize JavaScript whitespace safely in browser memory.
+            </p>
+          </div>
         </div>
-        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-yellow-600">
           <span>Launch Tool</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
       </a>
 
       <!-- Card 4: Shopify CSV Validator -->
-      <a href="shopify-csv-validator.html" class="fa-card fa-card-interactive p-7 flex flex-col justify-between group">
-        <div class="space-y-3">
-          <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+      <a href="/developer-tools/shopify-csv-validator.html" class="fa-card fa-card-interactive p-7 flex flex-col justify-between group">
+        <div class="space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center text-xl shadow-2xs group-hover:scale-110 group-hover:-rotate-3 transition-transform">
             <i class="fa-brands fa-shopify"></i>
           </div>
-          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803]">Shopify CSV Validator</h3>
-          <p class="text-xs text-slate-600 leading-relaxed font-medium">
-            Validate product CSVs for 20+ Shopify schema errors and export clean CSVs with 1 click.
-          </p>
+          <div class="space-y-1.5">
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-emerald-600 transition-colors">Shopify CSV Validator</h3>
+            <p class="text-xs text-slate-600 leading-relaxed font-medium">
+              Validate product CSVs for 20+ Shopify schema errors and export clean CSVs with 1 click.
+            </p>
+          </div>
         </div>
-        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+        <div class="pt-4 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-emerald-600">
           <span>Launch Tool</span>
           <i class="fa-solid fa-arrow-right"></i>
         </div>
       </a>
 
+    </div>
+
+    <!-- Related Categories -->
+    <div class="border-t border-slate-200/80 pt-10 pb-8 text-center">
+      <h2 class="text-sm font-black uppercase tracking-wider text-slate-400 mb-4">Explore Related Categories</h2>
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <a href="/ecommerce-tools/" class="fa-btn-secondary px-4 py-2 text-xs font-bold rounded-xl"><i class="fa-solid fa-cart-shopping mr-1 text-[#f1641e]"></i> E-Commerce Tools</a>
+        <a href="/pdf-tools/" class="fa-btn-secondary px-4 py-2 text-xs font-bold rounded-xl"><i class="fa-solid fa-file-pdf mr-1 text-red-600"></i> PDF Tools</a>
+        <a href="/image-tools/" class="fa-btn-secondary px-4 py-2 text-xs font-bold rounded-xl"><i class="fa-solid fa-image mr-1 text-emerald-600"></i> Image Tools</a>
+      </div>
     </div>
 
   </main>
@@ -150,6 +193,6 @@
   <!-- Centralized Pure JS Footer Injection -->
   <footer id="globalFooter"></footer>
 
-  <script src="js/main.min.js"></script>
+  <script src="../js/main.min.js"></script>
 </body>
 </html>

@@ -1,3 +1,20 @@
+
+// Universal Asset & URL Resolver for Local file:// and Production HTTP/HTTPS
+function getSiteRoot() {
+  if (typeof window !== 'undefined' && window.location.protocol === 'file:') {
+    const scripts = document.getElementsByTagName('script');
+    for (let s of scripts) {
+      if (s.src && (s.src.includes('main.min.js') || s.src.includes('main.js'))) {
+        const idx = s.src.indexOf('js/main');
+        if (idx !== -1) {
+          return s.src.substring(0, idx);
+        }
+      }
+    }
+  }
+  return '/';
+}
+
 /**
  * 360tools.me — Master Shared Utilities (js/main.js)
  * FontAwesome Style Interactive Engine & Quick Tool Finder (Ctrl + K)
@@ -49,669 +66,725 @@
 
 // All Available Tools Registry for Quick Search & Cards
 const TOOLS_REGISTRY = [
-  // PDF & Document Tools
-  { 
-    name: 'Merge PDF', 
-    url: 'pdf-tools/merge-pdf/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-object-group', 
-    color: 'text-red-600', 
-    bg: 'bg-red-50 border-red-200/80',
-    desc: 'Combine multiple PDF files into one single document with custom ordering. 100% client-side.',
-    keywords: 'merge pdf combine join pdfs document binder client-side' 
-  },
-  { 
-    name: 'Split PDF', 
-    url: 'pdf-tools/split-pdf/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-scissors', 
-    color: 'text-orange-600', 
-    bg: 'bg-orange-50 border-orange-200/80',
-    desc: 'Extract separate pages or custom ranges into individual PDFs or a ZIP archive.',
-    keywords: 'split pdf separate divide pages page range extract zip' 
-  },
-  { 
-    name: 'Compress PDF', 
-    url: 'pdf-tools/compress-pdf/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-file-zipper', 
-    color: 'text-emerald-600', 
-    bg: 'bg-emerald-50 border-emerald-200/80',
-    desc: 'Shrink PDF file size locally in your browser with adjustable compression presets.',
-    keywords: 'compress pdf reduce pdf size shrink document optimize' 
-  },
-  { 
-    name: 'JPG to PDF Converter', 
-    url: 'pdf-tools/jpg-to-pdf/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-file-image', 
-    color: 'text-blue-600', 
-    bg: 'bg-blue-50 border-blue-200/80',
-    desc: 'Convert JPEG/JPG images to high-quality PDF documents with page fit and orientation controls.',
-    keywords: 'jpg to pdf jpeg convert image photos to pdf' 
-  },
-  { 
-    name: 'PNG to PDF Converter', 
-    url: 'pdf-tools/png-to-pdf/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-file-image', 
-    color: 'text-teal-600', 
-    bg: 'bg-teal-50 border-teal-200/80',
-    desc: 'Convert transparent PNG images to clean PDF documents instantly.',
-    keywords: 'png to pdf transparent images graphic convert pdf' 
-  },
-  { 
-    name: 'WebP to PDF Converter', 
-    url: 'pdf-tools/webp-to-pdf/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-file-image', 
-    color: 'text-cyan-600', 
-    bg: 'bg-cyan-50 border-cyan-200/80',
-    desc: 'Convert modern WebP images to standard PDF format client-side.',
-    keywords: 'webp to pdf google webp convert images to pdf' 
-  },
-  { 
-    name: 'PDF to JPG Converter', 
-    url: 'pdf-tools/pdf-to-jpg/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-image', 
-    color: 'text-amber-600', 
-    bg: 'bg-amber-50 border-amber-200/80',
-    desc: 'Render PDF pages into high-resolution JPG photos and download as a ZIP.',
-    keywords: 'pdf to jpg extract pages image photos pictures convert' 
-  },
-  { 
-    name: 'PDF to PNG Converter', 
-    url: 'pdf-tools/pdf-to-png/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-image', 
-    color: 'text-indigo-600', 
-    bg: 'bg-indigo-50 border-indigo-200/80',
-    desc: 'Extract lossless PNG images from PDF pages with crystal clear rendering.',
-    keywords: 'pdf to png lossless high resolution extract pages' 
-  },
-  { 
-    name: 'PDF to WebP Converter', 
-    url: 'pdf-tools/pdf-to-webp/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-bolt', 
-    color: 'text-blue-500', 
-    bg: 'bg-blue-50 border-blue-200/80',
-    desc: 'Convert PDF pages directly to lightweight, high-performance WebP images.',
-    keywords: 'pdf to webp fast small image export convert' 
-  },
-  { 
-    name: 'Rotate PDF', 
-    url: 'pdf-tools/rotate-pdf/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-rotate', 
-    color: 'text-purple-600', 
-    bg: 'bg-purple-50 border-purple-200/80',
-    desc: 'Rotate individual or all PDF pages 90, 180, or 270 degrees with live visual preview.',
-    keywords: 'rotate pdf orient landscape portrait turn pages' 
-  },
-  { 
-    name: 'Delete PDF Pages', 
-    url: 'pdf-tools/delete-pdf-pages/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-trash-can', 
-    color: 'text-rose-600', 
-    bg: 'bg-rose-50 border-rose-200/80',
-    desc: 'Select and remove unwanted pages from any PDF document visually.',
-    keywords: 'delete pdf pages remove pages drop pages trim pdf' 
-  },
-  { 
-    name: 'Extract PDF Pages', 
-    url: 'pdf-tools/extract-pdf-pages/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-file-export', 
-    color: 'text-sky-600', 
-    bg: 'bg-sky-50 border-sky-200/80',
-    desc: 'Isolate specific pages or custom ranges into a new standalone PDF.',
-    keywords: 'extract pdf pages select pages save specific pages' 
-  },
-  { 
-    name: 'PDF to Text Extractor', 
-    url: 'pdf-tools/pdf-to-text/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-file-lines', 
-    color: 'text-slate-600', 
-    bg: 'bg-slate-50 border-slate-200/80',
-    desc: 'Extract clean raw text from PDF files with word count and one-click copy.',
-    keywords: 'pdf to text extract text copy text text reader txt' 
-  },
-  { 
-    name: 'Add Page Numbers to PDF', 
-    url: 'pdf-tools/add-page-numbers-to-pdf/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-arrow-down-1-9', 
-    color: 'text-violet-600', 
-    bg: 'bg-violet-50 border-violet-200/80',
-    desc: 'Insert custom page numbers, header/footer labels, and positioning into your PDF.',
-    keywords: 'add page numbers pdf pagination header footer' 
-  },
-  { 
-    name: 'Watermark PDF', 
-    url: 'pdf-tools/watermark-pdf/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-stamp', 
-    color: 'text-pink-600', 
-    bg: 'bg-pink-50 border-pink-200/80',
-    desc: 'Stamp confidential or draft text watermarks diagonally across your PDF pages.',
-    keywords: 'watermark pdf stamp confidential draft diagonal overlay' 
-  },
-  { 
-    name: 'Password Protect PDF', 
-    url: 'pdf-tools/password-protect-pdf/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-lock', 
-    color: 'text-emerald-700', 
-    bg: 'bg-emerald-50 border-emerald-200/80',
-    desc: 'Secure PDF files with strong client-side encryption and password protection.',
-    keywords: 'protect pdf password encrypt pdf secure document lock' 
-  },
-  { 
-    name: 'Unlock PDF', 
-    url: 'pdf-tools/unlock-pdf/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-unlock', 
-    color: 'text-amber-600', 
-    bg: 'bg-amber-50 border-amber-200/80',
-    desc: 'Remove passwords and permissions from unlocked PDF files in your browser.',
-    keywords: 'unlock pdf decrypt password remove security' 
-  },
-  { 
-    name: 'PDF Metadata Remover', 
-    url: 'pdf-tools/pdf-metadata-remover/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-user-shield', 
-    color: 'text-purple-700', 
-    bg: 'bg-purple-50 border-purple-200/80',
-    desc: 'Inspect and wipe author, title, producer, and timestamp metadata from PDF files.',
-    keywords: 'pdf metadata remover wipe author title clean pdf privacy' 
-  },
-  { 
-    name: 'HTML to PDF Converter', 
-    url: 'pdf-tools/html-to-pdf/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-code', 
-    color: 'text-blue-600', 
-    bg: 'bg-blue-50 border-blue-200/80',
-    desc: 'Render HTML and CSS markup into styled PDF documents client-side.',
-    keywords: 'html to pdf web to pdf render invoice html generator' 
-  },
-  { 
-    name: 'PDF Tools Hub (19 Tools)', 
-    url: 'pdf-tools/index.html', 
-    category: 'PDF & Documents', 
-    icon: 'fa-file-pdf', 
-    color: 'text-red-600', 
-    bg: 'bg-red-50 border-red-200/80',
-    desc: 'All-in-one suite of 19 private, 100% in-browser PDF utilities.',
-    keywords: 'pdf tools hub suite online pdf editor merge split compress' 
-  },
-
-  // Audio & Voice
-  { 
-    name: 'Text to Speech Converter', 
-    url: 'text-to-speech.html', 
-    category: 'AI Voice & Audio', 
-    icon: 'fa-volume-high', 
-    color: 'text-blue-600', 
-    bg: 'bg-blue-50 border-blue-200/80',
-    desc: 'Convert any written text to natural human speech with live word tracking and pitch controls.',
-    keywords: 'tts read aloud speech natural reader voice' 
-  },
-  { 
-    name: 'Text to MP3 Converter', 
-    url: 'text-to-mp3.html', 
-    category: 'AI Voice & Audio', 
-    icon: 'fa-file-audio', 
-    color: 'text-emerald-600', 
-    bg: 'bg-emerald-50 border-emerald-200/80',
-    desc: 'Synthesize speech and export directly to downloadable MP3 or WAV audio tracks in seconds.',
-    keywords: 'audio downloader mp3 download wav sound generator' 
-  },
-  { 
-    name: 'AI Voice Generator', 
-    url: 'ai-voice-generator.html', 
-    category: 'AI Voice & Audio', 
-    icon: 'fa-wand-magic-sparkles', 
-    color: 'text-purple-600', 
-    bg: 'bg-purple-50 border-purple-200/80',
-    desc: 'Generate studio-grade narration with persona avatars, dynamic waveforms, and audio FX.',
-    keywords: 'voiceover realistic avatar waveform studio narrator' 
-  },
-  { 
-    name: 'PDF to Speech Reader', 
-    url: 'pdf-to-speech.html', 
-    category: 'AI Voice & Audio', 
-    icon: 'fa-file-pdf', 
-    color: 'text-red-600', 
-    bg: 'bg-red-50 border-red-200/80',
-    desc: 'Listen to eBooks and multi-page PDF documents read aloud page-by-page in memory.',
-    keywords: 'audiobook read pdf listen ebook document pdfjs' 
-  },
-  { 
-    name: 'YouTube Voiceover Generator', 
-    url: 'youtube-voiceover-generator.html', 
-    category: 'AI Voice & Audio', 
-    icon: 'fa-youtube', 
-    color: 'text-rose-600', 
-    bg: 'bg-rose-50 border-rose-200/80',
-    desc: 'Auto-split video scripts into sequential scenes, insert pauses, and render narration.',
-    keywords: 'video script narrator scene splitter pauses' 
-  },
-  { 
-    name: 'Urdu Text to Speech', 
-    url: 'urdu-text-to-speech.html', 
-    category: 'AI Voice & Audio', 
-    icon: 'fa-feather', 
-    color: 'text-emerald-700', 
-    bg: 'bg-emerald-50 border-emerald-200/80',
-    desc: 'Authentic Pakistani Urdu voice engine supporting Urdu Nastaliq script and Roman Urdu.',
-    keywords: 'urdu tts nastaliq pakistani voice roman urdu اردو' 
-  },
-  { 
-    name: 'Article to Speech Reader', 
-    url: 'article-to-speech.html', 
-    category: 'AI Voice & Audio', 
-    icon: 'fa-newspaper', 
-    color: 'text-amber-600', 
-    bg: 'bg-amber-50 border-amber-200/80',
-    desc: 'Paste any article or blog post to strip web clutter and listen hands-free.',
-    keywords: 'url reader web news blog cleaner' 
-  },
-
-  // Media & Compression
-  { 
-    name: 'Free Watermark Remover (Image & Video)', 
-    url: 'watermark-remover.html', 
-    category: 'Media & Compression', 
-    icon: 'fa-eraser', 
-    color: 'text-purple-600', 
-    bg: 'bg-purple-50 border-purple-200/80',
-    desc: 'Remove logos, timestamps, and watermarks from images and videos with client-side inpainting. 100% free.',
-    keywords: 'watermark remover erase logo delete text delogo video cleaner inpainting object remove stamp' 
-  },
-  { 
-    name: 'Free AI Background Remover', 
-    url: 'background-remover.html', 
-    category: 'Media & Compression', 
-    icon: 'fa-wand-magic-sparkles', 
-    color: 'text-teal-600', 
-    bg: 'bg-teal-50 border-teal-200/80',
-    desc: 'Erase photo backgrounds automatically with client-side AI and export transparent PNGs.',
-    keywords: 'ai background remover bg eraser transparent png cutout photo object removal' 
-  },
-  { 
-    name: 'Universal Image Compressor', 
-    url: 'image-compressor.html', 
-    category: 'Media & Compression', 
-    icon: 'fa-image', 
-    color: 'text-emerald-600', 
-    bg: 'bg-emerald-50 border-emerald-200/80',
-    desc: 'Compress JPG, PNG, and WebP photos by up to 90% with zero server uploads or quality loss.',
-    keywords: 'compress photo resize shrink optimizer' 
-  },
-  { 
-    name: 'JPG Compressor', 
-    url: 'jpg-compressor.html', 
-    category: 'Media & Compression', 
-    icon: 'fa-camera', 
-    color: 'text-amber-600', 
-    bg: 'bg-amber-50 border-amber-200/80',
-    desc: 'Lossy JPEG quantization, visual comparison slider, and target file size presets.',
-    keywords: 'jpeg compress photo quality scale' 
-  },
-  { 
-    name: 'PNG Compressor', 
-    url: 'png-compressor.html', 
-    category: 'Media & Compression', 
-    icon: 'fa-file-image', 
-    color: 'text-emerald-600', 
-    bg: 'bg-emerald-50 border-emerald-200/80',
-    desc: 'Lossless PNG compression preserving transparent alpha channels and crisp edges.',
-    keywords: 'transparent alpha lossless png logo' 
-  },
-  { 
-    name: 'WebP Compressor', 
-    url: 'webp-compressor.html', 
-    category: 'Media & Compression', 
-    icon: 'fa-bolt', 
-    color: 'text-blue-600', 
-    bg: 'bg-blue-50 border-blue-200/80',
-    desc: 'Convert photos to next-gen WebP format for 30%+ bandwidth savings and faster Core Web Vitals.',
-    keywords: 'webp core web vitals lcp google speed' 
-  },
-  { 
-    name: 'PDF Compressor', 
-    url: 'pdf-compressor.html', 
-    category: 'Media & Compression', 
-    icon: 'fa-file-pdf', 
-    color: 'text-red-600', 
-    bg: 'bg-red-50 border-red-200/80',
-    desc: 'Compress multi-page PDF documents locally with DPI presets for email & job portals.',
-    keywords: 'compress pdf shrink document dpi reduce size' 
-  },
-  { 
-    name: 'Video Compressor', 
-    url: 'video-compressor.html', 
-    category: 'Media & Compression', 
-    icon: 'fa-video', 
-    color: 'text-rose-600', 
-    bg: 'bg-rose-50 border-rose-200/80',
-    desc: 'Reduce MP4 and WebM video size client-side with resolution scaling and bitrate controls.',
-    keywords: 'mp4 webm reduce video size client side' 
-  },
-  { 
-    name: 'Video Frame Extractor', 
-    url: 'video-frame-extractor.html', 
-    category: 'Media & Compression', 
-    icon: 'fa-film', 
-    color: 'text-indigo-600', 
-    bg: 'bg-indigo-50 border-indigo-200/80',
-    desc: 'Extract high-res image frames from video by FPS, interval, or count with instant ZIP & storyboard export.',
-    keywords: 'video to frames parse video extract frames mp4 to png jpg sequence storyboard snapshot' 
-  },
-  { 
-    name: 'Compress Image to 100KB', 
-    url: 'compress-image-to-100kb.html', 
-    category: 'Media & Compression', 
-    icon: 'fa-bullseye', 
-    color: 'text-indigo-600', 
-    bg: 'bg-indigo-50 border-indigo-200/80',
-    desc: 'Target exact 100KB file size for government forms, passport photos, and job exams.',
-    keywords: '100kb exam passport photo signature' 
-  },
-  { 
-    name: 'Compress Image to 200KB', 
-    url: 'compress-image-to-200kb.html', 
-    category: 'Media & Compression', 
-    icon: 'fa-bullseye', 
-    color: 'text-indigo-600', 
-    bg: 'bg-indigo-50 border-indigo-200/80',
-    desc: 'Fast 200KB optimizer for avatar uploads, admissions portals, and online forms.',
-    keywords: '200kb avatar portal form job' 
-  },
-  { 
-    name: 'Compress Image to 500KB', 
-    url: 'compress-image-to-500kb.html', 
-    category: 'Media & Compression', 
-    icon: 'fa-bullseye', 
-    color: 'text-indigo-600', 
-    bg: 'bg-indigo-50 border-indigo-200/80',
-    desc: 'Optimize banners and large attachments to fit strictly under 500KB without blurring.',
-    keywords: '500kb banner email attachment' 
-  },
-  { 
-    name: 'Bulk Image Compressor', 
-    url: 'bulk-image-compressor.html', 
-    category: 'Media & Compression', 
-    icon: 'fa-layer-group', 
-    color: 'text-purple-600', 
-    bg: 'bg-purple-50 border-purple-200/80',
-    desc: 'Compress batches of 50+ photos simultaneously and download as a single ZIP archive.',
-    keywords: 'batch zip archive export multiple photos' 
-  },
-
-  // Developer & Web
-  { 
-    name: 'HTML Minifier', 
-    url: 'html-minifier.html', 
-    category: 'Developer & Web', 
-    icon: 'fa-html5', 
-    color: 'text-orange-600', 
-    bg: 'bg-orange-50 border-orange-200/80',
-    desc: 'Minify HTML markup, strip comments, collapse whitespace, and view Gzip savings.',
-    keywords: 'minify html collapse strip comments gzip' 
-  },
-  { 
-    name: 'CSS Minifier', 
-    url: 'css-minifier.html', 
-    category: 'Developer & Web', 
-    icon: 'fa-css3-alt', 
-    color: 'text-blue-600', 
-    bg: 'bg-blue-50 border-blue-200/80',
-    desc: 'Compress stylesheets, shorten hex color codes, and eliminate redundant rules.',
-    keywords: 'minify css stylesheet short hex' 
-  },
-  { 
-    name: 'JavaScript Minifier', 
-    url: 'javascript-minifier.html', 
-    category: 'Developer & Web', 
-    icon: 'fa-js', 
-    color: 'text-yellow-600', 
-    bg: 'bg-yellow-50 border-yellow-200/80',
-    desc: 'Minify JS code, remove console logs and comments, and inspect compression ratios.',
-    keywords: 'minify js script compress code' 
-  },
-  { 
-    name: 'Shopify CSV Validator', 
-    url: 'shopify-csv-validator.html', 
-    category: 'Developer & Web', 
-    icon: 'fa-shopify', 
-    color: 'text-emerald-600', 
-    bg: 'bg-emerald-50 border-emerald-200/80',
-    desc: 'Audit product CSV files for schema errors, missing headers, and invalid handles.',
-    keywords: 'shopify products csv schema error fix' 
-  },
-  { 
-    name: 'Free ATS Resume Checker', 
-    url: 'ats-resume-checker.html', 
-    category: 'Developer & Web', 
-    icon: 'fa-file-circle-check', 
-    color: 'text-indigo-600', 
-    bg: 'bg-indigo-50 border-indigo-200/80',
-    desc: 'Audit your CV for ATS compatibility, keyword match percentage, power verbs, and formatting errors.',
-    keywords: 'ats resume checker cv score keyword gap scanner resume parser job description match' 
-  },
-
-  // E-Commerce & Finance
-  { 
-    name: 'Free Online Invoice Generator', 
-    url: 'invoice-generator.html', 
-    category: 'E-Commerce & Finance', 
-    icon: 'fa-file-invoice-dollar', 
-    color: 'text-blue-600', 
-    bg: 'bg-blue-50 border-blue-200/80',
-    desc: 'Generate printable A4 PDF invoices with custom branding, tax calculation, and currencies.',
-    keywords: 'invoice generator pdf maker bill receipt tax quote freelancer client billing' 
-  },
-  { 
-    name: 'Etsy Fee Calculator', 
-    url: 'etsy-fee-calculator.html', 
-    category: 'E-Commerce & Finance', 
-    icon: 'fa-etsy', 
-    color: 'text-orange-600', 
-    bg: 'bg-orange-50 border-orange-200/80',
-    desc: 'Calculate Etsy 6.5% transaction cuts, listing fees, offsite ads, and net profit margins.',
-    keywords: 'etsy fees listing transaction offsite ads profit' 
-  },
-  { 
-    name: 'Amazon FBA Dim Weight Checker', 
-    url: 'amazon-fba-calculator.html', 
-    category: 'E-Commerce & Finance', 
-    icon: 'fa-amazon', 
-    color: 'text-amber-600', 
-    bg: 'bg-amber-50 border-amber-200/80',
-    desc: 'Determine billable dimensional weight (L×W×H/139) and verify Amazon fulfillment size tiers.',
-    keywords: 'fba dimensional weight divisor 139 tier' 
-  },
-  { 
-    name: 'TikTok Shop Payout Estimator', 
-    url: 'tiktok-shop-payout-calculator.html', 
-    category: 'E-Commerce & Finance', 
-    icon: 'fa-tiktok', 
-    color: 'text-pink-600', 
-    bg: 'bg-pink-50 border-pink-200/80',
-    desc: 'Estimate TikTok Shop creator commissions, referral fees, and net bank deposits.',
-    keywords: 'tiktok shop affiliate commission net deposit' 
-  },
-  { 
-    name: 'Print-on-Demand Profit Grid', 
-    url: 'pod-profit-calculator.html', 
-    category: 'E-Commerce & Finance', 
-    icon: 'fa-shirt', 
-    color: 'text-blue-600', 
-    bg: 'bg-blue-50 border-blue-200/80',
-    desc: 'Compare production costs and profit margins across Printify, Printful, and Gelato.',
-    keywords: 'printify printful gelato margin comparison' 
-  },
-
-  // Real Estate & Tax
-  { 
-    name: 'Section 8 Max Rent Estimator', 
-    url: 'section8-estimator.html', 
-    category: 'Real Estate & Tax', 
-    icon: 'fa-house-user', 
-    color: 'text-[#146ebe]', 
-    bg: 'bg-blue-50 border-blue-200/80',
-    desc: 'Estimate HUD Fair Market Rent voucher limits and landlord payment standard caps.',
-    keywords: 'hud voucher fmr payment standard landlord' 
-  },
-  { 
-    name: 'UK Stamp Duty Calculator', 
-    url: 'uk-stamp-duty-calculator.html', 
-    category: 'Real Estate & Tax', 
-    icon: 'fa-landmark', 
-    color: 'text-amber-700', 
-    bg: 'bg-amber-50 border-amber-200/80',
-    desc: 'Compute SDLT property tax tiers for England & Northern Ireland residential homes.',
-    keywords: 'sdlt england northern ireland property tax' 
-  },
-  { 
-    name: '1031 Exchange Timeline Tracker', 
-    url: '1031-exchange-tracker.html', 
-    category: 'Real Estate & Tax', 
-    icon: 'fa-clock-rotate-left', 
-    color: 'text-purple-600', 
-    bg: 'bg-purple-50 border-purple-200/80',
-    desc: 'Track 45-day identification and 180-day closing deadlines for tax-deferred exchanges.',
-    keywords: '1031 exchange 45 day 180 day deadline' 
-  },
-  { 
-    name: 'STR Cleaning Fee Splitter', 
-    url: 'str-cleaning-splitter.html', 
-    category: 'Real Estate & Tax', 
-    icon: 'fa-broom', 
-    color: 'text-teal-600', 
-    bg: 'bg-teal-50 border-teal-200/80',
-    desc: 'Split turnover cleaning fees, turnover payroll, and co-host payouts for Airbnb & VRBO.',
-    keywords: 'airbnb vrbo cleaning fee co-host commission' 
-  },
-  { 
-    name: 'EU VAT OSS Calculator', 
-    url: 'eu-vat-oss-calculator.html', 
-    category: 'Real Estate & Tax', 
-    icon: 'fa-percent', 
-    color: 'text-blue-700', 
-    bg: 'bg-blue-50 border-blue-200/80',
-    desc: 'Determine one-stop-shop VAT rates across 27 EU member states for digital products.',
-    keywords: 'eu vat oss cross border 27 countries digital' 
-  },
-  
-  // Free Mini Games & Puzzles
-  { 
-    name: '2048 Puzzle Game', 
-    url: '2048/index.html', 
-    category: 'Free Games', 
-    icon: 'fa-cubes', 
-    color: 'text-amber-500', 
-    bg: 'bg-amber-50 border-amber-200/80',
-    desc: 'Slide and merge numbered tiles on a 4x4 grid to reach the elusive 2048 tile.',
-    keywords: '2048 game play puzzle numbers math slide join blocks tiles' 
-  },
-  { 
-    name: 'Classic Retro Snake', 
-    url: 'snake/index.html', 
-    category: 'Free Games', 
-    icon: 'fa-worm', 
-    color: 'text-emerald-500', 
-    bg: 'bg-emerald-50 border-emerald-200/80',
-    desc: 'Classic Nokia-style arcade game with smooth 60fps movement, apples, and sound effects.',
-    keywords: 'snake game classic retro arcade eat apple nokia 60fps' 
-  },
-  { 
-    name: 'Memory Card Match', 
-    url: 'memory-game/index.html', 
-    category: 'Free Games', 
-    icon: 'fa-brain', 
-    color: 'text-purple-500', 
-    bg: 'bg-purple-50 border-purple-200/80',
-    desc: 'Test concentration with 3D card flips, tech icon pairs, timer, and high score board.',
-    keywords: 'memory game cards matching brain flip concentration 3d' 
-  },
-  { 
-    name: 'Tic Tac Toe (XO vs AI)', 
-    url: 'tic-tac-toe/index.html', 
-    category: 'Free Games', 
-    icon: 'fa-xmark', 
-    color: 'text-rose-500', 
-    bg: 'bg-rose-50 border-rose-200/80',
-    desc: 'Play classic 3x3 XO matches against smart Minimax AI or challenge a friend locally.',
-    keywords: 'tic tac toe xo noughts crosses minimax ai 2 player arena' 
-  },
-  { 
-    name: 'Word Scramble Puzzle', 
-    url: 'word-scramble/index.html', 
-    category: 'Free Games', 
-    icon: 'fa-spell-check', 
-    color: 'text-blue-500', 
-    bg: 'bg-blue-50 border-blue-200/80',
-    desc: 'Unscramble mixed letters with smart hints, combo streaks, timer, and score levels.',
-    keywords: 'word scramble anagram unscramble letters vocabulary puzzle brain' 
-  },
-  { 
-    name: 'Bhabhi Thulla Card Game', 
-    url: 'bhabhi-thulla/index.html', 
-    category: 'Free Games', 
-    icon: 'fa-spade', 
-    color: 'text-emerald-600', 
-    bg: 'bg-emerald-50 border-emerald-200/80',
-    desc: 'Classic 4-player traditional South Asian trick-taking card game. Shed your cards to escape!',
-    keywords: 'bhabhi thulla bhabi get away donkey pabho card game 4 player spades' 
-  },
-
-  { 
-    name: 'Theme, Font & Color Customizer', 
-    url: 'appearance.html', 
-    category: 'Settings & Appearance', 
-    icon: 'fa-palette', 
-    color: 'text-purple-600', 
-    bg: 'bg-purple-50 border-purple-200/80',
-    desc: 'Personalize font family, reading size, dark mode, and custom color schemes across all 40+ tools.',
-    keywords: 'theme customizer font family font size dark mode color palette accessibility contrast appearance' 
-  },
-  { 
-    name: 'Blog & Editorial Guides', 
-    url: 'blog.html', 
-    category: 'Guides & Articles', 
-    icon: 'fa-newspaper', 
-    color: 'text-indigo-600', 
-    bg: 'bg-indigo-50 border-indigo-200/80',
-    desc: 'Comprehensive step-by-step guides, audio synthesis tips, and developer deep-dives.',
-    keywords: 'blog guide article tutorial howto documentation help' 
-  },
-  { 
-    name: 'About 360Tools', 
-    url: 'about.html', 
-    category: 'Company', 
-    icon: 'fa-circle-info', 
-    color: 'text-blue-600', 
-    bg: 'bg-blue-50 border-blue-200/80',
-    desc: 'Learn how 360tools delivers 100% private, client-side web utilities for global users.',
-    keywords: 'about us mission story privacy client side' 
-  },
-  { 
-    name: 'Contact & Support', 
-    url: 'contact.html', 
-    category: 'Company', 
-    icon: 'fa-envelope', 
-    color: 'text-teal-600', 
-    bg: 'bg-teal-50 border-teal-200/80',
-    desc: 'Get in touch for technical support, feature requests, bug reports, or business inquiries.',
-    keywords: 'contact us email support help bug feedback feature request' 
+  {
+    name: "Merge PDF",
+    url: "/pdf-tools/merge-pdf/index.html",
+    category: "pdf-tools",
+    subcategory: "organization",
+    icon: "fa-object-group",
+    color: "text-red-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Combine multiple PDF files into one single document with custom ordering. 100% client-side.",
+    featured: true,
+    keywords: ["merge pdf","combine pdf","join pdfs","document binder"]
+  },
+  {
+    name: "Split PDF",
+    url: "/pdf-tools/split-pdf/index.html",
+    category: "pdf-tools",
+    subcategory: "organization",
+    icon: "fa-scissors",
+    color: "text-orange-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Extract separate pages or custom ranges into individual PDFs or a ZIP archive.",
+    featured: true,
+    keywords: ["split pdf","separate pages","extract pages","pdf cutter"]
+  },
+  {
+    name: "Compress PDF",
+    url: "/pdf-tools/compress-pdf/index.html",
+    category: "pdf-tools",
+    subcategory: "compression",
+    icon: "fa-file-zipper",
+    color: "text-emerald-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Shrink PDF file size locally in your browser with adjustable compression presets.",
+    featured: true,
+    keywords: ["compress pdf","reduce pdf size","shrink document","pdf optimizer"]
+  },
+  {
+    name: "JPG to PDF Converter",
+    url: "/pdf-tools/jpg-to-pdf/index.html",
+    category: "pdf-tools",
+    subcategory: "conversion",
+    icon: "fa-file-image",
+    color: "text-blue-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Convert JPEG/JPG images to high-quality PDF documents with orientation controls.",
+    featured: false,
+    keywords: ["jpg to pdf","jpeg to pdf","image to pdf"]
+  },
+  {
+    name: "PNG to PDF Converter",
+    url: "/pdf-tools/png-to-pdf/index.html",
+    category: "pdf-tools",
+    subcategory: "conversion",
+    icon: "fa-file-image",
+    color: "text-teal-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Convert transparent PNG images to clean PDF documents instantly.",
+    featured: false,
+    keywords: ["png to pdf","transparent image to pdf"]
+  },
+  {
+    name: "WebP to PDF Converter",
+    url: "/pdf-tools/webp-to-pdf/index.html",
+    category: "pdf-tools",
+    subcategory: "conversion",
+    icon: "fa-file-image",
+    color: "text-cyan-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Convert modern WebP images to standard PDF format client-side.",
+    featured: false,
+    keywords: ["webp to pdf","convert webp to pdf"]
+  },
+  {
+    name: "PDF to JPG Converter",
+    url: "/pdf-tools/pdf-to-jpg/index.html",
+    category: "pdf-tools",
+    subcategory: "conversion",
+    icon: "fa-image",
+    color: "text-amber-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Render PDF pages into high-resolution JPG photos and download as a ZIP.",
+    featured: false,
+    keywords: ["pdf to jpg","extract images from pdf","pdf to photo"]
+  },
+  {
+    name: "PDF to PNG Converter",
+    url: "/pdf-tools/pdf-to-png/index.html",
+    category: "pdf-tools",
+    subcategory: "conversion",
+    icon: "fa-image",
+    color: "text-indigo-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Extract lossless PNG images from PDF pages with crystal clear rendering.",
+    featured: false,
+    keywords: ["pdf to png","lossless pdf converter"]
+  },
+  {
+    name: "PDF to WebP Converter",
+    url: "/pdf-tools/pdf-to-webp/index.html",
+    category: "pdf-tools",
+    subcategory: "conversion",
+    icon: "fa-bolt",
+    color: "text-blue-500",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Convert PDF pages directly to lightweight, high-performance WebP images.",
+    featured: false,
+    keywords: ["pdf to webp","fast pdf export"]
+  },
+  {
+    name: "Rotate PDF",
+    url: "/pdf-tools/rotate-pdf/index.html",
+    category: "pdf-tools",
+    subcategory: "editing",
+    icon: "fa-rotate",
+    color: "text-purple-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Rotate individual or all PDF pages 90, 180, or 270 degrees with live preview.",
+    featured: false,
+    keywords: ["rotate pdf","turn pdf pages","landscape portrait pdf"]
+  },
+  {
+    name: "Delete PDF Pages",
+    url: "/pdf-tools/delete-pdf-pages/index.html",
+    category: "pdf-tools",
+    subcategory: "editing",
+    icon: "fa-trash-can",
+    color: "text-rose-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Select and remove unwanted pages from any PDF document visually.",
+    featured: false,
+    keywords: ["delete pdf pages","remove pages","trim pdf"]
+  },
+  {
+    name: "Extract PDF Pages",
+    url: "/pdf-tools/extract-pdf-pages/index.html",
+    category: "pdf-tools",
+    subcategory: "editing",
+    icon: "fa-file-export",
+    color: "text-sky-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Isolate specific pages or custom ranges into a new standalone PDF.",
+    featured: false,
+    keywords: ["extract pdf pages","save specific pages"]
+  },
+  {
+    name: "PDF to Text Extractor",
+    url: "/pdf-tools/pdf-to-text/index.html",
+    category: "pdf-tools",
+    subcategory: "conversion",
+    icon: "fa-file-lines",
+    color: "text-slate-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Extract clean raw text from PDF files with word count and one-click copy.",
+    featured: false,
+    keywords: ["pdf to text","extract text from pdf","pdf txt reader"]
+  },
+  {
+    name: "Add Page Numbers to PDF",
+    url: "/pdf-tools/add-page-numbers-to-pdf/index.html",
+    category: "pdf-tools",
+    subcategory: "editing",
+    icon: "fa-arrow-down-1-9",
+    color: "text-violet-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Insert custom page numbers, header/footer labels, and positioning into your PDF.",
+    featured: false,
+    keywords: ["add page numbers pdf","pdf pagination","number pdf"]
+  },
+  {
+    name: "Watermark PDF",
+    url: "/pdf-tools/watermark-pdf/index.html",
+    category: "pdf-tools",
+    subcategory: "security",
+    icon: "fa-stamp",
+    color: "text-pink-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Stamp confidential or draft text watermarks diagonally across your PDF pages.",
+    featured: false,
+    keywords: ["watermark pdf","pdf stamp","confidential draft overlay"]
+  },
+  {
+    name: "Password Protect PDF",
+    url: "/pdf-tools/password-protect-pdf/index.html",
+    category: "pdf-tools",
+    subcategory: "security",
+    icon: "fa-lock",
+    color: "text-emerald-700",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Secure PDF files with strong client-side encryption and password protection.",
+    featured: false,
+    keywords: ["protect pdf","password protect pdf","encrypt pdf"]
+  },
+  {
+    name: "Unlock PDF",
+    url: "/pdf-tools/unlock-pdf/index.html",
+    category: "pdf-tools",
+    subcategory: "security",
+    icon: "fa-unlock",
+    color: "text-amber-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Remove passwords and permissions from unlocked PDF files in your browser.",
+    featured: false,
+    keywords: ["unlock pdf","remove password pdf","decrypt pdf"]
+  },
+  {
+    name: "PDF Metadata Remover",
+    url: "/pdf-tools/pdf-metadata-remover/index.html",
+    category: "pdf-tools",
+    subcategory: "security",
+    icon: "fa-user-shield",
+    color: "text-purple-700",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Inspect and wipe author, title, producer, and timestamp metadata from PDF files.",
+    featured: false,
+    keywords: ["pdf metadata remover","clean pdf author","pdf privacy"]
+  },
+  {
+    name: "HTML to PDF Converter",
+    url: "/pdf-tools/html-to-pdf/index.html",
+    category: "pdf-tools",
+    subcategory: "conversion",
+    icon: "fa-code",
+    color: "text-blue-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Render HTML and CSS markup into styled PDF documents client-side.",
+    featured: false,
+    keywords: ["html to pdf","web to pdf","render html invoice"]
+  },
+  {
+    name: "PDF Tools Hub",
+    url: "/pdf-tools/index.html",
+    category: "pdf-tools",
+    subcategory: "hub",
+    icon: "fa-file-pdf",
+    color: "text-red-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "All-in-one suite of 19 private, 100% in-browser PDF utilities.",
+    featured: true,
+    keywords: ["pdf tools suite","online pdf editor","free pdf tools"]
+  },
+  {
+    name: "Text to Speech Converter",
+    url: "/audio-tools/text-to-speech.html",
+    category: "audio-tools",
+    subcategory: "speech",
+    icon: "fa-volume-high",
+    color: "text-blue-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Convert any written text to natural human speech with live word tracking and pitch controls.",
+    featured: true,
+    keywords: ["tts","text to speech","read aloud","natural reader"]
+  },
+  {
+    name: "Text to MP3 Converter",
+    url: "/audio-tools/text-to-mp3.html",
+    category: "audio-tools",
+    subcategory: "speech",
+    icon: "fa-file-audio",
+    color: "text-emerald-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Synthesize speech and export directly to downloadable MP3 or WAV audio tracks.",
+    featured: true,
+    keywords: ["text to mp3","audio downloader","mp3 generator"]
+  },
+  {
+    name: "AI Voice Generator",
+    url: "/audio-tools/ai-voice-generator.html",
+    category: "audio-tools",
+    subcategory: "speech",
+    icon: "fa-wand-magic-sparkles",
+    color: "text-purple-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Generate studio-grade narration with persona avatars, dynamic waveforms, and audio FX.",
+    featured: true,
+    keywords: ["ai voice generator","realistic voiceover","audio studio"]
+  },
+  {
+    name: "PDF to Speech Reader",
+    url: "/audio-tools/pdf-to-speech.html",
+    category: "audio-tools",
+    subcategory: "speech",
+    icon: "fa-file-pdf",
+    color: "text-red-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Listen to eBooks and multi-page PDF documents read aloud page-by-page in memory.",
+    featured: false,
+    keywords: ["pdf to speech","audiobook reader","listen pdf"]
+  },
+  {
+    name: "YouTube Voiceover Generator",
+    url: "/audio-tools/youtube-voiceover-generator.html",
+    category: "audio-tools",
+    subcategory: "speech",
+    icon: "fa-youtube",
+    color: "text-rose-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Auto-split video scripts into sequential scenes, insert pauses, and render narration.",
+    featured: false,
+    keywords: ["youtube voiceover","script narrator","scene splitter"]
+  },
+  {
+    name: "Urdu Text to Speech",
+    url: "/audio-tools/urdu-text-to-speech.html",
+    category: "audio-tools",
+    subcategory: "speech",
+    icon: "fa-feather",
+    color: "text-emerald-700",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Authentic Pakistani Urdu voice engine supporting Urdu Nastaliq script and Roman Urdu.",
+    featured: false,
+    keywords: ["urdu tts","urdu speech","pakistani voice","اردو"]
+  },
+  {
+    name: "Article to Speech Reader",
+    url: "/audio-tools/article-to-speech.html",
+    category: "audio-tools",
+    subcategory: "speech",
+    icon: "fa-newspaper",
+    color: "text-amber-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Paste any article or blog post to strip web clutter and listen hands-free.",
+    featured: false,
+    keywords: ["article to speech","web reader","blog cleaner"]
+  },
+  {
+    name: "Free Watermark Remover (Image & Video)",
+    url: "/image-tools/watermark-remover.html",
+    category: "image-tools",
+    subcategory: "editing",
+    icon: "fa-eraser",
+    color: "text-purple-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Remove logos, timestamps, and watermarks from images and videos with client-side inpainting.",
+    featured: true,
+    keywords: ["watermark remover","erase logo","delete watermark","inpainting"]
+  },
+  {
+    name: "Free AI Background Remover",
+    url: "/image-tools/background-remover.html",
+    category: "image-tools",
+    subcategory: "editing",
+    icon: "fa-wand-magic-sparkles",
+    color: "text-teal-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Erase photo backgrounds automatically with client-side AI and export transparent PNGs.",
+    featured: true,
+    keywords: ["ai background remover","bg eraser","transparent png","cutout"]
+  },
+  {
+    name: "Universal Image Compressor",
+    url: "/image-tools/image-compressor.html",
+    category: "image-tools",
+    subcategory: "compression",
+    icon: "fa-image",
+    color: "text-emerald-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Compress JPG, PNG, and WebP photos by up to 90% with zero server uploads.",
+    featured: true,
+    keywords: ["image compressor","photo optimizer","shrink image"]
+  },
+  {
+    name: "JPG Compressor",
+    url: "/image-tools/jpg-compressor.html",
+    category: "image-tools",
+    subcategory: "compression",
+    icon: "fa-camera",
+    color: "text-amber-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Lossy JPEG quantization, visual comparison slider, and target file size presets.",
+    featured: false,
+    keywords: ["jpg compressor","jpeg compress","photo quality"]
+  },
+  {
+    name: "PNG Compressor",
+    url: "/image-tools/png-compressor.html",
+    category: "image-tools",
+    subcategory: "compression",
+    icon: "fa-file-image",
+    color: "text-emerald-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Lossless PNG compression preserving transparent alpha channels and crisp edges.",
+    featured: false,
+    keywords: ["png compressor","transparent png compress"]
+  },
+  {
+    name: "WebP Compressor",
+    url: "/image-tools/webp-compressor.html",
+    category: "image-tools",
+    subcategory: "compression",
+    icon: "fa-bolt",
+    color: "text-blue-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Convert photos to next-gen WebP format for 30%+ bandwidth savings.",
+    featured: false,
+    keywords: ["webp compressor","google webp converter"]
+  },
+  {
+    name: "Compress Image to 100KB",
+    url: "/image-tools/compress-image-to-100kb.html",
+    category: "image-tools",
+    subcategory: "target-size",
+    icon: "fa-bullseye",
+    color: "text-indigo-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Target exact 100KB file size for government forms, passport photos, and job exams.",
+    featured: false,
+    keywords: ["100kb image compressor","passport photo 100kb"]
+  },
+  {
+    name: "Compress Image to 200KB",
+    url: "/image-tools/compress-image-to-200kb.html",
+    category: "image-tools",
+    subcategory: "target-size",
+    icon: "fa-bullseye",
+    color: "text-indigo-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Fast 200KB optimizer for avatar uploads, admissions portals, and online forms.",
+    featured: false,
+    keywords: ["200kb image compressor","avatar portal form"]
+  },
+  {
+    name: "Compress Image to 500KB",
+    url: "/image-tools/compress-image-to-500kb.html",
+    category: "image-tools",
+    subcategory: "target-size",
+    icon: "fa-bullseye",
+    color: "text-indigo-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Optimize banners and large attachments to fit strictly under 500KB without blurring.",
+    featured: false,
+    keywords: ["500kb image compressor","email banner optimize"]
+  },
+  {
+    name: "Bulk Image Compressor",
+    url: "/image-tools/bulk-image-compressor.html",
+    category: "image-tools",
+    subcategory: "batch",
+    icon: "fa-layer-group",
+    color: "text-purple-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Compress batches of 50+ photos simultaneously and download as a single ZIP archive.",
+    featured: false,
+    keywords: ["bulk image compressor","batch compress zip"]
+  },
+  {
+    name: "Video Compressor",
+    url: "/video-tools/video-compressor.html",
+    category: "video-tools",
+    subcategory: "compression",
+    icon: "fa-video",
+    color: "text-rose-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Reduce MP4 and WebM video size client-side with resolution scaling and bitrate controls.",
+    featured: true,
+    keywords: ["video compressor","mp4 compress","reduce video size"]
+  },
+  {
+    name: "Video Frame Extractor",
+    url: "/video-tools/video-frame-extractor.html",
+    category: "video-tools",
+    subcategory: "extraction",
+    icon: "fa-film",
+    color: "text-indigo-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Extract high-res image frames from video by FPS, interval, or count with instant ZIP export.",
+    featured: true,
+    keywords: ["video frame extractor","video to images","mp4 to png"]
+  },
+  {
+    name: "HTML Minifier",
+    url: "/developer-tools/html-minifier.html",
+    category: "developer-tools",
+    subcategory: "minifiers",
+    icon: "fa-html5",
+    color: "text-orange-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Minify HTML markup, strip comments, collapse whitespace, and view Gzip savings.",
+    featured: true,
+    keywords: ["html minifier","minify html","collapse whitespace"]
+  },
+  {
+    name: "CSS Minifier",
+    url: "/developer-tools/css-minifier.html",
+    category: "developer-tools",
+    subcategory: "minifiers",
+    icon: "fa-css3-alt",
+    color: "text-blue-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Compress stylesheets, shorten hex color codes, and eliminate redundant rules.",
+    featured: true,
+    keywords: ["css minifier","minify stylesheet"]
+  },
+  {
+    name: "JavaScript Minifier",
+    url: "/developer-tools/javascript-minifier.html",
+    category: "developer-tools",
+    subcategory: "minifiers",
+    icon: "fa-js",
+    color: "text-yellow-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Minify JS code, remove console logs and comments, and inspect compression ratios.",
+    featured: true,
+    keywords: ["javascript minifier","js minifier","compress js"]
+  },
+  {
+    name: "Shopify CSV Validator",
+    url: "/developer-tools/shopify-csv-validator.html",
+    category: "developer-tools",
+    subcategory: "ecommerce",
+    icon: "fa-shopify",
+    color: "text-emerald-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Audit product CSV files for schema errors, missing headers, and invalid handles.",
+    featured: false,
+    keywords: ["shopify csv validator","product csv checker"]
+  },
+  {
+    name: "Free ATS Resume Checker",
+    url: "/developer-tools/ats-resume-checker.html",
+    category: "developer-tools",
+    subcategory: "career",
+    icon: "fa-file-circle-check",
+    color: "text-indigo-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Audit your CV for ATS compatibility, keyword match percentage, power verbs, and formatting errors.",
+    featured: true,
+    keywords: ["ats resume checker","cv checker","resume score"]
+  },
+  {
+    name: "Free Online Invoice Generator",
+    url: "/ecommerce-tools/invoice-generator.html",
+    category: "ecommerce-tools",
+    subcategory: "billing",
+    icon: "fa-file-invoice-dollar",
+    color: "text-blue-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Generate printable A4 PDF invoices with custom branding, tax calculation, and currencies.",
+    featured: true,
+    keywords: ["invoice generator","pdf invoice maker","receipt creator"]
+  },
+  {
+    name: "Etsy Fee Calculator",
+    url: "/ecommerce-tools/etsy-fee-calculator.html",
+    category: "ecommerce-tools",
+    subcategory: "sellers",
+    icon: "fa-etsy",
+    color: "text-orange-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Calculate Etsy 6.5% transaction cuts, listing fees, offsite ads, and net profit margins.",
+    featured: true,
+    keywords: ["etsy fee calculator","etsy profit calculator"]
+  },
+  {
+    name: "Amazon FBA Dim Weight Checker",
+    url: "/ecommerce-tools/amazon-fba-calculator.html",
+    category: "ecommerce-tools",
+    subcategory: "sellers",
+    icon: "fa-amazon",
+    color: "text-amber-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Determine billable dimensional weight (L×W×H/139) and verify Amazon fulfillment size tiers.",
+    featured: false,
+    keywords: ["amazon fba calculator","dimensional weight checker"]
+  },
+  {
+    name: "TikTok Shop Payout Estimator",
+    url: "/ecommerce-tools/tiktok-shop-payout-calculator.html",
+    category: "ecommerce-tools",
+    subcategory: "sellers",
+    icon: "fa-tiktok",
+    color: "text-pink-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Estimate TikTok Shop creator commissions, referral fees, and net bank deposits.",
+    featured: false,
+    keywords: ["tiktok shop payout","tiktok affiliate calculator"]
+  },
+  {
+    name: "Print-on-Demand Profit Grid",
+    url: "/ecommerce-tools/pod-profit-calculator.html",
+    category: "ecommerce-tools",
+    subcategory: "sellers",
+    icon: "fa-shirt",
+    color: "text-blue-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Compare production costs and profit margins across Printify, Printful, and Gelato.",
+    featured: false,
+    keywords: ["pod profit calculator","printify profit","printful margins"]
+  },
+  {
+    name: "Section 8 Max Rent Estimator",
+    url: "/calculators/section8-estimator.html",
+    category: "calculators",
+    subcategory: "real-estate",
+    icon: "fa-house-user",
+    color: "text-[#146ebe]",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Estimate HUD Fair Market Rent voucher limits and landlord payment standard caps.",
+    featured: true,
+    keywords: ["section 8 calculator","hud fair market rent"]
+  },
+  {
+    name: "UK Stamp Duty Calculator",
+    url: "/calculators/uk-stamp-duty-calculator.html",
+    category: "calculators",
+    subcategory: "tax",
+    icon: "fa-landmark",
+    color: "text-amber-700",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Compute SDLT property tax tiers for England & Northern Ireland residential homes.",
+    featured: true,
+    keywords: ["uk stamp duty calculator","sdlt calculator"]
+  },
+  {
+    name: "1031 Exchange Timeline Tracker",
+    url: "/calculators/1031-exchange-tracker.html",
+    category: "calculators",
+    subcategory: "real-estate",
+    icon: "fa-clock-rotate-left",
+    color: "text-purple-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Track 45-day identification and 180-day closing deadlines for tax-deferred exchanges.",
+    featured: false,
+    keywords: ["1031 exchange tracker","45 day identification deadline"]
+  },
+  {
+    name: "STR Cleaning Fee Splitter",
+    url: "/calculators/str-cleaning-splitter.html",
+    category: "calculators",
+    subcategory: "real-estate",
+    icon: "fa-broom",
+    color: "text-teal-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Split turnover cleaning fees, turnover payroll, and co-host payouts for Airbnb & VRBO.",
+    featured: false,
+    keywords: ["str cleaning fee splitter","airbnb co-host split"]
+  },
+  {
+    name: "EU VAT OSS Calculator",
+    url: "/calculators/eu-vat-oss-calculator.html",
+    category: "calculators",
+    subcategory: "tax",
+    icon: "fa-percent",
+    color: "text-blue-700",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Determine one-stop-shop VAT rates across 27 EU member states for digital products.",
+    featured: false,
+    keywords: ["eu vat oss calculator","vat rates europe digital goods"]
+  },
+  {
+    name: "2048 Puzzle Game",
+    url: "/games/2048/index.html",
+    category: "games",
+    subcategory: "puzzle",
+    icon: "fa-cubes",
+    color: "text-amber-500",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Slide and merge numbered tiles on a 4x4 grid to reach the elusive 2048 tile.",
+    featured: true,
+    keywords: ["2048 game","slide tiles","math puzzle"]
+  },
+  {
+    name: "Classic Retro Snake",
+    url: "/games/snake/index.html",
+    category: "games",
+    subcategory: "arcade",
+    icon: "fa-worm",
+    color: "text-emerald-500",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Classic Nokia-style arcade game with smooth 60fps movement, apples, and sound effects.",
+    featured: true,
+    keywords: ["snake game","retro arcade","nokia snake"]
+  },
+  {
+    name: "Memory Card Match",
+    url: "/games/memory-game/index.html",
+    category: "games",
+    subcategory: "puzzle",
+    icon: "fa-brain",
+    color: "text-purple-500",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Test concentration with 3D card flips, tech icon pairs, timer, and high score board.",
+    featured: false,
+    keywords: ["memory game","card match","brain flip"]
+  },
+  {
+    name: "Tic Tac Toe (XO vs AI)",
+    url: "/games/tic-tac-toe/index.html",
+    category: "games",
+    subcategory: "board",
+    icon: "fa-xmark",
+    color: "text-rose-500",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Play classic 3x3 XO matches against smart Minimax AI or challenge a friend locally.",
+    featured: false,
+    keywords: ["tic tac toe","xo game","noughts crosses"]
+  },
+  {
+    name: "Word Scramble Puzzle",
+    url: "/games/word-scramble/index.html",
+    category: "games",
+    subcategory: "puzzle",
+    icon: "fa-spell-check",
+    color: "text-blue-500",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Unscramble mixed letters with smart hints, combo streaks, timer, and score levels.",
+    featured: false,
+    keywords: ["word scramble","anagram solver","vocabulary puzzle"]
+  },
+  {
+    name: "Bhabhi Thulla Card Game",
+    url: "/games/bhabhi-thulla/index.html",
+    category: "games",
+    subcategory: "card",
+    icon: "fa-spade",
+    color: "text-emerald-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Classic 4-player traditional South Asian trick-taking card game. Shed your cards to escape!",
+    featured: false,
+    keywords: ["bhabhi thulla","bhabi get away","card game"]
   }
 ];
 
@@ -795,7 +868,7 @@ function renderQuickSearchResults(query) {
   }
 
   container.innerHTML = matched.map(t => `
-    <a href="${t.url}" class="flex items-center justify-between p-3 rounded-2xl hover:bg-blue-50/70 group transition-all">
+    <a href="${getSiteRoot()}${t.url.replace(/^\/+/, '')}" class="flex items-center justify-between p-3 rounded-2xl hover:bg-blue-50/70 group transition-all">
       <div class="flex items-center gap-3">
         <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-sm ${t.color} group-hover:scale-105 transition-transform">
           <i class="fa-solid ${t.icon}"></i>
@@ -918,11 +991,11 @@ function initMobileAppNavigation() {
   nav.setAttribute('aria-label', 'Mobile App Bottom Navigation');
 
   nav.innerHTML = `
-    <a href="index.html" class="mobile-nav-item ${isHome ? 'active' : ''}">
+    <a href="${getSiteRoot()}" class="mobile-nav-item ${isHome ? 'active' : ''}">
       <i class="fa-solid fa-house"></i>
       <span>Home</span>
     </a>
-    <a href="audio-voice-tools.html" class="mobile-nav-item ${isAudio ? 'active' : ''}">
+    <a href="${getSiteRoot()}audio-tools/" class="mobile-nav-item ${isAudio ? 'active' : ''}">
       <i class="fa-solid fa-volume-high"></i>
       <span>Audio</span>
     </a>
@@ -930,7 +1003,7 @@ function initMobileAppNavigation() {
       <i class="fa-solid fa-magnifying-glass"></i>
       <span>Search</span>
     </button>
-    <a href="compression-tools.html" class="mobile-nav-item ${isCompress ? 'active' : ''}">
+    <a href="${getSiteRoot()}image-tools/" class="mobile-nav-item ${isCompress ? 'active' : ''}">
       <i class="fa-solid fa-compress"></i>
       <span>Compress</span>
     </a>
@@ -962,7 +1035,7 @@ function createMobileAppDrawer() {
       
       <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
         <div class="flex items-center gap-2.5">
-          <img src="images/logo-icon.webp" alt="360Tools Logo" width="32" height="32" class="w-8 h-8 rounded-xl">
+          <img src="${getSiteRoot()}images/logo-icon.webp" alt="360Tools Logo" width="32" height="32" class="w-8 h-8 rounded-xl">
           <div>
             <h3 class="text-sm font-black text-[#183153]">360Tools<span class="text-[#146ebe]">.me</span></h3>
             <p class="text-[10px] text-slate-400 font-bold">100% Free & Private Online Suite</p>
@@ -987,25 +1060,25 @@ function createMobileAppDrawer() {
         <div>
           <div class="text-[11px] font-black text-red-700 uppercase tracking-wider mb-2 flex items-center justify-between">
             <span class="flex items-center gap-1.5"><i class="fa-solid fa-file-pdf"></i> PDF & Documents</span>
-            <a href="pdf-tools/index.html" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All 19 &rarr;</a>
+            <a href="${getSiteRoot()}pdf-tools/" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All 19 &rarr;</a>
           </div>
           <div class="grid grid-cols-2 gap-2">
-            <a href="pdf-tools/merge-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}pdf-tools/merge-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-object-group text-red-600 text-sm"></i> Merge PDF
             </a>
-            <a href="pdf-tools/split-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}pdf-tools/split-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-scissors text-orange-600 text-sm"></i> Split PDF
             </a>
-            <a href="pdf-tools/compress-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}pdf-tools/compress-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-file-zipper text-emerald-600 text-sm"></i> Compress PDF
             </a>
-            <a href="pdf-tools/pdf-to-jpg/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}pdf-tools/pdf-to-jpg/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-image text-amber-600 text-sm"></i> PDF to JPG
             </a>
-            <a href="pdf-tools/jpg-to-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}pdf-tools/jpg-to-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-file-image text-blue-600 text-sm"></i> JPG to PDF
             </a>
-            <a href="pdf-tools/rotate-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}pdf-tools/rotate-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-rotate text-purple-600 text-sm"></i> Rotate PDF
             </a>
           </div>
@@ -1014,19 +1087,19 @@ function createMobileAppDrawer() {
         <div>
           <div class="text-[11px] font-black text-purple-700 uppercase tracking-wider mb-2 flex items-center justify-between">
             <span class="flex items-center gap-1.5"><i class="fa-solid fa-volume-high"></i> AI Voice & Audio</span>
-            <a href="audio-voice-tools.html" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
+            <a href="${getSiteRoot()}audio-tools/" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
           </div>
           <div class="grid grid-cols-2 gap-2">
-            <a href="text-to-speech.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}audio-tools/text-to-speech.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-volume-high text-[#146ebe] text-sm"></i> Text to Speech
             </a>
-            <a href="text-to-mp3.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}audio-tools/text-to-mp3.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-file-audio text-emerald-600 text-sm"></i> Text to MP3
             </a>
-            <a href="ai-voice-generator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}audio-tools/ai-voice-generator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-wand-magic-sparkles text-purple-600 text-sm"></i> AI Voice Studio
             </a>
-            <a href="pdf-to-speech.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}audio-tools/pdf-to-speech.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-file-pdf text-red-600 text-sm"></i> PDF Reader
             </a>
           </div>
@@ -1035,28 +1108,28 @@ function createMobileAppDrawer() {
         <div>
           <div class="text-[11px] font-black text-emerald-700 uppercase tracking-wider mb-2 flex items-center justify-between">
             <span class="flex items-center gap-1.5"><i class="fa-solid fa-compress"></i> Media Compression</span>
-            <a href="compression-tools.html" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
+            <a href="${getSiteRoot()}image-tools/" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
           </div>
           <div class="grid grid-cols-2 gap-2">
-            <a href="watermark-remover.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}image-tools/watermark-remover.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-eraser text-purple-600 text-sm"></i> Watermark Remover (Img & Video)
             </a>
-            <a href="background-remover.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-teal-50 hover:bg-teal-100 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}image-tools/background-remover.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-teal-50 hover:bg-teal-100 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-wand-magic-sparkles text-teal-600 text-sm"></i> BG Remover
             </a>
-            <a href="video-frame-extractor.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}video-tools/video-frame-extractor.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-film text-indigo-600 text-sm"></i> Frame Extractor
             </a>
-            <a href="image-compressor.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}image-tools/image-compressor.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-image text-emerald-600 text-sm"></i> Image Compressor
             </a>
-            <a href="video-compressor.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}video-tools/video-compressor.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-video text-rose-600 text-sm"></i> Video Compressor
             </a>
-            <a href="pdf-compressor.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}pdf-tools/compress-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-file-pdf text-red-600 text-sm"></i> PDF Compressor
             </a>
-            <a href="compress-image-to-100kb.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}image-tools/compress-image-to-100kb.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-bullseye text-indigo-600 text-sm"></i> 100KB Target
             </a>
           </div>
@@ -1065,22 +1138,22 @@ function createMobileAppDrawer() {
         <div>
           <div class="text-[11px] font-black text-cyan-700 uppercase tracking-wider mb-2 flex items-center justify-between">
             <span class="flex items-center gap-1.5"><i class="fa-solid fa-code"></i> Developer & Web Tools</span>
-            <a href="developer-tools.html" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
+            <a href="${getSiteRoot()}developer-tools/" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
           </div>
           <div class="grid grid-cols-2 gap-2">
-            <a href="html-minifier.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}developer-tools/html-minifier.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-brands fa-html5 text-orange-600 text-sm"></i> HTML Minifier
             </a>
-            <a href="css-minifier.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}developer-tools/css-minifier.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-brands fa-css3-alt text-blue-600 text-sm"></i> CSS Minifier
             </a>
-            <a href="javascript-minifier.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}developer-tools/javascript-minifier.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-brands fa-js text-yellow-500 text-sm"></i> JS Minifier
             </a>
-            <a href="shopify-csv-validator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}developer-tools/shopify-csv-validator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-brands fa-shopify text-emerald-600 text-sm"></i> Shopify CSV
             </a>
-            <a href="ats-resume-checker.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}developer-tools/ats-resume-checker.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-file-circle-check text-indigo-600 text-sm"></i> Free ATS Resume Checker
             </a>
           </div>
@@ -1089,19 +1162,19 @@ function createMobileAppDrawer() {
         <div>
           <div class="text-[11px] font-black text-[#f1641e] uppercase tracking-wider mb-2 flex items-center justify-between">
             <span class="flex items-center gap-1.5"><i class="fa-solid fa-calculator"></i> E-Commerce & Finance</span>
-            <a href="ecommerce-tools.html" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
+            <a href="${getSiteRoot()}ecommerce-tools/" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
           </div>
           <div class="grid grid-cols-2 gap-2">
-            <a href="etsy-fee-calculator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}ecommerce-tools/etsy-fee-calculator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-brands fa-etsy text-[#f1641e] text-sm"></i> Etsy Fee Calc
             </a>
-            <a href="amazon-fba-calculator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}ecommerce-tools/amazon-fba-calculator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-brands fa-amazon text-amber-600 text-sm"></i> Amazon FBA
             </a>
-            <a href="tiktok-shop-payout-calculator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}ecommerce-tools/tiktok-shop-payout-calculator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-brands fa-tiktok text-pink-600 text-sm"></i> TikTok Payout
             </a>
-            <a href="section8-estimator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}calculators/section8-estimator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-house-user text-[#146ebe] text-sm"></i> Section 8
             </a>
           </div>
@@ -1112,22 +1185,22 @@ function createMobileAppDrawer() {
             <span class="text-[9px] bg-purple-100 text-purple-800 px-2 py-0.5 rounded-full font-black">POPULAR</span>
           </div>
           <div class="grid grid-cols-2 gap-2">
-            <a href="2048/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-amber-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}games/2048/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-amber-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-cubes text-amber-500 text-sm"></i> 2048 Classic
             </a>
-            <a href="snake/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}games/snake/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-worm text-emerald-500 text-sm"></i> Retro Snake
             </a>
-            <a href="memory-game/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-purple-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}games/memory-game/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-purple-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-brain text-purple-500 text-sm"></i> Memory Card
             </a>
-            <a href="tic-tac-toe/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-rose-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}games/tic-tac-toe/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-rose-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-xmark text-rose-500 text-sm"></i> Tic Tac Toe
             </a>
-            <a href="word-scramble/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}games/word-scramble/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-spell-check text-blue-500 text-sm"></i> Word Scramble
             </a>
-            <a href="bhabhi-thulla/index.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}games/bhabhi-thulla/index.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-spade text-emerald-600 text-sm"></i> Bhabhi Thulla Card Game
             </a>
           </div>
@@ -1138,19 +1211,19 @@ function createMobileAppDrawer() {
             <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-info"></i> Company & Help</span>
           </div>
           <div class="grid grid-cols-2 gap-2">
-            <a href="appearance.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}appearance.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-palette text-purple-600 text-sm"></i> Theme & Font Customizer
             </a>
-            <a href="about.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}about.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-circle-info text-blue-600 text-sm"></i> About Us
             </a>
-            <a href="contact.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}contact.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-envelope text-teal-600 text-sm"></i> Contact Us
             </a>
-            <a href="privacy-policy.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}privacy-policy.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-shield-halved text-emerald-600 text-sm"></i> Privacy Policy
             </a>
-            <a href="terms-and-conditions.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
+            <a href="${getSiteRoot()}terms-and-conditions.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-file-contract text-amber-600 text-sm"></i> Terms of Use
             </a>
           </div>
@@ -1245,8 +1318,8 @@ function renderGlobalHeader() {
       
       <!-- Brand Logo & Desktop Nav -->
       <div class="flex items-center gap-8">
-        <a href="index.html" class="flex items-center gap-2.5 group shrink-0">
-          <img src="images/logo-icon.webp" alt="360Tools Logo" width="36" height="36" class="w-9 h-9 rounded-full object-cover border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform">
+        <a href="${getSiteRoot()}" class="flex items-center gap-2.5 group shrink-0">
+          <img src="${getSiteRoot()}images/logo-icon.webp" alt="360Tools Logo" width="36" height="36" class="w-9 h-9 rounded-full object-cover border border-slate-200/80 shadow-2xs group-hover:scale-105 transition-transform">
           <div class="flex flex-col">
             <span class="text-lg font-black text-[#183153] leading-none tracking-tight group-hover:text-[#146ebe] transition-colors">360Tools<span class="text-[#146ebe]">.me</span></span>
             <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider leading-none mt-1 hidden sm:block">Private Online Suite</span>
@@ -1394,63 +1467,63 @@ function renderGlobalHeader() {
                           <span class="text-xs font-black uppercase tracking-wider text-red-800">PDF & Document Suite</span>
                           <span class="bg-red-100 text-red-700 text-[9px] font-black px-1.5 py-0.2 rounded-full uppercase">100% Client-Side</span>
                         </div>
-                        <a href="pdf-tools/index.html" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
+                        <a href="${getSiteRoot()}pdf-tools/" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
                           <span>View All 19 Tools</span>
                           <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </a>
                       </div>
 
                       <div class="grid grid-cols-2 gap-2">
-                        <a href="pdf-tools/merge-pdf/index.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}pdf-tools/merge-pdf/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-red-50 text-red-600"><i class="fa-solid fa-object-group"></i></div>
                           <div>
                             <div class="nav-tool-title">Merge PDF</div>
                             <div class="nav-tool-desc">Combine multiple PDFs in custom order</div>
                           </div>
                         </a>
-                        <a href="pdf-tools/split-pdf/index.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}pdf-tools/split-pdf/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-orange-50 text-orange-600"><i class="fa-solid fa-scissors"></i></div>
                           <div>
                             <div class="nav-tool-title">Split PDF</div>
                             <div class="nav-tool-desc">Extract pages & ranges to PDF/ZIP</div>
                           </div>
                         </a>
-                        <a href="pdf-tools/compress-pdf/index.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}pdf-tools/compress-pdf/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-file-zipper"></i></div>
                           <div>
                             <div class="nav-tool-title">Compress PDF</div>
                             <div class="nav-tool-desc">Shrink PDF size locally in browser</div>
                           </div>
                         </a>
-                        <a href="pdf-tools/pdf-to-jpg/index.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}pdf-tools/pdf-to-jpg/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-amber-50 text-amber-600"><i class="fa-solid fa-image"></i></div>
                           <div>
                             <div class="nav-tool-title">PDF to JPG / PNG</div>
                             <div class="nav-tool-desc">Convert PDF pages into high-res images</div>
                           </div>
                         </a>
-                        <a href="pdf-tools/jpg-to-pdf/index.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}pdf-tools/jpg-to-pdf/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-solid fa-file-image"></i></div>
                           <div>
                             <div class="nav-tool-title">JPG / PNG to PDF</div>
                             <div class="nav-tool-desc">Turn images and photos into PDFs</div>
                           </div>
                         </a>
-                        <a href="pdf-tools/rotate-pdf/index.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}pdf-tools/rotate-pdf/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-purple-50 text-purple-600"><i class="fa-solid fa-rotate"></i></div>
                           <div>
                             <div class="nav-tool-title">Rotate PDF</div>
                             <div class="nav-tool-desc">Rotate pages 90°/180° with preview</div>
                           </div>
                         </a>
-                        <a href="pdf-tools/password-protect-pdf/index.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}pdf-tools/password-protect-pdf/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-emerald-50 text-emerald-700"><i class="fa-solid fa-lock"></i></div>
                           <div>
                             <div class="nav-tool-title">Protect & Unlock PDF</div>
                             <div class="nav-tool-desc">Client-side encryption & decryption</div>
                           </div>
                         </a>
-                        <a href="pdf-tools/html-to-pdf/index.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}pdf-tools/html-to-pdf/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-indigo-50 text-indigo-600"><i class="fa-solid fa-code"></i></div>
                           <div>
                             <div class="nav-tool-title">HTML to PDF</div>
@@ -1469,56 +1542,56 @@ function renderGlobalHeader() {
                           <span class="w-2 h-2 rounded-full bg-purple-600"></span>
                           <span class="text-xs font-black uppercase tracking-wider text-purple-800">AI Voice & Audio Tools</span>
                         </div>
-                        <a href="audio-voice-tools.html" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
+                        <a href="${getSiteRoot()}audio-tools/" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
                           <span>View All Audio Tools</span>
                           <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </a>
                       </div>
 
                       <div class="grid grid-cols-2 gap-2">
-                        <a href="text-to-speech.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}audio-tools/text-to-speech.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-blue-50 text-[#146ebe]"><i class="fa-solid fa-volume-high"></i></div>
                           <div>
                             <div class="nav-tool-title">Text to Speech</div>
                             <div class="nav-tool-desc">Natural voices with live word highlight</div>
                           </div>
                         </a>
-                        <a href="text-to-mp3.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}audio-tools/text-to-mp3.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-file-audio"></i></div>
                           <div>
                             <div class="nav-tool-title">Text to MP3 Converter</div>
                             <div class="nav-tool-desc">Direct MP3 & WAV audio export</div>
                           </div>
                         </a>
-                        <a href="ai-voice-generator.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}audio-tools/ai-voice-generator.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-purple-50 text-purple-600"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                           <div>
                             <div class="nav-tool-title">AI Voice Generator</div>
                             <div class="nav-tool-desc">Studio avatars & dynamic waveforms</div>
                           </div>
                         </a>
-                        <a href="pdf-to-speech.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}audio-tools/pdf-to-speech.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-red-50 text-red-600"><i class="fa-solid fa-file-pdf"></i></div>
                           <div>
                             <div class="nav-tool-title">PDF to Speech Reader</div>
                             <div class="nav-tool-desc">Listen to multi-page eBooks & documents</div>
                           </div>
                         </a>
-                        <a href="youtube-voiceover-generator.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}audio-tools/youtube-voiceover-generator.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-rose-50 text-rose-600"><i class="fa-brands fa-youtube"></i></div>
                           <div>
                             <div class="nav-tool-title">YouTube Voiceover</div>
                             <div class="nav-tool-desc">Scene splitter & timing narration</div>
                           </div>
                         </a>
-                        <a href="urdu-text-to-speech.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}audio-tools/urdu-text-to-speech.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-emerald-50 text-emerald-700"><i class="fa-solid fa-feather"></i></div>
                           <div>
                             <div class="nav-tool-title">Urdu TTS (اردو)</div>
                             <div class="nav-tool-desc">Nastaliq script & Roman Urdu synthesis</div>
                           </div>
                         </a>
-                        <a href="article-to-speech.html" class="nav-tool-item col-span-2">
+                        <a href="${getSiteRoot()}audio-tools/article-to-speech.html" class="nav-tool-item col-span-2">
                           <div class="nav-tool-icon bg-amber-50 text-amber-600"><i class="fa-solid fa-newspaper"></i></div>
                           <div>
                             <div class="nav-tool-title">Article to Speech Reader</div>
@@ -1537,14 +1610,14 @@ function renderGlobalHeader() {
                           <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
                           <span class="text-xs font-black uppercase tracking-wider text-emerald-800">Media, AI Image & Video Tools</span>
                         </div>
-                        <a href="compression-tools.html" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
+                        <a href="${getSiteRoot()}image-tools/" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
                           <span>View All Media Tools</span>
                           <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </a>
                       </div>
 
                       <div class="grid grid-cols-2 gap-2">
-                        <a href="watermark-remover.html" class="nav-tool-item bg-purple-50/70 hover:bg-purple-100/70 border border-purple-200/60">
+                        <a href="${getSiteRoot()}image-tools/watermark-remover.html" class="nav-tool-item bg-purple-50/70 hover:bg-purple-100/70 border border-purple-200/60">
                           <div class="nav-tool-icon bg-purple-600 text-white"><i class="fa-solid fa-eraser"></i></div>
                           <div>
                             <div class="nav-tool-title text-purple-950 flex items-center gap-1.5">
@@ -1555,7 +1628,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="background-remover.html" class="nav-tool-item bg-teal-50/70 hover:bg-teal-100/70 border border-teal-200/60">
+                        <a href="${getSiteRoot()}image-tools/background-remover.html" class="nav-tool-item bg-teal-50/70 hover:bg-teal-100/70 border border-teal-200/60">
                           <div class="nav-tool-icon bg-teal-600 text-white"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                           <div>
                             <div class="nav-tool-title text-teal-950 flex items-center gap-1.5">
@@ -1566,7 +1639,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="video-frame-extractor.html" class="nav-tool-item bg-indigo-50/70 hover:bg-indigo-100/70 border border-indigo-200/60">
+                        <a href="${getSiteRoot()}video-tools/video-frame-extractor.html" class="nav-tool-item bg-indigo-50/70 hover:bg-indigo-100/70 border border-indigo-200/60">
                           <div class="nav-tool-icon bg-indigo-600 text-white"><i class="fa-solid fa-film"></i></div>
                           <div>
                             <div class="nav-tool-title text-indigo-950 flex items-center gap-1.5">
@@ -1577,7 +1650,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="video-compressor.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}video-tools/video-compressor.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-rose-50 text-rose-600"><i class="fa-solid fa-video"></i></div>
                           <div>
                             <div class="nav-tool-title">Video Compressor</div>
@@ -1585,7 +1658,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="image-compressor.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}image-tools/image-compressor.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-image"></i></div>
                           <div>
                             <div class="nav-tool-title">Universal Image Compressor</div>
@@ -1593,7 +1666,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="bulk-image-compressor.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}image-tools/bulk-image-compressor.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-purple-50 text-purple-600"><i class="fa-solid fa-layer-group"></i></div>
                           <div>
                             <div class="nav-tool-title">Bulk Image Compressor (ZIP)</div>
@@ -1601,7 +1674,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="pdf-compressor.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}pdf-tools/compress-pdf/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-red-50 text-red-600"><i class="fa-solid fa-file-pdf"></i></div>
                           <div>
                             <div class="nav-tool-title">PDF Compressor</div>
@@ -1609,7 +1682,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="compress-image-to-100kb.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}image-tools/compress-image-to-100kb.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-indigo-50 text-indigo-600"><i class="fa-solid fa-bullseye"></i></div>
                           <div>
                             <div class="nav-tool-title">Target Size (100KB / 500KB)</div>
@@ -1617,7 +1690,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="webp-compressor.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}image-tools/webp-compressor.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-solid fa-bolt"></i></div>
                           <div>
                             <div class="nav-tool-title">WebP Compressor</div>
@@ -1636,14 +1709,14 @@ function renderGlobalHeader() {
                           <span class="w-2 h-2 rounded-full bg-cyan-600"></span>
                           <span class="text-xs font-black uppercase tracking-wider text-cyan-800">Developer & Web Tools</span>
                         </div>
-                        <a href="developer-tools.html" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
+                        <a href="${getSiteRoot()}developer-tools/" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
                           <span>View All Dev Tools</span>
                           <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </a>
                       </div>
 
                       <div class="grid grid-cols-2 gap-2">
-                        <a href="html-minifier.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}developer-tools/html-minifier.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-orange-50 text-orange-600"><i class="fa-brands fa-html5"></i></div>
                           <div>
                             <div class="nav-tool-title">HTML Minifier</div>
@@ -1651,7 +1724,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="css-minifier.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}developer-tools/css-minifier.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-brands fa-css3-alt"></i></div>
                           <div>
                             <div class="nav-tool-title">CSS Minifier</div>
@@ -1659,7 +1732,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="javascript-minifier.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}developer-tools/javascript-minifier.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-yellow-50 text-yellow-600"><i class="fa-brands fa-js"></i></div>
                           <div>
                             <div class="nav-tool-title">JavaScript Minifier</div>
@@ -1667,7 +1740,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="shopify-csv-validator.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}developer-tools/shopify-csv-validator.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-brands fa-shopify"></i></div>
                           <div>
                             <div class="nav-tool-title">Shopify CSV Validator</div>
@@ -1675,7 +1748,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="ats-resume-checker.html" class="nav-tool-item bg-indigo-50/70 hover:bg-indigo-100/70 border border-indigo-200/60 col-span-2">
+                        <a href="${getSiteRoot()}developer-tools/ats-resume-checker.html" class="nav-tool-item bg-indigo-50/70 hover:bg-indigo-100/70 border border-indigo-200/60 col-span-2">
                           <div class="nav-tool-icon bg-indigo-600 text-white"><i class="fa-solid fa-file-circle-check"></i></div>
                           <div>
                             <div class="nav-tool-title text-indigo-950 flex items-center gap-1.5">
@@ -1697,14 +1770,14 @@ function renderGlobalHeader() {
                           <span class="w-2 h-2 rounded-full bg-amber-600"></span>
                           <span class="text-xs font-black uppercase tracking-wider text-amber-800">E-Commerce, POD & Seller Tools</span>
                         </div>
-                        <a href="ecommerce-tools.html" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
+                        <a href="${getSiteRoot()}ecommerce-tools/" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
                           <span>View All E-Commerce Tools</span>
                           <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </a>
                       </div>
 
                       <div class="grid grid-cols-2 gap-2">
-                        <a href="invoice-generator.html" class="nav-tool-item bg-blue-50/70 hover:bg-blue-100/70 border border-blue-200/60 col-span-2">
+                        <a href="${getSiteRoot()}ecommerce-tools/invoice-generator.html" class="nav-tool-item bg-blue-50/70 hover:bg-blue-100/70 border border-blue-200/60 col-span-2">
                           <div class="nav-tool-icon bg-[#146ebe] text-white"><i class="fa-solid fa-file-invoice-dollar"></i></div>
                           <div>
                             <div class="nav-tool-title text-blue-950 flex items-center gap-1.5">
@@ -1715,7 +1788,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="etsy-fee-calculator.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}ecommerce-tools/etsy-fee-calculator.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-orange-50 text-orange-600"><i class="fa-brands fa-etsy"></i></div>
                           <div>
                             <div class="nav-tool-title">Etsy Fee Calculator</div>
@@ -1723,7 +1796,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="amazon-fba-calculator.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}ecommerce-tools/amazon-fba-calculator.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-amber-50 text-amber-600"><i class="fa-brands fa-amazon"></i></div>
                           <div>
                             <div class="nav-tool-title">Amazon FBA Checker</div>
@@ -1731,7 +1804,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="tiktok-shop-payout-calculator.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}ecommerce-tools/tiktok-shop-payout-calculator.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-pink-50 text-pink-600"><i class="fa-brands fa-tiktok"></i></div>
                           <div>
                             <div class="nav-tool-title">TikTok Shop Payout</div>
@@ -1739,7 +1812,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="pod-profit-calculator.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}ecommerce-tools/pod-profit-calculator.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-solid fa-shirt"></i></div>
                           <div>
                             <div class="nav-tool-title">Print-on-Demand Profit Grid</div>
@@ -1758,14 +1831,14 @@ function renderGlobalHeader() {
                           <span class="w-2 h-2 rounded-full bg-blue-600"></span>
                           <span class="text-xs font-black uppercase tracking-wider text-blue-800">Real Estate & Tax Calculators</span>
                         </div>
-                        <a href="index.html#tools-catalog" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
+                        <a href="${getSiteRoot()}#tools-catalog" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
                           <span>View All in Catalog</span>
                           <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </a>
                       </div>
 
                       <div class="grid grid-cols-2 gap-2">
-                        <a href="section8-estimator.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}calculators/section8-estimator.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-blue-50 text-[#146ebe]"><i class="fa-solid fa-house-user"></i></div>
                           <div>
                             <div class="nav-tool-title">Section 8 Max Rent Estimator</div>
@@ -1773,7 +1846,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="uk-stamp-duty-calculator.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}calculators/uk-stamp-duty-calculator.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-amber-50 text-amber-700"><i class="fa-solid fa-landmark"></i></div>
                           <div>
                             <div class="nav-tool-title">UK Stamp Duty Calculator</div>
@@ -1781,7 +1854,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="1031-exchange-tracker.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}calculators/1031-exchange-tracker.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-purple-50 text-purple-600"><i class="fa-solid fa-clock-rotate-left"></i></div>
                           <div>
                             <div class="nav-tool-title">1031 Exchange Timeline Tracker</div>
@@ -1789,7 +1862,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="str-cleaning-splitter.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}calculators/str-cleaning-splitter.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-teal-50 text-teal-600"><i class="fa-solid fa-broom"></i></div>
                           <div>
                             <div class="nav-tool-title">STR Cleaning Fee Splitter</div>
@@ -1797,7 +1870,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="eu-vat-oss-calculator.html" class="nav-tool-item col-span-2">
+                        <a href="${getSiteRoot()}calculators/eu-vat-oss-calculator.html" class="nav-tool-item col-span-2">
                           <div class="nav-tool-icon bg-blue-50 text-blue-700"><i class="fa-solid fa-percent"></i></div>
                           <div>
                             <div class="nav-tool-title">EU VAT OSS Calculator</div>
@@ -1820,7 +1893,7 @@ function renderGlobalHeader() {
                       </div>
 
                       <div class="grid grid-cols-2 gap-2">
-                        <a href="2048/index.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}games/2048/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-amber-50 text-amber-600"><i class="fa-solid fa-cubes"></i></div>
                           <div>
                             <div class="nav-tool-title">2048 Classic</div>
@@ -1828,7 +1901,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="snake/index.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}games/snake/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-worm"></i></div>
                           <div>
                             <div class="nav-tool-title">Retro Snake Arcade</div>
@@ -1836,7 +1909,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="memory-game/index.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}games/memory-game/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-purple-50 text-purple-600"><i class="fa-solid fa-brain"></i></div>
                           <div>
                             <div class="nav-tool-title">Memory Card Match</div>
@@ -1844,7 +1917,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="tic-tac-toe/index.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}games/tic-tac-toe/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-rose-50 text-rose-600"><i class="fa-solid fa-xmark"></i></div>
                           <div>
                             <div class="nav-tool-title">Tic Tac Toe (XO vs AI)</div>
@@ -1852,7 +1925,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="word-scramble/index.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}games/word-scramble/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-solid fa-spell-check"></i></div>
                           <div>
                             <div class="nav-tool-title">Word Scramble Master</div>
@@ -1860,7 +1933,7 @@ function renderGlobalHeader() {
                           </div>
                         </a>
 
-                        <a href="bhabhi-thulla/index.html" class="nav-tool-item">
+                        <a href="${getSiteRoot()}games/bhabhi-thulla/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-spade"></i></div>
                           <div>
                             <div class="nav-tool-title">Bhabhi Thulla Card Game</div>
@@ -1876,7 +1949,7 @@ function renderGlobalHeader() {
                     <span class="text-slate-400 text-[11px] flex items-center gap-1.5">
                       <i class="fa-solid fa-bolt text-amber-500"></i> Instant processing with zero server delays
                     </span>
-                    <a href="index.html#tools-catalog" class="text-[#146ebe] hover:underline flex items-center gap-1 font-black">
+                    <a href="${getSiteRoot()}#tools-catalog" class="text-[#146ebe] hover:underline flex items-center gap-1 font-black">
                       <span>Explore All 30+ Tools</span>
                       <i class="fa-solid fa-arrow-right text-[10px]"></i>
                     </a>
@@ -1889,7 +1962,7 @@ function renderGlobalHeader() {
           </div>
 
           <!-- 2. PDF Tools Link (Direct Hub Link) -->
-          <a href="pdf-tools/index.html" class="nav-link-btn">
+          <a href="${getSiteRoot()}pdf-tools/" class="nav-link-btn">
             <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
             <span>PDF Tools</span>
             <span class="bg-red-100 text-red-700 text-[9px] px-1.5 py-0.2 rounded-md font-black">NEW</span>
@@ -1909,42 +1982,42 @@ function renderGlobalHeader() {
                   <span>Free Browser Games</span>
                   <i class="fa-solid fa-bolt text-[10px]"></i>
                 </div>
-                <a href="2048/index.html" class="nav-tool-item">
+                <a href="${getSiteRoot()}games/2048/index.html" class="nav-tool-item">
                   <div class="nav-tool-icon bg-amber-50 text-amber-600"><i class="fa-solid fa-cubes"></i></div>
                   <div>
                     <div class="nav-tool-title">2048 Classic</div>
                     <div class="nav-tool-desc">Join tiles to reach 2048</div>
                   </div>
                 </a>
-                <a href="snake/index.html" class="nav-tool-item">
+                <a href="${getSiteRoot()}games/snake/index.html" class="nav-tool-item">
                   <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-worm"></i></div>
                   <div>
                     <div class="nav-tool-title">Retro Snake Arcade</div>
                     <div class="nav-tool-desc">60 FPS canvas with bonus apples</div>
                   </div>
                 </a>
-                <a href="memory-game/index.html" class="nav-tool-item">
+                <a href="${getSiteRoot()}games/memory-game/index.html" class="nav-tool-item">
                   <div class="nav-tool-icon bg-purple-50 text-purple-600"><i class="fa-solid fa-brain"></i></div>
                   <div>
                     <div class="nav-tool-title">Memory Card Match</div>
                     <div class="nav-tool-desc">3D card flip brain trainer</div>
                   </div>
                 </a>
-                <a href="tic-tac-toe/index.html" class="nav-tool-item">
+                <a href="${getSiteRoot()}games/tic-tac-toe/index.html" class="nav-tool-item">
                   <div class="nav-tool-icon bg-rose-50 text-rose-600"><i class="fa-solid fa-xmark"></i></div>
                   <div>
                     <div class="nav-tool-title">Tic Tac Toe (XO vs AI)</div>
                     <div class="nav-tool-desc">Unbeatable Minimax arena</div>
                   </div>
                 </a>
-                <a href="word-scramble/index.html" class="nav-tool-item">
+                <a href="${getSiteRoot()}games/word-scramble/index.html" class="nav-tool-item">
                   <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-solid fa-spell-check"></i></div>
                   <div>
                     <div class="nav-tool-title">Word Scramble Master</div>
                     <div class="nav-tool-desc">100+ vocabulary anagrams</div>
                   </div>
                 </a>
-                <a href="bhabhi-thulla/index.html" class="nav-tool-item">
+                <a href="${getSiteRoot()}games/bhabhi-thulla/index.html" class="nav-tool-item">
                   <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-spade"></i></div>
                   <div>
                     <div class="nav-tool-title">Bhabhi Thulla (Get Away)</div>
@@ -1956,7 +2029,7 @@ function renderGlobalHeader() {
           </div>
 
           <!-- 3. Blog Link -->
-          <a href="blog.html" class="nav-link-btn">
+          <a href="${getSiteRoot()}blog.html" class="nav-link-btn">
             <i class="fa-solid fa-newspaper text-indigo-600 text-xs"></i>
             <span>Blog</span>
           </a>
@@ -1970,28 +2043,28 @@ function renderGlobalHeader() {
             </button>
             <div class="nav-dropdown-content w-60">
               <div class="nav-dropdown-card p-2.5 space-y-1">
-                <a href="about.html" class="nav-tool-item">
+                <a href="${getSiteRoot()}about.html" class="nav-tool-item">
                   <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-solid fa-circle-info"></i></div>
                   <div>
                     <div class="nav-tool-title">About 360Tools</div>
                     <div class="nav-tool-desc">Our mission & story</div>
                   </div>
                 </a>
-                <a href="contact.html" class="nav-tool-item">
+                <a href="${getSiteRoot()}contact.html" class="nav-tool-item">
                   <div class="nav-tool-icon bg-teal-50 text-teal-600"><i class="fa-solid fa-envelope"></i></div>
                   <div>
                     <div class="nav-tool-title">Contact & Support</div>
                     <div class="nav-tool-desc">24/7 help desk</div>
                   </div>
                 </a>
-                <a href="privacy-policy.html" class="nav-tool-item">
+                <a href="${getSiteRoot()}privacy-policy.html" class="nav-tool-item">
                   <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-shield-halved"></i></div>
                   <div>
                     <div class="nav-tool-title">Privacy Policy</div>
                     <div class="nav-tool-desc">Zero data collection</div>
                   </div>
                 </a>
-                <a href="terms-and-conditions.html" class="nav-tool-item">
+                <a href="${getSiteRoot()}terms-and-conditions.html" class="nav-tool-item">
                   <div class="nav-tool-icon bg-amber-50 text-amber-600"><i class="fa-solid fa-file-contract"></i></div>
                   <div>
                     <div class="nav-tool-title">Terms of Service</div>
@@ -2017,13 +2090,13 @@ function renderGlobalHeader() {
         </button>
 
         <!-- Theme & Appearance Quick Customizer Trigger -->
-        <a href="appearance.html" class="flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-purple-600 bg-slate-100/90 hover:bg-purple-50 px-3 py-2 rounded-xl border border-slate-200/80 shadow-2xs transition-all cursor-pointer" title="Customize Fonts & Theme">
+        <a href="${getSiteRoot()}appearance.html" class="flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-purple-600 bg-slate-100/90 hover:bg-purple-50 px-3 py-2 rounded-xl border border-slate-200/80 shadow-2xs transition-all cursor-pointer" title="Customize Fonts & Theme">
           <i class="fa-solid fa-palette text-purple-600 text-xs"></i>
           <span class="hidden md:inline">Theme</span>
         </a>
 
         <!-- All Tools Catalog Quick Link -->
-        <a href="index.html#tools-catalog" class="fa-btn-primary px-4 py-2 text-xs font-black shadow-xs hidden sm:inline-flex items-center gap-1.5 rounded-xl">
+        <a href="${getSiteRoot()}#tools-catalog" class="fa-btn-primary px-4 py-2 text-xs font-black shadow-xs hidden sm:inline-flex items-center gap-1.5 rounded-xl">
           <i class="fa-solid fa-grip text-xs"></i>
           <span>Catalog</span>
         </a>
@@ -2087,8 +2160,8 @@ function renderGlobalFooter() {
         
         <!-- Brand Info Column (Span 4) -->
         <div class="sm:col-span-2 lg:col-span-4 space-y-5">
-          <a href="index.html" class="inline-flex items-center gap-3 group">
-            <img src="images/logo-icon.webp" alt="360Tools Logo" width="36" height="36" class="w-9 h-9 object-contain rounded-xl border border-slate-200 shadow-sm group-hover:scale-105 transition-transform">
+          <a href="${getSiteRoot()}" class="inline-flex items-center gap-3 group">
+            <img src="${getSiteRoot()}images/logo-icon.webp" alt="360Tools Logo" width="36" height="36" class="w-9 h-9 object-contain rounded-xl border border-slate-200 shadow-sm group-hover:scale-105 transition-transform">
             <span class="text-2xl font-black text-[#183153] tracking-tight">360Tools<span class="text-[#146ebe]">.me</span></span>
           </a>
           
@@ -2138,13 +2211,13 @@ function renderGlobalFooter() {
             <span>Audio & Voice</span>
           </h4>
           <ul class="text-xs font-bold text-slate-600 space-y-2">
-            <li><a href="text-to-speech.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Text to Speech</a></li>
-            <li><a href="text-to-mp3.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Text to MP3</a></li>
-            <li><a href="ai-voice-generator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> AI Voice Studio</a></li>
-            <li><a href="pdf-to-speech.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> PDF to Speech</a></li>
-            <li><a href="youtube-voiceover-generator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> YouTube Voiceover</a></li>
-            <li><a href="urdu-text-to-speech.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Urdu TTS (اردو)</a></li>
-            <li><a href="audio-voice-tools.html" class="text-[#146ebe] hover:underline font-black mt-1 inline-block">Explore All Audio →</a></li>
+            <li><a href="${getSiteRoot()}audio-tools/text-to-speech.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Text to Speech</a></li>
+            <li><a href="${getSiteRoot()}audio-tools/text-to-mp3.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Text to MP3</a></li>
+            <li><a href="${getSiteRoot()}audio-tools/ai-voice-generator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> AI Voice Studio</a></li>
+            <li><a href="${getSiteRoot()}audio-tools/pdf-to-speech.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> PDF to Speech</a></li>
+            <li><a href="${getSiteRoot()}audio-tools/youtube-voiceover-generator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> YouTube Voiceover</a></li>
+            <li><a href="${getSiteRoot()}audio-tools/urdu-text-to-speech.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Urdu TTS (اردو)</a></li>
+            <li><a href="${getSiteRoot()}audio-tools/" class="text-[#146ebe] hover:underline font-black mt-1 inline-block">Explore All Audio →</a></li>
           </ul>
         </div>
 
@@ -2155,14 +2228,14 @@ function renderGlobalFooter() {
             <span>PDF & Media</span>
           </h4>
           <ul class="text-xs font-bold text-slate-600 space-y-2">
-            <li><a href="pdf-tools/index.html" class="text-red-700 hover:text-red-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-file-pdf text-[9px] text-red-600"></i> PDF Tools (19 Tools)</a></li>
-            <li><a href="pdf-tools/merge-pdf/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Merge PDF</a></li>
-            <li><a href="pdf-tools/split-pdf/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Split PDF</a></li>
-            <li><a href="pdf-tools/compress-pdf/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Compress PDF</a></li>
-            <li><a href="watermark-remover.html" class="text-purple-700 hover:text-purple-900 transition-colors flex items-center gap-1.5 font-bold"><i class="fa-solid fa-eraser text-[9px] text-purple-600"></i> Watermark Remover</a></li>
-            <li><a href="background-remover.html" class="text-teal-700 hover:text-teal-900 transition-colors flex items-center gap-1.5 font-bold"><i class="fa-solid fa-wand-magic-sparkles text-[9px] text-teal-600"></i> AI BG Remover</a></li>
-            <li><a href="image-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Universal Compressor</a></li>
-            <li><a href="compression-tools.html" class="text-[#146ebe] hover:underline font-black mt-1 inline-block">All Media & PDF →</a></li>
+            <li><a href="${getSiteRoot()}pdf-tools/" class="text-red-700 hover:text-red-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-file-pdf text-[9px] text-red-600"></i> PDF Tools (19 Tools)</a></li>
+            <li><a href="${getSiteRoot()}pdf-tools/merge-pdf/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Merge PDF</a></li>
+            <li><a href="${getSiteRoot()}pdf-tools/split-pdf/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Split PDF</a></li>
+            <li><a href="${getSiteRoot()}pdf-tools/compress-pdf/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Compress PDF</a></li>
+            <li><a href="${getSiteRoot()}image-tools/watermark-remover.html" class="text-purple-700 hover:text-purple-900 transition-colors flex items-center gap-1.5 font-bold"><i class="fa-solid fa-eraser text-[9px] text-purple-600"></i> Watermark Remover</a></li>
+            <li><a href="${getSiteRoot()}image-tools/background-remover.html" class="text-teal-700 hover:text-teal-900 transition-colors flex items-center gap-1.5 font-bold"><i class="fa-solid fa-wand-magic-sparkles text-[9px] text-teal-600"></i> AI BG Remover</a></li>
+            <li><a href="${getSiteRoot()}image-tools/image-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Universal Compressor</a></li>
+            <li><a href="${getSiteRoot()}image-tools/" class="text-[#146ebe] hover:underline font-black mt-1 inline-block">All Media & PDF →</a></li>
           </ul>
         </div>
 
@@ -2173,14 +2246,14 @@ function renderGlobalFooter() {
             <span>Dev & Career</span>
           </h4>
           <ul class="text-xs font-bold text-slate-600 space-y-2">
-            <li><a href="ats-resume-checker.html" class="text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-file-circle-check text-[9px] text-indigo-600"></i> ATS Resume Checker</a></li>
-            <li><a href="invoice-generator.html" class="text-blue-700 hover:text-blue-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-file-invoice-dollar text-[9px] text-blue-600"></i> Invoice Maker</a></li>
-            <li><a href="html-minifier.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> HTML Minifier</a></li>
-            <li><a href="css-minifier.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> CSS Minifier</a></li>
-            <li><a href="javascript-minifier.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> JS Minifier</a></li>
-            <li><a href="etsy-fee-calculator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Etsy Fee Calculator</a></li>
-            <li><a href="amazon-fba-calculator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Amazon FBA</a></li>
-            <li><a href="tiktok-shop-payout-calculator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> TikTok Payout</a></li>
+            <li><a href="${getSiteRoot()}developer-tools/ats-resume-checker.html" class="text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-file-circle-check text-[9px] text-indigo-600"></i> ATS Resume Checker</a></li>
+            <li><a href="${getSiteRoot()}ecommerce-tools/invoice-generator.html" class="text-blue-700 hover:text-blue-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-file-invoice-dollar text-[9px] text-blue-600"></i> Invoice Maker</a></li>
+            <li><a href="${getSiteRoot()}developer-tools/html-minifier.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> HTML Minifier</a></li>
+            <li><a href="${getSiteRoot()}developer-tools/css-minifier.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> CSS Minifier</a></li>
+            <li><a href="${getSiteRoot()}developer-tools/javascript-minifier.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> JS Minifier</a></li>
+            <li><a href="${getSiteRoot()}ecommerce-tools/etsy-fee-calculator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Etsy Fee Calculator</a></li>
+            <li><a href="${getSiteRoot()}ecommerce-tools/amazon-fba-calculator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Amazon FBA</a></li>
+            <li><a href="${getSiteRoot()}ecommerce-tools/tiktok-shop-payout-calculator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> TikTok Payout</a></li>
           </ul>
         </div>
 
@@ -2191,14 +2264,14 @@ function renderGlobalFooter() {
             <span>Games & Company</span>
           </h4>
           <ul class="text-xs font-bold text-slate-600 space-y-2">
-            <li><a href="2048/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-cubes text-amber-500 text-[9px]"></i> 2048 Game</a></li>
-            <li><a href="snake/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-worm text-emerald-500 text-[9px]"></i> Retro Snake</a></li>
-            <li><a href="memory-game/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-brain text-purple-500 text-[9px]"></i> Memory Game</a></li>
-            <li><a href="tic-tac-toe/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-xmark text-rose-500 text-[9px]"></i> Tic Tac Toe</a></li>
-            <li><a href="word-scramble/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-spell-check text-blue-500 text-[9px]"></i> Word Scramble</a></li>
-            <li class="pt-2 border-t border-slate-100"><a href="about.html" class="text-blue-600 font-bold hover:underline">About 360Tools</a></li>
-            <li><a href="contact.html" class="text-teal-700 font-bold hover:underline">Contact Support</a></li>
-            <li><a href="blog.html" class="text-indigo-600 font-bold hover:underline">Editorial Blog</a></li>
+            <li><a href="${getSiteRoot()}games/2048/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-cubes text-amber-500 text-[9px]"></i> 2048 Game</a></li>
+            <li><a href="${getSiteRoot()}games/snake/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-worm text-emerald-500 text-[9px]"></i> Retro Snake</a></li>
+            <li><a href="${getSiteRoot()}games/memory-game/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-brain text-purple-500 text-[9px]"></i> Memory Game</a></li>
+            <li><a href="${getSiteRoot()}games/tic-tac-toe/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-xmark text-rose-500 text-[9px]"></i> Tic Tac Toe</a></li>
+            <li><a href="${getSiteRoot()}games/word-scramble/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-spell-check text-blue-500 text-[9px]"></i> Word Scramble</a></li>
+            <li class="pt-2 border-t border-slate-100"><a href="${getSiteRoot()}about.html" class="text-blue-600 font-bold hover:underline">About 360Tools</a></li>
+            <li><a href="${getSiteRoot()}contact.html" class="text-teal-700 font-bold hover:underline">Contact Support</a></li>
+            <li><a href="${getSiteRoot()}blog.html" class="text-indigo-600 font-bold hover:underline">Editorial Blog</a></li>
           </ul>
         </div>
 
@@ -2207,23 +2280,23 @@ function renderGlobalFooter() {
       <!-- Bottom Bar -->
       <div class="mt-12 pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
         <div class="flex items-center gap-2 text-center md:text-left">
-          <span>© 2026 <a href="index.html" class="font-bold text-[#183153] hover:text-[#146ebe] transition-colors">360Tools (360tools.me)</a>. All rights reserved.</span>
+          <span>© 2026 <a href="${getSiteRoot()}" class="font-bold text-[#183153] hover:text-[#146ebe] transition-colors">360Tools (360tools.me)</a>. All rights reserved.</span>
         </div>
 
         <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-slate-600 text-[11px] font-bold">
-          <a href="pdf-tools/index.html" class="text-red-600 hover:text-red-800 transition-colors flex items-center gap-1"><i class="fa-solid fa-file-pdf text-[10px]"></i> PDF Suite</a>
+          <a href="${getSiteRoot()}pdf-tools/" class="text-red-600 hover:text-red-800 transition-colors flex items-center gap-1"><i class="fa-solid fa-file-pdf text-[10px]"></i> PDF Suite</a>
           <span>•</span>
-          <a href="appearance.html" class="text-purple-600 hover:text-purple-800 transition-colors flex items-center gap-1"><i class="fa-solid fa-palette text-[10px]"></i> Theme Customizer</a>
+          <a href="${getSiteRoot()}appearance.html" class="text-purple-600 hover:text-purple-800 transition-colors flex items-center gap-1"><i class="fa-solid fa-palette text-[10px]"></i> Theme Customizer</a>
           <span>•</span>
-          <a href="about.html" class="hover:text-[#146ebe] transition-colors">About</a>
+          <a href="${getSiteRoot()}about.html" class="hover:text-[#146ebe] transition-colors">About</a>
           <span>•</span>
-          <a href="contact.html" class="hover:text-[#146ebe] transition-colors">Contact</a>
+          <a href="${getSiteRoot()}contact.html" class="hover:text-[#146ebe] transition-colors">Contact</a>
           <span>•</span>
-          <a href="privacy-policy.html" class="hover:text-[#146ebe] transition-colors">Privacy Policy</a>
+          <a href="${getSiteRoot()}privacy-policy.html" class="hover:text-[#146ebe] transition-colors">Privacy Policy</a>
           <span>•</span>
-          <a href="terms-and-conditions.html" class="hover:text-[#146ebe] transition-colors">Terms of Service</a>
+          <a href="${getSiteRoot()}terms-and-conditions.html" class="hover:text-[#146ebe] transition-colors">Terms of Service</a>
           <span>•</span>
-          <a href="sitemap.xml" class="hover:text-[#146ebe] transition-colors">Sitemap</a>
+          <a href="${getSiteRoot()}sitemap.xml" class="hover:text-[#146ebe] transition-colors">Sitemap</a>
         </div>
 
         <div class="text-[10px] text-slate-400 text-center md:text-right">

@@ -3,19 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <base href="../">
-  
   <!-- SEO Primary Meta Tags -->
   <title>Snake Game Online — Free Classic Retro Arcade Game | 360tools.me</title>
   <meta name="title" content="Snake Game Online — Free Classic Retro Arcade Game | 360tools.me">
   <meta name="description" content="Play the classic Retro Snake game online for free. Features 60FPS fluid canvas graphics, golden bonus apples, multiple speed modes, high score tracking, sound FX, and touch controls.">
   <meta name="keywords" content="snake game, play snake, classic snake, retro snake, snake online, snake unblocked, free arcade game">
   <meta name="author" content="360tools.me">
-  <link rel="canonical" href="https://360tools.me/snake/">
+  <link rel="canonical" href="https://360tools.me/games/snake/">
 
   <!-- Favicon & Open Graph -->
-  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
-  <link rel="apple-touch-icon" href="images/logo-icon.webp">
+  <link rel="icon" type="image/webp" href="../../images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="../../images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/snake/">
   <meta property="og:title" content="Classic Snake Game Online — Superfast & Free">
@@ -51,7 +49,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   
   <!-- Master Stylesheet -->
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="../../css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
 
@@ -113,6 +111,15 @@
 
   <!-- Main Game Container -->
   <main class="max-w-4xl mx-auto w-full flex-1 mb-16 pt-2">
+
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-6" aria-label="Breadcrumb">
+      <a href="../../index.html" class="hover:text-[#c27803] transition-colors"><i class="fa-solid fa-house mr-1"></i>Home</a>
+      <span class="text-slate-300">/</span>
+      <a href="../../games/" class="hover:text-[#c27803] transition-colors">Free Games</a>
+      <span class="text-slate-300">/</span>
+      <span class="text-[#3e2723] font-black">Classic Retro Snake</span>
+    </nav>
     
     <!-- Top Game Banner -->
     <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
@@ -307,7 +314,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Scripts -->
-  <script src="js/main.min.js"></script>
+  <script src="../../js/main.min.js"></script>
   <script>
     const canvas = document.getElementById('snakeCanvas');
     const ctx = canvas.getContext('2d');

@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-  <base href="../">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -17,8 +16,8 @@
   <link rel="canonical" href="https://360tools.me/developer-tools/ats-resume-checker.html">
 
   <!-- Favicon & Open Graph / Facebook -->
-  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
-  <link rel="apple-touch-icon" href="images/logo-icon.webp">
+  <link rel="icon" type="image/webp" href="../images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="../images/logo-icon.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://360tools.me/ats-resume-checker.html">
   <meta property="og:title" content="Free ATS Resume Checker & CV Score Analyzer | 360tools.me">
@@ -134,7 +133,7 @@
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
   <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
-  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="../css/style.min.css">
 
   <!-- Tailwind CSS CDN -->
 
@@ -174,6 +173,15 @@
 
   <!-- Main Container -->
   <main class="max-w-7xl mx-auto w-full flex-1">
+
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-6" aria-label="Breadcrumb">
+      <a href="../index.html" class="hover:text-[#c27803] transition-colors"><i class="fa-solid fa-house mr-1"></i>Home</a>
+      <span class="text-slate-300">/</span>
+      <a href="./" class="hover:text-[#c27803] transition-colors">Developer Tools</a>
+      <span class="text-slate-300">/</span>
+      <span class="text-[#3e2723] font-black">Free ATS Resume Checker</span>
+    </nav>
 
     <!-- Hero / Headline Above the Fold -->
     <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -878,7 +886,7 @@
   <footer id="globalFooter"></footer>
 
   <!-- Master Main JS (Header/Footer/Search Registry) -->
-  <script src="js/main.min.js"></script>
+  <script src="../js/main.min.js"></script>
 
   <!-- ATS Resume Checker Application Logic -->
   <script>
