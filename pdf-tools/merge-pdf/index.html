@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Merge PDF Online Free — Combine Multiple PDF Files in Browser | 360Tools</title>
+  <meta name="title" content="Merge PDF Online Free — Combine Multiple PDF Files in Browser | 360Tools">
+  <meta name="description" content="Combine multiple PDF files into one single document online for free. Drag and drop reordering, 100% client-side security with zero server uploads on 360Tools.">
+  <meta name="keywords" content="merge PDF, combine PDF files, merge PDFs online, combine PDF free, join PDF, merge multiple PDFs, 360tools">
+  <meta name="author" content="360Tools (360tools.me)">
+  <link rel="canonical" href="https://360tools.me/pdf-tools/merge-pdf/">
+
+  <!-- Favicon & Open Graph -->
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/pdf-tools/merge-pdf/">
+  <meta property="og:title" content="Merge PDF Files Online Free — 100% Client-Side Private | 360Tools">
+  <meta property="og:description" content="Combine multiple PDF documents into one organized file in your browser. Zero cloud uploads.">
+  <meta property="og:image" content="images/logo.webp">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/pdf-tools/merge-pdf/">
+  <meta property="twitter:title" content="Free Online PDF Merger — 100% In-Browser Privacy">
+  <meta property="twitter:description" content="Join multiple PDF documents in seconds without sending confidential files to third-party servers.">
+  <meta property="twitter:image" content="images/logo.webp">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Client-Side Merge PDF Tool",
+    "url": "https://360tools.me/pdf-tools/merge-pdf/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "description": "Combine multiple PDF documents into a single document directly in your browser memory with zero cloud file uploads.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "PDF Tools",
+        "item": "https://360tools.me/pdf-tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Merge PDF",
+        "item": "https://360tools.me/pdf-tools/merge-pdf/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are my sensitive PDF documents uploaded to your server when merging?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Never. All PDF merging executes 100% locally inside your browser memory using PDF-Lib. Your confidential documents, contracts, and financial statements never leave your device."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I rearrange the order of PDF files before merging?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Once you select your PDF files, you can easily drag to reorder or use the Move Up and Move Down buttons to set the exact document order."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many PDF files can I merge at once?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can merge dozens of PDF files simultaneously. Since merging occurs in local browser RAM, performance depends on your computer or phone memory."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- Master Stylesheet & PDF Tool Assets -->
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/tools.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto w-full flex-1 pt-6 pb-16">
+    
+    <!-- Breadcrumbs -->
+    <nav class="pdf-breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <a href="pdf-tools/index.html">PDF Tools</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <span class="current">Merge PDF</span>
+    </nav>
+
+    <!-- Header / Title Section -->
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <div class="inline-flex items-center gap-2 mb-3">
+        <span class="privacy-badge">
+          <i class="fa-solid fa-shield-halved"></i> 100% In-Browser Privacy • Zero Cloud Uploads
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight mb-2">
+        Merge PDF Files
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        Combine multiple PDF documents into a single organized file in seconds. Drag and drop to reorder pages with zero server uploads.
+      </p>
+    </div>
+
+    <!-- Ad Slot (Top Reserved Container) -->
+    <div class="ad-slot-container ad-slot-leaderboard">
+      <div class="ad-slot-label">Advertisement</div>
+      <div class="text-xs text-slate-400 font-medium py-4">Reserved Ad Container</div>
+    </div>
+
+    <!-- TOOL UI WRAPPER -->
+    <div class="pdf-tool-wrapper">
+      
+      <!-- Dropzone -->
+      <div class="pdf-dropzone" id="dropzone">
+        <div class="pdf-dropzone-icon">
+          <i class="fa-solid fa-file-circle-plus"></i>
+        </div>
+        <div>
+          <div class="pdf-dropzone-title">Drag & drop PDF files here</div>
+          <div class="pdf-dropzone-subtitle">or click to browse from your computer or phone</div>
+        </div>
+        <input type="file" id="fileInput" multiple accept=".pdf,application/pdf" class="hidden">
+        <button type="button" class="pdf-btn-secondary mt-2">
+          <i class="fa-solid fa-folder-open"></i>
+          <span>Choose PDF Files</span>
+        </button>
+      </div>
+
+      <!-- File List Container -->
+      <div id="fileListContainer" style="display:none;"></div>
+
+      <!-- Actions Bar -->
+      <div id="actionBar" style="display:none;" class="mt-6 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-xs font-bold text-slate-500">
+          <span id="fileCountBadge">0 files selected</span>
+        </div>
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <button type="button" id="addMoreBtn" class="pdf-btn-secondary flex-1 sm:flex-initial">
+            <i class="fa-solid fa-plus"></i>
+            <span>Add More</span>
+          </button>
+          <button type="button" id="mergeBtn" class="pdf-btn-primary flex-1 sm:flex-initial">
+            <i class="fa-solid fa-object-group"></i>
+            <span>Merge PDF Files</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Container -->
+      <div id="progressContainer" style="display:none;"></div>
+
+      <!-- Error Alert -->
+      <div id="errorContainer" style="display:none;"></div>
+
+      <!-- Result Container -->
+      <div id="resultContainer" style="display:none;"></div>
+
+    </div>
+
+    <!-- Privacy & Security Notice -->
+    <div class="bg-emerald-50/80 border border-emerald-200/90 rounded-2xl p-4 sm:p-5 mb-12 flex items-start gap-3.5">
+      <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-base font-bold">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <div class="space-y-1">
+        <h4 class="text-xs font-black uppercase tracking-wide text-emerald-950">Your Files Stay on Your Device</h4>
+        <p class="text-xs text-emerald-800 leading-relaxed font-medium">
+          360Tools uses WebAssembly and client-side JavaScript to merge your documents locally in your web browser. Your confidential contracts, invoices, and personal files are never uploaded to our servers or stored in the cloud.
+        </p>
+      </div>
+    </div>
+
+    <!-- How to Use Step-by-Step -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">How to Merge PDF Files Online</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">1</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Select Files</h3>
+          <p class="text-xs text-slate-600">Choose two or more PDF documents from your device or drag them into the upload box.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">2</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Order Documents</h3>
+          <p class="text-xs text-slate-600">Use the Move Up and Move Down buttons to arrange your PDFs in the exact order you want.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">3</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Merge Locally</h3>
+          <p class="text-xs text-slate-600">Click "Merge PDF Files". Your browser combines the pages in local memory in milliseconds.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">4</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Instant Download</h3>
+          <p class="text-xs text-slate-600">Download your merged PDF immediately with zero watermarks and zero waiting queues.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Informational / SEO Deep Dive -->
+    <section class="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-10 shadow-sm mb-14 space-y-8">
+      <div>
+        <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-3">Why Merge PDF Files in Your Web Browser?</h2>
+        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          Traditional online PDF mergers require you to upload private documents to remote cloud servers, wait for server-side processing queues, and download the output over your internet connection. This creates privacy risks for confidential bank records, real estate contracts, and medical forms. 360Tools changes this paradigm by executing the entire PDF concatenation process directly inside your device's memory using modern HTML5 and JavaScript libraries.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-slate-100">
+        <div>
+          <h3 class="text-base font-black text-[#3e2723] mb-2">Key Advantages of 360Tools Merger</h3>
+          <ul class="text-xs text-slate-600 space-y-2">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs"></i> <strong>Zero Data Uploads:</strong> Files never leave your local machine.</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs"></i> <strong>Drag & Drop Ordering:</strong> Reorder files easily before merging.</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs"></i> <strong>Unlimited Usage:</strong> No daily limits or page count limits.</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600 text-xs"></i> <strong>Cross-Device:</strong> Works smoothly on desktop, iPhone, iPad, and Android.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-base font-black text-[#3e2723] mb-2">Supported Files & Limitations</h3>
+          <ul class="text-xs text-slate-600 space-y-2">
+            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-info text-blue-600 text-xs"></i> Standard PDF 1.3 to PDF 2.0 documents.</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-info text-blue-600 text-xs"></i> Preserves bookmarks, vector fonts, and high-res photos.</li>
+            <li class="flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation text-amber-600 text-xs"></i> Encrypted/password-protected PDFs must be unlocked before merging.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ad Slot (Bottom Reserved Container) -->
+    <div class="ad-slot-container ad-slot-leaderboard">
+      <div class="ad-slot-label">Advertisement</div>
+      <div class="text-xs text-slate-400 font-medium py-4">Reserved Ad Container</div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Are my sensitive PDF documents uploaded to your server?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Never. All PDF merging executes 100% locally inside your browser memory using PDF-Lib. Your confidential documents, contracts, and financial statements never leave your device.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I rearrange the order of PDF files before merging?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Yes. Once you select your PDF files, you can easily drag to reorder or use the Move Up and Move Down buttons to set the exact document order.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How many PDF files can I merge at once?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            You can merge dozens of PDF files simultaneously. Since merging occurs in local browser RAM, performance depends on your computer or phone memory.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools Section -->
+    <section>
+      <h2 class="text-lg font-black text-[#3e2723] mb-4">Related PDF Tools</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="pdf-tools/split-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-scissors"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Split PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Extract pages or ranges</div>
+          </div>
+        </a>
+        <a href="pdf-tools/compress-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-compress"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Compress PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Reduce file size up to 80%</div>
+          </div>
+        </a>
+        <a href="pdf-tools/rotate-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-rotate"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Rotate PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Fix sideways or upside down pages</div>
+          </div>
+        </a>
+        <a href="pdf-tools/pdf-to-jpg/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-file-export"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">PDF to JPG</div>
+            <div class="text-[10px] text-slate-500 font-medium">Export pages as high-res images</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="assets/js/pdf/pdf-common.js"></script>
+  <script src="assets/js/pdf/pdf-utils.js"></script>
+  <script src="assets/js/pdf/pdf-ui.js"></script>
+  <script src="assets/js/pdf/pdf-security.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let selectedFiles = [];
+
+      const dropzone = document.getElementById('dropzone');
+      const fileInput = document.getElementById('fileInput');
+      const fileListContainer = document.getElementById('fileListContainer');
+      const actionBar = document.getElementById('actionBar');
+      const fileCountBadge = document.getElementById('fileCountBadge');
+      const addMoreBtn = document.getElementById('addMoreBtn');
+      const mergeBtn = document.getElementById('mergeBtn');
+      const progressContainer = document.getElementById('progressContainer');
+      const errorContainer = document.getElementById('errorContainer');
+      const resultContainer = document.getElementById('resultContainer');
+
+      // Dropzone setup
+      PDFCommon.setupDropzone(dropzone, fileInput, (files) => {
+        handleFilesAdded(files);
+      });
+
+      if (addMoreBtn) {
+        addMoreBtn.addEventListener('click', () => fileInput.click());
+      }
+
+      function handleFilesAdded(files) {
+        PDFUI.clearError(errorContainer);
+        const validPdfs = [];
+
+        for (const file of files) {
+          const check = PDFCommon.validateFile(file, ['application/pdf'], 150);
+          if (check.valid) {
+            validPdfs.push(file);
+          } else {
+            PDFUI.showError(errorContainer, check.error);
+          }
+        }
+
+        if (validPdfs.length > 0) {
+          selectedFiles = selectedFiles.concat(validPdfs);
+          updateUI();
+        }
+      }
+
+      function updateUI() {
+        if (selectedFiles.length === 0) {
+          fileListContainer.style.display = 'none';
+          actionBar.style.display = 'none';
+          return;
+        }
+
+        fileListContainer.style.display = 'flex';
+        actionBar.style.display = 'flex';
+        fileCountBadge.textContent = `${selectedFiles.length} file${selectedFiles.length === 1 ? '' : 's'} selected`;
+
+        PDFUI.renderFileList(fileListContainer, selectedFiles, {
+          onRemove: (idx) => {
+            selectedFiles.splice(idx, 1);
+            updateUI();
+          },
+          onMoveUp: (idx) => {
+            if (idx > 0) {
+              const temp = selectedFiles[idx];
+              selectedFiles[idx] = selectedFiles[idx - 1];
+              selectedFiles[idx - 1] = temp;
+              updateUI();
+            }
+          },
+          onMoveDown: (idx) => {
+            if (idx < selectedFiles.length - 1) {
+              const temp = selectedFiles[idx];
+              selectedFiles[idx] = selectedFiles[idx + 1];
+              selectedFiles[idx + 1] = temp;
+              updateUI();
+            }
+          }
+        });
+      }
+
+      if (mergeBtn) {
+        mergeBtn.addEventListener('click', async () => {
+          if (selectedFiles.length < 2) {
+            PDFUI.showError(errorContainer, 'Please select at least 2 PDF files to merge.');
+            return;
+          }
+
+          PDFUI.clearError(errorContainer);
+          mergeBtn.disabled = true;
+          PDFUI.showProgress(progressContainer, 10, 'Loading PDF-Lib engine...');
+
+          try {
+            const { PDFDocument } = await PDFCommon.requirePdfLib();
+            PDFUI.showProgress(progressContainer, 25, 'Initializing merged document...');
+
+            const mergedPdf = await PDFDocument.create();
+            let totalOriginalBytes = 0;
+
+            for (let i = 0; i < selectedFiles.length; i++) {
+              const file = selectedFiles[i];
+              totalOriginalBytes += file.size;
+              const progressPct = 25 + Math.round(((i + 1) / selectedFiles.length) * 55);
+              PDFUI.showProgress(progressContainer, progressPct, `Reading ${file.name}...`);
+
+              const buffer = await PDFCommon.readFileAsArrayBuffer(file);
+              const pdfDoc = await PDFDocument.load(buffer, { ignoreEncryption: true });
+              const pageIndices = pdfDoc.getPageIndices();
+              const copiedPages = await mergedPdf.copyPages(pdfDoc, pageIndices);
+
+              copiedPages.forEach(page => mergedPdf.addPage(page));
+            }
+
+            PDFUI.showProgress(progressContainer, 90, 'Generating final document...');
+            const mergedBytes = await mergedPdf.save();
+            const mergedBlob = new Blob([mergedBytes], { type: 'application/pdf' });
+
+            PDFUI.hideProgress(progressContainer);
+            dropzone.style.display = 'none';
+            fileListContainer.style.display = 'none';
+            actionBar.style.display = 'none';
+
+            PDFUI.renderResult(resultContainer, {
+              filename: `merged-document-${Date.now()}.pdf`,
+              blob: mergedBlob,
+              originalSize: totalOriginalBytes,
+              newSize: mergedBytes.byteLength,
+              onReset: () => {
+                selectedFiles = [];
+                resultContainer.style.display = 'none';
+                dropzone.style.display = 'flex';
+                updateUI();
+                mergeBtn.disabled = false;
+              }
+            });
+          } catch (err) {
+            console.error('Merge Error:', err);
+            PDFUI.hideProgress(progressContainer);
+            PDFUI.showError(errorContainer, `Failed to merge PDFs: ${err.message || 'Corrupted or unsupported PDF structure.'}`);
+            mergeBtn.disabled = false;
+          }
+        });
+      }
+
+      // FAQ accordion toggles
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+          button.parentElement.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

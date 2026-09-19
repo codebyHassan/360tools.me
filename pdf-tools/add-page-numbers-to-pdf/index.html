@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Add Page Numbers to PDF Online Free — Paginate PDF in Browser | 360Tools</title>
+  <meta name="title" content="Add Page Numbers to PDF Online Free — Paginate PDF in Browser | 360Tools">
+  <meta name="description" content="Insert customizable page numbers into your PDF documents online for free. Custom position, format (Page N of M), font size, and 100% in-browser privacy.">
+  <meta name="keywords" content="add page numbers to PDF, number PDF pages, paginate PDF online, insert page numbers into PDF, 360tools">
+  <meta name="author" content="360Tools (360tools.me)">
+  <link rel="canonical" href="https://360tools.me/pdf-tools/add-page-numbers-to-pdf/">
+
+  <!-- Favicon & Open Graph -->
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/pdf-tools/add-page-numbers-to-pdf/">
+  <meta property="og:title" content="Add Page Numbers to PDF — 100% Client-Side Private | 360Tools">
+  <meta property="og:description" content="Insert custom page numbering into PDF files directly in your web browser. Zero server uploads.">
+  <meta property="og:image" content="images/logo.webp">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/pdf-tools/add-page-numbers-to-pdf/">
+  <meta property="twitter:title" content="Free Online PDF Page Numbering — 100% Private">
+  <meta property="twitter:description" content="Paginate PDF documents safely with custom numbering styles and positions.">
+  <meta property="twitter:image" content="images/logo.webp">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Add Page Numbers to PDF Tool",
+    "url": "https://360tools.me/pdf-tools/add-page-numbers-to-pdf/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "description": "Insert customizable page numbers and pagination stamps directly into PDF documents in your browser.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "PDF Tools",
+        "item": "https://360tools.me/pdf-tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Add Page Numbers",
+        "item": "https://360tools.me/pdf-tools/add-page-numbers-to-pdf/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I format page numbers as 'Page N of Total'?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! You can choose between 'Page {n} of {total}', 'Page {n}', or just '{n}'."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I choose where page numbers appear on the page?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, you can place numbers at the Bottom Center, Bottom Right, Bottom Left, Top Right, or Top Center."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my files uploaded to any server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Never. All text drawing and vector pagination execute 100% locally inside your browser memory using PDF-Lib."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- Master Stylesheet & PDF Tool Assets -->
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/tools.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto w-full flex-1 pt-6 pb-16">
+    
+    <!-- Breadcrumbs -->
+    <nav class="pdf-breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <a href="pdf-tools/index.html">PDF Tools</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <span class="current">Add Page Numbers</span>
+    </nav>
+
+    <!-- Header / Title Section -->
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <div class="inline-flex items-center gap-2 mb-3">
+        <span class="privacy-badge">
+          <i class="fa-solid fa-shield-halved"></i> 100% In-Browser Privacy • Zero Cloud Uploads
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight mb-2">
+        Add Page Numbers to PDF
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        Insert clean, customizable page numbers and pagination stamps across your PDF document pages.
+      </p>
+    </div>
+
+    <!-- Ad Slot (Top Reserved Container) -->
+    <div class="ad-slot-container ad-slot-leaderboard">
+      <div class="ad-slot-label">Advertisement</div>
+      <div class="text-xs text-slate-400 font-medium py-4">Reserved Ad Container</div>
+    </div>
+
+    <!-- TOOL UI WRAPPER -->
+    <div class="pdf-tool-wrapper">
+      
+      <!-- Dropzone -->
+      <div class="pdf-dropzone" id="dropzone">
+        <div class="pdf-dropzone-icon">
+          <i class="fa-solid fa-list-ol"></i>
+        </div>
+        <div>
+          <div class="pdf-dropzone-title">Drag & drop a PDF file here</div>
+          <div class="pdf-dropzone-subtitle">or click to browse from your device</div>
+        </div>
+        <input type="file" id="fileInput" accept=".pdf,application/pdf" class="hidden">
+        <button type="button" class="pdf-btn-secondary mt-2">
+          <i class="fa-solid fa-folder-open"></i>
+          <span>Choose PDF File</span>
+        </button>
+      </div>
+
+      <!-- Loaded File & Options Container -->
+      <div id="numberOptionsContainer" style="display:none;" class="space-y-6">
+        <div class="pdf-file-item">
+          <div class="pdf-file-item-left">
+            <div class="pdf-file-item-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="pdf-file-item-meta">
+              <div class="pdf-file-item-name" id="fileNameDisplay">document.pdf</div>
+              <div class="pdf-file-item-size" id="fileMetaDisplay">0 KB • 0 pages</div>
+            </div>
+          </div>
+          <button type="button" id="changeFileBtn" class="pdf-action-btn" title="Choose another file">
+            <i class="fa-solid fa-rotate-left text-xs"></i>
+          </button>
+        </div>
+
+        <!-- Numbering Settings -->
+        <div class="pdf-options-panel">
+          <div class="pdf-options-title"><i class="fa-solid fa-sliders"></i> Numbering Settings</div>
+          <div class="pdf-options-grid">
+            <div class="pdf-option-group">
+              <label class="pdf-option-label">Position</label>
+              <select id="positionSelect" class="pdf-select">
+                <option value="bottom-center">Bottom Center (Standard)</option>
+                <option value="bottom-right">Bottom Right</option>
+                <option value="bottom-left">Bottom Left</option>
+                <option value="top-right">Top Right</option>
+                <option value="top-center">Top Center</option>
+              </select>
+            </div>
+            <div class="pdf-option-group">
+              <label class="pdf-option-label">Format Style</label>
+              <select id="formatSelect" class="pdf-select">
+                <option value="page-n-of-total">Page {n} of {total}</option>
+                <option value="page-n">Page {n}</option>
+                <option value="number-only">{n}</option>
+                <option value="dash-n-dash">- {n} -</option>
+              </select>
+            </div>
+            <div class="pdf-option-group">
+              <label class="pdf-option-label">Starting Number</label>
+              <input type="number" id="startNumberInput" class="pdf-input" value="1" min="1">
+            </div>
+            <div class="pdf-option-group">
+              <label class="pdf-option-label">Font Size</label>
+              <select id="fontSizeSelect" class="pdf-select">
+                <option value="10">Small (10pt)</option>
+                <option value="12" selected>Medium (12pt)</option>
+                <option value="14">Large (14pt)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="pt-4 border-t border-slate-200 flex justify-end">
+          <button type="button" id="applyNumbersBtn" class="pdf-btn-primary">
+            <i class="fa-solid fa-check"></i>
+            <span>Add Page Numbers & Download</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Container -->
+      <div id="progressContainer" style="display:none;"></div>
+
+      <!-- Error Alert -->
+      <div id="errorContainer" style="display:none;"></div>
+
+      <!-- Result Container -->
+      <div id="resultContainer" style="display:none;"></div>
+
+    </div>
+
+    <!-- Privacy Notice -->
+    <div class="bg-emerald-50/80 border border-emerald-200/90 rounded-2xl p-4 sm:p-5 mb-12 flex items-start gap-3.5">
+      <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-base font-bold">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <div class="space-y-1">
+        <h4 class="text-xs font-black uppercase tracking-wide text-emerald-950">100% In-Browser Privacy</h4>
+        <p class="text-xs text-emerald-800 leading-relaxed font-medium">
+          Page numbering is rendered directly onto document layers inside your browser memory. Files never leave your computer or phone.
+        </p>
+      </div>
+    </div>
+
+    <!-- How to Use Step-by-Step -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">How to Add Page Numbers to PDF</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">1</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Select PDF</h3>
+          <p class="text-xs text-slate-600">Choose the PDF document from your device.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">2</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Choose Numbering Style</h3>
+          <p class="text-xs text-slate-600">Select position, number format, font size, and starting index.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">3</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Download PDF</h3>
+          <p class="text-xs text-slate-600">Download your numbered PDF document instantly.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I format page numbers as 'Page N of Total'?'</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Yes! You can choose between 'Page {n} of {total}', 'Page {n}', or just '{n}'.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I choose where page numbers appear on the page?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Yes, you can place numbers at the Bottom Center, Bottom Right, Bottom Left, Top Right, or Top Center.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Are my files uploaded to any server?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Never. All text drawing and vector pagination execute 100% locally inside your browser memory using PDF-Lib.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools Section -->
+    <section>
+      <h2 class="text-lg font-black text-[#3e2723] mb-4">Related PDF Tools</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="pdf-tools/watermark-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-stamp"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Watermark PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Add text watermarks</div>
+          </div>
+        </a>
+        <a href="pdf-tools/merge-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-object-group"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Merge PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Combine PDF files</div>
+          </div>
+        </a>
+        <a href="pdf-tools/rotate-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-rotate"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Rotate PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Fix orientation</div>
+          </div>
+        </a>
+        <a href="pdf-tools/pdf-metadata-remover/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Remove Metadata</div>
+            <div class="text-[10px] text-slate-500 font-medium">Sanitize PDF info</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="assets/js/pdf/pdf-common.js"></script>
+  <script src="assets/js/pdf/pdf-utils.js"></script>
+  <script src="assets/js/pdf/pdf-ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let currentFile = null;
+      let totalPages = 0;
+
+      const dropzone = document.getElementById('dropzone');
+      const fileInput = document.getElementById('fileInput');
+      const numberOptionsContainer = document.getElementById('numberOptionsContainer');
+      const fileNameDisplay = document.getElementById('fileNameDisplay');
+      const fileMetaDisplay = document.getElementById('fileMetaDisplay');
+      const changeFileBtn = document.getElementById('changeFileBtn');
+      const positionSelect = document.getElementById('positionSelect');
+      const formatSelect = document.getElementById('formatSelect');
+      const startNumberInput = document.getElementById('startNumberInput');
+      const fontSizeSelect = document.getElementById('fontSizeSelect');
+      const applyNumbersBtn = document.getElementById('applyNumbersBtn');
+      const progressContainer = document.getElementById('progressContainer');
+      const errorContainer = document.getElementById('errorContainer');
+      const resultContainer = document.getElementById('resultContainer');
+
+      PDFCommon.setupDropzone(dropzone, fileInput, (files) => {
+        if (files.length > 0) loadFile(files[0]);
+      });
+
+      if (changeFileBtn) {
+        changeFileBtn.addEventListener('click', () => {
+          currentFile = null;
+          numberOptionsContainer.style.display = 'none';
+          dropzone.style.display = 'flex';
+          PDFUI.clearError(errorContainer);
+        });
+      }
+
+      async function loadFile(file) {
+        PDFUI.clearError(errorContainer);
+        const check = PDFCommon.validateFile(file, ['application/pdf'], 150);
+        if (!check.valid) {
+          PDFUI.showError(errorContainer, check.error);
+          return;
+        }
+
+        currentFile = file;
+        PDFUI.showProgress(progressContainer, 20, 'Reading PDF structure...');
+
+        try {
+          const { PDFDocument } = await PDFCommon.requirePdfLib();
+          const buffer = await PDFCommon.readFileAsArrayBuffer(file);
+          const pdfDoc = await PDFDocument.load(buffer, { ignoreEncryption: true });
+          totalPages = pdfDoc.getPageCount();
+
+          fileNameDisplay.textContent = file.name;
+          fileMetaDisplay.textContent = `${PDFUtils.formatBytes(file.size)} • ${totalPages} page${totalPages === 1 ? '' : 's'}`;
+
+          PDFUI.hideProgress(progressContainer);
+          dropzone.style.display = 'none';
+          numberOptionsContainer.style.display = 'block';
+        } catch (err) {
+          console.error(err);
+          PDFUI.hideProgress(progressContainer);
+          PDFUI.showError(errorContainer, `Failed to load PDF: ${err.message}`);
+        }
+      }
+
+      if (applyNumbersBtn) {
+        applyNumbersBtn.addEventListener('click', async () => {
+          if (!currentFile) return;
+
+          PDFUI.clearError(errorContainer);
+          applyNumbersBtn.disabled = true;
+          PDFUI.showProgress(progressContainer, 15, 'Preparing font engines...');
+
+          try {
+            const { PDFDocument, StandardFonts, rgb } = await PDFCommon.requirePdfLib();
+            const buffer = await PDFCommon.readFileAsArrayBuffer(currentFile);
+            const pdfDoc = await PDFDocument.load(buffer, { ignoreEncryption: true });
+            const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+
+            const position = positionSelect.value;
+            const formatStyle = formatSelect.value;
+            const startNum = parseInt(startNumberInput.value, 10) || 1;
+            const fontSize = parseInt(fontSizeSelect.value, 10) || 12;
+            const textColor = rgb(0.3, 0.3, 0.3);
+
+            const pages = pdfDoc.getPages();
+            const margin = 30;
+
+            pages.forEach((page, idx) => {
+              const currentNum = startNum + idx;
+              let text = `${currentNum}`;
+
+              if (formatStyle === 'page-n-of-total') {
+                text = `Page ${currentNum} of ${totalPages + startNum - 1}`;
+              } else if (formatStyle === 'page-n') {
+                text = `Page ${currentNum}`;
+              } else if (formatStyle === 'dash-n-dash') {
+                text = `- ${currentNum} -`;
+              }
+
+              const textWidth = helveticaFont.widthOfTextAtSize(text, fontSize);
+              const textHeight = helveticaFont.heightAtSize(fontSize);
+              const { width: pageW, height: pageH } = page.getSize();
+
+              let x = (pageW - textWidth) / 2;
+              let y = margin;
+
+              if (position === 'bottom-right') {
+                x = pageW - textWidth - margin;
+                y = margin;
+              } else if (position === 'bottom-left') {
+                x = margin;
+                y = margin;
+              } else if (position === 'top-right') {
+                x = pageW - textWidth - margin;
+                y = pageH - textHeight - margin;
+              } else if (position === 'top-center') {
+                x = (pageW - textWidth) / 2;
+                y = pageH - textHeight - margin;
+              }
+
+              page.drawText(text, {
+                x,
+                y,
+                size: fontSize,
+                font: helveticaFont,
+                color: textColor
+              });
+            });
+
+            PDFUI.showProgress(progressContainer, 85, 'Saving numbered PDF...');
+            const pdfBytes = await pdfDoc.save();
+            const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
+
+            PDFUI.hideProgress(progressContainer);
+            numberOptionsContainer.style.display = 'none';
+
+            PDFUI.renderResult(resultContainer, {
+              filename: `numbered-${currentFile.name}`,
+              blob: pdfBlob,
+              newSize: pdfBytes.byteLength,
+              onReset: () => {
+                resultContainer.style.display = 'none';
+                dropzone.style.display = 'flex';
+                applyNumbersBtn.disabled = false;
+              }
+            });
+          } catch (err) {
+            console.error(err);
+            PDFUI.hideProgress(progressContainer);
+            PDFUI.showError(errorContainer, `Failed to stamp page numbers: ${err.message}`);
+            applyNumbersBtn.disabled = false;
+          }
+        });
+      }
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+          button.parentElement.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

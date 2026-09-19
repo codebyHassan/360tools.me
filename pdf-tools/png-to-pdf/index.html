@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>PNG to PDF Converter — Convert PNG to PDF Online Free | 360Tools</title>
+  <meta name="title" content="PNG to PDF Converter — Convert PNG to PDF Online Free | 360Tools">
+  <meta name="description" content="Convert PNG images with transparency to clean PDF documents online for free. Reorder graphics, customize page orientation and margins with 100% in-browser privacy.">
+  <meta name="keywords" content="PNG to PDF, convert PNG to PDF, PNG to PDF converter, transparent PNG to PDF, combine PNG to PDF, 360tools">
+  <meta name="author" content="360Tools (360tools.me)">
+  <link rel="canonical" href="https://360tools.me/pdf-tools/png-to-pdf/">
+
+  <!-- Favicon & Open Graph -->
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/pdf-tools/png-to-pdf/">
+  <meta property="og:title" content="PNG to PDF Converter — 100% Client-Side Private | 360Tools">
+  <meta property="og:description" content="Convert PNG graphics and illustrations to PDF in seconds with zero cloud uploads.">
+  <meta property="og:image" content="images/logo.webp">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/pdf-tools/png-to-pdf/">
+  <meta property="twitter:title" content="Free Online PNG to PDF Converter — 100% In-Browser">
+  <meta property="twitter:description" content="Turn PNG screenshots and graphics into clean PDF documents directly on your device.">
+  <meta property="twitter:image" content="images/logo.webp">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PNG to PDF Converter",
+    "url": "https://360tools.me/pdf-tools/png-to-pdf/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "description": "Convert PNG illustrations, screenshots, and logos into clean PDF documents directly in your web browser.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "PDF Tools",
+        "item": "https://360tools.me/pdf-tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "PNG to PDF",
+        "item": "https://360tools.me/pdf-tools/png-to-pdf/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does PNG to PDF support transparent PNG files?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Our client-side converter accurately preserves transparency and crisp alpha channels across all embedded PNG files."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my PNG files uploaded to your server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Never. All conversion operations run 100% locally inside your browser memory using PDF-Lib."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I combine multiple PNG files into one document?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, you can upload multiple PNGs and easily drag or move them to set the desired page sequence before generating the PDF."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- Master Stylesheet & PDF Tool Assets -->
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/tools.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto w-full flex-1 pt-6 pb-16">
+    
+    <!-- Breadcrumbs -->
+    <nav class="pdf-breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <a href="pdf-tools/index.html">PDF Tools</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <span class="current">PNG to PDF</span>
+    </nav>
+
+    <!-- Header / Title Section -->
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <div class="inline-flex items-center gap-2 mb-3">
+        <span class="privacy-badge">
+          <i class="fa-solid fa-shield-halved"></i> 100% In-Browser Privacy • Zero Cloud Uploads
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight mb-2">
+        PNG to PDF Converter
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        Convert PNG images into clean PDF documents while preserving alpha transparency and crisp lines. 100% private.
+      </p>
+    </div>
+
+    <!-- Ad Slot (Top Reserved Container) -->
+    <div class="ad-slot-container ad-slot-leaderboard">
+      <div class="ad-slot-label">Advertisement</div>
+      <div class="text-xs text-slate-400 font-medium py-4">Reserved Ad Container</div>
+    </div>
+
+    <!-- TOOL UI WRAPPER -->
+    <div class="pdf-tool-wrapper">
+      
+      <!-- Dropzone -->
+      <div class="pdf-dropzone" id="dropzone">
+        <div class="pdf-dropzone-icon">
+          <i class="fa-solid fa-image"></i>
+        </div>
+        <div>
+          <div class="pdf-dropzone-title">Drag & drop PNG images here</div>
+          <div class="pdf-dropzone-subtitle">or click to browse from your device</div>
+        </div>
+        <input type="file" id="fileInput" multiple accept=".png,image/png" class="hidden">
+        <button type="button" class="pdf-btn-secondary mt-2">
+          <i class="fa-solid fa-folder-open"></i>
+          <span>Choose PNG Images</span>
+        </button>
+      </div>
+
+      <!-- File List -->
+      <div id="fileListContainer" style="display:none;"></div>
+
+      <!-- Options & Action Bar -->
+      <div id="optionsContainer" style="display:none;" class="space-y-6 mt-6">
+        <div class="pdf-options-panel">
+          <div class="pdf-options-title"><i class="fa-solid fa-sliders"></i> Page & Layout Settings</div>
+          <div class="pdf-options-grid">
+            <div class="pdf-option-group">
+              <label class="pdf-option-label">Page Size</label>
+              <select id="pageSizeSelect" class="pdf-select">
+                <option value="a4">Standard A4</option>
+                <option value="fit">Fit to Image Size</option>
+                <option value="letter">US Letter</option>
+              </select>
+            </div>
+            <div class="pdf-option-group">
+              <label class="pdf-option-label">Page Orientation</label>
+              <select id="pageOrientationSelect" class="pdf-select">
+                <option value="auto">Auto (Match Image)</option>
+                <option value="portrait">Portrait</option>
+                <option value="landscape">Landscape</option>
+              </select>
+            </div>
+            <div class="pdf-option-group">
+              <label class="pdf-option-label">Margins</label>
+              <select id="pageMarginSelect" class="pdf-select">
+                <option value="0">No Margins</option>
+                <option value="20">Small (20px)</option>
+                <option value="40">Large (40px)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <button type="button" id="addMoreBtn" class="pdf-btn-secondary w-full sm:w-auto">
+            <i class="fa-solid fa-plus"></i>
+            <span>Add More PNGs</span>
+          </button>
+          <button type="button" id="convertBtn" class="pdf-btn-primary w-full sm:w-auto">
+            <i class="fa-solid fa-file-pdf"></i>
+            <span>Convert to PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Container -->
+      <div id="progressContainer" style="display:none;"></div>
+
+      <!-- Error Alert -->
+      <div id="errorContainer" style="display:none;"></div>
+
+      <!-- Result Container -->
+      <div id="resultContainer" style="display:none;"></div>
+
+    </div>
+
+    <!-- Privacy Notice -->
+    <div class="bg-emerald-50/80 border border-emerald-200/90 rounded-2xl p-4 sm:p-5 mb-12 flex items-start gap-3.5">
+      <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-base font-bold">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <div class="space-y-1">
+        <h4 class="text-xs font-black uppercase tracking-wide text-emerald-950">100% In-Browser Privacy</h4>
+        <p class="text-xs text-emerald-800 leading-relaxed font-medium">
+          PNG files are processed entirely in local memory. Your documents and image files are never uploaded to any remote server.
+        </p>
+      </div>
+    </div>
+
+    <!-- How to Use Step-by-Step -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">How to Convert PNG to PDF</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">1</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Select PNGs</h3>
+          <p class="text-xs text-slate-600">Choose PNG images from your device or drop them into the upload box.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">2</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Set Page Layout</h3>
+          <p class="text-xs text-slate-600">Arrange page sequence and select page margins or orientation.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">3</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Download PDF</h3>
+          <p class="text-xs text-slate-600">Download your combined vector-quality PDF document instantly.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Does PNG to PDF support transparent PNG files?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Yes! Our client-side converter accurately preserves transparency and crisp alpha channels across all embedded PNG files.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Are my PNG files uploaded to your server?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Never. All conversion operations run 100% locally inside your browser memory using PDF-Lib.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I combine multiple PNG files into one document?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Yes, you can upload multiple PNGs and easily drag or move them to set the desired page sequence before generating the PDF.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools Section -->
+    <section>
+      <h2 class="text-lg font-black text-[#3e2723] mb-4">Related PDF Tools</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="pdf-tools/jpg-to-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-file-image"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">JPG to PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Convert JPGs to PDF</div>
+          </div>
+        </a>
+        <a href="pdf-tools/webp-to-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">WebP to PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Next-gen photos to PDF</div>
+          </div>
+        </a>
+        <a href="pdf-tools/pdf-to-png/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-file-lines"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">PDF to PNG</div>
+            <div class="text-[10px] text-slate-500 font-medium">Export lossless PNGs</div>
+          </div>
+        </a>
+        <a href="pdf-tools/merge-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-object-group"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Merge PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Combine PDF files</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="assets/js/pdf/pdf-common.js"></script>
+  <script src="assets/js/pdf/pdf-utils.js"></script>
+  <script src="assets/js/pdf/pdf-ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let selectedFiles = [];
+
+      const dropzone = document.getElementById('dropzone');
+      const fileInput = document.getElementById('fileInput');
+      const fileListContainer = document.getElementById('fileListContainer');
+      const optionsContainer = document.getElementById('optionsContainer');
+      const addMoreBtn = document.getElementById('addMoreBtn');
+      const convertBtn = document.getElementById('convertBtn');
+      const pageSizeSelect = document.getElementById('pageSizeSelect');
+      const pageOrientationSelect = document.getElementById('pageOrientationSelect');
+      const pageMarginSelect = document.getElementById('pageMarginSelect');
+      const progressContainer = document.getElementById('progressContainer');
+      const errorContainer = document.getElementById('errorContainer');
+      const resultContainer = document.getElementById('resultContainer');
+
+      PDFCommon.setupDropzone(dropzone, fileInput, (files) => {
+        handleFilesAdded(files);
+      });
+
+      if (addMoreBtn) {
+        addMoreBtn.addEventListener('click', () => fileInput.click());
+      }
+
+      function handleFilesAdded(files) {
+        PDFUI.clearError(errorContainer);
+        const validImages = [];
+
+        for (const file of files) {
+          const check = PDFCommon.validateFile(file, ['image/png'], 50);
+          if (check.valid) {
+            validImages.push(file);
+          } else {
+            PDFUI.showError(errorContainer, check.error);
+          }
+        }
+
+        if (validImages.length > 0) {
+          selectedFiles = selectedFiles.concat(validImages);
+          updateUI();
+        }
+      }
+
+      function updateUI() {
+        if (selectedFiles.length === 0) {
+          fileListContainer.style.display = 'none';
+          optionsContainer.style.display = 'none';
+          return;
+        }
+
+        fileListContainer.style.display = 'flex';
+        optionsContainer.style.display = 'block';
+
+        PDFUI.renderFileList(fileListContainer, selectedFiles, {
+          onRemove: (idx) => {
+            selectedFiles.splice(idx, 1);
+            updateUI();
+          },
+          onMoveUp: (idx) => {
+            if (idx > 0) {
+              const temp = selectedFiles[idx];
+              selectedFiles[idx] = selectedFiles[idx - 1];
+              selectedFiles[idx - 1] = temp;
+              updateUI();
+            }
+          },
+          onMoveDown: (idx) => {
+            if (idx < selectedFiles.length - 1) {
+              const temp = selectedFiles[idx];
+              selectedFiles[idx] = selectedFiles[idx + 1];
+              selectedFiles[idx + 1] = temp;
+              updateUI();
+            }
+          }
+        });
+      }
+
+      if (convertBtn) {
+        convertBtn.addEventListener('click', async () => {
+          if (selectedFiles.length === 0) return;
+
+          PDFUI.clearError(errorContainer);
+          convertBtn.disabled = true;
+          PDFUI.showProgress(progressContainer, 10, 'Initializing PDF creator...');
+
+          try {
+            const { PDFDocument, PageSizes } = await PDFCommon.requirePdfLib();
+            const pdfDoc = await PDFDocument.create();
+
+            const pageSize = pageSizeSelect.value;
+            const orientation = pageOrientationSelect.value;
+            const margin = parseInt(pageMarginSelect.value, 10) || 0;
+
+            for (let i = 0; i < selectedFiles.length; i++) {
+              const file = selectedFiles[i];
+              const pct = 15 + Math.round(((i + 1) / selectedFiles.length) * 75);
+              PDFUI.showProgress(progressContainer, pct, `Embedding PNG ${i + 1} of ${selectedFiles.length}...`);
+
+              const buffer = await PDFCommon.readFileAsArrayBuffer(file);
+              const pngImage = await pdfDoc.embedPng(buffer);
+              const { width: imgW, height: imgH } = pngImage;
+
+              let pageWidth, pageHeight;
+
+              if (pageSize === 'fit') {
+                pageWidth = imgW + margin * 2;
+                pageHeight = imgH + margin * 2;
+              } else if (pageSize === 'letter') {
+                [pageWidth, pageHeight] = PageSizes.Letter;
+              } else {
+                [pageWidth, pageHeight] = PageSizes.A4;
+              }
+
+              if (pageSize !== 'fit') {
+                const isImgLandscape = imgW > imgH;
+                if (orientation === 'landscape' || (orientation === 'auto' && isImgLandscape)) {
+                  if (pageWidth < pageHeight) {
+                    const temp = pageWidth;
+                    pageWidth = pageHeight;
+                    pageHeight = temp;
+                  }
+                } else if (orientation === 'portrait') {
+                  if (pageWidth > pageHeight) {
+                    const temp = pageWidth;
+                    pageWidth = pageHeight;
+                    pageHeight = temp;
+                  }
+                }
+              }
+
+              const page = pdfDoc.addPage([pageWidth, pageHeight]);
+
+              const printableW = pageWidth - margin * 2;
+              const printableH = pageHeight - margin * 2;
+              const scale = Math.min(printableW / imgW, printableH / imgH);
+              const drawW = imgW * scale;
+              const drawH = imgH * scale;
+              const drawX = margin + (printableW - drawW) / 2;
+              const drawY = margin + (printableH - drawH) / 2;
+
+              page.drawImage(pngImage, {
+                x: drawX,
+                y: drawY,
+                width: drawW,
+                height: drawH
+              });
+            }
+
+            PDFUI.showProgress(progressContainer, 95, 'Compiling PDF document...');
+            const pdfBytes = await pdfDoc.save();
+            const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
+
+            PDFUI.hideProgress(progressContainer);
+            dropzone.style.display = 'none';
+            fileListContainer.style.display = 'none';
+            optionsContainer.style.display = 'none';
+
+            PDFUI.renderResult(resultContainer, {
+              filename: `png-converted-${Date.now()}.pdf`,
+              blob: pdfBlob,
+              newSize: pdfBytes.byteLength,
+              onReset: () => {
+                selectedFiles = [];
+                resultContainer.style.display = 'none';
+                dropzone.style.display = 'flex';
+                updateUI();
+                convertBtn.disabled = false;
+              }
+            });
+          } catch (err) {
+            console.error(err);
+            PDFUI.hideProgress(progressContainer);
+            PDFUI.showError(errorContainer, `Conversion failed: ${err.message}`);
+            convertBtn.disabled = false;
+          }
+        });
+      }
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+          button.parentElement.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

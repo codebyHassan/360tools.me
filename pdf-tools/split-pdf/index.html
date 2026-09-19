@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Split PDF Online Free — Separate PDF Pages in Browser | 360Tools</title>
+  <meta name="title" content="Split PDF Online Free — Separate PDF Pages in Browser | 360Tools">
+  <meta name="description" content="Split PDF files into individual pages or custom ranges for free online. 100% private, client-side processing with zero server uploads on 360Tools.">
+  <meta name="keywords" content="split PDF, separate PDF pages, split PDF online free, extract pages from PDF, divide PDF, 360tools">
+  <meta name="author" content="360Tools (360tools.me)">
+  <link rel="canonical" href="https://360tools.me/pdf-tools/split-pdf/">
+
+  <!-- Favicon & Open Graph -->
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/pdf-tools/split-pdf/">
+  <meta property="og:title" content="Split PDF Online Free — 100% Client-Side Private | 360Tools">
+  <meta property="og:description" content="Split PDF documents into separate files or custom ranges with instant ZIP download. Zero server uploads.">
+  <meta property="og:image" content="images/logo.webp">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/pdf-tools/split-pdf/">
+  <meta property="twitter:title" content="Free Online PDF Splitter — 100% In-Browser Privacy">
+  <meta property="twitter:description" content="Separate PDF pages instantly on your computer or phone without cloud uploads.">
+  <meta property="twitter:image" content="images/logo.webp">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Client-Side Split PDF Tool",
+    "url": "https://360tools.me/pdf-tools/split-pdf/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "description": "Separate PDF documents into individual pages or custom ranges directly in your web browser.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "PDF Tools",
+        "item": "https://360tools.me/pdf-tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Split PDF",
+        "item": "https://360tools.me/pdf-tools/split-pdf/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does the Split PDF tool separate pages?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The tool parses the PDF structure locally in your browser memory and extracts every page or specified range into a new standalone PDF file."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I split a PDF into a single ZIP file containing all pages?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. When choosing 'Extract all pages as individual PDFs', the tool bundles all separated PDF documents into a convenient ZIP archive for one-click downloading."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my files uploaded to any server during the split process?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The entire splitting and zipping operation takes place 100% inside your browser memory using JavaScript and WebAssembly. Your files are never uploaded anywhere."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- Master Stylesheet & PDF Tool Assets -->
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/tools.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto w-full flex-1 pt-6 pb-16">
+    
+    <!-- Breadcrumbs -->
+    <nav class="pdf-breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <a href="pdf-tools/index.html">PDF Tools</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <span class="current">Split PDF</span>
+    </nav>
+
+    <!-- Header / Title Section -->
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <div class="inline-flex items-center gap-2 mb-3">
+        <span class="privacy-badge">
+          <i class="fa-solid fa-shield-halved"></i> 100% In-Browser Privacy • Zero Cloud Uploads
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight mb-2">
+        Split PDF Pages
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        Extract specific page ranges or split every page into a standalone document with instant ZIP download.
+      </p>
+    </div>
+
+    <!-- Ad Slot (Top Reserved Container) -->
+    <div class="ad-slot-container ad-slot-leaderboard">
+      <div class="ad-slot-label">Advertisement</div>
+      <div class="text-xs text-slate-400 font-medium py-4">Reserved Ad Container</div>
+    </div>
+
+    <!-- TOOL UI WRAPPER -->
+    <div class="pdf-tool-wrapper">
+      
+      <!-- Dropzone -->
+      <div class="pdf-dropzone" id="dropzone">
+        <div class="pdf-dropzone-icon">
+          <i class="fa-solid fa-scissors"></i>
+        </div>
+        <div>
+          <div class="pdf-dropzone-title">Drag & drop a PDF file here</div>
+          <div class="pdf-dropzone-subtitle">or click to browse from your device</div>
+        </div>
+        <input type="file" id="fileInput" accept=".pdf,application/pdf" class="hidden">
+        <button type="button" class="pdf-btn-secondary mt-2">
+          <i class="fa-solid fa-folder-open"></i>
+          <span>Choose PDF File</span>
+        </button>
+      </div>
+
+      <!-- Loaded File & Options Container -->
+      <div id="splitOptionsContainer" style="display:none;" class="space-y-6">
+        <div class="pdf-file-item">
+          <div class="pdf-file-item-left">
+            <div class="pdf-file-item-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="pdf-file-item-meta">
+              <div class="pdf-file-item-name" id="fileNameDisplay">document.pdf</div>
+              <div class="pdf-file-item-size" id="fileMetaDisplay">0 KB • 0 pages</div>
+            </div>
+          </div>
+          <button type="button" id="changeFileBtn" class="pdf-action-btn" title="Choose another file">
+            <i class="fa-solid fa-rotate-left text-xs"></i>
+          </button>
+        </div>
+
+        <!-- Split Mode Selector -->
+        <div class="pdf-options-panel">
+          <div class="pdf-options-title"><i class="fa-solid fa-sliders"></i> Split Settings</div>
+          <div class="pdf-options-grid">
+            <div class="pdf-option-group">
+              <label class="pdf-option-label">Split Mode</label>
+              <select id="splitModeSelect" class="pdf-select">
+                <option value="all">Extract all pages as individual PDFs (ZIP)</option>
+                <option value="range">Extract custom page range (e.g. 1-3, 5)</option>
+              </select>
+            </div>
+            <div class="pdf-option-group" id="rangeInputGroup" style="display:none;">
+              <label class="pdf-option-label">Page Ranges (e.g. 1-3, 5, 8-10)</label>
+              <input type="text" id="pageRangeInput" class="pdf-input" placeholder="e.g. 1-2, 4">
+            </div>
+          </div>
+        </div>
+
+        <!-- Thumbnail Preview Grid -->
+        <div>
+          <div class="text-xs font-black uppercase tracking-wider text-slate-400 mb-2">Page Preview & Selection</div>
+          <div id="pagesGridContainer"></div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="pt-4 border-t border-slate-200 flex justify-end">
+          <button type="button" id="splitBtn" class="pdf-btn-primary">
+            <i class="fa-solid fa-scissors"></i>
+            <span>Split PDF Now</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Container -->
+      <div id="progressContainer" style="display:none;"></div>
+
+      <!-- Error Alert -->
+      <div id="errorContainer" style="display:none;"></div>
+
+      <!-- Result Container -->
+      <div id="resultContainer" style="display:none;"></div>
+
+    </div>
+
+    <!-- Privacy & Security Notice -->
+    <div class="bg-emerald-50/80 border border-emerald-200/90 rounded-2xl p-4 sm:p-5 mb-12 flex items-start gap-3.5">
+      <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-base font-bold">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <div class="space-y-1">
+        <h4 class="text-xs font-black uppercase tracking-wide text-emerald-950">100% In-Browser Execution</h4>
+        <p class="text-xs text-emerald-800 leading-relaxed font-medium">
+          Your PDF documents are processed strictly within your web browser RAM. No pages or document data are transmitted to any cloud server.
+        </p>
+      </div>
+    </div>
+
+    <!-- How to Use Step-by-Step -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">How to Split PDF Pages Online</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">1</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Select Document</h3>
+          <p class="text-xs text-slate-600">Upload your PDF file. The browser generates quick page previews locally.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">2</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Configure Split Mode</h3>
+          <p class="text-xs text-slate-600">Choose to extract all pages into separate PDFs or specify exact page ranges (e.g. 1-4, 7).</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">3</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Download Instantly</h3>
+          <p class="text-xs text-slate-600">Download your single split PDF or a consolidated ZIP file containing all extracted pages.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does the Split PDF tool separate pages?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            The tool parses the PDF structure locally in your browser memory and extracts every page or specified range into a new standalone PDF file.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I split a PDF into a single ZIP file containing all pages?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Yes. When choosing 'Extract all pages as individual PDFs', the tool bundles all separated PDF documents into a convenient ZIP archive for one-click downloading.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Are my files uploaded to any server during the split process?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            No. The entire splitting and zipping operation takes place 100% inside your browser memory using JavaScript and WebAssembly. Your files are never uploaded anywhere.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools Section -->
+    <section>
+      <h2 class="text-lg font-black text-[#3e2723] mb-4">Related PDF Tools</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="pdf-tools/merge-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-object-group"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Merge PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Combine multiple files</div>
+          </div>
+        </a>
+        <a href="pdf-tools/extract-pdf-pages/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-fuchsia-50 text-fuchsia-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Extract Pages</div>
+            <div class="text-[10px] text-slate-500 font-medium">Save selected pages</div>
+          </div>
+        </a>
+        <a href="pdf-tools/delete-pdf-pages/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-trash-can"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Delete Pages</div>
+            <div class="text-[10px] text-slate-500 font-medium">Remove blank or unwanted pages</div>
+          </div>
+        </a>
+        <a href="pdf-tools/compress-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-compress"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Compress PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Reduce file size</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="assets/js/pdf/pdf-common.js"></script>
+  <script src="assets/js/pdf/pdf-utils.js"></script>
+  <script src="assets/js/pdf/pdf-ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let currentFile = null;
+      let loadedPdfDoc = null;
+      let totalPages = 0;
+
+      const dropzone = document.getElementById('dropzone');
+      const fileInput = document.getElementById('fileInput');
+      const splitOptionsContainer = document.getElementById('splitOptionsContainer');
+      const fileNameDisplay = document.getElementById('fileNameDisplay');
+      const fileMetaDisplay = document.getElementById('fileMetaDisplay');
+      const changeFileBtn = document.getElementById('changeFileBtn');
+      const splitModeSelect = document.getElementById('splitModeSelect');
+      const rangeInputGroup = document.getElementById('rangeInputGroup');
+      const pageRangeInput = document.getElementById('pageRangeInput');
+      const pagesGridContainer = document.getElementById('pagesGridContainer');
+      const splitBtn = document.getElementById('splitBtn');
+      const progressContainer = document.getElementById('progressContainer');
+      const errorContainer = document.getElementById('errorContainer');
+      const resultContainer = document.getElementById('resultContainer');
+
+      PDFCommon.setupDropzone(dropzone, fileInput, (files) => {
+        if (files.length > 0) loadFile(files[0]);
+      });
+
+      if (changeFileBtn) {
+        changeFileBtn.addEventListener('click', () => {
+          currentFile = null;
+          splitOptionsContainer.style.display = 'none';
+          dropzone.style.display = 'flex';
+          PDFUI.clearError(errorContainer);
+        });
+      }
+
+      if (splitModeSelect) {
+        splitModeSelect.addEventListener('change', () => {
+          rangeInputGroup.style.display = splitModeSelect.value === 'range' ? 'flex' : 'none';
+        });
+      }
+
+      async function loadFile(file) {
+        PDFUI.clearError(errorContainer);
+        const check = PDFCommon.validateFile(file, ['application/pdf'], 150);
+        if (!check.valid) {
+          PDFUI.showError(errorContainer, check.error);
+          return;
+        }
+
+        currentFile = file;
+        PDFUI.showProgress(progressContainer, 15, 'Loading PDF document...');
+
+        try {
+          const pdfjsLib = await PDFCommon.requirePdfJs();
+          const buffer = await PDFCommon.readFileAsArrayBuffer(file);
+          loadedPdfDoc = await pdfjsLib.getDocument({ data: buffer }).promise;
+          totalPages = loadedPdfDoc.numPages;
+
+          fileNameDisplay.textContent = file.name;
+          fileMetaDisplay.textContent = `${PDFUtils.formatBytes(file.size)} • ${totalPages} page${totalPages === 1 ? '' : 's'}`;
+
+          PDFUI.showProgress(progressContainer, 60, 'Rendering page previews...');
+          await PDFUI.renderPagesGrid(pagesGridContainer, loadedPdfDoc, {
+            selectable: false,
+            rotatable: false,
+            deletable: false
+          });
+
+          PDFUI.hideProgress(progressContainer);
+          dropzone.style.display = 'none';
+          splitOptionsContainer.style.display = 'block';
+        } catch (err) {
+          console.error(err);
+          PDFUI.hideProgress(progressContainer);
+          PDFUI.showError(errorContainer, `Failed to parse PDF: ${err.message || 'File may be corrupted or encrypted.'}`);
+        }
+      }
+
+      if (splitBtn) {
+        splitBtn.addEventListener('click', async () => {
+          if (!currentFile) return;
+
+          PDFUI.clearError(errorContainer);
+          splitBtn.disabled = true;
+          PDFUI.showProgress(progressContainer, 15, 'Preparing PDF engine...');
+
+          try {
+            const { PDFDocument } = await PDFCommon.requirePdfLib();
+            const buffer = await PDFCommon.readFileAsArrayBuffer(currentFile);
+            const sourceDoc = await PDFDocument.load(buffer, { ignoreEncryption: true });
+            const mode = splitModeSelect.value;
+
+            if (mode === 'all') {
+              const JSZip = await PDFCommon.requireJsZip();
+              const zip = new JSZip();
+
+              for (let i = 0; i < totalPages; i++) {
+                const pct = 20 + Math.round(((i + 1) / totalPages) * 70);
+                PDFUI.showProgress(progressContainer, pct, `Extracting page ${i + 1} of ${totalPages}...`);
+
+                const singleDoc = await PDFDocument.create();
+                const [copiedPage] = await singleDoc.copyPages(sourceDoc, [i]);
+                singleDoc.addPage(copiedPage);
+
+                const singleBytes = await singleDoc.save();
+                const baseName = currentFile.name.replace(/\.pdf$/i, '');
+                zip.file(`${baseName}-page-${i + 1}.pdf`, singleBytes);
+              }
+
+              PDFUI.showProgress(progressContainer, 95, 'Compressing into ZIP archive...');
+              const zipBlob = await zip.generateAsync({ type: 'blob' });
+
+              PDFUI.hideProgress(progressContainer);
+              splitOptionsContainer.style.display = 'none';
+
+              PDFUI.renderResult(resultContainer, {
+                filename: `${currentFile.name.replace(/\.pdf$/i, '')}-split-pages.zip`,
+                blob: zipBlob,
+                newSize: zipBlob.size,
+                onReset: () => {
+                  resultContainer.style.display = 'none';
+                  dropzone.style.display = 'flex';
+                  splitBtn.disabled = false;
+                }
+              });
+            } else {
+              // Custom range
+              const rangeStr = pageRangeInput.value.trim() || '1';
+              const targetIndices = PDFUtils.parsePageRanges(rangeStr, totalPages);
+
+              if (targetIndices.length === 0) {
+                throw new Error('Please enter valid page numbers or ranges (e.g. 1-3, 5).');
+              }
+
+              PDFUI.showProgress(progressContainer, 50, 'Extracting selected page range...');
+              const rangeDoc = await PDFDocument.create();
+              const copiedPages = await rangeDoc.copyPages(sourceDoc, targetIndices);
+              copiedPages.forEach(p => rangeDoc.addPage(p));
+
+              const rangeBytes = await rangeDoc.save();
+              const rangeBlob = new Blob([rangeBytes], { type: 'application/pdf' });
+
+              PDFUI.hideProgress(progressContainer);
+              splitOptionsContainer.style.display = 'none';
+
+              PDFUI.renderResult(resultContainer, {
+                filename: `${currentFile.name.replace(/\.pdf$/i, '')}-pages.pdf`,
+                blob: rangeBlob,
+                newSize: rangeBytes.byteLength,
+                onReset: () => {
+                  resultContainer.style.display = 'none';
+                  dropzone.style.display = 'flex';
+                  splitBtn.disabled = false;
+                }
+              });
+            }
+          } catch (err) {
+            console.error(err);
+            PDFUI.hideProgress(progressContainer);
+            PDFUI.showError(errorContainer, `Split error: ${err.message}`);
+            splitBtn.disabled = false;
+          }
+        });
+      }
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+          button.parentElement.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

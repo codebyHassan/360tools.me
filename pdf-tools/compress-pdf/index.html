@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Compress PDF Online Free — Reduce PDF File Size in Browser | 360Tools</title>
+  <meta name="title" content="Compress PDF Online Free — Reduce PDF File Size in Browser | 360Tools">
+  <meta name="description" content="Compress PDF documents online for free without uploading files to any server. Multi-level DPI presets, instant size reduction up to 80%, and 100% private.">
+  <meta name="keywords" content="compress PDF, reduce PDF size, compress PDF online, make PDF smaller, shrink PDF, compress PDF to 1MB, 360tools">
+  <meta name="author" content="360Tools (360tools.me)">
+  <link rel="canonical" href="https://360tools.me/pdf-tools/compress-pdf/">
+
+  <!-- Favicon & Open Graph -->
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/pdf-tools/compress-pdf/">
+  <meta property="og:title" content="Compress PDF Online Free — 100% Client-Side Private | 360Tools">
+  <meta property="og:description" content="Reduce PDF file size up to 80% without quality loss in your browser. Zero server uploads.">
+  <meta property="og:image" content="images/logo.webp">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/pdf-tools/compress-pdf/">
+  <meta property="twitter:title" content="Free Online PDF Compressor — 100% In-Browser Privacy">
+  <meta property="twitter:description" content="Reduce PDF size for email and portal submissions safely on your device.">
+  <meta property="twitter:image" content="images/logo.webp">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Client-Side PDF Compressor",
+    "url": "https://360tools.me/pdf-tools/compress-pdf/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "description": "Compress PDF documents directly in your web browser with zero server uploads. Re-encodes pages with adjustable DPI and image compression quality.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "PDF Tools",
+        "item": "https://360tools.me/pdf-tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Compress PDF",
+        "item": "https://360tools.me/pdf-tools/compress-pdf/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does client-side PDF compression work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The tool renders each page on an HTML5 canvas, downsamples excessive DPI resolution (e.g. from 600 DPI to 150 DPI), quantizes raster photos with JPEG compression, and rebuilds an optimized PDF structure."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my sensitive documents uploaded to your server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Never. All compression calculations happen 100% locally in your browser RAM. Your confidential bank forms, tax returns, and contracts never touch the cloud."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which compression preset should I choose?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For email attachments and job portals, 'Recommended (150 DPI)' provides the best balance of dramatic file size reduction and crisp readability."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- Master Stylesheet & PDF Tool Assets -->
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/tools.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto w-full flex-1 pt-6 pb-16">
+    
+    <!-- Breadcrumbs -->
+    <nav class="pdf-breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <a href="pdf-tools/index.html">PDF Tools</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <span class="current">Compress PDF</span>
+    </nav>
+
+    <!-- Header / Title Section -->
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <div class="inline-flex items-center gap-2 mb-3">
+        <span class="privacy-badge">
+          <i class="fa-solid fa-shield-halved"></i> 100% In-Browser Privacy • Zero Cloud Uploads
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight mb-2">
+        Compress PDF Online
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        Reduce PDF document size for email attachments and application portals while preserving crystal-clear readability.
+      </p>
+    </div>
+
+    <!-- Ad Slot (Top Reserved Container) -->
+    <div class="ad-slot-container ad-slot-leaderboard">
+      <div class="ad-slot-label">Advertisement</div>
+      <div class="text-xs text-slate-400 font-medium py-4">Reserved Ad Container</div>
+    </div>
+
+    <!-- TOOL UI WRAPPER -->
+    <div class="pdf-tool-wrapper">
+      
+      <!-- Dropzone -->
+      <div class="pdf-dropzone" id="dropzone">
+        <div class="pdf-dropzone-icon">
+          <i class="fa-solid fa-compress"></i>
+        </div>
+        <div>
+          <div class="pdf-dropzone-title">Drag & drop a PDF to compress</div>
+          <div class="pdf-dropzone-subtitle">or click to browse from your device</div>
+        </div>
+        <input type="file" id="fileInput" accept=".pdf,application/pdf" class="hidden">
+        <button type="button" class="pdf-btn-secondary mt-2">
+          <i class="fa-solid fa-folder-open"></i>
+          <span>Choose PDF File</span>
+        </button>
+      </div>
+
+      <!-- Loaded File & Options Container -->
+      <div id="compressOptionsContainer" style="display:none;" class="space-y-6">
+        <div class="pdf-file-item">
+          <div class="pdf-file-item-left">
+            <div class="pdf-file-item-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="pdf-file-item-meta">
+              <div class="pdf-file-item-name" id="fileNameDisplay">document.pdf</div>
+              <div class="pdf-file-item-size" id="fileMetaDisplay">0 KB • 0 pages</div>
+            </div>
+          </div>
+          <button type="button" id="changeFileBtn" class="pdf-action-btn" title="Choose another file">
+            <i class="fa-solid fa-rotate-left text-xs"></i>
+          </button>
+        </div>
+
+        <!-- Compression Presets -->
+        <div class="pdf-options-panel">
+          <div class="pdf-options-title"><i class="fa-solid fa-gauge-high"></i> Select Compression Level</div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <label class="fa-card p-4 flex flex-col justify-between cursor-pointer border-2 hover:border-[#c27803] transition-all has-[:checked]:border-[#c27803] has-[:checked]:bg-[#fef7e7]">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-black text-[#3e2723]">Recommended</span>
+                <input type="radio" name="compressionLevel" value="medium" checked class="accent-[#c27803]">
+              </div>
+              <div class="text-[11px] text-slate-600 font-medium">150 DPI • Balanced quality & ~60% size reduction</div>
+            </label>
+
+            <label class="fa-card p-4 flex flex-col justify-between cursor-pointer border-2 hover:border-[#c27803] transition-all has-[:checked]:border-[#c27803] has-[:checked]:bg-[#fef7e7]">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-black text-[#3e2723]">High Compression</span>
+                <input type="radio" name="compressionLevel" value="high" class="accent-[#c27803]">
+              </div>
+              <div class="text-[11px] text-slate-600 font-medium">96 DPI • Maximum size reduction (~75-85%)</div>
+            </label>
+
+            <label class="fa-card p-4 flex flex-col justify-between cursor-pointer border-2 hover:border-[#c27803] transition-all has-[:checked]:border-[#c27803] has-[:checked]:bg-[#fef7e7]">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-black text-[#3e2723]">Low Compression</span>
+                <input type="radio" name="compressionLevel" value="low" class="accent-[#c27803]">
+              </div>
+              <div class="text-[11px] text-slate-600 font-medium">200 DPI • High quality image preservation (~30-40%)</div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="pt-4 border-t border-slate-200 flex justify-end">
+          <button type="button" id="compressBtn" class="pdf-btn-primary">
+            <i class="fa-solid fa-compress"></i>
+            <span>Compress PDF File</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Container -->
+      <div id="progressContainer" style="display:none;"></div>
+
+      <!-- Error Alert -->
+      <div id="errorContainer" style="display:none;"></div>
+
+      <!-- Result Container -->
+      <div id="resultContainer" style="display:none;"></div>
+
+    </div>
+
+    <!-- Privacy Notice -->
+    <div class="bg-emerald-50/80 border border-emerald-200/90 rounded-2xl p-4 sm:p-5 mb-12 flex items-start gap-3.5">
+      <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-base font-bold">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <div class="space-y-1">
+        <h4 class="text-xs font-black uppercase tracking-wide text-emerald-950">100% In-Browser Privacy</h4>
+        <p class="text-xs text-emerald-800 leading-relaxed font-medium">
+          All image downsampling and stream compression execute 100% inside your browser memory. Your documents are never uploaded to any remote server.
+        </p>
+      </div>
+    </div>
+
+    <!-- How to Use Step-by-Step -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">How to Compress PDF Files Online</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">1</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Upload Document</h3>
+          <p class="text-xs text-slate-600">Select or drop your large PDF file into the upload box.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">2</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Choose Preset</h3>
+          <p class="text-xs text-slate-600">Select Recommended, High Compression, or Low Compression.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">3</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Download Shrunken PDF</h3>
+          <p class="text-xs text-slate-600">Download your optimized PDF file with instant percentage savings calculation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does client-side PDF compression work?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            The tool renders each page on an HTML5 canvas, downsamples excessive DPI resolution (e.g. from 600 DPI to 150 DPI), quantizes raster photos with JPEG compression, and rebuilds an optimized PDF structure.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Are my sensitive documents uploaded to your server?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Never. All compression calculations happen 100% locally in your browser RAM. Your confidential bank forms, tax returns, and contracts never touch the cloud.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Which compression preset should I choose?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            For email attachments and job portals, 'Recommended (150 DPI)' provides the best balance of dramatic file size reduction and crisp readability.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools Section -->
+    <section>
+      <h2 class="text-lg font-black text-[#3e2723] mb-4">Related PDF Tools</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="pdf-tools/merge-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-object-group"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Merge PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Combine multiple files</div>
+          </div>
+        </a>
+        <a href="pdf-tools/split-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-scissors"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Split PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Extract pages or ranges</div>
+          </div>
+        </a>
+        <a href="pdf-tools/pdf-metadata-remover/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Remove Metadata</div>
+            <div class="text-[10px] text-slate-500 font-medium">Clean properties & author</div>
+          </div>
+        </a>
+        <a href="pdf-tools/pdf-to-jpg/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-file-export"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">PDF to JPG</div>
+            <div class="text-[10px] text-slate-500 font-medium">Export pages as high-res images</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="assets/js/pdf/pdf-common.js"></script>
+  <script src="assets/js/pdf/pdf-utils.js"></script>
+  <script src="assets/js/pdf/pdf-ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let currentFile = null;
+      let totalPages = 0;
+
+      const dropzone = document.getElementById('dropzone');
+      const fileInput = document.getElementById('fileInput');
+      const compressOptionsContainer = document.getElementById('compressOptionsContainer');
+      const fileNameDisplay = document.getElementById('fileNameDisplay');
+      const fileMetaDisplay = document.getElementById('fileMetaDisplay');
+      const changeFileBtn = document.getElementById('changeFileBtn');
+      const compressBtn = document.getElementById('compressBtn');
+      const progressContainer = document.getElementById('progressContainer');
+      const errorContainer = document.getElementById('errorContainer');
+      const resultContainer = document.getElementById('resultContainer');
+
+      PDFCommon.setupDropzone(dropzone, fileInput, (files) => {
+        if (files.length > 0) loadFile(files[0]);
+      });
+
+      if (changeFileBtn) {
+        changeFileBtn.addEventListener('click', () => {
+          currentFile = null;
+          compressOptionsContainer.style.display = 'none';
+          dropzone.style.display = 'flex';
+          PDFUI.clearError(errorContainer);
+        });
+      }
+
+      async function loadFile(file) {
+        PDFUI.clearError(errorContainer);
+        const check = PDFCommon.validateFile(file, ['application/pdf'], 150);
+        if (!check.valid) {
+          PDFUI.showError(errorContainer, check.error);
+          return;
+        }
+
+        currentFile = file;
+        PDFUI.showProgress(progressContainer, 20, 'Reading PDF structure...');
+
+        try {
+          const pdfjsLib = await PDFCommon.requirePdfJs();
+          const buffer = await PDFCommon.readFileAsArrayBuffer(file);
+          const pdfDoc = await pdfjsLib.getDocument({ data: buffer }).promise;
+          totalPages = pdfDoc.numPages;
+
+          fileNameDisplay.textContent = file.name;
+          fileMetaDisplay.textContent = `${PDFUtils.formatBytes(file.size)} • ${totalPages} page${totalPages === 1 ? '' : 's'}`;
+
+          PDFUI.hideProgress(progressContainer);
+          dropzone.style.display = 'none';
+          compressOptionsContainer.style.display = 'block';
+        } catch (err) {
+          console.error(err);
+          PDFUI.hideProgress(progressContainer);
+          PDFUI.showError(errorContainer, `Failed to load PDF: ${err.message}`);
+        }
+      }
+
+      if (compressBtn) {
+        compressBtn.addEventListener('click', async () => {
+          if (!currentFile) return;
+
+          PDFUI.clearError(errorContainer);
+          compressBtn.disabled = true;
+          PDFUI.showProgress(progressContainer, 10, 'Initializing compression engines...');
+
+          try {
+            const pdfjsLib = await PDFCommon.requirePdfJs();
+            const { PDFDocument } = await PDFCommon.requirePdfLib();
+
+            const level = document.querySelector('input[name="compressionLevel"]:checked')?.value || 'medium';
+            let scale = 1.3;
+            let quality = 0.65;
+
+            if (level === 'high') {
+              scale = 1.0;
+              quality = 0.50;
+            } else if (level === 'low') {
+              scale = 1.8;
+              quality = 0.82;
+            }
+
+            const buffer = await PDFCommon.readFileAsArrayBuffer(currentFile);
+            const sourcePdf = await pdfjsLib.getDocument({ data: buffer }).promise;
+            const newPdfDoc = await PDFDocument.create();
+
+            for (let i = 1; i <= totalPages; i++) {
+              const progressPct = 15 + Math.round((i / totalPages) * 75);
+              PDFUI.showProgress(progressContainer, progressPct, `Downsampling & optimizing page ${i} of ${totalPages}...`);
+
+              const page = await sourcePdf.getPage(i);
+              const viewport = page.getViewport({ scale });
+              const canvas = document.createElement('canvas');
+              const ctx = canvas.getContext('2d', { alpha: false });
+              canvas.width = viewport.width;
+              canvas.height = viewport.height;
+
+              await page.render({ canvasContext: ctx, viewport }).promise;
+
+              const jpegBlob = await PDFUtils.canvasToBlob(canvas, 'image/jpeg', quality);
+              const jpegArrayBuffer = await jpegBlob.arrayBuffer();
+              const embeddedImage = await newPdfDoc.embedJpg(jpegArrayBuffer);
+
+              const origViewport = page.getViewport({ scale: 1.0 });
+              const newPage = newPdfDoc.addPage([origViewport.width, origViewport.height]);
+              newPage.drawImage(embeddedImage, {
+                x: 0,
+                y: 0,
+                width: origViewport.width,
+                height: origViewport.height
+              });
+            }
+
+            PDFUI.showProgress(progressContainer, 95, 'Finalizing compressed document...');
+            const compressedBytes = await newPdfDoc.save();
+            const compressedBlob = new Blob([compressedBytes], { type: 'application/pdf' });
+
+            PDFUI.hideProgress(progressContainer);
+            compressOptionsContainer.style.display = 'none';
+
+            PDFUI.renderResult(resultContainer, {
+              filename: `compressed-${currentFile.name}`,
+              blob: compressedBlob,
+              originalSize: currentFile.size,
+              newSize: compressedBytes.byteLength,
+              onReset: () => {
+                resultContainer.style.display = 'none';
+                dropzone.style.display = 'flex';
+                compressBtn.disabled = false;
+              }
+            });
+          } catch (err) {
+            console.error(err);
+            PDFUI.hideProgress(progressContainer);
+            PDFUI.showError(errorContainer, `Compression failed: ${err.message}`);
+            compressBtn.disabled = false;
+          }
+        });
+      }
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+          button.parentElement.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Delete PDF Pages Online Free — Remove Unwanted Pages | 360Tools</title>
+  <meta name="title" content="Delete PDF Pages Online Free — Remove Unwanted Pages | 360Tools">
+  <meta name="description" content="Delete unwanted or blank pages from your PDF file online for free. Visual page grid, range selection, and 100% in-browser privacy with zero server uploads.">
+  <meta name="keywords" content="delete PDF pages, remove pages from PDF, delete pages from PDF online, remove PDF page free, 360tools">
+  <meta name="author" content="360Tools (360tools.me)">
+  <link rel="canonical" href="https://360tools.me/pdf-tools/delete-pdf-pages/">
+
+  <!-- Favicon & Open Graph -->
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/pdf-tools/delete-pdf-pages/">
+  <meta property="og:title" content="Delete PDF Pages Online Free — 100% Client-Side Private | 360Tools">
+  <meta property="og:description" content="Remove unwanted pages from PDF documents in your browser. Zero cloud uploads.">
+  <meta property="og:image" content="images/logo.webp">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/pdf-tools/delete-pdf-pages/">
+  <meta property="twitter:title" content="Free Online PDF Page Remover — 100% Private">
+  <meta property="twitter:description" content="Delete blank or unwanted pages from PDF files safely in your browser.">
+  <meta property="twitter:image" content="images/logo.webp">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Delete PDF Pages Tool",
+    "url": "https://360tools.me/pdf-tools/delete-pdf-pages/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "description": "Delete unwanted pages from PDF documents directly in your web browser.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "PDF Tools",
+        "item": "https://360tools.me/pdf-tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Delete PDF Pages",
+        "item": "https://360tools.me/pdf-tools/delete-pdf-pages/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I select which pages to delete?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can click the trash button on individual page thumbnail cards or type specific page numbers/ranges (e.g. 2, 4, 7-9) in the input box."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my files uploaded to any server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Never. All page removal happens 100% locally in your browser memory using PDF-Lib."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I undo or restore a page marked for deletion before saving?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Simply click the restore icon on the thumbnail card before clicking the final 'Remove Pages & Save' button."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- Master Stylesheet & PDF Tool Assets -->
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/tools.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto w-full flex-1 pt-6 pb-16">
+    
+    <!-- Breadcrumbs -->
+    <nav class="pdf-breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <a href="pdf-tools/index.html">PDF Tools</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <span class="current">Delete PDF Pages</span>
+    </nav>
+
+    <!-- Header / Title Section -->
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <div class="inline-flex items-center gap-2 mb-3">
+        <span class="privacy-badge">
+          <i class="fa-solid fa-shield-halved"></i> 100% In-Browser Privacy • Zero Cloud Uploads
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight mb-2">
+        Delete PDF Pages
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        Click to remove unwanted, duplicate, or blank pages from your PDF with live thumbnail selection.
+      </p>
+    </div>
+
+    <!-- Ad Slot (Top Reserved Container) -->
+    <div class="ad-slot-container ad-slot-leaderboard">
+      <div class="ad-slot-label">Advertisement</div>
+      <div class="text-xs text-slate-400 font-medium py-4">Reserved Ad Container</div>
+    </div>
+
+    <!-- TOOL UI WRAPPER -->
+    <div class="pdf-tool-wrapper">
+      
+      <!-- Dropzone -->
+      <div class="pdf-dropzone" id="dropzone">
+        <div class="pdf-dropzone-icon">
+          <i class="fa-solid fa-trash-can"></i>
+        </div>
+        <div>
+          <div class="pdf-dropzone-title">Drag & drop a PDF file here</div>
+          <div class="pdf-dropzone-subtitle">or click to browse from your device</div>
+        </div>
+        <input type="file" id="fileInput" accept=".pdf,application/pdf" class="hidden">
+        <button type="button" class="pdf-btn-secondary mt-2">
+          <i class="fa-solid fa-folder-open"></i>
+          <span>Choose PDF File</span>
+        </button>
+      </div>
+
+      <!-- Loaded File & Options Container -->
+      <div id="deleteOptionsContainer" style="display:none;" class="space-y-6">
+        <div class="pdf-file-item">
+          <div class="pdf-file-item-left">
+            <div class="pdf-file-item-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="pdf-file-item-meta">
+              <div class="pdf-file-item-name" id="fileNameDisplay">document.pdf</div>
+              <div class="pdf-file-item-size" id="fileMetaDisplay">0 KB • 0 pages</div>
+            </div>
+          </div>
+          <button type="button" id="changeFileBtn" class="pdf-action-btn" title="Choose another file">
+            <i class="fa-solid fa-rotate-left text-xs"></i>
+          </button>
+        </div>
+
+        <!-- Range Input & Counter Bar -->
+        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex-1 w-full sm:w-auto">
+            <label class="text-xs font-black text-[#3e2723] uppercase tracking-wider block mb-1">Enter Page Numbers to Delete:</label>
+            <input type="text" id="deleteRangeInput" class="pdf-input text-xs" placeholder="e.g. 2, 4, 6-8">
+          </div>
+          <div class="text-xs font-bold text-slate-500 shrink-0 text-center sm:text-right">
+            <span id="deleteCountBadge" class="text-rose-600 font-black">0 pages</span> marked for deletion
+          </div>
+        </div>
+
+        <!-- Thumbnail Grid -->
+        <div>
+          <div class="text-xs font-black uppercase tracking-wider text-slate-400 mb-2">Click trash icon to toggle delete</div>
+          <div id="pagesGridContainer"></div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="pt-4 border-t border-slate-200 flex justify-end">
+          <button type="button" id="deletePagesBtn" class="pdf-btn-red">
+            <i class="fa-solid fa-trash-can"></i>
+            <span>Remove Pages & Download Clean PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Container -->
+      <div id="progressContainer" style="display:none;"></div>
+
+      <!-- Error Alert -->
+      <div id="errorContainer" style="display:none;"></div>
+
+      <!-- Result Container -->
+      <div id="resultContainer" style="display:none;"></div>
+
+    </div>
+
+    <!-- Privacy Notice -->
+    <div class="bg-emerald-50/80 border border-emerald-200/90 rounded-2xl p-4 sm:p-5 mb-12 flex items-start gap-3.5">
+      <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-base font-bold">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <div class="space-y-1">
+        <h4 class="text-xs font-black uppercase tracking-wide text-emerald-950">100% In-Browser Privacy</h4>
+        <p class="text-xs text-emerald-800 leading-relaxed font-medium">
+          Pages are deleted inside your browser memory. Files are never uploaded to any remote server or cloud.
+        </p>
+      </div>
+    </div>
+
+    <!-- How to Use Step-by-Step -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">How to Delete PDF Pages Online</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">1</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Select PDF</h3>
+          <p class="text-xs text-slate-600">Upload your PDF document to load live visual page thumbnails.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">2</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Select Unwanted Pages</h3>
+          <p class="text-xs text-slate-600">Click the trash icon on any page thumbnail or type page numbers.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">3</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Download Clean PDF</h3>
+          <p class="text-xs text-slate-600">Download your revised PDF file with deleted pages permanently excised.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How do I select which pages to delete?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            You can click the trash button on individual page thumbnail cards or type specific page numbers/ranges (e.g. 2, 4, 7-9) in the input box.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Are my files uploaded to any server?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Never. All page removal happens 100% locally in your browser memory using PDF-Lib.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I undo or restore a page marked for deletion before saving?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Yes! Simply click the restore icon on the thumbnail card before clicking the final 'Remove Pages & Save' button.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools Section -->
+    <section>
+      <h2 class="text-lg font-black text-[#3e2723] mb-4">Related PDF Tools</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="pdf-tools/extract-pdf-pages/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-fuchsia-50 text-fuchsia-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Extract Pages</div>
+            <div class="text-[10px] text-slate-500 font-medium">Save selected pages</div>
+          </div>
+        </a>
+        <a href="pdf-tools/rotate-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-rotate"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Rotate PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Fix page rotation</div>
+          </div>
+        </a>
+        <a href="pdf-tools/split-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-scissors"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Split PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Extract pages or ranges</div>
+          </div>
+        </a>
+        <a href="pdf-tools/merge-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-object-group"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Merge PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Combine multiple files</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="assets/js/pdf/pdf-common.js"></script>
+  <script src="assets/js/pdf/pdf-utils.js"></script>
+  <script src="assets/js/pdf/pdf-ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let currentFile = null;
+      let loadedPdfDoc = null;
+      let totalPages = 0;
+      let pageStates = [];
+
+      const dropzone = document.getElementById('dropzone');
+      const fileInput = document.getElementById('fileInput');
+      const deleteOptionsContainer = document.getElementById('deleteOptionsContainer');
+      const fileNameDisplay = document.getElementById('fileNameDisplay');
+      const fileMetaDisplay = document.getElementById('fileMetaDisplay');
+      const changeFileBtn = document.getElementById('changeFileBtn');
+      const deleteRangeInput = document.getElementById('deleteRangeInput');
+      const deleteCountBadge = document.getElementById('deleteCountBadge');
+      const pagesGridContainer = document.getElementById('pagesGridContainer');
+      const deletePagesBtn = document.getElementById('deletePagesBtn');
+      const progressContainer = document.getElementById('progressContainer');
+      const errorContainer = document.getElementById('errorContainer');
+      const resultContainer = document.getElementById('resultContainer');
+
+      PDFCommon.setupDropzone(dropzone, fileInput, (files) => {
+        if (files.length > 0) loadFile(files[0]);
+      });
+
+      if (changeFileBtn) {
+        changeFileBtn.addEventListener('click', () => {
+          currentFile = null;
+          deleteOptionsContainer.style.display = 'none';
+          dropzone.style.display = 'flex';
+          PDFUI.clearError(errorContainer);
+        });
+      }
+
+      async function loadFile(file) {
+        PDFUI.clearError(errorContainer);
+        const check = PDFCommon.validateFile(file, ['application/pdf'], 150);
+        if (!check.valid) {
+          PDFUI.showError(errorContainer, check.error);
+          return;
+        }
+
+        currentFile = file;
+        PDFUI.showProgress(progressContainer, 20, 'Reading PDF structure...');
+
+        try {
+          const pdfjsLib = await PDFCommon.requirePdfJs();
+          const buffer = await PDFCommon.readFileAsArrayBuffer(file);
+          loadedPdfDoc = await pdfjsLib.getDocument({ data: buffer }).promise;
+          totalPages = loadedPdfDoc.numPages;
+
+          fileNameDisplay.textContent = file.name;
+          fileMetaDisplay.textContent = `${PDFUtils.formatBytes(file.size)} • ${totalPages} page${totalPages === 1 ? '' : 's'}`;
+
+          PDFUI.showProgress(progressContainer, 60, 'Rendering page thumbnails...');
+          pageStates = await PDFUI.renderPagesGrid(pagesGridContainer, loadedPdfDoc, {
+            deletable: true,
+            rotatable: false,
+            selectable: false,
+            onSelectionChange: () => updateDeleteCount()
+          });
+
+          PDFUI.hideProgress(progressContainer);
+          dropzone.style.display = 'none';
+          deleteOptionsContainer.style.display = 'block';
+          updateDeleteCount();
+        } catch (err) {
+          console.error(err);
+          PDFUI.hideProgress(progressContainer);
+          PDFUI.showError(errorContainer, `Failed to load PDF: ${err.message}`);
+        }
+      }
+
+      function updateDeleteCount() {
+        if (!pageStates) return;
+        const deletedCount = pageStates.filter(s => s.deleted).length;
+        deleteCountBadge.textContent = `${deletedCount} page${deletedCount === 1 ? '' : 's'}`;
+      }
+
+      if (deleteRangeInput) {
+        deleteRangeInput.addEventListener('input', (e) => {
+          const rangeIndices = PDFUtils.parsePageRanges(e.target.value.trim(), totalPages);
+          const cards = pagesGridContainer.querySelectorAll('.pdf-page-card');
+          pageStates.forEach((st, idx) => {
+            st.deleted = rangeIndices.includes(idx);
+            cards[idx]?.classList.toggle('deleted', st.deleted);
+            const btn = cards[idx]?.querySelector('.delete-page-btn');
+            if (btn) {
+              btn.innerHTML = st.deleted ? '<i class="fa-solid fa-rotate-left text-xs"></i>' : '<i class="fa-solid fa-trash text-xs"></i>';
+            }
+          });
+          updateDeleteCount();
+        });
+      }
+
+      if (deletePagesBtn) {
+        deletePagesBtn.addEventListener('click', async () => {
+          if (!currentFile) return;
+
+          const pagesToKeep = pageStates.filter(s => !s.deleted).map(s => s.pageNumber - 1);
+          if (pagesToKeep.length === 0) {
+            PDFUI.showError(errorContainer, 'You cannot delete all pages of the document.');
+            return;
+          }
+
+          if (pagesToKeep.length === totalPages) {
+            PDFUI.showError(errorContainer, 'Please mark at least one page to delete.');
+            return;
+          }
+
+          PDFUI.clearError(errorContainer);
+          deletePagesBtn.disabled = true;
+          PDFUI.showProgress(progressContainer, 20, 'Removing marked pages...');
+
+          try {
+            const { PDFDocument } = await PDFCommon.requirePdfLib();
+            const buffer = await PDFCommon.readFileAsArrayBuffer(currentFile);
+            const sourceDoc = await PDFDocument.load(buffer, { ignoreEncryption: true });
+            const cleanDoc = await PDFDocument.create();
+
+            const copiedPages = await cleanDoc.copyPages(sourceDoc, pagesToKeep);
+            copiedPages.forEach(p => cleanDoc.addPage(p));
+
+            PDFUI.showProgress(progressContainer, 80, 'Saving cleaned PDF...');
+            const cleanBytes = await cleanDoc.save();
+            const cleanBlob = new Blob([cleanBytes], { type: 'application/pdf' });
+
+            PDFUI.hideProgress(progressContainer);
+            deleteOptionsContainer.style.display = 'none';
+
+            PDFUI.renderResult(resultContainer, {
+              filename: `cleaned-${currentFile.name}`,
+              blob: cleanBlob,
+              originalSize: currentFile.size,
+              newSize: cleanBytes.byteLength,
+              onReset: () => {
+                resultContainer.style.display = 'none';
+                dropzone.style.display = 'flex';
+                deletePagesBtn.disabled = false;
+              }
+            });
+          } catch (err) {
+            console.error(err);
+            PDFUI.hideProgress(progressContainer);
+            PDFUI.showError(errorContainer, `Deletion failed: ${err.message}`);
+            deletePagesBtn.disabled = false;
+          }
+        });
+      }
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+          button.parentElement.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

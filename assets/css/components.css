@@ -1,0 +1,245 @@
+/* ==========================================================================
+   360tools.me — PDF Tools Ecosystem: Reusable Components CSS
+   ========================================================================== */
+
+/* Buttons */
+.pdf-btn-primary {
+  background-color: var(--fa-blue);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.6rem;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  box-shadow: 0 4px 14px rgba(194, 120, 3, 0.28);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.pdf-btn-primary:hover:not(:disabled) {
+  background-color: var(--fa-blue-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(194, 120, 3, 0.38);
+  color: #ffffff;
+}
+
+.pdf-btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.pdf-btn-secondary {
+  background-color: #ffffff;
+  color: var(--fa-navy);
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.3rem;
+  border: 1px solid var(--fa-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-xs);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.pdf-btn-secondary:hover:not(:disabled) {
+  background-color: var(--fa-bg-subtle);
+  border-color: #cbd5e1;
+  color: var(--fa-blue);
+  transform: translateY(-1px);
+}
+
+.pdf-btn-red {
+  background-color: var(--pdf-red);
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.6rem;
+  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.28);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.pdf-btn-red:hover:not(:disabled) {
+  background-color: var(--pdf-red-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(225, 29, 72, 0.38);
+}
+
+/* Privacy Security Badges */
+.privacy-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  background-color: var(--fa-emerald-light);
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.privacy-badge i {
+  color: #059669;
+}
+
+/* Feature & Metric Badges */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.badge-pill-blue {
+  background-color: var(--fa-blue-light);
+  color: var(--fa-blue);
+  border: 1px solid rgba(194, 120, 3, 0.25);
+}
+
+.badge-pill-purple {
+  background-color: var(--fa-purple-light);
+  color: var(--fa-purple);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+}
+
+/* AdSense Reserved Slot Containers with Fixed Dimensions to Prevent CLS */
+.ad-slot-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+  text-align: center;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px dashed rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-md);
+}
+
+.ad-slot-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fa-text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.ad-slot-leaderboard {
+  min-height: 90px;
+  max-width: 728px;
+  width: 100%;
+}
+
+.ad-slot-rectangle {
+  min-height: 250px;
+  max-width: 300px;
+  width: 100%;
+}
+
+.ad-slot-responsive {
+  min-height: 100px;
+  width: 100%;
+}
+
+/* Breadcrumbs */
+.pdf-breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--fa-text-sub);
+  margin-bottom: 1.25rem;
+}
+
+.pdf-breadcrumbs a {
+  color: var(--fa-text-sub);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.pdf-breadcrumbs a:hover {
+  color: var(--fa-blue);
+  text-decoration: underline;
+}
+
+.pdf-breadcrumbs .separator {
+  color: var(--fa-text-muted);
+  font-size: 0.65rem;
+}
+
+.pdf-breadcrumbs .current {
+  color: var(--fa-navy);
+  font-weight: 800;
+}
+
+/* FAQ Accordion */
+.faq-item {
+  background: #ffffff;
+  border: 1px solid var(--fa-border);
+  border-radius: var(--radius-md);
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.faq-item:hover {
+  border-color: #cbd5e1;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 1.15rem 1.35rem;
+  text-align: left;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--fa-navy);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.faq-question i {
+  color: var(--fa-blue);
+  transition: transform 0.2s ease;
+  font-size: 0.85rem;
+}
+
+.faq-item.open .faq-question i {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 1.35rem 1.15rem 1.35rem;
+  font-size: 0.88rem;
+  color: var(--fa-text-sub);
+  line-height: 1.65;
+}

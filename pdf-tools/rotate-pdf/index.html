@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Rotate PDF Online Free — Permanently Rotate PDF Pages in Browser | 360Tools</title>
+  <meta name="title" content="Rotate PDF Online Free — Permanently Rotate PDF Pages in Browser | 360Tools">
+  <meta name="description" content="Rotate PDF pages 90, 180, or 270 degrees online for free. Fix sideways or upside down scanned pages with interactive visual previews and 100% in-browser privacy.">
+  <meta name="keywords" content="rotate PDF, rotate PDF pages, rotate PDF online, permanently rotate PDF, flip PDF upside down, 360tools">
+  <meta name="author" content="360Tools (360tools.me)">
+  <link rel="canonical" href="https://360tools.me/pdf-tools/rotate-pdf/">
+
+  <!-- Favicon & Open Graph -->
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/pdf-tools/rotate-pdf/">
+  <meta property="og:title" content="Rotate PDF Pages Online Free — 100% Client-Side Private | 360Tools">
+  <meta property="og:description" content="Rotate individual or all PDF pages permanently with live visual previews. Zero cloud uploads.">
+  <meta property="og:image" content="images/logo.webp">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/pdf-tools/rotate-pdf/">
+  <meta property="twitter:title" content="Free Online PDF Rotator — 100% In-Browser Privacy">
+  <meta property="twitter:description" content="Rotate sideways or upside-down PDF pages safely in local browser memory.">
+  <meta property="twitter:image" content="images/logo.webp">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Client-Side Rotate PDF Tool",
+    "url": "https://360tools.me/pdf-tools/rotate-pdf/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "description": "Rotate single or all pages of a PDF document directly in your web browser.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "PDF Tools",
+        "item": "https://360tools.me/pdf-tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Rotate PDF",
+        "item": "https://360tools.me/pdf-tools/rotate-pdf/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does this tool permanently save the rotated pages?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The rotation metadata is embedded directly into the PDF document structure so that pages appear correctly in Adobe Acrobat, Apple Preview, Google Chrome, and on printouts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I rotate only specific pages in a PDF?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! You can rotate individual pages by clicking the rotate button on each thumbnail card, or use the batch buttons to rotate all pages at once."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my files uploaded to your server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Never. All page rotation and PDF re-saving occur 100% locally inside your browser memory using PDF-Lib."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- Master Stylesheet & PDF Tool Assets -->
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/tools.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto w-full flex-1 pt-6 pb-16">
+    
+    <!-- Breadcrumbs -->
+    <nav class="pdf-breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <a href="pdf-tools/index.html">PDF Tools</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <span class="current">Rotate PDF</span>
+    </nav>
+
+    <!-- Header / Title Section -->
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <div class="inline-flex items-center gap-2 mb-3">
+        <span class="privacy-badge">
+          <i class="fa-solid fa-shield-halved"></i> 100% In-Browser Privacy • Zero Cloud Uploads
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight mb-2">
+        Rotate PDF Pages
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        Permanently rotate upside-down or sideways PDF pages by 90°, 180°, or 270° with interactive visual previews.
+      </p>
+    </div>
+
+    <!-- Ad Slot (Top Reserved Container) -->
+    <div class="ad-slot-container ad-slot-leaderboard">
+      <div class="ad-slot-label">Advertisement</div>
+      <div class="text-xs text-slate-400 font-medium py-4">Reserved Ad Container</div>
+    </div>
+
+    <!-- TOOL UI WRAPPER -->
+    <div class="pdf-tool-wrapper">
+      
+      <!-- Dropzone -->
+      <div class="pdf-dropzone" id="dropzone">
+        <div class="pdf-dropzone-icon">
+          <i class="fa-solid fa-rotate"></i>
+        </div>
+        <div>
+          <div class="pdf-dropzone-title">Drag & drop a PDF to rotate</div>
+          <div class="pdf-dropzone-subtitle">or click to browse from your device</div>
+        </div>
+        <input type="file" id="fileInput" accept=".pdf,application/pdf" class="hidden">
+        <button type="button" class="pdf-btn-secondary mt-2">
+          <i class="fa-solid fa-folder-open"></i>
+          <span>Choose PDF File</span>
+        </button>
+      </div>
+
+      <!-- Loaded File & Options Container -->
+      <div id="rotateOptionsContainer" style="display:none;" class="space-y-6">
+        <div class="pdf-file-item">
+          <div class="pdf-file-item-left">
+            <div class="pdf-file-item-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="pdf-file-item-meta">
+              <div class="pdf-file-item-name" id="fileNameDisplay">document.pdf</div>
+              <div class="pdf-file-item-size" id="fileMetaDisplay">0 KB • 0 pages</div>
+            </div>
+          </div>
+          <button type="button" id="changeFileBtn" class="pdf-action-btn" title="Choose another file">
+            <i class="fa-solid fa-rotate-left text-xs"></i>
+          </button>
+        </div>
+
+        <!-- Global Rotate Buttons -->
+        <div class="flex flex-wrap items-center justify-between gap-3 bg-slate-50 p-3.5 rounded-2xl border border-slate-200">
+          <span class="text-xs font-black text-[#3e2723] uppercase tracking-wider">Rotate All Pages:</span>
+          <div class="flex items-center gap-2">
+            <button type="button" id="rotateAllCwBtn" class="pdf-btn-secondary py-1.5 px-3 text-xs font-bold">
+              <i class="fa-solid fa-rotate-right"></i>
+              <span>+90° Clockwise</span>
+            </button>
+            <button type="button" id="rotateAll180Btn" class="pdf-btn-secondary py-1.5 px-3 text-xs font-bold">
+              <i class="fa-solid fa-arrows-rotate"></i>
+              <span>180° Flip</span>
+            </button>
+            <button type="button" id="rotateAllCcwBtn" class="pdf-btn-secondary py-1.5 px-3 text-xs font-bold">
+              <i class="fa-solid fa-rotate-left"></i>
+              <span>-90° Counter</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Thumbnail Grid -->
+        <div>
+          <div class="text-xs font-black uppercase tracking-wider text-slate-400 mb-2">Click rotate icon on any page</div>
+          <div id="pagesGridContainer"></div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="pt-4 border-t border-slate-200 flex justify-end">
+          <button type="button" id="saveRotateBtn" class="pdf-btn-primary">
+            <i class="fa-solid fa-check"></i>
+            <span>Save & Download Rotated PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Container -->
+      <div id="progressContainer" style="display:none;"></div>
+
+      <!-- Error Alert -->
+      <div id="errorContainer" style="display:none;"></div>
+
+      <!-- Result Container -->
+      <div id="resultContainer" style="display:none;"></div>
+
+    </div>
+
+    <!-- Privacy Notice -->
+    <div class="bg-emerald-50/80 border border-emerald-200/90 rounded-2xl p-4 sm:p-5 mb-12 flex items-start gap-3.5">
+      <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-base font-bold">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <div class="space-y-1">
+        <h4 class="text-xs font-black uppercase tracking-wide text-emerald-950">100% In-Browser Privacy</h4>
+        <p class="text-xs text-emerald-800 leading-relaxed font-medium">
+          Your document pages are rotated in your browser memory. Files never leave your computer or phone.
+        </p>
+      </div>
+    </div>
+
+    <!-- How to Use Step-by-Step -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">How to Rotate PDF Pages Online</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">1</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Select PDF</h3>
+          <p class="text-xs text-slate-600">Choose the PDF document you want to adjust.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">2</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Rotate Pages</h3>
+          <p class="text-xs text-slate-600">Click individual page rotate buttons or use the Rotate All options.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">3</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Save & Download</h3>
+          <p class="text-xs text-slate-600">Download your permanently rotated PDF document immediately.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Does this tool permanently save the rotated pages?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Yes. The rotation metadata is embedded directly into the PDF document structure so that pages appear correctly in Adobe Acrobat, Apple Preview, Google Chrome, and on printouts.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I rotate only specific pages in a PDF?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Yes! You can rotate individual pages by clicking the rotate button on each thumbnail card, or use the batch buttons to rotate all pages at once.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Are my files uploaded to your server?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Never. All page rotation and PDF re-saving occur 100% locally inside your browser memory using PDF-Lib.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools Section -->
+    <section>
+      <h2 class="text-lg font-black text-[#3e2723] mb-4">Related PDF Tools</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="pdf-tools/merge-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-object-group"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Merge PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Combine multiple files</div>
+          </div>
+        </a>
+        <a href="pdf-tools/split-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-scissors"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Split PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Extract pages or ranges</div>
+          </div>
+        </a>
+        <a href="pdf-tools/delete-pdf-pages/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-trash-can"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Delete Pages</div>
+            <div class="text-[10px] text-slate-500 font-medium">Remove unwanted pages</div>
+          </div>
+        </a>
+        <a href="pdf-tools/extract-pdf-pages/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-fuchsia-50 text-fuchsia-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Extract Pages</div>
+            <div class="text-[10px] text-slate-500 font-medium">Save selected pages</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="assets/js/pdf/pdf-common.js"></script>
+  <script src="assets/js/pdf/pdf-utils.js"></script>
+  <script src="assets/js/pdf/pdf-ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let currentFile = null;
+      let loadedPdfDoc = null;
+      let totalPages = 0;
+      let pageStates = [];
+
+      const dropzone = document.getElementById('dropzone');
+      const fileInput = document.getElementById('fileInput');
+      const rotateOptionsContainer = document.getElementById('rotateOptionsContainer');
+      const fileNameDisplay = document.getElementById('fileNameDisplay');
+      const fileMetaDisplay = document.getElementById('fileMetaDisplay');
+      const changeFileBtn = document.getElementById('changeFileBtn');
+      const pagesGridContainer = document.getElementById('pagesGridContainer');
+      const rotateAllCwBtn = document.getElementById('rotateAllCwBtn');
+      const rotateAll180Btn = document.getElementById('rotateAll180Btn');
+      const rotateAllCcwBtn = document.getElementById('rotateAllCcwBtn');
+      const saveRotateBtn = document.getElementById('saveRotateBtn');
+      const progressContainer = document.getElementById('progressContainer');
+      const errorContainer = document.getElementById('errorContainer');
+      const resultContainer = document.getElementById('resultContainer');
+
+      PDFCommon.setupDropzone(dropzone, fileInput, (files) => {
+        if (files.length > 0) loadFile(files[0]);
+      });
+
+      if (changeFileBtn) {
+        changeFileBtn.addEventListener('click', () => {
+          currentFile = null;
+          rotateOptionsContainer.style.display = 'none';
+          dropzone.style.display = 'flex';
+          PDFUI.clearError(errorContainer);
+        });
+      }
+
+      async function loadFile(file) {
+        PDFUI.clearError(errorContainer);
+        const check = PDFCommon.validateFile(file, ['application/pdf'], 150);
+        if (!check.valid) {
+          PDFUI.showError(errorContainer, check.error);
+          return;
+        }
+
+        currentFile = file;
+        PDFUI.showProgress(progressContainer, 20, 'Reading PDF structure...');
+
+        try {
+          const pdfjsLib = await PDFCommon.requirePdfJs();
+          const buffer = await PDFCommon.readFileAsArrayBuffer(file);
+          loadedPdfDoc = await pdfjsLib.getDocument({ data: buffer }).promise;
+          totalPages = loadedPdfDoc.numPages;
+
+          fileNameDisplay.textContent = file.name;
+          fileMetaDisplay.textContent = `${PDFUtils.formatBytes(file.size)} • ${totalPages} page${totalPages === 1 ? '' : 's'}`;
+
+          PDFUI.showProgress(progressContainer, 60, 'Rendering page thumbnails...');
+          pageStates = await PDFUI.renderPagesGrid(pagesGridContainer, loadedPdfDoc, {
+            rotatable: true,
+            selectable: false,
+            deletable: false,
+            onRotate: (pageIdx, angle) => {
+              // Rotation state updated in pageStates
+            }
+          });
+
+          PDFUI.hideProgress(progressContainer);
+          dropzone.style.display = 'none';
+          rotateOptionsContainer.style.display = 'block';
+        } catch (err) {
+          console.error(err);
+          PDFUI.hideProgress(progressContainer);
+          PDFUI.showError(errorContainer, `Failed to load PDF: ${err.message}`);
+        }
+      }
+
+      function applyGlobalRotation(delta) {
+        if (!pageStates) return;
+        const cards = pagesGridContainer.querySelectorAll('.pdf-page-card');
+        pageStates.forEach((st, idx) => {
+          st.rotation = (st.rotation + delta + 360) % 360;
+          const canvas = cards[idx]?.querySelector('canvas');
+          if (canvas) {
+            canvas.style.transform = `rotate(${st.rotation}deg)`;
+            canvas.style.transition = 'transform 0.2s ease';
+          }
+        });
+      }
+
+      if (rotateAllCwBtn) rotateAllCwBtn.addEventListener('click', () => applyGlobalRotation(90));
+      if (rotateAll180Btn) rotateAll180Btn.addEventListener('click', () => applyGlobalRotation(180));
+      if (rotateAllCcwBtn) rotateAllCcwBtn.addEventListener('click', () => applyGlobalRotation(-90));
+
+      if (saveRotateBtn) {
+        saveRotateBtn.addEventListener('click', async () => {
+          if (!currentFile) return;
+
+          PDFUI.clearError(errorContainer);
+          saveRotateBtn.disabled = true;
+          PDFUI.showProgress(progressContainer, 20, 'Applying rotations...');
+
+          try {
+            const { PDFDocument, degrees } = await PDFCommon.requirePdfLib();
+            const buffer = await PDFCommon.readFileAsArrayBuffer(currentFile);
+            const pdfDoc = await PDFDocument.load(buffer, { ignoreEncryption: true });
+            const pages = pdfDoc.getPages();
+
+            pages.forEach((page, i) => {
+              const state = pageStates[i];
+              if (state && state.rotation !== 0) {
+                const currentAngle = page.getRotation().angle || 0;
+                const newAngle = (currentAngle + state.rotation) % 360;
+                page.setRotation(degrees(newAngle));
+              }
+            });
+
+            PDFUI.showProgress(progressContainer, 80, 'Saving rotated document...');
+            const rotatedBytes = await pdfDoc.save();
+            const rotatedBlob = new Blob([rotatedBytes], { type: 'application/pdf' });
+
+            PDFUI.hideProgress(progressContainer);
+            rotateOptionsContainer.style.display = 'none';
+
+            PDFUI.renderResult(resultContainer, {
+              filename: `rotated-${currentFile.name}`,
+              blob: rotatedBlob,
+              newSize: rotatedBytes.byteLength,
+              onReset: () => {
+                resultContainer.style.display = 'none';
+                dropzone.style.display = 'flex';
+                saveRotateBtn.disabled = false;
+              }
+            });
+          } catch (err) {
+            console.error(err);
+            PDFUI.hideProgress(progressContainer);
+            PDFUI.showError(errorContainer, `Rotation failed: ${err.message}`);
+            saveRotateBtn.disabled = false;
+          }
+        });
+      }
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+          button.parentElement.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

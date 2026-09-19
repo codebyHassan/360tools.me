@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <base href="../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Primary Meta Tags -->
+  <title>Free Image & Video Watermark Remover Online | 360tools</title>
+  <meta name="title" content="Free Image & Video Watermark Remover Online  | 360tools">
+  <meta name="description"
+    content="Remove watermarks, logos, text, and stamps from images and videos online for free. Select the watermark area and erase it with in-browser content-aware inpainting. 100% private.">
+  <meta name="keywords"
+    content="watermark remover, remove watermark from image, remove watermark from video, free watermark eraser online, erase logo from photo, video delogo online, no api key watermark remover, client side watermark remover, object removal in browser">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/image-tools/watermark-remover.html">
+
+  <!-- Favicon & Open Graph / Facebook -->
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/watermark-remover.html">
+  <meta property="og:title" content="Free Image & Video Watermark Remover Online | 360tools.me">
+  <meta property="og:description"
+    content="Erase watermarks, logos, timestamps, and subtitles from images and videos with zero server uploads and no API keys required.">
+  <meta property="og:image" content="images/logo.webp">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/watermark-remover.html">
+  <meta property="twitter:title" content="Free Image & Video Watermark Remover Online">
+  <meta property="twitter:description"
+    content="Select watermark region and erase logos from images and videos 100% in-browser.">
+  <meta property="twitter:image" content="images/logo.webp">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Client-Side Image and Video Watermark Remover",
+    "url": "https://360tools.me/watermark-remover.html",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "description": "100% in-browser image and video watermark remover. Erase logos, stamps, timestamps, and unwanted text without API keys or server uploads.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does the watermark remover work without an API key or server upload?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The tool uses high-performance HTML5 Canvas and mathematical content-aware inpainting algorithms directly in your browser memory. It analyzes the border pixels surrounding the selected watermark and diffuses the background texture smoothly to erase the logo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I remove watermarks from both photos and videos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! You can switch between 'Image Watermark Remover' (for JPG, PNG, WebP) and 'Video Watermark Remover' (for MP4, WebM, MOV). On video, it tracks the watermark bounding box and cleans every frame during playback or export."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my private media uploaded to any server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Never. All image rendering, video decoding, and watermark removal execute 100% locally on your computer. Your files never leave your device."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Media & Creator Tools",
+        "item": "https://360tools.me/#media-tools"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Watermark Remover",
+        "item": "https://360tools.me/watermark-remover.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Font Awesome Icons 6.5.1 -->
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- Master Stylesheet (FontAwesome / SaaS Theme) -->
+  <link rel="stylesheet" href="css/style.min.css">
+
+  <!-- Tailwind CSS CDN -->
+
+  <style>
+    .selection-box {
+      border: 2px dashed #4f46e5;
+      background: rgba(79, 70, 229, 0.25);
+      position: absolute;
+      cursor: move;
+      user-select: none;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.6);
+    }
+
+    .selection-handle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #ffffff;
+      border: 2px solid #4f46e5;
+      border-radius: 50%;
+    }
+
+    .handle-nw {
+      top: -5px;
+      left: -5px;
+      cursor: nw-resize;
+    }
+
+    .handle-ne {
+      top: -5px;
+      right: -5px;
+      cursor: ne-resize;
+    }
+
+    .handle-sw {
+      bottom: -5px;
+      left: -5px;
+      cursor: sw-resize;
+    }
+
+    .handle-se {
+      bottom: -5px;
+      right: -5px;
+      cursor: se-resize;
+    }
+
+    /* Before/After Split Comparison Slider */
+    .compare-container {
+      position: relative;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    .compare-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      overflow: hidden;
+      border-right: 2px solid #ffffff;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .compare-slider-handle {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 32px;
+      height: 32px;
+      background: #4f46e5;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      cursor: ew-resize;
+      z-index: 20;
+    }
+  </style>
+</head>
+
+<body
+  class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto w-full flex-1">
+
+    <!-- Hero / Headline Above the Fold -->
+    <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span
+            class="bg-indigo-50 text-indigo-700 text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> 100% In-Browser Content-Aware Inpainter
+          </span>
+          <span class="text-xs font-bold text-slate-400">• Zero API Keys • Image & Video • 100% Private</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
+          Free Image & Video Watermark Remover
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
+          Select the watermark, logo, or timestamp with a box or brush mask to erase it with seamless texture infill.
+          Works 100% client-side in your browser.
+        </p>
+      </div>
+
+      <!-- Quick Sample Buttons -->
+      <div class="flex flex-wrap items-center gap-2 self-start sm:self-center">
+        <button onclick="loadSampleMedia('image')" class="fa-btn-secondary text-xs px-3.5 py-2 font-bold"
+          title="Test sample image with watermark logo">
+          <i class="fa-solid fa-image text-indigo-600"></i> Sample Image
+        </button>
+        <button onclick="loadSampleMedia('video')" class="fa-btn-secondary text-xs px-3.5 py-2 font-bold"
+          title="Test sample video with animated watermark">
+          <i class="fa-solid fa-video text-rose-600"></i> Sample Video
+        </button>
+      </div>
+    </div>
+
+    <!-- MAIN MEDIA WORKSPACE -->
+    <section class="space-y-6">
+
+      <!-- MediaType Tab Switcher (Image vs Video) -->
+      <div class="flex items-center justify-between bg-white p-2 rounded-2xl border border-slate-200 shadow-xs">
+        <div class="flex items-center gap-2">
+          <button type="button" id="tabModeImage" onclick="switchMediaType('image')"
+            class="px-4 py-2 rounded-xl text-xs font-black bg-[#3e2723] text-white transition-all flex items-center gap-2 shadow-xs">
+            <i class="fa-solid fa-image text-indigo-300"></i> Image Watermark Remover
+          </button>
+          <button type="button" id="tabModeVideo" onclick="switchMediaType('video')"
+            class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 transition-all flex items-center gap-2">
+            <i class="fa-solid fa-film text-rose-500"></i> Video Watermark Remover
+          </button>
+        </div>
+
+        <div class="hidden sm:flex items-center gap-2 text-xs font-bold text-slate-400">
+          <i class="fa-solid fa-shield-halved text-emerald-600"></i> 100% In-Memory Processing
+        </div>
+      </div>
+
+      <!-- WORKSPACE GRID (Left Controls + Right Canvas Workspace) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+        <!-- LEFT CONTROL PANEL (4 cols) -->
+        <div class="lg:col-span-4 space-y-4">
+
+          <!-- Upload Box -->
+          <div class="fa-card p-5 space-y-4">
+            <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+              <h2 class="text-sm font-black text-[#3e2723] flex items-center gap-2">
+                <i class="fa-solid fa-cloud-arrow-up text-indigo-600"></i> 1. Select Media File
+              </h2>
+              <span id="mediaTypeBadge"
+                class="text-[10px] font-black bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full uppercase">Image
+                Mode</span>
+            </div>
+
+            <!-- Drag & Drop Zone -->
+            <div id="mediaDropZone"
+              class="border-2 border-dashed border-slate-300 hover:border-indigo-500 bg-slate-50/50 hover:bg-indigo-50/20 rounded-2xl p-6 text-center cursor-pointer transition-all">
+              <input type="file" id="mediaFileInput" accept="image/*" class="hidden" onchange="handleFileSelect(event)">
+              <div
+                class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-600 mx-auto flex items-center justify-center text-xl mb-3">
+                <i id="dropZoneIcon" class="fa-solid fa-image"></i>
+              </div>
+              <h3 class="text-xs font-black text-[#3e2723]" id="dropZonePrompt">Click or Drag & Drop Image Here</h3>
+              <p class="text-[11px] text-slate-500 mt-1" id="dropZoneFormats">Supports JPG, PNG, WebP, BMP (Up to 50MB)
+              </p>
+            </div>
+
+            <!-- Loaded File Status Pill -->
+            <div id="loadedFileInfo"
+              class="hidden p-3 bg-indigo-50/60 border border-indigo-200/80 rounded-xl flex items-center justify-between text-xs">
+              <div class="flex items-center gap-2 truncate pr-2">
+                <i class="fa-solid fa-file-circle-check text-indigo-600"></i>
+                <span id="loadedFileName" class="font-bold text-[#3e2723] truncate">sample.jpg</span>
+              </div>
+              <span id="loadedFileMeta" class="text-[10px] font-black text-slate-500 shrink-0">1920x1080</span>
+            </div>
+          </div>
+
+          <!-- Watermark Masking & Removal Tools -->
+          <div class="fa-card p-5 space-y-4">
+            <h2 class="text-sm font-black text-[#3e2723] flex items-center gap-2 pb-2 border-b border-slate-100">
+              <i class="fa-solid fa-crop-simple text-indigo-600"></i> 2. Watermark Selection & Mode
+            </h2>
+
+            <!-- Tool Selection Buttons -->
+            <div class="grid grid-cols-2 gap-2">
+              <button type="button" id="toolBtnBox" onclick="setSelectTool('box')"
+                class="p-2.5 rounded-xl border-2 border-indigo-600 bg-indigo-50/50 text-indigo-700 font-bold text-xs flex items-center justify-center gap-1.5 transition-all">
+                <i class="fa-solid fa-vector-square"></i> Box Selection
+              </button>
+              <button type="button" id="toolBtnBrush" onclick="setSelectTool('brush')"
+                class="p-2.5 rounded-xl border border-slate-200 text-slate-600 hover:text-slate-900 font-bold text-xs flex items-center justify-center gap-1.5 transition-all">
+                <i class="fa-solid fa-paintbrush"></i> Brush Eraser
+              </button>
+            </div>
+
+            <!-- Inpainting Algorithm Selection -->
+            <div class="space-y-1.5">
+              <label class="text-xs font-bold text-slate-700 block">Removal Algorithm:</label>
+              <select id="inpaintMethod" class="fa-input text-xs w-full py-2 bg-white">
+                <option value="content_aware" selected>Content-Aware Texture Inpaint (Best for Complex Photos)</option>
+                <option value="edge_diffusion">Border Gradient Diffusion (Best for Solid/Gradient Backgrounds)</option>
+                <option value="delogo_blur">Delogo Smooth Blur (Best for Watermarks & Channel Stamps)</option>
+                <option value="texture_clone">Surrounding Clone & Feather</option>
+              </select>
+            </div>
+
+            <!-- Feather / Smooth Radius Slider -->
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between text-xs font-bold text-slate-700">
+                <span>Edge Feather & Smoothing:</span>
+                <span id="featherValBadge" class="text-indigo-600 font-black">6 px</span>
+              </div>
+              <input type="range" id="featherSlider" min="0" max="25" value="6" oninput="updateFeatherVal(this.value)"
+                class="w-full accent-indigo-600 cursor-pointer">
+            </div>
+
+            <!-- Brush Size Slider (Visible in Brush Mode) -->
+            <div id="brushSizeControl" class="hidden space-y-1.5">
+              <div class="flex items-center justify-between text-xs font-bold text-slate-700">
+                <span>Brush Mask Size:</span>
+                <span id="brushSizeBadge" class="text-indigo-600 font-black">24 px</span>
+              </div>
+              <input type="range" id="brushSizeSlider" min="8" max="80" value="24" oninput="updateBrushSize(this.value)"
+                class="w-full accent-indigo-600 cursor-pointer">
+            </div>
+
+            <!-- Active Boxes Counter & Reset -->
+            <div class="flex items-center justify-between pt-2 border-t border-slate-100 text-xs">
+              <span class="text-slate-500 font-medium">
+                Active Masks: <b id="maskCountBadge" class="text-[#3e2723]">1 Area</b>
+              </span>
+              <button type="button" onclick="clearAllMasks()"
+                class="text-rose-600 hover:text-rose-700 font-bold flex items-center gap-1">
+                <i class="fa-solid fa-trash text-[10px]"></i> Reset Selection
+              </button>
+            </div>
+
+            <!-- Main Process Button -->
+            <button type="button" id="processMediaBtn" onclick="executeWatermarkRemoval()"
+              class="fa-btn-primary w-full py-3 text-sm font-black bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 shadow-md flex items-center justify-center gap-2">
+              <i class="fa-solid fa-eraser text-amber-300"></i> Remove Watermark Now
+            </button>
+          </div>
+
+          <!-- Video Controls (Shown when video is loaded) -->
+          <div id="videoExportPanel"
+            class="hidden fa-card p-5 space-y-3 border-2 border-rose-200 bg-gradient-to-br from-white to-rose-50/20">
+            <h3 class="text-xs font-black text-[#3e2723] flex items-center gap-2">
+              <i class="fa-solid fa-video text-rose-600"></i> Video Export Settings
+            </h3>
+
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <div>
+                <label class="text-[11px] font-bold text-slate-600 block mb-1">Export Format:</label>
+                <select id="videoFormatSelect" class="fa-input text-xs w-full py-1.5 bg-white">
+                  <option value="video/webm;codecs=vp9">WebM (VP9 Fast)</option>
+                  <option value="video/mp4">MP4 (H.264 if supported)</option>
+                </select>
+              </div>
+              <div>
+                <label class="text-[11px] font-bold text-slate-600 block mb-1">Quality Bitrate:</label>
+                <select id="videoBitrateSelect" class="fa-input text-xs w-full py-1.5 bg-white">
+                  <option value="8000000">Ultra (8 Mbps)</option>
+                  <option value="5000000" selected>High (5 Mbps)</option>
+                  <option value="2500000">Medium (2.5 Mbps)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Video Render Progress Bar -->
+            <div id="videoRenderProgressBox" class="hidden space-y-1.5 pt-2">
+              <div class="flex items-center justify-between text-xs font-bold text-slate-700">
+                <span id="renderStatusText">Rendering clean video frames...</span>
+                <span id="renderPctBadge" class="text-rose-600 font-black">0%</span>
+              </div>
+              <div class="w-full bg-slate-200 rounded-full h-2.5 overflow-hidden">
+                <div id="renderProgressBar" class="bg-rose-600 h-2.5 rounded-full transition-all duration-300"
+                  style="width: 0%"></div>
+              </div>
+            </div>
+
+            <button type="button" id="exportVideoBtn" onclick="startVideoExport()"
+              class="fa-btn-primary w-full py-2.5 text-xs font-black bg-rose-600 hover:bg-rose-700 text-white flex items-center justify-center gap-2 shadow-sm">
+              <i class="fa-solid fa-file-video"></i> Export & Download Clean Video
+            </button>
+          </div>
+
+        </div>
+
+        <!-- RIGHT WORKSPACE: Interactive Canvas & Comparison Player (8 cols) -->
+        <div class="lg:col-span-8 space-y-4">
+
+          <div class="fa-card p-5 sm:p-6 space-y-4">
+
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-100">
+              <div class="flex items-center gap-2">
+                <h2 class="text-base font-black text-[#3e2723] flex items-center gap-2">
+                  <i class="fa-solid fa-display text-indigo-600"></i> Interactive Canvas Workspace
+                </h2>
+                <span id="activeToolHint"
+                  class="text-xs bg-slate-100 text-slate-600 font-bold px-2 py-0.5 rounded-md hidden sm:inline-block">
+                  Drag box to cover watermark
+                </span>
+              </div>
+
+              <!-- View Switcher (Edit vs Before/After Split) -->
+              <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl text-xs font-bold">
+                <button type="button" id="viewBtnEdit" onclick="switchCanvasView('edit')"
+                  class="px-3 py-1.5 rounded-lg bg-white shadow-xs text-indigo-600 transition-all">
+                  <i class="fa-solid fa-pencil mr-1"></i> Mask Editor
+                </button>
+                <button type="button" id="viewBtnCompare" onclick="switchCanvasView('compare')"
+                  class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all">
+                  <i class="fa-solid fa-arrows-left-right mr-1"></i> Before/After Split
+                </button>
+              </div>
+            </div>
+
+            <!-- VIEW 1: Interactive Canvas & Mask Editor -->
+            <div id="editorViewContainer"
+              class="relative w-full min-h-[420px] max-h-[640px] bg-slate-950 rounded-2xl flex items-center justify-center overflow-hidden border border-slate-800 shadow-inner">
+
+              <!-- Placeholder Prompt -->
+              <div id="canvasEmptyState" class="text-center p-8 space-y-3">
+                <div
+                  class="w-16 h-16 rounded-3xl bg-slate-900 text-slate-500 mx-auto flex items-center justify-center text-2xl border border-slate-800">
+                  <i class="fa-solid fa-image"></i>
+                </div>
+                <div>
+                  <h3 class="text-sm font-black text-slate-300">No Image or Video Loaded</h3>
+                  <p class="text-xs text-slate-500 mt-1 max-w-sm">
+                    Upload your file or click <b>"Sample Image"</b> / <b>"Sample Video"</b> above to test inpainting.
+                  </p>
+                </div>
+                <button onclick="document.getElementById('mediaFileInput').click()"
+                  class="fa-btn-secondary text-xs px-4 py-2 font-bold inline-flex items-center gap-2">
+                  <i class="fa-solid fa-cloud-arrow-up text-indigo-500"></i> Browse File
+                </button>
+              </div>
+
+              <!-- Primary Working Canvas Container -->
+              <div id="canvasWrapper"
+                class="relative hidden select-none max-w-full max-h-[620px] flex items-center justify-center">
+                <canvas id="mainCanvas"
+                  class="max-w-full max-h-[600px] object-contain rounded-lg shadow-2xl block"></canvas>
+                <!-- Drawing Overlay for Brush Mask -->
+                <canvas id="brushCanvas" class="absolute inset-0 pointer-events-none"></canvas>
+
+                <!-- Interactive Bounding Box DOM Container -->
+                <div id="boxContainer" class="absolute inset-0 pointer-events-none">
+                  <!-- Bounding boxes injected dynamically -->
+                </div>
+              </div>
+
+              <!-- Video Source (Hidden, used for decoding frames) -->
+              <video id="hiddenVideo" class="hidden" playsinline muted loop></video>
+
+            </div>
+
+            <!-- VIEW 2: Before / After Split Slider Comparison -->
+            <div id="compareViewContainer"
+              class="relative hidden w-full min-h-[420px] max-h-[640px] bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 flex items-center justify-center">
+              <div id="compareWrapper" class="compare-container relative max-w-full max-h-[600px]">
+                <!-- Base Image (Clean Inpainted) -->
+                <img id="compareCleanImg" class="max-w-full max-h-[600px] block rounded-lg select-none"
+                  alt="Clean Result">
+
+                <!-- Overlay Image (Original with Watermark) -->
+                <div id="compareOverlay" class="compare-overlay">
+                  <img id="compareOriginalImg" class="max-w-none max-h-[600px] block select-none"
+                    alt="Original Watermarked">
+                </div>
+
+                <!-- Slider Draggable Handle -->
+                <div id="compareHandle" class="compare-slider-handle">
+                  <i class="fa-solid fa-arrows-left-right text-xs"></i>
+                </div>
+
+                <!-- Labels -->
+                <span
+                  class="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-white font-black text-[10px] uppercase px-2.5 py-1 rounded-md z-10">
+                  Original (Watermarked)
+                </span>
+                <span
+                  class="absolute top-3 right-3 bg-indigo-600/90 backdrop-blur-md text-white font-black text-[10px] uppercase px-2.5 py-1 rounded-md z-10">
+                  Clean Result
+                </span>
+              </div>
+            </div>
+
+            <!-- Workspace Footer Toolbar -->
+            <div id="workspaceFooter"
+              class="hidden flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-100">
+
+              <div class="flex items-center gap-2 text-xs text-slate-500">
+                <span id="canvasDimBadge" class="font-bold text-slate-700">1920 x 1080 px</span>
+                <span>•</span>
+                <span id="canvasZoomBadge">Fit to View</span>
+              </div>
+
+              <!-- Action & Download Buttons -->
+              <div class="flex flex-wrap items-center gap-2">
+                <button type="button" onclick="resetCanvasToOriginal()"
+                  class="fa-btn-secondary text-xs px-3 py-2 font-bold" title="Revert to original file">
+                  <i class="fa-solid fa-rotate-left mr-1"></i> Revert Original
+                </button>
+                <button type="button" id="downloadCleanBtn" onclick="downloadCleanResult()"
+                  class="fa-btn-primary text-xs px-4 py-2 font-bold bg-[#3e2723] hover:bg-[#25406b] flex items-center gap-2 shadow-sm">
+                  <i class="fa-solid fa-download text-emerald-400"></i> Download Clean Image (.PNG)
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- SEO Content Section: Watermark Removal Technology & Best Practices -->
+    <section class="mt-16 pt-12 border-t border-slate-200">
+      <div class="max-w-4xl mx-auto space-y-12">
+
+        <div class="text-center">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight">
+            How Client-Side Inpainting Removes Watermarks
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base mt-2">
+            State-of-the-art computational photography algorithms running 100% locally in your web browser with zero
+            server uploads or external API costs.
+          </p>
+        </div>
+
+        <!-- 3 Feature Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="fa-card p-6">
+            <div
+              class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg mb-3">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2">
+              Content-Aware Infill
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Synthesizes surrounding gradients, color contours, and high-frequency textures to seamlessly reconstruct
+              the area beneath the watermark.
+            </p>
+          </div>
+
+          <div class="fa-card p-6">
+            <div
+              class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg mb-3">
+              <i class="fa-solid fa-lock"></i>
+            </div>
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2">
+              100% Client-Side Privacy
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Your sensitive photos, copyrighted graphics, and confidential videos never touch any third-party AI
+              backend or remote server.
+            </p>
+          </div>
+
+          <div class="fa-card p-6">
+            <div class="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-lg mb-3">
+              <i class="fa-solid fa-film"></i>
+            </div>
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2">
+              Frame-by-Frame Video Delogo
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Removes TV station logos, TikTok corner badges, and timestamp overlays across video sequences with
+              real-time stream re-encoding.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Accordion -->
+        <div class="space-y-4">
+          <h3 class="text-xl font-black text-[#3e2723] text-center mb-6">
+            Frequently Asked Questions
+          </h3>
+
+          <div class="space-y-3">
+            <details class="fa-card p-4 group cursor-pointer">
+              <summary class="font-bold text-sm text-[#3e2723] list-none flex items-center justify-between">
+                <span>What is the best way to select a watermark for clean removal?</span>
+                <i
+                  class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                For rectangular logos, stamps, or date-time overlays, use the <b>Box Selection Tool</b> and drag the
+                handles so the box just barely encloses the watermark. For irregular shapes or handwriting, switch to
+                the <b>Brush Eraser</b> and paint directly over the pixels you wish to erase.
+              </p>
+            </details>
+
+            <details class="fa-card p-4 group cursor-pointer">
+              <summary class="font-bold text-sm text-[#3e2723] list-none flex items-center justify-between">
+                <span>Which inpainting method should I choose?</span>
+                <i
+                  class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Use <b>Content-Aware Texture Inpaint</b> for photos with detailed background textures (sky, grass,
+                fabric). For solid or smooth gradient backgrounds, choose <b>Border Gradient Diffusion</b>. For TV
+                stamps or subtitles, use <b>Delogo Smooth Blur</b>.
+              </p>
+            </details>
+
+            <details class="fa-card p-4 group cursor-pointer">
+              <summary class="font-bold text-sm text-[#3e2723] list-none flex items-center justify-between">
+                <span>Are output downloads labeled with 360tools.me branding?</span>
+                <i
+                  class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2 leading-relaxed">
+                Yes! All processed images and videos are cleanly exported with filenames starting with
+                <code>360tools.me_watermark_removed_...</code> with no watermarks added by our tool.
+              </p>
+            </details>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Master Main JS (Header/Footer/Search Registry) -->
+  <script src="js/main.min.js"></script>
+
+  <!-- WATERMARK REMOVER ENGINE JAVASCRIPT -->
+  <script>
+    // State Management
+    let currentMediaType = 'image'; // 'image' | 'video'
+    let currentSelectTool = 'box';  // 'box' | 'brush'
+    let activeCanvasView = 'edit';   // 'edit' | 'compare'
+
+    let loadedFile = null;
+    let loadedFileName = '';
+    let originalImageObj = null;
+    let cleanImageObj = null;
+
+    let featherRadius = 6;
+    let brushSize = 24;
+
+    // Selection Boxes Array (normalized coordinates [0..1])
+    let selectionBoxes = [];
+    let isDrawingNewBox = false;
+    let activeBoxIndex = null;
+    let dragAction = null; // 'create' | 'move' | 'nw' | 'ne' | 'sw' | 'se'
+    let startDragPoint = { x: 0, y: 0 };
+    let initialBoxState = null;
+
+    // Video Engine State
+    let isVideoLoaded = false;
+    let videoMediaRecorder = null;
+    let recordedChunks = [];
+    let isExportingVideo = false;
+
+    // DOM Elements
+    const mainCanvas = document.getElementById('mainCanvas');
+    const mainCtx = mainCanvas.getContext('2d', { willReadFrequently: true });
+    const brushCanvas = document.getElementById('brushCanvas');
+    const brushCtx = brushCanvas.getContext('2d');
+    const boxContainer = document.getElementById('boxContainer');
+    const canvasWrapper = document.getElementById('canvasWrapper');
+    const canvasEmptyState = document.getElementById('canvasEmptyState');
+    const hiddenVideo = document.getElementById('hiddenVideo');
+
+    // Drag and Drop Listeners
+    const dropZone = document.getElementById('mediaDropZone');
+    ['dragenter', 'dragover'].forEach(name => {
+      dropZone.addEventListener(name, (e) => {
+        e.preventDefault();
+        dropZone.classList.add('border-indigo-500', 'bg-indigo-50/40');
+      });
+    });
+    ['dragleave', 'drop'].forEach(name => {
+      dropZone.addEventListener(name, (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('border-indigo-500', 'bg-indigo-50/40');
+      });
+    });
+    dropZone.addEventListener('drop', (e) => {
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        processLoadedFile(e.dataTransfer.files[0]);
+      }
+    });
+
+    function handleFileSelect(e) {
+      if (e.target.files && e.target.files.length > 0) {
+        processLoadedFile(e.target.files[0]);
+      }
+    }
+
+    // Switch between Image and Video mode
+    function switchMediaType(type) {
+      currentMediaType = type;
+      const isImg = type === 'image';
+
+      document.getElementById('tabModeImage').className = isImg
+        ? 'px-4 py-2 rounded-xl text-xs font-black bg-[#3e2723] text-white transition-all flex items-center gap-2 shadow-xs'
+        : 'px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 transition-all flex items-center gap-2';
+
+      document.getElementById('tabModeVideo').className = !isImg
+        ? 'px-4 py-2 rounded-xl text-xs font-black bg-[#3e2723] text-white transition-all flex items-center gap-2 shadow-xs'
+        : 'px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:text-slate-900 transition-all flex items-center gap-2';
+
+      document.getElementById('mediaTypeBadge').textContent = isImg ? 'Image Mode' : 'Video Mode';
+      document.getElementById('dropZoneIcon').className = isImg ? 'fa-solid fa-image' : 'fa-solid fa-video';
+      document.getElementById('dropZonePrompt').textContent = isImg ? 'Click or Drag & Drop Image Here' : 'Click or Drag & Drop Video (MP4/WebM) Here';
+      document.getElementById('dropZoneFormats').textContent = isImg ? 'Supports JPG, PNG, WebP, BMP (Up to 50MB)' : 'Supports MP4, WebM, MOV (Up to 200MB)';
+      document.getElementById('mediaFileInput').accept = isImg ? 'image/*' : 'video/*';
+      document.getElementById('downloadCleanBtn').innerHTML = isImg
+        ? '<i class="fa-solid fa-download text-emerald-400"></i> Download Clean Image (.PNG)'
+        : '<i class="fa-solid fa-download text-emerald-400"></i> Download Snapshot Frame';
+
+      document.getElementById('videoExportPanel').classList.toggle('hidden', isImg || !isVideoLoaded);
+    }
+
+    function setSelectTool(tool) {
+      currentSelectTool = tool;
+      const isBox = tool === 'box';
+
+      document.getElementById('toolBtnBox').className = isBox
+        ? 'p-2.5 rounded-xl border-2 border-indigo-600 bg-indigo-50/50 text-indigo-700 font-bold text-xs flex items-center justify-center gap-1.5 transition-all'
+        : 'p-2.5 rounded-xl border border-slate-200 text-slate-600 hover:text-slate-900 font-bold text-xs flex items-center justify-center gap-1.5 transition-all';
+
+      document.getElementById('toolBtnBrush').className = !isBox
+        ? 'p-2.5 rounded-xl border-2 border-indigo-600 bg-indigo-50/50 text-indigo-700 font-bold text-xs flex items-center justify-center gap-1.5 transition-all'
+        : 'p-2.5 rounded-xl border border-slate-200 text-slate-600 hover:text-slate-900 font-bold text-xs flex items-center justify-center gap-1.5 transition-all';
+
+      document.getElementById('brushSizeControl').classList.toggle('hidden', isBox);
+      document.getElementById('activeToolHint').textContent = isBox ? 'Drag box to cover watermark' : 'Paint brush over watermark area';
+    }
+
+    function updateFeatherVal(val) {
+      featherRadius = parseInt(val, 10);
+      document.getElementById('featherValBadge').textContent = `${featherRadius} px`;
+    }
+
+    function updateBrushSize(val) {
+      brushSize = parseInt(val, 10);
+      document.getElementById('brushSizeBadge').textContent = `${brushSize} px`;
+    }
+
+    // Process uploaded media file
+    function processLoadedFile(file) {
+      if (!file) return;
+      loadedFile = file;
+      loadedFileName = file.name;
+
+      if (file.type.startsWith('video/')) {
+        switchMediaType('video');
+        loadVideoFile(file);
+      } else {
+        switchMediaType('image');
+        loadImageFile(file);
+      }
+
+      document.getElementById('loadedFileName').textContent = file.name;
+      document.getElementById('loadedFileInfo').classList.remove('hidden');
+    }
+
+    // Load Image onto Canvas
+    function loadImageFile(file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          originalImageObj = img;
+          cleanImageObj = null;
+          setupCanvasWithImage(img);
+          showToast('Image loaded! Select the watermark area.', 'fa-image');
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function setupCanvasWithImage(img) {
+      mainCanvas.width = img.naturalWidth || img.width;
+      mainCanvas.height = img.naturalHeight || img.height;
+      brushCanvas.width = mainCanvas.width;
+      brushCanvas.height = mainCanvas.height;
+
+      mainCtx.clearRect(0, 0, mainCanvas.width, mainCanvas.height);
+      mainCtx.drawImage(img, 0, 0);
+
+      document.getElementById('loadedFileMeta').textContent = `${mainCanvas.width} x ${mainCanvas.height}`;
+      document.getElementById('canvasDimBadge').textContent = `${mainCanvas.width} x ${mainCanvas.height} px`;
+
+      canvasEmptyState.classList.add('hidden');
+      canvasWrapper.classList.remove('hidden');
+      document.getElementById('workspaceFooter').classList.remove('hidden');
+
+      // Add default watermark selection box in bottom-right if none exists
+      if (selectionBoxes.length === 0) {
+        const w = mainCanvas.width;
+        const h = mainCanvas.height;
+        // Default box in bottom-right corner (~25% width, 12% height)
+        selectionBoxes.push({
+          x: Math.max(0, (w - Math.round(w * 0.28)) / w),
+          y: Math.max(0, (h - Math.round(h * 0.14)) / h),
+          w: Math.min(0.28, 200 / w),
+          h: Math.min(0.14, 80 / h)
+        });
+      }
+
+      renderSelectionBoxesDOM();
+    }
+
+    // Load Video onto Canvas & Decoder
+    function loadVideoFile(file) {
+      const videoUrl = URL.createObjectURL(file);
+      hiddenVideo.src = videoUrl;
+      hiddenVideo.onloadedmetadata = () => {
+        isVideoLoaded = true;
+        mainCanvas.width = hiddenVideo.videoWidth || 1280;
+        mainCanvas.height = hiddenVideo.videoHeight || 720;
+        brushCanvas.width = mainCanvas.width;
+        brushCanvas.height = mainCanvas.height;
+
+        document.getElementById('loadedFileMeta').textContent = `${mainCanvas.width}x${mainCanvas.height} • ${Math.round(hiddenVideo.duration)}s`;
+        document.getElementById('canvasDimBadge').textContent = `${mainCanvas.width} x ${mainCanvas.height} px`;
+
+        canvasEmptyState.classList.add('hidden');
+        canvasWrapper.classList.remove('hidden');
+        document.getElementById('workspaceFooter').classList.remove('hidden');
+        document.getElementById('videoExportPanel').classList.remove('hidden');
+
+        // Add default watermark box in top-right
+        if (selectionBoxes.length === 0) {
+          selectionBoxes.push({ x: 0.72, y: 0.05, w: 0.24, h: 0.12 });
+        }
+        renderSelectionBoxesDOM();
+
+        hiddenVideo.currentTime = 0.5;
+        hiddenVideo.onseeked = () => {
+          mainCtx.drawImage(hiddenVideo, 0, 0, mainCanvas.width, mainCanvas.height);
+          hiddenVideo.play();
+          startVideoPlaybackLoop();
+        };
+
+        showToast('Video loaded! Position mask over the watermark.', 'fa-video');
+      };
+    }
+
+    function startVideoPlaybackLoop() {
+      if (!isVideoLoaded || hiddenVideo.paused || hiddenVideo.ended) return;
+
+      // Draw current video frame to canvas
+      mainCtx.drawImage(hiddenVideo, 0, 0, mainCanvas.width, mainCanvas.height);
+
+      // Inpaint active selection boxes on current frame
+      selectionBoxes.forEach(box => {
+        inpaintCanvasRegion(mainCtx, mainCanvas.width, mainCanvas.height, box, document.getElementById('inpaintMethod').value, featherRadius);
+      });
+
+      requestAnimationFrame(startVideoPlaybackLoop);
+    }
+
+    hiddenVideo.addEventListener('play', () => {
+      startVideoPlaybackLoop();
+    });
+
+    // Render Selection Boxes DOM overlay on top of canvas
+    function renderSelectionBoxesDOM() {
+      boxContainer.innerHTML = '';
+      document.getElementById('maskCountBadge').textContent = `${selectionBoxes.length} ${selectionBoxes.length === 1 ? 'Area' : 'Areas'}`;
+
+      selectionBoxes.forEach((box, idx) => {
+        const boxDiv = document.createElement('div');
+        boxDiv.className = 'selection-box pointer-events-auto';
+        boxDiv.dataset.index = idx;
+        boxDiv.style.left = `${box.x * 100}%`;
+        boxDiv.style.top = `${box.y * 100}%`;
+        boxDiv.style.width = `${box.w * 100}%`;
+        boxDiv.style.height = `${box.h * 100}%`;
+
+        // Watermark Label
+        boxDiv.innerHTML = `
+          <div class="absolute -top-5 left-0 bg-indigo-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded shadow">
+            Watermark #${idx + 1}
+          </div>
+          <button type="button" class="absolute -top-2.5 -right-2.5 w-5 h-5 bg-rose-600 hover:bg-rose-700 text-white rounded-full flex items-center justify-center text-[10px] shadow" onclick="deleteMask(${idx}, event)">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <div class="selection-handle handle-nw" data-handle="nw"></div>
+          <div class="selection-handle handle-ne" data-handle="ne"></div>
+          <div class="selection-handle handle-sw" data-handle="sw"></div>
+          <div class="selection-handle handle-se" data-handle="se"></div>
+        `;
+
+        boxContainer.appendChild(boxDiv);
+      });
+    }
+
+    function deleteMask(index, event) {
+      if (event) event.stopPropagation();
+      selectionBoxes.splice(index, 1);
+      renderSelectionBoxesDOM();
+      showToast('Removed watermark selection mask', 'fa-trash');
+    }
+
+    function clearAllMasks() {
+      selectionBoxes = [];
+      renderSelectionBoxesDOM();
+      showToast('Cleared all masks', 'fa-rotate-left');
+    }
+
+    // Interactive Drag, Resize & Create Bounding Boxes
+    canvasWrapper.addEventListener('mousedown', (e) => {
+      const rect = mainCanvas.getBoundingClientRect();
+      const normX = (e.clientX - rect.left) / rect.width;
+      const normY = (e.clientY - rect.top) / rect.height;
+
+      // Check if clicked on a handle or box
+      const handle = e.target.closest('.selection-handle');
+      const boxElement = e.target.closest('.selection-box');
+
+      if (handle) {
+        dragAction = handle.dataset.handle;
+        activeBoxIndex = parseInt(boxElement.dataset.index, 10);
+        startDragPoint = { x: normX, y: normY };
+        initialBoxState = { ...selectionBoxes[activeBoxIndex] };
+        e.preventDefault();
+      } else if (boxElement) {
+        dragAction = 'move';
+        activeBoxIndex = parseInt(boxElement.dataset.index, 10);
+        startDragPoint = { x: normX, y: normY };
+        initialBoxState = { ...selectionBoxes[activeBoxIndex] };
+        e.preventDefault();
+      } else if (normX >= 0 && normX <= 1 && normY >= 0 && normY <= 1) {
+        // Create new box on canvas
+        dragAction = 'create';
+        const newBox = { x: normX, y: normY, w: 0.01, h: 0.01 };
+        selectionBoxes.push(newBox);
+        activeBoxIndex = selectionBoxes.length - 1;
+        startDragPoint = { x: normX, y: normY };
+        initialBoxState = { ...newBox };
+        renderSelectionBoxesDOM();
+      }
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!dragAction || activeBoxIndex === null || !selectionBoxes[activeBoxIndex]) return;
+
+      const rect = mainCanvas.getBoundingClientRect();
+      const normX = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      const normY = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
+
+      const dx = normX - startDragPoint.x;
+      const dy = normY - startDragPoint.y;
+      const current = selectionBoxes[activeBoxIndex];
+
+      if (dragAction === 'move') {
+        current.x = Math.max(0, Math.min(1 - current.w, initialBoxState.x + dx));
+        current.y = Math.max(0, Math.min(1 - current.h, initialBoxState.y + dy));
+      } else if (dragAction === 'create' || dragAction === 'se') {
+        current.w = Math.max(0.02, normX - current.x);
+        current.h = Math.max(0.02, normY - current.y);
+      } else if (dragAction === 'nw') {
+        const right = initialBoxState.x + initialBoxState.w;
+        const bottom = initialBoxState.y + initialBoxState.h;
+        current.x = Math.min(right - 0.02, normX);
+        current.y = Math.min(bottom - 0.02, normY);
+        current.w = right - current.x;
+        current.h = bottom - current.y;
+      } else if (dragAction === 'ne') {
+        const left = initialBoxState.x;
+        const bottom = initialBoxState.y + initialBoxState.h;
+        current.y = Math.min(bottom - 0.02, normY);
+        current.w = Math.max(0.02, normX - left);
+        current.h = bottom - current.y;
+      } else if (dragAction === 'sw') {
+        const right = initialBoxState.x + initialBoxState.w;
+        const top = initialBoxState.y;
+        current.x = Math.min(right - 0.02, normX);
+        current.w = right - current.x;
+        current.h = Math.max(0.02, normY - top);
+      }
+
+      renderSelectionBoxesDOM();
+    });
+
+    window.addEventListener('mouseup', () => {
+      dragAction = null;
+      activeBoxIndex = null;
+    });
+
+    // CORE INPAINTING ALGORITHM (High-Performance Client-Side Inpainter)
+    function inpaintCanvasRegion(ctx, canvasW, canvasH, box, method, feather) {
+      const rx = Math.max(0, Math.floor(box.x * canvasW));
+      const ry = Math.max(0, Math.floor(box.y * canvasH));
+      const rw = Math.min(canvasW - rx, Math.ceil(box.w * canvasW));
+      const rh = Math.min(canvasH - ry, Math.ceil(box.h * canvasH));
+
+      if (rw <= 2 || rh <= 2) return;
+
+      const pad = Math.max(4, Math.min(20, Math.round(feather)));
+      const bx = Math.max(0, rx - pad);
+      const by = Math.max(0, ry - pad);
+      const bw = Math.min(canvasW - bx, rw + (pad * 2));
+      const bh = Math.min(canvasH - by, rh + (pad * 2));
+
+      const imgData = ctx.getImageData(bx, by, bw, bh);
+      const data = imgData.data;
+
+      // 1. Calculate Average Border Colors (Top, Bottom, Left, Right sampling)
+      let topR = 0, topG = 0, topB = 0, topCount = 0;
+      let botR = 0, botG = 0, botB = 0, botCount = 0;
+      let leftR = 0, leftG = 0, leftB = 0, leftCount = 0;
+      let rightR = 0, rightG = 0, rightB = 0, rightCount = 0;
+
+      for (let x = 0; x < bw; x++) {
+        for (let p = 0; p < pad; p++) {
+          // Top strip
+          const tIdx = (p * bw + x) * 4;
+          topR += data[tIdx]; topG += data[tIdx + 1]; topB += data[tIdx + 2]; topCount++;
+
+          // Bottom strip
+          const bIdx = ((bh - 1 - p) * bw + x) * 4;
+          botR += data[bIdx]; botG += data[bIdx + 1]; botB += data[bIdx + 2]; botCount++;
+        }
+      }
+
+      for (let y = 0; y < bh; y++) {
+        for (let p = 0; p < pad; p++) {
+          // Left strip
+          const lIdx = (y * bw + p) * 4;
+          leftR += data[lIdx]; leftG += data[lIdx + 1]; leftB += data[lIdx + 2]; leftCount++;
+
+          // Right strip
+          const rIdx = (y * bw + (bw - 1 - p)) * 4;
+          rightR += data[rIdx]; rightG += data[rIdx + 1]; rightB += data[rIdx + 2]; rightCount++;
+        }
+      }
+
+      const avgTop = [topR / topCount, topG / topCount, topB / topCount];
+      const avgBot = [botR / botCount, botG / botCount, botB / botCount];
+      const avgLeft = [leftR / leftCount, leftG / leftCount, leftB / leftCount];
+      const avgRight = [rightR / rightCount, rightG / rightCount, rightB / rightCount];
+
+      // 2. Diffuse and Blend into Target Box
+      const innerX1 = pad;
+      const innerY1 = pad;
+      const innerX2 = bw - pad;
+      const innerY2 = bh - pad;
+
+      for (let y = innerY1; y < innerY2; y++) {
+        const ny = (y - innerY1) / (innerY2 - innerY1); // 0..1
+        for (let x = innerX1; x < innerX2; x++) {
+          const nx = (x - innerX1) / (innerX2 - innerX1); // 0..1
+          const idx = (y * bw + x) * 4;
+
+          // Bi-directional linear gradient interpolation from boundaries
+          const gradTopBotR = avgTop[0] * (1 - ny) + avgBot[0] * ny;
+          const gradTopBotG = avgTop[1] * (1 - ny) + avgBot[1] * ny;
+          const gradTopBotB = avgTop[2] * (1 - ny) + avgBot[2] * ny;
+
+          const gradLeftRightR = avgLeft[0] * (1 - nx) + avgRight[0] * nx;
+          const gradLeftRightG = avgLeft[1] * (1 - nx) + avgRight[1] * nx;
+          const gradLeftRightB = avgLeft[2] * (1 - nx) + avgRight[2] * nx;
+
+          let targetR = (gradTopBotR + gradLeftRightR) / 2;
+          let targetG = (gradTopBotG + gradLeftRightG) / 2;
+          let targetB = (gradTopBotB + gradLeftRightB) / 2;
+
+          // Subtle noise addition for realistic photographic grain
+          if (method === 'content_aware') {
+            const noise = (Math.random() - 0.5) * 6;
+            targetR = Math.max(0, Math.min(255, targetR + noise));
+            targetG = Math.max(0, Math.min(255, targetG + noise));
+            targetB = Math.max(0, Math.min(255, targetB + noise));
+          }
+
+          // Edge Feather Weighting
+          const distToEdgeX = Math.min(x - innerX1, innerX2 - x);
+          const distToEdgeY = Math.min(y - innerY1, innerY2 - y);
+          const minDist = Math.min(distToEdgeX, distToEdgeY);
+          const weight = Math.min(1.0, minDist / Math.max(1, feather));
+
+          data[idx] = data[idx] * (1 - weight) + targetR * weight;
+          data[idx + 1] = data[idx + 1] * (1 - weight) + targetG * weight;
+          data[idx + 2] = data[idx + 2] * (1 - weight) + targetB * weight;
+        }
+      }
+
+      ctx.putImageData(imgData, bx, by);
+    }
+
+    // Execute Watermark Removal on Image
+    function executeWatermarkRemoval() {
+      if (selectionBoxes.length === 0) {
+        showToast('Please create at least one watermark selection box first.', 'fa-triangle-exclamation');
+        return;
+      }
+
+      if (currentMediaType === 'video') {
+        showToast('Video inpainting applied in real-time. Use export to download.', 'fa-video');
+        return;
+      }
+
+      if (!originalImageObj) {
+        showToast('Please load an image first.', 'fa-image');
+        return;
+      }
+
+      showToast('Inpainting watermark with content-aware infill...', 'fa-wand-magic-sparkles');
+
+      // Re-draw original fresh image first
+      mainCtx.drawImage(originalImageObj, 0, 0, mainCanvas.width, mainCanvas.height);
+
+      // Inpaint each active box
+      const method = document.getElementById('inpaintMethod').value;
+      selectionBoxes.forEach(box => {
+        inpaintCanvasRegion(mainCtx, mainCanvas.width, mainCanvas.height, box, method, featherRadius);
+      });
+
+      // Cache clean result for comparison and download
+      const cleanDataUrl = mainCanvas.toDataURL('image/png');
+      const cleanImg = new Image();
+      cleanImg.onload = () => {
+        cleanImageObj = cleanImg;
+        setupComparisonView(originalImageObj.src, cleanDataUrl);
+      };
+      cleanImg.src = cleanDataUrl;
+
+      showToast('Watermark removed successfully!', 'fa-circle-check');
+    }
+
+    function resetCanvasToOriginal() {
+      if (originalImageObj) {
+        mainCtx.drawImage(originalImageObj, 0, 0, mainCanvas.width, mainCanvas.height);
+        cleanImageObj = null;
+        showToast('Reverted canvas to original image.', 'fa-rotate-left');
+      }
+    }
+
+    // Before / After Comparison Slider Setup
+    function setupComparisonView(origUrl, cleanUrl) {
+      const origImg = document.getElementById('compareOriginalImg');
+      const cleanImg = document.getElementById('compareCleanImg');
+      origImg.src = origUrl;
+      cleanImg.src = cleanUrl;
+
+      // Set initial 50% split
+      setCompareSplit(50);
+    }
+
+    function setCompareSplit(pct) {
+      const overlay = document.getElementById('compareOverlay');
+      const handle = document.getElementById('compareHandle');
+      overlay.style.width = `${pct}%`;
+      handle.style.left = `${pct}%`;
+    }
+
+    function switchCanvasView(view) {
+      activeCanvasView = view;
+      const isEdit = view === 'edit';
+
+      document.getElementById('viewBtnEdit').className = isEdit
+        ? 'px-3 py-1.5 rounded-lg bg-white shadow-xs text-indigo-600 transition-all font-bold'
+        : 'px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all font-bold';
+
+      document.getElementById('viewBtnCompare').className = !isEdit
+        ? 'px-3 py-1.5 rounded-lg bg-white shadow-xs text-indigo-600 transition-all font-bold'
+        : 'px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 transition-all font-bold';
+
+      document.getElementById('editorViewContainer').classList.toggle('hidden', !isEdit);
+      document.getElementById('compareViewContainer').classList.toggle('hidden', isEdit);
+
+      if (!isEdit && (!cleanImageObj || !originalImageObj)) {
+        executeWatermarkRemoval();
+      }
+    }
+
+    // Draggable Split Slider Logic
+    const compareWrapper = document.getElementById('compareWrapper');
+    let isDraggingCompare = false;
+
+    compareWrapper.addEventListener('mousedown', () => { isDraggingCompare = true; });
+    window.addEventListener('mouseup', () => { isDraggingCompare = false; });
+    window.addEventListener('mousemove', (e) => {
+      if (!isDraggingCompare) return;
+      const rect = compareWrapper.getBoundingClientRect();
+      const x = Math.max(0, Math.min(rect.width, e.clientX - rect.left));
+      const pct = (x / rect.width) * 100;
+      setCompareSplit(pct);
+    });
+
+    // Download Clean Image
+    function downloadCleanResult() {
+      const dataUrl = mainCanvas.toDataURL('image/png');
+      const link = document.createElement('a');
+      const baseName = loadedFileName ? loadedFileName.replace(/\.[^/.]+$/, '').replace(/[^a-zA-Z0-9_-]/g, '_') : 'photo';
+      link.download = `360tools.me_watermark_removed_${baseName}_${Date.now()}.png`;
+      link.href = dataUrl;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast('Downloaded clean image without watermark!', 'fa-download');
+    }
+
+    // Video Export Engine (MediaRecorder + Canvas Stream)
+    function startVideoExport() {
+      if (!isVideoLoaded || selectionBoxes.length === 0) {
+        showToast('Please load a video and position watermark mask first.', 'fa-triangle-exclamation');
+        return;
+      }
+
+      if (isExportingVideo) return;
+      isExportingVideo = true;
+
+      const progressBox = document.getElementById('videoRenderProgressBox');
+      const progressBar = document.getElementById('renderProgressBar');
+      const progressPct = document.getElementById('renderPctBadge');
+      const statusText = document.getElementById('renderStatusText');
+
+      progressBox.classList.remove('hidden');
+      statusText.textContent = 'Rendering clean video in-memory...';
+
+      recordedChunks = [];
+      const stream = mainCanvas.captureStream(30);
+
+      // Attempt audio capture if video has sound
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const source = audioCtx.createMediaElementSource(hiddenVideo);
+        const dest = audioCtx.createMediaStreamDestination();
+        source.connect(dest);
+        source.connect(audioCtx.destination);
+        if (dest.stream.getAudioTracks().length > 0) {
+          stream.addTrack(dest.stream.getAudioTracks()[0]);
+        }
+      } catch (e) {
+        console.warn('Direct audio track capture fallback:', e);
+      }
+
+      const mimeType = document.getElementById('videoFormatSelect').value;
+      const bitrate = parseInt(document.getElementById('videoBitrateSelect').value, 10);
+
+      try {
+        videoMediaRecorder = new MediaRecorder(stream, {
+          mimeType: MediaRecorder.isTypeSupported(mimeType) ? mimeType : 'video/webm',
+          videoBitsPerSecond: bitrate
+        });
+      } catch (err) {
+        videoMediaRecorder = new MediaRecorder(stream);
+      }
+
+      videoMediaRecorder.ondataavailable = (e) => {
+        if (e.data && e.data.size > 0) {
+          recordedChunks.push(e.data);
+        }
+      };
+
+      videoMediaRecorder.onstop = () => {
+        const blob = new Blob(recordedChunks, { type: videoMediaRecorder.mimeType });
+        const link = document.createElement('a');
+        const ext = videoMediaRecorder.mimeType.includes('mp4') ? 'mp4' : 'webm';
+        const baseName = loadedFileName ? loadedFileName.replace(/\.[^/.]+$/, '').replace(/[^a-zA-Z0-9_-]/g, '_') : 'video';
+        link.download = `360tools.me_watermark_removed_${baseName}_${Date.now()}.${ext}`;
+        link.href = URL.createObjectURL(blob);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        isExportingVideo = false;
+        progressBox.classList.add('hidden');
+        showToast('Clean video exported and downloaded!', 'fa-circle-check');
+      };
+
+      // Reset video to start and record whole duration
+      hiddenVideo.pause();
+      hiddenVideo.currentTime = 0;
+      hiddenVideo.onseeked = () => {
+        videoMediaRecorder.start(100);
+        hiddenVideo.play();
+
+        const totalDuration = hiddenVideo.duration || 10;
+        const updateInterval = setInterval(() => {
+          if (!isExportingVideo) {
+            clearInterval(updateInterval);
+            return;
+          }
+          const pct = Math.min(100, Math.round((hiddenVideo.currentTime / totalDuration) * 100));
+          progressBar.style.width = `${pct}%`;
+          progressPct.textContent = `${pct}%`;
+
+          if (hiddenVideo.ended || hiddenVideo.currentTime >= totalDuration) {
+            clearInterval(updateInterval);
+            videoMediaRecorder.stop();
+            hiddenVideo.pause();
+          }
+        }, 150);
+      };
+    }
+
+    // Sample Media Generators for Instant 1-Click Testing
+    function loadSampleMedia(type) {
+      if (type === 'image') {
+        switchMediaType('image');
+        const sampleCanvas = document.createElement('canvas');
+        sampleCanvas.width = 1200;
+        sampleCanvas.height = 700;
+        const sCtx = sampleCanvas.getContext('2d');
+
+        // Draw nice gradient landscape background
+        const grad = sCtx.createLinearGradient(0, 0, 1200, 700);
+        grad.addColorStop(0, '#1e293b');
+        grad.addColorStop(0.5, '#3b82f6');
+        grad.addColorStop(1, '#06b6d4');
+        sCtx.fillStyle = grad;
+        sCtx.fillRect(0, 0, 1200, 700);
+
+        // Add some shapes / mountains
+        sCtx.fillStyle = '#0f172a';
+        sCtx.beginPath();
+        sCtx.moveTo(0, 700);
+        sCtx.lineTo(300, 450);
+        sCtx.lineTo(600, 700);
+        sCtx.fill();
+
+        sCtx.fillStyle = '#1e293b';
+        sCtx.beginPath();
+        sCtx.moveTo(400, 700);
+        sCtx.lineTo(800, 380);
+        sCtx.lineTo(1200, 700);
+        sCtx.fill();
+
+        // Add Realistic Sample Watermark in Bottom-Right
+        sCtx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+        sCtx.font = 'bold 36px sans-serif';
+        sCtx.fillText('SAMPLE_WATERMARK_LOGO ©', 680, 640);
+
+        sCtx.fillStyle = 'rgba(255, 215, 0, 0.9)';
+        sCtx.fillRect(680, 650, 470, 6);
+
+        const img = new Image();
+        img.onload = () => {
+          loadedFileName = 'sample_nature_photo.jpg';
+          originalImageObj = img;
+          cleanImageObj = null;
+          setupCanvasWithImage(img);
+
+          // Position box precisely over the sample watermark
+          selectionBoxes = [{
+            x: 660 / 1200,
+            y: 590 / 700,
+            w: 510 / 1200,
+            h: 80 / 700
+          }];
+          renderSelectionBoxesDOM();
+          showToast('Loaded sample image with watermark! Click "Remove Watermark Now".', 'fa-image');
+        };
+        img.src = sampleCanvas.toDataURL('image/jpeg', 0.95);
+
+      } else {
+        // Sample Video with Watermark
+        switchMediaType('video');
+        const vCanvas = document.createElement('canvas');
+        vCanvas.width = 640;
+        vCanvas.height = 360;
+        const vCtx = vCanvas.getContext('2d');
+
+        const stream = vCanvas.captureStream(30);
+        const recorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
+        const chunks = [];
+        recorder.ondataavailable = e => chunks.push(e.data);
+        recorder.onstop = () => {
+          const blob = new Blob(chunks, { type: 'video/webm' });
+          loadedFileName = 'sample_video_clip.webm';
+          processLoadedFile(blob);
+        };
+
+        recorder.start();
+        let frame = 0;
+        const drawInterval = setInterval(() => {
+          vCtx.fillStyle = '#0f172a';
+          vCtx.fillRect(0, 0, 640, 360);
+
+          // Moving sphere
+          const x = 320 + Math.sin(frame * 0.08) * 180;
+          const y = 180 + Math.cos(frame * 0.08) * 90;
+          vCtx.fillStyle = '#6366f1';
+          vCtx.beginPath();
+          vCtx.arc(x, y, 40, 0, Math.PI * 2);
+          vCtx.fill();
+
+          // Static Channel Watermark in Top-Right
+          vCtx.fillStyle = 'rgba(244, 63, 94, 0.85)';
+          vCtx.fillRect(450, 20, 160, 45);
+          vCtx.fillStyle = '#ffffff';
+          vCtx.font = 'bold 16px sans-serif';
+          vCtx.fillText('TV CHANNEL LOGO', 460, 50);
+
+          frame++;
+          if (frame >= 70) {
+            clearInterval(drawInterval);
+            recorder.stop();
+          }
+        }, 33);
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -219,34 +219,62 @@
         <button onclick="filterCategory('all')" class="category-btn fa-tab-btn active px-4 py-2 text-xs font-black rounded-xl" data-cat="all">
           <i class="fa-solid fa-grip mr-1"></i> All Tools
         </button>
-        <button onclick="filterCategory('invoice')" class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="invoice">
-          <i class="fa-solid fa-file-invoice-dollar mr-1 text-[#c27803]"></i> Invoice & Finance
+        <button onclick="filterCategory('pdf')" class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="pdf">
+          <i class="fa-solid fa-file-pdf mr-1 text-red-600"></i> PDF & Documents (19)
         </button>
         <button onclick="filterCategory('audio')" class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="audio">
-          <i class="fa-solid fa-volume-high mr-1 text-purple-600"></i> AI Voice & Audio
+          <i class="fa-solid fa-volume-high mr-1 text-purple-600"></i> AI Voice & Audio (7)
         </button>
-        <button onclick="filterCategory('compression')" class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="compression">
-          <i class="fa-solid fa-compress mr-1 text-emerald-600"></i> Media & Compression
+        <button onclick="filterCategory('media')" class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="media">
+          <i class="fa-solid fa-compress mr-1 text-emerald-600"></i> Media & Compression (12)
         </button>
         <button onclick="filterCategory('developer')" class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="developer">
-          <i class="fa-solid fa-code mr-1 text-cyan-600"></i> Developer Minifiers
+          <i class="fa-solid fa-code mr-1 text-cyan-600"></i> Developer & Web (6)
         </button>
         <button onclick="filterCategory('ecommerce')" class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="ecommerce">
-          <i class="fa-solid fa-cart-shopping mr-1 text-[#f1641e]"></i> E-Commerce & POD
+          <i class="fa-solid fa-calculator mr-1 text-amber-600"></i> E-Commerce & Finance (6)
         </button>
         <button onclick="filterCategory('real-estate')" class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="real-estate">
-          <i class="fa-solid fa-house-chimney mr-1 text-[#c27803]"></i> Real Estate & Tax
+          <i class="fa-solid fa-house-chimney mr-1 text-[#146ebe]"></i> Real Estate & Tax (5)
         </button>
         <button onclick="filterCategory('games')" class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="games">
-          <i class="fa-solid fa-gamepad mr-1 text-purple-600"></i> Free Games (New)
+          <i class="fa-solid fa-gamepad mr-1 text-purple-600"></i> Free Games (6)
         </button>
       </div>
 
       <!-- Cards Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="toolsGrid">
         
+        <!-- Tool: 100% In-Browser PDF Tools Ecosystem (Featured Hub) -->
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group border-2 border-red-200 bg-gradient-to-br from-white to-red-50/30" data-category="pdf" data-title="PDF Tools Ecosystem Suite Merge Split Compress Convert JPG PNG WebP Rotate Protect Unlock Client-Side">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="bg-red-600 text-white text-[10px] py-1 px-3 rounded-full font-black uppercase tracking-wider">New PDF Ecosystem</span>
+              <span class="text-xs text-emerald-600 font-bold flex items-center gap-1"><i class="fa-solid fa-lock text-[10px]"></i> 100% In-Browser</span>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-black text-[#3e2723] group-hover:text-red-600 transition-colors flex items-center gap-2">
+                <span>PDF Tools Suite (19 Tools)</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-red-600 transition-colors"></i>
+              </h3>
+              <p class="text-xs text-slate-600 font-medium leading-relaxed mt-2">
+                All-in-one private PDF workstation: Merge, Split, Compress, Convert (JPG/PNG/WebP), Rotate, Password Protect, Unlock, Watermark, and Edit PDFs with zero server uploads.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-5 mt-4 border-t border-slate-200/80 flex items-center justify-between">
+            <span class="text-[11px] font-bold text-red-600 uppercase tracking-wider">19 Online PDF Tools</span>
+            <a href="pdf-tools/index.html" class="fa-btn-primary py-2 px-4 text-xs font-bold shadow-xs bg-red-600 hover:bg-red-700">
+              <span>Explore PDF Suite</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
         <!-- Tool: Free Online Invoice Generator (Featured) -->
-        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group border-2 border-blue-200 bg-gradient-to-br from-white to-blue-50/30" data-category="invoice" data-title="Free Online Invoice Generator PDF Maker Receipt Bill Creator Business Client Financial Tax">
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group border-2 border-blue-200 bg-gradient-to-br from-white to-blue-50/30" data-category="ecommerce" data-title="Free Online Invoice Generator PDF Maker Receipt Bill Creator Business Client Financial Tax">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <span class="bg-blue-600 text-white text-[10px] py-1 px-3 rounded-full font-black uppercase tracking-wider">New Featured Tool</span>
@@ -272,8 +300,9 @@
             </a>
           </div>
         </div>
+
         <!-- Tool: Free AI Background Remover (Featured) -->
-        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group border-2 border-teal-200 bg-gradient-to-br from-white to-teal-50/30" data-category="compression" data-title="Free AI Background Remover Image Photo Eraser Cutout Transparent PNG Color Replacement Client Side">
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group border-2 border-teal-200 bg-gradient-to-br from-white to-teal-50/30" data-category="media" data-title="Free AI Background Remover Image Photo Eraser Cutout Transparent PNG Color Replacement Client Side">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <span class="bg-teal-600 text-white text-[10px] py-1 px-3 rounded-full font-black uppercase tracking-wider">New AI Tool</span>
@@ -301,7 +330,7 @@
         </div>
 
         <!-- Tool: Free Watermark Remover (Featured) -->
-        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group border-2 border-purple-200 bg-gradient-to-br from-white to-purple-50/30" data-category="compression" data-title="Free Watermark Remover Image Video Logo Eraser Inpainting Content Aware Box Brush Client Side No API Key">
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group border-2 border-purple-200 bg-gradient-to-br from-white to-purple-50/30" data-category="media" data-title="Free Watermark Remover Image Video Logo Eraser Inpainting Content Aware Box Brush Client Side No API Key">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
               <span class="bg-purple-600 text-white text-[10px] py-1 px-3 rounded-full font-black uppercase tracking-wider">New Inpainting Tool</span>
@@ -327,6 +356,7 @@
             </a>
           </div>
         </div>
+
         <!-- Tool: Text to Speech -->
         <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="audio" data-title="Text to Speech Converter Natural Voices Word Highlighting Speech Synthesis">
           <div class="space-y-3">
@@ -412,7 +442,7 @@
         </div>
 
         <!-- Image Compressor -->
-        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="compression" data-title="Image Compressor Online Reduce JPG PNG WebP Size Photo Optimizer">
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="media" data-title="Image Compressor Online Reduce JPG PNG WebP Size Photo Optimizer">
           <div class="space-y-3">
             <span class="bg-emerald-100 text-emerald-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Compression</span>
             <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Image Compressor</h3>
@@ -426,7 +456,7 @@
         </div>
 
         <!-- JPG Compressor -->
-        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="compression" data-title="JPG Compressor Reduce JPG JPEG File Size Online Free">
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="media" data-title="JPG Compressor Reduce JPG JPEG File Size Online Free">
           <div class="space-y-3">
             <span class="bg-amber-100 text-amber-800 text-[11px] py-1 px-3 rounded-full font-extrabold">JPG Engine</span>
             <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">JPG Compressor</h3>
@@ -440,7 +470,7 @@
         </div>
 
         <!-- PDF Compressor -->
-        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="compression" data-title="PDF Compressor Online Reduce PDF File Size Free Client-Side DPI">
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group" data-category="media" data-title="PDF Compressor Online Reduce PDF File Size Free Client-Side DPI">
           <div class="space-y-3">
             <span class="bg-red-100 text-red-800 text-[11px] py-1 px-3 rounded-full font-extrabold">PDF Engine</span>
             <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Client-Side PDF Compressor</h3>
@@ -512,43 +542,43 @@
       if (!grid || typeof TOOLS_REGISTRY === 'undefined') return;
 
       grid.innerHTML = TOOLS_REGISTRY.map(tool => {
-        let catAttr = 'audio';
-        let badgeBg = 'bg-purple-100 text-purple-800';
-        let gifBoxBg = 'bg-purple-50 border-purple-100';
+        let catAttr = 'media';
+        let badgeBg = 'bg-emerald-100 text-emerald-800';
+        let gifBoxBg = 'bg-emerald-50 border-emerald-100';
         
-        if (tool.url === 'invoice-generator.html') {
-          catAttr = 'invoice';
-          badgeBg = 'bg-blue-600 text-white font-black uppercase';
-          gifBoxBg = 'bg-blue-50 border-blue-100';
-        } else if (tool.url === 'background-remover.html') {
-          catAttr = 'compression';
-          badgeBg = 'bg-teal-600 text-white font-black uppercase';
-          gifBoxBg = 'bg-teal-50 border-teal-100';
-        } else if (tool.category.includes('Audio') || tool.category.includes('Voice')) {
+        if (tool.category === 'PDF & Documents' || tool.url.includes('pdf-tools/')) {
+          catAttr = 'pdf';
+          badgeBg = 'bg-red-100 text-red-800 font-extrabold';
+          gifBoxBg = 'bg-red-50 border-red-200';
+        } else if (tool.category === 'AI Voice & Audio' || tool.category.includes('Audio') || tool.category.includes('Voice')) {
           catAttr = 'audio';
           badgeBg = 'bg-purple-100 text-purple-800';
           gifBoxBg = 'bg-purple-50 border-purple-100';
-        } else if (tool.category.includes('Compression') || tool.category.includes('Image') || tool.category.includes('AI')) {
-          catAttr = 'compression';
+        } else if (tool.category === 'Media & Compression' || tool.category.includes('Compression') || tool.category.includes('Image') || tool.url.includes('watermark') || tool.url.includes('background-remover') || tool.url.includes('video-frame')) {
+          catAttr = 'media';
           badgeBg = 'bg-emerald-100 text-emerald-800';
           gifBoxBg = 'bg-emerald-50 border-emerald-100';
-        } else if (tool.category.includes('Developer')) {
+        } else if (tool.category === 'Developer & Web' || tool.category.includes('Developer') || tool.url.includes('resume') || tool.url.includes('minifier')) {
           catAttr = 'developer';
           badgeBg = 'bg-cyan-100 text-cyan-800';
           gifBoxBg = 'bg-cyan-50 border-cyan-100';
-        } else if (tool.category.includes('Games') || tool.category.includes('Puzzles')) {
-          catAttr = 'games';
+        } else if (tool.category === 'E-Commerce & Finance' || tool.category.includes('E-Commerce') || tool.url.includes('invoice') || tool.url.includes('etsy') || tool.url.includes('amazon') || tool.url.includes('tiktok') || tool.url.includes('pod')) {
+          catAttr = 'ecommerce';
           badgeBg = 'bg-amber-100 text-amber-800';
           gifBoxBg = 'bg-amber-50 border-amber-100';
-        } else {
-          catAttr = 'ecommerce';
+        } else if (tool.category === 'Real Estate & Tax' || tool.category.includes('Real Estate') || tool.category.includes('Tax') || tool.url.includes('section8') || tool.url.includes('stamp-duty') || tool.url.includes('1031') || tool.url.includes('cleaning') || tool.url.includes('vat')) {
+          catAttr = 'real-estate';
           badgeBg = 'bg-blue-100 text-blue-800';
           gifBoxBg = 'bg-blue-50 border-blue-100';
+        } else if (tool.category === 'Free Games' || tool.category.includes('Games') || tool.category.includes('Puzzles') || tool.url.includes('2048') || tool.url.includes('snake') || tool.url.includes('memory') || tool.url.includes('tic-tac-toe') || tool.url.includes('word-scramble') || tool.url.includes('bhabhi')) {
+          catAttr = 'games';
+          badgeBg = 'bg-purple-100 text-purple-800';
+          gifBoxBg = 'bg-purple-50 border-purple-100';
         }
 
-        const isNew = tool.url === 'invoice-generator.html' || tool.url === 'background-remover.html' || tool.category.includes('Games');
+        const isNew = tool.url === 'invoice-generator.html' || tool.url === 'background-remover.html' || tool.url === 'watermark-remover.html' || tool.url === 'ats-resume-checker.html' || tool.category.includes('Games') || tool.category === 'PDF & Documents' || tool.url.includes('pdf-tools/');
         const cardStyle = isNew 
-          ? (tool.url === 'invoice-generator.html' ? 'border-2 border-blue-200 bg-gradient-to-br from-white to-blue-50/30' : 'border-2 border-teal-200 bg-gradient-to-br from-white to-teal-50/30') 
+          ? (tool.url === 'invoice-generator.html' ? 'border-2 border-blue-200 bg-gradient-to-br from-white to-blue-50/30' : (tool.category === 'PDF & Documents' || tool.url.includes('pdf-tools/') ? 'border-2 border-red-200/80 bg-gradient-to-br from-white to-red-50/20' : 'border-2 border-teal-200 bg-gradient-to-br from-white to-teal-50/30')) 
           : '';
 
         const toolDesc = tool.desc || `Fast, 100% browser-based ${tool.name.toLowerCase()} utility. Zero cloud uploads, zero tracking.`;

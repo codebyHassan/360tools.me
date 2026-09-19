@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Free Online PDF Tools — Merge, Split, Compress & Convert in Browser | 360Tools</title>
+  <meta name="title" content="Free Online PDF Tools — Merge, Split, Compress & Convert in Browser | 360Tools">
+  <meta name="description" content="100% free, private online PDF tools: Merge, Split, Compress, Rotate, Convert to/from JPG, PNG, WebP, Text, Watermark, and Protect PDFs without uploading files to any server.">
+  <meta name="keywords" content="PDF tools, free PDF tools, PDF converter, merge PDF, split PDF, compress PDF, PDF to JPG, JPG to PDF, watermark PDF, rotate PDF, 360tools">
+  <meta name="author" content="360Tools (360tools.me)">
+  <link rel="canonical" href="https://360tools.me/pdf-tools/">
+
+  <!-- Favicon & Open Graph -->
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/pdf-tools/">
+  <meta property="og:title" content="Free Online PDF Tools Suite — 100% Client-Side Private | 360Tools">
+  <meta property="og:description" content="Convert, compress, merge, split, and edit PDF documents directly in your web browser. Zero server uploads.">
+  <meta property="og:image" content="images/logo.webp">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/pdf-tools/">
+  <meta property="twitter:title" content="Free Online PDF Tools — 100% In-Browser Privacy">
+  <meta property="twitter:description" content="Convert, compress, and edit PDFs locally without uploading sensitive files to cloud servers.">
+  <meta property="twitter:image" content="images/logo.webp">
+
+  <!-- Structured Data: CollectionPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "360Tools Free Online PDF Tools Suite",
+    "url": "https://360tools.me/pdf-tools/",
+    "description": "Comprehensive suite of 100% in-browser PDF utilities: merge, split, compress, convert, watermark, and secure documents.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "360Tools",
+      "url": "https://360tools.me/"
+    }
+  }
+  </script>
+
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "PDF Tools",
+        "item": "https://360tools.me/pdf-tools/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are my PDF files uploaded to 360Tools servers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Never. All PDF merging, splitting, compression, conversion, and watermarking happen 100% locally inside your browser memory using WebAssembly and client-side JavaScript. Your confidential files never touch an external server."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are the PDF tools on 360Tools free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Every PDF tool on 360Tools is 100% free with no email registration, no subscription paywalls, and no hidden limitations."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use 360Tools PDF tools on mobile phones and tablets?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All tools are fully responsive and optimized for touch interactions on iPhone (Safari), Android (Chrome), iPad, and desktop browsers."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- Master & PDF Stylesheets -->
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/tools.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto w-full flex-1 pt-6 pb-16">
+    
+    <!-- Breadcrumbs -->
+    <nav class="pdf-breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <span class="current">PDF Tools</span>
+    </nav>
+
+    <!-- Hero / Category Title -->
+    <div class="text-center max-w-4xl mx-auto mb-10">
+      <div class="inline-flex items-center gap-2 mb-3">
+        <span class="privacy-badge">
+          <i class="fa-solid fa-shield-halved"></i> 100% In-Browser Privacy • Zero Server Uploads
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight mb-3">
+        Free Online PDF Tools
+      </h1>
+      <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+        Convert, compress, merge, split, rotate, and manage PDF documents directly on your device. Fast, secure, and completely free.
+      </p>
+
+      <!-- Live Tool Search Filter -->
+      <div class="max-w-xl mx-auto mt-6 relative">
+        <div class="relative flex items-center">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 text-slate-400"></i>
+          <input type="text" id="toolSearchInput" placeholder="Search PDF tools (e.g. merge, compress, jpg to pdf)..." 
+            class="w-full bg-white border-2 border-slate-200 focus:border-[#c27803] rounded-2xl py-3 pl-11 pr-4 text-sm font-semibold text-[#3e2723] outline-none shadow-sm transition-all"
+            aria-label="Search PDF Tools">
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mt-6" id="categoryFilterBar">
+        <button class="fa-tab-btn active font-black" data-cat="all">All PDF Tools (19)</button>
+        <button class="fa-tab-btn font-bold" data-cat="organize">Organize & Manage</button>
+        <button class="fa-tab-btn font-bold" data-cat="convert-to">Convert to PDF</button>
+        <button class="fa-tab-btn font-bold" data-cat="convert-from">Convert from PDF</button>
+        <button class="fa-tab-btn font-bold" data-cat="security">Security & Privacy</button>
+        <button class="fa-tab-btn font-bold" data-cat="edit">Edit & Utility</button>
+      </div>
+    </div>
+
+    <!-- Ad Slot (Top Reserved Container to Prevent Layout Shifts) -->
+    <div class="ad-slot-container ad-slot-leaderboard">
+      <div class="ad-slot-label">Advertisement</div>
+      <div class="text-xs text-slate-400 font-medium py-4">Reserved Ad Container</div>
+    </div>
+
+    <!-- PDF Tools Directory Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16" id="pdfToolsGrid">
+      
+      <!-- 1. Merge PDF -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="organize" data-keywords="merge pdf combine pdf join pdf files">
+        <div class="space-y-3">
+          <div class="flex items-start justify-between">
+            <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-object-group"></i>
+            </div>
+            <span class="badge-pill badge-pill-blue">Popular</span>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Merge PDF</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Combine multiple PDF documents into a single organized file with custom drag-and-drop page ordering.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/merge-pdf/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. Split PDF -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="organize" data-keywords="split pdf separate pages divide pdf">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-scissors"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Split PDF</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Separate PDF pages into individual documents or extract custom page ranges with instant ZIP download.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/split-pdf/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. Compress PDF -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="organize" data-keywords="compress pdf reduce size shrink pdf">
+        <div class="space-y-3">
+          <div class="flex items-start justify-between">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-compress"></i>
+            </div>
+            <span class="badge-pill badge-pill-blue">Popular</span>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Compress PDF</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Reduce PDF file size up to 80% with multi-level DPI downsampling and image stream optimization.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/compress-pdf/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. JPG to PDF -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="convert-to" data-keywords="jpg to pdf jpeg to pdf convert photos to pdf">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-file-image"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">JPG to PDF</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Convert JPG/JPEG images into clean, standardized A4 or fit-to-image PDF documents.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/jpg-to-pdf/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 5. PNG to PDF -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="convert-to" data-keywords="png to pdf convert transparent png to pdf">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-image"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">PNG to PDF</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Convert PNG graphics with transparency into high-resolution printable PDF files.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/png-to-pdf/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 6. WebP to PDF -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="convert-to" data-keywords="webp to pdf convert webp images to pdf">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">WebP to PDF</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Turn next-gen WebP images and screenshots into standard universally viewable PDF documents.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/webp-to-pdf/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 7. PDF to JPG -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="convert-from" data-keywords="pdf to jpg convert pdf to jpeg export pdf images">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-file-export"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">PDF to JPG</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Extract PDF pages into high-resolution JPG images with single-image or ZIP batch download.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/pdf-to-jpg/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 8. PDF to PNG -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="convert-from" data-keywords="pdf to png convert pdf to png export lossless">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-file-lines"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">PDF to PNG</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Export PDF pages into lossless PNG graphics with ultra-sharp vector text and diagram rendering.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/pdf-to-png/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 9. PDF to WebP -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="convert-from" data-keywords="pdf to webp convert pdf to webp images">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-photo-film"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">PDF to WebP</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Convert PDF pages into lightweight, next-gen WebP images optimized for fast website publishing.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/pdf-to-webp/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 10. Rotate PDF -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="organize" data-keywords="rotate pdf flip pdf orientation">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-violet-50 text-violet-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-rotate"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Rotate PDF</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Permanently rotate upside-down or sideways PDF pages by 90°, 180°, or 270° with interactive previews.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/rotate-pdf/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 11. Delete PDF Pages -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="organize" data-keywords="delete pdf pages remove pages from pdf">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-trash-can"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Delete PDF Pages</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Click to remove unwanted or blank pages from your PDF with an intuitive thumbnail selector grid.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/delete-pdf-pages/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 12. Extract PDF Pages -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="organize" data-keywords="extract pdf pages save selected pages">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-fuchsia-50 text-fuchsia-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-layer-group"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Extract PDF Pages</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Select and save specific pages into a brand new standalone PDF document in one click.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/extract-pdf-pages/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 13. PDF to Text -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="edit" data-keywords="pdf to text extract text from pdf txt">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-file-lines"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">PDF to Text</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Extract plain text, paragraphs, and tables from PDF documents. Copy directly or export as .txt.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/pdf-to-text/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 14. Add Page Numbers to PDF -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="edit" data-keywords="add page numbers to pdf paginate pdf number pages">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-700 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-list-ol"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Add Page Numbers</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Insert customizable page numbers with options for position, formatting (Page N of M), and font style.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/add-page-numbers-to-pdf/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 15. Watermark PDF -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="security" data-keywords="watermark pdf add text watermark stamp confidential">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-700 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-stamp"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Watermark PDF</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Stamp custom text watermarks, copyright notices, or DRAFT badges across your document pages.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/watermark-pdf/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 16. Password Protect PDF -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="security" data-keywords="password protect pdf encrypt pdf lock document">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-700 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Password Protect PDF</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Encrypt your sensitive PDF contracts, tax returns, and records with strong client-side password security.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/password-protect-pdf/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 17. Unlock PDF -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="security" data-keywords="unlock pdf remove password decrypt pdf">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-lock-open"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Unlock PDF</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Remove passwords and editing restrictions from PDF files you own to produce an unlocked copy.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/unlock-pdf/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 18. Remove PDF Metadata -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="security" data-keywords="remove pdf metadata clean properties strip author">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Remove Metadata</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Wipe author names, software identifiers, creation timestamps, and hidden metadata for total privacy.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/pdf-metadata-remover/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 19. HTML to PDF -->
+      <div class="tool-card fa-card fa-card-interactive p-6 flex flex-col justify-between group" data-category="edit" data-keywords="html to pdf convert webpage code to pdf">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center text-xl font-bold group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">HTML to PDF</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Render raw HTML code, styled documents, and rich text into clean, printable vector PDF files.
+          </p>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+          <span class="text-slate-400 text-[11px]">Free Client-Side</span>
+          <a href="pdf-tools/html-to-pdf/index.html" class="fa-btn-primary py-2 px-4 text-xs font-black shadow-xs flex items-center gap-1">
+            <span>Open Tool</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Features & Trust Section -->
+    <section class="max-w-6xl mx-auto my-16 bg-white border border-slate-200/80 rounded-3xl p-8 sm:p-12 shadow-sm">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="badge-pill badge-pill-blue mb-2">Why 360Tools</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723]">Privacy-First PDF Processing</h2>
+        <p class="text-slate-600 text-sm mt-2">Engineered from the ground up for privacy, speed, and reliability.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold shrink-0">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-black text-[#3e2723] mb-1">100% In-Browser Privacy</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Your files never leave your computer or phone. All operations run directly in local memory.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-bold shrink-0">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-black text-[#3e2723] mb-1">No Queue Delays</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              No uploading or downloading large files to remote servers. Processing executes instantaneously.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl font-bold shrink-0">
+            <i class="fa-solid fa-infinity"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-black text-[#3e2723] mb-1">100% Free & Unlimited</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              No account registration, no credit card requirements, and zero watermarks added to your documents.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ad Slot (Bottom Reserved Container) -->
+    <div class="ad-slot-container ad-slot-leaderboard">
+      <div class="ad-slot-label">Advertisement</div>
+      <div class="text-xs text-slate-400 font-medium py-4">Reserved Ad Container</div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="max-w-4xl mx-auto my-16">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723]">Frequently Asked Questions</h2>
+        <p class="text-slate-600 text-sm mt-1">Common questions about our online PDF processing tools.</p>
+      </div>
+
+      <div class="space-y-3">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Are my PDF files uploaded to your servers?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Never. All PDF merging, splitting, compression, conversion, and editing run 100% locally inside your web browser using HTML5 Canvas, WebAssembly, and PDF-Lib. Your confidential documents, contracts, and tax filings never touch any external server.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Are all PDF tools on 360Tools free?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Yes, every PDF tool on 360Tools is completely free. We do not require an email address, credit card, or user registration, and we never add unwanted watermarks to your finished PDF files.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Do these PDF tools work on mobile phones?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Yes, our tools are fully responsive and work seamlessly on mobile browsers including Safari on iPhone/iPad and Google Chrome on Android devices.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What is the maximum PDF file size supported?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Because processing occurs directly in your browser RAM, the tool can handle files up to 100MB on most devices. Performance depends on your device's available memory.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script>
+    // Live Search and Category Filtering Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('toolSearchInput');
+      const filterButtons = document.querySelectorAll('#categoryFilterBar button');
+      const cards = document.querySelectorAll('#pdfToolsGrid .tool-card');
+
+      let currentCategory = 'all';
+      let currentQuery = '';
+
+      function filterGrid() {
+        cards.forEach(card => {
+          const cardCat = card.getAttribute('data-category');
+          const keywords = (card.getAttribute('data-keywords') || '') + ' ' + (card.querySelector('h3')?.textContent || '');
+          const matchesCat = currentCategory === 'all' || cardCat === currentCategory;
+          const matchesQuery = !currentQuery || keywords.toLowerCase().includes(currentQuery.toLowerCase());
+
+          if (matchesCat && matchesQuery) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentQuery = e.target.value.trim();
+          filterGrid();
+        });
+      }
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterButtons.forEach(b => {
+            b.classList.remove('active', 'font-black');
+            b.classList.add('font-bold');
+          });
+          btn.classList.add('active', 'font-black');
+          btn.classList.remove('font-bold');
+          currentCategory = btn.getAttribute('data-cat');
+          filterGrid();
+        });
+      });
+
+      // Accordion toggle
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+          const item = button.parentElement;
+          item.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Extract PDF Pages Online Free — Save Selected Pages | 360Tools</title>
+  <meta name="title" content="Extract PDF Pages Online Free — Save Selected Pages | 360Tools">
+  <meta name="description" content="Select and extract specific pages from any PDF document online for free. Save as a new combined PDF or individual files in a ZIP with 100% in-browser privacy.">
+  <meta name="keywords" content="extract PDF pages, extract pages from PDF, save specific pages of PDF, take pages out of PDF, 360tools">
+  <meta name="author" content="360Tools (360tools.me)">
+  <link rel="canonical" href="https://360tools.me/pdf-tools/extract-pdf-pages/">
+
+  <!-- Favicon & Open Graph -->
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/pdf-tools/extract-pdf-pages/">
+  <meta property="og:title" content="Extract PDF Pages Online Free — 100% Client-Side Private | 360Tools">
+  <meta property="og:description" content="Extract selected pages from PDF files into a new document directly in your browser. Zero server uploads.">
+  <meta property="og:image" content="images/logo.webp">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/pdf-tools/extract-pdf-pages/">
+  <meta property="twitter:title" content="Free Online PDF Page Extractor — 100% Private">
+  <meta property="twitter:description" content="Take specific pages from multi-page PDFs safely on your device.">
+  <meta property="twitter:image" content="images/logo.webp">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Extract PDF Pages Tool",
+    "url": "https://360tools.me/pdf-tools/extract-pdf-pages/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "description": "Extract selected pages from PDF documents directly in your web browser.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "PDF Tools",
+        "item": "https://360tools.me/pdf-tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Extract PDF Pages",
+        "item": "https://360tools.me/pdf-tools/extract-pdf-pages/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I extract pages into separate individual PDF files?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! You can choose to compile all selected pages into a single new PDF document or download each selected page as a separate PDF inside a ZIP archive."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my files uploaded to your server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Never. All page extraction executes 100% locally inside your browser memory using PDF-Lib and WebAssembly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I specify custom page ranges?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can visually click page thumbnails or type ranges like '1-3, 5, 8-10' directly in the range input field."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- Master Stylesheet & PDF Tool Assets -->
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/tools.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto w-full flex-1 pt-6 pb-16">
+    
+    <!-- Breadcrumbs -->
+    <nav class="pdf-breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <a href="pdf-tools/index.html">PDF Tools</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <span class="current">Extract PDF Pages</span>
+    </nav>
+
+    <!-- Header / Title Section -->
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <div class="inline-flex items-center gap-2 mb-3">
+        <span class="privacy-badge">
+          <i class="fa-solid fa-shield-halved"></i> 100% In-Browser Privacy • Zero Cloud Uploads
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight mb-2">
+        Extract PDF Pages
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        Select and extract specific pages from any PDF document into a brand new standalone file.
+      </p>
+    </div>
+
+    <!-- Ad Slot (Top Reserved Container) -->
+    <div class="ad-slot-container ad-slot-leaderboard">
+      <div class="ad-slot-label">Advertisement</div>
+      <div class="text-xs text-slate-400 font-medium py-4">Reserved Ad Container</div>
+    </div>
+
+    <!-- TOOL UI WRAPPER -->
+    <div class="pdf-tool-wrapper">
+      
+      <!-- Dropzone -->
+      <div class="pdf-dropzone" id="dropzone">
+        <div class="pdf-dropzone-icon">
+          <i class="fa-solid fa-layer-group"></i>
+        </div>
+        <div>
+          <div class="pdf-dropzone-title">Drag & drop a PDF file here</div>
+          <div class="pdf-dropzone-subtitle">or click to browse from your device</div>
+        </div>
+        <input type="file" id="fileInput" accept=".pdf,application/pdf" class="hidden">
+        <button type="button" class="pdf-btn-secondary mt-2">
+          <i class="fa-solid fa-folder-open"></i>
+          <span>Choose PDF File</span>
+        </button>
+      </div>
+
+      <!-- Loaded File & Options Container -->
+      <div id="extractOptionsContainer" style="display:none;" class="space-y-6">
+        <div class="pdf-file-item">
+          <div class="pdf-file-item-left">
+            <div class="pdf-file-item-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="pdf-file-item-meta">
+              <div class="pdf-file-item-name" id="fileNameDisplay">document.pdf</div>
+              <div class="pdf-file-item-size" id="fileMetaDisplay">0 KB • 0 pages</div>
+            </div>
+          </div>
+          <button type="button" id="changeFileBtn" class="pdf-action-btn" title="Choose another file">
+            <i class="fa-solid fa-rotate-left text-xs"></i>
+          </button>
+        </div>
+
+        <!-- Extract Settings -->
+        <div class="pdf-options-panel">
+          <div class="pdf-options-title"><i class="fa-solid fa-sliders"></i> Extraction Mode & Ranges</div>
+          <div class="pdf-options-grid">
+            <div class="pdf-option-group">
+              <label class="pdf-option-label">Output Mode</label>
+              <select id="outputModeSelect" class="pdf-select">
+                <option value="merged">Combine extracted pages into 1 PDF</option>
+                <option value="separate">Save each extracted page as separate PDF (ZIP)</option>
+              </select>
+            </div>
+            <div class="pdf-option-group">
+              <label class="pdf-option-label">Page Ranges (e.g. 1-3, 5, 8-10)</label>
+              <input type="text" id="rangeInput" class="pdf-input" placeholder="e.g. 1-3, 5">
+            </div>
+          </div>
+        </div>
+
+        <!-- Thumbnail Grid -->
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-black uppercase tracking-wider text-slate-400">Click pages to toggle extraction</span>
+            <span class="text-xs font-bold text-slate-600"><span id="selectedCountBadge" class="text-[#c27803] font-black">0 pages</span> selected</span>
+          </div>
+          <div id="pagesGridContainer"></div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="pt-4 border-t border-slate-200 flex justify-end">
+          <button type="button" id="extractBtn" class="pdf-btn-primary">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Extract Selected Pages</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Container -->
+      <div id="progressContainer" style="display:none;"></div>
+
+      <!-- Error Alert -->
+      <div id="errorContainer" style="display:none;"></div>
+
+      <!-- Result Container -->
+      <div id="resultContainer" style="display:none;"></div>
+
+    </div>
+
+    <!-- Privacy Notice -->
+    <div class="bg-emerald-50/80 border border-emerald-200/90 rounded-2xl p-4 sm:p-5 mb-12 flex items-start gap-3.5">
+      <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-base font-bold">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <div class="space-y-1">
+        <h4 class="text-xs font-black uppercase tracking-wide text-emerald-950">100% In-Browser Privacy</h4>
+        <p class="text-xs text-emerald-800 leading-relaxed font-medium">
+          Pages are extracted entirely inside your browser memory. Files are never uploaded to any remote server.
+        </p>
+      </div>
+    </div>
+
+    <!-- How to Use Step-by-Step -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">How to Extract PDF Pages Online</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">1</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Select PDF</h3>
+          <p class="text-xs text-slate-600">Upload your PDF to generate visual page thumbnails.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">2</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Choose Pages</h3>
+          <p class="text-xs text-slate-600">Click the thumbnails of pages you want to keep or type page ranges.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">3</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Download PDF</h3>
+          <p class="text-xs text-slate-600">Download your newly created PDF file containing only the extracted pages.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I extract pages into separate individual PDF files?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Yes! You can choose to compile all selected pages into a single new PDF document or download each selected page as a separate PDF inside a ZIP archive.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Are my files uploaded to your server?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Never. All page extraction executes 100% locally inside your browser memory using PDF-Lib and WebAssembly.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How do I specify custom page ranges?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            You can visually click page thumbnails or type ranges like '1-3, 5, 8-10' directly in the range input field.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools Section -->
+    <section>
+      <h2 class="text-lg font-black text-[#3e2723] mb-4">Related PDF Tools</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="pdf-tools/split-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-scissors"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Split PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Split all pages</div>
+          </div>
+        </a>
+        <a href="pdf-tools/delete-pdf-pages/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-trash-can"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Delete Pages</div>
+            <div class="text-[10px] text-slate-500 font-medium">Remove blank pages</div>
+          </div>
+        </a>
+        <a href="pdf-tools/merge-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-object-group"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Merge PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Combine PDF files</div>
+          </div>
+        </a>
+        <a href="pdf-tools/rotate-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-violet-50 text-violet-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-rotate"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Rotate PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Fix orientation</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="assets/js/pdf/pdf-common.js"></script>
+  <script src="assets/js/pdf/pdf-utils.js"></script>
+  <script src="assets/js/pdf/pdf-ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let currentFile = null;
+      let loadedPdfDoc = null;
+      let totalPages = 0;
+      let pageStates = [];
+
+      const dropzone = document.getElementById('dropzone');
+      const fileInput = document.getElementById('fileInput');
+      const extractOptionsContainer = document.getElementById('extractOptionsContainer');
+      const fileNameDisplay = document.getElementById('fileNameDisplay');
+      const fileMetaDisplay = document.getElementById('fileMetaDisplay');
+      const changeFileBtn = document.getElementById('changeFileBtn');
+      const outputModeSelect = document.getElementById('outputModeSelect');
+      const rangeInput = document.getElementById('rangeInput');
+      const selectedCountBadge = document.getElementById('selectedCountBadge');
+      const pagesGridContainer = document.getElementById('pagesGridContainer');
+      const extractBtn = document.getElementById('extractBtn');
+      const progressContainer = document.getElementById('progressContainer');
+      const errorContainer = document.getElementById('errorContainer');
+      const resultContainer = document.getElementById('resultContainer');
+
+      PDFCommon.setupDropzone(dropzone, fileInput, (files) => {
+        if (files.length > 0) loadFile(files[0]);
+      });
+
+      if (changeFileBtn) {
+        changeFileBtn.addEventListener('click', () => {
+          currentFile = null;
+          extractOptionsContainer.style.display = 'none';
+          dropzone.style.display = 'flex';
+          PDFUI.clearError(errorContainer);
+        });
+      }
+
+      async function loadFile(file) {
+        PDFUI.clearError(errorContainer);
+        const check = PDFCommon.validateFile(file, ['application/pdf'], 150);
+        if (!check.valid) {
+          PDFUI.showError(errorContainer, check.error);
+          return;
+        }
+
+        currentFile = file;
+        PDFUI.showProgress(progressContainer, 20, 'Reading PDF structure...');
+
+        try {
+          const pdfjsLib = await PDFCommon.requirePdfJs();
+          const buffer = await PDFCommon.readFileAsArrayBuffer(file);
+          loadedPdfDoc = await pdfjsLib.getDocument({ data: buffer }).promise;
+          totalPages = loadedPdfDoc.numPages;
+
+          fileNameDisplay.textContent = file.name;
+          fileMetaDisplay.textContent = `${PDFUtils.formatBytes(file.size)} • ${totalPages} page${totalPages === 1 ? '' : 's'}`;
+
+          PDFUI.showProgress(progressContainer, 60, 'Rendering page thumbnails...');
+          pageStates = await PDFUI.renderPagesGrid(pagesGridContainer, loadedPdfDoc, {
+            selectable: true,
+            rotatable: false,
+            deletable: false,
+            onSelectionChange: () => updateSelectionCount()
+          });
+
+          PDFUI.hideProgress(progressContainer);
+          dropzone.style.display = 'none';
+          extractOptionsContainer.style.display = 'block';
+          updateSelectionCount();
+        } catch (err) {
+          console.error(err);
+          PDFUI.hideProgress(progressContainer);
+          PDFUI.showError(errorContainer, `Failed to load PDF: ${err.message}`);
+        }
+      }
+
+      function updateSelectionCount() {
+        if (!pageStates) return;
+        const count = pageStates.filter(s => s.selected).length;
+        selectedCountBadge.textContent = `${count} page${count === 1 ? '' : 's'}`;
+      }
+
+      if (rangeInput) {
+        rangeInput.addEventListener('input', (e) => {
+          const rangeIndices = PDFUtils.parsePageRanges(e.target.value.trim(), totalPages);
+          const cards = pagesGridContainer.querySelectorAll('.pdf-page-card');
+          pageStates.forEach((st, idx) => {
+            st.selected = rangeIndices.includes(idx);
+            cards[idx]?.classList.toggle('selected', st.selected);
+          });
+          updateSelectionCount();
+        });
+      }
+
+      if (extractBtn) {
+        extractBtn.addEventListener('click', async () => {
+          if (!currentFile) return;
+
+          const targetIndices = pageStates.filter(s => s.selected).map(s => s.pageNumber - 1);
+          if (targetIndices.length === 0) {
+            PDFUI.showError(errorContainer, 'Please select at least one page to extract.');
+            return;
+          }
+
+          PDFUI.clearError(errorContainer);
+          extractBtn.disabled = true;
+          PDFUI.showProgress(progressContainer, 15, 'Extracting selected pages...');
+
+          try {
+            const { PDFDocument } = await PDFCommon.requirePdfLib();
+            const buffer = await PDFCommon.readFileAsArrayBuffer(currentFile);
+            const sourceDoc = await PDFDocument.load(buffer, { ignoreEncryption: true });
+            const mode = outputModeSelect.value;
+            const baseName = currentFile.name.replace(/\.pdf$/i, '');
+
+            if (mode === 'merged') {
+              const newDoc = await PDFDocument.create();
+              const copiedPages = await newDoc.copyPages(sourceDoc, targetIndices);
+              copiedPages.forEach(p => newDoc.addPage(p));
+
+              PDFUI.showProgress(progressContainer, 85, 'Saving new document...');
+              const pdfBytes = await newDoc.save();
+              const pdfBlob = new Blob([pdfBytes], { type: 'application/pdf' });
+
+              PDFUI.hideProgress(progressContainer);
+              extractOptionsContainer.style.display = 'none';
+
+              PDFUI.renderResult(resultContainer, {
+                filename: `${baseName}-extracted.pdf`,
+                blob: pdfBlob,
+                newSize: pdfBytes.byteLength,
+                onReset: () => {
+                  resultContainer.style.display = 'none';
+                  dropzone.style.display = 'flex';
+                  extractBtn.disabled = false;
+                }
+              });
+            } else {
+              const JSZip = await PDFCommon.requireJsZip();
+              const zip = new JSZip();
+
+              for (let i = 0; i < targetIndices.length; i++) {
+                const pageIdx = targetIndices[i];
+                const pct = 20 + Math.round(((i + 1) / targetIndices.length) * 70);
+                PDFUI.showProgress(progressContainer, pct, `Extracting page ${pageIdx + 1}...`);
+
+                const singleDoc = await PDFDocument.create();
+                const [copiedPage] = await singleDoc.copyPages(sourceDoc, [pageIdx]);
+                singleDoc.addPage(copiedPage);
+
+                const singleBytes = await singleDoc.save();
+                zip.file(`${baseName}-page-${pageIdx + 1}.pdf`, singleBytes);
+              }
+
+              PDFUI.showProgress(progressContainer, 95, 'Bundling into ZIP...');
+              const zipBlob = await zip.generateAsync({ type: 'blob' });
+
+              PDFUI.hideProgress(progressContainer);
+              extractOptionsContainer.style.display = 'none';
+
+              PDFUI.renderResult(resultContainer, {
+                filename: `${baseName}-extracted-pages.zip`,
+                blob: zipBlob,
+                newSize: zipBlob.size,
+                onReset: () => {
+                  resultContainer.style.display = 'none';
+                  dropzone.style.display = 'flex';
+                  extractBtn.disabled = false;
+                }
+              });
+            }
+          } catch (err) {
+            console.error(err);
+            PDFUI.hideProgress(progressContainer);
+            PDFUI.showError(errorContainer, `Extraction failed: ${err.message}`);
+            extractBtn.disabled = false;
+          }
+        });
+      }
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+          button.parentElement.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

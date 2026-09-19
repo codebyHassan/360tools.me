@@ -1,0 +1,113 @@
+/* ==========================================================================
+   360tools.me — PDF Tools Ecosystem: Global Styles
+   Extends 360Tools Design Language (Warm Slate, Deep Navy, Mustard Gold)
+   ========================================================================== */
+
+:root {
+  /* Brand Palette */
+  --fa-navy-dark: #2c1b18;
+  --fa-navy: #3e2723;
+  --fa-navy-light: #52342f;
+  --fa-blue: #c27803;
+  --fa-blue-hover: #9a5f02;
+  --fa-blue-light: #fef7e7;
+  --fa-yellow: #ffd43b;
+  --fa-yellow-hover: #fcc419;
+  --fa-yellow-light: #fff9db;
+  --fa-teal: #20c997;
+  --fa-teal-light: #e6fcf5;
+  --fa-rose: #fa5252;
+  --fa-rose-light: #ffe3e3;
+  --fa-emerald: #10b981;
+  --fa-emerald-light: #ecfdf5;
+  --fa-purple: #7c3aed;
+  --fa-purple-light: #f5f3ff;
+
+  /* PDF Specific Brand Accents */
+  --pdf-red: #e11d48;
+  --pdf-red-hover: #be123c;
+  --pdf-red-light: #ffe4e6;
+  --pdf-red-border: #fecdd3;
+
+  /* Surfaces & Backgrounds */
+  --fa-bg: #fbf7ee;
+  --fa-bg-subtle: #f5edd8;
+  --fa-card: #ffffff;
+  --fa-card-warm: #f2ebd9;
+  --fa-border: #ded2be;
+  --fa-border-light: #ece4d4;
+  --fa-border-focus: #c27803;
+
+  /* Typography */
+  --fa-text-main: #3e2723;
+  --fa-text-sub: #6d554f;
+  --fa-text-muted: #9c857f;
+  --fa-text-white: #ffffff;
+
+  /* Font Families */
+  --font-heading: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(62, 39, 35, 0.04);
+  --shadow-sm: 0 2px 4px rgba(62, 39, 35, 0.05);
+  --shadow-md: 0 4px 16px rgba(62, 39, 35, 0.08), 0 1px 3px rgba(62, 39, 35, 0.04);
+  --shadow-lg: 0 12px 32px rgba(62, 39, 35, 0.12), 0 2px 6px rgba(62, 39, 35, 0.04);
+  --shadow-hover: 0 16px 40px rgba(194, 120, 3, 0.14), 0 4px 12px rgba(62, 39, 35, 0.06);
+
+  /* Border Radii */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+}
+
+/* Dark Mode Overrides */
+html.dark, [data-theme="dark"] {
+  --fa-bg: #0f172a;
+  --fa-bg-subtle: #1e293b;
+  --fa-card: #1e293b;
+  --fa-card-warm: #1e293b;
+  --fa-border: #334155;
+  --fa-border-light: #1e293b;
+  --fa-text-main: #f8fafc;
+  --fa-text-sub: #94a3b8;
+  --fa-text-muted: #64748b;
+  color-scheme: dark;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--fa-bg);
+  color: var(--fa-text-main);
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--fa-bg);
+  color: var(--fa-text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Text Selection */
+::selection {
+  background: var(--fa-yellow);
+  color: var(--fa-navy);
+}
+
+/* Base Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--fa-text-main);
+  letter-spacing: -0.025em;
+  font-weight: 800;
+}

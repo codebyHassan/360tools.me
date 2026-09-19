@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Remove PDF Metadata Online Free — Sanitize PDF Properties | 360Tools</title>
+  <meta name="title" content="Remove PDF Metadata Online Free — Sanitize PDF Properties | 360Tools">
+  <meta name="description" content="Strip author names, software details, timestamps, and hidden metadata from PDF documents online for free. 100% in-browser privacy on 360Tools.">
+  <meta name="keywords" content="remove PDF metadata, strip PDF metadata, clean PDF metadata, remove author from PDF, sanitize PDF, 360tools">
+  <meta name="author" content="360Tools (360tools.me)">
+  <link rel="canonical" href="https://360tools.me/pdf-tools/pdf-metadata-remover/">
+
+  <!-- Favicon & Open Graph -->
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/pdf-tools/pdf-metadata-remover/">
+  <meta property="og:title" content="Remove PDF Metadata Online Free — 100% Client-Side | 360Tools">
+  <meta property="og:description" content="Wipe hidden author names, timestamps, and software signatures from PDF documents. Zero cloud uploads.">
+  <meta property="og:image" content="images/logo.webp">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/pdf-tools/pdf-metadata-remover/">
+  <meta property="twitter:title" content="Free Online PDF Metadata Sanitizer — 100% Private">
+  <meta property="twitter:description" content="Sanitize PDF properties and delete tracking metadata safely on your device.">
+  <meta property="twitter:image" content="images/logo.webp">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PDF Metadata Remover",
+    "url": "https://360tools.me/pdf-tools/pdf-metadata-remover/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "description": "Strip author names, device details, and hidden metadata from PDF documents directly in your web browser.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "PDF Tools",
+        "item": "https://360tools.me/pdf-tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Remove PDF Metadata",
+        "item": "https://360tools.me/pdf-tools/pdf-metadata-remover/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What metadata is removed from my PDF document?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The tool sanitizes Author, Title, Subject, Keywords, Creator tool, Producer software, Creation date, and Modification timestamps."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does stripping metadata change my document layout or text?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Your pages, vector typography, images, and formatting remain 100% intact. Only hidden metadata header fields are cleaned."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my files uploaded to your servers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Never. All metadata inspection and sanitization execute 100% locally inside your browser memory using PDF-Lib."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- Master Stylesheet & PDF Tool Assets -->
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/tools.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto w-full flex-1 pt-6 pb-16">
+    
+    <!-- Breadcrumbs -->
+    <nav class="pdf-breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <a href="pdf-tools/index.html">PDF Tools</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <span class="current">Remove PDF Metadata</span>
+    </nav>
+
+    <!-- Header / Title Section -->
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <div class="inline-flex items-center gap-2 mb-3">
+        <span class="privacy-badge">
+          <i class="fa-solid fa-shield-halved"></i> 100% In-Browser Privacy • Zero Cloud Uploads
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight mb-2">
+        Remove PDF Metadata
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        Strip author names, software identifiers, creation timestamps, and hidden metadata for anonymous sharing.
+      </p>
+    </div>
+
+    <!-- Ad Slot (Top Reserved Container) -->
+    <div class="ad-slot-container ad-slot-leaderboard">
+      <div class="ad-slot-label">Advertisement</div>
+      <div class="text-xs text-slate-400 font-medium py-4">Reserved Ad Container</div>
+    </div>
+
+    <!-- TOOL UI WRAPPER -->
+    <div class="pdf-tool-wrapper">
+      
+      <!-- Dropzone -->
+      <div class="pdf-dropzone" id="dropzone">
+        <div class="pdf-dropzone-icon">
+          <i class="fa-solid fa-user-shield"></i>
+        </div>
+        <div>
+          <div class="pdf-dropzone-title">Drag & drop a PDF file here</div>
+          <div class="pdf-dropzone-subtitle">or click to browse from your device</div>
+        </div>
+        <input type="file" id="fileInput" accept=".pdf,application/pdf" class="hidden">
+        <button type="button" class="pdf-btn-secondary mt-2">
+          <i class="fa-solid fa-folder-open"></i>
+          <span>Choose PDF File</span>
+        </button>
+      </div>
+
+      <!-- Loaded File & Metadata Container -->
+      <div id="metadataOptionsContainer" style="display:none;" class="space-y-6">
+        <div class="pdf-file-item">
+          <div class="pdf-file-item-left">
+            <div class="pdf-file-item-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="pdf-file-item-meta">
+              <div class="pdf-file-item-name" id="fileNameDisplay">document.pdf</div>
+              <div class="pdf-file-item-size" id="fileMetaDisplay">0 KB • 0 pages</div>
+            </div>
+          </div>
+          <button type="button" id="changeFileBtn" class="pdf-action-btn" title="Choose another file">
+            <i class="fa-solid fa-rotate-left text-xs"></i>
+          </button>
+        </div>
+
+        <!-- Discovered Metadata Summary Panel -->
+        <div class="pdf-options-panel">
+          <div class="pdf-options-title"><i class="fa-solid fa-tags"></i> Discovered Metadata Properties</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs" id="metadataFieldsGrid">
+            <div class="bg-white p-3 rounded-xl border border-slate-200">
+              <span class="text-slate-400 font-bold block">Author / Creator:</span>
+              <span id="metaAuthor" class="font-bold text-[#3e2723]">None</span>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-slate-200">
+              <span class="text-slate-400 font-bold block">Title / Subject:</span>
+              <span id="metaTitle" class="font-bold text-[#3e2723]">None</span>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-slate-200">
+              <span class="text-slate-400 font-bold block">Producer Software:</span>
+              <span id="metaProducer" class="font-bold text-[#3e2723]">None</span>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-slate-200">
+              <span class="text-slate-400 font-bold block">Creation Date:</span>
+              <span id="metaDate" class="font-bold text-[#3e2723]">None</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="pt-4 border-t border-slate-200 flex justify-end">
+          <button type="button" id="sanitizeBtn" class="pdf-btn-primary">
+            <i class="fa-solid fa-eraser"></i>
+            <span>Sanitize & Download Clean PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Container -->
+      <div id="progressContainer" style="display:none;"></div>
+
+      <!-- Error Alert -->
+      <div id="errorContainer" style="display:none;"></div>
+
+      <!-- Result Container -->
+      <div id="resultContainer" style="display:none;"></div>
+
+    </div>
+
+    <!-- Privacy Notice -->
+    <div class="bg-emerald-50/80 border border-emerald-200/90 rounded-2xl p-4 sm:p-5 mb-12 flex items-start gap-3.5">
+      <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-base font-bold">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <div class="space-y-1">
+        <h4 class="text-xs font-black uppercase tracking-wide text-emerald-950">100% In-Browser Privacy</h4>
+        <p class="text-xs text-emerald-800 leading-relaxed font-medium">
+          Metadata headers are stripped in local browser memory. Files are never uploaded or tracked.
+        </p>
+      </div>
+    </div>
+
+    <!-- How to Use Step-by-Step -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">How to Remove PDF Metadata Online</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">1</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Select PDF</h3>
+          <p class="text-xs text-slate-600">Choose the PDF document from your device.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">2</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Inspect Properties</h3>
+          <p class="text-xs text-slate-600">View discovered author signatures, software metadata, and timestamps.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">3</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Download Clean PDF</h3>
+          <p class="text-xs text-slate-600">Download your sanitized anonymous PDF file instantly.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What metadata is removed from my PDF document?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            The tool sanitizes Author, Title, Subject, Keywords, Creator tool, Producer software, Creation date, and Modification timestamps.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Does stripping metadata change my document layout or text?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            No. Your pages, vector typography, images, and formatting remain 100% intact. Only hidden metadata header fields are cleaned.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Are my files uploaded to your servers?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Never. All metadata inspection and sanitization execute 100% locally inside your browser memory using PDF-Lib.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools Section -->
+    <section>
+      <h2 class="text-lg font-black text-[#3e2723] mb-4">Related PDF Tools</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="pdf-tools/watermark-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-stamp"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Watermark PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Add text watermark</div>
+          </div>
+        </a>
+        <a href="pdf-tools/password-protect-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Password Protect</div>
+            <div class="text-[10px] text-slate-500 font-medium">Encrypt PDF files</div>
+          </div>
+        </a>
+        <a href="pdf-tools/compress-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-compress"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Compress PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Reduce file size</div>
+          </div>
+        </a>
+        <a href="pdf-tools/merge-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-object-group"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Merge PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Combine PDF files</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="assets/js/pdf/pdf-common.js"></script>
+  <script src="assets/js/pdf/pdf-utils.js"></script>
+  <script src="assets/js/pdf/pdf-ui.js"></script>
+  <script src="assets/js/pdf/pdf-security.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let currentFile = null;
+
+      const dropzone = document.getElementById('dropzone');
+      const fileInput = document.getElementById('fileInput');
+      const metadataOptionsContainer = document.getElementById('metadataOptionsContainer');
+      const fileNameDisplay = document.getElementById('fileNameDisplay');
+      const fileMetaDisplay = document.getElementById('fileMetaDisplay');
+      const changeFileBtn = document.getElementById('changeFileBtn');
+      const metaAuthor = document.getElementById('metaAuthor');
+      const metaTitle = document.getElementById('metaTitle');
+      const metaProducer = document.getElementById('metaProducer');
+      const metaDate = document.getElementById('metaDate');
+      const sanitizeBtn = document.getElementById('sanitizeBtn');
+      const progressContainer = document.getElementById('progressContainer');
+      const errorContainer = document.getElementById('errorContainer');
+      const resultContainer = document.getElementById('resultContainer');
+
+      PDFCommon.setupDropzone(dropzone, fileInput, (files) => {
+        if (files.length > 0) loadFile(files[0]);
+      });
+
+      if (changeFileBtn) {
+        changeFileBtn.addEventListener('click', () => {
+          currentFile = null;
+          metadataOptionsContainer.style.display = 'none';
+          dropzone.style.display = 'flex';
+          PDFUI.clearError(errorContainer);
+        });
+      }
+
+      async function loadFile(file) {
+        PDFUI.clearError(errorContainer);
+        const check = PDFCommon.validateFile(file, ['application/pdf'], 150);
+        if (!check.valid) {
+          PDFUI.showError(errorContainer, check.error);
+          return;
+        }
+
+        currentFile = file;
+        PDFUI.showProgress(progressContainer, 20, 'Reading PDF metadata...');
+
+        try {
+          const { PDFDocument } = await PDFCommon.requirePdfLib();
+          const buffer = await PDFCommon.readFileAsArrayBuffer(file);
+          const pdfDoc = await PDFDocument.load(buffer, { ignoreEncryption: true });
+          const totalPages = pdfDoc.getPageCount();
+
+          fileNameDisplay.textContent = file.name;
+          fileMetaDisplay.textContent = `${PDFUtils.formatBytes(file.size)} • ${totalPages} page${totalPages === 1 ? '' : 's'}`;
+
+          metaAuthor.textContent = pdfDoc.getAuthor() || 'None detected';
+          metaTitle.textContent = pdfDoc.getTitle() || 'None detected';
+          metaProducer.textContent = pdfDoc.getProducer() || pdfDoc.getCreator() || 'None detected';
+          metaDate.textContent = pdfDoc.getCreationDate() ? pdfDoc.getCreationDate().toLocaleDateString() : 'None detected';
+
+          PDFUI.hideProgress(progressContainer);
+          dropzone.style.display = 'none';
+          metadataOptionsContainer.style.display = 'block';
+        } catch (err) {
+          console.error(err);
+          PDFUI.hideProgress(progressContainer);
+          PDFUI.showError(errorContainer, `Failed to load PDF: ${err.message}`);
+        }
+      }
+
+      if (sanitizeBtn) {
+        sanitizeBtn.addEventListener('click', async () => {
+          if (!currentFile) return;
+
+          PDFUI.clearError(errorContainer);
+          sanitizeBtn.disabled = true;
+          PDFUI.showProgress(progressContainer, 25, 'Sanitizing document headers...');
+
+          try {
+            const { PDFDocument } = await PDFCommon.requirePdfLib();
+            const buffer = await PDFCommon.readFileAsArrayBuffer(currentFile);
+            const pdfDoc = await PDFDocument.load(buffer, { ignoreEncryption: true });
+
+            PDFSecurity.stripMetadata(pdfDoc);
+
+            PDFUI.showProgress(progressContainer, 80, 'Saving sanitized document...');
+            const cleanBytes = await pdfDoc.save();
+            const cleanBlob = new Blob([cleanBytes], { type: 'application/pdf' });
+
+            PDFUI.hideProgress(progressContainer);
+            metadataOptionsContainer.style.display = 'none';
+
+            PDFUI.renderResult(resultContainer, {
+              filename: `sanitized-${currentFile.name}`,
+              blob: cleanBlob,
+              originalSize: currentFile.size,
+              newSize: cleanBytes.byteLength,
+              onReset: () => {
+                resultContainer.style.display = 'none';
+                dropzone.style.display = 'flex';
+                sanitizeBtn.disabled = false;
+              }
+            });
+          } catch (err) {
+            console.error(err);
+            PDFUI.hideProgress(progressContainer);
+            PDFUI.showError(errorContainer, `Sanitization failed: ${err.message}`);
+            sanitizeBtn.disabled = false;
+          }
+        });
+      }
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+          button.parentElement.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

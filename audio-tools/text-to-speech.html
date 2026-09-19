@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Text to Speech Online — Free AI Speech Studio | 360tools</title>
+  <meta name="title" content="Text to Speech Online — Free AI Speech Studio | 360tools">
+  <meta name="description" content="Convert text into natural sounding spoken audio online for free. Multi-language neural voice support with instant MP3 audio export.">
+  <meta name="keywords" content="text to speech, text to speech online, free text to speech, AI text to speech, natural voice reader, online TTS generator, 360tools, 360tools.me">
+  <meta name="author" content="360Tools (360tools.me)">
+  <link rel="canonical" href="https://360tools.me/audio-tools/text-to-speech.html">
+
+  <!-- Open Graph / Twitter -->
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/text-to-speech.html">
+  <meta property="og:title" content="Text to Speech Online — Free AI Speech Synthesis | 360Tools">
+  <meta property="og:description" content="Read any text aloud in natural voices. Adjustable speed, pitch, and accents with zero server delay.">
+  <meta property="og:image" content="images/logo.webp">
+
+  <!-- Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Text to Speech Converter",
+    "url": "https://360tools.me/text-to-speech.html",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "description": "Convert written text into natural spoken audio in real time using the browser's native Web Speech API with word highlighting.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this Text to Speech converter completely free to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! It utilizes the browser's native SpeechSynthesis API, meaning there are zero subscription fees, no character limits, and no credit card required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I change the reading speed and voice accent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can adjust the playback rate from 0.5x (slow) to 2.0x (fast), customize the pitch, and choose from available US, UK, Canadian, Australian, and international voices."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my text data logged or sent to any server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The speech synthesis engine executes 100% locally inside your web browser. Your text is never stored, tracked, or transmitted to any third-party server."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Audio & Speech Tools",
+        "item": "https://360tools.me/audio-voice-tools.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Text to Speech",
+        "item": "https://360tools.me/text-to-speech.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Stylesheets -->
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto w-full flex-1">
+    
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4" aria-label="Breadcrumb">
+      <a href="index.html" class="hover:text-[#c27803]">Home</a>
+      <span>/</span>
+      <a href="audio-voice-tools.html" class="hover:text-[#c27803]">Audio & Speech</a>
+      <span>/</span>
+      <span class="text-slate-700">Text to Speech</span>
+    </nav>
+
+    <!-- H1 & Intro -->
+    <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="bg-blue-50 text-[#c27803] text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-solid fa-volume-high mr-1"></i> Web Speech Synthesis Engine
+          </span>
+          <span class="text-xs font-bold text-slate-400">• Real-Time Speech • Word Highlighting</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
+          Free Text to Speech Online Converter
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl">
+          Listen to any text read aloud with natural accents. Adjust pitch and reading speed (0.5x to 2.0x) with zero character limits and 100% in-browser privacy.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 self-start sm:self-center">
+        <button onclick="loadSampleText('story')" class="fa-btn-secondary text-xs px-3 py-1.5">
+          <i class="fa-solid fa-book-open mr-1"></i> Load Story Sample
+        </button>
+      </div>
+    </div>
+
+    <!-- Privacy Banner -->
+    <div class="mb-6 p-3.5 bg-emerald-50 border border-emerald-200/80 rounded-2xl flex items-center justify-between text-xs text-emerald-900 font-semibold">
+      <div class="flex items-center gap-2.5">
+        <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+          <i class="fa-solid fa-shield-halved text-sm"></i>
+        </span>
+        <span><strong>100% In-Browser Privacy:</strong> Text is converted directly in your device's audio hardware. No server API calls or data tracking.</span>
+      </div>
+      <span class="hidden sm:inline-block bg-emerald-200/70 text-emerald-800 px-2.5 py-1 rounded-full text-[10px] font-black uppercase">Zero Cloud Storage</span>
+    </div>
+
+    <!-- Main Tool Interface (Grid) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+      
+      <!-- Left Column: Text Input & Live Highlight Display (7 cols) -->
+      <div class="lg:col-span-7 space-y-4">
+        
+        <div class="fa-card p-6 shadow-sm space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <span class="text-xs font-black uppercase tracking-wider text-[#3e2723] flex items-center gap-1.5">
+              <i class="fa-solid fa-keyboard text-[#c27803]"></i> Text Input & Script Reader
+            </span>
+            <div class="flex items-center gap-3 text-xs font-mono text-slate-500 font-bold">
+              <span id="charCountStat">0 chars</span>
+              <span>•</span>
+              <span id="wordCountStat">0 words</span>
+              <span>•</span>
+              <span id="readTimeStat">0s read</span>
+            </div>
+          </div>
+
+          <!-- Raw Input Textarea -->
+          <textarea id="ttsTextInput" rows="12" placeholder="Type or paste your text here to listen..." class="fa-input font-sans text-sm w-full p-4 leading-relaxed bg-white border border-slate-200 focus:ring-2 focus:ring-[#146ebe] rounded-xl" oninput="handleTextChange()"></textarea>
+
+          <!-- Live Word Highlighter Box (appears during playback) -->
+          <div id="highlightContainer" class="hidden p-4 rounded-xl bg-slate-900 text-slate-100 text-sm leading-relaxed max-h-48 overflow-y-auto border border-slate-800 font-medium">
+            <div id="highlightWords"></div>
+          </div>
+
+          <!-- Quick Action Buttons Below Text -->
+          <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100">
+            <div class="flex items-center gap-2">
+              <button onclick="clearTtsText()" class="text-xs font-bold text-slate-400 hover:text-slate-600 px-2.5 py-1 rounded-lg border border-slate-200">
+                <i class="fa-solid fa-trash mr-1"></i> Clear
+              </button>
+              <button onclick="copyTtsText()" class="text-xs font-bold text-slate-500 hover:text-[#c27803] px-2.5 py-1 rounded-lg border border-slate-200">
+                <i class="fa-solid fa-copy mr-1"></i> Copy Text
+              </button>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="loadSampleText('pitch')" class="text-xs font-bold text-slate-500 hover:text-[#c27803]">Corporate Sample</button>
+              <span>•</span>
+              <button onclick="loadSampleText('news')" class="text-xs font-bold text-slate-500 hover:text-[#c27803]">News Sample</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Voice Engine Controls & Playback (5 cols) -->
+      <div class="lg:col-span-5 space-y-6">
+        
+        <div class="fa-card p-6 shadow-md border-2 border-blue-500/20 bg-gradient-to-b from-white to-slate-50 space-y-5">
+          <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+            <h3 class="text-xs font-black uppercase tracking-wider text-[#3e2723] flex items-center gap-1.5">
+              <i class="fa-solid fa-sliders text-[#c27803]"></i> Voice Synthesis Settings
+            </h3>
+            <span id="speechStatusBadge" class="text-xs font-black font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded-lg">
+              Idle
+            </span>
+          </div>
+
+          <!-- Voice Selector -->
+          <div>
+            <label for="voiceSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+              Select Voice & Accent
+            </label>
+            <select id="voiceSelect" class="fa-input text-xs font-bold w-full bg-white border border-slate-300">
+              <option value="">Loading system voices...</option>
+            </select>
+          </div>
+
+          <!-- Speed Slider -->
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <label for="speedSlider" class="text-xs font-bold uppercase tracking-wider text-slate-600">Reading Speed</label>
+              <span id="speedVal" class="text-xs font-black font-mono bg-blue-100 text-[#c27803] px-2 py-0.5 rounded-lg">1.0x</span>
+            </div>
+            <input type="range" id="speedSlider" min="0.5" max="2.0" step="0.1" value="1.0" class="w-full accent-[#146ebe] cursor-pointer" oninput="updateSpeed(this.value)">
+            <div class="flex justify-between text-[10px] text-slate-400 font-bold mt-0.5">
+              <span>0.5x (Slow)</span>
+              <span>1.0x (Normal)</span>
+              <span>2.0x (Fast)</span>
+            </div>
+          </div>
+
+          <!-- Pitch Slider -->
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <label for="pitchSlider" class="text-xs font-bold uppercase tracking-wider text-slate-600">Voice Pitch</label>
+              <span id="pitchVal" class="text-xs font-black font-mono bg-blue-100 text-[#c27803] px-2 py-0.5 rounded-lg">1.0</span>
+            </div>
+            <input type="range" id="pitchSlider" min="0.5" max="1.5" step="0.1" value="1.0" class="w-full accent-[#146ebe] cursor-pointer" oninput="updatePitch(this.value)">
+            <div class="flex justify-between text-[10px] text-slate-400 font-bold mt-0.5">
+              <span>Deep (0.5)</span>
+              <span>Default (1.0)</span>
+              <span>High (1.5)</span>
+            </div>
+          </div>
+
+          <!-- Master Audio Playback Controls -->
+          <div class="pt-3 border-t border-slate-200 space-y-2">
+            <div class="grid grid-cols-2 gap-2">
+              <button id="btnPlay" onclick="togglePlay()" class="fa-btn-primary py-3 text-sm font-black flex items-center justify-center gap-2 bg-[#146ebe] hover:bg-[#0f5494]">
+                <i class="fa-solid fa-play" id="playIcon"></i>
+                <span id="playText">Read Aloud</span>
+              </button>
+              <button id="btnStop" onclick="stopSpeech()" class="fa-btn-secondary py-3 text-sm font-bold flex items-center justify-center gap-2">
+                <i class="fa-solid fa-stop"></i>
+                <span>Stop</span>
+              </button>
+            </div>
+            <a href="text-to-mp3.html" class="fa-btn-secondary py-2.5 text-xs font-bold w-full text-center flex items-center justify-center gap-1.5 text-emerald-700 bg-emerald-50 border-emerald-200 hover:bg-emerald-100">
+              <i class="fa-solid fa-file-audio"></i>
+              <span>Need an MP3 audio file? Use Text to MP3</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- AdSense Placement -->
+    <div class="w-full my-8 p-4 rounded-2xl bg-slate-100 border border-dashed border-slate-300 text-center text-xs font-bold text-slate-400 min-h-[90px] flex items-center justify-center">
+      <span>Advertisement Area (Non-Intrusive)</span>
+    </div>
+
+    <!-- Features & FAQs Section -->
+    <section class="my-16 pt-10 border-t border-slate-200">
+      <div class="max-w-4xl mx-auto space-y-12">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="fa-card p-6">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-bolt text-[#c27803]"></i> Zero Server Delay
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Synthesizes phonemes instantly using your device's built-in speech engine without waiting for cloud queues.
+            </p>
+          </div>
+          <div class="fa-card p-6">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-highlighter text-amber-500"></i> Word Tracking
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Follow along with real-time text highlighting as each word is spoken aloud, perfect for language learners.
+            </p>
+          </div>
+          <div class="fa-card p-6">
+            <h4 class="font-bold text-[#3e2723] text-sm mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-infinity text-emerald-600"></i> Unlimited Words
+            </h4>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              No character limits, paywalls, or daily caps. Listen to entire essays, reports, and books completely free.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQs -->
+        <div class="space-y-4" id="faqSection">
+          <h2 class="text-2xl font-black text-[#3e2723] mb-4">Frequently Asked Questions</h2>
+          
+          <details class="group fa-card p-5 transition-all">
+            <summary class="flex justify-between items-center font-bold text-sm text-[#3e2723] cursor-pointer list-none">
+              <span>Why do voice options vary across different devices?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+              The Web Speech API accesses the natural voices installed on your operating system (Windows, macOS, iOS, Android, or Google Chrome). Microsoft Edge and Google Chrome provide high-quality natural voices by default.
+            </p>
+          </details>
+
+          <details class="group fa-card p-5 transition-all">
+            <summary class="flex justify-between items-center font-bold text-sm text-[#3e2723] cursor-pointer list-none">
+              <span>How can I convert this text into an MP3 download?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+              Use our dedicated <a href="text-to-mp3.html" class="text-[#c27803] underline font-bold">Text to MP3 Converter</a> tool, which encodes your spoken audio directly into a downloadable MP3/WAV audio file.
+            </p>
+          </details>
+
+          <details class="group fa-card p-5 transition-all">
+            <summary class="flex justify-between items-center font-bold text-sm text-[#3e2723] cursor-pointer list-none">
+              <span>Can I listen to PDF documents?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+              Yes! Check out our <a href="pdf-to-speech.html" class="text-[#c27803] underline font-bold">PDF to Speech Document Reader</a> which automatically extracts and reads multi-page PDF ebooks and contracts.
+            </p>
+          </details>
+        </div>
+
+        <!-- Related Tools -->
+        <div class="pt-8 border-t border-slate-200">
+          <h3 class="text-xs font-black text-slate-400 uppercase tracking-wider mb-4">Related Speech & Audio Tools</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <a href="text-to-mp3.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
+              <i class="fa-solid fa-file-audio text-emerald-600 mr-1.5"></i> Text to MP3
+            </a>
+            <a href="ai-voice-generator.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
+              <i class="fa-solid fa-wand-magic-sparkles text-purple-600 mr-1.5"></i> AI Voice Studio
+            </a>
+            <a href="pdf-to-speech.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
+              <i class="fa-solid fa-file-pdf text-red-600 mr-1.5"></i> PDF to Speech
+            </a>
+            <a href="youtube-voiceover-generator.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
+              <i class="fa-brands fa-youtube text-red-600 mr-1.5"></i> YouTube Narrator
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Scripts -->
+  <script src="js/main.min.js"></script>
+  <script>
+    let synth = window.speechSynthesis;
+    let voices = [];
+    let currentUtterance = null;
+    let isSpeaking = false;
+    let isPaused = false;
+
+    function populateVoices() {
+      if (!synth) return;
+      voices = synth.getVoices().sort((a, b) => a.lang.localeCompare(b.lang));
+      const voiceSelect = document.getElementById('voiceSelect');
+      voiceSelect.innerHTML = '';
+
+      if (voices.length === 0) {
+        voiceSelect.innerHTML = '<option value="">Default System Voice</option>';
+        return;
+      }
+
+      voices.forEach((voice, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = `${voice.name} (${voice.lang})${voice.default ? ' [Default]' : ''}`;
+        if (voice.lang.includes('en-US') || voice.default) {
+          option.selected = true;
+        }
+        voiceSelect.appendChild(option);
+      });
+    }
+
+    if (speechSynthesis.onvoiceschanged !== undefined) {
+      speechSynthesis.onvoiceschanged = populateVoices;
+    }
+    populateVoices();
+
+    function handleTextChange() {
+      const text = document.getElementById('ttsTextInput').value;
+      const chars = text.length;
+      const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+      const speed = parseFloat(document.getElementById('speedSlider').value) || 1.0;
+      const readSeconds = Math.round((words / (150 * speed)) * 60);
+
+      document.getElementById('charCountStat').textContent = `${chars} chars`;
+      document.getElementById('wordCountStat').textContent = `${words} words`;
+      document.getElementById('readTimeStat').textContent = `${readSeconds > 60 ? Math.round(readSeconds/60) + 'm' : readSeconds + 's'} read`;
+    }
+
+    function updateSpeed(val) {
+      document.getElementById('speedVal').textContent = `${parseFloat(val).toFixed(1)}x`;
+      handleTextChange();
+    }
+
+    function updatePitch(val) {
+      document.getElementById('pitchVal').textContent = parseFloat(val).toFixed(1);
+    }
+
+    function togglePlay() {
+      if (!synth) {
+        showToast('Speech synthesis not supported in this browser', 'fa-triangle-exclamation');
+        return;
+      }
+
+      const text = document.getElementById('ttsTextInput').value.trim();
+      if (!text) {
+        showToast('Please enter text to read aloud', 'fa-pen');
+        return;
+      }
+
+      if (isSpeaking && !isPaused) {
+        synth.pause();
+        isPaused = true;
+        document.getElementById('playText').textContent = 'Resume';
+        document.getElementById('playIcon').className = 'fa-solid fa-play';
+        document.getElementById('speechStatusBadge').textContent = 'Paused';
+        document.getElementById('speechStatusBadge').className = 'text-xs font-black font-mono bg-amber-100 text-amber-900 px-2 py-0.5 rounded-lg';
+        return;
+      }
+
+      if (isPaused) {
+        synth.resume();
+        isPaused = false;
+        document.getElementById('playText').textContent = 'Pause';
+        document.getElementById('playIcon').className = 'fa-solid fa-pause';
+        document.getElementById('speechStatusBadge').textContent = 'Reading...';
+        document.getElementById('speechStatusBadge').className = 'text-xs font-black font-mono bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-lg';
+        return;
+      }
+
+      // Start new speech
+      synth.cancel();
+      currentUtterance = new SpeechSynthesisUtterance(text);
+
+      const voiceIndex = document.getElementById('voiceSelect').value;
+      if (voices[voiceIndex]) {
+        currentUtterance.voice = voices[voiceIndex];
+      }
+
+      currentUtterance.rate = parseFloat(document.getElementById('speedSlider').value) || 1.0;
+      currentUtterance.pitch = parseFloat(document.getElementById('pitchSlider').value) || 1.0;
+
+      // Setup highlight box
+      setupHighlightBox(text);
+
+      currentUtterance.onboundary = function(event) {
+        if (event.name === 'word') {
+          highlightWordAtChar(event.charIndex);
+        }
+      };
+
+      currentUtterance.onstart = function() {
+        isSpeaking = true;
+        isPaused = false;
+        document.getElementById('playText').textContent = 'Pause';
+        document.getElementById('playIcon').className = 'fa-solid fa-pause';
+        document.getElementById('speechStatusBadge').textContent = 'Reading...';
+        document.getElementById('speechStatusBadge').className = 'text-xs font-black font-mono bg-emerald-100 text-emerald-900 px-2 py-0.5 rounded-lg';
+        document.getElementById('highlightContainer').classList.remove('hidden');
+      };
+
+      currentUtterance.onend = function() {
+        resetSpeechState();
+      };
+
+      currentUtterance.onerror = function() {
+        resetSpeechState();
+      };
+
+      synth.speak(currentUtterance);
+    }
+
+    function stopSpeech() {
+      if (synth) {
+        synth.cancel();
+      }
+      resetSpeechState();
+      showToast('Speech stopped', 'fa-stop');
+    }
+
+    function resetSpeechState() {
+      isSpeaking = false;
+      isPaused = false;
+      document.getElementById('playText').textContent = 'Read Aloud';
+      document.getElementById('playIcon').className = 'fa-solid fa-play';
+      document.getElementById('speechStatusBadge').textContent = 'Idle';
+      document.getElementById('speechStatusBadge').className = 'text-xs font-black font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded-lg';
+      document.getElementById('highlightContainer').classList.add('hidden');
+    }
+
+    function setupHighlightBox(text) {
+      const container = document.getElementById('highlightWords');
+      container.innerHTML = '';
+      const words = text.split(/(\s+)/);
+      words.forEach(w => {
+        const span = document.createElement('span');
+        span.textContent = w;
+        container.appendChild(span);
+      });
+    }
+
+    function highlightWordAtChar(charIndex) {
+      const text = document.getElementById('ttsTextInput').value;
+      const before = text.substring(0, charIndex);
+      const remaining = text.substring(charIndex);
+      const match = remaining.match(/^\S+/);
+      if (match) {
+        const word = match[0];
+        const container = document.getElementById('highlightWords');
+        container.innerHTML = `${before}<span class="bg-[#ffd43b] text-[#3e2723] font-black px-1 rounded">${word}</span>${remaining.substring(word.length)}`;
+      }
+    }
+
+    function clearTtsText() {
+      document.getElementById('ttsTextInput').value = '';
+      stopSpeech();
+      handleTextChange();
+    }
+
+    function copyTtsText() {
+      const text = document.getElementById('ttsTextInput').value;
+      if (text) copyToClipboard(text, 'Text copied to clipboard!');
+    }
+
+    function loadSampleText(type) {
+      if (type === 'story') {
+        document.getElementById('ttsTextInput').value = "The old observatory stood silently atop the misty peak. As the clock struck midnight, the great brass telescope rotated slowly, pointing toward the constellation of Orion. Dr. Evelyn adjusted the focus and gasped. A brilliant, rhythmic pulse of blue light was transmitting across the interstellar void.";
+      } else if (type === 'pitch') {
+        document.getElementById('ttsTextInput').value = "Welcome to 360tools. Our mission is to provide high-precision, client-side developer utilities and financial calculators with zero server latency and complete user privacy. Thank you for joining us today.";
+      } else {
+        document.getElementById('ttsTextInput').value = "Global markets opened higher this morning following encouraging economic indicators and record consumer confidence reports across North America and Europe. Energy and technology sectors led the gains.";
+      }
+      handleTextChange();
+      showToast('Loaded sample text', 'fa-book-open');
+    }
+
+    // Initialize with sample
+    loadSampleText('story');
+  </script>
+</body>
+</html>

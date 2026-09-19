@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>PDF to Text Converter — Extract Text from PDF Online Free | 360Tools</title>
+  <meta name="title" content="PDF to Text Converter — Extract Text from PDF Online Free | 360Tools">
+  <meta name="description" content="Extract plain text from PDF files online for free. Copy text to clipboard or download as .txt with word and character count stats. 100% in-browser privacy on 360Tools.">
+  <meta name="keywords" content="PDF to text, extract text from PDF, convert PDF to TXT, copy text from PDF, PDF text extractor, 360tools">
+  <meta name="author" content="360Tools (360tools.me)">
+  <link rel="canonical" href="https://360tools.me/pdf-tools/pdf-to-text/">
+
+  <!-- Favicon & Open Graph -->
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/pdf-tools/pdf-to-text/">
+  <meta property="og:title" content="PDF to Text Converter — 100% Client-Side Private | 360Tools">
+  <meta property="og:description" content="Extract text and paragraphs from PDF documents in your browser. Zero cloud uploads.">
+  <meta property="og:image" content="images/logo.webp">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/pdf-tools/pdf-to-text/">
+  <meta property="twitter:title" content="Free Online PDF to Text Converter — 100% Private">
+  <meta property="twitter:description" content="Copy plain text from PDF documents quickly and securely on your device.">
+  <meta property="twitter:image" content="images/logo.webp">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "PDF to Text Converter",
+    "url": "https://360tools.me/pdf-tools/pdf-to-text/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "description": "Extract plain text and structured paragraphs from PDF documents directly in your web browser.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "PDF Tools",
+        "item": "https://360tools.me/pdf-tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "PDF to Text",
+        "item": "https://360tools.me/pdf-tools/pdf-to-text/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does this tool work on scanned image-only PDFs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This tool extracts native digital text layers embedded inside PDF documents. For scanned flattened photos without embedded OCR text, an OCR scanner tool is required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my sensitive text documents uploaded to your server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Never. All text parsing runs 100% locally inside your browser memory using PDF.js. Your document text never leaves your device."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I copy the extracted text directly or download a .txt file?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both! You can click 'Copy Text' to copy to your clipboard or click 'Download .txt File' to save it to your disk."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- Master Stylesheet & PDF Tool Assets -->
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="assets/css/global.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/tools.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto w-full flex-1 pt-6 pb-16">
+    
+    <!-- Breadcrumbs -->
+    <nav class="pdf-breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <a href="pdf-tools/index.html">PDF Tools</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <span class="current">PDF to Text</span>
+    </nav>
+
+    <!-- Header / Title Section -->
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <div class="inline-flex items-center gap-2 mb-3">
+        <span class="privacy-badge">
+          <i class="fa-solid fa-shield-halved"></i> 100% In-Browser Privacy • Zero Cloud Uploads
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight mb-2">
+        PDF to Text Extractor
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        Extract plain text, paragraphs, and structured lines from PDF documents with instant copy and .txt download.
+      </p>
+    </div>
+
+    <!-- Ad Slot (Top Reserved Container) -->
+    <div class="ad-slot-container ad-slot-leaderboard">
+      <div class="ad-slot-label">Advertisement</div>
+      <div class="text-xs text-slate-400 font-medium py-4">Reserved Ad Container</div>
+    </div>
+
+    <!-- TOOL UI WRAPPER -->
+    <div class="pdf-tool-wrapper">
+      
+      <!-- Dropzone -->
+      <div class="pdf-dropzone" id="dropzone">
+        <div class="pdf-dropzone-icon">
+          <i class="fa-solid fa-file-lines"></i>
+        </div>
+        <div>
+          <div class="pdf-dropzone-title">Drag & drop a PDF file here</div>
+          <div class="pdf-dropzone-subtitle">or click to browse from your device</div>
+        </div>
+        <input type="file" id="fileInput" accept=".pdf,application/pdf" class="hidden">
+        <button type="button" class="pdf-btn-secondary mt-2">
+          <i class="fa-solid fa-folder-open"></i>
+          <span>Choose PDF File</span>
+        </button>
+      </div>
+
+      <!-- Loaded File & Options Container -->
+      <div id="textEditorContainer" style="display:none;" class="space-y-6">
+        <div class="pdf-file-item">
+          <div class="pdf-file-item-left">
+            <div class="pdf-file-item-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <div class="pdf-file-item-meta">
+              <div class="pdf-file-item-name" id="fileNameDisplay">document.pdf</div>
+              <div class="pdf-file-item-size" id="fileMetaDisplay">0 KB • 0 pages</div>
+            </div>
+          </div>
+          <button type="button" id="changeFileBtn" class="pdf-action-btn" title="Choose another file">
+            <i class="fa-solid fa-rotate-left text-xs"></i>
+          </button>
+        </div>
+
+        <!-- Text Stats Bar -->
+        <div class="grid grid-cols-3 gap-3 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-center">
+          <div>
+            <div class="text-[10px] uppercase font-black tracking-wider text-slate-400">Words</div>
+            <div class="text-base font-black text-[#3e2723]" id="wordCountDisplay">0</div>
+          </div>
+          <div>
+            <div class="text-[10px] uppercase font-black tracking-wider text-slate-400">Characters</div>
+            <div class="text-base font-black text-[#3e2723]" id="charCountDisplay">0</div>
+          </div>
+          <div>
+            <div class="text-[10px] uppercase font-black tracking-wider text-slate-400">Paragraphs</div>
+            <div class="text-base font-black text-[#3e2723]" id="lineCountDisplay">0</div>
+          </div>
+        </div>
+
+        <!-- Textarea Display -->
+        <div>
+          <textarea id="extractedTextarea" rows="12" class="w-full bg-slate-900 text-emerald-400 font-mono text-xs p-4 rounded-2xl border border-slate-700 outline-none leading-relaxed resize-y" placeholder="Extracted text will appear here..."></textarea>
+        </div>
+
+        <!-- Action Bar -->
+        <div class="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+          <button type="button" id="copyTextBtn" class="pdf-btn-secondary">
+            <i class="fa-solid fa-copy"></i>
+            <span id="copyBtnText">Copy to Clipboard</span>
+          </button>
+          <button type="button" id="downloadTxtBtn" class="pdf-btn-primary">
+            <i class="fa-solid fa-download"></i>
+            <span>Download .txt File</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Container -->
+      <div id="progressContainer" style="display:none;"></div>
+
+      <!-- Error Alert -->
+      <div id="errorContainer" style="display:none;"></div>
+
+    </div>
+
+    <!-- Privacy Notice -->
+    <div class="bg-emerald-50/80 border border-emerald-200/90 rounded-2xl p-4 sm:p-5 mb-12 flex items-start gap-3.5">
+      <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-base font-bold">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <div class="space-y-1">
+        <h4 class="text-xs font-black uppercase tracking-wide text-emerald-950">100% In-Browser Privacy</h4>
+        <p class="text-xs text-emerald-800 leading-relaxed font-medium">
+          Text is parsed locally inside your browser memory. Your confidential documents are never uploaded to any remote server.
+        </p>
+      </div>
+    </div>
+
+    <!-- How to Use Step-by-Step -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">How to Extract Text from PDF Online</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">1</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Select PDF</h3>
+          <p class="text-xs text-slate-600">Upload your PDF document to initiate instant local text extraction.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">2</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Review Text</h3>
+          <p class="text-xs text-slate-600">Inspect extracted lines and live word/character counters.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">3</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Copy or Export</h3>
+          <p class="text-xs text-slate-600">Copy text directly to your clipboard or download as a clean .txt file.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Does this tool work on scanned image-only PDFs?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            This tool extracts native digital text layers embedded inside PDF documents. For scanned flattened photos without embedded OCR text, an OCR scanner tool is required.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Are my sensitive text documents uploaded to your server?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Never. All text parsing runs 100% locally inside your browser memory using PDF.js. Your document text never leaves your device.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I copy the extracted text directly or download a .txt file?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Both! You can click 'Copy Text' to copy to your clipboard or click 'Download .txt File' to save it to your disk.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools Section -->
+    <section>
+      <h2 class="text-lg font-black text-[#3e2723] mb-4">Related PDF Tools</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="pdf-tools/pdf-to-jpg/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-file-export"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">PDF to JPG</div>
+            <div class="text-[10px] text-slate-500 font-medium">Export JPG images</div>
+          </div>
+        </a>
+        <a href="pdf-tools/pdf-metadata-remover/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Remove Metadata</div>
+            <div class="text-[10px] text-slate-500 font-medium">Clean document data</div>
+          </div>
+        </a>
+        <a href="pdf-tools/html-to-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">HTML to PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Render HTML to PDF</div>
+          </div>
+        </a>
+        <a href="pdf-tools/compress-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-compress"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Compress PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Reduce file size</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="assets/js/pdf/pdf-common.js"></script>
+  <script src="assets/js/pdf/pdf-utils.js"></script>
+  <script src="assets/js/pdf/pdf-ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let currentFile = null;
+      let extractedResultText = '';
+
+      const dropzone = document.getElementById('dropzone');
+      const fileInput = document.getElementById('fileInput');
+      const textEditorContainer = document.getElementById('textEditorContainer');
+      const fileNameDisplay = document.getElementById('fileNameDisplay');
+      const fileMetaDisplay = document.getElementById('fileMetaDisplay');
+      const changeFileBtn = document.getElementById('changeFileBtn');
+      const wordCountDisplay = document.getElementById('wordCountDisplay');
+      const charCountDisplay = document.getElementById('charCountDisplay');
+      const lineCountDisplay = document.getElementById('lineCountDisplay');
+      const extractedTextarea = document.getElementById('extractedTextarea');
+      const copyTextBtn = document.getElementById('copyTextBtn');
+      const copyBtnText = document.getElementById('copyBtnText');
+      const downloadTxtBtn = document.getElementById('downloadTxtBtn');
+      const progressContainer = document.getElementById('progressContainer');
+      const errorContainer = document.getElementById('errorContainer');
+
+      PDFCommon.setupDropzone(dropzone, fileInput, (files) => {
+        if (files.length > 0) loadFile(files[0]);
+      });
+
+      if (changeFileBtn) {
+        changeFileBtn.addEventListener('click', () => {
+          currentFile = null;
+          textEditorContainer.style.display = 'none';
+          dropzone.style.display = 'flex';
+          PDFUI.clearError(errorContainer);
+        });
+      }
+
+      async function loadFile(file) {
+        PDFUI.clearError(errorContainer);
+        const check = PDFCommon.validateFile(file, ['application/pdf'], 150);
+        if (!check.valid) {
+          PDFUI.showError(errorContainer, check.error);
+          return;
+        }
+
+        currentFile = file;
+        PDFUI.showProgress(progressContainer, 20, 'Loading PDF parser engine...');
+
+        try {
+          const pdfjsLib = await PDFCommon.requirePdfJs();
+          const buffer = await PDFCommon.readFileAsArrayBuffer(file);
+          const pdfDoc = await pdfjsLib.getDocument({ data: buffer }).promise;
+          const totalPages = pdfDoc.numPages;
+
+          fileNameDisplay.textContent = file.name;
+          fileMetaDisplay.textContent = `${PDFUtils.formatBytes(file.size)} • ${totalPages} page${totalPages === 1 ? '' : 's'}`;
+
+          PDFUI.showProgress(progressContainer, 40, 'Extracting text streams from pages...');
+          const result = await PDFUtils.extractText(pdfDoc, (curr, total) => {
+            const pct = 40 + Math.round((curr / total) * 55);
+            PDFUI.showProgress(progressContainer, pct, `Extracting page ${curr} of ${total}...`);
+          });
+
+          extractedResultText = result.text;
+          extractedTextarea.value = extractedResultText;
+
+          // Compute stats
+          const words = (extractedResultText.trim().match(/\S+/g) || []).length;
+          const chars = extractedResultText.length;
+          const lines = extractedResultText.split('\n').filter(Boolean).length;
+
+          wordCountDisplay.textContent = words.toLocaleString();
+          charCountDisplay.textContent = chars.toLocaleString();
+          lineCountDisplay.textContent = lines.toLocaleString();
+
+          PDFUI.hideProgress(progressContainer);
+          dropzone.style.display = 'none';
+          textEditorContainer.style.display = 'block';
+        } catch (err) {
+          console.error(err);
+          PDFUI.hideProgress(progressContainer);
+          PDFUI.showError(errorContainer, `Extraction failed: ${err.message}`);
+        }
+      }
+
+      if (copyTextBtn) {
+        copyTextBtn.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(extractedTextarea.value);
+            copyBtnText.textContent = 'Copied to Clipboard!';
+            setTimeout(() => { copyBtnText.textContent = 'Copy to Clipboard'; }, 2000);
+          } catch (e) {
+            extractedTextarea.select();
+            document.execCommand('copy');
+            copyBtnText.textContent = 'Copied!';
+            setTimeout(() => { copyBtnText.textContent = 'Copy to Clipboard'; }, 2000);
+          }
+        });
+      }
+
+      if (downloadTxtBtn) {
+        downloadTxtBtn.addEventListener('click', () => {
+          const blob = new Blob([extractedTextarea.value], { type: 'text/plain;charset=utf-8' });
+          const baseName = currentFile ? currentFile.name.replace(/\.pdf$/i, '') : 'document';
+          PDFCommon.downloadBlob(blob, `${baseName}-text.txt`);
+        });
+      }
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+          button.parentElement.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

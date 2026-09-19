@@ -49,11 +49,213 @@
 
 // All Available Tools Registry for Quick Search & Cards
 const TOOLS_REGISTRY = [
+  // PDF & Document Tools
+  { 
+    name: 'Merge PDF', 
+    url: 'pdf-tools/merge-pdf/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-object-group', 
+    color: 'text-red-600', 
+    bg: 'bg-red-50 border-red-200/80',
+    desc: 'Combine multiple PDF files into one single document with custom ordering. 100% client-side.',
+    keywords: 'merge pdf combine join pdfs document binder client-side' 
+  },
+  { 
+    name: 'Split PDF', 
+    url: 'pdf-tools/split-pdf/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-scissors', 
+    color: 'text-orange-600', 
+    bg: 'bg-orange-50 border-orange-200/80',
+    desc: 'Extract separate pages or custom ranges into individual PDFs or a ZIP archive.',
+    keywords: 'split pdf separate divide pages page range extract zip' 
+  },
+  { 
+    name: 'Compress PDF', 
+    url: 'pdf-tools/compress-pdf/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-file-zipper', 
+    color: 'text-emerald-600', 
+    bg: 'bg-emerald-50 border-emerald-200/80',
+    desc: 'Shrink PDF file size locally in your browser with adjustable compression presets.',
+    keywords: 'compress pdf reduce pdf size shrink document optimize' 
+  },
+  { 
+    name: 'JPG to PDF Converter', 
+    url: 'pdf-tools/jpg-to-pdf/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-file-image', 
+    color: 'text-blue-600', 
+    bg: 'bg-blue-50 border-blue-200/80',
+    desc: 'Convert JPEG/JPG images to high-quality PDF documents with page fit and orientation controls.',
+    keywords: 'jpg to pdf jpeg convert image photos to pdf' 
+  },
+  { 
+    name: 'PNG to PDF Converter', 
+    url: 'pdf-tools/png-to-pdf/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-file-image', 
+    color: 'text-teal-600', 
+    bg: 'bg-teal-50 border-teal-200/80',
+    desc: 'Convert transparent PNG images to clean PDF documents instantly.',
+    keywords: 'png to pdf transparent images graphic convert pdf' 
+  },
+  { 
+    name: 'WebP to PDF Converter', 
+    url: 'pdf-tools/webp-to-pdf/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-file-image', 
+    color: 'text-cyan-600', 
+    bg: 'bg-cyan-50 border-cyan-200/80',
+    desc: 'Convert modern WebP images to standard PDF format client-side.',
+    keywords: 'webp to pdf google webp convert images to pdf' 
+  },
+  { 
+    name: 'PDF to JPG Converter', 
+    url: 'pdf-tools/pdf-to-jpg/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-image', 
+    color: 'text-amber-600', 
+    bg: 'bg-amber-50 border-amber-200/80',
+    desc: 'Render PDF pages into high-resolution JPG photos and download as a ZIP.',
+    keywords: 'pdf to jpg extract pages image photos pictures convert' 
+  },
+  { 
+    name: 'PDF to PNG Converter', 
+    url: 'pdf-tools/pdf-to-png/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-image', 
+    color: 'text-indigo-600', 
+    bg: 'bg-indigo-50 border-indigo-200/80',
+    desc: 'Extract lossless PNG images from PDF pages with crystal clear rendering.',
+    keywords: 'pdf to png lossless high resolution extract pages' 
+  },
+  { 
+    name: 'PDF to WebP Converter', 
+    url: 'pdf-tools/pdf-to-webp/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-bolt', 
+    color: 'text-blue-500', 
+    bg: 'bg-blue-50 border-blue-200/80',
+    desc: 'Convert PDF pages directly to lightweight, high-performance WebP images.',
+    keywords: 'pdf to webp fast small image export convert' 
+  },
+  { 
+    name: 'Rotate PDF', 
+    url: 'pdf-tools/rotate-pdf/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-rotate', 
+    color: 'text-purple-600', 
+    bg: 'bg-purple-50 border-purple-200/80',
+    desc: 'Rotate individual or all PDF pages 90, 180, or 270 degrees with live visual preview.',
+    keywords: 'rotate pdf orient landscape portrait turn pages' 
+  },
+  { 
+    name: 'Delete PDF Pages', 
+    url: 'pdf-tools/delete-pdf-pages/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-trash-can', 
+    color: 'text-rose-600', 
+    bg: 'bg-rose-50 border-rose-200/80',
+    desc: 'Select and remove unwanted pages from any PDF document visually.',
+    keywords: 'delete pdf pages remove pages drop pages trim pdf' 
+  },
+  { 
+    name: 'Extract PDF Pages', 
+    url: 'pdf-tools/extract-pdf-pages/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-file-export', 
+    color: 'text-sky-600', 
+    bg: 'bg-sky-50 border-sky-200/80',
+    desc: 'Isolate specific pages or custom ranges into a new standalone PDF.',
+    keywords: 'extract pdf pages select pages save specific pages' 
+  },
+  { 
+    name: 'PDF to Text Extractor', 
+    url: 'pdf-tools/pdf-to-text/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-file-lines', 
+    color: 'text-slate-600', 
+    bg: 'bg-slate-50 border-slate-200/80',
+    desc: 'Extract clean raw text from PDF files with word count and one-click copy.',
+    keywords: 'pdf to text extract text copy text text reader txt' 
+  },
+  { 
+    name: 'Add Page Numbers to PDF', 
+    url: 'pdf-tools/add-page-numbers-to-pdf/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-arrow-down-1-9', 
+    color: 'text-violet-600', 
+    bg: 'bg-violet-50 border-violet-200/80',
+    desc: 'Insert custom page numbers, header/footer labels, and positioning into your PDF.',
+    keywords: 'add page numbers pdf pagination header footer' 
+  },
+  { 
+    name: 'Watermark PDF', 
+    url: 'pdf-tools/watermark-pdf/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-stamp', 
+    color: 'text-pink-600', 
+    bg: 'bg-pink-50 border-pink-200/80',
+    desc: 'Stamp confidential or draft text watermarks diagonally across your PDF pages.',
+    keywords: 'watermark pdf stamp confidential draft diagonal overlay' 
+  },
+  { 
+    name: 'Password Protect PDF', 
+    url: 'pdf-tools/password-protect-pdf/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-lock', 
+    color: 'text-emerald-700', 
+    bg: 'bg-emerald-50 border-emerald-200/80',
+    desc: 'Secure PDF files with strong client-side encryption and password protection.',
+    keywords: 'protect pdf password encrypt pdf secure document lock' 
+  },
+  { 
+    name: 'Unlock PDF', 
+    url: 'pdf-tools/unlock-pdf/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-unlock', 
+    color: 'text-amber-600', 
+    bg: 'bg-amber-50 border-amber-200/80',
+    desc: 'Remove passwords and permissions from unlocked PDF files in your browser.',
+    keywords: 'unlock pdf decrypt password remove security' 
+  },
+  { 
+    name: 'PDF Metadata Remover', 
+    url: 'pdf-tools/pdf-metadata-remover/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-user-shield', 
+    color: 'text-purple-700', 
+    bg: 'bg-purple-50 border-purple-200/80',
+    desc: 'Inspect and wipe author, title, producer, and timestamp metadata from PDF files.',
+    keywords: 'pdf metadata remover wipe author title clean pdf privacy' 
+  },
+  { 
+    name: 'HTML to PDF Converter', 
+    url: 'pdf-tools/html-to-pdf/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-code', 
+    color: 'text-blue-600', 
+    bg: 'bg-blue-50 border-blue-200/80',
+    desc: 'Render HTML and CSS markup into styled PDF documents client-side.',
+    keywords: 'html to pdf web to pdf render invoice html generator' 
+  },
+  { 
+    name: 'PDF Tools Hub (19 Tools)', 
+    url: 'pdf-tools/index.html', 
+    category: 'PDF & Documents', 
+    icon: 'fa-file-pdf', 
+    color: 'text-red-600', 
+    bg: 'bg-red-50 border-red-200/80',
+    desc: 'All-in-one suite of 19 private, 100% in-browser PDF utilities.',
+    keywords: 'pdf tools hub suite online pdf editor merge split compress' 
+  },
+
   // Audio & Voice
   { 
     name: 'Text to Speech Converter', 
     url: 'text-to-speech.html', 
-    category: 'Audio & Voice', 
+    category: 'AI Voice & Audio', 
     icon: 'fa-volume-high', 
     color: 'text-blue-600', 
     bg: 'bg-blue-50 border-blue-200/80',
@@ -63,7 +265,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Text to MP3 Converter', 
     url: 'text-to-mp3.html', 
-    category: 'Audio & Voice', 
+    category: 'AI Voice & Audio', 
     icon: 'fa-file-audio', 
     color: 'text-emerald-600', 
     bg: 'bg-emerald-50 border-emerald-200/80',
@@ -73,7 +275,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'AI Voice Generator', 
     url: 'ai-voice-generator.html', 
-    category: 'Audio & Voice', 
+    category: 'AI Voice & Audio', 
     icon: 'fa-wand-magic-sparkles', 
     color: 'text-purple-600', 
     bg: 'bg-purple-50 border-purple-200/80',
@@ -83,7 +285,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'PDF to Speech Reader', 
     url: 'pdf-to-speech.html', 
-    category: 'Audio & Voice', 
+    category: 'AI Voice & Audio', 
     icon: 'fa-file-pdf', 
     color: 'text-red-600', 
     bg: 'bg-red-50 border-red-200/80',
@@ -93,7 +295,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'YouTube Voiceover Generator', 
     url: 'youtube-voiceover-generator.html', 
-    category: 'Audio & Voice', 
+    category: 'AI Voice & Audio', 
     icon: 'fa-youtube', 
     color: 'text-rose-600', 
     bg: 'bg-rose-50 border-rose-200/80',
@@ -103,7 +305,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Urdu Text to Speech', 
     url: 'urdu-text-to-speech.html', 
-    category: 'Audio & Voice', 
+    category: 'AI Voice & Audio', 
     icon: 'fa-feather', 
     color: 'text-emerald-700', 
     bg: 'bg-emerald-50 border-emerald-200/80',
@@ -113,7 +315,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Article to Speech Reader', 
     url: 'article-to-speech.html', 
-    category: 'Audio & Voice', 
+    category: 'AI Voice & Audio', 
     icon: 'fa-newspaper', 
     color: 'text-amber-600', 
     bg: 'bg-amber-50 border-amber-200/80',
@@ -121,11 +323,11 @@ const TOOLS_REGISTRY = [
     keywords: 'url reader web news blog cleaner' 
   },
 
-  // Compression & AI Image
+  // Media & Compression
   { 
     name: 'Free Watermark Remover (Image & Video)', 
     url: 'watermark-remover.html', 
-    category: 'AI & Image', 
+    category: 'Media & Compression', 
     icon: 'fa-eraser', 
     color: 'text-purple-600', 
     bg: 'bg-purple-50 border-purple-200/80',
@@ -135,7 +337,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Free AI Background Remover', 
     url: 'background-remover.html', 
-    category: 'AI & Image', 
+    category: 'Media & Compression', 
     icon: 'fa-wand-magic-sparkles', 
     color: 'text-teal-600', 
     bg: 'bg-teal-50 border-teal-200/80',
@@ -145,7 +347,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Universal Image Compressor', 
     url: 'image-compressor.html', 
-    category: 'Compression', 
+    category: 'Media & Compression', 
     icon: 'fa-image', 
     color: 'text-emerald-600', 
     bg: 'bg-emerald-50 border-emerald-200/80',
@@ -155,7 +357,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'JPG Compressor', 
     url: 'jpg-compressor.html', 
-    category: 'Compression', 
+    category: 'Media & Compression', 
     icon: 'fa-camera', 
     color: 'text-amber-600', 
     bg: 'bg-amber-50 border-amber-200/80',
@@ -165,7 +367,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'PNG Compressor', 
     url: 'png-compressor.html', 
-    category: 'Compression', 
+    category: 'Media & Compression', 
     icon: 'fa-file-image', 
     color: 'text-emerald-600', 
     bg: 'bg-emerald-50 border-emerald-200/80',
@@ -175,7 +377,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'WebP Compressor', 
     url: 'webp-compressor.html', 
-    category: 'Compression', 
+    category: 'Media & Compression', 
     icon: 'fa-bolt', 
     color: 'text-blue-600', 
     bg: 'bg-blue-50 border-blue-200/80',
@@ -185,7 +387,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'PDF Compressor', 
     url: 'pdf-compressor.html', 
-    category: 'Compression', 
+    category: 'Media & Compression', 
     icon: 'fa-file-pdf', 
     color: 'text-red-600', 
     bg: 'bg-red-50 border-red-200/80',
@@ -195,7 +397,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Video Compressor', 
     url: 'video-compressor.html', 
-    category: 'Compression', 
+    category: 'Media & Compression', 
     icon: 'fa-video', 
     color: 'text-rose-600', 
     bg: 'bg-rose-50 border-rose-200/80',
@@ -205,7 +407,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Video Frame Extractor', 
     url: 'video-frame-extractor.html', 
-    category: 'AI & Image', 
+    category: 'Media & Compression', 
     icon: 'fa-film', 
     color: 'text-indigo-600', 
     bg: 'bg-indigo-50 border-indigo-200/80',
@@ -215,7 +417,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Compress Image to 100KB', 
     url: 'compress-image-to-100kb.html', 
-    category: 'Compression', 
+    category: 'Media & Compression', 
     icon: 'fa-bullseye', 
     color: 'text-indigo-600', 
     bg: 'bg-indigo-50 border-indigo-200/80',
@@ -225,7 +427,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Compress Image to 200KB', 
     url: 'compress-image-to-200kb.html', 
-    category: 'Compression', 
+    category: 'Media & Compression', 
     icon: 'fa-bullseye', 
     color: 'text-indigo-600', 
     bg: 'bg-indigo-50 border-indigo-200/80',
@@ -235,7 +437,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Compress Image to 500KB', 
     url: 'compress-image-to-500kb.html', 
-    category: 'Compression', 
+    category: 'Media & Compression', 
     icon: 'fa-bullseye', 
     color: 'text-indigo-600', 
     bg: 'bg-indigo-50 border-indigo-200/80',
@@ -245,7 +447,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Bulk Image Compressor', 
     url: 'bulk-image-compressor.html', 
-    category: 'Compression', 
+    category: 'Media & Compression', 
     icon: 'fa-layer-group', 
     color: 'text-purple-600', 
     bg: 'bg-purple-50 border-purple-200/80',
@@ -253,11 +455,11 @@ const TOOLS_REGISTRY = [
     keywords: 'batch zip archive export multiple photos' 
   },
 
-  // Developer
+  // Developer & Web
   { 
     name: 'HTML Minifier', 
     url: 'html-minifier.html', 
-    category: 'Developer', 
+    category: 'Developer & Web', 
     icon: 'fa-html5', 
     color: 'text-orange-600', 
     bg: 'bg-orange-50 border-orange-200/80',
@@ -267,7 +469,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'CSS Minifier', 
     url: 'css-minifier.html', 
-    category: 'Developer', 
+    category: 'Developer & Web', 
     icon: 'fa-css3-alt', 
     color: 'text-blue-600', 
     bg: 'bg-blue-50 border-blue-200/80',
@@ -277,7 +479,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'JavaScript Minifier', 
     url: 'javascript-minifier.html', 
-    category: 'Developer', 
+    category: 'Developer & Web', 
     icon: 'fa-js', 
     color: 'text-yellow-600', 
     bg: 'bg-yellow-50 border-yellow-200/80',
@@ -287,7 +489,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Shopify CSV Validator', 
     url: 'shopify-csv-validator.html', 
-    category: 'Developer', 
+    category: 'Developer & Web', 
     icon: 'fa-shopify', 
     color: 'text-emerald-600', 
     bg: 'bg-emerald-50 border-emerald-200/80',
@@ -297,7 +499,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Free ATS Resume Checker', 
     url: 'ats-resume-checker.html', 
-    category: 'Career & Productivity', 
+    category: 'Developer & Web', 
     icon: 'fa-file-circle-check', 
     color: 'text-indigo-600', 
     bg: 'bg-indigo-50 border-indigo-200/80',
@@ -305,11 +507,11 @@ const TOOLS_REGISTRY = [
     keywords: 'ats resume checker cv score keyword gap scanner resume parser job description match' 
   },
 
-  // E-Commerce & Financial
+  // E-Commerce & Finance
   { 
     name: 'Free Online Invoice Generator', 
     url: 'invoice-generator.html', 
-    category: 'E-Commerce & Financial', 
+    category: 'E-Commerce & Finance', 
     icon: 'fa-file-invoice-dollar', 
     color: 'text-blue-600', 
     bg: 'bg-blue-50 border-blue-200/80',
@@ -319,7 +521,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Etsy Fee Calculator', 
     url: 'etsy-fee-calculator.html', 
-    category: 'E-Commerce', 
+    category: 'E-Commerce & Finance', 
     icon: 'fa-etsy', 
     color: 'text-orange-600', 
     bg: 'bg-orange-50 border-orange-200/80',
@@ -329,7 +531,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Amazon FBA Dim Weight Checker', 
     url: 'amazon-fba-calculator.html', 
-    category: 'E-Commerce', 
+    category: 'E-Commerce & Finance', 
     icon: 'fa-amazon', 
     color: 'text-amber-600', 
     bg: 'bg-amber-50 border-amber-200/80',
@@ -339,7 +541,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'TikTok Shop Payout Estimator', 
     url: 'tiktok-shop-payout-calculator.html', 
-    category: 'E-Commerce', 
+    category: 'E-Commerce & Finance', 
     icon: 'fa-tiktok', 
     color: 'text-pink-600', 
     bg: 'bg-pink-50 border-pink-200/80',
@@ -349,13 +551,15 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Print-on-Demand Profit Grid', 
     url: 'pod-profit-calculator.html', 
-    category: 'E-Commerce', 
+    category: 'E-Commerce & Finance', 
     icon: 'fa-shirt', 
     color: 'text-blue-600', 
     bg: 'bg-blue-50 border-blue-200/80',
     desc: 'Compare production costs and profit margins across Printify, Printful, and Gelato.',
     keywords: 'printify printful gelato margin comparison' 
   },
+
+  // Real Estate & Tax
   { 
     name: 'Section 8 Max Rent Estimator', 
     url: 'section8-estimator.html', 
@@ -411,7 +615,7 @@ const TOOLS_REGISTRY = [
   { 
     name: '2048 Puzzle Game', 
     url: '2048/index.html', 
-    category: 'Games & Puzzles', 
+    category: 'Free Games', 
     icon: 'fa-cubes', 
     color: 'text-amber-500', 
     bg: 'bg-amber-50 border-amber-200/80',
@@ -421,7 +625,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Classic Retro Snake', 
     url: 'snake/index.html', 
-    category: 'Games & Puzzles', 
+    category: 'Free Games', 
     icon: 'fa-worm', 
     color: 'text-emerald-500', 
     bg: 'bg-emerald-50 border-emerald-200/80',
@@ -431,7 +635,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Memory Card Match', 
     url: 'memory-game/index.html', 
-    category: 'Games & Puzzles', 
+    category: 'Free Games', 
     icon: 'fa-brain', 
     color: 'text-purple-500', 
     bg: 'bg-purple-50 border-purple-200/80',
@@ -441,7 +645,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Tic Tac Toe (XO vs AI)', 
     url: 'tic-tac-toe/index.html', 
-    category: 'Games & Puzzles', 
+    category: 'Free Games', 
     icon: 'fa-xmark', 
     color: 'text-rose-500', 
     bg: 'bg-rose-50 border-rose-200/80',
@@ -451,7 +655,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Word Scramble Puzzle', 
     url: 'word-scramble/index.html', 
-    category: 'Games & Puzzles', 
+    category: 'Free Games', 
     icon: 'fa-spell-check', 
     color: 'text-blue-500', 
     bg: 'bg-blue-50 border-blue-200/80',
@@ -461,7 +665,7 @@ const TOOLS_REGISTRY = [
   { 
     name: 'Bhabhi Thulla Card Game', 
     url: 'bhabhi-thulla/index.html', 
-    category: 'Games & Puzzles', 
+    category: 'Free Games', 
     icon: 'fa-spade', 
     color: 'text-emerald-600', 
     bg: 'bg-emerald-50 border-emerald-200/80',
@@ -781,6 +985,33 @@ function createMobileAppDrawer() {
       <!-- Tool Categories Grid -->
       <div class="space-y-4">
         <div>
+          <div class="text-[11px] font-black text-red-700 uppercase tracking-wider mb-2 flex items-center justify-between">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-file-pdf"></i> PDF & Documents</span>
+            <a href="pdf-tools/index.html" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All 19 &rarr;</a>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="pdf-tools/merge-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-object-group text-red-600 text-sm"></i> Merge PDF
+            </a>
+            <a href="pdf-tools/split-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-scissors text-orange-600 text-sm"></i> Split PDF
+            </a>
+            <a href="pdf-tools/compress-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-file-zipper text-emerald-600 text-sm"></i> Compress PDF
+            </a>
+            <a href="pdf-tools/pdf-to-jpg/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-image text-amber-600 text-sm"></i> PDF to JPG
+            </a>
+            <a href="pdf-tools/jpg-to-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-file-image text-blue-600 text-sm"></i> JPG to PDF
+            </a>
+            <a href="pdf-tools/rotate-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-rotate text-purple-600 text-sm"></i> Rotate PDF
+            </a>
+          </div>
+        </div>
+
+        <div>
           <div class="text-[11px] font-black text-purple-700 uppercase tracking-wider mb-2 flex items-center justify-between">
             <span class="flex items-center gap-1.5"><i class="fa-solid fa-volume-high"></i> AI Voice & Audio</span>
             <a href="audio-voice-tools.html" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
@@ -1044,6 +1275,20 @@ function renderGlobalHeader() {
                     </div>
 
                     <div class="space-y-1" id="navCategorySidebar">
+                      <!-- Category 0: PDF & Documents (NEW) -->
+                      <button type="button" onmouseenter="switchNavCategory('nav-cat-pdf')" onclick="switchNavCategory('nav-cat-pdf')" class="nav-cat-tab" data-cat="nav-cat-pdf">
+                        <div class="flex items-center gap-2.5">
+                          <div class="w-7 h-7 rounded-lg bg-red-100 text-red-600 flex items-center justify-center text-xs shrink-0">
+                            <i class="fa-solid fa-file-pdf"></i>
+                          </div>
+                          <div class="text-left">
+                            <div class="text-xs font-bold leading-tight">PDF & Documents</div>
+                            <div class="text-[10px] text-slate-400 font-medium">19 Tools</div>
+                          </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] nav-cat-chevron opacity-40 transition-all"></i>
+                      </button>
+
                       <!-- Category 1: Audio & AI Voice -->
                       <button type="button" onmouseenter="switchNavCategory('nav-cat-audio')" onclick="switchNavCategory('nav-cat-audio')" class="nav-cat-tab active" data-cat="nav-cat-audio">
                         <div class="flex items-center gap-2.5">
@@ -1140,6 +1385,82 @@ function renderGlobalHeader() {
                 <!-- RIGHT COLUMN: Dynamic Tools Panels Display -->
                 <div class="flex-1 p-5 min-h-[420px] flex flex-col justify-between bg-white overflow-hidden">
                   
+                  <!-- PANEL 0: PDF & Documents -->
+                  <div id="nav-cat-pdf" class="nav-cat-panel hidden flex-col justify-between h-full space-y-3">
+                    <div>
+                      <div class="flex items-center justify-between pb-2 border-b border-slate-100 mb-2.5">
+                        <div class="flex items-center gap-2">
+                          <span class="w-2 h-2 rounded-full bg-red-600"></span>
+                          <span class="text-xs font-black uppercase tracking-wider text-red-800">PDF & Document Suite</span>
+                          <span class="bg-red-100 text-red-700 text-[9px] font-black px-1.5 py-0.2 rounded-full uppercase">100% Client-Side</span>
+                        </div>
+                        <a href="pdf-tools/index.html" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
+                          <span>View All 19 Tools</span>
+                          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                      </div>
+
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="pdf-tools/merge-pdf/index.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-red-50 text-red-600"><i class="fa-solid fa-object-group"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Merge PDF</div>
+                            <div class="nav-tool-desc">Combine multiple PDFs in custom order</div>
+                          </div>
+                        </a>
+                        <a href="pdf-tools/split-pdf/index.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-orange-50 text-orange-600"><i class="fa-solid fa-scissors"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Split PDF</div>
+                            <div class="nav-tool-desc">Extract pages & ranges to PDF/ZIP</div>
+                          </div>
+                        </a>
+                        <a href="pdf-tools/compress-pdf/index.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-file-zipper"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Compress PDF</div>
+                            <div class="nav-tool-desc">Shrink PDF size locally in browser</div>
+                          </div>
+                        </a>
+                        <a href="pdf-tools/pdf-to-jpg/index.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-amber-50 text-amber-600"><i class="fa-solid fa-image"></i></div>
+                          <div>
+                            <div class="nav-tool-title">PDF to JPG / PNG</div>
+                            <div class="nav-tool-desc">Convert PDF pages into high-res images</div>
+                          </div>
+                        </a>
+                        <a href="pdf-tools/jpg-to-pdf/index.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-solid fa-file-image"></i></div>
+                          <div>
+                            <div class="nav-tool-title">JPG / PNG to PDF</div>
+                            <div class="nav-tool-desc">Turn images and photos into PDFs</div>
+                          </div>
+                        </a>
+                        <a href="pdf-tools/rotate-pdf/index.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-purple-50 text-purple-600"><i class="fa-solid fa-rotate"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Rotate PDF</div>
+                            <div class="nav-tool-desc">Rotate pages 90°/180° with preview</div>
+                          </div>
+                        </a>
+                        <a href="pdf-tools/password-protect-pdf/index.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-emerald-50 text-emerald-700"><i class="fa-solid fa-lock"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Protect & Unlock PDF</div>
+                            <div class="nav-tool-desc">Client-side encryption & decryption</div>
+                          </div>
+                        </a>
+                        <a href="pdf-tools/html-to-pdf/index.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-indigo-50 text-indigo-600"><i class="fa-solid fa-code"></i></div>
+                          <div>
+                            <div class="nav-tool-title">HTML to PDF</div>
+                            <div class="nav-tool-desc">Render web code & templates to PDF</div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
                   <!-- PANEL 1: Audio & AI Voice -->
                   <div id="nav-cat-audio" class="nav-cat-panel flex flex-col justify-between h-full space-y-3">
                     <div>
@@ -1567,7 +1888,14 @@ function renderGlobalHeader() {
             </div>
           </div>
 
-          <!-- 2. Free Games Dropdown -->
+          <!-- 2. PDF Tools Link (Direct Hub Link) -->
+          <a href="pdf-tools/index.html" class="nav-link-btn">
+            <i class="fa-solid fa-file-pdf text-red-600 text-xs"></i>
+            <span>PDF Tools</span>
+            <span class="bg-red-100 text-red-700 text-[9px] px-1.5 py-0.2 rounded-md font-black">NEW</span>
+          </a>
+
+          <!-- 3. Free Games Dropdown -->
           <div class="nav-dropdown">
             <button class="nav-link-btn">
               <i class="fa-solid fa-gamepad text-purple-600 text-xs"></i>
@@ -1820,21 +2148,21 @@ function renderGlobalFooter() {
           </ul>
         </div>
 
-        <!-- Column 3: Media & Compression (Span 2) -->
+        <!-- Column 3: PDF & Media Compression (Span 2) -->
         <div class="lg:col-span-2 space-y-3">
           <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
-            <i class="fa-solid fa-compress text-emerald-600 text-[11px]"></i>
-            <span>Compression & AI</span>
+            <i class="fa-solid fa-file-pdf text-red-600 text-[11px]"></i>
+            <span>PDF & Media</span>
           </h4>
           <ul class="text-xs font-bold text-slate-600 space-y-2">
-            <li><a href="watermark-remover.html" class="text-purple-700 hover:text-purple-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-eraser text-[9px] text-purple-600"></i> Watermark Remover</a></li>
-            <li><a href="background-remover.html" class="text-teal-700 hover:text-teal-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-wand-magic-sparkles text-[9px] text-teal-600"></i> AI BG Remover</a></li>
-            <li><a href="video-frame-extractor.html" class="text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1.5 font-bold"><i class="fa-solid fa-film text-[9px] text-indigo-600"></i> Frame Extractor</a></li>
+            <li><a href="pdf-tools/index.html" class="text-red-700 hover:text-red-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-file-pdf text-[9px] text-red-600"></i> PDF Tools (19 Tools)</a></li>
+            <li><a href="pdf-tools/merge-pdf/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Merge PDF</a></li>
+            <li><a href="pdf-tools/split-pdf/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Split PDF</a></li>
+            <li><a href="pdf-tools/compress-pdf/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Compress PDF</a></li>
+            <li><a href="watermark-remover.html" class="text-purple-700 hover:text-purple-900 transition-colors flex items-center gap-1.5 font-bold"><i class="fa-solid fa-eraser text-[9px] text-purple-600"></i> Watermark Remover</a></li>
+            <li><a href="background-remover.html" class="text-teal-700 hover:text-teal-900 transition-colors flex items-center gap-1.5 font-bold"><i class="fa-solid fa-wand-magic-sparkles text-[9px] text-teal-600"></i> AI BG Remover</a></li>
             <li><a href="image-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Universal Compressor</a></li>
-            <li><a href="jpg-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> JPG Compressor</a></li>
-            <li><a href="png-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> PNG Compressor</a></li>
-            <li><a href="webp-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> WebP Compressor</a></li>
-            <li><a href="video-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Video Compressor</a></li>
+            <li><a href="compression-tools.html" class="text-[#146ebe] hover:underline font-black mt-1 inline-block">All Media & PDF →</a></li>
           </ul>
         </div>
 
@@ -1883,6 +2211,8 @@ function renderGlobalFooter() {
         </div>
 
         <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-slate-600 text-[11px] font-bold">
+          <a href="pdf-tools/index.html" class="text-red-600 hover:text-red-800 transition-colors flex items-center gap-1"><i class="fa-solid fa-file-pdf text-[10px]"></i> PDF Suite</a>
+          <span>•</span>
           <a href="appearance.html" class="text-purple-600 hover:text-purple-800 transition-colors flex items-center gap-1"><i class="fa-solid fa-palette text-[10px]"></i> Theme Customizer</a>
           <span>•</span>
           <a href="about.html" class="hover:text-[#146ebe] transition-colors">About</a>
@@ -1904,50 +2234,21 @@ function renderGlobalFooter() {
   `;
 }
 
-// Cookie & Privacy Consent Banner
+// Cookie & Privacy Consent (Auto-Accepted by Default for seamless 0-click UX)
 function initCookieConsent() {
-  if (localStorage.getItem('360tools_cookie_consent')) return;
-
-  const banner = document.createElement('div');
-  banner.id = 'cookieConsentBanner';
-  banner.className = 'no-print fixed bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-50 bg-white/95 backdrop-blur-md border border-slate-200/90 rounded-2xl p-4 sm:p-5 shadow-2xl animate-in fade-in slide-in-from-bottom-5 duration-300';
-  banner.innerHTML = `
-    <div class="flex items-start gap-3">
-      <div class="w-9 h-9 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center shrink-0 text-base">
-        <i class="fa-solid fa-shield-halved"></i>
-      </div>
-      <div class="flex-1 space-y-1">
-        <div class="flex items-center justify-between">
-          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wide">Privacy & Cookie Notice</h4>
-          <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md">100% In-Browser</span>
-        </div>
-        <p class="text-xs text-slate-600 leading-relaxed font-medium">
-          360Tools processes your files and calculations locally. We use minimal cookies to remember your preferences and deliver our free tools.
-        </p>
-        <div class="pt-2 flex items-center gap-2">
-          <button onclick="acceptCookieConsent()" class="fa-btn-primary py-1.5 px-4 text-xs font-black rounded-lg shadow-xs">
-            Accept & Continue
-          </button>
-          <a href="privacy-policy.html" class="text-xs font-bold text-slate-500 hover:text-[#146ebe] underline px-2 py-1">
-            Learn More
-          </a>
-        </div>
-      </div>
-    </div>
-  `;
-
-  document.body.appendChild(banner);
+  try {
+    if (!localStorage.getItem('360tools_cookie_consent')) {
+      localStorage.setItem('360tools_cookie_consent', 'true');
+    }
+  } catch (e) {
+    // Local storage fallback
+  }
 }
 
 function acceptCookieConsent() {
-  localStorage.setItem('360tools_cookie_consent', 'true');
-  const banner = document.getElementById('cookieConsentBanner');
-  if (banner) {
-    banner.style.opacity = '0';
-    banner.style.transform = 'translateY(10px)';
-    banner.style.transition = 'all 0.25s ease';
-    setTimeout(() => banner.remove(), 250);
-  }
+  try {
+    localStorage.setItem('360tools_cookie_consent', 'true');
+  } catch (e) {}
 }
 
 // Auto Inject Header and Footer on DOM Content Loaded

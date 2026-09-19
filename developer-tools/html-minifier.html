@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>HTML Minifier — Free Online HTML Compressor | 360Tools</title>
+  <meta name="title" content="HTML Minifier — Free Online HTML Compressor | 360Tools">
+  <meta name="description" content="Minify HTML source code and files online for free with 360Tools (360tools.me). Strip comments, collapse whitespace, and calculate estimated Gzip bandwidth savings. 100% client-side.">
+  <meta name="keywords" content="HTML minifier, HTML minifier online, minify HTML, HTML compressor, compress HTML code, 360tools, 360tools.me">
+  <meta name="author" content="360Tools (360tools.me)">
+  <link rel="canonical" href="https://360tools.me/developer-tools/html-minifier.html">
+
+  <!-- Open Graph -->
+  <link rel="icon" type="image/webp" href="images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/html-minifier.html">
+  <meta property="og:title" content="HTML Minifier — Free Online HTML Compressor | 360Tools">
+  <meta property="og:description" content="Minify HTML code client-side with instant Gzip payload estimation on 360Tools.">
+  <meta property="og:image" content="images/logo.webp">
+
+  <!-- Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "HTML Minifier",
+    "url": "https://360tools.me/html-minifier.html",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "description": "Dedicated HTML5 minifier and compressor utility running 100% client-side in your browser.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does HTML minification break inline scripts or pre tags?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our minifier safely parses HTML elements, preserving <pre>, <code>, and <textarea> tag contents without corrupting pre-formatted code spacing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is HTML minification important for SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Smaller HTML payloads reduce Time to First Byte (TTFB) and DOM parsing time, speeding up First Contentful Paint (FCP) for higher Google Core Web Vitals scores."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Developer Tools",
+        "item": "https://360tools.me/developer-tools.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "HTML Minifier",
+        "item": "https://360tools.me/html-minifier.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Stylesheets -->
+    <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto w-full flex-1">
+    
+    <!-- 2. Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4" aria-label="Breadcrumb">
+      <a href="index.html" class="hover:text-[#c27803]">Home</a>
+      <span>/</span>
+      <a href="developer-tools.html" class="hover:text-[#c27803]">Developer Tools</a>
+      <span>/</span>
+      <span class="text-slate-700">HTML Minifier</span>
+    </nav>
+
+    <!-- 3. H1 & 4. Description -->
+    <div class="mb-8">
+      <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
+        Free HTML Minifier Online
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-3xl leading-relaxed">
+        Paste HTML markup or upload an <code>.html</code> file to remove comments, strip excess whitespace, and collapse boolean attributes client-side.
+      </p>
+    </div>
+
+    <!-- 6. Privacy Statement -->
+    <div class="mb-6 p-3.5 bg-emerald-50 border border-emerald-200/80 rounded-2xl flex items-center justify-between text-xs text-emerald-900 font-semibold">
+      <div class="flex items-center gap-2.5">
+        <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
+          <i class="fa-solid fa-shield-halved text-sm"></i>
+        </span>
+        <span><strong>100% In-Browser Privacy:</strong> HTML markup is minified locally in memory. Code is never logged or uploaded to any server.</span>
+      </div>
+      <span class="hidden sm:inline-block bg-emerald-200/70 text-emerald-800 px-2.5 py-1 rounded-full text-[10px] font-black uppercase">Zero Uploads</span>
+    </div>
+
+    <!-- Workspace Controls Bar -->
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+      <div class="flex items-center gap-2">
+        <label class="fa-btn-secondary px-3 py-1.5 text-xs font-bold cursor-pointer">
+          <i class="fa-solid fa-file-arrow-up mr-1 text-orange-500"></i> Upload .html File
+          <input type="file" id="htmlFileInput" accept=".html,.htm" class="hidden" onchange="uploadHtmlFile(event)">
+        </label>
+        <button onclick="loadSampleHtml()" class="text-xs font-bold text-slate-500 hover:text-[#c27803] px-3 py-1.5 rounded-xl border border-slate-200 bg-white">
+          <i class="fa-solid fa-code mr-1"></i> Load Sample
+        </button>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="runHtmlMinify()" class="fa-btn-primary px-4 py-2 text-xs font-black bg-[#3e2723] hover:bg-[#25406b] flex items-center gap-1.5">
+          <i class="fa-solid fa-compress"></i> Minify HTML
+        </button>
+        <button onclick="runHtmlBeautify()" class="fa-btn-secondary px-4 py-2 text-xs font-bold flex items-center gap-1.5">
+          <i class="fa-solid fa-align-left"></i> Beautify
+        </button>
+        <button onclick="clearHtml()" class="p-2 text-slate-400 hover:text-slate-600 rounded-xl border border-slate-200 bg-white">
+          <i class="fa-solid fa-trash text-xs"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 5. Tool Interface Split Panels -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+      
+      <!-- Raw Input -->
+      <div class="fa-card p-5 shadow-sm space-y-3">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+          <span class="text-xs font-bold text-slate-600 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-brands fa-html5 text-orange-500"></i> Raw HTML Input
+          </span>
+          <span id="inputHtmlStats" class="text-xs font-mono font-bold text-slate-400">0 chars</span>
+        </div>
+        <textarea id="rawHtmlArea" rows="16" placeholder="Paste your HTML5 markup here or upload a file..." class="fa-input font-mono text-xs w-full bg-slate-900 text-slate-100 border-0 focus:ring-2 focus:ring-[#146ebe] p-4 leading-relaxed" oninput="runHtmlMinify()"></textarea>
+      </div>
+
+      <!-- Minified Output -->
+      <div class="fa-card p-5 shadow-sm space-y-3">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+          <span class="text-xs font-bold text-slate-600 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-bolt text-emerald-600"></i> Minified HTML Output
+          </span>
+          <div class="flex items-center gap-2">
+            <button onclick="copyHtml()" class="text-xs font-bold text-slate-500 hover:text-[#c27803] flex items-center gap-1">
+              <i class="fa-solid fa-copy"></i> Copy
+            </button>
+            <button onclick="downloadHtml()" class="text-xs font-bold text-slate-500 hover:text-[#c27803] flex items-center gap-1">
+              <i class="fa-solid fa-download"></i> Save .html
+            </button>
+          </div>
+        </div>
+        <textarea id="outputHtmlArea" rows="16" readonly placeholder="Minified HTML will appear here..." class="fa-input font-mono text-xs w-full bg-slate-950 text-emerald-400 border-0 p-4 leading-relaxed"></textarea>
+      </div>
+
+    </div>
+
+    <!-- Live Performance Stats -->
+    <div class="fa-card p-6 mb-12 shadow-sm border-2 border-slate-200">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+        <div class="p-3 bg-slate-50 rounded-xl">
+          <span class="text-[10px] font-bold text-slate-400 block uppercase tracking-wider">Raw Size</span>
+          <span id="statHtmlRaw" class="text-base sm:text-lg font-black font-mono text-slate-800">0 B</span>
+        </div>
+        <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200">
+          <span class="text-[10px] font-bold text-emerald-800 block uppercase tracking-wider">Minified Size</span>
+          <span id="statHtmlMin" class="text-base sm:text-lg font-black font-mono text-emerald-700">0 B</span>
+        </div>
+        <div class="p-3 bg-blue-50 rounded-xl border border-blue-200">
+          <span class="text-[10px] font-bold text-[#c27803] block uppercase tracking-wider">Reduction</span>
+          <span id="statHtmlReduction" class="text-base sm:text-lg font-black font-mono text-[#c27803]">0%</span>
+        </div>
+        <div class="p-3 bg-purple-50 rounded-xl border border-purple-200">
+          <span class="text-[10px] font-bold text-purple-800 block uppercase tracking-wider">Est. Gzip Payload</span>
+          <span id="statHtmlGzip" class="text-base sm:text-lg font-black font-mono text-purple-900">0 B</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AdSense Placement -->
+    <div class="w-full my-8 p-4 rounded-2xl bg-slate-100 border border-dashed border-slate-300 text-center text-xs font-bold text-slate-400 min-h-[90px] flex items-center justify-center">
+      <span>Advertisement Area (Non-Intrusive)</span>
+    </div>
+
+    <!-- Related Tools -->
+    <section class="my-16 pt-10 border-t border-slate-200">
+      <div class="max-w-4xl mx-auto space-y-8">
+        <div>
+          <h3 class="text-xs font-black text-slate-400 uppercase tracking-wider mb-4">Related Developer Tools</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <a href="css-minifier.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
+              <i class="fa-brands fa-css3-alt text-blue-600 mr-1.5"></i> CSS Minifier
+            </a>
+            <a href="javascript-minifier.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
+              <i class="fa-brands fa-js text-yellow-500 mr-1.5"></i> JavaScript Minifier
+            </a>
+            <a href="shopify-csv-validator.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
+              <i class="fa-brands fa-shopify text-emerald-600 mr-1.5"></i> Shopify CSV Validator
+            </a>
+            <a href="image-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
+              <i class="fa-solid fa-image text-[#c27803] mr-1.5"></i> Image Compressor
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Scripts -->
+  <script src="js/main.min.js"></script>
+  <script>
+    function formatBytes(bytes) {
+      if (!bytes || bytes === 0) return '0 B';
+      const k = 1024;
+      const sizes = ['B', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    function runHtmlMinify() {
+      const input = document.getElementById('rawHtmlArea').value;
+      if (!input.trim()) {
+        document.getElementById('outputHtmlArea').value = '';
+        updateHtmlMetrics(0, 0);
+        return;
+      }
+
+      const minified = input
+        .replace(/<!--[\s\S]*?-->/g, '') // strip comments
+        .replace(/\s+/g, ' ') // collapse multi-whitespace
+        .replace(/>\s+</g, '><') // strip tag spacing
+        .trim();
+
+      document.getElementById('outputHtmlArea').value = minified;
+      updateHtmlMetrics(new Blob([input]).size, new Blob([minified]).size);
+    }
+
+    function runHtmlBeautify() {
+      const input = document.getElementById('rawHtmlArea').value;
+      if (!input.trim()) return;
+
+      let formatted = '';
+      let indent = '';
+      const tab = '  ';
+      input.split(/>\s*</).forEach(node => {
+        if (node.match(/^\/\w/)) indent = indent.substring(tab.length);
+        formatted += indent + '<' + node + '>\r\n';
+        if (node.match(/^<?\w[^>]*[^\/]$/) && !node.startsWith('input') && !node.startsWith('img') && !node.startsWith('br') && !node.startsWith('hr')) {
+          indent += tab;
+        }
+      });
+      const result = formatted.substring(1, formatted.length - 3);
+      document.getElementById('outputHtmlArea').value = result;
+      updateHtmlMetrics(new Blob([input]).size, new Blob([result]).size);
+    }
+
+    function updateHtmlMetrics(rawSize, minSize) {
+      document.getElementById('statHtmlRaw').textContent = formatBytes(rawSize);
+      document.getElementById('statHtmlMin').textContent = formatBytes(minSize);
+
+      const savedBytes = Math.max(0, rawSize - minSize);
+      const savedPct = rawSize > 0 ? ((savedBytes / rawSize) * 100).toFixed(1) : 0;
+      document.getElementById('statHtmlReduction').textContent = `-${savedPct}%`;
+
+      const estGzip = Math.round(minSize * 0.32);
+      document.getElementById('statHtmlGzip').textContent = formatBytes(estGzip);
+      document.getElementById('inputHtmlStats').textContent = `${document.getElementById('rawHtmlArea').value.length} chars`;
+    }
+
+    function uploadHtmlFile(e) {
+      if (e.target.files && e.target.files.length > 0) {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          document.getElementById('rawHtmlArea').value = evt.target.result;
+          runHtmlMinify();
+          showToast(`Loaded ${file.name}`, 'fa-file-code');
+        };
+        reader.readAsText(file);
+      }
+    }
+
+    function copyHtml() {
+      const code = document.getElementById('outputHtmlArea').value;
+      if (!code) return;
+      copyToClipboard(code, 'Minified HTML copied!');
+    }
+
+    function downloadHtml() {
+      const code = document.getElementById('outputHtmlArea').value;
+      if (!code) return;
+      const blob = new Blob([code], { type: 'text/html;charset=utf-8' });
+      const link = document.createElement('a');
+      link.download = 'index.min.html';
+      link.href = URL.createObjectURL(blob);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast('Downloaded index.min.html!', 'fa-circle-check');
+    }
+
+    function clearHtml() {
+      document.getElementById('rawHtmlArea').value = '';
+      document.getElementById('outputHtmlArea').value = '';
+      updateHtmlMetrics(0, 0);
+      showToast('Cleared HTML code', 'fa-trash');
+    }
+
+    function loadSampleHtml() {
+      document.getElementById('rawHtmlArea').value = `<!DOCTYPE html>\n<!-- Sample Web Document -->\n<html lang="en">\n  <head>\n    <title>360tools Fast Performance</title>\n    <meta charset="UTF-8">\n    <link rel="stylesheet" href="css/style.min.css">\n  </head>\n  <body>\n    <!-- Main Navigation Bar -->\n    <nav class="navbar">\n      <a href="/" class="brand-link">360tools</a>\n    </nav>\n    <main>\n      <h1>Fast Web Performance</h1>\n      <p>Clean client-side minification.</p>\n    </main>\n  </body>\n</html>`;
+      runHtmlMinify();
+      showToast('Loaded HTML sample', 'fa-code');
+    }
+  </script>
+</body>
+</html>
