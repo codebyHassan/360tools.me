@@ -56,13 +56,20 @@ const PDFCommon = (() => {
    * Ensure PDFEncrypt is loaded
    */
   async function requirePdfEncrypt() {
-    await requirePdfLib();
-    if (typeof window.PDFEncrypt !== 'undefined') return window.PDFEncrypt;
+    const pdfLib = await requirePdfLib();
+    if (typeof window.PDFEncrypt !== 'undefined' && window.PDFEncrypt) return window.PDFEncrypt;
+    if (typeof window.initPDFEncrypt === 'function') {
+      const enc = window.initPDFEncrypt(pdfLib);
+      if (enc) return enc;
+    }
     try {
       await loadScript(CDN.pdfEncrypt);
     } catch (e) {
       // Fallback to local asset if unpkg fails
       await loadScript('../../assets/js/pdf/pdf-encrypt.umd.js');
+    }
+    if (typeof window.initPDFEncrypt === 'function') {
+      window.initPDFEncrypt(pdfLib);
     }
     return window.PDFEncrypt;
   }

@@ -24,10 +24,18 @@
   } else if (typeof define === 'function' && define.amd) {
     define(['pdf-lib'], factory);
   } else {
-    if (!root.PDFLib) {
-      throw new Error('pdf-encrypt: global "PDFLib" not found — load pdf-lib.min.js before this file.');
+    root.PDFEncryptFactory = factory;
+    if (root.PDFLib) {
+      root.PDFEncrypt = factory(root.PDFLib);
     }
-    root.PDFEncrypt = factory(root.PDFLib);
+    root.initPDFEncrypt = function(pdfLibInstance) {
+      var lib = pdfLibInstance || root.PDFLib;
+      if (lib) {
+        root.PDFEncrypt = factory(lib);
+        return root.PDFEncrypt;
+      }
+      return null;
+    };
   }
 }(typeof self !== 'undefined' ? self : this, function (PDFLib) {
   'use strict';

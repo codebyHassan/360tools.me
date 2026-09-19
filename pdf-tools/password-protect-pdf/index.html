@@ -440,8 +440,17 @@
           PDFUI.showProgress(progressContainer, 15, 'Initializing cryptographic engine...');
 
           try {
-            const PDFEncrypt = await PDFCommon.requirePdfEncrypt();
             const { PDFDocument } = await PDFCommon.requirePdfLib();
+            let PDFEncrypt = window.PDFEncrypt;
+            if (!PDFEncrypt && typeof PDFCommon.requirePdfEncrypt === 'function') {
+              PDFEncrypt = await PDFCommon.requirePdfEncrypt();
+            } else if (!PDFEncrypt && typeof window.initPDFEncrypt === 'function') {
+              PDFEncrypt = window.initPDFEncrypt(window.PDFLib);
+            }
+
+            if (!PDFEncrypt || typeof PDFEncrypt.encryptPDF !== 'function') {
+              throw new Error('Cryptographic PDF encryption engine failed to initialize.');
+            }
 
             PDFUI.showProgress(progressContainer, 40, 'Processing PDF streams...');
             const buffer = await PDFCommon.readFileAsArrayBuffer(currentFile);
