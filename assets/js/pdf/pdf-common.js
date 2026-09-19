@@ -10,7 +10,8 @@ const PDFCommon = (() => {
     pdfJs: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js',
     pdfJsWorker: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js',
     jszip: 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js',
-    html2pdf: 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js'
+    html2pdf: 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js',
+    pdfEncrypt: 'https://unpkg.com/@pdfsmaller/pdf-encrypt/dist/pdf-encrypt.umd.js'
   };
 
   const loadedLibraries = new Set();
@@ -49,6 +50,21 @@ const PDFCommon = (() => {
     if (typeof window.PDFLib !== 'undefined') return window.PDFLib;
     await loadScript(CDN.pdfLib);
     return window.PDFLib;
+  }
+
+  /**
+   * Ensure PDFEncrypt is loaded
+   */
+  async function requirePdfEncrypt() {
+    await requirePdfLib();
+    if (typeof window.PDFEncrypt !== 'undefined') return window.PDFEncrypt;
+    try {
+      await loadScript(CDN.pdfEncrypt);
+    } catch (e) {
+      // Fallback to local asset if unpkg fails
+      await loadScript('../../assets/js/pdf/pdf-encrypt.umd.js');
+    }
+    return window.PDFEncrypt;
   }
 
   /**
@@ -203,6 +219,7 @@ const PDFCommon = (() => {
 
   return {
     requirePdfLib,
+    requirePdfEncrypt,
     requirePdfJs,
     requireJsZip,
     requireHtml2Pdf,
