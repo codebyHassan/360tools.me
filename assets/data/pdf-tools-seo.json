@@ -247,7 +247,33 @@
       "searchIntent": "Transactional / Developer - render HTML markup or formatted web content into printable PDF",
       "title": "HTML to PDF Converter — Free Online Webpage & Code to PDF | 360Tools",
       "description": "Convert HTML code, rich text formatting, or webpage snippets into crisp vector PDF documents directly in your browser. 100% private.",
-      "relatedTools": ["pdf-to-text", "jpg-to-pdf", "compress-pdf", "merge-pdf"]
+      "relatedTools": ["pdf-to-text", "text-to-pdf", "compress-pdf", "merge-pdf"]
+    },
+    {
+      "slug": "text-to-pdf",
+      "name": "Text to PDF",
+      "icon": "fa-file-lines",
+      "color": "text-amber-600",
+      "badge": "Conversion",
+      "primaryKeyword": "text to PDF",
+      "secondaryKeywords": ["convert text to PDF", "TXT to PDF", "notes to PDF", "plain text to PDF converter"],
+      "searchIntent": "Transactional / Conversion - convert plain text, notes, or TXT files into formatted vector PDF",
+      "title": "Text to PDF Converter — Convert TXT & Notes Online Free | 360Tools",
+      "description": "Convert plain text, notes, TXT, and Markdown files into styled, formatted PDF documents online for free. 100% in-browser privacy.",
+      "relatedTools": ["pdf-to-text", "html-to-pdf", "pdf-editor", "merge-pdf"]
+    },
+    {
+      "slug": "pdf-editor",
+      "name": "PDF Editor",
+      "icon": "fa-pen-to-square",
+      "color": "text-blue-600",
+      "badge": "Popular",
+      "primaryKeyword": "PDF editor",
+      "secondaryKeywords": ["edit PDF online", "annotate PDF free", "sign PDF online", "redact PDF in browser"],
+      "searchIntent": "Transactional / Utility - add text, freehand drawing, highlights, redactions, and signatures to PDF",
+      "title": "Free Online PDF Editor — Edit, Annotate & Sign PDF in Browser | 360Tools",
+      "description": "Add text, draw signatures, highlight, redact sensitive data, and edit PDF documents online for free. 100% client-side privacy.",
+      "relatedTools": ["watermark-pdf", "text-to-pdf", "add-page-numbers-to-pdf", "compress-pdf"]
     }
   ]
 }

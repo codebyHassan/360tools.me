@@ -1,0 +1,24 @@
+# 360tools.me Production Security Headers
+# Compatible with Cloudflare Pages, Netlify, and Edge Proxies
+
+/*
+  # 1. Man-in-the-Middle (MitM) Protection: Force HTTPS and encrypt all connections
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # 2. XSS & Code Injection Protection: Restrict what sources can execute scripts, styles, and workers
+  Content-Security-Policy: default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://unpkg.com https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; img-src 'self' data: blob: https:; worker-src 'self' blob:; connect-src 'self' https: wss:; frame-ancestors 'self';
+
+  # 3. MIME-Type Sniffing Protection: Prevent browser from executing disguised malicious files
+  X-Content-Type-Options: nosniff
+
+  # 4. Clickjacking Protection: Prevent hackers from embedding your site inside malicious iframes
+  X-Frame-Options: SAMEORIGIN
+
+  # 5. Cross-Site Scripting (XSS) Legacy Filter
+  X-XSS-Protection: 1; mode=block
+
+  # 6. Referrer Privacy: Protect user URLs when clicking external links
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # 7. Hardware & Permissions Policy: Disallow unauthorized access to sensitive device features
+  Permissions-Policy: camera=(), geolocation=(), payment=(), usb=()

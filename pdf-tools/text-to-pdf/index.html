@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Text to PDF Converter — Convert TXT, Notes & Text to PDF Online Free | 360Tools</title>
+  <meta name="title" content="Text to PDF Converter — Convert TXT, Notes & Text to PDF Online Free | 360Tools">
+  <meta name="description" content="Convert plain text, notes, TXT, and Markdown files into styled, formatted PDF documents online for free. Custom fonts, margins, page numbers & 100% in-browser privacy on 360Tools.">
+  <meta name="keywords" content="text to PDF, convert text to PDF, TXT to PDF converter, notes to PDF, plain text to PDF, convert markdown to PDF, 360tools">
+  <meta name="author" content="360Tools (360tools.me)">
+  <link rel="canonical" href="https://360tools.me/pdf-tools/text-to-pdf/">
+
+  <!-- Favicon & Open Graph -->
+  <link rel="icon" type="image/webp" href="../../images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="../../images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/pdf-tools/text-to-pdf/">
+  <meta property="og:title" content="Text to PDF Converter — 100% Client-Side Private | 360Tools">
+  <meta property="og:description" content="Turn plain text and documents into crisp vector PDF files with custom typography and margins directly in your browser. Zero cloud uploads.">
+  <meta property="og:image" content="images/logo.webp">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://360tools.me/pdf-tools/text-to-pdf/">
+  <meta property="twitter:title" content="Free Online Text to PDF Converter — 100% Private">
+  <meta property="twitter:description" content="Convert plain text, code snippets, and TXT files into formatted PDF documents securely on your device.">
+  <meta property="twitter:image" content="images/logo.webp">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Text to PDF Converter",
+    "url": "https://360tools.me/pdf-tools/text-to-pdf/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "description": "Convert plain text, TXT files, and notes into clean, printable vector PDF documents with customizable fonts, margins, headers, and pagination.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "PDF Tools",
+        "item": "https://360tools.me/pdf-tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Text to PDF",
+        "item": "https://360tools.me/pdf-tools/text-to-pdf/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can I upload TXT, Markdown, or Log files to convert?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! You can drag and drop any .txt, .md, .log, .csv, or plain text file directly into the dropzone or type/paste your text into the editor."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this tool support automatic page breaks and pagination?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The in-browser PDF engine automatically calculates line wrapping, margins, and page breaks, adding customizable page numbers (e.g. Page 1 of 3) and running headers/footers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are my confidential texts or notes uploaded to 360Tools servers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Never. All text layout and vector PDF compilation occur 100% locally inside your web browser memory. Your confidential records never touch any remote server."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fira+Code:wght@400;600&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <!-- Master Stylesheet & PDF Tool Assets -->
+  <link rel="stylesheet" href="../../css/style.min.css">
+  <link rel="stylesheet" href="../../assets/css/global.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/tools.css">
+  <link rel="stylesheet" href="../../assets/css/responsive.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Pure JS Header Injection -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-4xl mx-auto w-full flex-1 pt-6 pb-16">
+    
+    <!-- Breadcrumbs -->
+    <nav class="pdf-breadcrumbs" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <a href="../../pdf-tools/">PDF Tools</a>
+      <span class="separator"><i class="fa-solid fa-chevron-right"></i></span>
+      <span class="current">Text to PDF</span>
+    </nav>
+
+    <!-- Header / Title Section -->
+    <div class="text-center max-w-2xl mx-auto mb-8">
+      <div class="inline-flex items-center gap-2 mb-3">
+        <span class="privacy-badge">
+          <i class="fa-solid fa-shield-halved"></i> 100% In-Browser Privacy • Zero Cloud Uploads
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-[#3e2723] tracking-tight mb-2">
+        Text to PDF Converter
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        Convert plain text, notes, code snippets, or TXT documents into clean, beautifully formatted vector PDF files with custom typography and page layouts.
+      </p>
+    </div>
+
+    <!-- Ad Slot (Top Reserved Container) -->
+    <div class="ad-slot-container ad-slot-leaderboard">
+      <div class="ad-slot-label">Advertisement</div>
+      <div class="text-xs text-slate-400 font-medium py-4">Reserved Ad Container</div>
+    </div>
+
+    <!-- TOOL UI WRAPPER -->
+    <div class="pdf-tool-wrapper">
+      
+      <!-- Upload Dropzone for Text Files -->
+      <div id="dropzone" class="pdf-dropzone mb-6" style="padding: 1.75rem 1.5rem;">
+        <input type="file" id="fileInput" accept=".txt,.md,.log,.csv,.json,.rtf,text/plain" style="display:none;">
+        <div class="pdf-dropzone-icon" style="width:3rem; height:3rem; font-size:1.4rem;">
+          <i class="fa-solid fa-file-arrow-up"></i>
+        </div>
+        <div class="space-y-1 text-center">
+          <div class="pdf-dropzone-title text-base">Drop a Text File (.txt, .md, .log) here or Click to Upload</div>
+          <div class="pdf-dropzone-subtitle text-xs">Or type / paste your text directly into the editor below</div>
+        </div>
+      </div>
+
+      <!-- Quick Template Presets & Stats Bar -->
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-3 bg-slate-50 border border-slate-200/80 rounded-xl px-4 py-2.5">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-black text-slate-500 uppercase tracking-wider">Presets:</span>
+          <select id="templatePreset" class="text-xs font-bold text-[#3e2723] bg-white border border-slate-300 rounded-lg px-2.5 py-1 outline-none cursor-pointer">
+            <option value="custom">Custom Text</option>
+            <option value="report">Formal Document / Report</option>
+            <option value="letter">Business Letter</option>
+            <option value="invoice">Simple Invoice & Receipt</option>
+            <option value="cheat">Developer Cheat-sheet</option>
+          </select>
+        </div>
+
+        <div class="flex items-center gap-4 text-xs font-semibold text-slate-500">
+          <span id="statWords">0 words</span>
+          <span class="text-slate-300">•</span>
+          <span id="statChars">0 chars</span>
+          <span class="text-slate-300">•</span>
+          <span id="statLines">0 lines</span>
+        </div>
+      </div>
+
+      <!-- Text Editor Textarea -->
+      <div class="mb-6">
+        <textarea id="textContentInput" rows="12" class="w-full bg-slate-900 text-cyan-200 font-mono text-xs sm:text-sm p-4 rounded-2xl border border-slate-700 outline-none leading-relaxed resize-y focus:border-[#c27803] transition-colors" placeholder="Type or paste your text here to convert into a PDF document..."></textarea>
+      </div>
+
+      <!-- PDF Options & Styling Panel -->
+      <div class="pdf-options-panel">
+        <div class="pdf-options-title"><i class="fa-solid fa-sliders"></i> Typography & Page Formatting</div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+          <!-- Font Family -->
+          <div class="pdf-option-group">
+            <label class="pdf-option-label">Font Family</label>
+            <select id="fontSelect" class="pdf-select">
+              <option value="Helvetica" selected>Helvetica (Clean Sans)</option>
+              <option value="TimesRoman">Times Roman (Serif)</option>
+              <option value="Courier">Courier (Monospace)</option>
+            </select>
+          </div>
+
+          <!-- Font Size -->
+          <div class="pdf-option-group">
+            <label class="pdf-option-label">Font Size</label>
+            <select id="fontSizeSelect" class="pdf-select">
+              <option value="10">10 pt (Compact)</option>
+              <option value="12" selected>12 pt (Standard)</option>
+              <option value="14">14 pt (Medium)</option>
+              <option value="16">16 pt (Large)</option>
+              <option value="18">18 pt (Heading)</option>
+            </select>
+          </div>
+
+          <!-- Line Spacing -->
+          <div class="pdf-option-group">
+            <label class="pdf-option-label">Line Spacing</label>
+            <select id="lineSpacingSelect" class="pdf-select">
+              <option value="1.2">1.2x (Tight)</option>
+              <option value="1.5" selected>1.5x (Standard)</option>
+              <option value="1.8">1.8x (Relaxed)</option>
+              <option value="2.0">2.0x (Double)</option>
+            </select>
+          </div>
+
+          <!-- Page Format -->
+          <div class="pdf-option-group">
+            <label class="pdf-option-label">Page Format</label>
+            <select id="formatSelect" class="pdf-select">
+              <option value="A4" selected>Standard A4</option>
+              <option value="Letter">US Letter</option>
+              <option value="Legal">Legal</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+          <!-- Orientation -->
+          <div class="pdf-option-group">
+            <label class="pdf-option-label">Orientation</label>
+            <select id="orientationSelect" class="pdf-select">
+              <option value="portrait" selected>Portrait</option>
+              <option value="landscape">Landscape</option>
+            </select>
+          </div>
+
+          <!-- Margins -->
+          <div class="pdf-option-group">
+            <label class="pdf-option-label">Margins</label>
+            <select id="marginSelect" class="pdf-select">
+              <option value="36">Narrow (0.5 in / 12mm)</option>
+              <option value="54" selected>Standard (0.75 in / 19mm)</option>
+              <option value="72">Wide (1.0 in / 25mm)</option>
+            </select>
+          </div>
+
+          <!-- Text Color -->
+          <div class="pdf-option-group">
+            <label class="pdf-option-label">Text Color</label>
+            <div class="flex items-center gap-2">
+              <input type="color" id="textColorInput" value="#1a1a1a" class="w-10 h-10 rounded-lg cursor-pointer border border-slate-300 p-0.5">
+              <span id="textColorLabel" class="text-xs font-mono text-slate-600 font-semibold">#1a1a1a</span>
+            </div>
+          </div>
+
+          <!-- Page Numbering Toggle -->
+          <div class="pdf-option-group">
+            <label class="pdf-option-label">Page Numbers</label>
+            <div class="flex items-center h-10">
+              <label class="inline-flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" id="pageNumberToggle" checked class="w-4 h-4 text-[#c27803] rounded border-slate-300 focus:ring-0">
+                <span class="text-xs font-bold text-slate-700">Include "Page X of Y"</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Optional Header & Footer -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3 border-t border-slate-200/80">
+          <div class="pdf-option-group">
+            <label class="pdf-option-label">Running Header (Optional)</label>
+            <input type="text" id="headerTextInput" class="pdf-input text-xs" placeholder="e.g. Confidential Project Document">
+          </div>
+          <div class="pdf-option-group">
+            <label class="pdf-option-label">Running Footer (Optional)</label>
+            <input type="text" id="footerTextInput" class="pdf-input text-xs" placeholder="e.g. 360tools.me • Generated Report">
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Bar -->
+      <div class="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+        <button type="button" id="clearBtn" class="text-xs font-bold text-slate-500 hover:text-rose-600 transition-colors flex items-center gap-1.5">
+          <i class="fa-solid fa-trash-can"></i>
+          <span>Clear Editor</span>
+        </button>
+
+        <div class="flex items-center gap-3">
+          <button type="button" id="generatePdfBtn" class="pdf-btn-primary">
+            <i class="fa-solid fa-file-pdf"></i>
+            <span>Convert & Download PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Container -->
+      <div id="progressContainer" style="display:none;" class="mt-6"></div>
+
+      <!-- Error Alert -->
+      <div id="errorContainer" style="display:none;" class="mt-6"></div>
+
+      <!-- Result Container -->
+      <div id="resultContainer" style="display:none;" class="mt-6"></div>
+
+    </div>
+
+    <!-- Privacy Notice -->
+    <div class="bg-emerald-50/80 border border-emerald-200/90 rounded-2xl p-4 sm:p-5 mb-12 flex items-start gap-3.5">
+      <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-base font-bold">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <div class="space-y-1">
+        <h4 class="text-xs font-black uppercase tracking-wide text-emerald-950">100% In-Browser Document Generation</h4>
+        <p class="text-xs text-emerald-800 leading-relaxed font-medium">
+          All typography compilation, word-wrapping, and vector PDF encoding run strictly inside your web browser. Your confidential notes, legal drafts, and text records are never uploaded to any remote server.
+        </p>
+      </div>
+    </div>
+
+    <!-- How to Use Step-by-Step -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">How to Convert Text to PDF Online</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">1</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Enter or Upload Text</h3>
+          <p class="text-xs text-slate-600">Type or paste your text into the editor, or upload a .txt / .md document.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">2</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Customize Layout</h3>
+          <p class="text-xs text-slate-600">Choose font family, font size, margins, line spacing, and page numbering.</p>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-2xs">
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-[#c27803] font-black flex items-center justify-center text-sm mb-3">3</div>
+          <h3 class="text-sm font-black text-[#3e2723] mb-1">Download PDF</h3>
+          <p class="text-xs text-slate-600">Download your multi-page vector PDF instantly with zero cloud delays.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mb-14">
+      <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I convert long documents with multiple pages?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Yes! The client-side PDF engine performs automatic word wrapping and height calculation. When text exceeds the page height, new pages are automatically created with consistent margins and page numbering.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What text formats can I upload?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            You can upload plain text (.txt), Markdown (.md), Log files (.log), CSV (.csv), JSON (.json), and other plain text formats, or copy and paste content from any application.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Are my text documents private and safe?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            Yes. All processing is 100% client-side. The file never leaves your computer, laptop, or mobile phone.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools Section -->
+    <section>
+      <h2 class="text-lg font-black text-[#3e2723] mb-4">Related PDF Tools</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="/pdf-tools/pdf-to-text/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-file-lines"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">PDF to Text</div>
+            <div class="text-[10px] text-slate-500 font-medium">Extract plain text</div>
+          </div>
+        </a>
+        <a href="/pdf-tools/html-to-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">HTML to PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Render HTML markup</div>
+          </div>
+        </a>
+        <a href="/pdf-tools/pdf-editor/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">PDF Editor</div>
+            <div class="text-[10px] text-slate-500 font-medium">Edit & annotate PDF</div>
+          </div>
+        </a>
+        <a href="/pdf-tools/merge-pdf/index.html" class="fa-card fa-card-interactive p-4 flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-sm font-bold shrink-0">
+            <i class="fa-solid fa-object-group"></i>
+          </div>
+          <div>
+            <div class="text-xs font-black text-[#3e2723]">Merge PDF</div>
+            <div class="text-[10px] text-slate-500 font-medium">Combine PDF files</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centralized Pure JS Footer Injection -->
+  <footer id="globalFooter"></footer>
+
+  <!-- Scripts -->
+  <script src="../../js/main.js"></script>
+  <script src="../../assets/js/pdf/pdf-common.js"></script>
+  <script src="../../assets/js/pdf/pdf-utils.js"></script>
+  <script src="../../assets/js/pdf/pdf-ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dropzone = document.getElementById('dropzone');
+      const fileInput = document.getElementById('fileInput');
+      const textContentInput = document.getElementById('textContentInput');
+      const templatePreset = document.getElementById('templatePreset');
+      const statWords = document.getElementById('statWords');
+      const statChars = document.getElementById('statChars');
+      const statLines = document.getElementById('statLines');
+      const fontSelect = document.getElementById('fontSelect');
+      const fontSizeSelect = document.getElementById('fontSizeSelect');
+      const lineSpacingSelect = document.getElementById('lineSpacingSelect');
+      const formatSelect = document.getElementById('formatSelect');
+      const orientationSelect = document.getElementById('orientationSelect');
+      const marginSelect = document.getElementById('marginSelect');
+      const textColorInput = document.getElementById('textColorInput');
+      const textColorLabel = document.getElementById('textColorLabel');
+      const pageNumberToggle = document.getElementById('pageNumberToggle');
+      const headerTextInput = document.getElementById('headerTextInput');
+      const footerTextInput = document.getElementById('footerTextInput');
+      const generatePdfBtn = document.getElementById('generatePdfBtn');
+      const clearBtn = document.getElementById('clearBtn');
+      const progressContainer = document.getElementById('progressContainer');
+      const errorContainer = document.getElementById('errorContainer');
+      const resultContainer = document.getElementById('resultContainer');
+
+      const TEMPLATES = {
+        custom: '',
+        report: `EXECUTIVE SUMMARY & BUSINESS REPORT
+Date: September 2026
+Prepared for: 360Tools Enterprise Client
+Status: Approved
+
+1. PROJECT OVERVIEW
+This document was generated directly in the web browser using 100% client-side vector text compilation on 360tools.me. All processing occurs locally with zero data transfer to external cloud servers.
+
+2. KEY PERFORMANCE HIGHLIGHTS
+- Fast processing: Zero server roundtrips, resulting in sub-second document creation.
+- Total privacy: Sensitive contracts, logs, and business documents never leave your device.
+- Crystal-clear vector rendering: High resolution text output compatible with all modern PDF viewers and print drivers.
+
+3. RECOMMENDATIONS & NEXT STEPS
+Continue utilizing client-side privacy-first web utilities to ensure compliance with enterprise confidentiality and regulatory guidelines.
+
+Prepared by:
+360Tools Automated Document Services`,
+        letter: `September 21, 2026
+
+Dear Client,
+
+We are writing to confirm the receipt of your recent inquiry regarding client-side PDF document processing.
+
+We are pleased to inform you that 360tools.me provides a complete suite of browser-based utilities designed for zero-knowledge privacy. Your text, contracts, and confidential records are compiled entirely inside your computer memory.
+
+Should you require any further assistance or additional custom workflows, please do not hesitate to contact our team.
+
+Sincerely,
+
+Operations Director
+360Tools Studio
+hello@360tools.me
+https://360tools.me`,
+        invoice: `=======================================================
+                   PAYMENT RECEIPT & INVOICE
+=======================================================
+Invoice Number: INV-2026-9812
+Date: September 21, 2026
+Client: General Public Customer
+Platform: 360tools.me
+
+-------------------------------------------------------
+Item Description                       Qty    Amount
+-------------------------------------------------------
+1. Client-Side Text to PDF Engine       1      $0.00
+2. In-Browser Privacy Protection        1      $0.00
+3. Universal Multi-Platform Access      1      $0.00
+-------------------------------------------------------
+Total Amount Due:                              $0.00
+Payment Status:                                PAID IN FULL
+-------------------------------------------------------
+
+Thank you for choosing 360tools.me!`,
+        cheat: `# 360TOOLS DEVELOPER CHEAT-SHEET
+=============================================
+
+## 1. GIT QUICK COMMANDS
+- git checkout -b feature/new-tool
+- git add . && git commit -m "feat: add text to pdf"
+- git push origin feature/new-tool
+
+## 2. COMMON HTTP STATUS CODES
+- 200 OK: Request succeeded
+- 201 Created: Resource created
+- 400 Bad Request: Invalid client payload
+- 401 Unauthorized: Authentication required
+- 404 Not Found: Resource does not exist
+- 500 Internal Server Error
+
+## 3. DESIGN SYSTEM TOKENS
+- Primary Accent: #c27803
+- Dark Navy: #3e2723
+- Background Canvas: #fbf7ee
+- Border Subtle: #cbd5e1`
+      };
+
+      // Set initial sample text
+      textContentInput.value = TEMPLATES.report;
+      templatePreset.value = 'report';
+      updateStats();
+
+      function updateStats() {
+        const text = textContentInput.value;
+        const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+        const chars = text.length;
+        const lines = text ? text.split(/\r\n|\r|\n/).length : 0;
+        statWords.textContent = `${words} ${words === 1 ? 'word' : 'words'}`;
+        statChars.textContent = `${chars} ${chars === 1 ? 'char' : 'chars'}`;
+        statLines.textContent = `${lines} ${lines === 1 ? 'line' : 'lines'}`;
+      }
+
+      textContentInput.addEventListener('input', () => {
+        updateStats();
+      });
+
+      textColorInput.addEventListener('input', (e) => {
+        textColorLabel.textContent = e.target.value;
+      });
+
+      templatePreset.addEventListener('change', (e) => {
+        const key = e.target.value;
+        if (TEMPLATES[key] !== undefined && key !== 'custom') {
+          textContentInput.value = TEMPLATES[key];
+          updateStats();
+        }
+      });
+
+      clearBtn.addEventListener('click', () => {
+        textContentInput.value = '';
+        templatePreset.value = 'custom';
+        updateStats();
+        PDFUI.clearError(errorContainer);
+        if (resultContainer) resultContainer.style.display = 'none';
+      });
+
+      // Dropzone setup
+      PDFCommon.setupDropzone(dropzone, fileInput, (files) => {
+        if (!files || files.length === 0) return;
+        const file = files[0];
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          textContentInput.value = e.target.result;
+          templatePreset.value = 'custom';
+          updateStats();
+          PDFUI.clearError(errorContainer);
+        };
+        reader.onerror = () => {
+          PDFUI.showError(errorContainer, 'Failed to read text file.');
+        };
+        reader.readAsText(file);
+      });
+
+      // Hex to RGB Helper
+      function hexToRgb(hex) {
+        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? {
+          r: parseInt(result[1], 16) / 255,
+          g: parseInt(result[2], 16) / 255,
+          b: parseInt(result[3], 16) / 255
+        } : { r: 0.1, g: 0.1, b: 0.1 };
+      }
+
+      // PDF Generation Engine
+      generatePdfBtn.addEventListener('click', async () => {
+        const text = textContentInput.value;
+        if (!text.trim()) {
+          PDFUI.showError(errorContainer, 'Please enter or upload some text to convert.');
+          return;
+        }
+
+        PDFUI.clearError(errorContainer);
+        if (resultContainer) resultContainer.style.display = 'none';
+        generatePdfBtn.disabled = true;
+        PDFUI.showProgress(progressContainer, 15, 'Loading vector PDF generator...');
+
+        try {
+          const PDFLib = await PDFCommon.requirePdfLib();
+          const { PDFDocument, rgb, StandardFonts } = PDFLib;
+
+          PDFUI.showProgress(progressContainer, 40, 'Compiling document layout & typography...');
+
+          const pdfDoc = await PDFDocument.create();
+
+          // Standard Fonts
+          let selectedFont;
+          const fontVal = fontSelect.value;
+          if (fontVal === 'TimesRoman') {
+            selectedFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
+          } else if (fontVal === 'Courier') {
+            selectedFont = await pdfDoc.embedFont(StandardFonts.Courier);
+          } else {
+            selectedFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+          }
+
+          const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+
+          // Page Dimensions (in points: 72 points = 1 inch)
+          const formatVal = formatSelect.value;
+          let pageWidth, pageHeight;
+          if (formatVal === 'Letter') {
+            pageWidth = 612;
+            pageHeight = 792;
+          } else if (formatVal === 'Legal') {
+            pageWidth = 612;
+            pageHeight = 1008;
+          } else {
+            // A4
+            pageWidth = 595.28;
+            pageHeight = 841.89;
+          }
+
+          if (orientationSelect.value === 'landscape') {
+            const temp = pageWidth;
+            pageWidth = pageHeight;
+            pageHeight = temp;
+          }
+
+          const margin = parseInt(marginSelect.value, 10);
+          const fontSize = parseInt(fontSizeSelect.value, 10);
+          const lineMultiplier = parseFloat(lineSpacingSelect.value);
+          const lineHeight = fontSize * lineMultiplier;
+          const colorObj = hexToRgb(textColorInput.value);
+          const textColor = rgb(colorObj.r, colorObj.g, colorObj.b);
+          const headerText = headerTextInput.value.trim();
+          const footerText = footerTextInput.value.trim();
+          const includePageNumbers = pageNumberToggle.checked;
+
+          const usableWidth = pageWidth - (margin * 2);
+          const topMargin = headerText ? margin + 25 : margin;
+          const bottomMargin = (footerText || includePageNumbers) ? margin + 25 : margin;
+          const usableHeight = pageHeight - topMargin - bottomMargin;
+
+          // Word-wrapping logic
+          const rawLines = text.split(/\r\n|\r|\n/);
+          const wrappedLines = [];
+
+          for (const rawLine of rawLines) {
+            if (rawLine === '') {
+              wrappedLines.push('');
+              continue;
+            }
+
+            const words = rawLine.split(' ');
+            let currentLine = '';
+
+            for (let i = 0; i < words.length; i++) {
+              const word = words[i];
+              const testLine = currentLine ? `${currentLine} ${word}` : word;
+              const testWidth = selectedFont.widthOfTextAtSize(testLine, fontSize);
+
+              if (testWidth <= usableWidth) {
+                currentLine = testLine;
+              } else {
+                if (currentLine) {
+                  wrappedLines.push(currentLine);
+                  currentLine = word;
+                } else {
+                  // Word is longer than usable width, break characters
+                  let chunk = '';
+                  for (const char of word) {
+                    if (selectedFont.widthOfTextAtSize(chunk + char, fontSize) <= usableWidth) {
+                      chunk += char;
+                    } else {
+                      wrappedLines.push(chunk);
+                      chunk = char;
+                    }
+                  }
+                  currentLine = chunk;
+                }
+              }
+            }
+            if (currentLine) {
+              wrappedLines.push(currentLine);
+            }
+          }
+
+          // Distribute lines across pages
+          const linesPerPage = Math.floor(usableHeight / lineHeight);
+          const pagesData = [];
+          for (let i = 0; i < wrappedLines.length; i += linesPerPage) {
+            pagesData.push(wrappedLines.slice(i, i + linesPerPage));
+          }
+          if (pagesData.length === 0) pagesData.push(['']);
+
+          const totalPages = pagesData.length;
+
+          PDFUI.showProgress(progressContainer, 70, `Rendering ${totalPages} page(s)...`);
+
+          // Render pages
+          for (let pageIdx = 0; pageIdx < totalPages; pageIdx++) {
+            const page = pdfDoc.addPage([pageWidth, pageHeight]);
+            const pageLines = pagesData[pageIdx];
+
+            // Render Header
+            if (headerText) {
+              page.drawText(headerText, {
+                x: margin,
+                y: pageHeight - margin + 5,
+                size: 8,
+                font: fontBold,
+                color: rgb(0.4, 0.45, 0.5)
+              });
+              // Header underline rule
+              page.drawLine({
+                start: { x: margin, y: pageHeight - margin },
+                end: { x: pageWidth - margin, y: pageHeight - margin },
+                thickness: 0.5,
+                color: rgb(0.8, 0.85, 0.9)
+              });
+            }
+
+            // Render Body Text
+            let currentY = pageHeight - topMargin - fontSize;
+            for (const line of pageLines) {
+              if (line) {
+                page.drawText(line, {
+                  x: margin,
+                  y: currentY,
+                  size: fontSize,
+                  font: selectedFont,
+                  color: textColor
+                });
+              }
+              currentY -= lineHeight;
+            }
+
+            // Render Footer & Pagination
+            if (footerText || includePageNumbers) {
+              page.drawLine({
+                start: { x: margin, y: bottomMargin },
+                end: { x: pageWidth - margin, y: bottomMargin },
+                thickness: 0.5,
+                color: rgb(0.8, 0.85, 0.9)
+              });
+
+              if (footerText) {
+                page.drawText(footerText, {
+                  x: margin,
+                  y: bottomMargin - 12,
+                  size: 8,
+                  font: selectedFont,
+                  color: rgb(0.45, 0.45, 0.45)
+                });
+              }
+
+              if (includePageNumbers) {
+                const pageStr = `Page ${pageIdx + 1} of ${totalPages}`;
+                const strWidth = selectedFont.widthOfTextAtSize(pageStr, 8);
+                page.drawText(pageStr, {
+                  x: pageWidth - margin - strWidth,
+                  y: bottomMargin - 12,
+                  size: 8,
+                  font: selectedFont,
+                  color: rgb(0.45, 0.45, 0.45)
+                });
+              }
+            }
+          }
+
+          PDFUI.showProgress(progressContainer, 90, 'Finalizing vector PDF bytes...');
+          const pdfBytes = await pdfDoc.save();
+          const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+          const filename = `text-document-${Date.now()}.pdf`;
+
+          PDFUI.showProgress(progressContainer, 100, 'Document ready!');
+          setTimeout(() => {
+            PDFUI.hideProgress(progressContainer);
+            generatePdfBtn.disabled = false;
+            PDFUI.renderResult(resultContainer, {
+              filename: filename,
+              blob: blob,
+              newSize: blob.size,
+              onReset: () => {
+                resultContainer.style.display = 'none';
+              }
+            });
+            // Trigger download
+            PDFCommon.downloadBlob(blob, filename);
+          }, 600);
+
+        } catch (err) {
+          console.error(err);
+          PDFUI.hideProgress(progressContainer);
+          PDFUI.showError(errorContainer, `Conversion error: ${err.message}`);
+          generatePdfBtn.disabled = false;
+        }
+      });
+
+      // FAQ accordion
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+          button.parentElement.classList.toggle('open');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

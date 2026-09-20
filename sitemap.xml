@@ -202,8 +202,20 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://360tools.me/pdf-tools/text-to-pdf/index.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://360tools.me/pdf-tools/pdf-editor/index.html</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://360tools.me/pdf-tools/index.html</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
