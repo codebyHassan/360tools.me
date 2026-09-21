@@ -22,10 +22,9 @@
   <meta property="og:image" content="images/logo.webp">
 
   <!-- Font Awesome Icons 6.5.1 -->
-    <!-- Preconnect External Domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -34,8 +33,6 @@
   
   <!-- Master Stylesheet -->
   <link rel="stylesheet" href="css/style.min.css">
-
-  <!-- Tailwind CSS CDN -->
 </head>
 <body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] bg-[#fbf7ee]">
 
@@ -46,14 +43,14 @@
   <main class="w-full flex-1">
 
     <!-- Breadcrumb -->
-    <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-6" aria-label="Breadcrumb">
+    <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-6 max-w-7xl mx-auto px-4 sm:px-6 pt-6" aria-label="Breadcrumb">
       <a href="index.html" class="hover:text-[#c27803] transition-colors"><i class="fa-solid fa-house mr-1"></i>Home</a>
       <span class="text-slate-300">/</span>
       <span class="text-[#3e2723] font-black">Blog</span>
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="bg-gradient-to-b from-white to-slate-50 border-b border-slate-200/80 pt-10 pb-14 px-4 sm:px-6">
+    <section class="bg-gradient-to-b from-white to-slate-50 border-b border-slate-200/80 pt-6 pb-14 px-4 sm:px-6">
       <div class="max-w-6xl mx-auto text-center space-y-4">
         
         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#c27803] text-xs font-black uppercase tracking-wider">
@@ -168,6 +165,8 @@
     let currentCategory = '';
     let currentSearch = '';
     let allCategoriesList = [];
+    let allCachedPosts = null;
+    let allCachedCategories = null;
 
     document.addEventListener('DOMContentLoaded', () => {
       // Check query params for initial filter
@@ -194,22 +193,66 @@
         clearBtn.classList.toggle('hidden', !currentSearch);
 
         searchTimeout = setTimeout(() => {
-          loadBlogs();
-        }, 350);
+          renderFilteredBlogs();
+        }, 300);
       });
 
       clearBtn.addEventListener('click', () => {
         searchInput.value = '';
         currentSearch = '';
         clearBtn.classList.add('hidden');
-        loadBlogs();
+        renderFilteredBlogs();
       });
     });
 
+    async function getStaticOrApiData() {
+      if (allCachedPosts !== null) {
+        return { posts: allCachedPosts, categories: allCachedCategories || [] };
+      }
+
+      // 1. Try instant static JSON manifest first (fast, CDN cached, 0% backend load, 100% offline uptime)
+      try {
+        const res = await fetch('blogs/posts.json?v=' + Date.now());
+        if (res.ok) {
+          const json = await res.json();
+          allCachedPosts = json.posts || [];
+          allCachedCategories = json.categories || [];
+          return { posts: allCachedPosts, categories: allCachedCategories };
+        }
+      } catch (e) {
+        console.warn('Static posts.json not reachable, trying API fallback:', e);
+      }
+
+      // 2. Fallback to API if static posts.json not available
+      try {
+        const data = await fetchBlogApi('/api/blogs/');
+        allCachedPosts = Array.isArray(data) ? data : (data.results || []);
+        allCachedCategories = [];
+        return { posts: allCachedPosts, categories: [] };
+      } catch (e) {
+        throw e;
+      }
+    }
+
     async function loadCategories() {
       try {
-        const categories = await fetchBlogApi('/api/categories/');
-        allCategoriesList = Array.isArray(categories) ? categories : (categories.results || []);
+        const data = await getStaticOrApiData();
+        let categories = data.categories || [];
+
+        // If categories list was empty in manifest, derive unique categories from posts
+        if (categories.length === 0 && data.posts && data.posts.length > 0) {
+          const map = new Map();
+          data.posts.forEach(p => {
+            if (p.category && p.category.slug) {
+              const existing = map.get(p.category.slug) || { ...p.category, count: 0 };
+              existing.count += 1;
+              map.set(p.category.slug, existing);
+            }
+          });
+          categories = Array.from(map.values());
+        }
+
+        allCategoriesList = categories;
 
         const tabsContainer = document.getElementById('categoryTabs');
         tabsContainer.innerHTML = `
@@ -222,11 +265,11 @@
                   class="cat-pill px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-1.5 ${currentCategory === cat.slug ? 'bg-[#3e2723] text-white shadow-xs' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}">
             <i class="${cat.icon || 'fa-solid fa-folder'} ${cat.color || 'text-[#c27803]'} text-xs"></i>
             <span>${cat.name}</span>
-            <span class="text-[10px] opacity-70 bg-slate-100/50 px-1.5 py-0.2 rounded-full">${cat.posts_count || 0}</span>
+            <span class="text-[10px] opacity-70 bg-slate-100/50 px-1.5 py-0.2 rounded-full">${cat.count || cat.posts_count || 0}</span>
           </button>
         `).join('');
       } catch (err) {
-        console.warn('Categories API offline or cold start:', err);
+        console.warn('Could not load categories:', err);
       }
     }
 
@@ -239,7 +282,7 @@
         btn.className = `cat-pill px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer flex items-center gap-1.5 ${isSelected ? 'bg-[#3e2723] text-white shadow-xs' : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'}`;
       });
 
-      loadBlogs();
+      renderFilteredBlogs();
     }
 
     function resetBlogFilters() {
@@ -251,169 +294,185 @@
     }
 
     async function loadBlogs() {
+      try {
+        await getStaticOrApiData();
+        renderFilteredBlogs();
+      } catch (err) {
+        console.error('Error loading blogs:', err);
+        const grid = document.getElementById('blogsGrid');
+        grid.innerHTML = `
+          <div class="col-span-full text-center py-12 bg-white rounded-3xl border border-slate-200 p-8 space-y-4">
+            <i class="fa-solid fa-book-open text-3xl text-slate-400"></i>
+            <h3 class="text-lg font-black text-[#3e2723]">No guides published yet</h3>
+            <p class="text-xs text-slate-500 max-w-md mx-auto">
+              Check back soon for new expert tutorials and engineering guides.
+            </p>
+          </div>
+        `;
+      }
+    }
+
+    function renderFilteredBlogs() {
       const grid = document.getElementById('blogsGrid');
       const countBadge = document.getElementById('postsCountBadge');
       const noResults = document.getElementById('noResultsState');
       const featuredContainer = document.getElementById('featuredPostContainer');
 
-      // Construct API query path
-      let path = `/api/blogs/?`;
-      if (currentCategory) path += `category=${encodeURIComponent(currentCategory)}&`;
-      if (currentSearch) path += `search=${encodeURIComponent(currentSearch)}&`;
-
-      try {
-        const data = await fetchBlogApi(path);
-        const posts = Array.isArray(data) ? data : (data.results || []);
-
-        countBadge.textContent = `${posts.length} ${posts.length === 1 ? 'Article' : 'Articles'}`;
-
-        if (posts.length === 0) {
-          grid.innerHTML = '';
-          noResults.classList.remove('hidden');
-          featuredContainer.classList.add('hidden');
-          return;
+      const rawPosts = allCachedPosts || [];
+      
+      // Client-side Instant Filter
+      let posts = rawPosts.filter(p => {
+        // Category filter
+        if (currentCategory && p.category?.slug !== currentCategory && p.category?.name?.toLowerCase() !== currentCategory.toLowerCase()) {
+          return false;
         }
-
-        noResults.classList.add('hidden');
-
-        // Check for featured post on initial load without search
-        if (!currentSearch && !currentCategory && posts.length > 0 && posts[0].is_featured) {
-          const feat = posts[0];
-          featuredContainer.innerHTML = `
-            <div class="bg-gradient-to-br from-white to-blue-50/40 rounded-3xl border border-slate-200 shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 sm:p-8 items-center">
-              <div class="lg:col-span-6 relative overflow-hidden rounded-2xl group">
-                <img src="${feat.featured_image_url || 'images/logo.webp'}" alt="${feat.title}" class="w-full h-64 sm:h-80 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-300">
-                <span class="absolute top-3 left-3 bg-[#ffd43b] text-[#3e2723] px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider flex items-center gap-1 shadow-md">
-                  <i class="fa-solid fa-star"></i> Featured Guide
-                </span>
-                ${feat.featured_video_url ? `
-                  <span class="absolute bottom-3 right-3 bg-red-600 text-white px-2.5 py-1 rounded-full text-[10px] font-black uppercase flex items-center gap-1 shadow-md">
-                    <i class="fa-solid fa-play text-[9px]"></i> Video Included
-                  </span>
-                ` : ''}
-              </div>
-
-              <div class="lg:col-span-6 space-y-4">
-                <div class="flex items-center gap-2">
-                  <span class="text-xs font-black text-[#c27803] uppercase tracking-wider bg-blue-50 px-2.5 py-1 rounded-lg">
-                    ${feat.category?.name || 'General'}
-                  </span>
-                  <span class="text-xs text-slate-400 font-semibold">• ${feat.read_time_minutes || 4} min read</span>
-                </div>
-
-                <h3 class="text-2xl sm:text-3xl font-black text-[#3e2723] leading-tight hover:text-[#c27803] transition-colors">
-                  <a href="blogs/${feat.slug}.html">${feat.title}</a>
-                </h3>
-
-                <p class="text-xs sm:text-sm text-slate-600 line-clamp-3 leading-relaxed">
-                  ${feat.excerpt}
-                </p>
-
-                <div class="pt-2 flex flex-wrap items-center justify-between gap-4">
-                  <div class="flex items-center gap-3">
-                    <img src="${feat.author_avatar || 'images/logo.webp'}" class="w-9 h-9 rounded-xl object-cover border border-slate-200">
-                    <div>
-                      <div class="text-xs font-black text-[#3e2723]">${feat.author_name}</div>
-                      <div class="text-[10px] text-slate-400">${feat.published_date_formatted || ''}</div>
-                    </div>
-                  </div>
-
-                  <a href="blogs/${feat.slug}.html" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#146ebe] hover:bg-blue-700 text-white font-black text-xs rounded-xl shadow-md transition-all">
-                    <span>Read Full Guide</span>
-                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          `;
-          featuredContainer.classList.remove('hidden');
-        } else {
-          featuredContainer.classList.add('hidden');
+        // Search query filter
+        if (currentSearch) {
+          const q = currentSearch.toLowerCase();
+          const titleMatch = (p.title || '').toLowerCase().includes(q);
+          const excerptMatch = (p.excerpt || '').toLowerCase().includes(q);
+          const toolMatch = (p.primary_tool_name || '').toLowerCase().includes(q);
+          const catMatch = (p.category?.name || '').toLowerCase().includes(q);
+          if (!titleMatch && !excerptMatch && !toolMatch && !catMatch) {
+            return false;
+          }
         }
+        return true;
+      });
 
-        // Render Cards Grid
-        grid.innerHTML = posts.map(post => `
-          <article class="bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group">
-            <!-- Card Thumbnail -->
-            <div class="relative overflow-hidden aspect-16/10 bg-slate-100">
-              <img src="${post.featured_image_url || 'images/logo.webp'}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-              
-              <!-- Category Badge -->
-              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs text-[#3e2723] border border-slate-200 px-2.5 py-1 rounded-xl text-[11px] font-black shadow-xs flex items-center gap-1.5">
-                <i class="${post.category?.icon || 'fa-solid fa-folder'} ${post.category?.color || 'text-[#c27803]'} text-xs"></i>
-                <span>${post.category?.name || 'Guide'}</span>
+      countBadge.textContent = `${posts.length} ${posts.length === 1 ? 'Article' : 'Articles'}`;
+
+      if (posts.length === 0) {
+        grid.innerHTML = '';
+        noResults.classList.remove('hidden');
+        featuredContainer.classList.add('hidden');
+        return;
+      }
+
+      noResults.classList.add('hidden');
+
+      // Check for featured post on initial load without search
+      if (!currentSearch && !currentCategory && posts.length > 0 && posts[0].is_featured) {
+        const feat = posts[0];
+        featuredContainer.innerHTML = `
+          <div class="bg-gradient-to-br from-white to-blue-50/40 rounded-3xl border border-slate-200 shadow-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-6 p-6 sm:p-8 items-center">
+            <div class="lg:col-span-6 relative overflow-hidden rounded-2xl group">
+              <img src="${feat.featured_image_url || 'images/logo.webp'}" alt="${feat.title}" class="w-full h-64 sm:h-80 object-cover rounded-2xl group-hover:scale-105 transition-transform duration-300">
+              <span class="absolute top-3 left-3 bg-[#ffd43b] text-[#3e2723] px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider flex items-center gap-1 shadow-md">
+                <i class="fa-solid fa-star"></i> Featured Guide
               </span>
-
-              <!-- Video Indicator if available -->
-              ${post.featured_video_url ? `
-                <span class="absolute top-3 right-3 bg-red-600 text-white px-2 py-0.5 rounded-lg text-[10px] font-black uppercase flex items-center gap-1 shadow-md">
-                  <i class="fa-solid fa-play text-[8px]"></i> Video
+              ${feat.featured_video_url ? `
+                <span class="absolute bottom-3 right-3 bg-red-600 text-white px-2.5 py-1 rounded-full text-[10px] font-black uppercase flex items-center gap-1 shadow-md">
+                  <i class="fa-solid fa-play text-[9px]"></i> Video Included
                 </span>
               ` : ''}
             </div>
 
-            <!-- Card Content -->
-            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
-              <div class="space-y-2">
-                <div class="flex items-center gap-2 text-[11px] font-bold text-slate-400">
-                  <span>${post.published_date_formatted || ''}</span>
-                  <span>•</span>
-                  <span><i class="fa-regular fa-clock"></i> ${post.read_time_minutes || 4} min read</span>
-                </div>
-
-                <h3 class="text-base sm:text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors leading-snug line-clamp-2">
-                  <a href="blogs/${post.slug}.html">${post.title}</a>
-                </h3>
-
-                <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">
-                  ${post.excerpt}
-                </p>
+            <div class="lg:col-span-6 space-y-4">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-black text-[#c27803] uppercase tracking-wider bg-blue-50 px-2.5 py-1 rounded-lg">
+                  ${feat.category?.name || 'General'}
+                </span>
+                <span class="text-xs text-slate-400 font-semibold">• ${feat.read_time_minutes || 4} min read</span>
               </div>
 
-              <!-- Card Footer: Author + CTA -->
-              <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                  <img src="${post.author_avatar || 'images/logo.webp'}" class="w-7 h-7 rounded-lg object-cover border border-slate-200">
-                  <span class="text-xs font-bold text-slate-700 truncate max-w-[120px]">${post.author_name}</span>
+              <h3 class="text-2xl sm:text-3xl font-black text-[#3e2723] leading-tight hover:text-[#c27803] transition-colors">
+                <a href="blogs/${feat.slug}.html">${feat.title}</a>
+              </h3>
+
+              <p class="text-xs sm:text-sm text-slate-600 line-clamp-3 leading-relaxed">
+                ${feat.excerpt}
+              </p>
+
+              <div class="pt-2 flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  <img src="${feat.author_avatar || 'images/logo.webp'}" class="w-9 h-9 rounded-xl object-cover border border-slate-200">
+                  <div>
+                    <div class="text-xs font-black text-[#3e2723]">${feat.author_name}</div>
+                    <div class="text-[10px] text-slate-400">${feat.published_date_formatted || ''}</div>
+                  </div>
                 </div>
 
-                <a href="blogs/${post.slug}.html" class="text-xs font-black text-[#c27803] hover:text-blue-800 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                  <span>Read Guide</span>
+                <a href="blogs/${feat.slug}.html" class="inline-flex items-center gap-2 px-5 py-2.5 bg-[#146ebe] hover:bg-blue-700 text-white font-black text-xs rounded-xl shadow-md transition-all">
+                  <span>Read Full Guide</span>
                   <i class="fa-solid fa-arrow-right text-[10px]"></i>
                 </a>
               </div>
-
-              <!-- Linked Tool Tag (If Connected) -->
-              ${post.primary_tool_name ? `
-                <div class="pt-1">
-                  <a href="${post.primary_tool_url || '#'}" class="w-full flex items-center justify-between p-2 rounded-xl bg-blue-50 hover:bg-blue-100/80 text-[11px] font-bold text-[#c27803] transition-colors">
-                    <span class="flex items-center gap-1.5 truncate">
-                      <i class="fa-solid fa-screwdriver-wrench"></i> ${post.primary_tool_name}
-                    </span>
-                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                  </a>
-                </div>
-              ` : ''}
-
             </div>
-          </article>
-        `).join('');
-
-      } catch (err) {
-        console.error('Error fetching blogs:', err);
-        grid.innerHTML = `
-          <div class="col-span-full text-center py-12 bg-white rounded-3xl border border-slate-200 p-8 space-y-4">
-            <i class="fa-solid fa-triangle-exclamation text-3xl text-amber-500"></i>
-            <h3 class="text-lg font-black text-[#3e2723]">Connecting to Blog Server...</h3>
-            <p class="text-xs text-slate-500 max-w-md mx-auto">
-              If the PythonAnywhere server is currently sleeping on the free tier, it will wake up in a few moments.
-            </p>
-            <button onclick="loadBlogs()" class="px-5 py-2.5 rounded-xl bg-[#146ebe] hover:bg-blue-700 text-white text-xs font-bold transition-all shadow-xs">
-              <i class="fa-solid fa-rotate-right mr-1.5"></i> Retry Connection
-            </button>
           </div>
         `;
+        featuredContainer.classList.remove('hidden');
+      } else {
+        featuredContainer.classList.add('hidden');
       }
+
+      // Render Cards Grid
+      grid.innerHTML = posts.map(post => `
+        <article class="bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group">
+          <!-- Card Thumbnail -->
+          <div class="relative overflow-hidden aspect-16/10 bg-slate-100">
+            <img src="${post.featured_image_url || 'images/logo.webp'}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            
+            <!-- Category Badge -->
+            <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-xs text-[#3e2723] border border-slate-200 px-2.5 py-1 rounded-xl text-[11px] font-black shadow-xs flex items-center gap-1.5">
+              <i class="${post.category?.icon || 'fa-solid fa-folder'} ${post.category?.color || 'text-[#c27803]'} text-xs"></i>
+              <span>${post.category?.name || 'Guide'}</span>
+            </span>
+
+            <!-- Video Indicator if available -->
+            ${post.featured_video_url ? `
+              <span class="absolute top-3 right-3 bg-red-600 text-white px-2 py-0.5 rounded-lg text-[10px] font-black uppercase flex items-center gap-1 shadow-md">
+                <i class="fa-solid fa-play text-[8px]"></i> Video
+              </span>
+            ` : ''}
+          </div>
+
+          <!-- Card Content -->
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+            <div class="space-y-2">
+              <div class="flex items-center gap-2 text-[11px] font-bold text-slate-400">
+                <span>${post.published_date_formatted || ''}</span>
+                <span>•</span>
+                <span><i class="fa-regular fa-clock"></i> ${post.read_time_minutes || 4} min read</span>
+              </div>
+
+              <h3 class="text-base sm:text-lg font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors leading-snug line-clamp-2">
+                <a href="blogs/${post.slug}.html">${post.title}</a>
+              </h3>
+
+              <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                ${post.excerpt}
+              </p>
+            </div>
+
+            <!-- Card Footer: Author + CTA -->
+            <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <img src="${post.author_avatar || 'images/logo.webp'}" class="w-7 h-7 rounded-lg object-cover border border-slate-200">
+                <span class="text-xs font-bold text-slate-700 truncate max-w-[120px]">${post.author_name}</span>
+              </div>
+
+              <a href="blogs/${post.slug}.html" class="text-xs font-black text-[#c27803] hover:text-blue-800 inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                <span>Read Guide</span>
+                <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </a>
+            </div>
+
+            <!-- Linked Tool Tag (If Connected) -->
+            ${post.primary_tool_name ? `
+              <div class="pt-1">
+                <a href="${post.primary_tool_url || '#'}" class="w-full flex items-center justify-between p-2 rounded-xl bg-blue-50 hover:bg-blue-100/80 text-[11px] font-bold text-[#c27803] transition-colors">
+                  <span class="flex items-center gap-1.5 truncate">
+                    <i class="fa-solid fa-screwdriver-wrench"></i> ${post.primary_tool_name}
+                  </span>
+                  <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                </a>
+              </div>
+            ` : ''}
+
+          </div>
+        </article>
+      `).join('');
     }
   </script>
 </body>
