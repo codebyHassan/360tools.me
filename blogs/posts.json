@@ -1,0 +1,187 @@
+{
+  "categories": [
+    {
+      "name": "Audio & AI Voice",
+      "slug": "audio-ai-voice",
+      "icon": "fa-solid fa-wand-magic-sparkles",
+      "color": "text-purple-600",
+      "count": 1
+    },
+    {
+      "name": "Developer & Web Performance",
+      "slug": "developer-web-performance",
+      "icon": "fa-solid fa-code",
+      "color": "text-amber-600",
+      "count": 1
+    },
+    {
+      "name": "E-Commerce & Financial",
+      "slug": "ecommerce-financial",
+      "icon": "fa-solid fa-file-invoice-dollar",
+      "color": "text-blue-600",
+      "count": 1
+    },
+    {
+      "name": "Image & Media Optimization",
+      "slug": "image-media-optimization",
+      "icon": "fa-solid fa-image",
+      "color": "text-emerald-600",
+      "count": 1
+    }
+  ],
+  "posts": [
+    {
+      "id": 4,
+      "title": "The Ultimate Guide to HTML, CSS, and JS Minification for Faster Load Times",
+      "slug": "guide-to-html-css-js-minification",
+      "excerpt": "Learn how code minification strips redundant whitespace, comments, and identifiers to shave critical kilobytes off your production web bundles.",
+      "category": {
+        "name": "Developer & Web Performance",
+        "slug": "developer-web-performance",
+        "icon": "fa-solid fa-code",
+        "color": "text-amber-600"
+      },
+      "featured_image_url": "https://360tools.me/images/logo.jpg",
+      "featured_video_url": "https://www.youtube.com/watch?v=irrNumGugMA",
+      "author_name": "360tools Engineering Team",
+      "author_avatar": "https://360tools.me/images/logo.jpg",
+      "author_role": "Frontend Architect",
+      "read_time_minutes": 4,
+      "primary_tool_name": "HTML Minifier",
+      "primary_tool_url": "html-minifier.html",
+      "primary_tool_cta": "Minify HTML Code",
+      "secondary_tools": [
+        {
+          "name": "CSS Minifier",
+          "url": "css-minifier.html",
+          "icon": "fa-css3-alt"
+        },
+        {
+          "name": "JavaScript Minifier",
+          "url": "javascript-minifier.html",
+          "icon": "fa-js"
+        }
+      ],
+      "is_featured": false,
+      "views_count": 5,
+      "created_at": "2026-09-03T09:17:57.017585+00:00",
+      "published_date_formatted": "Sep 03, 2026"
+    },
+    {
+      "id": 3,
+      "title": "Complete Guide to Image Compression: Boost Core Web Vitals and LCP in 2026",
+      "slug": "complete-guide-to-image-compression-web-vitals",
+      "excerpt": "Speed up your website by up to 80% by optimizing JPG, PNG, and WebP assets. Improve Google PageSpeed scores without visible quality degradation.",
+      "category": {
+        "name": "Image & Media Optimization",
+        "slug": "image-media-optimization",
+        "icon": "fa-solid fa-image",
+        "color": "text-emerald-600"
+      },
+      "featured_image_url": "https://360tools.me/images/logo.jpg",
+      "featured_video_url": null,
+      "author_name": "360tools Engineering Team",
+      "author_avatar": "https://360tools.me/images/logo.jpg",
+      "author_role": "Performance Engineer",
+      "read_time_minutes": 6,
+      "primary_tool_name": "Universal Image Compressor",
+      "primary_tool_url": "image-compressor.html",
+      "primary_tool_cta": "Compress Images Online",
+      "secondary_tools": [
+        {
+          "name": "Bulk Image Compressor",
+          "url": "bulk-image-compressor.html",
+          "icon": "fa-layer-group"
+        },
+        {
+          "name": "WebP Compressor",
+          "url": "webp-compressor.html",
+          "icon": "fa-bolt"
+        },
+        {
+          "name": "Free AI Background Remover",
+          "url": "background-remover.html",
+          "icon": "fa-wand-magic-sparkles"
+        }
+      ],
+      "is_featured": false,
+      "views_count": 0,
+      "created_at": "2026-09-03T09:17:56.888999+00:00",
+      "published_date_formatted": "Sep 03, 2026"
+    },
+    {
+      "id": 2,
+      "title": "Mastering AI Voiceovers & Natural Speech Synthesis for YouTube and Podcasts",
+      "slug": "mastering-ai-voiceovers-natural-speech-synthesis",
+      "excerpt": "Discover the secrets of realistic text-to-speech synthesis, pacing adjustments, and multi-lingual voiceover generation without costly studio equipment.",
+      "category": {
+        "name": "Audio & AI Voice",
+        "slug": "audio-ai-voice",
+        "icon": "fa-solid fa-wand-magic-sparkles",
+        "color": "text-purple-600"
+      },
+      "featured_image_url": "https://360tools.me/images/logo.jpg",
+      "featured_video_url": null,
+      "author_name": "Hassan Dev",
+      "author_avatar": "https://360tools.me/images/logo.jpg",
+      "author_role": "Audio AI Lead",
+      "read_time_minutes": 4,
+      "primary_tool_name": "AI Voice Generator Studio",
+      "primary_tool_url": "ai-voice-generator.html",
+      "primary_tool_cta": "Generate Free AI Voiceover",
+      "secondary_tools": [
+        {
+          "name": "Text to MP3 Converter",
+          "url": "text-to-mp3.html",
+          "icon": "fa-file-audio"
+        },
+        {
+          "name": "YouTube Voiceover Narrator",
+          "url": "youtube-voiceover-generator.html",
+          "icon": "fa-youtube"
+        }
+      ],
+      "is_featured": true,
+      "views_count": 2,
+      "created_at": "2026-09-03T09:17:56.750912+00:00",
+      "published_date_formatted": "Sep 03, 2026"
+    },
+    {
+      "id": 1,
+      "title": "How to Create Professional Invoices in Seconds (Free & 100% Client-Side Private)",
+      "slug": "how-to-create-professional-invoices-free-private",
+      "excerpt": "Learn how to generate customizable, audit-ready PDF invoices for freelancers and small businesses without creating an account or risking client data.",
+      "category": {
+        "name": "E-Commerce & Financial",
+        "slug": "ecommerce-financial",
+        "icon": "fa-solid fa-file-invoice-dollar",
+        "color": "text-blue-600"
+      },
+      "featured_image_url": "https://360tools.me/images/logo.jpg",
+      "featured_video_url": null,
+      "author_name": "360tools Editorial Team",
+      "author_avatar": "https://360tools.me/images/logo.jpg",
+      "author_role": "Financial Tools Specialist",
+      "read_time_minutes": 5,
+      "primary_tool_name": "Free Online Invoice Generator",
+      "primary_tool_url": "invoice-generator.html",
+      "primary_tool_cta": "Generate Free PDF Invoice",
+      "secondary_tools": [
+        {
+          "name": "PDF Compressor",
+          "url": "pdf-compressor.html",
+          "icon": "fa-file-pdf"
+        },
+        {
+          "name": "Etsy Fee Calculator",
+          "url": "etsy-fee-calculator.html",
+          "icon": "fa-etsy"
+        }
+      ],
+      "is_featured": true,
+      "views_count": 1,
+      "created_at": "2026-09-03T09:17:56.605920+00:00",
+      "published_date_formatted": "Sep 03, 2026"
+    }
+  ]
+}
