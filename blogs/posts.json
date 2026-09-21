@@ -27,9 +27,58 @@
       "icon": "fa-solid fa-image",
       "color": "text-emerald-600",
       "count": 1
+    },
+    {
+      "name": "pdf tools",
+      "slug": "pdf-tools",
+      "icon": "fa-solid fa-newspaper",
+      "color": "text-blue-600",
+      "count": 1
     }
   ],
   "posts": [
+    {
+      "id": 5,
+      "title": "How to Merge PDF Files Online for Free: Complete Guide",
+      "slug": "how-merge-pdf-files-online-free-complete-guide",
+      "excerpt": "Learn how to merge multiple PDF files into one document online for free. Combine PDFs quickly, securely, and without installing any software.",
+      "category": {
+        "name": "pdf tools",
+        "slug": "pdf-tools",
+        "icon": "fa-solid fa-newspaper",
+        "color": "text-blue-600"
+      },
+      "featured_image_url": "https://360tools.me/assets/images/blog/merge-pdf-online.jpg",
+      "featured_video_url": null,
+      "author_name": "360tools Engineering Team",
+      "author_avatar": "https://360tools.me/images/logo.jpg",
+      "author_role": "Product Specialist",
+      "read_time_minutes": 6,
+      "primary_tool_name": "Free PDF Merge Tool",
+      "primary_tool_url": "/pdf-tools/merge-pdf/index.html",
+      "primary_tool_cta": "Merge PDF Files Free",
+      "secondary_tools": [
+        {
+          "name": "PDF to JPG",
+          "url": "/pdf-tools/pdf-to-jpg/index.html",
+          "icon": "image"
+        },
+        {
+          "name": "JPG to PDF",
+          "url": "/pdf-tools/jpg-to-pdf/index.html",
+          "icon": "file-image"
+        },
+        {
+          "name": "PDF Compressor",
+          "url": "/pdf-tools/compress-pdf/index.html",
+          "icon": "minimize"
+        }
+      ],
+      "is_featured": true,
+      "views_count": 0,
+      "created_at": "2026-09-21T13:17:40.233484+00:00",
+      "published_date_formatted": "Sep 21, 2026"
+    },
     {
       "id": 4,
       "title": "The Ultimate Guide to HTML, CSS, and JS Minification for Faster Load Times",
