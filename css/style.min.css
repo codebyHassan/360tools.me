@@ -687,7 +687,7 @@ details summary::-webkit-details-marker {
     bottom: max(14px, calc(10px + env(safe-area-inset-bottom, 0px)));
     left: 50%;
     transform: translateX(-50%);
-    width: clamp(280px, calc(100vw - 32px), 360px);
+    width: clamp(290px, calc(100vw - 24px), 380px);
     height: clamp(52px, 6.8vh, 60px);
     z-index: 999;
     background: var(--fa-navy, #3e2723);
@@ -696,7 +696,7 @@ details summary::-webkit-details-marker {
     border: 1px solid rgba(255, 212, 59, 0.25);
     border-radius: 9999px;
     box-shadow: 0 16px 36px -4px rgba(62, 39, 35, 0.45), 0 4px 14px rgba(62, 39, 35, 0.25);
-    padding: clamp(4px, 1.2vw, 6px);
+    padding: clamp(4px, 1.2vw, 6px) clamp(6px, 1.5vw, 8px);
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -723,7 +723,7 @@ details summary::-webkit-details-marker {
 
   .mobile-nav-item {
     flex: 1;
-    max-width: clamp(42px, 13vw, 52px);
+    max-width: clamp(40px, 14vw, 48px);
     height: clamp(40px, 11vw, 48px);
     border-radius: 9999px;
     display: flex;

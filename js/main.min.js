@@ -1484,7 +1484,9 @@ function initMobileAppNavigation() {
   const currentPath = window.location.pathname.toLowerCase();
   
   const isHome = currentPath.endsWith('index.html') || currentPath.endsWith('/') || currentPath === '' || currentPath.endsWith('360tools.me');
-  const isAudio = currentPath.includes('speech') || currentPath.includes('voice') || currentPath.includes('audio') || currentPath.includes('mp3');
+  const isPdf = currentPath.includes('pdf-tools') || currentPath.includes('merge-pdf') || currentPath.includes('split-pdf') || currentPath.includes('compress-pdf');
+  const isAudio = currentPath.includes('audio-tools') || currentPath.includes('speech') || currentPath.includes('voice') || currentPath.includes('mp3');
+  const isImage = (currentPath.includes('image-tools') || currentPath.includes('background-remover') || currentPath.includes('watermark') || currentPath.includes('compress-image')) && !isPdf;
 
   // Create Bottom Nav Bar
   const nav = document.createElement('nav');
@@ -1494,17 +1496,20 @@ function initMobileAppNavigation() {
 
   nav.innerHTML = `
     <div class="mobile-nav-slider" id="mobileNavSlider"></div>
-    <a href="${getSiteRoot()}" class="mobile-nav-item ${isHome ? 'active' : ''}" aria-label="Home" title="Home" onclick="triggerHapticFeedback(12); updateMobileNavSlider(this);">
+    <a href="${getSiteRoot()}" class="mobile-nav-item ${isHome ? 'active' : ''}" aria-label="Home Dashboard" title="Home" onclick="triggerHapticFeedback(12); updateMobileNavSlider(this);">
       <i class="fa-solid fa-house"></i>
     </a>
-    <a href="${getSiteRoot()}audio-tools/" class="mobile-nav-item ${isAudio ? 'active' : ''}" aria-label="Audio & Voice Tools" title="Audio & Voice" onclick="triggerHapticFeedback(12); updateMobileNavSlider(this);">
+    <a href="${getSiteRoot()}pdf-tools/" class="mobile-nav-item ${isPdf ? 'active' : ''}" aria-label="PDF Tools Suite" title="PDF Tools" onclick="triggerHapticFeedback(12); updateMobileNavSlider(this);">
+      <i class="fa-solid fa-file-pdf"></i>
+    </a>
+    <a href="${getSiteRoot()}audio-tools/" class="mobile-nav-item ${isAudio ? 'active' : ''}" aria-label="AI Voice & Audio Tools" title="Voice & Audio" onclick="triggerHapticFeedback(12); updateMobileNavSlider(this);">
       <i class="fa-solid fa-volume-high"></i>
     </a>
-    <button type="button" onclick="triggerHapticFeedback(14); updateMobileNavSlider(this); openQuickSearch();" class="mobile-nav-item" aria-label="Quick Search Tools" title="Search Tools">
+    <a href="${getSiteRoot()}image-tools/" class="mobile-nav-item ${isImage ? 'active' : ''}" aria-label="Image & Media Tools" title="Image & Media" onclick="triggerHapticFeedback(12); updateMobileNavSlider(this);">
+      <i class="fa-solid fa-image"></i>
+    </a>
+    <button type="button" onclick="triggerHapticFeedback(14); updateMobileNavSlider(this); openQuickSearch();" class="mobile-nav-item" aria-label="Quick Search 60+ Tools" title="Search Tools">
       <i class="fa-solid fa-magnifying-glass"></i>
-    </button>
-    <button type="button" onclick="triggerHapticFeedback(14); updateMobileNavSlider(this); toggleMobileAppDrawer();" class="mobile-nav-item" aria-label="Explore All Tools Menu" title="All Tools">
-      <i class="fa-solid fa-table-cells-large"></i>
     </button>
   `;
 
