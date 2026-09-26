@@ -80,3 +80,8 @@
 /image-tools/video-frame-extractor.html /video-tools/video-frame-extractor.html 301
 /image-tools/pdf-compressor.html /pdf-tools/compress-pdf/index.html 301
 
+# Legal & Static Redirects
+/terms-and-conditions.html /terms.html 301
+/disclaimers.html /disclaimer.html 301
+
+
