@@ -1058,6 +1058,19 @@ function closeQuickSearch() {
   if (modal) {
     modal.classList.add('hidden');
     document.body.style.overflow = '';
+
+    // Restore mobile bottom nav slider to current page tab
+    const nav = document.getElementById('mobileAppBottomNav');
+    if (nav) {
+      const pageActiveItem = nav.querySelector('.mobile-nav-item[data-page-active="true"]');
+      if (pageActiveItem) {
+        updateMobileNavSlider(pageActiveItem);
+      } else {
+        const slider = document.getElementById('mobileNavSlider');
+        if (slider) slider.style.opacity = '0';
+        nav.querySelectorAll('.mobile-nav-item').forEach(i => i.classList.remove('active'));
+      }
+    }
   }
 }
 
@@ -1446,13 +1459,86 @@ function triggerHapticFeedback(duration = 12) {
   } catch (e) {}
 }
 
+function detectActiveMobileTab() {
+  const loc = ((typeof window !== 'undefined' ? window.location.pathname + window.location.search : '') || '').toLowerCase();
+  
+  // 1. PDF Tools Suite (All PDF tools & converters)
+  if (loc.includes('pdf-tools') || (loc.includes('pdf') && !loc.includes('pdf-to-speech'))) {
+    return 'pdf';
+  }
+
+  // 2. AI Voice & Audio Tools Suite (TTS, MP3, Voice Generator, Audio Readers)
+  if (
+    loc.includes('audio-tools') ||
+    loc.includes('audio-voice') ||
+    loc.includes('text-to-speech') ||
+    loc.includes('text-to-mp3') ||
+    loc.includes('ai-voice') ||
+    loc.includes('pdf-to-speech') ||
+    loc.includes('youtube-voiceover') ||
+    loc.includes('urdu-text-to-speech') ||
+    loc.includes('article-to-speech')
+  ) {
+    return 'audio';
+  }
+
+  // 3. Image & Video Media Suite (Compressors, BG Remover, Watermark, Video)
+  if (
+    loc.includes('image-tools') ||
+    loc.includes('video-tools') ||
+    loc.includes('watermark') ||
+    loc.includes('background-remover') ||
+    loc.includes('image-compressor') ||
+    loc.includes('jpg-compressor') ||
+    loc.includes('png-compressor') ||
+    loc.includes('webp-compressor') ||
+    loc.includes('compress-image') ||
+    loc.includes('target-size-compressor') ||
+    loc.includes('video-frame-extractor') ||
+    loc.includes('video-compressor')
+  ) {
+    return 'image';
+  }
+
+  // 4. Neutral pages that should not highlight any category tab
+  if (
+    loc.includes('/games/') ||
+    loc.includes('/ecommerce-tools/') ||
+    loc.includes('/developer-tools/') ||
+    loc.includes('/calculators/') ||
+    loc.includes('/unit-converters/') ||
+    loc.includes('/text-tools/') ||
+    loc.includes('about.html') ||
+    loc.includes('contact.html') ||
+    loc.includes('blog.html') ||
+    loc.includes('appearance.html') ||
+    loc.includes('privacy-policy.html') ||
+    loc.includes('terms.html') ||
+    loc.includes('disclaimer.html')
+  ) {
+    return 'none';
+  }
+
+  // 5. Strict Home Dashboard (root "/" or "index.html" at root level)
+  const cleanPath = loc.replace(/\/index\.html$/, '').replace(/\/$/, '');
+  if (cleanPath === '' || cleanPath === '/' || cleanPath.endsWith('360tools.me') || cleanPath.endsWith(':5500') || cleanPath.endsWith(':3000')) {
+    return 'home';
+  }
+
+  return 'home';
+}
+
 function updateMobileNavSlider(targetItem) {
   const nav = document.getElementById('mobileAppBottomNav');
   const slider = document.getElementById('mobileNavSlider');
   if (!nav || !slider) return;
 
-  const activeItem = targetItem || nav.querySelector('.mobile-nav-item.active') || nav.querySelector('.mobile-nav-item');
-  if (!activeItem) return;
+  const activeItem = targetItem || nav.querySelector('.mobile-nav-item.active') || nav.querySelector('.mobile-nav-item[data-page-active="true"]');
+  if (!activeItem) {
+    slider.style.opacity = '0';
+    nav.querySelectorAll('.mobile-nav-item').forEach(item => item.classList.remove('active'));
+    return;
+  }
 
   const navRect = nav.getBoundingClientRect();
   const itemRect = activeItem.getBoundingClientRect();
@@ -1481,12 +1567,11 @@ function updateMobileNavSlider(targetItem) {
 function initMobileAppNavigation() {
   if (document.getElementById('mobileAppBottomNav')) return;
 
-  const currentPath = window.location.pathname.toLowerCase();
-  
-  const isHome = currentPath.endsWith('index.html') || currentPath.endsWith('/') || currentPath === '' || currentPath.endsWith('360tools.me');
-  const isPdf = currentPath.includes('pdf-tools') || currentPath.includes('merge-pdf') || currentPath.includes('split-pdf') || currentPath.includes('compress-pdf');
-  const isAudio = currentPath.includes('audio-tools') || currentPath.includes('speech') || currentPath.includes('voice') || currentPath.includes('mp3');
-  const isImage = (currentPath.includes('image-tools') || currentPath.includes('background-remover') || currentPath.includes('watermark') || currentPath.includes('compress-image')) && !isPdf;
+  const activeTab = detectActiveMobileTab();
+  const isHome = activeTab === 'home';
+  const isPdf = activeTab === 'pdf';
+  const isAudio = activeTab === 'audio';
+  const isImage = activeTab === 'image';
 
   // Create Bottom Nav Bar
   const nav = document.createElement('nav');
@@ -1496,19 +1581,19 @@ function initMobileAppNavigation() {
 
   nav.innerHTML = `
     <div class="mobile-nav-slider" id="mobileNavSlider"></div>
-    <a href="${getSiteRoot()}" class="mobile-nav-item ${isHome ? 'active' : ''}" aria-label="Home Dashboard" title="Home" onclick="triggerHapticFeedback(12); updateMobileNavSlider(this);">
+    <a href="${getSiteRoot()}" data-tab="home" class="mobile-nav-item ${isHome ? 'active' : ''}" data-page-active="${isHome}" aria-label="Home Dashboard" title="Home" onclick="triggerHapticFeedback(12); updateMobileNavSlider(this);">
       <i class="fa-solid fa-house"></i>
     </a>
-    <a href="${getSiteRoot()}pdf-tools/" class="mobile-nav-item ${isPdf ? 'active' : ''}" aria-label="PDF Tools Suite" title="PDF Tools" onclick="triggerHapticFeedback(12); updateMobileNavSlider(this);">
+    <a href="${getSiteRoot()}pdf-tools/" data-tab="pdf" class="mobile-nav-item ${isPdf ? 'active' : ''}" data-page-active="${isPdf}" aria-label="PDF Tools Suite" title="PDF Tools" onclick="triggerHapticFeedback(12); updateMobileNavSlider(this);">
       <i class="fa-solid fa-file-pdf"></i>
     </a>
-    <a href="${getSiteRoot()}audio-tools/" class="mobile-nav-item ${isAudio ? 'active' : ''}" aria-label="AI Voice & Audio Tools" title="Voice & Audio" onclick="triggerHapticFeedback(12); updateMobileNavSlider(this);">
+    <a href="${getSiteRoot()}audio-tools/" data-tab="audio" class="mobile-nav-item ${isAudio ? 'active' : ''}" data-page-active="${isAudio}" aria-label="AI Voice & Audio Tools" title="Voice & Audio" onclick="triggerHapticFeedback(12); updateMobileNavSlider(this);">
       <i class="fa-solid fa-volume-high"></i>
     </a>
-    <a href="${getSiteRoot()}image-tools/" class="mobile-nav-item ${isImage ? 'active' : ''}" aria-label="Image & Media Tools" title="Image & Media" onclick="triggerHapticFeedback(12); updateMobileNavSlider(this);">
+    <a href="${getSiteRoot()}image-tools/" data-tab="image" class="mobile-nav-item ${isImage ? 'active' : ''}" data-page-active="${isImage}" aria-label="Image & Media Tools" title="Image & Media" onclick="triggerHapticFeedback(12); updateMobileNavSlider(this);">
       <i class="fa-solid fa-image"></i>
     </a>
-    <button type="button" onclick="triggerHapticFeedback(14); updateMobileNavSlider(this); openQuickSearch();" class="mobile-nav-item" aria-label="Quick Search 60+ Tools" title="Search Tools">
+    <button type="button" data-tab="search" onclick="triggerHapticFeedback(14); updateMobileNavSlider(this); openQuickSearch();" class="mobile-nav-item" aria-label="Quick Search 60+ Tools" title="Search Tools">
       <i class="fa-solid fa-magnifying-glass"></i>
     </button>
   `;
@@ -1517,7 +1602,15 @@ function initMobileAppNavigation() {
 
   // Position the slider after initial render
   requestAnimationFrame(() => {
-    setTimeout(() => updateMobileNavSlider(), 60);
+    setTimeout(() => {
+      const initialActive = nav.querySelector(`.mobile-nav-item[data-tab="${activeTab}"]`);
+      if (initialActive) {
+        updateMobileNavSlider(initialActive);
+      } else {
+        const slider = document.getElementById('mobileNavSlider');
+        if (slider) slider.style.opacity = '0';
+      }
+    }, 60);
   });
 
   // Re-adjust slider on resize & orientation change across various screen sizes
