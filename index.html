@@ -582,10 +582,11 @@
           : '';
 
         const toolDesc = tool.desc || `Fast, 100% browser-based ${tool.name.toLowerCase()} utility. Zero cloud uploads, zero tracking.`;
-        const iconBg = tool.bg || gifBoxBg;
+        const rawKeywords = Array.isArray(tool.keywords) ? tool.keywords.join(' ') : (tool.keywords || '');
+        const searchKeywordsBlob = `${tool.name} ${rawKeywords} ${tool.desc || ''} ${tool.category || ''} ${tool.subcategory || ''}`.toLowerCase();
 
         return `
-          <div class="tool-card fa-card fa-card-interactive p-6 sm:p-7 flex flex-col justify-between group ${cardStyle}" data-category="${catAttr}" data-title="${tool.name} ${tool.keywords}">
+          <div class="tool-card fa-card fa-card-interactive p-6 sm:p-7 flex flex-col justify-between group ${cardStyle}" data-category="${catAttr}" data-title="${searchKeywordsBlob}">
             <div class="space-y-4">
               <!-- Top Row: Vector Icon Squircle Badge + Category Badge -->
               <div class="flex items-start justify-between gap-3">
@@ -642,6 +643,12 @@
         }
       });
 
+      const searchInput = document.getElementById('toolSearchInput');
+      if (searchInput && searchInput.value.trim()) {
+        filterTools(searchInput.value);
+        return;
+      }
+
       const cards = document.querySelectorAll('.tool-card');
       cards.forEach(card => {
         const cardCat = card.getAttribute('data-category');
@@ -651,19 +658,65 @@
           card.classList.add('hidden');
         }
       });
+
+      const emptyMsg = document.getElementById('toolsGridEmptyState');
+      if (emptyMsg) emptyMsg.classList.add('hidden');
     }
 
     function filterTools(query) {
-      query = query.toLowerCase().trim();
+      const trimmed = (query || '').toLowerCase().trim();
+      const tokens = trimmed.split(/[\s\-_\/,\.]+/).filter(Boolean);
       const cards = document.querySelectorAll('.tool-card');
+      let visibleCount = 0;
+
       cards.forEach(card => {
-        const title = (card.getAttribute('data-title') || '').toLowerCase();
-        if (!query || title.includes(query)) {
+        const titleBlob = (card.getAttribute('data-title') || '').toLowerCase();
+        if (!trimmed) {
+          const activeBtn = document.querySelector('.category-btn.active');
+          const activeCat = activeBtn ? activeBtn.getAttribute('data-cat') : 'all';
+          const cardCat = card.getAttribute('data-category');
+          if (activeCat === 'all' || cardCat === activeCat) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+          return;
+        }
+
+        // Multi-token keyword search matching
+        const matchAll = tokens.every(tok => titleBlob.includes(tok));
+        if (matchAll) {
           card.classList.remove('hidden');
+          visibleCount++;
         } else {
           card.classList.add('hidden');
         }
       });
+
+      let emptyMsg = document.getElementById('toolsGridEmptyState');
+      if (visibleCount === 0) {
+        if (!emptyMsg) {
+          emptyMsg = document.createElement('div');
+          emptyMsg.id = 'toolsGridEmptyState';
+          emptyMsg.className = 'col-span-1 md:col-span-2 lg:col-span-3 p-12 text-center bg-white rounded-3xl border border-slate-200 shadow-sm';
+          const grid = document.getElementById('toolsGrid');
+          if (grid) grid.appendChild(emptyMsg);
+        }
+        emptyMsg.innerHTML = `
+          <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center text-3xl shadow-xs">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <h3 class="text-xl font-black text-[#3e2723]">No tools found for "${trimmed}"</h3>
+          <p class="text-sm text-slate-500 font-medium mt-1">Try a different keyword (e.g., pdf, image, compress, speech, invoice) or reset filters.</p>
+          <button onclick="document.getElementById('toolSearchInput').value=''; filterTools(''); filterCategory('all');" class="fa-btn-primary py-2.5 px-6 text-xs font-black mt-5 inline-flex items-center gap-2 cursor-pointer">
+            <i class="fa-solid fa-rotate-left"></i> Reset Search
+          </button>
+        `;
+        emptyMsg.classList.remove('hidden');
+      } else if (emptyMsg) {
+        emptyMsg.classList.add('hidden');
+      }
     }
 
     function toggleMobileMenu() {

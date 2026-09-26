@@ -788,104 +788,565 @@ const TOOLS_REGISTRY = [
   }
 ];
 
+// ==========================================================================
+// 360tools.me — Advanced High-Performance Precision Search Engine
+// Multi-token, keyword scoring, typo/prefix matching, and instant highlighting
+// ==========================================================================
+
+let _360SearchIndexCache = null;
+let _360SearchActiveCategory = 'all';
+let _360SearchActiveIndex = 0;
+let _360CurrentSearchResults = [];
+
+function get360SearchIndex() {
+  if (_360SearchIndexCache) return _360SearchIndexCache;
+  if (typeof TOOLS_REGISTRY === 'undefined' || !Array.isArray(TOOLS_REGISTRY)) return [];
+
+  _360SearchIndexCache = TOOLS_REGISTRY.map((t, idx) => {
+    const rawKeywords = Array.isArray(t.keywords) ? t.keywords : (t.keywords ? [String(t.keywords)] : []);
+    const keywordsLower = rawKeywords.map(k => String(k).toLowerCase());
+    const keywordsJoined = keywordsLower.join(' ');
+    const nameLower = (t.name || '').toLowerCase();
+    const catLower = (t.category || '').toLowerCase();
+    const subcatLower = (t.subcategory || '').toLowerCase();
+    const descLower = (t.desc || '').toLowerCase();
+    const urlLower = (t.url || '').toLowerCase();
+
+    // Map category to standard filter slug
+    let filterCat = 'media';
+    if (catLower.includes('pdf') || urlLower.includes('pdf-tools')) filterCat = 'pdf';
+    else if (catLower.includes('audio') || catLower.includes('voice') || urlLower.includes('audio-tools')) filterCat = 'audio';
+    else if (catLower.includes('video') || urlLower.includes('video-tools')) filterCat = 'video';
+    else if (catLower.includes('image') || urlLower.includes('image-tools') || urlLower.includes('watermark') || urlLower.includes('background-remover')) filterCat = 'image';
+    else if (catLower.includes('developer') || urlLower.includes('developer-tools') || urlLower.includes('minifier') || urlLower.includes('resume')) filterCat = 'developer';
+    else if (catLower.includes('ecommerce') || urlLower.includes('ecommerce-tools') || urlLower.includes('etsy') || urlLower.includes('amazon') || urlLower.includes('invoice') || urlLower.includes('tiktok') || urlLower.includes('pod')) filterCat = 'ecommerce';
+    else if (catLower.includes('calc') || urlLower.includes('calculators') || urlLower.includes('section8') || urlLower.includes('stamp-duty') || urlLower.includes('1031') || urlLower.includes('vat')) filterCat = 'calculators';
+    else if (catLower.includes('game') || urlLower.includes('games') || urlLower.includes('2048') || urlLower.includes('snake') || urlLower.includes('tic-tac-toe') || urlLower.includes('memory') || urlLower.includes('bhabhi') || urlLower.includes('word-scramble')) filterCat = 'games';
+
+    // Build unique words token set
+    const tokenWords = new Set([
+      ...nameLower.split(/[\s\-_\/,\.]+/),
+      ...keywordsJoined.split(/[\s\-_\/,\.]+/),
+      ...catLower.split(/[\s\-_\/,\.]+/),
+      ...subcatLower.split(/[\s\-_\/,\.]+/),
+      ...descLower.split(/[\s\-_\/,\.]+/),
+    ].filter(w => w.length > 0));
+
+    return {
+      tool: t,
+      id: idx,
+      filterCat,
+      nameLower,
+      rawKeywords,
+      keywordsLower,
+      keywordsJoined,
+      catLower,
+      subcatLower,
+      descLower,
+      urlLower,
+      tokenWords
+    };
+  });
+
+  return _360SearchIndexCache;
+}
+
+function search360Tools(query, categoryFilter = 'all') {
+  const index = get360SearchIndex();
+  const rawQuery = (query || '').trim().toLowerCase();
+  const tokens = rawQuery ? rawQuery.split(/[\s\-_\/,\.]+/).filter(t => t.length > 0) : [];
+
+  if (!rawQuery && (!categoryFilter || categoryFilter === 'all')) {
+    return index.map(item => ({
+      tool: item.tool,
+      filterCat: item.filterCat,
+      score: item.tool.featured ? 100 : 50,
+      tokens: [],
+      matchedKeywords: []
+    }));
+  }
+
+  const results = [];
+
+  for (const item of index) {
+    // Category filtering
+    if (categoryFilter && categoryFilter !== 'all') {
+      if (item.filterCat !== categoryFilter) continue;
+    }
+
+    if (!rawQuery) {
+      results.push({
+        tool: item.tool,
+        filterCat: item.filterCat,
+        score: item.tool.featured ? 100 : 50,
+        tokens: [],
+        matchedKeywords: []
+      });
+      continue;
+    }
+
+    let score = 0;
+    let matchedTokensCount = 0;
+    const matchedKeywords = [];
+
+    // 1. Exact full title match (Supreme Priority)
+    if (item.nameLower === rawQuery) {
+      score += 10000;
+      matchedTokensCount = tokens.length;
+    } else if (item.nameLower.startsWith(rawQuery)) {
+      score += 4000;
+      matchedTokensCount = tokens.length;
+    } else if (item.nameLower.includes(rawQuery)) {
+      score += 2500;
+      matchedTokensCount = tokens.length;
+    }
+
+    // 2. Exact keyword / phrase match
+    for (const kw of item.keywordsLower) {
+      if (kw === rawQuery) {
+        score += 5000;
+        matchedKeywords.push(kw);
+      } else if (kw.includes(rawQuery)) {
+        score += 1800;
+        matchedKeywords.push(kw);
+      }
+    }
+
+    // 3. Category & Subcategory phrase match
+    if (item.catLower.includes(rawQuery) || item.subcatLower.includes(rawQuery)) {
+      score += 800;
+    }
+
+    // 4. Description full phrase match
+    if (item.descLower.includes(rawQuery)) {
+      score += 400;
+    }
+
+    // 5. Individual Token Matching
+    let allTokensFound = true;
+    for (const t of tokens) {
+      let tokenFound = false;
+
+      // Token in title
+      if (item.nameLower.includes(t)) {
+        score += 500;
+        tokenFound = true;
+      }
+
+      // Token in keywords
+      for (const kw of item.keywordsLower) {
+        if (kw.includes(t)) {
+          score += 300;
+          if (!matchedKeywords.includes(kw)) matchedKeywords.push(kw);
+          tokenFound = true;
+        }
+      }
+
+      // Token in category/subcat
+      if (item.catLower.includes(t) || item.subcatLower.includes(t)) {
+        score += 200;
+        tokenFound = true;
+      }
+
+      // Token in description
+      if (item.descLower.includes(t)) {
+        score += 100;
+        tokenFound = true;
+      }
+
+      // Prefix match in any word token
+      if (!tokenFound) {
+        for (const word of item.tokenWords) {
+          if (word.startsWith(t) || (t.length >= 3 && word.includes(t))) {
+            score += 80;
+            tokenFound = true;
+            break;
+          }
+        }
+      }
+
+      if (tokenFound) {
+        matchedTokensCount++;
+      } else {
+        allTokensFound = false;
+      }
+    }
+
+    // Multi-token completeness boost
+    if (tokens.length > 1 && allTokensFound) {
+      score += 3000;
+    }
+
+    // Only add if at least one token matched
+    if (score > 0 && matchedTokensCount > 0) {
+      if (item.tool.featured) score += 50;
+      results.push({
+        tool: item.tool,
+        filterCat: item.filterCat,
+        score,
+        tokens,
+        matchedKeywords: matchedKeywords.slice(0, 3)
+      });
+    }
+  }
+
+  // Sort descending by score, then featured, then name
+  results.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    if (a.tool.featured && !b.tool.featured) return -1;
+    if (!a.tool.featured && b.tool.featured) return 1;
+    return a.tool.name.localeCompare(b.tool.name);
+  });
+
+  return results;
+}
+
+function highlightSearchText(text, tokens) {
+  if (!text) return '';
+  if (!tokens || tokens.length === 0) return escapeHtmlText(text);
+
+  let clean = escapeHtmlText(text);
+  const uniqueTokens = [...new Set(tokens.filter(t => t && t.length > 0))].sort((a, b) => b.length - a.length);
+  if (uniqueTokens.length === 0) return clean;
+
+  const escapedTokens = uniqueTokens.map(escapeRegExpPattern).join('|');
+  const regex = new RegExp(`(${escapedTokens})`, 'gi');
+  return clean.replace(regex, '<mark class="bg-amber-200 text-[#3e2723] font-black px-1 rounded-xs">$1</mark>');
+}
+
+function escapeHtmlText(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function escapeRegExpPattern(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 // Quick Tool Finder Modal Manager
-function openQuickSearch() {
+function openQuickSearch(initialQuery = '', category = 'all') {
   let modal = document.getElementById('quickSearchModal');
   if (!modal) {
     createQuickSearchModal();
     modal = document.getElementById('quickSearchModal');
   }
   modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+
+  _360SearchActiveCategory = category || 'all';
+  _360SearchActiveIndex = 0;
+
   const input = document.getElementById('quickSearchModalInput');
   if (input) {
-    input.value = '';
-    renderQuickSearchResults('');
-    setTimeout(() => input.focus(), 50);
+    input.value = initialQuery || '';
+    updateQuickSearchPillsUI();
+    renderQuickSearchResults(input.value);
+    setTimeout(() => {
+      input.focus();
+      input.select();
+    }, 50);
   }
 }
 
 function closeQuickSearch() {
   const modal = document.getElementById('quickSearchModal');
-  if (modal) modal.classList.add('hidden');
+  if (modal) {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
 }
 
 function createQuickSearchModal() {
+  if (document.getElementById('quickSearchModal')) return;
+
   const div = document.createElement('div');
   div.id = 'quickSearchModal';
-  div.className = 'fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-start justify-center pt-16 sm:pt-24 px-4 transition-all';
+  div.className = 'fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-start justify-center pt-8 sm:pt-16 px-3 sm:px-4 transition-all duration-200';
   div.onclick = (e) => { if (e.target === div) closeQuickSearch(); };
 
   div.innerHTML = `
-    <div class="bg-white rounded-3xl border border-slate-200 shadow-2xl w-full max-w-xl overflow-hidden animate-in fade-in zoom-in-95 duration-150" onclick="event.stopPropagation()">
-      <div class="p-4 border-b border-slate-100 flex items-center gap-3">
-        <i class="fa-solid fa-magnifying-glass text-slate-400 text-lg"></i>
+    <div class="bg-white rounded-3xl border border-slate-200 shadow-2xl w-full max-w-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150 flex flex-col max-h-[85vh]" onclick="event.stopPropagation()">
+      
+      <!-- Modal Search Bar Header -->
+      <div class="p-3.5 sm:p-4 border-b border-slate-100 flex items-center gap-3 bg-white shrink-0">
+        <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-base shrink-0">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
         <input 
           type="text" 
           id="quickSearchModalInput" 
-          placeholder="Search 30+ precision tools (e.g., text to speech, image, etsy)..." 
-          class="w-full bg-transparent border-0 outline-hidden text-slate-800 text-sm sm:text-base font-bold placeholder-slate-400"
-          oninput="renderQuickSearchResults(this.value)"
+          placeholder="Search 60+ precision tools (e.g. merge pdf, tts, compress, etsy)..." 
+          class="w-full bg-transparent border-0 outline-hidden text-slate-900 text-sm sm:text-base font-bold placeholder-slate-400"
+          autocomplete="off"
+          spellcheck="false"
+          oninput="handleQuickSearchInput(this.value)"
+          onkeydown="handleQuickSearchKeydown(event)"
         >
+        <button id="quickSearchClearBtn" onclick="clearQuickSearchInput()" class="hidden p-1.5 text-slate-400 hover:text-slate-700 rounded-lg hover:bg-slate-100 transition-colors" title="Clear Search">
+          <i class="fa-solid fa-circle-xmark text-base"></i>
+        </button>
         <kbd class="hidden sm:inline-block px-2 py-1 bg-slate-100 border border-slate-300 rounded-lg text-[10px] text-slate-500 font-mono font-bold">ESC</kbd>
-        <button onclick="closeQuickSearch()" class="sm:hidden p-1.5 text-slate-400 hover:text-slate-700">
+        <button onclick="closeQuickSearch()" class="sm:hidden p-1.5 text-slate-400 hover:text-slate-700 rounded-lg" aria-label="Close">
           <i class="fa-solid fa-xmark text-base"></i>
         </button>
       </div>
 
-      <div id="quickSearchResultsList" class="p-2 max-h-96 overflow-y-auto space-y-1">
+      <!-- Quick Filter Categories Chips -->
+      <div class="px-3.5 sm:px-4 py-2.5 bg-slate-50/80 border-b border-slate-100 flex items-center gap-1.5 overflow-x-auto no-scrollbar shrink-0 text-xs" id="quickSearchCategoryPills">
+        <button type="button" onclick="setQuickSearchCategory('all')" class="search-cat-pill active px-3 py-1 rounded-xl font-black transition-all cursor-pointer whitespace-nowrap bg-[#183153] text-white shadow-2xs" data-category="all">
+          All (60)
+        </button>
+        <button type="button" onclick="setQuickSearchCategory('pdf')" class="search-cat-pill px-3 py-1 rounded-xl font-bold text-slate-600 hover:bg-slate-200/80 transition-all cursor-pointer whitespace-nowrap" data-category="pdf">
+          <i class="fa-solid fa-file-pdf text-red-500 mr-1"></i> PDF (19)
+        </button>
+        <button type="button" onclick="setQuickSearchCategory('audio')" class="search-cat-pill px-3 py-1 rounded-xl font-bold text-slate-600 hover:bg-slate-200/80 transition-all cursor-pointer whitespace-nowrap" data-category="audio">
+          <i class="fa-solid fa-volume-high text-purple-500 mr-1"></i> Audio & Voice (7)
+        </button>
+        <button type="button" onclick="setQuickSearchCategory('image')" class="search-cat-pill px-3 py-1 rounded-xl font-bold text-slate-600 hover:bg-slate-200/80 transition-all cursor-pointer whitespace-nowrap" data-category="image">
+          <i class="fa-solid fa-image text-emerald-500 mr-1"></i> Images (12)
+        </button>
+        <button type="button" onclick="setQuickSearchCategory('developer')" class="search-cat-pill px-3 py-1 rounded-xl font-bold text-slate-600 hover:bg-slate-200/80 transition-all cursor-pointer whitespace-nowrap" data-category="developer">
+          <i class="fa-solid fa-code text-cyan-500 mr-1"></i> Dev (6)
+        </button>
+        <button type="button" onclick="setQuickSearchCategory('ecommerce')" class="search-cat-pill px-3 py-1 rounded-xl font-bold text-slate-600 hover:bg-slate-200/80 transition-all cursor-pointer whitespace-nowrap" data-category="ecommerce">
+          <i class="fa-solid fa-calculator text-amber-500 mr-1"></i> E-Commerce (6)
+        </button>
+        <button type="button" onclick="setQuickSearchCategory('games')" class="search-cat-pill px-3 py-1 rounded-xl font-bold text-slate-600 hover:bg-slate-200/80 transition-all cursor-pointer whitespace-nowrap" data-category="games">
+          <i class="fa-solid fa-gamepad text-indigo-500 mr-1"></i> Games (6)
+        </button>
+      </div>
+
+      <!-- Live Search Results & Popular Suggestions -->
+      <div id="quickSearchResultsList" class="p-2 sm:p-3 overflow-y-auto space-y-1.5 flex-1">
         <!-- Results rendered dynamically -->
       </div>
 
-      <div class="p-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-bold px-4">
-        <span>360tools.me • 100% In-Browser Private</span>
-        <span>Use arrow keys or click to open</span>
+      <!-- Modal Footer -->
+      <div class="p-3 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500 font-bold px-4 shrink-0">
+        <div class="flex items-center gap-3">
+          <span class="inline-flex items-center gap-1"><kbd class="px-1.5 py-0.5 bg-white border border-slate-300 rounded text-[9px]">↑</kbd><kbd class="px-1.5 py-0.5 bg-white border border-slate-300 rounded text-[9px]">↓</kbd> Navigate</span>
+          <span class="inline-flex items-center gap-1"><kbd class="px-1.5 py-0.5 bg-white border border-slate-300 rounded text-[9px]">↵</kbd> Open</span>
+        </div>
+        <span class="text-slate-400">360tools.me • 100% In-Browser Private</span>
       </div>
     </div>
   `;
   document.body.appendChild(div);
 }
 
+function handleQuickSearchInput(val) {
+  const clearBtn = document.getElementById('quickSearchClearBtn');
+  if (clearBtn) {
+    if (val && val.trim()) clearBtn.classList.remove('hidden');
+    else clearBtn.classList.add('hidden');
+  }
+  _360SearchActiveIndex = 0;
+  renderQuickSearchResults(val);
+}
+
+function clearQuickSearchInput() {
+  const input = document.getElementById('quickSearchModalInput');
+  if (input) {
+    input.value = '';
+    handleQuickSearchInput('');
+    input.focus();
+  }
+}
+
+function setQuickSearchCategory(cat) {
+  _360SearchActiveCategory = cat || 'all';
+  updateQuickSearchPillsUI();
+  const input = document.getElementById('quickSearchModalInput');
+  _360SearchActiveIndex = 0;
+  renderQuickSearchResults(input ? input.value : '');
+}
+
+function updateQuickSearchPillsUI() {
+  const pills = document.querySelectorAll('#quickSearchCategoryPills .search-cat-pill');
+  pills.forEach(pill => {
+    const pCat = pill.getAttribute('data-category');
+    if (pCat === _360SearchActiveCategory) {
+      pill.className = 'search-cat-pill active px-3 py-1 rounded-xl font-black transition-all cursor-pointer whitespace-nowrap bg-[#183153] text-white shadow-2xs';
+    } else {
+      pill.className = 'search-cat-pill px-3 py-1 rounded-xl font-bold text-slate-600 hover:bg-slate-200/80 transition-all cursor-pointer whitespace-nowrap';
+    }
+  });
+}
+
+function quickSearchApplySuggestion(term) {
+  const input = document.getElementById('quickSearchModalInput');
+  if (input) {
+    input.value = term;
+    handleQuickSearchInput(term);
+    input.focus();
+  }
+}
+
 function renderQuickSearchResults(query) {
   const container = document.getElementById('quickSearchResultsList');
   if (!container) return;
 
-  query = (query || '').toLowerCase().trim();
-  const matched = TOOLS_REGISTRY.filter(t => {
-    if (!query) return true;
-    return t.name.toLowerCase().includes(query) || 
-           t.category.toLowerCase().includes(query) || 
-           t.keywords.toLowerCase().includes(query);
-  });
+  const trimmed = (query || '').trim();
+  const matches = search360Tools(trimmed, _360SearchActiveCategory);
+  _360CurrentSearchResults = matches;
 
-  if (matched.length === 0) {
+  if (matches.length === 0) {
     container.innerHTML = `
       <div class="p-8 text-center text-slate-400">
-        <i class="fa-solid fa-circle-question text-3xl mb-2"></i>
-        <p class="text-xs font-bold">No tools found matching "${query}"</p>
+        <div class="w-14 h-14 mx-auto mb-3 rounded-2xl bg-amber-50 text-amber-500 flex items-center justify-center text-2xl">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <p class="text-sm font-black text-slate-700">No tools found matching "${escapeHtmlText(trimmed)}"</p>
+        <p class="text-xs text-slate-400 mt-1">Try a different keyword, category filter, or popular search below.</p>
+        <div class="flex flex-wrap items-center justify-center gap-1.5 mt-4">
+          <button onclick="quickSearchApplySuggestion('compress')" class="px-2.5 py-1 bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 text-xs font-bold rounded-lg transition-colors cursor-pointer">Compress</button>
+          <button onclick="quickSearchApplySuggestion('pdf')" class="px-2.5 py-1 bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 text-xs font-bold rounded-lg transition-colors cursor-pointer">PDF</button>
+          <button onclick="quickSearchApplySuggestion('speech')" class="px-2.5 py-1 bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 text-xs font-bold rounded-lg transition-colors cursor-pointer">Text to Speech</button>
+          <button onclick="quickSearchApplySuggestion('background remover')" class="px-2.5 py-1 bg-slate-100 hover:bg-blue-50 text-slate-700 hover:text-blue-600 text-xs font-bold rounded-lg transition-colors cursor-pointer">Background Remover</button>
+        </div>
       </div>
     `;
     return;
   }
 
-  container.innerHTML = matched.map(t => `
-    <a href="${getSiteRoot()}${t.url.replace(/^\/+/, '')}" class="flex items-center justify-between p-3 rounded-2xl hover:bg-blue-50/70 group transition-all">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-slate-100 flex items-center justify-center text-sm ${t.color} group-hover:scale-105 transition-transform">
-          <i class="fa-solid ${t.icon}"></i>
+  let html = '';
+
+  // If empty query, display popular quick searches bar at top
+  if (!trimmed) {
+    html += `
+      <div class="px-2 py-2 mb-2 bg-gradient-to-r from-amber-50/70 to-blue-50/70 rounded-2xl border border-amber-100/80">
+        <div class="text-[11px] font-black text-slate-500 uppercase tracking-wider mb-1.5 flex items-center gap-1 px-1">
+          <i class="fa-solid fa-fire text-amber-500"></i> Popular Searches
         </div>
-        <div>
-          <span class="text-xs sm:text-sm font-black text-[#183153] group-hover:text-[#146ebe] block">${t.name}</span>
-          <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider">${t.category}</span>
+        <div class="flex flex-wrap gap-1.5">
+          <button onclick="quickSearchApplySuggestion('Text to Speech')" class="px-2.5 py-1 bg-white hover:bg-blue-600 hover:text-white text-[#183153] border border-slate-200/80 rounded-xl text-xs font-bold transition-all shadow-2xs cursor-pointer">⚡ AI Voice</button>
+          <button onclick="quickSearchApplySuggestion('Merge PDF')" class="px-2.5 py-1 bg-white hover:bg-red-600 hover:text-white text-[#183153] border border-slate-200/80 rounded-xl text-xs font-bold transition-all shadow-2xs cursor-pointer">⚡ Merge PDF</button>
+          <button onclick="quickSearchApplySuggestion('Compress PDF')" class="px-2.5 py-1 bg-white hover:bg-emerald-600 hover:text-white text-[#183153] border border-slate-200/80 rounded-xl text-xs font-bold transition-all shadow-2xs cursor-pointer">⚡ Compress PDF</button>
+          <button onclick="quickSearchApplySuggestion('Background Remover')" class="px-2.5 py-1 bg-white hover:bg-teal-600 hover:text-white text-[#183153] border border-slate-200/80 rounded-xl text-xs font-bold transition-all shadow-2xs cursor-pointer">⚡ Remove BG</button>
+          <button onclick="quickSearchApplySuggestion('JPG Compressor')" class="px-2.5 py-1 bg-white hover:bg-amber-600 hover:text-white text-[#183153] border border-slate-200/80 rounded-xl text-xs font-bold transition-all shadow-2xs cursor-pointer">⚡ JPG Compress</button>
+          <button onclick="quickSearchApplySuggestion('Etsy Fee')" class="px-2.5 py-1 bg-white hover:bg-purple-600 hover:text-white text-[#183153] border border-slate-200/80 rounded-xl text-xs font-bold transition-all shadow-2xs cursor-pointer">⚡ Etsy Calc</button>
+          <button onclick="quickSearchApplySuggestion('ATS Resume')" class="px-2.5 py-1 bg-white hover:bg-cyan-600 hover:text-white text-[#183153] border border-slate-200/80 rounded-xl text-xs font-bold transition-all shadow-2xs cursor-pointer">⚡ Resume ATS</button>
+          <button onclick="quickSearchApplySuggestion('Tic Tac Toe')" class="px-2.5 py-1 bg-white hover:bg-pink-600 hover:text-white text-[#183153] border border-slate-200/80 rounded-xl text-xs font-bold transition-all shadow-2xs cursor-pointer">⚡ Tic Tac Toe</button>
         </div>
       </div>
-      <i class="fa-solid fa-arrow-right text-xs text-slate-300 group-hover:text-[#146ebe] group-hover:translate-x-1 transition-all"></i>
-    </a>
-  `).join('');
+      <div class="text-[10px] font-black text-slate-400 uppercase tracking-wider px-2 pt-1 pb-0.5">
+        ${_360SearchActiveCategory === 'all' ? 'All Precision Tools (60)' : `${_360SearchActiveCategory.toUpperCase()} Tools (${matches.length})`}
+      </div>
+    `;
+  } else {
+    html += `
+      <div class="flex items-center justify-between text-[11px] font-black text-slate-500 px-2 pb-1">
+        <span>Found ${matches.length} matching ${matches.length === 1 ? 'tool' : 'tools'}</span>
+        <span class="text-slate-400 font-medium">Ranked by relevance</span>
+      </div>
+    `;
+  }
+
+  html += matches.map((item, idx) => {
+    const t = item.tool;
+    const tokens = item.tokens;
+    const isSelected = idx === _360SearchActiveIndex;
+    const highlightedName = highlightSearchText(t.name, tokens);
+    const highlightedDesc = highlightSearchText(t.desc, tokens);
+    const catLabel = (t.category || '').replace('-tools', '').replace('-', ' ').toUpperCase();
+
+    const matchedKwsHtml = (item.matchedKeywords && item.matchedKeywords.length > 0 && trimmed) 
+      ? `<div class="flex items-center gap-1 mt-1 flex-wrap">
+          <span class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Keywords:</span>
+          ${item.matchedKeywords.map(k => `<span class="text-[10px] font-semibold bg-blue-50 text-blue-700 px-1.5 py-0.2 rounded-md">${highlightSearchText(k, tokens)}</span>`).join('')}
+        </div>`
+      : '';
+
+    const selectedClass = isSelected 
+      ? 'bg-blue-50/90 ring-2 ring-[#146ebe] shadow-xs' 
+      : 'hover:bg-slate-50';
+
+    return `
+      <a 
+        href="${getSiteRoot()}${t.url.replace(/^\/+/, '')}" 
+        id="searchResultItem_${idx}"
+        data-index="${idx}"
+        class="search-result-row flex items-center justify-between p-2.5 sm:p-3 rounded-2xl ${selectedClass} group transition-all duration-150 cursor-pointer border border-transparent"
+        onmouseenter="_360SearchActiveIndex = ${idx}; updateQuickSearchItemFocus();"
+      >
+        <div class="flex items-start gap-3 min-w-0 pr-2">
+          <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-base ${t.color || 'text-blue-600'} group-hover:scale-105 group-hover:bg-white group-hover:shadow-xs transition-all shrink-0 mt-0.5">
+            <i class="fa-solid ${t.icon || 'fa-wrench'}"></i>
+          </div>
+          <div class="min-w-0">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="text-xs sm:text-sm font-black text-[#183153] group-hover:text-[#146ebe] transition-colors leading-snug">${highlightedName}</span>
+              <span class="text-[9px] px-2 py-0.5 rounded-full font-extrabold uppercase tracking-wider bg-slate-100 text-slate-600">${catLabel}</span>
+              ${t.featured ? '<span class="text-[9px] px-1.5 py-0.2 rounded-full font-black uppercase tracking-wider bg-amber-100 text-amber-800">POPULAR</span>' : ''}
+            </div>
+            <p class="text-[11px] text-slate-500 font-medium line-clamp-1 mt-0.5 leading-relaxed">${highlightedDesc}</p>
+            ${matchedKwsHtml}
+          </div>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <span class="hidden sm:inline-block text-[10px] font-bold text-slate-400 group-hover:text-[#146ebe] transition-colors">Launch</span>
+          <div class="w-7 h-7 rounded-lg bg-slate-100 group-hover:bg-blue-600 text-slate-400 group-hover:text-white flex items-center justify-center text-xs transition-all group-hover:translate-x-0.5">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </a>
+    `;
+  }).join('');
+
+  container.innerHTML = html;
+}
+
+function updateQuickSearchItemFocus() {
+  const rows = document.querySelectorAll('.search-result-row');
+  rows.forEach((row, idx) => {
+    if (idx === _360SearchActiveIndex) {
+      row.classList.add('bg-blue-50/90', 'ring-2', 'ring-[#146ebe]', 'shadow-xs');
+      row.classList.remove('hover:bg-slate-50');
+    } else {
+      row.classList.remove('bg-blue-50/90', 'ring-2', 'ring-[#146ebe]', 'shadow-xs');
+      row.classList.add('hover:bg-slate-50');
+    }
+  });
+}
+
+function handleQuickSearchKeydown(e) {
+  if (!_360CurrentSearchResults || _360CurrentSearchResults.length === 0) return;
+
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    _360SearchActiveIndex = (_360SearchActiveIndex + 1) % _360CurrentSearchResults.length;
+    updateQuickSearchItemFocus();
+    scrollSearchResultIntoView(_360SearchActiveIndex);
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    _360SearchActiveIndex = (_360SearchActiveIndex - 1 + _360CurrentSearchResults.length) % _360CurrentSearchResults.length;
+    updateQuickSearchItemFocus();
+    scrollSearchResultIntoView(_360SearchActiveIndex);
+  } else if (e.key === 'Enter') {
+    e.preventDefault();
+    const selected = _360CurrentSearchResults[_360SearchActiveIndex];
+    if (selected && selected.tool) {
+      const targetUrl = `${getSiteRoot()}${selected.tool.url.replace(/^\/+/, '')}`;
+      window.location.href = targetUrl;
+    }
+  }
+}
+
+function scrollSearchResultIntoView(index) {
+  const el = document.getElementById(`searchResultItem_${index}`);
+  if (el) {
+    el.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
 }
 
 // Global Keyboard Shortcuts
 window.addEventListener('keydown', (e) => {
-  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
     e.preventDefault();
     openQuickSearch();
   } else if (e.key === 'Escape') {
@@ -991,25 +1452,17 @@ function initMobileAppNavigation() {
   nav.setAttribute('aria-label', 'Mobile App Bottom Navigation');
 
   nav.innerHTML = `
-    <a href="${getSiteRoot()}" class="mobile-nav-item ${isHome ? 'active' : ''}">
+    <a href="${getSiteRoot()}" class="mobile-nav-item ${isHome ? 'active' : ''}" aria-label="Home" title="Home">
       <i class="fa-solid fa-house"></i>
-      <span>Home</span>
     </a>
-    <a href="${getSiteRoot()}audio-tools/" class="mobile-nav-item ${isAudio ? 'active' : ''}">
+    <a href="${getSiteRoot()}audio-tools/" class="mobile-nav-item ${isAudio ? 'active' : ''}" aria-label="Audio & Voice Tools" title="Audio & Voice">
       <i class="fa-solid fa-volume-high"></i>
-      <span>Audio</span>
     </a>
-    <button onclick="openQuickSearch()" class="mobile-nav-item mobile-nav-item-highlight" aria-label="Search tools">
+    <button type="button" onclick="openQuickSearch()" class="mobile-nav-item" aria-label="Quick Search Tools" title="Search Tools">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <span>Search</span>
     </button>
-    <a href="${getSiteRoot()}image-tools/" class="mobile-nav-item ${isCompress ? 'active' : ''}">
-      <i class="fa-solid fa-compress"></i>
-      <span>Compress</span>
-    </a>
-    <button onclick="toggleMobileAppDrawer()" class="mobile-nav-item" aria-label="More tools menu">
-      <i class="fa-solid fa-grip"></i>
-      <span>Menu</span>
+    <button type="button" onclick="toggleMobileAppDrawer()" class="mobile-nav-item" aria-label="Explore All Tools Menu" title="All Tools">
+      <i class="fa-solid fa-table-cells-large"></i>
     </button>
   `;
 
