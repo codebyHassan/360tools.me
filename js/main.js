@@ -1435,7 +1435,49 @@ function formatUSD(num) {
 
 // ==========================================================================
 // Mobile Native App Bottom Navigation & Slide-up Sheet Drawer Controller
+// With Smooth Sliding Active Bubble & Native Haptic Vibration Feedback
 // ==========================================================================
+
+function triggerHapticFeedback(duration = 12) {
+  try {
+    if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
+      navigator.vibrate(duration);
+    }
+  } catch (e) {}
+}
+
+function updateMobileNavSlider(targetItem) {
+  const nav = document.getElementById('mobileAppBottomNav');
+  const slider = document.getElementById('mobileNavSlider');
+  if (!nav || !slider) return;
+
+  const activeItem = targetItem || nav.querySelector('.mobile-nav-item.active') || nav.querySelector('.mobile-nav-item');
+  if (!activeItem) return;
+
+  const navRect = nav.getBoundingClientRect();
+  const itemRect = activeItem.getBoundingClientRect();
+  if (navRect.width === 0 || itemRect.width === 0) return;
+
+  const leftOffset = itemRect.left - navRect.left;
+  const width = itemRect.width;
+  const height = itemRect.height;
+
+  slider.style.transform = `translate3d(${leftOffset}px, 0, 0)`;
+  slider.style.width = `${width}px`;
+  slider.style.height = `${height}px`;
+  slider.style.opacity = '1';
+
+  // Update active classes for all items
+  const items = nav.querySelectorAll('.mobile-nav-item');
+  items.forEach(item => {
+    if (item === activeItem) {
+      item.classList.add('active');
+    } else {
+      item.classList.remove('active');
+    }
+  });
+}
+
 function initMobileAppNavigation() {
   if (document.getElementById('mobileAppBottomNav')) return;
 
@@ -1443,7 +1485,6 @@ function initMobileAppNavigation() {
   
   const isHome = currentPath.endsWith('index.html') || currentPath.endsWith('/') || currentPath === '' || currentPath.endsWith('360tools.me');
   const isAudio = currentPath.includes('speech') || currentPath.includes('voice') || currentPath.includes('audio') || currentPath.includes('mp3');
-  const isCompress = currentPath.includes('compress') || currentPath.includes('jpg') || currentPath.includes('png') || currentPath.includes('webp') || currentPath.includes('pdf');
 
   // Create Bottom Nav Bar
   const nav = document.createElement('nav');
@@ -1452,21 +1493,35 @@ function initMobileAppNavigation() {
   nav.setAttribute('aria-label', 'Mobile App Bottom Navigation');
 
   nav.innerHTML = `
-    <a href="${getSiteRoot()}" class="mobile-nav-item ${isHome ? 'active' : ''}" aria-label="Home" title="Home">
+    <div class="mobile-nav-slider" id="mobileNavSlider"></div>
+    <a href="${getSiteRoot()}" class="mobile-nav-item ${isHome ? 'active' : ''}" aria-label="Home" title="Home" onclick="triggerHapticFeedback(12); updateMobileNavSlider(this);">
       <i class="fa-solid fa-house"></i>
     </a>
-    <a href="${getSiteRoot()}audio-tools/" class="mobile-nav-item ${isAudio ? 'active' : ''}" aria-label="Audio & Voice Tools" title="Audio & Voice">
+    <a href="${getSiteRoot()}audio-tools/" class="mobile-nav-item ${isAudio ? 'active' : ''}" aria-label="Audio & Voice Tools" title="Audio & Voice" onclick="triggerHapticFeedback(12); updateMobileNavSlider(this);">
       <i class="fa-solid fa-volume-high"></i>
     </a>
-    <button type="button" onclick="openQuickSearch()" class="mobile-nav-item" aria-label="Quick Search Tools" title="Search Tools">
+    <button type="button" onclick="triggerHapticFeedback(14); updateMobileNavSlider(this); openQuickSearch();" class="mobile-nav-item" aria-label="Quick Search Tools" title="Search Tools">
       <i class="fa-solid fa-magnifying-glass"></i>
     </button>
-    <button type="button" onclick="toggleMobileAppDrawer()" class="mobile-nav-item" aria-label="Explore All Tools Menu" title="All Tools">
+    <button type="button" onclick="triggerHapticFeedback(14); updateMobileNavSlider(this); toggleMobileAppDrawer();" class="mobile-nav-item" aria-label="Explore All Tools Menu" title="All Tools">
       <i class="fa-solid fa-table-cells-large"></i>
     </button>
   `;
 
   document.body.appendChild(nav);
+
+  // Position the slider after initial render
+  requestAnimationFrame(() => {
+    setTimeout(() => updateMobileNavSlider(), 60);
+  });
+
+  // Re-adjust slider on resize & orientation change across various screen sizes
+  window.addEventListener('resize', () => {
+    requestAnimationFrame(() => updateMobileNavSlider());
+  });
+  window.addEventListener('orientationchange', () => {
+    setTimeout(() => updateMobileNavSlider(), 150);
+  });
 
   // Create Mobile App Slide-up Drawer
   createMobileAppDrawer();
