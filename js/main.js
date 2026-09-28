@@ -785,6 +785,102 @@ const TOOLS_REGISTRY = [
     desc: "Classic 4-player traditional South Asian trick-taking card game. Shed your cards to escape!",
     featured: false,
     keywords: ["bhabhi thulla","bhabi get away","card game"]
+  },
+  {
+    name: "Text to Speech (TTS Converter)",
+    url: "/audio-tools/text-to-speech.html",
+    category: "audio-tools",
+    subcategory: "speech",
+    icon: "fa-volume-high",
+    color: "text-blue-600",
+    bg: "bg-blue-50 border-blue-200/80",
+    desc: "Convert text into natural speech with word highlighting and instant client-side MP3/WAV audio download.",
+    featured: true,
+    keywords: ["text to speech", "tts", "natural voice reader", "speech synthesizer", "text to mp3", "read aloud"]
+  },
+  {
+    name: "Text to MP3 Converter",
+    url: "/audio-tools/text-to-mp3.html",
+    category: "audio-tools",
+    subcategory: "speech",
+    icon: "fa-file-audio",
+    color: "text-emerald-600",
+    bg: "bg-emerald-50 border-emerald-200/80",
+    desc: "Generate and download MP3 or WAV voiceover audio tracks directly in your browser with zero server delay.",
+    featured: true,
+    keywords: ["text to mp3", "download tts mp3", "voiceover audio", "text to audio converter", "mp3 download"]
+  },
+  {
+    name: "AI Voice Generator & Avatars",
+    url: "/audio-tools/ai-voice-generator.html",
+    category: "audio-tools",
+    subcategory: "voiceover",
+    icon: "fa-wand-magic-sparkles",
+    color: "text-purple-600",
+    bg: "bg-purple-50 border-purple-200/80",
+    desc: "Generate realistic voiceovers with customizable character avatars, emotion tones, and MP3 export.",
+    featured: true,
+    keywords: ["ai voice generator", "voice avatars", "realistic voiceover", "tts studio", "ai narrator"]
+  },
+  {
+    name: "Urdu Text to Speech (اردو آواز)",
+    url: "/audio-tools/urdu-text-to-speech.html",
+    category: "audio-tools",
+    subcategory: "speech",
+    icon: "fa-language",
+    color: "text-emerald-700",
+    bg: "bg-emerald-50 border-emerald-200/80",
+    desc: "Convert Nastaliq Urdu script and Roman Urdu into authentic spoken audio and download MP3 files.",
+    featured: true,
+    keywords: ["urdu text to speech", "urdu tts", "urdu voice", "urdu mp3", "اردو آواز"]
+  },
+  {
+    name: "Article to Speech Reader",
+    url: "/audio-tools/article-to-speech.html",
+    category: "audio-tools",
+    subcategory: "reader",
+    icon: "fa-newspaper",
+    color: "text-amber-600",
+    bg: "bg-amber-50 border-amber-200/80",
+    desc: "Listen to blog posts, news stories, and web articles with clutter-free narration and MP3 download.",
+    featured: false,
+    keywords: ["article to speech", "listen to web articles", "blog reader", "news reader tts"]
+  },
+  {
+    name: "PDF to Speech Document Reader",
+    url: "/audio-tools/pdf-to-speech.html",
+    category: "audio-tools",
+    subcategory: "reader",
+    icon: "fa-file-pdf",
+    color: "text-red-600",
+    bg: "bg-red-50 border-red-200/80",
+    desc: "Extract text from multi-page PDF documents and listen to page-by-page narration or download MP3.",
+    featured: false,
+    keywords: ["pdf to speech", "read pdf aloud", "pdf audiobook", "listen to pdf", "pdf to mp3"]
+  },
+  {
+    name: "YouTube Voiceover Generator",
+    url: "/audio-tools/youtube-voiceover-generator.html",
+    category: "audio-tools",
+    subcategory: "voiceover",
+    icon: "fa-brands fa-youtube",
+    color: "text-red-600",
+    bg: "bg-red-50 border-red-200/80",
+    desc: "Auto-split video scripts into scenes with custom pause intervals and export complete MP3 narration.",
+    featured: false,
+    keywords: ["youtube voiceover generator", "video narration", "youtube script reader", "tts for youtube"]
+  },
+  {
+    name: "Audio & Speech Tools Hub",
+    url: "/audio-tools/index.html",
+    category: "audio-tools",
+    subcategory: "hub",
+    icon: "fa-volume-high",
+    color: "text-blue-600",
+    bg: "bg-blue-50 border-blue-200/80",
+    desc: "Explore all in-browser audio synthesis, speech generators, and voiceover utilities.",
+    featured: false,
+    keywords: ["audio tools", "speech tools", "tts tools", "voiceover suite"]
   }
 ];
 

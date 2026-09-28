@@ -7,7 +7,7 @@
   <!-- SEO Primary Meta Tags -->
   <title>Text to MP3 Converter — Free Audio Downloader | 360tools</title>
   <meta name="title" content="Text to MP3 Converter — Free Audio Downloader | 360tools">
-  <meta name="description" content="Convert any text into high-quality MP3 audio files for free. Fast, private in-browser voice synthesis with zero subscription fees.">
+  <meta name="description" content="Convert any text or script into high-quality downloadable MP3 and WAV audio files for free. Fast, private in-browser voice synthesis with zero subscription fees.">
   <meta name="keywords" content="text to mp3 converter, text to mp3 online, free text to mp3, text to audio converter, text to mp3, 360tools, 360tools.me">
   <meta name="author" content="360Tools (360tools.me)">
   <link rel="canonical" href="https://360tools.me/audio-tools/text-to-mp3.html">
@@ -16,10 +16,10 @@
   <link rel="icon" type="image/webp" href="../images/logo-icon.webp">
   <link rel="apple-touch-icon" href="../images/logo-icon.webp">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://360tools.me/text-to-mp3.html">
+  <meta property="og:url" content="https://360tools.me/audio-tools/text-to-mp3.html">
   <meta property="og:title" content="Text to MP3 Converter — Free Online Audio Downloader | 360Tools">
   <meta property="og:description" content="Convert text into downloadable MP3 audio files directly in your browser with 360Tools.">
-  <meta property="og:image" content="images/logo.webp">
+  <meta property="og:image" content="../images/logo.webp">
 
   <!-- Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -27,7 +27,7 @@
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Text to MP3 Converter",
-    "url": "https://360tools.me/text-to-mp3.html",
+    "url": "https://360tools.me/audio-tools/text-to-mp3.html",
     "applicationCategory": "MultimediaApplication",
     "operatingSystem": "All",
     "description": "Convert written text into downloadable MP3 and WAV audio files client-side with progress encoding.",
@@ -81,26 +81,25 @@
         "@type": "ListItem",
         "position": 2,
         "name": "Audio & Speech Tools",
-        "item": "https://360tools.me/audio-voice-tools.html"
+        "item": "https://360tools.me/audio-tools/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Text to MP3",
-        "item": "https://360tools.me/text-to-mp3.html"
+        "item": "https://360tools.me/audio-tools/text-to-mp3.html"
       }
     ]
   }
   </script>
 
   <!-- Stylesheets -->
-    <!-- Preconnect External Domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   <link rel="stylesheet" href="../css/style.min.css">
@@ -117,30 +116,42 @@
     <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4" aria-label="Breadcrumb">
       <a href="../index.html" class="hover:text-[#c27803]">Home</a>
       <span>/</span>
-      <a href="./" class="hover:text-[#c27803]">Audio & Speech</a>
+      <a href="./index.html" class="hover:text-[#c27803]">Audio & Speech</a>
       <span>/</span>
       <span class="text-slate-700">Text to MP3</span>
     </nav>
 
     <!-- H1 & Description -->
-    <div class="mb-8">
-      <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
-        Free Text to MP3 Converter Online
-      </h1>
-      <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-3xl leading-relaxed">
-        Convert text, scripts, and articles into downloadable MP3 or WAV audio tracks. Customize voice accents and export clean voiceovers directly in your browser.
-      </p>
+    <div class="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="bg-emerald-50 text-emerald-800 text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider border border-emerald-200">
+            <i class="fa-solid fa-file-audio mr-1"></i> Voiceover MP3 & WAV Studio
+          </span>
+          <span class="text-xs font-bold text-slate-400">• Free Audio Downloader • 100% Client-Side</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
+          Free Text to MP3 Converter Online
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-2xl leading-relaxed">
+          Convert text, scripts, and articles into downloadable MP3 or WAV audio tracks. Customize voice accents, speed, and export clean voiceovers directly in your browser.
+        </p>
+      </div>
+
+      <button onclick="loadSampleMp3Script()" class="fa-btn-secondary text-xs px-3.5 py-2 self-start sm:self-center bg-white shadow-sm">
+        <i class="fa-solid fa-wand-magic-sparkles text-emerald-600 mr-1.5"></i> Load Voiceover Sample
+      </button>
     </div>
 
     <!-- Privacy Banner -->
-    <div class="mb-6 p-3.5 bg-emerald-50 border border-emerald-200/80 rounded-2xl flex items-center justify-between text-xs text-emerald-900 font-semibold">
+    <div class="mb-6 p-3.5 bg-emerald-50 border border-emerald-200/80 rounded-2xl flex items-center justify-between text-xs text-emerald-900 font-semibold shadow-sm">
       <div class="flex items-center gap-2.5">
         <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
           <i class="fa-solid fa-shield-halved text-sm"></i>
         </span>
         <span><strong>100% In-Browser Privacy:</strong> Audio encoding occurs locally in client memory. No server uploads.</span>
       </div>
-      <span class="hidden sm:inline-block bg-emerald-200/70 text-emerald-800 px-2.5 py-1 rounded-full text-[10px] font-black uppercase">Zero Cloud Uploads</span>
+      <span class="hidden sm:inline-block bg-emerald-200/70 text-emerald-800 px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider">Zero Cloud Uploads</span>
     </div>
 
     <!-- Main Workspace -->
@@ -155,20 +166,28 @@
               <i class="fa-solid fa-file-lines text-emerald-600"></i> Script & Text Entry
             </span>
             <div class="flex items-center gap-2 text-xs font-mono text-slate-500 font-bold">
-              <span id="mp3CharCount">0 chars</span>
+              <span id="mp3CharCount" class="bg-slate-100 px-2 py-0.5 rounded text-slate-700">0 chars</span>
               <span>•</span>
-              <span id="mp3WordCount">0 words</span>
+              <span id="mp3WordCount" class="bg-slate-100 px-2 py-0.5 rounded text-slate-700">0 words</span>
             </div>
           </div>
 
-          <textarea id="mp3TextInput" rows="12" placeholder="Paste your script or text here to generate downloadable MP3 audio..." class="fa-input font-sans text-sm w-full p-4 leading-relaxed bg-white border border-slate-200 focus:ring-2 focus:ring-emerald-500 rounded-xl" oninput="handleMp3TextChange()"></textarea>
+          <textarea id="mp3TextInput" rows="12" placeholder="Paste your script or text here to generate downloadable MP3 audio..." class="fa-input font-sans text-sm sm:text-base w-full p-4 leading-relaxed bg-white border border-slate-200 focus:ring-2 focus:ring-emerald-500 rounded-xl shadow-inner transition-all" oninput="handleMp3TextChange()"></textarea>
 
-          <div class="flex items-center justify-between pt-2 border-t border-slate-100 text-xs text-slate-500 font-bold">
-            <button onclick="document.getElementById('mp3TextInput').value=''; handleMp3TextChange();" class="text-slate-400 hover:text-slate-600">
-              <i class="fa-solid fa-trash mr-1"></i> Clear
-            </button>
+          <div class="flex flex-wrap items-center justify-between pt-2 border-t border-slate-100 text-xs text-slate-500 font-bold gap-2">
+            <div class="flex items-center gap-2">
+              <button onclick="pasteMp3Clipboard()" class="text-slate-600 hover:text-emerald-700 px-2.5 py-1 rounded border border-slate-200 bg-white shadow-sm">
+                <i class="fa-solid fa-paste mr-1 text-slate-400"></i> Paste
+              </button>
+              <button onclick="copyMp3Text()" class="text-slate-600 hover:text-emerald-700 px-2.5 py-1 rounded border border-slate-200 bg-white shadow-sm">
+                <i class="fa-solid fa-copy mr-1 text-slate-400"></i> Copy
+              </button>
+              <button onclick="document.getElementById('mp3TextInput').value=''; handleMp3TextChange();" class="text-red-500 hover:text-red-700 px-2.5 py-1 rounded border border-red-100 bg-red-50/50">
+                <i class="fa-solid fa-trash mr-1 text-red-400"></i> Clear
+              </button>
+            </div>
             <button onclick="loadSampleMp3Script()" class="text-emerald-700 hover:underline">
-              <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Load Voiceover Sample
+              <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Load YouTube Voiceover
             </button>
           </div>
         </div>
@@ -183,9 +202,26 @@
             <h3 class="text-xs font-black uppercase tracking-wider text-[#3e2723] flex items-center gap-1.5">
               <i class="fa-solid fa-file-audio text-emerald-600"></i> Audio Output Settings
             </h3>
-            <span id="encoderBadge" class="text-xs font-black font-mono bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-lg">
+            <span id="encoderBadge" class="text-xs font-black font-mono bg-emerald-100 text-emerald-800 px-2.5 py-0.5 rounded-lg border border-emerald-200">
               Ready
             </span>
+          </div>
+
+          <!-- Language Selector -->
+          <div>
+            <label for="mp3LangSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+              Language / Accent
+            </label>
+            <select id="mp3LangSelect" onchange="filterMp3Voices(this.value)" class="fa-input text-xs font-bold w-full bg-white border border-slate-300 rounded-xl">
+              <option value="all">🌐 All Languages</option>
+              <option value="en" selected>🇺🇸 / 🇬🇧 English</option>
+              <option value="ur">🇵🇰 Urdu (اردو)</option>
+              <option value="hi">🇮🇳 Hindi</option>
+              <option value="es">🇪🇸 Spanish</option>
+              <option value="fr">🇫🇷 French</option>
+              <option value="de">🇩🇪 German</option>
+              <option value="ar">🇸🇦 Arabic</option>
+            </select>
           </div>
 
           <!-- Voice Select -->
@@ -193,7 +229,7 @@
             <label for="mp3VoiceSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
               Narrator Voice
             </label>
-            <select id="mp3VoiceSelect" class="fa-input text-xs font-bold w-full bg-white border border-slate-300">
+            <select id="mp3VoiceSelect" class="fa-input text-xs font-bold w-full bg-white border border-slate-300 rounded-xl">
               <option value="">Default Voice</option>
             </select>
           </div>
@@ -204,35 +240,71 @@
               <label for="mp3SpeedSlider" class="text-xs font-bold uppercase tracking-wider text-slate-600">Audio Speed</label>
               <span id="mp3SpeedVal" class="text-xs font-black font-mono bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-lg">1.0x</span>
             </div>
-            <input type="range" id="mp3SpeedSlider" min="0.5" max="2.0" step="0.1" value="1.0" class="w-full accent-emerald-600 cursor-pointer" oninput="document.getElementById('mp3SpeedVal').textContent = parseFloat(this.value).toFixed(1) + 'x'">
+            <input type="range" id="mp3SpeedSlider" min="0.5" max="2.0" step="0.05" value="1.0" class="w-full accent-emerald-600 cursor-pointer" oninput="document.getElementById('mp3SpeedVal').textContent = parseFloat(this.value).toFixed(2) + 'x'">
+          </div>
+
+          <!-- Pitch Slider -->
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <label for="mp3PitchSlider" class="text-xs font-bold uppercase tracking-wider text-slate-600">Voice Pitch</label>
+              <span id="mp3PitchVal" class="text-xs font-black font-mono bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-lg">1.0</span>
+            </div>
+            <input type="range" id="mp3PitchSlider" min="0.5" max="1.5" step="0.05" value="1.0" class="w-full accent-emerald-600 cursor-pointer" oninput="document.getElementById('mp3PitchVal').textContent = parseFloat(this.value).toFixed(2)">
+          </div>
+
+          <!-- Audio Format Options -->
+          <div class="pt-2 border-t border-slate-200">
+            <div class="flex items-center justify-between mb-1">
+              <label class="text-xs font-bold uppercase tracking-wider text-slate-600">Format</label>
+              <div class="flex items-center gap-3">
+                <label class="inline-flex items-center text-xs font-bold text-slate-700 cursor-pointer">
+                  <input type="radio" name="mp3Format" value="mp3" checked class="accent-emerald-600 mr-1"> MP3
+                </label>
+                <label class="inline-flex items-center text-xs font-bold text-slate-700 cursor-pointer">
+                  <input type="radio" name="mp3Format" value="wav" class="accent-emerald-600 mr-1"> WAV (Lossless)
+                </label>
+              </div>
+            </div>
           </div>
 
           <!-- Progress Bar (animated during encoding) -->
-          <div id="encodingProgressBox" class="hidden space-y-1.5 pt-2">
-            <div class="flex justify-between text-xs font-bold text-slate-600">
-              <span id="encodingStatusLabel">Synthesizing audio stream...</span>
-              <span id="encodingPct">0%</span>
+          <div id="encodingProgressBox" class="hidden space-y-1.5 p-3.5 bg-emerald-50 border border-emerald-200 rounded-xl">
+            <div class="flex justify-between text-xs font-bold text-emerald-900">
+              <span id="encodingStatusLabel" class="flex items-center gap-1.5">
+                <i class="fa-solid fa-spinner fa-spin text-emerald-600"></i> Synthesizing audio stream...
+              </span>
+              <span id="encodingPct" class="font-mono font-black text-emerald-700">0%</span>
             </div>
-            <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
-              <div id="encodingBar" class="bg-emerald-600 h-full transition-all duration-150" style="width: 0%;"></div>
+            <div class="w-full h-2 bg-emerald-200/70 rounded-full overflow-hidden">
+              <div id="encodingBar" class="bg-emerald-600 h-full transition-all duration-200" style="width: 0%;"></div>
             </div>
           </div>
 
           <!-- Generated Audio Player Preview -->
-          <div id="audioPlayerContainer" class="hidden space-y-3 pt-2">
-            <audio id="audioPreviewPlayer" controls class="w-full"></audio>
+          <div id="audioPlayerContainer" class="hidden space-y-2 p-3 bg-white border border-slate-200 rounded-xl shadow-sm">
+            <div class="flex items-center justify-between text-xs font-bold text-slate-600">
+              <span class="text-emerald-700"><i class="fa-solid fa-circle-check mr-1"></i> Audio Ready for Preview</span>
+              <span id="mp3AudioSize" class="text-[10px] font-mono text-slate-400">Ready</span>
+            </div>
+            <audio id="audioPreviewPlayer" controls class="w-full h-9"></audio>
           </div>
 
           <!-- Action Buttons -->
           <div class="pt-3 border-t border-slate-200 flex flex-col gap-2">
-            <button id="btnConvertMp3" onclick="generateAudioTrack()" class="fa-btn-primary py-3 text-sm font-black w-full bg-emerald-600 hover:bg-emerald-700 flex items-center justify-center gap-2">
-              <i class="fa-solid fa-play"></i>
-              <span>Generate & Preview Audio</span>
-            </button>
+            <div class="grid grid-cols-2 gap-2">
+              <button id="btnListenPreview" onclick="previewAudioTrack()" class="fa-btn-secondary py-3 text-xs sm:text-sm font-black flex items-center justify-center gap-1.5 bg-white border border-slate-200">
+                <i class="fa-solid fa-play text-emerald-600" id="previewIcon"></i>
+                <span id="previewText">Preview Speech</span>
+              </button>
+              <button onclick="stopSpeechPreview()" class="fa-btn-secondary py-3 text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 bg-white border border-slate-200 text-slate-700">
+                <i class="fa-solid fa-stop text-red-500"></i>
+                <span>Stop</span>
+              </button>
+            </div>
 
-            <button id="btnDownloadAudio" onclick="downloadAudioFile()" class="fa-btn-primary py-3 text-sm font-black w-full bg-[#3e2723] hover:bg-[#25406b] hidden flex items-center justify-center gap-2">
-              <i class="fa-solid fa-download"></i>
-              <span>Download Audio File (.wav / .mp3)</span>
+            <button id="btnConvertMp3" onclick="generateAndDownloadAudio()" class="fa-btn-primary py-3 text-sm font-black w-full bg-emerald-600 hover:bg-emerald-700 text-white flex items-center justify-center gap-2 shadow-md">
+              <i class="fa-solid fa-circle-down"></i>
+              <span>Generate & Download Audio</span>
             </button>
           </div>
         </div>
@@ -251,13 +323,13 @@
       <div class="max-w-4xl mx-auto space-y-12">
         <div class="space-y-4" id="faqSection">
           <h2 class="text-2xl font-black text-[#3e2723] mb-4">Frequently Asked Questions</h2>
-          <details class="group fa-card p-5 transition-all">
+          <details class="group fa-card p-5 transition-all bg-white border border-slate-200 rounded-xl">
             <summary class="flex justify-between items-center font-bold text-sm text-[#3e2723] cursor-pointer list-none">
               <span>How can I use this MP3 in YouTube or TikTok videos?</span>
               <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
             </summary>
             <p class="text-xs text-slate-600 mt-3 leading-relaxed">
-              Once downloaded, drag the audio file directly into your video editor (CapCut, Premiere Pro, InShot) as a background narration track.
+              Once downloaded, drag the audio file directly into your video editor (CapCut, Premiere Pro, InShot, DaVinci Resolve) as a narration or background voice track.
             </p>
           </details>
         </div>
@@ -265,16 +337,16 @@
         <div class="pt-8 border-t border-slate-200">
           <h3 class="text-xs font-black text-slate-400 uppercase tracking-wider mb-4">Related Speech Tools</h3>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <a href="/audio-tools/text-to-speech.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
-              <i class="fa-solid fa-volume-high text-[#c27803] mr-1.5"></i> Text to Speech
+            <a href="./text-to-speech.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#146ebe] transition-all block shadow-sm">
+              <i class="fa-solid fa-volume-high text-[#146ebe] mr-1.5"></i> Text to Speech
             </a>
-            <a href="/audio-tools/ai-voice-generator.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
+            <a href="./ai-voice-generator.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#146ebe] transition-all block shadow-sm">
               <i class="fa-solid fa-wand-magic-sparkles text-purple-600 mr-1.5"></i> AI Voice Studio
             </a>
-            <a href="/audio-tools/youtube-voiceover-generator.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
-              <i class="fa-brands fa-youtube text-red-600 mr-1.5"></i> YouTube Narrator
+            <a href="./urdu-text-to-speech.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#146ebe] transition-all block shadow-sm">
+              <i class="fa-solid fa-language text-amber-600 mr-1.5"></i> Urdu TTS
             </a>
-            <a href="/audio-tools/pdf-to-speech.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
+            <a href="./pdf-to-speech.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#146ebe] transition-all block shadow-sm">
               <i class="fa-solid fa-file-pdf text-red-600 mr-1.5"></i> PDF to Speech
             </a>
           </div>
@@ -289,28 +361,60 @@
 
   <!-- Scripts -->
   <script src="../js/main.min.js"></script>
+  <script src="../js/audio-tts-engine.js"></script>
   <script>
+    let tts = null;
     let mp3Voices = [];
     let audioBlob = null;
 
+    function initMp3Tool() {
+      tts = new TTSEngine({
+        onStateChange: (state) => {
+          const previewText = document.getElementById('previewText');
+          const previewIcon = document.getElementById('previewIcon');
+          if (state.isPlaying) {
+            previewText.textContent = 'Playing...';
+            previewIcon.className = 'fa-solid fa-volume-high fa-beat text-emerald-600';
+          } else {
+            previewText.textContent = 'Preview Speech';
+            previewIcon.className = 'fa-solid fa-play text-emerald-600';
+          }
+        },
+        onError: (err) => {
+          showToast(err, 'fa-triangle-exclamation');
+        }
+      });
+
+      populateMp3Voices();
+      if (window.speechSynthesis && window.speechSynthesis.onvoiceschanged !== undefined) {
+        window.speechSynthesis.onvoiceschanged = populateMp3Voices;
+      }
+    }
+
     function populateMp3Voices() {
-      if (!window.speechSynthesis) return;
-      mp3Voices = window.speechSynthesis.getVoices().sort((a, b) => a.lang.localeCompare(b.lang));
+      if (!tts) return;
+      mp3Voices = tts.getVoices();
+      filterMp3Voices(document.getElementById('mp3LangSelect').value);
+    }
+
+    function filterMp3Voices(lang) {
       const select = document.getElementById('mp3VoiceSelect');
       select.innerHTML = '';
-      mp3Voices.forEach((v, i) => {
+      let list = mp3Voices || [];
+      if (lang && lang !== 'all') {
+        list = list.filter(v => (v.lang || '').toLowerCase().startsWith(lang.toLowerCase()));
+      }
+      if (list.length === 0) list = mp3Voices;
+
+      list.forEach((v) => {
         const opt = document.createElement('option');
-        opt.value = i;
+        const idx = mp3Voices.indexOf(v);
+        opt.value = idx !== -1 ? idx : 0;
         opt.textContent = `${v.name} (${v.lang})`;
         if (v.lang.includes('en-US') || v.default) opt.selected = true;
         select.appendChild(opt);
       });
     }
-
-    if (window.speechSynthesis && window.speechSynthesis.onvoiceschanged !== undefined) {
-      window.speechSynthesis.onvoiceschanged = populateMp3Voices;
-    }
-    populateMp3Voices();
 
     function handleMp3TextChange() {
       const text = document.getElementById('mp3TextInput').value;
@@ -319,132 +423,118 @@
       document.getElementById('mp3WordCount').textContent = `${words} words`;
     }
 
-    // Synthesize client-side audio track using Web Audio API buffer synthesis
-    async function generateAudioTrack() {
+    function previewAudioTrack() {
+      const text = document.getElementById('mp3TextInput').value.trim();
+      if (!text) {
+        showToast('Please enter text to preview', 'fa-pen');
+        return;
+      }
+      const voiceIdx = document.getElementById('mp3VoiceSelect').value;
+      const rate = parseFloat(document.getElementById('mp3SpeedSlider').value) || 1.0;
+      const pitch = parseFloat(document.getElementById('mp3PitchSlider').value) || 1.0;
+
+      tts.speak(text, {
+        voiceIndex: voiceIdx !== '' ? parseInt(voiceIdx) : null,
+        rate,
+        pitch
+      });
+    }
+
+    function stopSpeechPreview() {
+      if (tts) tts.stop();
+      showToast('Playback stopped', 'fa-stop');
+    }
+
+    async function generateAndDownloadAudio() {
       const text = document.getElementById('mp3TextInput').value.trim();
       if (!text) {
         showToast('Please enter text to generate audio', 'fa-pen');
         return;
       }
 
+      const format = document.querySelector('input[name="mp3Format"]:checked').value || 'mp3';
+      const rate = parseFloat(document.getElementById('mp3SpeedSlider').value) || 1.0;
+      const pitch = parseFloat(document.getElementById('mp3PitchSlider').value) || 1.0;
+      const lang = document.getElementById('mp3LangSelect').value;
+
       const progressBox = document.getElementById('encodingProgressBox');
       const progressBar = document.getElementById('encodingBar');
       const progressPct = document.getElementById('encodingPct');
+      const statusLabel = document.getElementById('encodingStatusLabel');
       const btnConvert = document.getElementById('btnConvertMp3');
-      const btnDownload = document.getElementById('btnDownloadAudio');
       const playerBox = document.getElementById('audioPlayerContainer');
       const player = document.getElementById('audioPreviewPlayer');
 
       progressBox.classList.remove('hidden');
       btnConvert.setAttribute('disabled', 'true');
 
-      // Animate progress simulation while triggering SpeechSynthesis
-      let pct = 0;
-      const interval = setInterval(() => {
-        pct += 15;
-        if (pct > 90) pct = 90;
-        progressBar.style.width = pct + '%';
-        progressPct.textContent = pct + '%';
-      }, 100);
+      try {
+        const result = await tts.generateAudioBlob(text, {
+          format,
+          rate,
+          pitch,
+          lang: lang !== 'all' ? lang : 'en-US',
+          onProgress: (p) => {
+            progressBar.style.width = `${p.percent}%`;
+            progressPct.textContent = `${p.percent}%`;
+            statusLabel.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-emerald-600"></i> ${p.message}`;
+          }
+        });
 
-      // Play through SpeechSynthesis
-      window.speechSynthesis.cancel();
-      const utter = new SpeechSynthesisUtterance(text);
-      const voiceIndex = document.getElementById('mp3VoiceSelect').value;
-      if (mp3Voices[voiceIndex]) utter.voice = mp3Voices[voiceIndex];
-      utter.rate = parseFloat(document.getElementById('mp3SpeedSlider').value) || 1.0;
-
-      // Generate a WAV container sound wave
-      const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      const duration = Math.max(1, Math.min(30, (text.split(' ').length / 2.5)));
-      const sampleRate = audioCtx.sampleRate;
-      const buffer = audioCtx.createBuffer(1, sampleRate * duration, sampleRate);
-      const data = buffer.getChannelData(0);
-
-      // Synthesize clean audio envelope
-      for (let i = 0; i < buffer.length; i++) {
-        data[i] = Math.sin(i / 100) * 0.05 * Math.exp(-i / (buffer.length / 2));
-      }
-
-      // Convert audio buffer to WAV Blob
-      audioBlob = bufferToWave(buffer, buffer.length);
-      const audioUrl = URL.createObjectURL(audioBlob);
-
-      clearInterval(interval);
-      progressBar.style.width = '100%';
-      progressPct.textContent = '100%';
-
-      setTimeout(() => {
-        progressBox.classList.add('hidden');
-        player.src = audioUrl;
+        audioBlob = result.blob;
+        player.src = result.url;
         playerBox.classList.remove('hidden');
-        btnDownload.classList.remove('hidden');
-        btnConvert.removeAttribute('disabled');
-        document.getElementById('encoderBadge').textContent = 'Encoded';
-        window.speechSynthesis.speak(utter);
-        showToast('Audio track ready for preview & download!', 'fa-circle-check');
-      }, 400);
-    }
+        document.getElementById('mp3AudioSize').textContent = `${(result.blob.size / 1024).toFixed(1)} KB • ${result.format.toUpperCase()}`;
+        document.getElementById('encoderBadge').textContent = 'Ready';
 
-    // Helper: Buffer to WAV
-    function bufferToWave(abuffer, len) {
-      let numOfChan = abuffer.numberOfChannels,
-          length = len * numOfChan * 2 + 44,
-          out = new DataView(new ArrayBuffer(length)),
-          channels = [], i, sample,
-          offset = 0,
-          pos = 0;
-
-      function setUint16(data) { out.setUint16(pos, data, true); pos += 2; }
-      function setUint32(data) { out.setUint32(pos, data, true); pos += 4; }
-
-      setUint32(0x46464952); // "RIFF"
-      setUint32(length - 8); // file length - 8
-      setUint32(0x45564157); // "WAVE"
-
-      setUint32(0x20746d66); // "fmt " chunk
-      setUint32(16); // length = 16
-      setUint16(1); // PCM (uncompressed)
-      setUint16(numOfChan);
-      setUint32(abuffer.sampleRate);
-      setUint32(abuffer.sampleRate * 2 * numOfChan); // avg. bytes/sec
-      setUint16(numOfChan * 2); // block-align
-      setUint16(16); // 16-bit
-      setUint32(0x61746164); // "data" - chunk
-      setUint32(length - pos - 4); // chunk length
-
-      for(i = 0; i < abuffer.numberOfChannels; i++) channels.push(abuffer.getChannelData(i));
-
-      while(pos < length) {
-        for(i = 0; i < numOfChan; i++) {
-          sample = Math.max(-1, Math.min(1, channels[i][offset]));
-          sample = (0.5 + sample < 0 ? sample * 32768 : sample * 32767)|0;
-          out.setInt16(pos, sample, true);
-          pos += 2;
-        }
-        offset++;
+        const filename = `voiceover_track_${Date.now()}.${result.format}`;
+        tts.downloadBlob(result.blob, filename);
+        showToast(`Downloaded ${filename}!`, 'fa-circle-check');
+      } catch (err) {
+        showToast('Could not synthesize stream. Exporting local audio...', 'fa-triangle-exclamation');
+      } finally {
+        setTimeout(() => {
+          progressBox.classList.add('hidden');
+          btnConvert.removeAttribute('disabled');
+        }, 600);
       }
-      return new Blob([out], { type: "audio/wav" });
     }
 
-    function downloadAudioFile() {
-      if (!audioBlob) return;
-      const link = document.createElement('a');
-      link.download = 'voiceover_track.wav';
-      link.href = URL.createObjectURL(audioBlob);
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      showToast('Downloaded voiceover audio file!', 'fa-file-audio');
+    async function pasteMp3Clipboard() {
+      try {
+        const text = await navigator.clipboard.readText();
+        if (text) {
+          document.getElementById('mp3TextInput').value = text;
+          handleMp3TextChange();
+          showToast('Pasted text from clipboard!', 'fa-paste');
+        }
+      } catch (e) {
+        showToast('Clipboard access denied or empty', 'fa-triangle-exclamation');
+      }
+    }
+
+    function copyMp3Text() {
+      const text = document.getElementById('mp3TextInput').value;
+      if (text) {
+        if (typeof copyToClipboard === 'function') {
+          copyToClipboard(text, 'Copied script to clipboard!');
+        } else {
+          navigator.clipboard.writeText(text);
+          showToast('Copied script to clipboard!', 'fa-copy');
+        }
+      }
     }
 
     function loadSampleMp3Script() {
-      document.getElementById('mp3TextInput').value = "Top 5 digital marketing strategies for 2026. Number one: automated client-side personalization. Number two: high-speed mobile web vitals. Make sure to subscribe for more tutorials.";
+      document.getElementById('mp3TextInput').value = "Top 5 digital marketing and web strategies for 2026. Number one: automated client-side personalization. Number two: high-speed mobile web vitals. Make sure to subscribe for more tutorials and free online tools.";
       handleMp3TextChange();
       showToast('Loaded YouTube script sample', 'fa-wand-magic-sparkles');
     }
 
-    loadSampleMp3Script();
+    document.addEventListener('DOMContentLoaded', () => {
+      initMp3Tool();
+      loadSampleMp3Script();
+    });
   </script>
 </body>
 </html>

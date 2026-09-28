@@ -5,32 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- SEO Primary Meta Tags -->
-  <title>Free PDF to Speech Online (Listen to PDF Books & Documents) | 360tools</title>
-  <meta name="title" content="Free PDF to Speech Online (Listen to PDF Books & Documents) | 360tools">
-  <meta name="description" content="Listen to PDF documents and eBooks read aloud online for free. Extracts text client-side with pdf.js and narrates pages with natural voice synthesis. 100% private.">
-  <meta name="keywords" content="pdf to speech, read pdf aloud free, listen to pdf online, pdf audio reader, pdf tts converter, text to speech pdf ebook">
-  <meta name="author" content="360tools.me">
+  <title>PDF to Speech Converter — Listen to PDF & Download MP3 | 360tools</title>
+  <meta name="title" content="PDF to Speech Converter — Listen to PDF & Download MP3 | 360tools">
+  <meta name="description" content="Upload PDF documents to extract text and listen to them read aloud in natural voices. Download page voiceovers as MP3 audio files. 100% private in-browser document reader.">
+  <meta name="keywords" content="pdf to speech, listen to pdf online, read pdf aloud, pdf audio reader, pdf to mp3 converter, 360tools, 360tools.me">
+  <meta name="author" content="360Tools (360tools.me)">
   <link rel="canonical" href="https://360tools.me/audio-tools/pdf-to-speech.html">
 
   <!-- Open Graph -->
   <link rel="icon" type="image/webp" href="../images/logo-icon.webp">
   <link rel="apple-touch-icon" href="../images/logo-icon.webp">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://360tools.me/pdf-to-speech.html">
-  <meta property="og:title" content="Free PDF to Speech Document Reader | 360tools">
-  <meta property="og:description" content="Extract and listen to PDF documents read aloud in natural voices. 100% in-browser private.">
-  <meta property="og:image" content="images/logo.webp">
+  <meta property="og:url" content="https://360tools.me/audio-tools/pdf-to-speech.html">
+  <meta property="og:title" content="PDF to Speech Converter — Listen & Download MP3 | 360Tools">
+  <meta property="og:description" content="Listen to PDF documents read aloud in natural voices and download MP3 audio tracks directly in your browser.">
+  <meta property="og:image" content="../images/logo.webp">
 
   <!-- Structured Data: WebApplication -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "PDF to Speech Reader",
-    "url": "https://360tools.me/pdf-to-speech.html",
+    "name": "PDF to Speech Document Reader",
+    "url": "https://360tools.me/audio-tools/pdf-to-speech.html",
     "applicationCategory": "MultimediaApplication",
     "operatingSystem": "All",
-    "description": "Extract text from multi-page PDF documents and read them aloud using speech synthesis in browser memory.",
+    "description": "Extract text from multi-page PDF documents and synthesize natural voice narration with MP3 download capabilities.",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -47,18 +47,18 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Are my confidential PDF documents uploaded to your server?",
+        "name": "Are my uploaded PDF files safe and private?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Never. Text extraction is performed 100% in your browser using Mozilla PDF.js. Your sensitive PDF contracts, financial statements, and study materials never touch any cloud server."
+          "text": "Yes! PDF documents are parsed in-browser using PDF.js. No files are ever uploaded or transmitted to any server."
         }
       },
       {
         "@type": "Question",
-        "name": "Can I read specific pages of a multi-page PDF?",
+        "name": "Can I download the PDF narration as an MP3 file?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Once loaded, you can jump to any specific page or listen sequentially from beginning to end."
+          "text": "Yes! Simply load any PDF page and click 'Download Page MP3' to export the audio narration directly."
         }
       }
     ]
@@ -81,26 +81,25 @@
         "@type": "ListItem",
         "position": 2,
         "name": "Audio & Speech Tools",
-        "item": "https://360tools.me/audio-voice-tools.html"
+        "item": "https://360tools.me/audio-tools/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "PDF to Speech",
-        "item": "https://360tools.me/pdf-to-speech.html"
+        "item": "https://360tools.me/audio-tools/pdf-to-speech.html"
       }
     ]
   }
   </script>
 
   <!-- Stylesheets -->
-    <!-- Preconnect External Domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
   <link rel="stylesheet" href="../css/style.min.css">
@@ -108,7 +107,9 @@
   <!-- PDF.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script>
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    if (typeof pdfjsLib !== 'undefined') {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
   </script>
 </head>
 <body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
@@ -123,7 +124,7 @@
     <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-4" aria-label="Breadcrumb">
       <a href="../index.html" class="hover:text-[#c27803]">Home</a>
       <span>/</span>
-      <a href="./" class="hover:text-[#c27803]">Audio & Speech</a>
+      <a href="./index.html" class="hover:text-[#c27803]">Audio & Speech</a>
       <span>/</span>
       <span class="text-slate-700">PDF to Speech</span>
     </nav>
@@ -131,22 +132,22 @@
     <!-- H1 & Description -->
     <div class="mb-8">
       <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
-        PDF to Speech (Listen to PDF Documents)
+        PDF to Speech (Listen to PDF Documents & Download MP3)
       </h1>
       <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-3xl leading-relaxed">
-        Upload or drag & drop any PDF document to extract text and listen to it read aloud in natural voices. 100% private in-browser document narration.
+        Upload or drag & drop any PDF document to extract text and listen to it read aloud in natural voices or download MP3 narration tracks. 100% private in-browser document narration.
       </p>
     </div>
 
     <!-- Privacy Banner -->
-    <div class="mb-6 p-3.5 bg-emerald-50 border border-emerald-200/80 rounded-2xl flex items-center justify-between text-xs text-emerald-900 font-semibold">
+    <div class="mb-6 p-3.5 bg-emerald-50 border border-emerald-200/80 rounded-2xl flex items-center justify-between text-xs text-emerald-900 font-semibold shadow-sm">
       <div class="flex items-center gap-2.5">
         <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">
           <i class="fa-solid fa-shield-halved text-sm"></i>
         </span>
         <span><strong>100% Client-Side Privacy:</strong> PDF documents are parsed in memory with PDF.js. No files leave your device.</span>
       </div>
-      <span class="hidden sm:inline-block bg-emerald-200/70 text-emerald-800 px-2.5 py-1 rounded-full text-[10px] font-black uppercase">Zero Uploads</span>
+      <span class="hidden sm:inline-block bg-emerald-200/70 text-emerald-800 px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider">Zero Uploads</span>
     </div>
 
     <!-- Main Workspace -->
@@ -166,7 +167,7 @@
 
           <div id="pdfSpeechDropZone" class="border-2 border-dashed border-slate-300 hover:border-red-500 hover:bg-red-50/20 transition-all rounded-2xl p-8 text-center cursor-pointer" onclick="document.getElementById('pdfSpeechFileInput').click()">
             <input type="file" id="pdfSpeechFileInput" accept="application/pdf" class="hidden" onchange="handlePdfSpeechUpload(event)">
-            <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 mx-auto flex items-center justify-center text-xl mb-3">
+            <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 mx-auto flex items-center justify-center text-xl mb-3 shadow-inner">
               <i class="fa-solid fa-book-open-reader"></i>
             </div>
             <p class="text-sm font-bold text-slate-700 mb-1">Click to browse or drag & drop PDF</p>
@@ -176,18 +177,18 @@
 
         <!-- Extracted Text Display -->
         <div class="fa-card p-6 shadow-sm space-y-3">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-2">
+          <div class="flex flex-wrap items-center justify-between border-b border-slate-100 pb-2 gap-2">
             <span class="text-xs font-black uppercase tracking-wider text-[#3e2723] flex items-center gap-1.5">
               <i class="fa-solid fa-file-lines text-slate-400"></i> Extracted Page Content
             </span>
             <div class="flex items-center gap-2 text-xs font-bold">
-              <button onclick="prevPdfPage()" class="p-1 text-slate-400 hover:text-slate-700"><i class="fa-solid fa-chevron-left"></i></button>
-              <span id="currentPageIndicator" class="font-mono text-slate-600">Page 1 of 1</span>
-              <button onclick="nextPdfPage()" class="p-1 text-slate-400 hover:text-slate-700"><i class="fa-solid fa-chevron-right"></i></button>
+              <button onclick="prevPdfPage()" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded text-slate-600"><i class="fa-solid fa-chevron-left"></i> Prev</button>
+              <span id="currentPageIndicator" class="font-mono text-slate-700 bg-slate-100 px-2 py-0.5 rounded">Page 1 of 1</span>
+              <button onclick="nextPdfPage()" class="px-2 py-1 bg-slate-100 hover:bg-slate-200 rounded text-slate-600">Next <i class="fa-solid fa-chevron-right"></i></button>
             </div>
           </div>
 
-          <textarea id="extractedPdfText" rows="12" placeholder="Extracted PDF text will appear here ready to read aloud..." class="fa-input font-sans text-sm w-full p-4 leading-relaxed bg-white border border-slate-200 focus:ring-2 focus:ring-red-500 rounded-xl"></textarea>
+          <textarea id="extractedPdfText" rows="11" placeholder="Extracted PDF text will appear here ready to read aloud..." class="fa-input font-sans text-sm sm:text-base w-full p-4 leading-relaxed bg-white border border-slate-200 focus:ring-2 focus:ring-red-500 rounded-xl shadow-inner transition-all"></textarea>
         </div>
 
       </div>
@@ -198,12 +199,12 @@
         <div class="fa-card p-6 shadow-md border-2 border-red-500/20 bg-gradient-to-b from-white to-slate-50 space-y-5">
           <div class="flex items-center justify-between border-b border-slate-200 pb-3">
             <h3 class="text-xs font-black uppercase tracking-wider text-[#3e2723]">Audiobook Narrator</h3>
-            <span id="pdfSpeechStatus" class="text-xs font-black font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded-lg">Idle</span>
+            <span id="pdfSpeechStatus" class="text-xs font-black font-mono bg-slate-100 text-slate-600 px-2.5 py-0.5 rounded-lg border border-slate-200">Idle</span>
           </div>
 
           <div>
             <label for="pdfVoiceSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">Reader Voice</label>
-            <select id="pdfVoiceSelect" class="fa-input text-xs font-bold w-full bg-white border border-slate-300">
+            <select id="pdfVoiceSelect" class="fa-input text-xs font-bold w-full bg-white border border-slate-300 rounded-xl">
               <option value="">Default Voice</option>
             </select>
           </div>
@@ -213,17 +214,35 @@
               <label for="pdfSpeedSlider" class="text-xs font-bold uppercase tracking-wider text-slate-600">Speed</label>
               <span id="pdfSpeedVal" class="text-xs font-black font-mono bg-red-100 text-red-800 px-2 py-0.5 rounded-lg">1.0x</span>
             </div>
-            <input type="range" id="pdfSpeedSlider" min="0.5" max="2.0" step="0.1" value="1.0" class="w-full accent-red-600 cursor-pointer" oninput="document.getElementById('pdfSpeedVal').textContent = parseFloat(this.value).toFixed(1) + 'x'">
+            <input type="range" id="pdfSpeedSlider" min="0.5" max="2.0" step="0.05" value="1.0" class="w-full accent-red-600 cursor-pointer" oninput="document.getElementById('pdfSpeedVal').textContent = parseFloat(this.value).toFixed(2) + 'x'">
+          </div>
+
+          <!-- Encoding Progress Box -->
+          <div id="encodingProgressBox" class="hidden space-y-1.5 p-3.5 bg-red-50 border border-red-200 rounded-xl">
+            <div class="flex justify-between text-xs font-bold text-red-900">
+              <span id="encodingStatusLabel"><i class="fa-solid fa-spinner fa-spin text-red-600 mr-1"></i> Synthesizing PDF audio...</span>
+              <span id="encodingPct" class="font-mono font-black text-red-700">0%</span>
+            </div>
+            <div class="w-full h-2 bg-red-200/70 rounded-full overflow-hidden">
+              <div id="encodingBar" class="bg-red-600 h-full transition-all duration-200" style="width: 0%;"></div>
+            </div>
           </div>
 
           <div class="pt-3 border-t border-slate-200 space-y-2">
-            <button id="btnReadPdf" onclick="togglePdfSpeech()" class="fa-btn-primary py-3 text-sm font-black w-full bg-red-600 hover:bg-red-700 flex items-center justify-center gap-2">
-              <i class="fa-solid fa-play" id="pdfPlayIcon"></i>
-              <span id="pdfPlayText">Read Page Aloud</span>
-            </button>
-            <button onclick="stopPdfSpeech()" class="fa-btn-secondary py-2.5 text-xs font-bold w-full flex items-center justify-center gap-1.5">
-              <i class="fa-solid fa-stop"></i>
-              <span>Stop Reading</span>
+            <div class="grid grid-cols-2 gap-2">
+              <button id="btnReadPdf" onclick="togglePdfSpeech()" class="fa-btn-primary py-3 text-xs sm:text-sm font-black flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white shadow-sm">
+                <i class="fa-solid fa-play" id="pdfPlayIcon"></i>
+                <span id="pdfPlayText">Read Page</span>
+              </button>
+              <button onclick="stopPdfSpeech()" class="fa-btn-secondary py-3 text-xs sm:text-sm font-bold flex items-center justify-center gap-1.5 bg-white border border-slate-200 text-slate-700">
+                <i class="fa-solid fa-stop text-red-500"></i>
+                <span>Stop</span>
+              </button>
+            </div>
+
+            <button id="btnDownloadPdfAudio" onclick="downloadPdfPageAudio()" class="fa-btn-primary py-3 text-sm font-black w-full bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-700 hover:to-rose-800 text-white flex items-center justify-center gap-2 shadow-md">
+              <i class="fa-solid fa-circle-down"></i>
+              <span>Download Page MP3 Audio</span>
             </button>
           </div>
         </div>
@@ -243,17 +262,17 @@
         <div>
           <h3 class="text-xs font-black text-slate-400 uppercase tracking-wider mb-4">Related Document & Voice Tools</h3>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            <a href="/audio-tools/text-to-speech.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
-              <i class="fa-solid fa-volume-high text-[#c27803] mr-1.5"></i> Text to Speech
+            <a href="./text-to-speech.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#146ebe] transition-all block shadow-sm">
+              <i class="fa-solid fa-volume-high text-[#146ebe] mr-1.5"></i> Text to Speech
             </a>
-            <a href="pdf-compressor.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
-              <i class="fa-solid fa-file-pdf text-red-600 mr-1.5"></i> PDF Compressor
-            </a>
-            <a href="/audio-tools/text-to-mp3.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
+            <a href="./text-to-mp3.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#146ebe] transition-all block shadow-sm">
               <i class="fa-solid fa-file-audio text-emerald-600 mr-1.5"></i> Text to MP3
             </a>
-            <a href="/audio-tools/ai-voice-generator.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#c27803] transition-all block">
-              <i class="fa-solid fa-wand-magic-sparkles text-purple-600 mr-1.5"></i> AI Voice Studio
+            <a href="./article-to-speech.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#146ebe] transition-all block shadow-sm">
+              <i class="fa-solid fa-newspaper text-purple-600 mr-1.5"></i> Article to Speech
+            </a>
+            <a href="/pdf-tools/merge-pdf/index.html" class="p-3 bg-white rounded-xl border border-slate-200 hover:border-[#146ebe] text-xs font-bold text-[#3e2723] hover:text-[#146ebe] transition-all block shadow-sm">
+              <i class="fa-solid fa-file-pdf text-red-600 mr-1.5"></i> Merge PDF
             </a>
           </div>
         </div>
@@ -267,16 +286,47 @@
 
   <!-- Scripts -->
   <script src="../js/main.min.js"></script>
+  <script src="../js/audio-tts-engine.js"></script>
   <script>
+    let tts = null;
     let currentPdf = null;
     let totalPdfPages = 1;
     let activePage = 1;
     let pdfVoices = [];
-    let isReading = false;
+
+    function initPdfTool() {
+      tts = new TTSEngine({
+        onStateChange: (state) => {
+          const status = document.getElementById('pdfSpeechStatus');
+          const playText = document.getElementById('pdfPlayText');
+          const playIcon = document.getElementById('pdfPlayIcon');
+
+          if (state.isPlaying) {
+            status.textContent = 'Reading...';
+            status.className = 'text-xs font-black font-mono bg-red-100 text-red-900 px-2.5 py-0.5 rounded-lg border border-red-300';
+            playText.textContent = 'Pause Reading';
+            playIcon.className = 'fa-solid fa-pause';
+          } else {
+            status.textContent = 'Idle';
+            status.className = 'text-xs font-black font-mono bg-slate-100 text-slate-600 px-2.5 py-0.5 rounded-lg border border-slate-200';
+            playText.textContent = 'Read Page';
+            playIcon.className = 'fa-solid fa-play';
+          }
+        },
+        onError: (err) => {
+          showToast(err, 'fa-triangle-exclamation');
+        }
+      });
+
+      populatePdfVoices();
+      if (window.speechSynthesis && window.speechSynthesis.onvoiceschanged !== undefined) {
+        window.speechSynthesis.onvoiceschanged = populatePdfVoices;
+      }
+    }
 
     function populatePdfVoices() {
-      if (!window.speechSynthesis) return;
-      pdfVoices = window.speechSynthesis.getVoices();
+      if (!tts) return;
+      pdfVoices = tts.getVoices();
       const select = document.getElementById('pdfVoiceSelect');
       select.innerHTML = '';
       pdfVoices.forEach((v, i) => {
@@ -288,23 +338,22 @@
       });
     }
 
-    if (window.speechSynthesis && window.speechSynthesis.onvoiceschanged !== undefined) {
-      window.speechSynthesis.onvoiceschanged = populatePdfVoices;
-    }
-    populatePdfVoices();
-
     async function handlePdfSpeechUpload(e) {
       if (e.target.files && e.target.files.length > 0) {
         const file = e.target.files[0];
-        const buffer = await file.arrayBuffer();
-        const loadingTask = pdfjsLib.getDocument({ data: buffer });
-        currentPdf = await loadingTask.promise;
-        totalPdfPages = currentPdf.numPages;
-        activePage = 1;
+        try {
+          const buffer = await file.arrayBuffer();
+          const loadingTask = pdfjsLib.getDocument({ data: buffer });
+          currentPdf = await loadingTask.promise;
+          totalPdfPages = currentPdf.numPages;
+          activePage = 1;
 
-        document.getElementById('pdfPageTotal').textContent = `${totalPdfPages} Pages`;
-        extractAndDisplayPage(1);
-        showToast(`Loaded PDF: ${file.name}`, 'fa-file-pdf');
+          document.getElementById('pdfPageTotal').textContent = `${totalPdfPages} Pages`;
+          extractAndDisplayPage(1);
+          showToast(`Loaded PDF: ${file.name}`, 'fa-file-pdf');
+        } catch (err) {
+          showToast('Could not load PDF document', 'fa-triangle-exclamation');
+        }
       }
     }
 
@@ -316,7 +365,6 @@
       const page = await currentPdf.getPage(pageNum);
       const textContent = await page.getTextContent();
       let rawText = textContent.items.map(item => item.str).join(' ');
-      // Clean noise
       const cleaned = rawText.replace(/\s+/g, ' ').trim();
       document.getElementById('extractedPdfText').value = cleaned;
     }
@@ -338,47 +386,68 @@
     function togglePdfSpeech() {
       const text = document.getElementById('extractedPdfText').value.trim();
       if (!text) {
-        showToast('No text available to read', 'fa-file');
+        showToast('No text available to read. Upload a PDF first.', 'fa-file');
         return;
       }
 
-      if (isReading) {
-        window.speechSynthesis.pause();
-        isReading = false;
-        document.getElementById('pdfPlayText').textContent = 'Resume Reading';
-        document.getElementById('pdfPlayIcon').className = 'fa-solid fa-play';
-        document.getElementById('pdfSpeechStatus').textContent = 'Paused';
+      if (tts && tts.isPaused) {
+        tts.resume();
         return;
       }
 
-      window.speechSynthesis.cancel();
-      const utter = new SpeechSynthesisUtterance(text);
       const voiceIndex = document.getElementById('pdfVoiceSelect').value;
-      if (pdfVoices[voiceIndex]) utter.voice = pdfVoices[voiceIndex];
-      utter.rate = parseFloat(document.getElementById('pdfSpeedSlider').value) || 1.0;
+      const rate = parseFloat(document.getElementById('pdfSpeedSlider').value) || 1.0;
 
-      utter.onstart = function() {
-        isReading = true;
-        document.getElementById('pdfPlayText').textContent = 'Pause Reading';
-        document.getElementById('pdfPlayIcon').className = 'fa-solid fa-pause';
-        document.getElementById('pdfSpeechStatus').textContent = 'Reading...';
-        document.getElementById('pdfSpeechStatus').className = 'text-xs font-black font-mono bg-red-100 text-red-800 px-2 py-0.5 rounded-lg';
-      };
-
-      utter.onend = function() {
-        stopPdfSpeech();
-      };
-
-      window.speechSynthesis.speak(utter);
+      tts.speak(text, {
+        voiceIndex: voiceIndex !== '' ? parseInt(voiceIndex) : null,
+        rate
+      });
     }
 
     function stopPdfSpeech() {
-      window.speechSynthesis.cancel();
-      isReading = false;
-      document.getElementById('pdfPlayText').textContent = 'Read Page Aloud';
-      document.getElementById('pdfPlayIcon').className = 'fa-solid fa-play';
-      document.getElementById('pdfSpeechStatus').textContent = 'Idle';
-      document.getElementById('pdfSpeechStatus').className = 'text-xs font-black font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded-lg';
+      if (tts) tts.stop();
+      showToast('Reading stopped', 'fa-stop');
+    }
+
+    async function downloadPdfPageAudio() {
+      const text = document.getElementById('extractedPdfText').value.trim();
+      if (!text) {
+        showToast('Please upload a PDF or enter text to download', 'fa-file');
+        return;
+      }
+
+      const rate = parseFloat(document.getElementById('pdfSpeedSlider').value) || 1.0;
+      const progressBox = document.getElementById('encodingProgressBox');
+      const progressBar = document.getElementById('encodingBar');
+      const progressPct = document.getElementById('encodingPct');
+      const statusLabel = document.getElementById('encodingStatusLabel');
+      const btnDownload = document.getElementById('btnDownloadPdfAudio');
+
+      progressBox.classList.remove('hidden');
+      btnDownload.setAttribute('disabled', 'true');
+
+      try {
+        const result = await tts.generateAudioBlob(text, {
+          format: 'mp3',
+          rate,
+          onProgress: (p) => {
+            progressBar.style.width = `${p.percent}%`;
+            progressPct.textContent = `${p.percent}%`;
+            statusLabel.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-red-600 mr-1"></i> ${p.message}`;
+          }
+        });
+
+        const filename = `pdf_page_${activePage}_${Date.now()}.${result.format}`;
+        tts.downloadBlob(result.blob, filename);
+        showToast(`Downloaded ${filename}!`, 'fa-circle-check');
+      } catch (e) {
+        showToast('Audio generation error', 'fa-triangle-exclamation');
+      } finally {
+        setTimeout(() => {
+          progressBox.classList.add('hidden');
+          btnDownload.removeAttribute('disabled');
+        }, 600);
+      }
     }
 
     // Drag & Drop
@@ -389,6 +458,11 @@
       if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
         handlePdfSpeechUpload({ target: { files: e.dataTransfer.files } });
       }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initPdfTool();
+      document.getElementById('extractedPdfText').value = "Quantum computing represents a fundamental shift in information processing. Instead of relying on classical bits that represent either a zero or a one, quantum processors manipulate quantum bits or qubits that can exist in a state of superposition.";
     });
   </script>
 </body>
