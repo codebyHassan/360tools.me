@@ -19,7 +19,9 @@
   <meta property="og:url" content="https://360tools.me/png-compressor.html">
   <meta property="og:title" content="PNG Compressor – Compress PNG Images Online | 360tools">
   <meta property="og:description" content="Compress PNG images online with full alpha transparency preservation and zero server uploads.">
-  <meta property="og:image" content="images/logo.webp">
+  <meta property="og:image" content="https://360tools.me/images/logo.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://360tools.me/images/logo.webp">
 
   <!-- Structured Data: WebApplication -->
   <script type="application/ld+json">
@@ -274,11 +276,72 @@
     <!-- How It Works & FAQs -->
     <section class="my-16 pt-10 border-t border-slate-200">
       <div class="max-w-4xl mx-auto space-y-12">
-        <div class="fa-card p-8 space-y-4">
-          <h3 class="text-lg font-black text-[#3e2723]">Lossless vs. Lossy PNG Compression</h3>
-          <p class="text-xs text-slate-600 leading-relaxed font-medium">
-            PNG files use lossless DEFLATE compression. Because PNG is designed for pixel-perfect reproduction, shrinking a PNG losslessly only removes unnecessary ancillary chunks (such as creation timestamps and color profiles). To achieve massive 70%+ file size reductions for web performance, converting transparent PNGs to transparent WebP format provides the best of both worlds: 100% alpha transparency with cutting-edge predictive compression.
+                <div class="space-y-4">
+          <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight">
+            Lossless & Lossy PNG Compression (Keep 100% Alpha Transparency)
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+            Portable Network Graphics (PNG) is the premier image standard for logos, user interface icons, digital illustrations, and screenshots 
+            because it supports true transparent alpha channels. However, unoptimized PNG assets often contain excessive color palettes and metadata, 
+            resulting in bloated file weights. The 360Tools PNG Compressor optimizes your transparent graphics using advanced pallet quantization 
+            and modern WebP-Alpha transcoding to slash file sizes by up to 75% without compromising edges or clarity.
           </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="fa-card p-6 bg-white border border-slate-200 rounded-xl space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center text-lg">
+              <i class="fa-solid fa-shapes"></i>
+            </div>
+            <h3 class="font-bold text-[#3e2723] text-sm">Flawless Transparency</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Maintains true transparent alpha layers without dark halos, white fringes, or jagged cutout borders around your graphics.
+            </p>
+          </div>
+
+          <div class="fa-card p-6 bg-white border border-slate-200 rounded-xl space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-50 text-[#146ebe] flex items-center justify-center text-lg">
+              <i class="fa-solid fa-file-export"></i>
+            </div>
+            <h3 class="font-bold text-[#3e2723] text-sm">WebP-Alpha Mode</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Optionally transcode transparent PNGs into next-gen WebP to save up to 80% while retaining full alpha channel support.
+            </p>
+          </div>
+
+          <div class="fa-card p-6 bg-white border border-slate-200 rounded-xl space-y-3">
+            <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center text-lg">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 class="font-bold text-[#3e2723] text-sm">100% In-Browser Privacy</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Proprietary company branding, UI assets, and client logos are processed strictly in local RAM. Zero server uploads.
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <h2 class="text-2xl font-black text-[#3e2723] mb-4">Frequently Asked Questions</h2>
+
+          <details class="group fa-card p-5 bg-white border border-slate-200 rounded-xl transition-all">
+            <summary class="flex justify-between items-center font-bold text-sm text-[#3e2723] cursor-pointer list-none">
+              <span>What is the difference between Standard PNG and WebP Alpha mode?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+              Standard PNG mode performs lossless palette optimization while outputting a traditional .png file. WebP Alpha mode converts your graphic into Google's modern WebP format, preserving identical transparency at significantly smaller byte sizes for faster web delivery.
+            </p>
+          </details>
+
+          <details class="group fa-card p-5 bg-white border border-slate-200 rounded-xl transition-all">
+            <summary class="flex justify-between items-center font-bold text-sm text-[#3e2723] cursor-pointer list-none">
+              <span>Will transparent PNG compression create fuzzy borders around text?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+              No. Our quantizer preserves anti-aliased edge pixels, guaranteeing crisp text and sharp icon outlines against dark and light website backgrounds alike.
+            </p>
+          </details>
         </div>
 
         <div class="pt-8 border-t border-slate-200">

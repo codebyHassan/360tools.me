@@ -34,11 +34,11 @@
 /compress-image-to-200kb.html /image-tools/compress-image-to-200kb.html 301
 /compress-image-to-500kb.html /image-tools/compress-image-to-500kb.html 301
 /bulk-image-compressor.html /image-tools/bulk-image-compressor.html 301
-/target-size-compressor.html /image-tools/compress-image-to-100kb.html 301
-/image-converter-compressor.html /image-tools/image-compressor.html 301
+/target-size-compressor.html /image-tools/target-size-compressor.html 301
+/image-converter-compressor.html /image-tools/image-converter-compressor.html 301
 
 # PDF Tools Legacy
-/pdf-compressor.html /pdf-tools/compress-pdf/index.html 301
+/pdf-compressor.html /pdf-tools/compress-pdf/ 301
 
 # Video Tools
 /video-compressor.html /video-tools/video-compressor.html 301
@@ -48,8 +48,9 @@
 /html-minifier.html /developer-tools/html-minifier.html 301
 /css-minifier.html /developer-tools/css-minifier.html 301
 /javascript-minifier.html /developer-tools/javascript-minifier.html 301
-/code-minifier.html /developer-tools/html-minifier.html 301
+/code-minifier.html /developer-tools/code-minifier.html 301
 /shopify-csv-validator.html /developer-tools/shopify-csv-validator.html 301
+/ecommerce-tools/shopify-csv-validator.html /developer-tools/shopify-csv-validator.html 301
 /ats-resume-checker.html /developer-tools/ats-resume-checker.html 301
 /cv-checker.html /developer-tools/ats-resume-checker.html 301
 

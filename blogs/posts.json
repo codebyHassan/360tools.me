@@ -48,10 +48,10 @@
         "icon": "fa-solid fa-newspaper",
         "color": "text-blue-600"
       },
-      "featured_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrjPA3UeNUU4PliJdoMrkGnPg5oyTRE0zjPG_JrEBCVA&s=10",
+      "featured_image_url": "https://360tools.me/images/logo.webp",
       "featured_video_url": null,
       "author_name": "360tools Engineering Team",
-      "author_avatar": "https://360tools.me/images/logo.jpg",
+      "author_avatar": "https://360tools.me/images/logo-icon.webp",
       "author_role": "Product Specialist",
       "read_time_minutes": 6,
       "primary_tool_name": "Free PDF Merge Tool",
@@ -90,10 +90,10 @@
         "icon": "fa-solid fa-code",
         "color": "text-amber-600"
       },
-      "featured_image_url": "https://360tools.me/images/logo.jpg",
+      "featured_image_url": "https://360tools.me/images/logo.webp",
       "featured_video_url": "https://www.youtube.com/watch?v=irrNumGugMA",
       "author_name": "360tools Engineering Team",
-      "author_avatar": "https://360tools.me/images/logo.jpg",
+      "author_avatar": "https://360tools.me/images/logo.webp",
       "author_role": "Frontend Architect",
       "read_time_minutes": 4,
       "primary_tool_name": "HTML Minifier",
@@ -127,10 +127,10 @@
         "icon": "fa-solid fa-image",
         "color": "text-emerald-600"
       },
-      "featured_image_url": "https://360tools.me/images/logo.jpg",
+      "featured_image_url": "https://360tools.me/images/logo.webp",
       "featured_video_url": null,
       "author_name": "360tools Engineering Team",
-      "author_avatar": "https://360tools.me/images/logo.jpg",
+      "author_avatar": "https://360tools.me/images/logo.webp",
       "author_role": "Performance Engineer",
       "read_time_minutes": 6,
       "primary_tool_name": "Universal Image Compressor",
@@ -169,10 +169,10 @@
         "icon": "fa-solid fa-wand-magic-sparkles",
         "color": "text-purple-600"
       },
-      "featured_image_url": "https://360tools.me/images/logo.jpg",
+      "featured_image_url": "https://360tools.me/images/logo.webp",
       "featured_video_url": null,
       "author_name": "Hassan Dev",
-      "author_avatar": "https://360tools.me/images/logo.jpg",
+      "author_avatar": "https://360tools.me/images/logo.webp",
       "author_role": "Audio AI Lead",
       "read_time_minutes": 4,
       "primary_tool_name": "AI Voice Generator Studio",
@@ -206,10 +206,10 @@
         "icon": "fa-solid fa-file-invoice-dollar",
         "color": "text-blue-600"
       },
-      "featured_image_url": "https://360tools.me/images/logo.jpg",
+      "featured_image_url": "https://360tools.me/images/logo.webp",
       "featured_video_url": null,
       "author_name": "360tools Editorial Team",
-      "author_avatar": "https://360tools.me/images/logo.jpg",
+      "author_avatar": "https://360tools.me/images/logo.webp",
       "author_role": "Financial Tools Specialist",
       "read_time_minutes": 5,
       "primary_tool_name": "Free Online Invoice Generator",
@@ -218,7 +218,7 @@
       "secondary_tools": [
         {
           "name": "PDF Compressor",
-          "url": "pdf-compressor.html",
+          "url": "/pdf-tools/compress-pdf/",
           "icon": "fa-file-pdf"
         },
         {
