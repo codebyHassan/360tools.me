@@ -391,8 +391,8 @@ const TOOLS_REGISTRY = [
     keywords: ["article to speech","web reader","blog cleaner"]
   },
   {
-    name: "Free Watermark Remover (Image & Video)",
-    url: "/image-tools/watermark-remover.html",
+    name: "Free Photo Object Eraser (Image & Video)",
+    url: "/image-tools/background-remover.html",
     category: "image-tools",
     subcategory: "editing",
     icon: "fa-eraser",
@@ -1813,8 +1813,8 @@ function createMobileAppDrawer() {
             <a href="${getSiteRoot()}image-tools/" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
           </div>
           <div class="grid grid-cols-2 gap-2">
-            <a href="${getSiteRoot()}image-tools/watermark-remover.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-xs font-bold text-[#183153]">
-              <i class="fa-solid fa-eraser text-purple-600 text-sm"></i> Watermark Remover (Img & Video)
+            <a href="${getSiteRoot()}image-tools/background-remover.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-eraser text-purple-600 text-sm"></i> Photo Object Eraser (Img & Video)
             </a>
             <a href="${getSiteRoot()}image-tools/background-remover.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-teal-50 hover:bg-teal-100 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-wand-magic-sparkles text-teal-600 text-sm"></i> BG Remover
@@ -2322,11 +2322,11 @@ function renderGlobalHeader() {
                       </div>
 
                       <div class="grid grid-cols-2 gap-2">
-                        <a href="${getSiteRoot()}image-tools/watermark-remover.html" class="nav-tool-item bg-purple-50/70 hover:bg-purple-100/70 border border-purple-200/60">
+                        <a href="${getSiteRoot()}image-tools/background-remover.html" class="nav-tool-item bg-purple-50/70 hover:bg-purple-100/70 border border-purple-200/60">
                           <div class="nav-tool-icon bg-purple-600 text-white"><i class="fa-solid fa-eraser"></i></div>
                           <div>
                             <div class="nav-tool-title text-purple-950 flex items-center gap-1.5">
-                              <span>Watermark Remover</span>
+                              <span>Photo Object Eraser</span>
                               <span class="bg-purple-600 text-white text-[8px] font-black px-1.5 py-0.2 rounded-full uppercase">NEW</span>
                             </div>
                             <div class="nav-tool-desc text-purple-700">Erase logos from image & video</div>
@@ -2826,6 +2826,7 @@ function renderGlobalHeader() {
 function renderGlobalFooter() {
   const footerElem = document.getElementById('globalFooter');
   if (!footerElem) return;
+  if (footerElem.innerHTML && footerElem.innerHTML.trim().length > 100) return;
 
   footerElem.className = 'no-print bg-white text-slate-700 border-t border-slate-200/80 mt-20';
   footerElem.innerHTML = `
@@ -2929,7 +2930,7 @@ function renderGlobalFooter() {
             <li><a href="${getSiteRoot()}pdf-tools/compress-pdf/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Compress PDF</a></li>
             <li><a href="${getSiteRoot()}image-tools/image-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Image Compressor</a></li>
             <li><a href="${getSiteRoot()}image-tools/background-remover.html" class="text-teal-700 hover:text-teal-900 transition-colors flex items-center gap-1.5 font-bold"><i class="fa-solid fa-wand-magic-sparkles text-[9px] text-teal-600"></i> AI BG Remover</a></li>
-            <li><a href="${getSiteRoot()}image-tools/watermark-remover.html" class="text-purple-700 hover:text-purple-900 transition-colors flex items-center gap-1.5 font-bold"><i class="fa-solid fa-eraser text-[9px] text-purple-600"></i> Watermark Remover</a></li>
+            <li><a href="${getSiteRoot()}image-tools/background-remover.html" class="text-purple-700 hover:text-purple-900 transition-colors flex items-center gap-1.5 font-bold"><i class="fa-solid fa-eraser text-[9px] text-purple-600"></i> Photo Object Eraser</a></li>
           </ul>
         </div>
 
