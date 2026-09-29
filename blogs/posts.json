@@ -19,7 +19,7 @@
       "slug": "ecommerce-financial",
       "icon": "fa-solid fa-file-invoice-dollar",
       "color": "text-blue-600",
-      "count": 1
+      "count": 2
     },
     {
       "name": "Image & Media Optimization",
@@ -38,6 +38,43 @@
   ],
   "posts": [
     {
+      "id": 6,
+      "title": "Trending Today: Global News, Pop Culture Surges, and Smart E-Commerce Tools",
+      "slug": "trending-today-global-news-pop-culture-surges-and-smart-e-commerce-tools",
+      "excerpt": "Discover today’s top trending search topics—from sports fixtures and celebrity buzz to essential online seller tools like our free Etsy Fee Calculator.",
+      "category": {
+        "name": "E-Commerce & Financial",
+        "slug": "ecommerce-financial",
+        "icon": "fa-solid fa-file-invoice-dollar",
+        "color": "text-blue-600"
+      },
+      "featured_image_url": "https://360tools.me/images/logo.jpg",
+      "featured_video_url": null,
+      "author_name": "360tools Engineering Team",
+      "author_avatar": "https://360tools.me/images/logo.jpg",
+      "author_role": "Product Specialist",
+      "read_time_minutes": 4,
+      "primary_tool_name": "Etsy Fee Calculator",
+      "primary_tool_url": "ecommerce-tools/etsy-fee-calculator.html",
+      "primary_tool_cta": "Calculate Your Etsy Fees Now",
+      "secondary_tools": [
+        {
+          "name": "PayPal Fee Calculator",
+          "url": "ecommerce-tools/paypal-fee-calculator.html",
+          "icon": "calculator"
+        },
+        {
+          "name": "Discount Calculator",
+          "url": "ecommerce-tools/discount-calculator.html",
+          "icon": "percent"
+        }
+      ],
+      "is_featured": true,
+      "views_count": 0,
+      "created_at": "2026-09-29T21:58:10.151495+00:00",
+      "published_date_formatted": "Sep 29, 2026"
+    },
+    {
       "id": 5,
       "title": "How to Merge PDF Files Online for Free: Complete Guide",
       "slug": "how-merge-pdf-files-online-free-complete-guide",
@@ -48,10 +85,10 @@
         "icon": "fa-solid fa-newspaper",
         "color": "text-blue-600"
       },
-      "featured_image_url": "https://360tools.me/images/logo.webp",
+      "featured_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrjPA3UeNUU4PliJdoMrkGnPg5oyTRE0zjPG_JrEBCVA&s=10",
       "featured_video_url": null,
       "author_name": "360tools Engineering Team",
-      "author_avatar": "https://360tools.me/images/logo-icon.webp",
+      "author_avatar": "https://360tools.me/images/logo.jpg",
       "author_role": "Product Specialist",
       "read_time_minutes": 6,
       "primary_tool_name": "Free PDF Merge Tool",
@@ -75,7 +112,7 @@
         }
       ],
       "is_featured": true,
-      "views_count": 0,
+      "views_count": 24,
       "created_at": "2026-09-21T13:17:40.233484+00:00",
       "published_date_formatted": "Sep 21, 2026"
     },
@@ -90,10 +127,10 @@
         "icon": "fa-solid fa-code",
         "color": "text-amber-600"
       },
-      "featured_image_url": "https://360tools.me/images/logo.webp",
+      "featured_image_url": "https://360tools.me/images/logo.jpg",
       "featured_video_url": "https://www.youtube.com/watch?v=irrNumGugMA",
       "author_name": "360tools Engineering Team",
-      "author_avatar": "https://360tools.me/images/logo.webp",
+      "author_avatar": "https://360tools.me/images/logo.jpg",
       "author_role": "Frontend Architect",
       "read_time_minutes": 4,
       "primary_tool_name": "HTML Minifier",
@@ -112,7 +149,7 @@
         }
       ],
       "is_featured": false,
-      "views_count": 5,
+      "views_count": 10,
       "created_at": "2026-09-03T09:17:57.017585+00:00",
       "published_date_formatted": "Sep 03, 2026"
     },
@@ -127,10 +164,10 @@
         "icon": "fa-solid fa-image",
         "color": "text-emerald-600"
       },
-      "featured_image_url": "https://360tools.me/images/logo.webp",
+      "featured_image_url": "https://360tools.me/images/logo.jpg",
       "featured_video_url": null,
       "author_name": "360tools Engineering Team",
-      "author_avatar": "https://360tools.me/images/logo.webp",
+      "author_avatar": "https://360tools.me/images/logo.jpg",
       "author_role": "Performance Engineer",
       "read_time_minutes": 6,
       "primary_tool_name": "Universal Image Compressor",
@@ -169,10 +206,10 @@
         "icon": "fa-solid fa-wand-magic-sparkles",
         "color": "text-purple-600"
       },
-      "featured_image_url": "https://360tools.me/images/logo.webp",
+      "featured_image_url": "https://360tools.me/images/logo.jpg",
       "featured_video_url": null,
       "author_name": "Hassan Dev",
-      "author_avatar": "https://360tools.me/images/logo.webp",
+      "author_avatar": "https://360tools.me/images/logo.jpg",
       "author_role": "Audio AI Lead",
       "read_time_minutes": 4,
       "primary_tool_name": "AI Voice Generator Studio",
@@ -206,10 +243,10 @@
         "icon": "fa-solid fa-file-invoice-dollar",
         "color": "text-blue-600"
       },
-      "featured_image_url": "https://360tools.me/images/logo.webp",
+      "featured_image_url": "https://360tools.me/images/logo.jpg",
       "featured_video_url": null,
       "author_name": "360tools Editorial Team",
-      "author_avatar": "https://360tools.me/images/logo.webp",
+      "author_avatar": "https://360tools.me/images/logo.jpg",
       "author_role": "Financial Tools Specialist",
       "read_time_minutes": 5,
       "primary_tool_name": "Free Online Invoice Generator",
@@ -218,7 +255,7 @@
       "secondary_tools": [
         {
           "name": "PDF Compressor",
-          "url": "/pdf-tools/compress-pdf/",
+          "url": "pdf-compressor.html",
           "icon": "fa-file-pdf"
         },
         {
@@ -228,7 +265,7 @@
         }
       ],
       "is_featured": true,
-      "views_count": 1,
+      "views_count": 6,
       "created_at": "2026-09-03T09:17:56.605920+00:00",
       "published_date_formatted": "Sep 03, 2026"
     }
