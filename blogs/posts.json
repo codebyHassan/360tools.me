@@ -164,7 +164,7 @@
         "icon": "fa-solid fa-code",
         "color": "text-amber-600"
       },
-      "featured_image_url": "https://360tools.me/images/logo.jpg",
+      "featured_image_url": "https://360tools.me/images/blogs/guide-to-html-css-js-minification.jpg",
       "featured_video_url": "https://www.youtube.com/watch?v=irrNumGugMA",
       "author_name": "360tools Engineering Team",
       "author_avatar": "https://360tools.me/images/logo.jpg",
@@ -186,7 +186,7 @@
         }
       ],
       "is_featured": false,
-      "views_count": 10,
+      "views_count": 11,
       "created_at": "2026-09-03T09:17:57.017585+00:00",
       "published_date_formatted": "Sep 03, 2026"
     },
