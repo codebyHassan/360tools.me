@@ -12,7 +12,7 @@
       "slug": "developer-web-performance",
       "icon": "fa-solid fa-code",
       "color": "text-amber-600",
-      "count": 1
+      "count": 2
     },
     {
       "name": "E-Commerce & Financial",
@@ -37,6 +37,43 @@
     }
   ],
   "posts": [
+    {
+      "id": 7,
+      "title": "Free ATS Resume Checker – Optimize Your Resume & Get More Interviews",
+      "slug": "free-ats-resume-checker-optimize-your-resume-get-more-interviews",
+      "excerpt": "Check your resume with our free ATS Resume Checker. Analyze keywords, improve resume formatting, identify ATS compatibility issues, and optimize your CV for better job opportunities.",
+      "category": {
+        "name": "Developer & Web Performance",
+        "slug": "developer-web-performance",
+        "icon": "fa-solid fa-code",
+        "color": "text-amber-600"
+      },
+      "featured_image_url": "https://360tools.me/assets/images/blog/ats-resume-checker-banner.png",
+      "featured_video_url": null,
+      "author_name": "360tools.me Editorial Team",
+      "author_avatar": "https://360tools.me/images/logo.jpg",
+      "author_role": "Technology & Online Tools Editorial Team",
+      "read_time_minutes": 4,
+      "primary_tool_name": "Free ATS Resume Checker",
+      "primary_tool_url": "/developer-tools/ats-resume-checker.html",
+      "primary_tool_cta": "Launch Free Tool Now",
+      "secondary_tools": [
+        {
+          "name": "PDF Tools",
+          "url": "/pdf-tools/",
+          "icon": "file-text"
+        },
+        {
+          "name": "Image Tools",
+          "url": "/image-tools/",
+          "icon": "image"
+        }
+      ],
+      "is_featured": true,
+      "views_count": 0,
+      "created_at": "2026-10-03T21:38:19.638209+00:00",
+      "published_date_formatted": "Oct 03, 2026"
+    },
     {
       "id": 6,
       "title": "Trending Today: Global News, Pop Culture Surges, and Smart E-Commerce Tools",
@@ -70,7 +107,7 @@
         }
       ],
       "is_featured": true,
-      "views_count": 0,
+      "views_count": 10,
       "created_at": "2026-09-29T21:58:10.151495+00:00",
       "published_date_formatted": "Sep 29, 2026"
     },
