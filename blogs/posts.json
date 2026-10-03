@@ -70,7 +70,7 @@
         }
       ],
       "is_featured": true,
-      "views_count": 0,
+      "views_count": 2,
       "created_at": "2026-10-03T21:38:19.638209+00:00",
       "published_date_formatted": "Oct 03, 2026"
     },
@@ -85,7 +85,7 @@
         "icon": "fa-solid fa-file-invoice-dollar",
         "color": "text-blue-600"
       },
-      "featured_image_url": "https://360tools.me/images/logo.jpg",
+      "featured_image_url": "https://360tools.me/images/blogs/trending-today-global-news-pop-culture-surges-and-smart-e-commerce-tools.jpg",
       "featured_video_url": null,
       "author_name": "360tools Engineering Team",
       "author_avatar": "https://360tools.me/images/logo.jpg",
@@ -107,7 +107,7 @@
         }
       ],
       "is_featured": true,
-      "views_count": 10,
+      "views_count": 11,
       "created_at": "2026-09-29T21:58:10.151495+00:00",
       "published_date_formatted": "Sep 29, 2026"
     },
