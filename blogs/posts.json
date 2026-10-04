@@ -19,7 +19,7 @@
       "slug": "ecommerce-financial",
       "icon": "fa-solid fa-file-invoice-dollar",
       "color": "text-blue-600",
-      "count": 2
+      "count": 3
     },
     {
       "name": "Image & Media Optimization",
@@ -37,6 +37,32 @@
     }
   ],
   "posts": [
+    {
+      "id": 8,
+      "title": "Prime Minister Fuel Subsidy Scheme 9771 – Pakistan Registration Guide 2026",
+      "slug": "prime-minister-fuel-subsidy-scheme-9771-pakistan-registration-guide-2026",
+      "excerpt": "Complete guide to Pakistan's PM Fuel Subsidy Scheme 9771. Learn eligibility, Rs. 100 per litre petrol relief, SMS registration, fuel tokens, and official government updates.",
+      "category": {
+        "name": "E-Commerce & Financial",
+        "slug": "ecommerce-financial",
+        "icon": "fa-solid fa-file-invoice-dollar",
+        "color": "text-blue-600"
+      },
+      "featured_image_url": "https://360tools.me/images/blogs/prime-minister-fuel-subsidy-scheme-9771-pakistan-registration-guide-2026.jpg",
+      "featured_video_url": null,
+      "author_name": "360tools Engineering Team",
+      "author_avatar": "https://360tools.me/images/logo.jpg",
+      "author_role": "Product Specialist",
+      "read_time_minutes": 4,
+      "primary_tool_name": "",
+      "primary_tool_url": "",
+      "primary_tool_cta": "Launch Free Tool Now",
+      "secondary_tools": [],
+      "is_featured": true,
+      "views_count": 0,
+      "created_at": "2026-10-04T23:20:06.313565+00:00",
+      "published_date_formatted": "Oct 04, 2026"
+    },
     {
       "id": 7,
       "title": "Free ATS Resume Checker – Optimize Your Resume & Get More Interviews",
@@ -70,7 +96,7 @@
         }
       ],
       "is_featured": true,
-      "views_count": 2,
+      "views_count": 10,
       "created_at": "2026-10-03T21:38:19.638209+00:00",
       "published_date_formatted": "Oct 03, 2026"
     },
@@ -302,7 +328,7 @@
         }
       ],
       "is_featured": true,
-      "views_count": 7,
+      "views_count": 13,
       "created_at": "2026-09-03T09:17:56.605920+00:00",
       "published_date_formatted": "Sep 03, 2026"
     }
