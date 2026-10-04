@@ -59,7 +59,7 @@
       "primary_tool_cta": "Launch Free Tool Now",
       "secondary_tools": [],
       "is_featured": true,
-      "views_count": 0,
+      "views_count": 7,
       "created_at": "2026-10-04T23:20:06.313565+00:00",
       "published_date_formatted": "Oct 04, 2026"
     },
@@ -148,7 +148,7 @@
         "icon": "fa-solid fa-newspaper",
         "color": "text-blue-600"
       },
-      "featured_image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrjPA3UeNUU4PliJdoMrkGnPg5oyTRE0zjPG_JrEBCVA&s=10",
+      "featured_image_url": "https://360tools.me/images/blogs/how-merge-pdf-files-online-free-complete-guide.png",
       "featured_video_url": null,
       "author_name": "360tools Engineering Team",
       "author_avatar": "https://360tools.me/images/logo.jpg",
@@ -175,7 +175,7 @@
         }
       ],
       "is_featured": true,
-      "views_count": 24,
+      "views_count": 25,
       "created_at": "2026-09-21T13:17:40.233484+00:00",
       "published_date_formatted": "Sep 21, 2026"
     },
