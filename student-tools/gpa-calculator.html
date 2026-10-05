@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Free GPA Calculator — College & High School 4.0 Scale (2026) | 360tools.me</title>
+  <meta name="title" content="Free GPA Calculator — College & High School 4.0 Scale (2026) | 360tools.me">
+  <meta name="description" content="Calculate semester GPA and cumulative CGPA on a standard 4.0 scale. Supports credit hours, weighted/unweighted grades, and letter-to-percentage conversions. 100% private.">
+  <meta name="keywords" content="gpa calculator, college gpa calculator, cumulative gpa calculator, 4.0 scale gpa calculator, high school gpa calculator, semester cgpa calculator, weighted gpa calculator">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/student-tools/gpa-calculator.html">
+
+  <!-- Favicon & Open Graph / Facebook -->
+  <link rel="icon" type="image/webp" href="../images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="../images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/student-tools/gpa-calculator.html">
+  <meta property="og:title" content="Free College & High School GPA Calculator | 360tools.me">
+  <meta property="og:description" content="Calculate semester and cumulative Grade Point Average on a 4.0 scale client-side.">
+  <meta property="og:image" content="https://360tools.me/images/logo.webp">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://360tools.me/student-tools/gpa-calculator.html">
+  <meta name="twitter:title" content="College & High School GPA Calculator">
+  <meta name="twitter:description" content="Calculate semester GPA and cumulative CGPA instantly.">
+  <meta name="twitter:image" content="https://360tools.me/images/logo.webp">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "College & High School GPA Calculator",
+    "url": "https://360tools.me/student-tools/gpa-calculator.html",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "description": "Academic utility to calculate semester GPA, cumulative CGPA, and grade point averages on a standard 4.0 weighted and unweighted scale client-side.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../css/style.min.css">
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Student Tools",
+        "item": "https://360tools.me/student-tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "GPA & CGPA Calculator",
+        "item": "https://360tools.me/student-tools/gpa-calculator.html"
+      }
+    ]
+  }
+  </script>
+
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is GPA calculated on a 4.0 scale?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GPA is calculated by multiplying each course's credit hours by the grade point value (A=4.0, B=3.0, C=2.0, D=1.0, F=0), summing the total grade points, and dividing by total credit hours taken."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between Semester GPA and Cumulative CGPA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Semester GPA calculates academic performance across a single academic term. Cumulative Grade Point Average (CGPA) calculates overall performance across all completed semesters."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do weighted Honors / AP grades work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Weighted GPA scales grant an extra 0.5 points for Honors classes (e.g. A=4.5) and an extra 1.0 point for Advanced Placement (AP) or International Baccalaureate (IB) courses (e.g. A=5.0)."
+        }
+      }
+    ]
+  }
+  </script>
+
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Header -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto w-full flex-1">
+
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-6" aria-label="Breadcrumb">
+      <a href="../index.html" class="hover:text-[#c27803] transition-colors"><i class="fa-solid fa-house mr-1"></i>Home</a>
+      <span class="text-slate-300">/</span>
+      <a href="./" class="hover:text-[#c27803] transition-colors">Student Tools</a>
+      <span class="text-slate-300">/</span>
+      <span class="text-[#3e2723] font-black">GPA Calculator</span>
+    </nav>
+    
+    <!-- Hero / Headline Above the Fold -->
+    <div class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="bg-blue-100 text-blue-900 text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-solid fa-graduation-cap mr-1 text-blue-700"></i> Academic & University Suite
+          </span>
+          <span class="text-xs font-bold text-slate-500">• 100% In-Browser Privacy • 4.0 Standard Scale</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
+          Free College & High School GPA Calculator
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-3xl leading-relaxed">
+          Calculate your semester Grade Point Average (GPA) and Cumulative CGPA on a standard 4.0 US university scale. Add course credits, letter grades, and honors weightings.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 self-start md:self-center">
+        <button onclick="addCourseRow('Data Structures', 4, 4.0)" class="fa-btn-secondary text-xs px-3.5 py-2">
+          <i class="fa-solid fa-plus text-[#c27803]"></i> Add Course
+        </button>
+      </div>
+    </div>
+
+    <!-- MAIN INTERACTIVE STUDIO WORKSPACE -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+
+      <!-- LEFT COLUMN: Course Rows List (7 Cols) -->
+      <div class="lg:col-span-7 space-y-6">
+
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs space-y-4">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <span class="text-xs font-black uppercase tracking-wider text-[#3e2723] flex items-center gap-1.5">
+              <i class="fa-solid fa-book text-[#c27803]"></i> Semester Courses
+            </span>
+            <button onclick="resetCourses()" class="text-xs font-bold text-red-600 hover:underline">
+              <i class="fa-solid fa-trash-can mr-1"></i> Reset
+            </button>
+          </div>
+
+          <!-- Courses Container -->
+          <div id="courseListContainer" class="space-y-3">
+            <!-- Populated by JS -->
+          </div>
+
+          <!-- Add Button -->
+          <div class="pt-2">
+            <button onclick="addCourseRow('', 3, 4.0)" class="fa-btn-secondary w-full py-2.5 px-4 text-xs font-bold flex items-center justify-center gap-2">
+              <i class="fa-solid fa-plus text-[#c27803]"></i>
+              <span>Add Another Course</span>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Results Dashboard (5 Cols) -->
+      <div class="lg:col-span-5 space-y-6">
+
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-md space-y-6 sticky top-6">
+          
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <span class="text-xs font-black uppercase text-[#3e2723] tracking-wider flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></span>
+              Academic Performance
+            </span>
+            <span id="gpaHonorBadge" class="text-xs font-black px-3 py-1 rounded-full bg-emerald-100 text-emerald-800">
+              Dean's Honor List
+            </span>
+          </div>
+
+          <!-- Main GPA Hero Metric -->
+          <div class="p-6 rounded-2xl bg-[#fbf7ee] border-2 border-[#ded2be] text-center space-y-2">
+            <span class="text-xs font-black uppercase tracking-wider text-slate-500">Semester GPA (4.0 Scale)</span>
+            <div id="statSemesterGPA" class="text-5xl font-black text-[#146ebe]">3.85</div>
+            <p id="statTotalCreditsText" class="text-xs font-bold text-slate-600">Total Credit Hours: 15 Credits</p>
+          </div>
+
+          <!-- Key Metrics Grid -->
+          <div class="grid grid-cols-2 gap-3 text-center">
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span class="text-[10px] font-bold text-slate-400 block uppercase">Total Quality Points</span>
+              <span id="statQualityPoints" class="font-black text-slate-800 text-base">57.75</span>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span class="text-[10px] font-bold text-slate-400 block uppercase">Average Letter Grade</span>
+              <span id="statAvgGrade" class="font-black text-emerald-700 text-base">A (Excellent)</span>
+            </div>
+          </div>
+
+          <!-- Copy Button -->
+          <button onclick="copySummary()" class="fa-btn-primary w-full py-3 px-4 text-xs font-black shadow-md flex items-center justify-center gap-2">
+            <i class="fa-regular fa-copy"></i>
+            <span>Copy GPA Summary</span>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  
+    <!-- Related Tools Section -->
+    <section class="max-w-4xl mx-auto mt-12 mb-8">
+      <h3 class="text-lg font-bold text-[#3e2723] font-outfit mb-4 flex items-center gap-2">
+        <i class="fa-solid fa-grid-2 text-[#c27803]"></i> Explore Related Tools
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <a href="/student-tools/unit-converter.html" class="group block p-5 rounded-2xl bg-white border border-[#ded2be] hover:border-[#c27803] hover:shadow-md transition-all">
+          <div class="w-10 h-10 rounded-xl bg-[#faedd0] text-[#3e2723] flex items-center justify-center font-bold mb-3 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-arrow-right-arrow-left text-[#c27803]"></i>
+          </div>
+          <h4 class="font-bold text-[#3e2723] font-outfit text-sm group-hover:text-[#c27803] mb-1">Universal Unit Converter</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">Convert length, weight, speed, and volume</p>
+        </a>
+        <a href="/developer-tools/word-counter.html" class="group block p-5 rounded-2xl bg-white border border-[#ded2be] hover:border-[#c27803] hover:shadow-md transition-all">
+          <div class="w-10 h-10 rounded-xl bg-[#faedd0] text-[#3e2723] flex items-center justify-center font-bold mb-3 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-font text-[#c27803]"></i>
+          </div>
+          <h4 class="font-bold text-[#3e2723] font-outfit text-sm group-hover:text-[#c27803] mb-1">Word & Character Counter</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">Essay length & reading time counter</p>
+        </a>
+        <a href="/text-tools/case-converter.html" class="group block p-5 rounded-2xl bg-white border border-[#ded2be] hover:border-[#c27803] hover:shadow-md transition-all">
+          <div class="w-10 h-10 rounded-xl bg-[#faedd0] text-[#3e2723] flex items-center justify-center font-bold mb-3 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-font text-[#c27803]"></i>
+          </div>
+          <h4 class="font-bold text-[#3e2723] font-outfit text-sm group-hover:text-[#c27803] mb-1">Case Converter</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">Format essay headings in APA Title Case</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JAVASCRIPT LOGIC ENGINE -->
+  <script>
+    const gradeScale = [
+      { letter: 'A+ (4.0)', val: 4.0 },
+      { letter: 'A (4.0)', val: 4.0 },
+      { letter: 'A- (3.7)', val: 3.7 },
+      { letter: 'B+ (3.3)', val: 3.3 },
+      { letter: 'B (3.0)', val: 3.0 },
+      { letter: 'B- (2.7)', val: 2.7 },
+      { letter: 'C+ (2.3)', val: 2.3 },
+      { letter: 'C (2.0)', val: 2.0 },
+      { letter: 'C- (1.7)', val: 1.7 },
+      { letter: 'D (1.0)', val: 1.0 },
+      { letter: 'F (0.0)', val: 0.0 }
+    ];
+
+    let courses = [
+      { name: 'Calculus I', credits: 4, gradeVal: 4.0 },
+      { name: 'Computer Science 101', credits: 4, gradeVal: 4.0 },
+      { name: 'English Composition', credits: 3, gradeVal: 3.7 },
+      { name: 'Physics & Lab', credits: 4, gradeVal: 3.3 }
+    ];
+
+    function renderCourseRows() {
+      const container = document.getElementById('courseListContainer');
+      container.innerHTML = '';
+
+      courses.forEach((c, idx) => {
+        const row = document.createElement('div');
+        row.className = 'flex flex-wrap sm:flex-nowrap items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-200/80';
+
+        let gradeOptions = '';
+        gradeScale.forEach(g => {
+          gradeOptions += `<option value="${g.val}" ${g.val === c.gradeVal ? 'selected' : ''}>${g.letter}</option>`;
+        });
+
+        row.innerHTML = `
+          <input type="text" value="${c.name}" placeholder="Course Name" class="fa-input p-2 text-xs font-bold text-slate-800 flex-1 min-w-[140px]" oninput="courses[${idx}].name = this.value">
+          
+          <div class="flex items-center gap-2">
+            <input type="number" value="${c.credits}" min="1" max="12" class="fa-input p-2 text-xs font-bold text-slate-800 w-16 text-center" title="Credit Hours" oninput="courses[${idx}].credits = parseFloat(this.value) || 1; calculateGPA()">
+            <span class="text-[10px] font-bold text-slate-400">Credits</span>
+          </div>
+
+          <select class="fa-input p-2 text-xs font-bold text-slate-700 w-28" onchange="courses[${idx}].gradeVal = parseFloat(this.value); calculateGPA()">
+            ${gradeOptions}
+          </select>
+
+          <button onclick="removeCourseRow(${idx})" class="text-slate-400 hover:text-red-600 p-2 text-xs transition-colors" title="Delete Course">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        `;
+        container.appendChild(row);
+      });
+
+      calculateGPA();
+    }
+
+    function addCourseRow(name = '', credits = 3, gradeVal = 4.0) {
+      courses.push({ name: name || `Course ${courses.length + 1}`, credits, gradeVal });
+      renderCourseRows();
+    }
+
+    function removeCourseRow(idx) {
+      if (courses.length <= 1) return;
+      courses.splice(idx, 1);
+      renderCourseRows();
+    }
+
+    function resetCourses() {
+      courses = [
+        { name: 'Course 1', credits: 3, gradeVal: 4.0 },
+        { name: 'Course 2', credits: 3, gradeVal: 3.7 },
+        { name: 'Course 3', credits: 3, gradeVal: 3.3 }
+      ];
+      renderCourseRows();
+      showToast('Reset courses', 'fa-trash-can');
+    }
+
+    function calculateGPA() {
+      let totalPoints = 0;
+      let totalCredits = 0;
+
+      courses.forEach(c => {
+        const cr = c.credits || 1;
+        totalPoints += (cr * c.gradeVal);
+        totalCredits += cr;
+      });
+
+      const gpa = totalCredits > 0 ? (totalPoints / totalCredits) : 0;
+
+      document.getElementById('statSemesterGPA').textContent = gpa.toFixed(2);
+      document.getElementById('statTotalCreditsText').textContent = `Total Credit Hours: ${totalCredits} Credits`;
+      document.getElementById('statQualityPoints').textContent = totalPoints.toFixed(2);
+
+      const honorBadge = document.getElementById('gpaHonorBadge');
+      const avgGrade = document.getElementById('statAvgGrade');
+
+      if (gpa >= 3.8) {
+        honorBadge.textContent = "Dean's Honor List (Summa Cum Laude)";
+        honorBadge.className = 'text-xs font-black px-3 py-1 rounded-full bg-emerald-100 text-emerald-800';
+        avgGrade.textContent = 'A (Excellent)';
+      } else if (gpa >= 3.5) {
+        honorBadge.textContent = "Honors List (Magna Cum Laude)";
+        honorBadge.className = 'text-xs font-black px-3 py-1 rounded-full bg-blue-100 text-blue-800';
+        avgGrade.textContent = 'A- / B+ (Very Good)';
+      } else if (gpa >= 3.0) {
+        honorBadge.textContent = "Good Standing";
+        honorBadge.className = 'text-xs font-black px-3 py-1 rounded-full bg-slate-100 text-slate-700';
+        avgGrade.textContent = 'B (Above Average)';
+      } else {
+        honorBadge.textContent = "Satisfactory";
+        honorBadge.className = 'text-xs font-black px-3 py-1 rounded-full bg-amber-100 text-amber-800';
+        avgGrade.textContent = 'C or Below';
+      }
+    }
+
+    function copySummary() {
+      const gpa = document.getElementById('statSemesterGPA').textContent;
+      const creds = document.getElementById('statTotalCreditsText').textContent;
+      const text = `360Tools GPA Calculation:\nSemester GPA: ${gpa} (4.0 Scale)\n${creds}\nCalculated via 360tools.me`;
+      navigator.clipboard.writeText(text);
+      showToast('GPA Summary copied!', 'fa-copy');
+    }
+
+    function showToast(msg, icon = 'fa-check') {
+      const existing = document.getElementById('gpaToast');
+      if (existing) existing.remove();
+
+      const toast = document.createElement('div');
+      toast.id = 'gpaToast';
+      toast.className = 'fixed bottom-6 right-6 bg-[#3e2723] text-white py-3 px-5 rounded-2xl shadow-xl flex items-center gap-3 text-xs font-bold z-50 animate-bounce';
+      toast.innerHTML = `<i class="fa-solid ${icon} text-[#ffd43b]"></i> <span>${msg}</span>`;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3500);
+    }
+
+    window.addEventListener('DOMContentLoaded', renderCourseRows);
+  </script>
+<footer id="globalFooter" class="no-print bg-white text-slate-700 border-t border-slate-200/80 mt-20">
+<!-- Top Feature Highlight Strip -->
+    <div class="border-b border-slate-200/80 bg-slate-50/70 py-6 px-4 sm:px-6">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+        
+        <div class="flex items-center justify-center md:justify-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200/80 text-[#146ebe] flex items-center justify-center text-lg shrink-0 shadow-2xs">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">100% In-Browser Privacy</h4>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">Files & scripts execute locally in RAM. Zero cloud uploads.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center md:justify-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200/80 text-emerald-600 flex items-center justify-center text-lg shrink-0 shadow-2xs">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">Instant Client-Side Speed</h4>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">WebAssembly, HTML5 Canvas & native Web Crypto APIs.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center md:justify-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center text-lg shrink-0 shadow-2xs">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">100% Free & Unlimited</h4>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">No subscriptions, no account signup gates, zero watermarks.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Main Footer Links Grid (8 Category Columns) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8">
+        
+        <!-- Column 1: Brand & Info -->
+        <div class="sm:col-span-2 space-y-4">
+          <a href="/" class="inline-flex items-center gap-2.5 group">
+            <img src="/images/logo-icon.webp" alt="360Tools Logo" width="36" height="36" class="w-9 h-9 object-contain rounded-xl border border-slate-200 shadow-sm group-hover:scale-105 transition-transform">
+            <span class="text-2xl font-black text-[#183153] tracking-tight">360Tools<span class="text-[#146ebe]">.me</span></span>
+          </a>
+          
+          <p class="text-xs text-slate-600 font-medium leading-relaxed max-w-sm">
+            Free high-precision client-side tools: AI voiceovers, PDF manipulations, media compression, cryptographic security, and multi-category business & financial calculators.
+          </p>
+
+          <div class="flex items-center gap-2 pt-1">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold shadow-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              All 45+ Tools Operational
+            </span>
+          </div>
+
+          <!-- Social Links -->
+          <div class="pt-2">
+            <div class="flex items-center gap-2">
+              <a href="https://www.youtube.com/@360tools" target="_blank" rel="noopener noreferrer" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-red-50 text-slate-600 hover:text-red-600 flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="YouTube" aria-label="YouTube Channel">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+              <a href="https://www.facebook.com/360tools.me" target="_blank" rel="noopener noreferrer" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#1877f2] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="Facebook" aria-label="Facebook Page">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com/360tools.me" target="_blank" rel="noopener noreferrer" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-pink-50 text-slate-600 hover:text-[#e1306c] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="Instagram" aria-label="Instagram Profile">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://360tools.me" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#146ebe] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="360tools.me Website" aria-label="360tools.me Official Website">
+                <i class="fa-solid fa-globe"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: PDF & Documents -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-file-pdf text-red-600 text-[11px]"></i>
+            <span>PDF Suite</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/pdf-tools/" class="text-red-700 hover:text-red-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-file-pdf text-[9px] text-red-600"></i> All 19 PDF Tools</a></li>
+            <li><a href="/pdf-tools/merge-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Merge PDF</a></li>
+            <li><a href="/pdf-tools/split-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Split PDF</a></li>
+            <li><a href="/pdf-tools/compress-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Compress PDF</a></li>
+            <li><a href="/pdf-tools/pdf-to-jpg/index.html" class="hover:text-[#146ebe] transition-colors">PDF to JPG / PNG</a></li>
+            <li><a href="/pdf-tools/jpg-to-pdf/index.html" class="hover:text-[#146ebe] transition-colors">JPG to PDF</a></li>
+            <li><a href="/pdf-tools/password-protect-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Protect & Unlock PDF</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: AI Voice & Audio -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-volume-high text-purple-600 text-[11px]"></i>
+            <span>AI Voice & Audio</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/audio-tools/" class="text-purple-700 hover:text-purple-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-volume-high text-[9px] text-purple-600"></i> Audio Hub</a></li>
+            <li><a href="/audio-tools/text-to-speech.html" class="hover:text-[#146ebe] transition-colors">Text to Speech</a></li>
+            <li><a href="/audio-tools/text-to-mp3.html" class="hover:text-[#146ebe] transition-colors">Text to MP3</a></li>
+            <li><a href="/audio-tools/ai-voice-generator.html" class="hover:text-[#146ebe] transition-colors">AI Voice Studio</a></li>
+            <li><a href="/audio-tools/pdf-to-speech.html" class="hover:text-[#146ebe] transition-colors">PDF to Speech</a></li>
+            <li><a href="/audio-tools/youtube-voiceover-generator.html" class="hover:text-[#146ebe] transition-colors">YouTube Voiceover</a></li>
+            <li><a href="/audio-tools/urdu-text-to-speech.html" class="hover:text-[#146ebe] transition-colors">Urdu TTS (اردو)</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Media & Design -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-palette text-pink-600 text-[11px]"></i>
+            <span>Media & Design</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/design-tools/" class="text-pink-700 hover:text-pink-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-palette text-[9px] text-pink-600"></i> Design Hub</a></li>
+            <li><a href="/design-tools/color-palette-generator.html" class="hover:text-[#146ebe] transition-colors">Color Palette Generator</a></li>
+            <li><a href="/design-tools/aspect-ratio-calculator.html" class="hover:text-[#146ebe] transition-colors">Aspect Ratio Calculator</a></li>
+            <li><a href="/developer-tools/qr-code-generator.html" class="text-amber-700 hover:text-amber-900 transition-colors font-bold">QR Code Generator</a></li>
+            <li><a href="/image-tools/image-compressor.html" class="hover:text-[#146ebe] transition-colors">Image Compressor</a></li>
+            <li><a href="/image-tools/background-remover.html" class="hover:text-[#146ebe] transition-colors">AI Background Remover</a></li>
+            <li><a href="/video-tools/video-compressor.html" class="hover:text-[#146ebe] transition-colors">Video Compressor</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Business, Finance & Security -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-vault text-emerald-600 text-[11px]"></i>
+            <span>Business & Finance</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/business-tools/" class="text-blue-700 hover:text-blue-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-briefcase text-[9px] text-blue-600"></i> Business Hub</a></li>
+            <li><a href="/business-tools/roi-calculator.html" class="hover:text-[#146ebe] transition-colors">ROI & CAGR Calculator</a></li>
+            <li><a href="/business-tools/break-even-calculator.html" class="hover:text-[#146ebe] transition-colors">Break-Even Calculator</a></li>
+            <li><a href="/business-tools/freelance-rate-calculator.html" class="hover:text-[#146ebe] transition-colors">Freelance Rate Calculator</a></li>
+            <li><a href="/finance-tools/compound-interest-calculator.html" class="hover:text-[#146ebe] transition-colors">Compound Interest</a></li>
+            <li><a href="/finance-tools/loan-amortization-calculator.html" class="hover:text-[#146ebe] transition-colors">Loan Amortization</a></li>
+            <li><a href="/finance-tools/crypto-profit-calculator.html" class="hover:text-[#146ebe] transition-colors">Crypto Profit & DCA</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Second Row of Footer Categories -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pt-8 mt-8 border-t border-slate-100">
+        
+        <!-- Text & Writing Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-font text-indigo-600 text-[11px]"></i>
+            <span>Writing & Text Tools</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/text-tools/" class="text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-align-left text-[9px] text-indigo-600"></i> Text Tools Hub</a></li>
+            <li><a href="/text-tools/case-converter.html" class="hover:text-[#146ebe] transition-colors">Case Converter & Slugifier</a></li>
+            <li><a href="/text-tools/lorem-ipsum-generator.html" class="hover:text-[#146ebe] transition-colors">Lorem Ipsum Generator</a></li>
+            <li><a href="/text-tools/text-cleaner.html" class="hover:text-[#146ebe] transition-colors">Text Cleaner & Formatter</a></li>
+            <li><a href="/developer-tools/word-counter.html" class="hover:text-[#146ebe] transition-colors">Word & Character Counter</a></li>
+          </ul>
+        </div>
+
+        <!-- Security & Developer Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-shield-halved text-rose-600 text-[11px]"></i>
+            <span>Security & Dev Tools</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/security-tools/" class="text-rose-700 hover:text-rose-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-shield-halved text-[9px] text-rose-600"></i> Security Hub</a></li>
+            <li><a href="/security-tools/hash-generator.html" class="hover:text-[#146ebe] transition-colors">Online Hash Generator</a></li>
+            <li><a href="/security-tools/base64-encoder-decoder.html" class="hover:text-[#146ebe] transition-colors">Base64 Encoder / Decoder</a></li>
+            <li><a href="/security-tools/uuid-generator.html" class="hover:text-[#146ebe] transition-colors">UUID / GUID v4 Generator</a></li>
+            <li><a href="/developer-tools/password-generator.html" class="hover:text-[#146ebe] transition-colors">Strong Password Generator</a></li>
+            <li><a href="/developer-tools/html-minifier.html" class="hover:text-[#146ebe] transition-colors">HTML / CSS / JS Minifiers</a></li>
+          </ul>
+        </div>
+
+        <!-- Student & Academic Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-graduation-cap text-amber-600 text-[11px]"></i>
+            <span>Student & Academic</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/student-tools/" class="text-amber-700 hover:text-amber-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-graduation-cap text-[9px] text-amber-600"></i> Student Hub</a></li>
+            <li><a href="/student-tools/gpa-calculator.html" class="hover:text-[#146ebe] transition-colors">GPA & CGPA Calculator</a></li>
+            <li><a href="/student-tools/unit-converter.html" class="hover:text-[#146ebe] transition-colors">Universal Unit Converter</a></li>
+            <li><a href="/ecommerce-tools/invoice-generator.html" class="hover:text-[#146ebe] transition-colors">Free Invoice Maker</a></li>
+            <li><a href="/games/2048/index.html" class="hover:text-[#146ebe] transition-colors">2048 & Retro Games</a></li>
+          </ul>
+        </div>
+
+        <!-- Company & Legal -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-circle-info text-blue-600 text-[11px]"></i>
+            <span>Company & Legal</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/about.html" class="hover:text-[#146ebe] transition-colors">About 360Tools</a></li>
+            <li><a href="/contact.html" class="hover:text-[#146ebe] transition-colors">Contact Support</a></li>
+            <li><a href="/blog.html" class="hover:text-[#146ebe] transition-colors">Editorial Blog</a></li>
+            <li><a href="/privacy-policy.html" class="hover:text-[#146ebe] transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms.html" class="hover:text-[#146ebe] transition-colors">Terms of Use</a></li>
+            <li><a href="/disclaimer.html" class="hover:text-[#146ebe] transition-colors">Legal Disclaimer</a></li>
+            <li><a href="/sitemap.xml" class="hover:text-[#146ebe] transition-colors">XML Sitemap</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright Bar -->
+      <div class="mt-12 pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
+        <div class="flex items-center gap-2 text-center md:text-left">
+          <span>© 2026 <a href="/" class="font-bold text-[#183153] hover:text-[#146ebe] transition-colors">360Tools (360tools.me)</a>. All rights reserved.</span>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-slate-600 text-[11px] font-bold">
+          <a href="/business-tools/" class="hover:text-[#146ebe] transition-colors">Business</a>
+          <span>•</span>
+          <a href="/text-tools/" class="hover:text-[#146ebe] transition-colors">Text</a>
+          <span>•</span>
+          <a href="/finance-tools/" class="hover:text-[#146ebe] transition-colors">Finance</a>
+          <span>•</span>
+          <a href="/security-tools/" class="hover:text-[#146ebe] transition-colors">Security</a>
+          <span>•</span>
+          <a href="/design-tools/" class="hover:text-[#146ebe] transition-colors">Design</a>
+          <span>•</span>
+          <a href="/student-tools/" class="hover:text-[#146ebe] transition-colors">Student</a>
+          <span>•</span>
+          <a href="/pdf-tools/" class="hover:text-[#146ebe] transition-colors">PDF Suite</a>
+        </div>
+
+        <div class="text-[10px] text-slate-400 text-center md:text-right">
+          Zero Cloud Logging • 100% Client-Side In-Browser
+        </div>
+      </div>
+    </div>
+</footer>
+</body>
+</html>

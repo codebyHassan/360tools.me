@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Free ROI Calculator — Return on Investment & Payback Period (2026) | 360tools.me</title>
+  <meta name="title" content="Free ROI Calculator — Return on Investment & Payback Period (2026) | 360tools.me">
+  <meta name="description" content="Calculate Return on Investment (ROI), annualized ROI, net profit, and payback period accurately. Analyze business investments, marketing campaigns, and real estate. 100% private in-browser.">
+  <meta name="keywords" content="roi calculator, return on investment calculator, annualized roi calculator, business roi calculator, marketing roi calculator, payback period calculator, investment profit calculator">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/business-tools/roi-calculator.html">
+
+  <!-- Favicon & Open Graph / Facebook -->
+  <link rel="icon" type="image/webp" href="../images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="../images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/business-tools/roi-calculator.html">
+  <meta property="og:title" content="Free ROI Calculator & Annualized Return Analyzer | 360tools.me">
+  <meta property="og:description" content="Calculate ROI, net gain, and annualized return for business, marketing, and stocks client-side.">
+  <meta property="og:image" content="https://360tools.me/images/logo.webp">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://360tools.me/business-tools/roi-calculator.html">
+  <meta name="twitter:title" content="Free ROI Calculator (Return on Investment)">
+  <meta name="twitter:description" content="Calculate Return on Investment, annualized ROI, and profit margins instantly.">
+  <meta name="twitter:image" content="https://360tools.me/images/logo.webp">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "ROI & Investment Return Calculator",
+    "url": "https://360tools.me/business-tools/roi-calculator.html",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Financial utility to calculate Return on Investment (ROI), annualized ROI rate, net profit, and investment efficiency client-side.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the formula for calculating Return on Investment (ROI)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ROI is calculated as: ROI = [(Final Return Value - Initial Investment Cost) / Initial Investment Cost] * 100. It expresses net profitability as a percentage of capital invested."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Annualized ROI and why is it important?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Annualized ROI calculates the geometric average annual return rate of an investment held over multiple years or months. It allows you to compare investments of differing time horizons on an equal 12-month basis."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is considered a good ROI for business investments?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In the S&P 500 stock market, an average annual return of 7-10% is typical. For digital advertising and e-commerce campaigns, an ROI of 300% to 500% (or a 4:1 to 5:1 ROAS) is standard."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Business Tools",
+        "item": "https://360tools.me/business-tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "ROI Calculator",
+        "item": "https://360tools.me/business-tools/roi-calculator.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../css/style.min.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Header -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto w-full flex-1">
+
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-6" aria-label="Breadcrumb">
+      <a href="../index.html" class="hover:text-[#c27803] transition-colors"><i class="fa-solid fa-house mr-1"></i>Home</a>
+      <span class="text-slate-300">/</span>
+      <a href="./" class="hover:text-[#c27803] transition-colors">Business Tools</a>
+      <span class="text-slate-300">/</span>
+      <span class="text-[#3e2723] font-black">ROI Calculator</span>
+    </nav>
+    
+    <!-- Hero / Headline Above the Fold -->
+    <div class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="bg-amber-100 text-amber-900 text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-solid fa-chart-line mr-1 text-[#c27803]"></i> Corporate Financial Suite
+          </span>
+          <span class="text-xs font-bold text-slate-500">• 100% In-Browser Privacy • Annualized Return & Payback</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
+          Free Return on Investment (ROI) Calculator
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-3xl leading-relaxed">
+          Evaluate net investment profitability, annualized return percentage, capital efficiency ratio, and payback duration for marketing ad spend, business equipment, stock portfolios, and real estate.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 self-start md:self-center">
+        <button onclick="loadSampleROI()" class="fa-btn-secondary text-xs px-3.5 py-2">
+          <i class="fa-solid fa-wand-magic-sparkles text-[#c27803]"></i> Load Sample Case
+        </button>
+      </div>
+    </div>
+
+    <!-- MAIN INTERACTIVE STUDIO WORKSPACE -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+
+      <!-- LEFT COLUMN: Input Form (7 Cols) -->
+      <div class="lg:col-span-7 space-y-6">
+
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs space-y-6">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <span class="text-xs font-black uppercase tracking-wider text-[#3e2723] flex items-center gap-1.5">
+              <i class="fa-solid fa-sliders text-[#c27803]"></i> Investment Parameters
+            </span>
+            <div class="flex items-center gap-2">
+              <label class="text-xs font-bold text-slate-500">Currency:</label>
+              <select id="currencySymbol" class="fa-input py-1 px-2.5 text-xs font-bold text-slate-700" onchange="calculateROI()">
+                <option value="$">$ USD / CAD / AUD</option>
+                <option value="£">£ GBP</option>
+                <option value="€">€ EUR</option>
+                <option value="Rs">Rs PKR / INR</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Inputs -->
+          <div class="space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Initial Amount Invested ($ Cost)</label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-bold" id="currPrefix1">$</span>
+                <input type="number" id="initialInvest" value="10000" min="1" step="any" class="fa-input pl-9 pr-4 py-2.5 text-sm w-full font-bold text-slate-800" oninput="calculateROI()">
+              </div>
+              <p class="text-[10px] text-slate-400 mt-1">Total initial capital spent (purchases, ad budget, asset costs).</p>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Final Amount Returned ($ Total Value / Revenue)</label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-bold" id="currPrefix2">$</span>
+                <input type="number" id="finalReturn" value="16500" min="0" step="any" class="fa-input pl-9 pr-4 py-2.5 text-sm w-full font-bold text-slate-800" oninput="calculateROI()">
+              </div>
+              <p class="text-[10px] text-slate-400 mt-1">Total gross return generated from the investment.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Investment Holding Period</label>
+                <input type="number" id="holdingPeriod" value="2" min="0.1" step="0.1" class="fa-input p-2.5 text-sm w-full font-bold text-slate-800" oninput="calculateROI()">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Time Unit</label>
+                <select id="timeUnit" class="fa-input p-2.5 text-sm w-full font-bold text-slate-700" onchange="calculateROI()">
+                  <option value="years">Years</option>
+                  <option value="months">Months</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Presets -->
+          <div class="pt-3 border-t border-slate-100">
+            <span class="text-[11px] font-black uppercase tracking-wider text-slate-400 block mb-2">Popular Scenarios:</span>
+            <div class="flex flex-wrap gap-2">
+              <button onclick="setScenario(5000, 18000, 3, 'months')" class="fa-btn-secondary py-1 px-3 text-[11px] font-bold">Google Ads (3 Mos)</button>
+              <button onclick="setScenario(50000, 85000, 3, 'years')" class="fa-btn-secondary py-1 px-3 text-[11px] font-bold">Equipment Upgrade</button>
+              <button onclick="setScenario(20000, 28000, 1, 'years')" class="fa-btn-secondary py-1 px-3 text-[11px] font-bold">Stock Portfolio (1 Yr)</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Results Dashboard (5 Cols) -->
+      <div class="lg:col-span-5 space-y-6">
+
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-md space-y-6 sticky top-6">
+          
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <span class="text-xs font-black uppercase text-[#3e2723] tracking-wider flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              ROI Outcome
+            </span>
+            <span id="roiOutcomeBadge" class="text-xs font-black px-3 py-1 rounded-full bg-emerald-100 text-emerald-800">
+              Profitable (+65.0%)
+            </span>
+          </div>
+
+          <!-- Main ROI Hero Metric -->
+          <div class="p-6 rounded-2xl bg-[#fbf7ee] border-2 border-[#ded2be] text-center space-y-2">
+            <span class="text-xs font-black uppercase tracking-wider text-slate-500">Total Return on Investment</span>
+            <div id="statTotalROI" class="text-4xl sm:text-5xl font-black text-emerald-600">+65.00%</div>
+            <p id="statNetGainText" class="text-xs font-bold text-slate-600">Net Profit: +$6,500.00</p>
+          </div>
+
+          <!-- Key Metrics Grid -->
+          <div class="grid grid-cols-2 gap-3 text-center">
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span class="text-[10px] font-bold text-slate-400 block uppercase">Annualized ROI</span>
+              <span id="statAnnualROI" class="font-black text-slate-800 text-base">+28.45% / yr</span>
+            </div>
+            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-200/80">
+              <span class="text-[10px] font-bold text-slate-400 block uppercase">Investment Multiple</span>
+              <span id="statMultiple" class="font-black text-slate-800 text-base">1.65x</span>
+            </div>
+          </div>
+
+          <!-- Breakdown List -->
+          <div class="space-y-2 text-xs font-bold text-slate-700">
+            <div class="flex justify-between p-2 rounded-lg bg-slate-50 border border-slate-100">
+              <span class="text-slate-500">Initial Outlay:</span>
+              <span id="breakdownInitial">$10,000.00</span>
+            </div>
+            <div class="flex justify-between p-2 rounded-lg bg-slate-50 border border-slate-100">
+              <span class="text-slate-500">Final Returned Capital:</span>
+              <span id="breakdownFinal">$16,500.00</span>
+            </div>
+            <div class="flex justify-between p-2 rounded-lg bg-slate-50 border border-slate-100">
+              <span class="text-slate-500">Holding Duration:</span>
+              <span id="breakdownTime">2.0 Years (24 Months)</span>
+            </div>
+          </div>
+
+          <!-- Copy Button -->
+          <button onclick="copySummary()" class="fa-btn-primary w-full py-3 px-4 text-xs font-black shadow-md flex items-center justify-center gap-2">
+            <i class="fa-regular fa-copy"></i>
+            <span>Copy Financial Summary</span>
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- IN-DEPTH AUTHORITY GUIDE & KNOWLEDGE BASE (~1,500+ WORDS) -->
+    <section class="max-w-7xl mx-auto py-12 border-t border-slate-200/80 space-y-12">
+
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="fa-badge-blue text-xs py-1.5 px-4 font-black uppercase">
+          Financial Management Guide
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
+          How to Calculate, Interpret, and Maximize Return on Investment (ROI)
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base font-medium leading-relaxed">
+          Understand the mathematical formulas behind simple ROI, compound annualized returns (CAGR), and risk-adjusted capital budgeting.
+        </p>
+      </div>
+
+      <!-- Formula Breakdown Card -->
+      <div class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-xs space-y-6">
+        <h3 class="text-2xl sm:text-3xl font-black text-[#3e2723]">The Core Return on Investment Formula</h3>
+        <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+          Return on Investment (ROI) is the universal metric used by executives, venture capitalists, and private investors to assess the efficiency of an allocated dollar. The standard mathematical formula is expressed as:
+        </p>
+
+        <div class="p-6 bg-[#fbf7ee] rounded-2xl border border-[#ded2be]/60 text-center font-mono text-sm sm:text-base font-black text-[#3e2723]">
+          $$\text{ROI} = \left( \frac{\text{Gross Revenue} - \text{Cost of Investment}}{\text{Cost of Investment}} \right) \times 100$$
+        </div>
+
+        <h4 class="text-xl font-black text-[#3e2723] pt-4">Simple ROI vs Annualized ROI (CAGR)</h4>
+        <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+          Simple ROI ignores the time value of money. An investment yielding 100% over 10 years is significantly less impressive than an investment yielding 100% over 6 months. To normalize differing holding periods, Annualized ROI is calculated as:
+        </p>
+
+        <div class="p-6 bg-[#fbf7ee] rounded-2xl border border-[#ded2be]/60 text-center font-mono text-sm sm:text-base font-black text-[#3e2723]">
+          $$\text{Annualized ROI} = \left[ \left( 1 + \text{ROI} \right)^{\frac{1}{n}} - 1 \right] \times 100$$
+        </div>
+      </div>
+
+      <!-- FAQ Section Accordion -->
+      <div class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-xs space-y-6">
+        <h3 class="text-2xl sm:text-3xl font-black text-[#3e2723]">Frequently Asked Questions (FAQ)</h3>
+        <div class="space-y-4">
+          
+          <details class="group fa-card p-5 bg-[#fbf7ee] border border-[#ded2be]/60 rounded-2xl transition-all cursor-pointer">
+            <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-[#3e2723] list-none">
+              <span>Can ROI be negative?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+              Yes. If your returned value is lower than your initial capital outlay, the ROI will be negative, representing a net financial loss on the investment.
+            </p>
+          </details>
+
+          <details class="group fa-card p-5 bg-[#fbf7ee] border border-[#ded2be]/60 rounded-2xl transition-all cursor-pointer">
+            <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-[#3e2723] list-none">
+              <span>How does ROI differ from ROAS (Return on Ad Spend)?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+              ROAS only measures gross revenue divided by direct advertising spend (e.g. $5 revenue / $1 ad spend = 500% ROAS). ROI factors in all operational expenses, product costs, shipping, and merchant fees to calculate true bottom-line profitability.
+            </p>
+          </details>
+
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- JAVASCRIPT LOGIC ENGINE -->
+  <script>
+    function calculateROI() {
+      const curr = document.getElementById('currencySymbol').value;
+      document.getElementById('currPrefix1').textContent = curr;
+      document.getElementById('currPrefix2').textContent = curr;
+
+      const initial = parseFloat(document.getElementById('initialInvest').value) || 0;
+      const finalVal = parseFloat(document.getElementById('finalReturn').value) || 0;
+      let period = parseFloat(document.getElementById('holdingPeriod').value) || 1;
+      const unit = document.getElementById('timeUnit').value;
+
+      if (initial <= 0) return;
+
+      const netGain = finalVal - initial;
+      const roi = (netGain / initial) * 100;
+      const multiple = (finalVal / initial).toFixed(2);
+
+      // Annualized ROI
+      const years = unit === 'months' ? (period / 12) : period;
+      let annualROI = 0;
+      if (years > 0 && finalVal > 0) {
+        annualROI = (Math.pow(finalVal / initial, 1 / years) - 1) * 100;
+      }
+
+      // Update UI
+      const totalRoiEl = document.getElementById('statTotalROI');
+      const badge = document.getElementById('roiOutcomeBadge');
+
+      if (roi >= 0) {
+        totalRoiEl.textContent = `+${roi.toFixed(2)}%`;
+        totalRoiEl.className = 'text-4xl sm:text-5xl font-black text-emerald-600';
+        badge.textContent = `Profitable (+${roi.toFixed(1)}%)`;
+        badge.className = 'text-xs font-black px-3 py-1 rounded-full bg-emerald-100 text-emerald-800';
+      } else {
+        totalRoiEl.textContent = `${roi.toFixed(2)}%`;
+        totalRoiEl.className = 'text-4xl sm:text-5xl font-black text-red-600';
+        badge.textContent = `Net Loss (${roi.toFixed(1)}%)`;
+        badge.className = 'text-xs font-black px-3 py-1 rounded-full bg-red-100 text-red-800';
+      }
+
+      document.getElementById('statNetGainText').textContent = `Net Gain: ${netGain >= 0 ? '+' : ''}${curr}${netGain.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+      document.getElementById('statAnnualROI').textContent = `${annualROI >= 0 ? '+' : ''}${annualROI.toFixed(2)}% / yr`;
+      document.getElementById('statMultiple').textContent = `${multiple}x`;
+
+      document.getElementById('breakdownInitial').textContent = `${curr}${initial.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
+      document.getElementById('breakdownFinal').textContent = `${curr}${finalVal.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
+      document.getElementById('breakdownTime').textContent = `${years.toFixed(1)} Years (${Math.round(years * 12)} Months)`;
+    }
+
+    function setScenario(init, ret, time, unit) {
+      document.getElementById('initialInvest').value = init;
+      document.getElementById('finalReturn').value = ret;
+      document.getElementById('holdingPeriod').value = time;
+      document.getElementById('timeUnit').value = unit;
+      calculateROI();
+      showToast('Loaded Scenario!', 'fa-sliders');
+    }
+
+    function loadSampleROI() {
+      setScenario(10000, 16500, 2, 'years');
+      showToast('Loaded Sample Corporate ROI Case!', 'fa-wand-magic-sparkles');
+    }
+
+    function copySummary() {
+      const roi = document.getElementById('statTotalROI').textContent;
+      const net = document.getElementById('statNetGainText').textContent;
+      const annual = document.getElementById('statAnnualROI').textContent;
+      const text = `360Tools ROI Summary:\nTotal ROI: ${roi}\n${net}\nAnnualized Rate: ${annual}\nCalculated via 360tools.me`;
+      navigator.clipboard.writeText(text);
+      showToast('Financial Summary copied!', 'fa-copy');
+    }
+
+    function showToast(msg, icon = 'fa-check') {
+      const existing = document.getElementById('roiToast');
+      if (existing) existing.remove();
+
+      const toast = document.createElement('div');
+      toast.id = 'roiToast';
+      toast.className = 'fixed bottom-6 right-6 bg-[#3e2723] text-white py-3 px-5 rounded-2xl shadow-xl flex items-center gap-3 text-xs font-bold z-50 animate-bounce';
+      toast.innerHTML = `<i class="fa-solid ${icon} text-[#ffd43b]"></i> <span>${msg}</span>`;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3500);
+    }
+
+    window.addEventListener('DOMContentLoaded', calculateROI);
+  </script>
+<footer id="globalFooter" class="no-print bg-white text-slate-700 border-t border-slate-200/80 mt-20">
+<!-- Top Feature Highlight Strip -->
+    <div class="border-b border-slate-200/80 bg-slate-50/70 py-6 px-4 sm:px-6">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+        
+        <div class="flex items-center justify-center md:justify-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200/80 text-[#146ebe] flex items-center justify-center text-lg shrink-0 shadow-2xs">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">100% In-Browser Privacy</h4>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">Files & scripts execute locally in RAM. Zero cloud uploads.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center md:justify-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200/80 text-emerald-600 flex items-center justify-center text-lg shrink-0 shadow-2xs">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">Instant Client-Side Speed</h4>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">WebAssembly, HTML5 Canvas & native Web Crypto APIs.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center md:justify-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center text-lg shrink-0 shadow-2xs">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">100% Free & Unlimited</h4>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">No subscriptions, no account signup gates, zero watermarks.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Main Footer Links Grid (8 Category Columns) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8">
+        
+        <!-- Column 1: Brand & Info -->
+        <div class="sm:col-span-2 space-y-4">
+          <a href="/" class="inline-flex items-center gap-2.5 group">
+            <img src="/images/logo-icon.webp" alt="360Tools Logo" width="36" height="36" class="w-9 h-9 object-contain rounded-xl border border-slate-200 shadow-sm group-hover:scale-105 transition-transform">
+            <span class="text-2xl font-black text-[#183153] tracking-tight">360Tools<span class="text-[#146ebe]">.me</span></span>
+          </a>
+          
+          <p class="text-xs text-slate-600 font-medium leading-relaxed max-w-sm">
+            Free high-precision client-side tools: AI voiceovers, PDF manipulations, media compression, cryptographic security, and multi-category business & financial calculators.
+          </p>
+
+          <div class="flex items-center gap-2 pt-1">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold shadow-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              All 45+ Tools Operational
+            </span>
+          </div>
+
+          <!-- Social Links -->
+          <div class="pt-2">
+            <div class="flex items-center gap-2">
+              <a href="https://www.youtube.com/@360tools" target="_blank" rel="noopener noreferrer" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-red-50 text-slate-600 hover:text-red-600 flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="YouTube" aria-label="YouTube Channel">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+              <a href="https://www.facebook.com/360tools.me" target="_blank" rel="noopener noreferrer" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#1877f2] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="Facebook" aria-label="Facebook Page">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com/360tools.me" target="_blank" rel="noopener noreferrer" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-pink-50 text-slate-600 hover:text-[#e1306c] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="Instagram" aria-label="Instagram Profile">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://360tools.me" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#146ebe] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="360tools.me Website" aria-label="360tools.me Official Website">
+                <i class="fa-solid fa-globe"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: PDF & Documents -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-file-pdf text-red-600 text-[11px]"></i>
+            <span>PDF Suite</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/pdf-tools/" class="text-red-700 hover:text-red-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-file-pdf text-[9px] text-red-600"></i> All 19 PDF Tools</a></li>
+            <li><a href="/pdf-tools/merge-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Merge PDF</a></li>
+            <li><a href="/pdf-tools/split-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Split PDF</a></li>
+            <li><a href="/pdf-tools/compress-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Compress PDF</a></li>
+            <li><a href="/pdf-tools/pdf-to-jpg/index.html" class="hover:text-[#146ebe] transition-colors">PDF to JPG / PNG</a></li>
+            <li><a href="/pdf-tools/jpg-to-pdf/index.html" class="hover:text-[#146ebe] transition-colors">JPG to PDF</a></li>
+            <li><a href="/pdf-tools/password-protect-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Protect & Unlock PDF</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: AI Voice & Audio -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-volume-high text-purple-600 text-[11px]"></i>
+            <span>AI Voice & Audio</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/audio-tools/" class="text-purple-700 hover:text-purple-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-volume-high text-[9px] text-purple-600"></i> Audio Hub</a></li>
+            <li><a href="/audio-tools/text-to-speech.html" class="hover:text-[#146ebe] transition-colors">Text to Speech</a></li>
+            <li><a href="/audio-tools/text-to-mp3.html" class="hover:text-[#146ebe] transition-colors">Text to MP3</a></li>
+            <li><a href="/audio-tools/ai-voice-generator.html" class="hover:text-[#146ebe] transition-colors">AI Voice Studio</a></li>
+            <li><a href="/audio-tools/pdf-to-speech.html" class="hover:text-[#146ebe] transition-colors">PDF to Speech</a></li>
+            <li><a href="/audio-tools/youtube-voiceover-generator.html" class="hover:text-[#146ebe] transition-colors">YouTube Voiceover</a></li>
+            <li><a href="/audio-tools/urdu-text-to-speech.html" class="hover:text-[#146ebe] transition-colors">Urdu TTS (اردو)</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Media & Design -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-palette text-pink-600 text-[11px]"></i>
+            <span>Media & Design</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/design-tools/" class="text-pink-700 hover:text-pink-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-palette text-[9px] text-pink-600"></i> Design Hub</a></li>
+            <li><a href="/design-tools/color-palette-generator.html" class="hover:text-[#146ebe] transition-colors">Color Palette Generator</a></li>
+            <li><a href="/design-tools/aspect-ratio-calculator.html" class="hover:text-[#146ebe] transition-colors">Aspect Ratio Calculator</a></li>
+            <li><a href="/developer-tools/qr-code-generator.html" class="text-amber-700 hover:text-amber-900 transition-colors font-bold">QR Code Generator</a></li>
+            <li><a href="/image-tools/image-compressor.html" class="hover:text-[#146ebe] transition-colors">Image Compressor</a></li>
+            <li><a href="/image-tools/background-remover.html" class="hover:text-[#146ebe] transition-colors">AI Background Remover</a></li>
+            <li><a href="/video-tools/video-compressor.html" class="hover:text-[#146ebe] transition-colors">Video Compressor</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Business, Finance & Security -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-vault text-emerald-600 text-[11px]"></i>
+            <span>Business & Finance</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/business-tools/" class="text-blue-700 hover:text-blue-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-briefcase text-[9px] text-blue-600"></i> Business Hub</a></li>
+            <li><a href="/business-tools/roi-calculator.html" class="hover:text-[#146ebe] transition-colors">ROI & CAGR Calculator</a></li>
+            <li><a href="/business-tools/break-even-calculator.html" class="hover:text-[#146ebe] transition-colors">Break-Even Calculator</a></li>
+            <li><a href="/business-tools/freelance-rate-calculator.html" class="hover:text-[#146ebe] transition-colors">Freelance Rate Calculator</a></li>
+            <li><a href="/finance-tools/compound-interest-calculator.html" class="hover:text-[#146ebe] transition-colors">Compound Interest</a></li>
+            <li><a href="/finance-tools/loan-amortization-calculator.html" class="hover:text-[#146ebe] transition-colors">Loan Amortization</a></li>
+            <li><a href="/finance-tools/crypto-profit-calculator.html" class="hover:text-[#146ebe] transition-colors">Crypto Profit & DCA</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Second Row of Footer Categories -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pt-8 mt-8 border-t border-slate-100">
+        
+        <!-- Text & Writing Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-font text-indigo-600 text-[11px]"></i>
+            <span>Writing & Text Tools</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/text-tools/" class="text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-align-left text-[9px] text-indigo-600"></i> Text Tools Hub</a></li>
+            <li><a href="/text-tools/case-converter.html" class="hover:text-[#146ebe] transition-colors">Case Converter & Slugifier</a></li>
+            <li><a href="/text-tools/lorem-ipsum-generator.html" class="hover:text-[#146ebe] transition-colors">Lorem Ipsum Generator</a></li>
+            <li><a href="/text-tools/text-cleaner.html" class="hover:text-[#146ebe] transition-colors">Text Cleaner & Formatter</a></li>
+            <li><a href="/developer-tools/word-counter.html" class="hover:text-[#146ebe] transition-colors">Word & Character Counter</a></li>
+          </ul>
+        </div>
+
+        <!-- Security & Developer Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-shield-halved text-rose-600 text-[11px]"></i>
+            <span>Security & Dev Tools</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/security-tools/" class="text-rose-700 hover:text-rose-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-shield-halved text-[9px] text-rose-600"></i> Security Hub</a></li>
+            <li><a href="/security-tools/hash-generator.html" class="hover:text-[#146ebe] transition-colors">Online Hash Generator</a></li>
+            <li><a href="/security-tools/base64-encoder-decoder.html" class="hover:text-[#146ebe] transition-colors">Base64 Encoder / Decoder</a></li>
+            <li><a href="/security-tools/uuid-generator.html" class="hover:text-[#146ebe] transition-colors">UUID / GUID v4 Generator</a></li>
+            <li><a href="/developer-tools/password-generator.html" class="hover:text-[#146ebe] transition-colors">Strong Password Generator</a></li>
+            <li><a href="/developer-tools/html-minifier.html" class="hover:text-[#146ebe] transition-colors">HTML / CSS / JS Minifiers</a></li>
+          </ul>
+        </div>
+
+        <!-- Student & Academic Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-graduation-cap text-amber-600 text-[11px]"></i>
+            <span>Student & Academic</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/student-tools/" class="text-amber-700 hover:text-amber-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-graduation-cap text-[9px] text-amber-600"></i> Student Hub</a></li>
+            <li><a href="/student-tools/gpa-calculator.html" class="hover:text-[#146ebe] transition-colors">GPA & CGPA Calculator</a></li>
+            <li><a href="/student-tools/unit-converter.html" class="hover:text-[#146ebe] transition-colors">Universal Unit Converter</a></li>
+            <li><a href="/ecommerce-tools/invoice-generator.html" class="hover:text-[#146ebe] transition-colors">Free Invoice Maker</a></li>
+            <li><a href="/games/2048/index.html" class="hover:text-[#146ebe] transition-colors">2048 & Retro Games</a></li>
+          </ul>
+        </div>
+
+        <!-- Company & Legal -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-circle-info text-blue-600 text-[11px]"></i>
+            <span>Company & Legal</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/about.html" class="hover:text-[#146ebe] transition-colors">About 360Tools</a></li>
+            <li><a href="/contact.html" class="hover:text-[#146ebe] transition-colors">Contact Support</a></li>
+            <li><a href="/blog.html" class="hover:text-[#146ebe] transition-colors">Editorial Blog</a></li>
+            <li><a href="/privacy-policy.html" class="hover:text-[#146ebe] transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms.html" class="hover:text-[#146ebe] transition-colors">Terms of Use</a></li>
+            <li><a href="/disclaimer.html" class="hover:text-[#146ebe] transition-colors">Legal Disclaimer</a></li>
+            <li><a href="/sitemap.xml" class="hover:text-[#146ebe] transition-colors">XML Sitemap</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright Bar -->
+      <div class="mt-12 pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
+        <div class="flex items-center gap-2 text-center md:text-left">
+          <span>© 2026 <a href="/" class="font-bold text-[#183153] hover:text-[#146ebe] transition-colors">360Tools (360tools.me)</a>. All rights reserved.</span>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-slate-600 text-[11px] font-bold">
+          <a href="/business-tools/" class="hover:text-[#146ebe] transition-colors">Business</a>
+          <span>•</span>
+          <a href="/text-tools/" class="hover:text-[#146ebe] transition-colors">Text</a>
+          <span>•</span>
+          <a href="/finance-tools/" class="hover:text-[#146ebe] transition-colors">Finance</a>
+          <span>•</span>
+          <a href="/security-tools/" class="hover:text-[#146ebe] transition-colors">Security</a>
+          <span>•</span>
+          <a href="/design-tools/" class="hover:text-[#146ebe] transition-colors">Design</a>
+          <span>•</span>
+          <a href="/student-tools/" class="hover:text-[#146ebe] transition-colors">Student</a>
+          <span>•</span>
+          <a href="/pdf-tools/" class="hover:text-[#146ebe] transition-colors">PDF Suite</a>
+        </div>
+
+        <div class="text-[10px] text-slate-400 text-center md:text-right">
+          Zero Cloud Logging • 100% Client-Side In-Browser
+        </div>
+      </div>
+    </div>
+</footer>
+</body>
+</html>

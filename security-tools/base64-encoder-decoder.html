@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Free Base64 Encoder & Decoder Online (2026) | 360tools.me</title>
+  <meta name="title" content="Free Base64 Encoder & Decoder Online (2026) | 360tools.me">
+  <meta name="description" content="Encode and decode text strings and files into Base64 format online. Features UTF-8 support, URL-safe Base64 mode, and instant copy/download. 100% private in-browser.">
+  <meta name="keywords" content="base64 encode, base64 decode, base64 converter, string to base64, base64 to text, url safe base64, base64 image decoder">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/security-tools/base64-encoder-decoder.html">
+
+  <!-- Favicon & Open Graph / Facebook -->
+  <link rel="icon" type="image/webp" href="../images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="../images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/security-tools/base64-encoder-decoder.html">
+  <meta property="og:title" content="Free Base64 Encoder & Decoder | 360tools.me">
+  <meta property="og:description" content="Encode strings into Base64 or decode Base64 back to plain text client-side.">
+  <meta property="og:image" content="https://360tools.me/images/logo.webp">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://360tools.me/security-tools/base64-encoder-decoder.html">
+  <meta name="twitter:title" content="Base64 Encoder & Decoder Tool">
+  <meta name="twitter:description" content="Instant Base64 string encoding and decoding utility.">
+  <meta name="twitter:image" content="https://360tools.me/images/logo.webp">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Base64 Encoder & Decoder",
+    "url": "https://360tools.me/security-tools/base64-encoder-decoder.html",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "description": "Developer utility to encode text and data into Base64 binary-to-text representation or decode Base64 back to UTF-8 plaintext client-side.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../css/style.min.css">
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Security Tools",
+        "item": "https://360tools.me/security-tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Base64 Encoder / Decoder",
+        "item": "https://360tools.me/security-tools/base64-encoder-decoder.html"
+      }
+    ]
+  }
+  </script>
+
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Base64 encoding used for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Base64 is an encoding scheme that converts binary data (like images or encrypted payloads) into a sequence of 64 ASCII characters for safe transmission over text protocols such as HTTP, JSON, and MIME email."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is URL-safe Base64?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "URL-safe Base64 replaces the `+` character with `-` and the `/` character with `_`, and typically omits padding `=` characters so the string can be placed directly inside URL parameters."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Base64 considered encryption?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Base64 is purely a data representation format and offers no cryptographic security or secrecy. Anyone can decode a Base64 string instantly."
+        }
+      }
+    ]
+  }
+  </script>
+
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Header -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto w-full flex-1">
+
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-6" aria-label="Breadcrumb">
+      <a href="../index.html" class="hover:text-[#c27803] transition-colors"><i class="fa-solid fa-house mr-1"></i>Home</a>
+      <span class="text-slate-300">/</span>
+      <a href="./" class="hover:text-[#c27803] transition-colors">Security Tools</a>
+      <span class="text-slate-300">/</span>
+      <span class="text-[#3e2723] font-black">Base64 Encoder & Decoder</span>
+    </nav>
+    
+    <!-- Hero / Headline Above the Fold -->
+    <div class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="bg-blue-100 text-blue-900 text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-solid fa-code-compare mr-1 text-blue-700"></i> Binary Encoding Suite
+          </span>
+          <span class="text-xs font-bold text-slate-500">• 100% In-Browser Privacy • UTF-8 & URL-Safe</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
+          Free Base64 Encoder & Decoder Online
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-3xl leading-relaxed">
+          Encode plain text, JSON payloads, and binary strings into standard Base64 or URL-safe Base64 format. Decode Base64 strings with full UTF-8 character support.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 self-start md:self-center">
+        <button onclick="loadSampleB64()" class="fa-btn-secondary text-xs px-3.5 py-2">
+          <i class="fa-solid fa-wand-magic-sparkles text-[#c27803]"></i> Load Sample Data
+        </button>
+      </div>
+    </div>
+
+    <!-- MAIN INTERACTIVE STUDIO WORKSPACE -->
+    <div class="max-w-4xl mx-auto space-y-6 mb-16">
+
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-xs space-y-6">
+        
+        <!-- Mode Tabs -->
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <div class="flex items-center gap-2">
+            <button onclick="setMode('encode')" id="btnTabEncode" class="py-2 px-4 rounded-xl text-xs font-black bg-[#3e2723] text-white">Encode to Base64</button>
+            <button onclick="setMode('decode')" id="btnTabDecode" class="py-2 px-4 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200">Decode from Base64</button>
+          </div>
+          <label class="flex items-center gap-1.5 text-xs font-bold text-slate-600 cursor-pointer">
+            <input type="checkbox" id="chkUrlSafe" class="w-4 h-4 text-[#c27803] rounded border-slate-300" onchange="runConversion()">
+            <span>URL-Safe Base64</span>
+          </label>
+        </div>
+
+        <!-- Input Box -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1" id="lblInput">Input Text</label>
+          <textarea id="b64Input" rows="6" placeholder="Enter string..." class="fa-input w-full p-3.5 text-sm font-mono text-slate-800" oninput="runConversion()"></textarea>
+        </div>
+
+        <!-- Output Box -->
+        <div>
+          <div class="flex items-center justify-between pb-1">
+            <label class="text-xs font-bold text-slate-700" id="lblOutput">Base64 Output</label>
+            <span id="b64LengthBadge" class="text-[11px] font-bold text-slate-400">0 chars</span>
+          </div>
+          <textarea id="b64Output" rows="6" readonly class="fa-input w-full p-3.5 text-sm font-mono text-slate-800 bg-slate-50 select-all"></textarea>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+          <div class="flex items-center gap-2">
+            <button onclick="copyOutput()" class="fa-btn-primary py-2.5 px-5 text-xs font-black shadow-md flex items-center gap-2">
+              <i class="fa-regular fa-copy"></i>
+              <span>Copy Output</span>
+            </button>
+            <button onclick="downloadOutput()" class="fa-btn-secondary py-2.5 px-4 text-xs font-bold flex items-center gap-2">
+              <i class="fa-solid fa-download"></i>
+              <span>Download .txt</span>
+            </button>
+          </div>
+          <button onclick="clearAll()" class="text-xs font-bold text-red-600 hover:underline">
+            <i class="fa-solid fa-trash-can"></i> Clear
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+  
+    <!-- Related Tools Section -->
+    <section class="max-w-4xl mx-auto mt-12 mb-8">
+      <h3 class="text-lg font-bold text-[#3e2723] font-outfit mb-4 flex items-center gap-2">
+        <i class="fa-solid fa-grid-2 text-[#c27803]"></i> Explore Related Tools
+      </h3>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <a href="/security-tools/hash-generator.html" class="group block p-5 rounded-2xl bg-white border border-[#ded2be] hover:border-[#c27803] hover:shadow-md transition-all">
+          <div class="w-10 h-10 rounded-xl bg-[#faedd0] text-[#3e2723] flex items-center justify-center font-bold mb-3 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-fingerprint text-[#c27803]"></i>
+          </div>
+          <h4 class="font-bold text-[#3e2723] font-outfit text-sm group-hover:text-[#c27803] mb-1">Online Hash Generator</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">SHA-256 & MD5 hash calculator</p>
+        </a>
+        <a href="/security-tools/uuid-generator.html" class="group block p-5 rounded-2xl bg-white border border-[#ded2be] hover:border-[#c27803] hover:shadow-md transition-all">
+          <div class="w-10 h-10 rounded-xl bg-[#faedd0] text-[#3e2723] flex items-center justify-center font-bold mb-3 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-id-badge text-[#c27803]"></i>
+          </div>
+          <h4 class="font-bold text-[#3e2723] font-outfit text-sm group-hover:text-[#c27803] mb-1">UUID Generator</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">Random RFC 4122 unique identifier generator</p>
+        </a>
+        <a href="/text-tools/case-converter.html" class="group block p-5 rounded-2xl bg-white border border-[#ded2be] hover:border-[#c27803] hover:shadow-md transition-all">
+          <div class="w-10 h-10 rounded-xl bg-[#faedd0] text-[#3e2723] flex items-center justify-center font-bold mb-3 group-hover:scale-105 transition-transform">
+            <i class="fa-solid fa-font text-[#c27803]"></i>
+          </div>
+          <h4 class="font-bold text-[#3e2723] font-outfit text-sm group-hover:text-[#c27803] mb-1">Case Converter</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">Convert between uppercase, title, camelCase</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JAVASCRIPT LOGIC ENGINE -->
+  <script>
+    let currentMode = 'encode';
+
+    function setMode(mode) {
+      currentMode = mode;
+      if (mode === 'encode') {
+        document.getElementById('btnTabEncode').className = 'py-2 px-4 rounded-xl text-xs font-black bg-[#3e2723] text-white';
+        document.getElementById('btnTabDecode').className = 'py-2 px-4 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200';
+        document.getElementById('lblInput').textContent = 'Input Plain Text';
+        document.getElementById('lblOutput').textContent = 'Base64 Encoded Output';
+      } else {
+        document.getElementById('btnTabDecode').className = 'py-2 px-4 rounded-xl text-xs font-black bg-[#3e2723] text-white';
+        document.getElementById('btnTabEncode').className = 'py-2 px-4 rounded-xl text-xs font-bold bg-slate-100 text-slate-600 hover:bg-slate-200';
+        document.getElementById('lblInput').textContent = 'Input Base64 String';
+        document.getElementById('lblOutput').textContent = 'Decoded Plain Text Output';
+      }
+      runConversion();
+    }
+
+    function runConversion() {
+      const input = document.getElementById('b64Input').value;
+      const urlSafe = document.getElementById('chkUrlSafe').checked;
+      let output = '';
+
+      try {
+        if (currentMode === 'encode') {
+          // UTF-8 to Base64
+          const bytes = new TextEncoder().encode(input);
+          let binary = '';
+          for (let b of bytes) binary += String.fromCharCode(b);
+          output = btoa(binary);
+          if (urlSafe) {
+            output = output.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+          }
+        } else {
+          // Base64 to UTF-8
+          let cleanInput = input.trim();
+          if (urlSafe) {
+            cleanInput = cleanInput.replace(/-/g, '+').replace(/_/g, '/');
+            while (cleanInput.length % 4) cleanInput += '=';
+          }
+          const binary = atob(cleanInput);
+          const bytes = new Uint8Array(binary.length);
+          for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+          output = new TextDecoder().decode(bytes);
+        }
+      } catch (err) {
+        output = currentMode === 'decode' ? 'Error: Invalid Base64 string payload.' : '';
+      }
+
+      document.getElementById('b64Output').value = output;
+      document.getElementById('b64LengthBadge').textContent = `${output.length} chars`;
+    }
+
+    function loadSampleB64() {
+      setMode('encode');
+      document.getElementById('b64Input').value = "Hello from 360tools.me! 🚀 Fast & Private Utilities.";
+      runConversion();
+      showToast('Loaded sample text!', 'fa-wand-magic-sparkles');
+    }
+
+    function copyOutput() {
+      const text = document.getElementById('b64Output').value;
+      if (!text) return;
+      navigator.clipboard.writeText(text);
+      showToast('Copied to clipboard!', 'fa-copy');
+    }
+
+    function downloadOutput() {
+      const text = document.getElementById('b64Output').value;
+      if (!text) return;
+      const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `360tools-base64-${Date.now()}.txt`;
+      link.click();
+      showToast('Downloaded text file!', 'fa-download');
+    }
+
+    function clearAll() {
+      document.getElementById('b64Input').value = '';
+      document.getElementById('b64Output').value = '';
+      document.getElementById('b64LengthBadge').textContent = '0 chars';
+      showToast('Cleared', 'fa-trash-can');
+    }
+
+    function showToast(msg, icon = 'fa-check') {
+      const existing = document.getElementById('b64Toast');
+      if (existing) existing.remove();
+
+      const toast = document.createElement('div');
+      toast.id = 'b64Toast';
+      toast.className = 'fixed bottom-6 right-6 bg-[#3e2723] text-white py-3 px-5 rounded-2xl shadow-xl flex items-center gap-3 text-xs font-bold z-50 animate-bounce';
+      toast.innerHTML = `<i class="fa-solid ${icon} text-[#ffd43b]"></i> <span>${msg}</span>`;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3500);
+    }
+  </script>
+<footer id="globalFooter" class="no-print bg-white text-slate-700 border-t border-slate-200/80 mt-20">
+<!-- Top Feature Highlight Strip -->
+    <div class="border-b border-slate-200/80 bg-slate-50/70 py-6 px-4 sm:px-6">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+        
+        <div class="flex items-center justify-center md:justify-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200/80 text-[#146ebe] flex items-center justify-center text-lg shrink-0 shadow-2xs">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">100% In-Browser Privacy</h4>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">Files & scripts execute locally in RAM. Zero cloud uploads.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center md:justify-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200/80 text-emerald-600 flex items-center justify-center text-lg shrink-0 shadow-2xs">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">Instant Client-Side Speed</h4>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">WebAssembly, HTML5 Canvas & native Web Crypto APIs.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center md:justify-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center text-lg shrink-0 shadow-2xs">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">100% Free & Unlimited</h4>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">No subscriptions, no account signup gates, zero watermarks.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Main Footer Links Grid (8 Category Columns) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8">
+        
+        <!-- Column 1: Brand & Info -->
+        <div class="sm:col-span-2 space-y-4">
+          <a href="/" class="inline-flex items-center gap-2.5 group">
+            <img src="/images/logo-icon.webp" alt="360Tools Logo" width="36" height="36" class="w-9 h-9 object-contain rounded-xl border border-slate-200 shadow-sm group-hover:scale-105 transition-transform">
+            <span class="text-2xl font-black text-[#183153] tracking-tight">360Tools<span class="text-[#146ebe]">.me</span></span>
+          </a>
+          
+          <p class="text-xs text-slate-600 font-medium leading-relaxed max-w-sm">
+            Free high-precision client-side tools: AI voiceovers, PDF manipulations, media compression, cryptographic security, and multi-category business & financial calculators.
+          </p>
+
+          <div class="flex items-center gap-2 pt-1">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold shadow-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              All 45+ Tools Operational
+            </span>
+          </div>
+
+          <!-- Social Links -->
+          <div class="pt-2">
+            <div class="flex items-center gap-2">
+              <a href="https://www.youtube.com/@360tools" target="_blank" rel="noopener noreferrer" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-red-50 text-slate-600 hover:text-red-600 flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="YouTube" aria-label="YouTube Channel">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+              <a href="https://www.facebook.com/360tools.me" target="_blank" rel="noopener noreferrer" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#1877f2] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="Facebook" aria-label="Facebook Page">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com/360tools.me" target="_blank" rel="noopener noreferrer" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-pink-50 text-slate-600 hover:text-[#e1306c] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="Instagram" aria-label="Instagram Profile">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://360tools.me" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#146ebe] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="360tools.me Website" aria-label="360tools.me Official Website">
+                <i class="fa-solid fa-globe"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: PDF & Documents -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-file-pdf text-red-600 text-[11px]"></i>
+            <span>PDF Suite</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/pdf-tools/" class="text-red-700 hover:text-red-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-file-pdf text-[9px] text-red-600"></i> All 19 PDF Tools</a></li>
+            <li><a href="/pdf-tools/merge-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Merge PDF</a></li>
+            <li><a href="/pdf-tools/split-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Split PDF</a></li>
+            <li><a href="/pdf-tools/compress-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Compress PDF</a></li>
+            <li><a href="/pdf-tools/pdf-to-jpg/index.html" class="hover:text-[#146ebe] transition-colors">PDF to JPG / PNG</a></li>
+            <li><a href="/pdf-tools/jpg-to-pdf/index.html" class="hover:text-[#146ebe] transition-colors">JPG to PDF</a></li>
+            <li><a href="/pdf-tools/password-protect-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Protect & Unlock PDF</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: AI Voice & Audio -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-volume-high text-purple-600 text-[11px]"></i>
+            <span>AI Voice & Audio</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/audio-tools/" class="text-purple-700 hover:text-purple-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-volume-high text-[9px] text-purple-600"></i> Audio Hub</a></li>
+            <li><a href="/audio-tools/text-to-speech.html" class="hover:text-[#146ebe] transition-colors">Text to Speech</a></li>
+            <li><a href="/audio-tools/text-to-mp3.html" class="hover:text-[#146ebe] transition-colors">Text to MP3</a></li>
+            <li><a href="/audio-tools/ai-voice-generator.html" class="hover:text-[#146ebe] transition-colors">AI Voice Studio</a></li>
+            <li><a href="/audio-tools/pdf-to-speech.html" class="hover:text-[#146ebe] transition-colors">PDF to Speech</a></li>
+            <li><a href="/audio-tools/youtube-voiceover-generator.html" class="hover:text-[#146ebe] transition-colors">YouTube Voiceover</a></li>
+            <li><a href="/audio-tools/urdu-text-to-speech.html" class="hover:text-[#146ebe] transition-colors">Urdu TTS (اردو)</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Media & Design -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-palette text-pink-600 text-[11px]"></i>
+            <span>Media & Design</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/design-tools/" class="text-pink-700 hover:text-pink-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-palette text-[9px] text-pink-600"></i> Design Hub</a></li>
+            <li><a href="/design-tools/color-palette-generator.html" class="hover:text-[#146ebe] transition-colors">Color Palette Generator</a></li>
+            <li><a href="/design-tools/aspect-ratio-calculator.html" class="hover:text-[#146ebe] transition-colors">Aspect Ratio Calculator</a></li>
+            <li><a href="/developer-tools/qr-code-generator.html" class="text-amber-700 hover:text-amber-900 transition-colors font-bold">QR Code Generator</a></li>
+            <li><a href="/image-tools/image-compressor.html" class="hover:text-[#146ebe] transition-colors">Image Compressor</a></li>
+            <li><a href="/image-tools/background-remover.html" class="hover:text-[#146ebe] transition-colors">AI Background Remover</a></li>
+            <li><a href="/video-tools/video-compressor.html" class="hover:text-[#146ebe] transition-colors">Video Compressor</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Business, Finance & Security -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-vault text-emerald-600 text-[11px]"></i>
+            <span>Business & Finance</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/business-tools/" class="text-blue-700 hover:text-blue-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-briefcase text-[9px] text-blue-600"></i> Business Hub</a></li>
+            <li><a href="/business-tools/roi-calculator.html" class="hover:text-[#146ebe] transition-colors">ROI & CAGR Calculator</a></li>
+            <li><a href="/business-tools/break-even-calculator.html" class="hover:text-[#146ebe] transition-colors">Break-Even Calculator</a></li>
+            <li><a href="/business-tools/freelance-rate-calculator.html" class="hover:text-[#146ebe] transition-colors">Freelance Rate Calculator</a></li>
+            <li><a href="/finance-tools/compound-interest-calculator.html" class="hover:text-[#146ebe] transition-colors">Compound Interest</a></li>
+            <li><a href="/finance-tools/loan-amortization-calculator.html" class="hover:text-[#146ebe] transition-colors">Loan Amortization</a></li>
+            <li><a href="/finance-tools/crypto-profit-calculator.html" class="hover:text-[#146ebe] transition-colors">Crypto Profit & DCA</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Second Row of Footer Categories -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pt-8 mt-8 border-t border-slate-100">
+        
+        <!-- Text & Writing Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-font text-indigo-600 text-[11px]"></i>
+            <span>Writing & Text Tools</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/text-tools/" class="text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-align-left text-[9px] text-indigo-600"></i> Text Tools Hub</a></li>
+            <li><a href="/text-tools/case-converter.html" class="hover:text-[#146ebe] transition-colors">Case Converter & Slugifier</a></li>
+            <li><a href="/text-tools/lorem-ipsum-generator.html" class="hover:text-[#146ebe] transition-colors">Lorem Ipsum Generator</a></li>
+            <li><a href="/text-tools/text-cleaner.html" class="hover:text-[#146ebe] transition-colors">Text Cleaner & Formatter</a></li>
+            <li><a href="/developer-tools/word-counter.html" class="hover:text-[#146ebe] transition-colors">Word & Character Counter</a></li>
+          </ul>
+        </div>
+
+        <!-- Security & Developer Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-shield-halved text-rose-600 text-[11px]"></i>
+            <span>Security & Dev Tools</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/security-tools/" class="text-rose-700 hover:text-rose-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-shield-halved text-[9px] text-rose-600"></i> Security Hub</a></li>
+            <li><a href="/security-tools/hash-generator.html" class="hover:text-[#146ebe] transition-colors">Online Hash Generator</a></li>
+            <li><a href="/security-tools/base64-encoder-decoder.html" class="hover:text-[#146ebe] transition-colors">Base64 Encoder / Decoder</a></li>
+            <li><a href="/security-tools/uuid-generator.html" class="hover:text-[#146ebe] transition-colors">UUID / GUID v4 Generator</a></li>
+            <li><a href="/developer-tools/password-generator.html" class="hover:text-[#146ebe] transition-colors">Strong Password Generator</a></li>
+            <li><a href="/developer-tools/html-minifier.html" class="hover:text-[#146ebe] transition-colors">HTML / CSS / JS Minifiers</a></li>
+          </ul>
+        </div>
+
+        <!-- Student & Academic Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-graduation-cap text-amber-600 text-[11px]"></i>
+            <span>Student & Academic</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/student-tools/" class="text-amber-700 hover:text-amber-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-graduation-cap text-[9px] text-amber-600"></i> Student Hub</a></li>
+            <li><a href="/student-tools/gpa-calculator.html" class="hover:text-[#146ebe] transition-colors">GPA & CGPA Calculator</a></li>
+            <li><a href="/student-tools/unit-converter.html" class="hover:text-[#146ebe] transition-colors">Universal Unit Converter</a></li>
+            <li><a href="/ecommerce-tools/invoice-generator.html" class="hover:text-[#146ebe] transition-colors">Free Invoice Maker</a></li>
+            <li><a href="/games/2048/index.html" class="hover:text-[#146ebe] transition-colors">2048 & Retro Games</a></li>
+          </ul>
+        </div>
+
+        <!-- Company & Legal -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-circle-info text-blue-600 text-[11px]"></i>
+            <span>Company & Legal</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/about.html" class="hover:text-[#146ebe] transition-colors">About 360Tools</a></li>
+            <li><a href="/contact.html" class="hover:text-[#146ebe] transition-colors">Contact Support</a></li>
+            <li><a href="/blog.html" class="hover:text-[#146ebe] transition-colors">Editorial Blog</a></li>
+            <li><a href="/privacy-policy.html" class="hover:text-[#146ebe] transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms.html" class="hover:text-[#146ebe] transition-colors">Terms of Use</a></li>
+            <li><a href="/disclaimer.html" class="hover:text-[#146ebe] transition-colors">Legal Disclaimer</a></li>
+            <li><a href="/sitemap.xml" class="hover:text-[#146ebe] transition-colors">XML Sitemap</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright Bar -->
+      <div class="mt-12 pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
+        <div class="flex items-center gap-2 text-center md:text-left">
+          <span>© 2026 <a href="/" class="font-bold text-[#183153] hover:text-[#146ebe] transition-colors">360Tools (360tools.me)</a>. All rights reserved.</span>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-slate-600 text-[11px] font-bold">
+          <a href="/business-tools/" class="hover:text-[#146ebe] transition-colors">Business</a>
+          <span>•</span>
+          <a href="/text-tools/" class="hover:text-[#146ebe] transition-colors">Text</a>
+          <span>•</span>
+          <a href="/finance-tools/" class="hover:text-[#146ebe] transition-colors">Finance</a>
+          <span>•</span>
+          <a href="/security-tools/" class="hover:text-[#146ebe] transition-colors">Security</a>
+          <span>•</span>
+          <a href="/design-tools/" class="hover:text-[#146ebe] transition-colors">Design</a>
+          <span>•</span>
+          <a href="/student-tools/" class="hover:text-[#146ebe] transition-colors">Student</a>
+          <span>•</span>
+          <a href="/pdf-tools/" class="hover:text-[#146ebe] transition-colors">PDF Suite</a>
+        </div>
+
+        <div class="text-[10px] text-slate-400 text-center md:text-right">
+          Zero Cloud Logging • 100% Client-Side In-Browser
+        </div>
+      </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -881,6 +881,313 @@ const TOOLS_REGISTRY = [
     desc: "Explore all in-browser audio synthesis, speech generators, and voiceover utilities.",
     featured: false,
     keywords: ["audio tools", "speech tools", "tts tools", "voiceover suite"]
+  },
+  // Developer & Security Utilities (New)
+  {
+    name: "Custom QR Code Generator",
+    url: "/developer-tools/qr-code-generator.html",
+    category: "developer-tools",
+    subcategory: "utility",
+    icon: "fa-qrcode",
+    color: "text-[#c27803]",
+    bg: "bg-amber-50 border-amber-200/80",
+    desc: "Create custom vector QR codes for websites, Wi-Fi, vCards, emails & crypto with logo branding and SVG/PNG downloads.",
+    featured: true,
+    keywords: ["qr code generator", "custom qr code", "vector qr code", "wifi qr code", "vcard qr code", "crypto qr code"]
+  },
+  {
+    name: "Word & Character Counter",
+    url: "/developer-tools/word-counter.html",
+    category: "developer-tools",
+    subcategory: "utility",
+    icon: "fa-font",
+    color: "text-blue-600",
+    bg: "bg-blue-50 border-blue-200/80",
+    desc: "Count words, characters, reading time, and evaluate Flesch Reading Ease scores with keyword density metrics.",
+    featured: true,
+    keywords: ["word counter", "character count", "reading time", "flesch reading ease", "keyword density", "essay counter"]
+  },
+  {
+    name: "Strong Password Generator",
+    url: "/developer-tools/password-generator.html",
+    category: "developer-tools",
+    subcategory: "utility",
+    icon: "fa-key",
+    color: "text-emerald-600",
+    bg: "bg-emerald-50 border-emerald-200/80",
+    desc: "Generate CSPRNG random passwords, Diceware passphrases, and numeric PINs with bit entropy scoring.",
+    featured: true,
+    keywords: ["password generator", "passphrase generator", "diceware", "pin generator", "entropy calculator", "secure password"]
+  },
+  // Business & Strategy Tools
+  {
+    name: "ROI & CAGR Calculator",
+    url: "/business-tools/roi-calculator.html",
+    category: "business-tools",
+    subcategory: "business",
+    icon: "fa-chart-pie",
+    color: "text-blue-600",
+    bg: "bg-blue-50 border-blue-200/80",
+    desc: "Compute simple return on investment, net gain, and annualized CAGR with currency toggle and breakdown.",
+    featured: true,
+    keywords: ["roi calculator", "return on investment", "cagr calculator", "annualized return", "investment return formula"]
+  },
+  {
+    name: "Break-Even Point Calculator",
+    url: "/business-tools/break-even-calculator.html",
+    category: "business-tools",
+    subcategory: "business",
+    icon: "fa-scale-balanced",
+    color: "text-blue-600",
+    bg: "bg-blue-50 border-blue-200/80",
+    desc: "Find exact units and revenue required to cover fixed overhead, with contribution margin and target profit.",
+    featured: false,
+    keywords: ["break even calculator", "break even analysis", "contribution margin", "fixed costs", "target profit calculator"]
+  },
+  {
+    name: "Freelance Rate Calculator",
+    url: "/business-tools/freelance-rate-calculator.html",
+    category: "business-tools",
+    subcategory: "business",
+    icon: "fa-calculator",
+    color: "text-blue-600",
+    bg: "bg-blue-50 border-blue-200/80",
+    desc: "Calculate billable hourly, daily, and project minimum rates factoring in taxes, overhead, and time off.",
+    featured: false,
+    keywords: ["freelance rate calculator", "hourly rate calculator", "day rate calculator", "freelance pricing", "billable hours"]
+  },
+  {
+    name: "Business Tools Hub",
+    url: "/business-tools/index.html",
+    category: "business-tools",
+    subcategory: "hub",
+    icon: "fa-briefcase",
+    color: "text-blue-600",
+    bg: "bg-blue-50 border-blue-200/80",
+    desc: "Explore all ROI, Break-Even, and Freelance Pricing calculators.",
+    featured: false,
+    keywords: ["business tools", "business calculators", "roi", "break even", "freelance pricing"]
+  },
+  // Writing & Text Tools
+  {
+    name: "Case Converter & Slugifier",
+    url: "/text-tools/case-converter.html",
+    category: "text-tools",
+    subcategory: "text",
+    icon: "fa-font",
+    color: "text-indigo-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Transform text between UPPERCASE, Title Case, camelCase, snake_case, kebab-case, and URL slugs.",
+    featured: true,
+    keywords: ["case converter", "title case", "camelcase", "snake case", "kebab case", "slugify", "uppercase lowercase"]
+  },
+  {
+    name: "Lorem Ipsum Generator",
+    url: "/text-tools/lorem-ipsum-generator.html",
+    category: "text-tools",
+    subcategory: "text",
+    icon: "fa-paragraph",
+    color: "text-indigo-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Generate custom placeholder filler text by paragraphs, sentences, words, or lists with optional HTML wrappers.",
+    featured: false,
+    keywords: ["lorem ipsum generator", "dummy text generator", "placeholder text", "filler text", "lipsum online"]
+  },
+  {
+    name: "Text Cleaner & Formatter",
+    url: "/text-tools/text-cleaner.html",
+    category: "text-tools",
+    subcategory: "text",
+    icon: "fa-broom",
+    color: "text-indigo-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Remove extra spaces, blank lines, duplicate sentences, HTML tags, and emojis with one click.",
+    featured: false,
+    keywords: ["text cleaner", "remove line breaks", "trim spaces", "strip html", "remove duplicate lines", "text formatter"]
+  },
+  {
+    name: "Writing & Text Tools Hub",
+    url: "/text-tools/index.html",
+    category: "text-tools",
+    subcategory: "hub",
+    icon: "fa-align-left",
+    color: "text-indigo-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Explore all client-side case converters, placeholder generators, and text sanitation tools.",
+    featured: false,
+    keywords: ["text tools", "writing tools", "case converter", "lorem ipsum", "text cleaner"]
+  },
+  // Finance & Crypto Tools
+  {
+    name: "Compound Interest Calculator",
+    url: "/finance-tools/compound-interest-calculator.html",
+    category: "finance-tools",
+    subcategory: "finance",
+    icon: "fa-coins",
+    color: "text-emerald-600",
+    bg: "bg-emerald-50 border-emerald-200/80",
+    desc: "Simulate investment growth with flexible compounding frequencies and periodic monthly contributions.",
+    featured: true,
+    keywords: ["compound interest calculator", "investment growth calculator", "interest calculator", "savings calculator", "cagr"]
+  },
+  {
+    name: "Loan Amortization Calculator",
+    url: "/finance-tools/loan-amortization-calculator.html",
+    category: "finance-tools",
+    subcategory: "finance",
+    icon: "fa-file-invoice-dollar",
+    color: "text-emerald-600",
+    bg: "bg-emerald-50 border-emerald-200/80",
+    desc: "Calculate exact monthly P&I repayments and full principal vs interest payoff schedules.",
+    featured: true,
+    keywords: ["loan amortization calculator", "mortgage calculator", "loan payment schedule", "principal and interest", "auto loan calculator"]
+  },
+  {
+    name: "Crypto Profit & DCA Calculator",
+    url: "/finance-tools/crypto-profit-calculator.html",
+    category: "finance-tools",
+    subcategory: "finance",
+    icon: "fa-brands fa-bitcoin",
+    color: "text-emerald-600",
+    bg: "bg-emerald-50 border-emerald-200/80",
+    desc: "Compute crypto trading returns, exchange fee deductions, and recurring Dollar Cost Averaging (DCA).",
+    featured: false,
+    keywords: ["crypto profit calculator", "dca calculator", "bitcoin profit calculator", "dollar cost averaging", "crypto gain loss"]
+  },
+  {
+    name: "Finance Tools Hub",
+    url: "/finance-tools/index.html",
+    category: "finance-tools",
+    subcategory: "hub",
+    icon: "fa-vault",
+    color: "text-emerald-600",
+    bg: "bg-emerald-50 border-emerald-200/80",
+    desc: "Explore all compound interest, mortgage amortization, and crypto return tools.",
+    featured: false,
+    keywords: ["finance tools", "investment tools", "crypto calculators", "wealth tools"]
+  },
+  // Security & Cryptography Tools
+  {
+    name: "Online Hash Generator",
+    url: "/security-tools/hash-generator.html",
+    category: "security-tools",
+    subcategory: "security",
+    icon: "fa-fingerprint",
+    color: "text-rose-600",
+    bg: "bg-rose-50 border-rose-200/80",
+    desc: "Compute SHA-256, SHA-512, MD5, and SHA-1 cryptographic hashes client-side via native Web Crypto API.",
+    featured: true,
+    keywords: ["hash generator", "sha256 generator", "sha512 generator", "md5 generator", "sha1 online", "checksum generator"]
+  },
+  {
+    name: "Base64 Encoder / Decoder",
+    url: "/security-tools/base64-encoder-decoder.html",
+    category: "security-tools",
+    subcategory: "security",
+    icon: "fa-code",
+    color: "text-rose-600",
+    bg: "bg-rose-50 border-rose-200/80",
+    desc: "Encode text to Base64 and decode Base64 strings with UTF-8 support and URL-safe base64url mode.",
+    featured: false,
+    keywords: ["base64 encoder", "base64 decoder", "base64 to text", "url safe base64", "base64 online"]
+  },
+  {
+    name: "UUID / GUID v4 Generator",
+    url: "/security-tools/uuid-generator.html",
+    category: "security-tools",
+    subcategory: "security",
+    icon: "fa-id-badge",
+    color: "text-rose-600",
+    bg: "bg-rose-50 border-rose-200/80",
+    desc: "Generate RFC 4122 compliant Version 4 UUIDs in bulk (up to 500) using cryptographically secure random numbers.",
+    featured: false,
+    keywords: ["uuid generator", "guid generator", "v4 uuid", "rfc 4122 uuid", "bulk uuid generator", "random guid"]
+  },
+  {
+    name: "Security Tools Hub",
+    url: "/security-tools/index.html",
+    category: "security-tools",
+    subcategory: "hub",
+    icon: "fa-shield-halved",
+    color: "text-rose-600",
+    bg: "bg-rose-50 border-rose-200/80",
+    desc: "Explore all client-side cryptographic hashing, encoding, and unique identifier utilities.",
+    featured: false,
+    keywords: ["security tools", "cryptography tools", "hash generator", "base64", "uuid"]
+  },
+  // Design & Media Tools
+  {
+    name: "Color Palette Generator",
+    url: "/design-tools/color-palette-generator.html",
+    category: "design-tools",
+    subcategory: "design",
+    icon: "fa-palette",
+    color: "text-pink-600",
+    bg: "bg-pink-50 border-pink-200/80",
+    desc: "Generate 5-color aesthetic palettes with spacebar, lock favorite colors, and check WCAG contrast compliance.",
+    featured: true,
+    keywords: ["color palette generator", "color scheme generator", "hex color palette", "wcag contrast checker", "palette maker"]
+  },
+  {
+    name: "Aspect Ratio Calculator",
+    url: "/design-tools/aspect-ratio-calculator.html",
+    category: "design-tools",
+    subcategory: "design",
+    icon: "fa-expand",
+    color: "text-pink-600",
+    bg: "bg-pink-50 border-pink-200/80",
+    desc: "Calculate dimensions and scaling for 16:9, 4:3, 1:1, 9:16, 21:9 with live canvas visual preview.",
+    featured: false,
+    keywords: ["aspect ratio calculator", "16:9 calculator", "image ratio scaler", "dimension calculator", "video aspect ratio"]
+  },
+  {
+    name: "Design Tools Hub",
+    url: "/design-tools/index.html",
+    category: "design-tools",
+    subcategory: "hub",
+    icon: "fa-swatchbook",
+    color: "text-pink-600",
+    bg: "bg-pink-50 border-pink-200/80",
+    desc: "Explore all color harmony generators, contrast checkers, and dimension scaling engines.",
+    featured: false,
+    keywords: ["design tools", "ui tools", "color palette", "aspect ratio", "media tools"]
+  },
+  // Student & Academic Tools
+  {
+    name: "College & High School GPA Calculator",
+    url: "/student-tools/gpa-calculator.html",
+    category: "student-tools",
+    subcategory: "student",
+    icon: "fa-calculator",
+    color: "text-amber-600",
+    bg: "bg-amber-50 border-amber-200/80",
+    desc: "Calculate semester GPA and cumulative CGPA on a 4.0 scale with credit hours and honors weightings.",
+    featured: true,
+    keywords: ["gpa calculator", "college gpa calculator", "cgpa calculator", "4.0 scale gpa", "semester gpa calculator", "unweighted gpa"]
+  },
+  {
+    name: "Universal Unit Converter",
+    url: "/student-tools/unit-converter.html",
+    category: "student-tools",
+    subcategory: "student",
+    icon: "fa-arrow-right-arrow-left",
+    color: "text-amber-600",
+    bg: "bg-amber-50 border-amber-200/80",
+    desc: "Convert length, weight, temperature, digital data, speed, area, and volume between metric & imperial.",
+    featured: true,
+    keywords: ["unit converter", "metric to imperial", "length converter", "weight converter", "temperature converter", "celsius to fahrenheit"]
+  },
+  {
+    name: "Student Tools Hub",
+    url: "/student-tools/index.html",
+    category: "student-tools",
+    subcategory: "hub",
+    icon: "fa-graduation-cap",
+    color: "text-amber-600",
+    bg: "bg-amber-50 border-amber-200/80",
+    desc: "Explore all academic GPA calculators and universal metric/imperial unit converters.",
+    featured: false,
+    keywords: ["student tools", "academic tools", "gpa calculator", "unit converter", "study tools"]
   }
 ];
 
@@ -1752,13 +2059,132 @@ function createMobileAppDrawer() {
       <button onclick="toggleMobileAppDrawer(false); openQuickSearch();" class="w-full mb-4 p-3 bg-slate-100 hover:bg-slate-200/80 rounded-2xl border border-slate-200 text-left flex items-center justify-between text-xs font-bold text-slate-500">
         <span class="flex items-center gap-2">
           <i class="fa-solid fa-magnifying-glass text-[#146ebe]"></i>
-          Search all 30+ tools...
+          Search all 45+ tools...
         </span>
         <span class="px-2 py-0.5 bg-white rounded-lg border border-slate-200 text-[10px] text-slate-400 font-mono">Tap</span>
       </button>
 
       <!-- Tool Categories Grid -->
       <div class="space-y-4">
+        
+        <!-- Business & Strategy -->
+        <div>
+          <div class="text-[11px] font-black text-blue-700 uppercase tracking-wider mb-2 flex items-center justify-between">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-briefcase"></i> Business & Strategy</span>
+            <a href="${getSiteRoot()}business-tools/" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View Hub &rarr;</a>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="${getSiteRoot()}business-tools/roi-calculator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-blue-50/80 hover:bg-blue-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-chart-pie text-blue-600 text-sm"></i> ROI & CAGR Calc
+            </a>
+            <a href="${getSiteRoot()}business-tools/break-even-calculator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-blue-50/80 hover:bg-blue-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-scale-balanced text-blue-600 text-sm"></i> Break-Even Point
+            </a>
+            <a href="${getSiteRoot()}business-tools/freelance-rate-calculator.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-blue-50/80 hover:bg-blue-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-calculator text-blue-600 text-sm"></i> Freelance Rate Calculator
+            </a>
+          </div>
+        </div>
+
+        <!-- Writing & Text Tools -->
+        <div>
+          <div class="text-[11px] font-black text-indigo-700 uppercase tracking-wider mb-2 flex items-center justify-between">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-font"></i> Writing & Text Tools</span>
+            <a href="${getSiteRoot()}text-tools/" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View Hub &rarr;</a>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="${getSiteRoot()}text-tools/case-converter.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-indigo-50/80 hover:bg-indigo-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-font text-indigo-600 text-sm"></i> Case Converter
+            </a>
+            <a href="${getSiteRoot()}text-tools/lorem-ipsum-generator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-indigo-50/80 hover:bg-indigo-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-paragraph text-indigo-600 text-sm"></i> Lorem Ipsum
+            </a>
+            <a href="${getSiteRoot()}text-tools/text-cleaner.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-indigo-50/80 hover:bg-indigo-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-broom text-indigo-600 text-sm"></i> Text Cleaner
+            </a>
+            <a href="${getSiteRoot()}developer-tools/word-counter.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-indigo-50/80 hover:bg-indigo-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-calculator text-indigo-600 text-sm"></i> Word Counter
+            </a>
+          </div>
+        </div>
+
+        <!-- Finance & Investment -->
+        <div>
+          <div class="text-[11px] font-black text-emerald-700 uppercase tracking-wider mb-2 flex items-center justify-between">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-coins"></i> Finance & Crypto</span>
+            <a href="${getSiteRoot()}finance-tools/" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View Hub &rarr;</a>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="${getSiteRoot()}finance-tools/compound-interest-calculator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-emerald-50/80 hover:bg-emerald-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-coins text-emerald-600 text-sm"></i> Compound Interest
+            </a>
+            <a href="${getSiteRoot()}finance-tools/loan-amortization-calculator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-emerald-50/80 hover:bg-emerald-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-file-invoice-dollar text-emerald-600 text-sm"></i> Loan Schedule
+            </a>
+            <a href="${getSiteRoot()}finance-tools/crypto-profit-calculator.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-emerald-50/80 hover:bg-emerald-100 text-xs font-bold text-[#183153]">
+              <i class="fa-brands fa-bitcoin text-emerald-600 text-sm"></i> Crypto Profit & DCA Calculator
+            </a>
+          </div>
+        </div>
+
+        <!-- Security & Privacy -->
+        <div>
+          <div class="text-[11px] font-black text-rose-700 uppercase tracking-wider mb-2 flex items-center justify-between">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved"></i> Security & Cryptography</span>
+            <a href="${getSiteRoot()}security-tools/" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View Hub &rarr;</a>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="${getSiteRoot()}security-tools/hash-generator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-rose-50/80 hover:bg-rose-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-fingerprint text-rose-600 text-sm"></i> Hash Generator
+            </a>
+            <a href="${getSiteRoot()}security-tools/base64-encoder-decoder.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-rose-50/80 hover:bg-rose-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-code text-rose-600 text-sm"></i> Base64 Convert
+            </a>
+            <a href="${getSiteRoot()}security-tools/uuid-generator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-rose-50/80 hover:bg-rose-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-id-badge text-rose-600 text-sm"></i> UUID Generator
+            </a>
+            <a href="${getSiteRoot()}developer-tools/password-generator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-emerald-50/80 hover:bg-emerald-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-key text-emerald-600 text-sm"></i> Strong Password
+            </a>
+          </div>
+        </div>
+
+        <!-- Design & Media -->
+        <div>
+          <div class="text-[11px] font-black text-pink-700 uppercase tracking-wider mb-2 flex items-center justify-between">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-palette"></i> Design & Creative</span>
+            <a href="${getSiteRoot()}design-tools/" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View Hub &rarr;</a>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="${getSiteRoot()}design-tools/color-palette-generator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-pink-50/80 hover:bg-pink-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-palette text-pink-600 text-sm"></i> Color Palette
+            </a>
+            <a href="${getSiteRoot()}design-tools/aspect-ratio-calculator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-pink-50/80 hover:bg-pink-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-expand text-pink-600 text-sm"></i> Aspect Ratio
+            </a>
+            <a href="${getSiteRoot()}developer-tools/qr-code-generator.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-amber-50/80 hover:bg-amber-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-qrcode text-amber-600 text-sm"></i> Custom QR Code Generator
+            </a>
+          </div>
+        </div>
+
+        <!-- Student & Academic -->
+        <div>
+          <div class="text-[11px] font-black text-amber-700 uppercase tracking-wider mb-2 flex items-center justify-between">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-graduation-cap"></i> Student & Academic</span>
+            <a href="${getSiteRoot()}student-tools/" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View Hub &rarr;</a>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="${getSiteRoot()}student-tools/gpa-calculator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-amber-50/80 hover:bg-amber-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-calculator text-amber-600 text-sm"></i> GPA Calculator
+            </a>
+            <a href="${getSiteRoot()}student-tools/unit-converter.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-amber-50/80 hover:bg-amber-100 text-xs font-bold text-[#183153]">
+              <i class="fa-solid fa-arrow-right-arrow-left text-amber-600 text-sm"></i> Unit Converter
+            </a>
+          </div>
+        </div>
+
+        <!-- PDF & Documents -->
         <div>
           <div class="text-[11px] font-black text-red-700 uppercase tracking-wider mb-2 flex items-center justify-between">
             <span class="flex items-center gap-1.5"><i class="fa-solid fa-file-pdf"></i> PDF & Documents</span>
@@ -1777,19 +2203,14 @@ function createMobileAppDrawer() {
             <a href="${getSiteRoot()}pdf-tools/pdf-to-jpg/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
               <i class="fa-solid fa-image text-amber-600 text-sm"></i> PDF to JPG
             </a>
-            <a href="${getSiteRoot()}pdf-tools/jpg-to-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
-              <i class="fa-solid fa-file-image text-blue-600 text-sm"></i> JPG to PDF
-            </a>
-            <a href="${getSiteRoot()}pdf-tools/rotate-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-red-50/80 hover:bg-red-100 text-xs font-bold text-[#183153]">
-              <i class="fa-solid fa-rotate text-purple-600 text-sm"></i> Rotate PDF
-            </a>
           </div>
         </div>
 
+        <!-- AI Voice & Audio -->
         <div>
           <div class="text-[11px] font-black text-purple-700 uppercase tracking-wider mb-2 flex items-center justify-between">
             <span class="flex items-center gap-1.5"><i class="fa-solid fa-volume-high"></i> AI Voice & Audio</span>
-            <a href="${getSiteRoot()}audio-tools/" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
+            <a href="${getSiteRoot()}audio-tools/" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View Hub &rarr;</a>
           </div>
           <div class="grid grid-cols-2 gap-2">
             <a href="${getSiteRoot()}audio-tools/text-to-speech.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
@@ -1807,80 +2228,7 @@ function createMobileAppDrawer() {
           </div>
         </div>
 
-        <div>
-          <div class="text-[11px] font-black text-emerald-700 uppercase tracking-wider mb-2 flex items-center justify-between">
-            <span class="flex items-center gap-1.5"><i class="fa-solid fa-compress"></i> Media Compression</span>
-            <a href="${getSiteRoot()}image-tools/" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
-          </div>
-          <div class="grid grid-cols-2 gap-2">
-            <a href="${getSiteRoot()}image-tools/background-remover.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-purple-50 hover:bg-purple-100 text-xs font-bold text-[#183153]">
-              <i class="fa-solid fa-eraser text-purple-600 text-sm"></i> Photo Object Eraser (Img & Video)
-            </a>
-            <a href="${getSiteRoot()}image-tools/background-remover.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-teal-50 hover:bg-teal-100 text-xs font-bold text-[#183153]">
-              <i class="fa-solid fa-wand-magic-sparkles text-teal-600 text-sm"></i> BG Remover
-            </a>
-            <a href="${getSiteRoot()}video-tools/video-frame-extractor.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-xs font-bold text-[#183153]">
-              <i class="fa-solid fa-film text-indigo-600 text-sm"></i> Frame Extractor
-            </a>
-            <a href="${getSiteRoot()}image-tools/image-compressor.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
-              <i class="fa-solid fa-image text-emerald-600 text-sm"></i> Image Compressor
-            </a>
-            <a href="${getSiteRoot()}video-tools/video-compressor.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
-              <i class="fa-solid fa-video text-rose-600 text-sm"></i> Video Compressor
-            </a>
-            <a href="${getSiteRoot()}pdf-tools/compress-pdf/index.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
-              <i class="fa-solid fa-file-pdf text-red-600 text-sm"></i> PDF Compressor
-            </a>
-            <a href="${getSiteRoot()}image-tools/compress-image-to-100kb.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
-              <i class="fa-solid fa-bullseye text-indigo-600 text-sm"></i> 100KB Target
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <div class="text-[11px] font-black text-cyan-700 uppercase tracking-wider mb-2 flex items-center justify-between">
-            <span class="flex items-center gap-1.5"><i class="fa-solid fa-code"></i> Developer & Web Tools</span>
-            <a href="${getSiteRoot()}developer-tools/" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
-          </div>
-          <div class="grid grid-cols-2 gap-2">
-            <a href="${getSiteRoot()}developer-tools/html-minifier.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
-              <i class="fa-brands fa-html5 text-orange-600 text-sm"></i> HTML Minifier
-            </a>
-            <a href="${getSiteRoot()}developer-tools/css-minifier.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
-              <i class="fa-brands fa-css3-alt text-blue-600 text-sm"></i> CSS Minifier
-            </a>
-            <a href="${getSiteRoot()}developer-tools/javascript-minifier.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
-              <i class="fa-brands fa-js text-yellow-500 text-sm"></i> JS Minifier
-            </a>
-            <a href="${getSiteRoot()}developer-tools/shopify-csv-validator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
-              <i class="fa-brands fa-shopify text-emerald-600 text-sm"></i> Shopify CSV
-            </a>
-            <a href="${getSiteRoot()}developer-tools/ats-resume-checker.html" onclick="toggleMobileAppDrawer(false)" class="col-span-2 flex items-center gap-2 p-2.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-xs font-bold text-[#183153]">
-              <i class="fa-solid fa-file-circle-check text-indigo-600 text-sm"></i> Free ATS Resume Checker
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <div class="text-[11px] font-black text-[#f1641e] uppercase tracking-wider mb-2 flex items-center justify-between">
-            <span class="flex items-center gap-1.5"><i class="fa-solid fa-calculator"></i> E-Commerce & Finance</span>
-            <a href="${getSiteRoot()}ecommerce-tools/" onclick="toggleMobileAppDrawer(false)" class="text-[10px] text-[#146ebe] hover:underline font-bold">View All &rarr;</a>
-          </div>
-          <div class="grid grid-cols-2 gap-2">
-            <a href="${getSiteRoot()}ecommerce-tools/etsy-fee-calculator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
-              <i class="fa-brands fa-etsy text-[#f1641e] text-sm"></i> Etsy Fee Calc
-            </a>
-            <a href="${getSiteRoot()}ecommerce-tools/amazon-fba-calculator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
-              <i class="fa-brands fa-amazon text-amber-600 text-sm"></i> Amazon FBA
-            </a>
-            <a href="${getSiteRoot()}ecommerce-tools/tiktok-shop-payout-calculator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
-              <i class="fa-brands fa-tiktok text-pink-600 text-sm"></i> TikTok Payout
-            </a>
-            <a href="${getSiteRoot()}calculators/section8-estimator.html" onclick="toggleMobileAppDrawer(false)" class="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-blue-50 text-xs font-bold text-[#183153]">
-              <i class="fa-solid fa-house-user text-[#146ebe] text-sm"></i> Section 8
-            </a>
-          </div>
-        </div>
+        <!-- Free Browser Games -->
         <div>
           <div class="text-[11px] font-black text-purple-700 uppercase tracking-wider mb-2 flex items-center justify-between">
             <span class="flex items-center gap-1.5"><i class="fa-solid fa-gamepad"></i> Free Browser Games</span>
@@ -1908,6 +2256,7 @@ function createMobileAppDrawer() {
           </div>
         </div>
 
+        <!-- Company & Legal -->
         <div>
           <div class="text-[11px] font-black text-slate-500 uppercase tracking-wider mb-2 flex items-center justify-between">
             <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-info"></i> Company & Legal</span>
@@ -1937,7 +2286,6 @@ function createMobileAppDrawer() {
 
     </div>
   `;
-
   document.body.appendChild(drawer);
 }
 
@@ -2052,8 +2400,8 @@ function renderGlobalHeader() {
                       <span class="text-[9px] font-bold text-slate-400">Hover Category</span>
                     </div>
 
-                    <div class="space-y-1" id="navCategorySidebar">
-                      <!-- Category 0: PDF & Documents (NEW) -->
+                                        <div class="space-y-1" id="navCategorySidebar">
+                      <!-- Category 0: PDF & Documents -->
                       <button type="button" onmouseenter="switchNavCategory('nav-cat-pdf')" onclick="switchNavCategory('nav-cat-pdf')" class="nav-cat-tab" data-cat="nav-cat-pdf">
                         <div class="flex items-center gap-2.5">
                           <div class="w-7 h-7 rounded-lg bg-red-100 text-red-600 flex items-center justify-center text-xs shrink-0">
@@ -2095,7 +2443,91 @@ function renderGlobalHeader() {
                         <i class="fa-solid fa-chevron-right text-[10px] nav-cat-chevron opacity-40 transition-all"></i>
                       </button>
 
-                      <!-- Category 3: Developer & Minifiers -->
+                      <!-- Category 3: Business & Strategy (NEW) -->
+                      <button type="button" onmouseenter="switchNavCategory('nav-cat-biz')" onclick="switchNavCategory('nav-cat-biz')" class="nav-cat-tab" data-cat="nav-cat-biz">
+                        <div class="flex items-center gap-2.5">
+                          <div class="w-7 h-7 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center text-xs shrink-0">
+                            <i class="fa-solid fa-briefcase"></i>
+                          </div>
+                          <div class="text-left">
+                            <div class="text-xs font-bold leading-tight">Business & Strategy</div>
+                            <div class="text-[10px] text-slate-400 font-medium">3 Tools</div>
+                          </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] nav-cat-chevron opacity-40 transition-all"></i>
+                      </button>
+
+                      <!-- Category 4: Writing & Text (NEW) -->
+                      <button type="button" onmouseenter="switchNavCategory('nav-cat-text')" onclick="switchNavCategory('nav-cat-text')" class="nav-cat-tab" data-cat="nav-cat-text">
+                        <div class="flex items-center gap-2.5">
+                          <div class="w-7 h-7 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center text-xs shrink-0">
+                            <i class="fa-solid fa-font"></i>
+                          </div>
+                          <div class="text-left">
+                            <div class="text-xs font-bold leading-tight">Writing & Text</div>
+                            <div class="text-[10px] text-slate-400 font-medium">4 Tools</div>
+                          </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] nav-cat-chevron opacity-40 transition-all"></i>
+                      </button>
+
+                      <!-- Category 5: Finance & Crypto (NEW) -->
+                      <button type="button" onmouseenter="switchNavCategory('nav-cat-fin')" onclick="switchNavCategory('nav-cat-fin')" class="nav-cat-tab" data-cat="nav-cat-fin">
+                        <div class="flex items-center gap-2.5">
+                          <div class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs shrink-0">
+                            <i class="fa-solid fa-coins"></i>
+                          </div>
+                          <div class="text-left">
+                            <div class="text-xs font-bold leading-tight">Finance & Crypto</div>
+                            <div class="text-[10px] text-slate-400 font-medium">3 Tools</div>
+                          </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] nav-cat-chevron opacity-40 transition-all"></i>
+                      </button>
+
+                      <!-- Category 6: Security & Crypto (NEW) -->
+                      <button type="button" onmouseenter="switchNavCategory('nav-cat-sec')" onclick="switchNavCategory('nav-cat-sec')" class="nav-cat-tab" data-cat="nav-cat-sec">
+                        <div class="flex items-center gap-2.5">
+                          <div class="w-7 h-7 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center text-xs shrink-0">
+                            <i class="fa-solid fa-shield-halved"></i>
+                          </div>
+                          <div class="text-left">
+                            <div class="text-xs font-bold leading-tight">Security & Privacy</div>
+                            <div class="text-[10px] text-slate-400 font-medium">4 Tools</div>
+                          </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] nav-cat-chevron opacity-40 transition-all"></i>
+                      </button>
+
+                      <!-- Category 7: Design & Creative (NEW) -->
+                      <button type="button" onmouseenter="switchNavCategory('nav-cat-design')" onclick="switchNavCategory('nav-cat-design')" class="nav-cat-tab" data-cat="nav-cat-design">
+                        <div class="flex items-center gap-2.5">
+                          <div class="w-7 h-7 rounded-lg bg-pink-100 text-pink-700 flex items-center justify-center text-xs shrink-0">
+                            <i class="fa-solid fa-palette"></i>
+                          </div>
+                          <div class="text-left">
+                            <div class="text-xs font-bold leading-tight">Design & Creative</div>
+                            <div class="text-[10px] text-slate-400 font-medium">3 Tools</div>
+                          </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] nav-cat-chevron opacity-40 transition-all"></i>
+                      </button>
+
+                      <!-- Category 8: Student & Academic (NEW) -->
+                      <button type="button" onmouseenter="switchNavCategory('nav-cat-student')" onclick="switchNavCategory('nav-cat-student')" class="nav-cat-tab" data-cat="nav-cat-student">
+                        <div class="flex items-center gap-2.5">
+                          <div class="w-7 h-7 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center text-xs shrink-0">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                          </div>
+                          <div class="text-left">
+                            <div class="text-xs font-bold leading-tight">Student & Academic</div>
+                            <div class="text-[10px] text-slate-400 font-medium">2 Tools</div>
+                          </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-right text-[10px] nav-cat-chevron opacity-40 transition-all"></i>
+                      </button>
+
+                      <!-- Category 9: Developer & Web -->
                       <button type="button" onmouseenter="switchNavCategory('nav-cat-dev')" onclick="switchNavCategory('nav-cat-dev')" class="nav-cat-tab" data-cat="nav-cat-dev">
                         <div class="flex items-center gap-2.5">
                           <div class="w-7 h-7 rounded-lg bg-cyan-100 text-cyan-700 flex items-center justify-center text-xs shrink-0">
@@ -2109,7 +2541,7 @@ function renderGlobalHeader() {
                         <i class="fa-solid fa-chevron-right text-[10px] nav-cat-chevron opacity-40 transition-all"></i>
                       </button>
 
-                      <!-- Category 4: E-Commerce & Finance -->
+                      <!-- Category 10: E-Commerce & POD -->
                       <button type="button" onmouseenter="switchNavCategory('nav-cat-ecom')" onclick="switchNavCategory('nav-cat-ecom')" class="nav-cat-tab" data-cat="nav-cat-ecom">
                         <div class="flex items-center gap-2.5">
                           <div class="w-7 h-7 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center text-xs shrink-0">
@@ -2123,7 +2555,7 @@ function renderGlobalHeader() {
                         <i class="fa-solid fa-chevron-right text-[10px] nav-cat-chevron opacity-40 transition-all"></i>
                       </button>
 
-                      <!-- Category 5: Real Estate & Tax -->
+                      <!-- Category 11: Real Estate & Tax -->
                       <button type="button" onmouseenter="switchNavCategory('nav-cat-re')" onclick="switchNavCategory('nav-cat-re')" class="nav-cat-tab" data-cat="nav-cat-re">
                         <div class="flex items-center gap-2.5">
                           <div class="w-7 h-7 rounded-lg bg-blue-100 text-[#146ebe] flex items-center justify-center text-xs shrink-0">
@@ -2137,7 +2569,7 @@ function renderGlobalHeader() {
                         <i class="fa-solid fa-chevron-right text-[10px] nav-cat-chevron opacity-40 transition-all"></i>
                       </button>
 
-                      <!-- Category 6: Free Games & Puzzles -->
+                      <!-- Category 12: Free Games & Puzzles -->
                       <button type="button" onmouseenter="switchNavCategory('nav-cat-games')" onclick="switchNavCategory('nav-cat-games')" class="nav-cat-tab" data-cat="nav-cat-games">
                         <div class="flex items-center gap-2.5">
                           <div class="w-7 h-7 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center text-xs shrink-0">
@@ -2152,7 +2584,6 @@ function renderGlobalHeader() {
                       </button>
                     </div>
                   </div>
-
                   <!-- Left Sidebar Bottom Badge -->
                   <div class="pt-3 border-t border-slate-200/70 mt-2 px-1 text-[11px] font-bold text-slate-500 flex items-center gap-1.5">
                     <i class="fa-solid fa-shield-halved text-emerald-600"></i>
@@ -2162,7 +2593,7 @@ function renderGlobalHeader() {
 
                 <!-- RIGHT COLUMN: Dynamic Tools Panels Display -->
                 <div class="flex-1 p-5 min-h-[420px] flex flex-col justify-between bg-white overflow-hidden">
-                  
+
                   <!-- PANEL 0: PDF & Documents -->
                   <div id="nav-cat-pdf" class="nav-cat-panel hidden flex-col justify-between h-full space-y-3">
                     <div>
@@ -2394,19 +2825,258 @@ function renderGlobalHeader() {
                             <div class="nav-tool-desc">Exact file size limits for job & passport forms</div>
                           </div>
                         </a>
+                      </div>
+                    </div>
+                  </div>
 
-                        <a href="${getSiteRoot()}image-tools/webp-compressor.html" class="nav-tool-item">
-                          <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-solid fa-bolt"></i></div>
+                  <!-- PANEL 3: Business & Strategy (NEW) -->
+                  <div id="nav-cat-biz" class="nav-cat-panel hidden flex-col justify-between h-full space-y-3">
+                    <div>
+                      <div class="flex items-center justify-between pb-2 border-b border-slate-100 mb-2.5">
+                        <div class="flex items-center gap-2">
+                          <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                          <span class="text-xs font-black uppercase tracking-wider text-blue-800">Business & Strategy Calculators</span>
+                        </div>
+                        <a href="${getSiteRoot()}business-tools/" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
+                          <span>View All Business Tools</span>
+                          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                      </div>
+
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="${getSiteRoot()}business-tools/roi-calculator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-solid fa-chart-pie"></i></div>
                           <div>
-                            <div class="nav-tool-title">WebP Compressor</div>
-                            <div class="nav-tool-desc">Convert photos to next-gen WebP</div>
+                            <div class="nav-tool-title">ROI & CAGR Calculator</div>
+                            <div class="nav-tool-desc">Simple return & annualized growth rate</div>
+                          </div>
+                        </a>
+                        <a href="${getSiteRoot()}business-tools/break-even-calculator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-solid fa-scale-balanced"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Break-Even Calculator</div>
+                            <div class="nav-tool-desc">Fixed overhead & contribution margins</div>
+                          </div>
+                        </a>
+                        <a href="${getSiteRoot()}business-tools/freelance-rate-calculator.html" class="nav-tool-item col-span-2">
+                          <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-solid fa-calculator"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Freelance Rate Calculator</div>
+                            <div class="nav-tool-desc">Calculate hourly, day, and project minimum billable rates</div>
                           </div>
                         </a>
                       </div>
                     </div>
                   </div>
 
-                  <!-- PANEL 3: Developer & Minifiers -->
+                  <!-- PANEL 4: Writing & Text Tools (NEW) -->
+                  <div id="nav-cat-text" class="nav-cat-panel hidden flex-col justify-between h-full space-y-3">
+                    <div>
+                      <div class="flex items-center justify-between pb-2 border-b border-slate-100 mb-2.5">
+                        <div class="flex items-center gap-2">
+                          <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
+                          <span class="text-xs font-black uppercase tracking-wider text-indigo-800">Writing & Text Utilities</span>
+                        </div>
+                        <a href="${getSiteRoot()}text-tools/" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
+                          <span>View All Text Tools</span>
+                          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                      </div>
+
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="${getSiteRoot()}text-tools/case-converter.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-indigo-50 text-indigo-600"><i class="fa-solid fa-font"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Case Converter & Slugifier</div>
+                            <div class="nav-tool-desc">12 styles (UPPER, camelCase, slug)</div>
+                          </div>
+                        </a>
+                        <a href="${getSiteRoot()}text-tools/lorem-ipsum-generator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-indigo-50 text-indigo-600"><i class="fa-solid fa-paragraph"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Lorem Ipsum Generator</div>
+                            <div class="nav-tool-desc">Dummy placeholder text with HTML tags</div>
+                          </div>
+                        </a>
+                        <a href="${getSiteRoot()}text-tools/text-cleaner.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-indigo-50 text-indigo-600"><i class="fa-solid fa-broom"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Text Cleaner & Formatter</div>
+                            <div class="nav-tool-desc">Strip extra spaces, HTML tags & emojis</div>
+                          </div>
+                        </a>
+                        <a href="${getSiteRoot()}developer-tools/word-counter.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-solid fa-calculator"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Word & Character Counter</div>
+                            <div class="nav-tool-desc">Reading time & Flesch readability score</div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- PANEL 5: Finance & Crypto (NEW) -->
+                  <div id="nav-cat-fin" class="nav-cat-panel hidden flex-col justify-between h-full space-y-3">
+                    <div>
+                      <div class="flex items-center justify-between pb-2 border-b border-slate-100 mb-2.5">
+                        <div class="flex items-center gap-2">
+                          <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+                          <span class="text-xs font-black uppercase tracking-wider text-emerald-800">Finance & Crypto Engines</span>
+                        </div>
+                        <a href="${getSiteRoot()}finance-tools/" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
+                          <span>View All Finance Tools</span>
+                          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                      </div>
+
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="${getSiteRoot()}finance-tools/compound-interest-calculator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-coins"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Compound Interest Calculator</div>
+                            <div class="nav-tool-desc">Investment growth & monthly deposits</div>
+                          </div>
+                        </a>
+                        <a href="${getSiteRoot()}finance-tools/loan-amortization-calculator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Loan Amortization Calculator</div>
+                            <div class="nav-tool-desc">Principal vs Interest payoff schedule</div>
+                          </div>
+                        </a>
+                        <a href="${getSiteRoot()}finance-tools/crypto-profit-calculator.html" class="nav-tool-item col-span-2">
+                          <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-brands fa-bitcoin"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Crypto Profit & DCA Calculator</div>
+                            <div class="nav-tool-desc">Exchange fee deductions and Dollar Cost Averaging return simulations</div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- PANEL 6: Security & Cryptography (NEW) -->
+                  <div id="nav-cat-sec" class="nav-cat-panel hidden flex-col justify-between h-full space-y-3">
+                    <div>
+                      <div class="flex items-center justify-between pb-2 border-b border-slate-100 mb-2.5">
+                        <div class="flex items-center gap-2">
+                          <span class="w-2 h-2 rounded-full bg-rose-600"></span>
+                          <span class="text-xs font-black uppercase tracking-wider text-rose-800">Security & Cryptography</span>
+                        </div>
+                        <a href="${getSiteRoot()}security-tools/" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
+                          <span>View All Security Tools</span>
+                          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                      </div>
+
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="${getSiteRoot()}security-tools/hash-generator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-rose-50 text-rose-600"><i class="fa-solid fa-fingerprint"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Online Hash Generator</div>
+                            <div class="nav-tool-desc">SHA-256, SHA-512, MD5, SHA-1 checksums</div>
+                          </div>
+                        </a>
+                        <a href="${getSiteRoot()}security-tools/base64-encoder-decoder.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-rose-50 text-rose-600"><i class="fa-solid fa-code"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Base64 Encoder / Decoder</div>
+                            <div class="nav-tool-desc">UTF-8 and URL-safe Base64 conversions</div>
+                          </div>
+                        </a>
+                        <a href="${getSiteRoot()}security-tools/uuid-generator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-rose-50 text-rose-600"><i class="fa-solid fa-id-badge"></i></div>
+                          <div>
+                            <div class="nav-tool-title">UUID / GUID v4 Generator</div>
+                            <div class="nav-tool-desc">Bulk RFC 4122 v4 unique IDs</div>
+                          </div>
+                        </a>
+                        <a href="${getSiteRoot()}developer-tools/password-generator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-key"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Strong Password Generator</div>
+                            <div class="nav-tool-desc">CSPRNG Diceware & entropy scores</div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- PANEL 7: Design & Creative (NEW) -->
+                  <div id="nav-cat-design" class="nav-cat-panel hidden flex-col justify-between h-full space-y-3">
+                    <div>
+                      <div class="flex items-center justify-between pb-2 border-b border-slate-100 mb-2.5">
+                        <div class="flex items-center gap-2">
+                          <span class="w-2 h-2 rounded-full bg-pink-600"></span>
+                          <span class="text-xs font-black uppercase tracking-wider text-pink-800">Design & Creative Suite</span>
+                        </div>
+                        <a href="${getSiteRoot()}design-tools/" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
+                          <span>View All Design Tools</span>
+                          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                      </div>
+
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="${getSiteRoot()}design-tools/color-palette-generator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-pink-50 text-pink-600"><i class="fa-solid fa-palette"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Color Palette Generator</div>
+                            <div class="nav-tool-desc">5-color harmony palettes & WCAG test</div>
+                          </div>
+                        </a>
+                        <a href="${getSiteRoot()}design-tools/aspect-ratio-calculator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-pink-50 text-pink-600"><i class="fa-solid fa-expand"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Aspect Ratio Calculator</div>
+                            <div class="nav-tool-desc">16:9, 4:3, 1:1, 9:16 dimension scaler</div>
+                          </div>
+                        </a>
+                        <a href="${getSiteRoot()}developer-tools/qr-code-generator.html" class="nav-tool-item col-span-2">
+                          <div class="nav-tool-icon bg-amber-50 text-[#c27803]"><i class="fa-solid fa-qrcode"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Custom QR Code Generator</div>
+                            <div class="nav-tool-desc">Vector SVG & high-res PNG codes with custom colors and logo branding</div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- PANEL 8: Student & Academic (NEW) -->
+                  <div id="nav-cat-student" class="nav-cat-panel hidden flex-col justify-between h-full space-y-3">
+                    <div>
+                      <div class="flex items-center justify-between pb-2 border-b border-slate-100 mb-2.5">
+                        <div class="flex items-center gap-2">
+                          <span class="w-2 h-2 rounded-full bg-amber-600"></span>
+                          <span class="text-xs font-black uppercase tracking-wider text-amber-800">Student & Academic Suite</span>
+                        </div>
+                        <a href="${getSiteRoot()}student-tools/" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
+                          <span>View All Student Tools</span>
+                          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                      </div>
+
+                      <div class="grid grid-cols-2 gap-2">
+                        <a href="${getSiteRoot()}student-tools/gpa-calculator.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-amber-50 text-amber-600"><i class="fa-solid fa-calculator"></i></div>
+                          <div>
+                            <div class="nav-tool-title">GPA & CGPA Calculator</div>
+                            <div class="nav-tool-desc">College & high school 4.0 weighted scale</div>
+                          </div>
+                        </a>
+                        <a href="${getSiteRoot()}student-tools/unit-converter.html" class="nav-tool-item">
+                          <div class="nav-tool-icon bg-amber-50 text-amber-600"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+                          <div>
+                            <div class="nav-tool-title">Universal Unit Converter</div>
+                            <div class="nav-tool-desc">Length, mass, temp, data, speed, area, volume</div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- PANEL 9: Developer & Minifiers -->
                   <div id="nav-cat-dev" class="nav-cat-panel hidden flex-col justify-between h-full space-y-3">
                     <div>
                       <div class="flex items-center justify-between pb-2 border-b border-slate-100 mb-2.5">
@@ -2425,10 +3095,9 @@ function renderGlobalHeader() {
                           <div class="nav-tool-icon bg-orange-50 text-orange-600"><i class="fa-brands fa-html5"></i></div>
                           <div>
                             <div class="nav-tool-title">HTML Minifier</div>
-                            <div class="nav-tool-desc">Strip comments, collapse whitespace & check Gzip</div>
+                            <div class="nav-tool-desc">Strip comments, collapse whitespace</div>
                           </div>
                         </a>
-
                         <a href="${getSiteRoot()}developer-tools/css-minifier.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-brands fa-css3-alt"></i></div>
                           <div>
@@ -2436,23 +3105,20 @@ function renderGlobalHeader() {
                             <div class="nav-tool-desc">Compress stylesheets & eliminate dead rules</div>
                           </div>
                         </a>
-
                         <a href="${getSiteRoot()}developer-tools/javascript-minifier.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-yellow-50 text-yellow-600"><i class="fa-brands fa-js"></i></div>
                           <div>
                             <div class="nav-tool-title">JavaScript Minifier</div>
-                            <div class="nav-tool-desc">Minify JS scripts & strip console.logs</div>
+                            <div class="nav-tool-desc">Minify JS scripts & strip logs</div>
                           </div>
                         </a>
-
                         <a href="${getSiteRoot()}developer-tools/shopify-csv-validator.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-brands fa-shopify"></i></div>
                           <div>
                             <div class="nav-tool-title">Shopify CSV Validator</div>
-                            <div class="nav-tool-desc">Audit product CSVs for schema & handle errors</div>
+                            <div class="nav-tool-desc">Audit product CSVs for schema errors</div>
                           </div>
                         </a>
-
                         <a href="${getSiteRoot()}developer-tools/ats-resume-checker.html" class="nav-tool-item bg-indigo-50/70 hover:bg-indigo-100/70 border border-indigo-200/60 col-span-2">
                           <div class="nav-tool-icon bg-indigo-600 text-white"><i class="fa-solid fa-file-circle-check"></i></div>
                           <div>
@@ -2460,20 +3126,20 @@ function renderGlobalHeader() {
                               <span>Free ATS Resume Checker</span>
                               <span class="bg-indigo-600 text-white text-[8px] font-black px-1.5 py-0.2 rounded-full uppercase">NEW</span>
                             </div>
-                            <div class="nav-tool-desc text-indigo-700">Audit CV compatibility, power verbs & keyword match score</div>
+                            <div class="nav-tool-desc text-indigo-700">Audit CV compatibility & keyword match score</div>
                           </div>
                         </a>
                       </div>
                     </div>
                   </div>
 
-                  <!-- PANEL 4: E-Commerce & Finance -->
+                  <!-- PANEL 10: E-Commerce & POD -->
                   <div id="nav-cat-ecom" class="nav-cat-panel hidden flex-col justify-between h-full space-y-3">
                     <div>
                       <div class="flex items-center justify-between pb-2 border-b border-slate-100 mb-2.5">
                         <div class="flex items-center gap-2">
                           <span class="w-2 h-2 rounded-full bg-amber-600"></span>
-                          <span class="text-xs font-black uppercase tracking-wider text-amber-800">E-Commerce, POD & Seller Tools</span>
+                          <span class="text-xs font-black uppercase tracking-wider text-amber-800">E-Commerce & Seller Tools</span>
                         </div>
                         <a href="${getSiteRoot()}ecommerce-tools/" class="text-xs font-bold text-[#146ebe] hover:underline flex items-center gap-1">
                           <span>View All E-Commerce Tools</span>
@@ -2489,46 +3155,42 @@ function renderGlobalHeader() {
                               <span>Free Online Invoice Generator</span>
                               <span class="bg-[#146ebe] text-white text-[8px] font-black px-1.5 py-0.2 rounded-full uppercase">NEW</span>
                             </div>
-                            <div class="nav-tool-desc text-blue-700">Printable A4 PDF invoices with logo, tax & multi-currency</div>
+                            <div class="nav-tool-desc text-blue-700">Printable A4 PDF invoices with logo & tax</div>
                           </div>
                         </a>
-
                         <a href="${getSiteRoot()}ecommerce-tools/etsy-fee-calculator.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-orange-50 text-orange-600"><i class="fa-brands fa-etsy"></i></div>
                           <div>
                             <div class="nav-tool-title">Etsy Fee Calculator</div>
-                            <div class="nav-tool-desc">6.5% transaction, listing & net profit</div>
+                            <div class="nav-tool-desc">6.5% transaction & listing cut</div>
                           </div>
                         </a>
-
                         <a href="${getSiteRoot()}ecommerce-tools/amazon-fba-calculator.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-amber-50 text-amber-600"><i class="fa-brands fa-amazon"></i></div>
                           <div>
                             <div class="nav-tool-title">Amazon FBA Checker</div>
-                            <div class="nav-tool-desc">Billable dim weight divisor 139 tiers</div>
+                            <div class="nav-tool-desc">Billable dim weight tiers</div>
                           </div>
                         </a>
-
                         <a href="${getSiteRoot()}ecommerce-tools/tiktok-shop-payout-calculator.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-pink-50 text-pink-600"><i class="fa-brands fa-tiktok"></i></div>
                           <div>
                             <div class="nav-tool-title">TikTok Shop Payout</div>
-                            <div class="nav-tool-desc">Creator affiliate commissions & payouts</div>
+                            <div class="nav-tool-desc">Creator affiliate commissions</div>
                           </div>
                         </a>
-
                         <a href="${getSiteRoot()}ecommerce-tools/pod-profit-calculator.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-solid fa-shirt"></i></div>
                           <div>
                             <div class="nav-tool-title">Print-on-Demand Profit Grid</div>
-                            <div class="nav-tool-desc">Printify, Printful & Gelato margins</div>
+                            <div class="nav-tool-desc">Printify & Printful margins</div>
                           </div>
                         </a>
                       </div>
                     </div>
                   </div>
 
-                  <!-- PANEL 5: Real Estate & Tax -->
+                  <!-- PANEL 11: Real Estate & Tax -->
                   <div id="nav-cat-re" class="nav-cat-panel hidden flex-col justify-between h-full space-y-3">
                     <div>
                       <div class="flex items-center justify-between pb-2 border-b border-slate-100 mb-2.5">
@@ -2550,31 +3212,27 @@ function renderGlobalHeader() {
                             <div class="nav-tool-desc">HUD FMR voucher limits & landlord caps</div>
                           </div>
                         </a>
-
                         <a href="${getSiteRoot()}calculators/uk-stamp-duty-calculator.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-amber-50 text-amber-700"><i class="fa-solid fa-landmark"></i></div>
                           <div>
                             <div class="nav-tool-title">UK Stamp Duty Calculator</div>
-                            <div class="nav-tool-desc">SDLT property tax tiers for England & NI</div>
+                            <div class="nav-tool-desc">SDLT property tax tiers</div>
                           </div>
                         </a>
-
                         <a href="${getSiteRoot()}calculators/1031-exchange-tracker.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-purple-50 text-purple-600"><i class="fa-solid fa-clock-rotate-left"></i></div>
                           <div>
                             <div class="nav-tool-title">1031 Exchange Timeline Tracker</div>
-                            <div class="nav-tool-desc">45-day identification & 180-day closing</div>
+                            <div class="nav-tool-desc">45-day ID & 180-day closing</div>
                           </div>
                         </a>
-
                         <a href="${getSiteRoot()}calculators/str-cleaning-splitter.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-teal-50 text-teal-600"><i class="fa-solid fa-broom"></i></div>
                           <div>
                             <div class="nav-tool-title">STR Cleaning Fee Splitter</div>
-                            <div class="nav-tool-desc">Airbnb & VRBO turnover co-host payouts</div>
+                            <div class="nav-tool-desc">Airbnb turnover co-host payouts</div>
                           </div>
                         </a>
-
                         <a href="${getSiteRoot()}calculators/eu-vat-oss-calculator.html" class="nav-tool-item col-span-2">
                           <div class="nav-tool-icon bg-blue-50 text-blue-700"><i class="fa-solid fa-percent"></i></div>
                           <div>
@@ -2586,13 +3244,13 @@ function renderGlobalHeader() {
                     </div>
                   </div>
 
-                  <!-- PANEL 6: Free Games & Puzzles -->
+                  <!-- PANEL 12: Free Games & Puzzles -->
                   <div id="nav-cat-games" class="nav-cat-panel hidden flex-col justify-between h-full space-y-3">
                     <div>
                       <div class="flex items-center justify-between pb-2 border-b border-slate-100 mb-2.5">
                         <div class="flex items-center gap-2">
                           <span class="w-2 h-2 rounded-full bg-purple-600"></span>
-                          <span class="text-xs font-black uppercase tracking-wider text-purple-800">Free Browser Games & Brain Puzzles</span>
+                          <span class="text-xs font-black uppercase tracking-wider text-purple-800">Free Browser Games</span>
                         </div>
                         <span class="text-[10px] bg-purple-100 text-purple-800 font-bold px-2 py-0.5 rounded-full">100% Free & No Ads</span>
                       </div>
@@ -2602,47 +3260,42 @@ function renderGlobalHeader() {
                           <div class="nav-tool-icon bg-amber-50 text-amber-600"><i class="fa-solid fa-cubes"></i></div>
                           <div>
                             <div class="nav-tool-title">2048 Classic</div>
-                            <div class="nav-tool-desc">Slide & join numbered tiles to reach 2048</div>
+                            <div class="nav-tool-desc">Slide & join numbered tiles</div>
                           </div>
                         </a>
-
                         <a href="${getSiteRoot()}games/snake/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-worm"></i></div>
                           <div>
                             <div class="nav-tool-title">Retro Snake Arcade</div>
-                            <div class="nav-tool-desc">Classic 60fps movement & bonus apples</div>
+                            <div class="nav-tool-desc">Classic 60fps movement</div>
                           </div>
                         </a>
-
                         <a href="${getSiteRoot()}games/memory-game/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-purple-50 text-purple-600"><i class="fa-solid fa-brain"></i></div>
                           <div>
                             <div class="nav-tool-title">Memory Card Match</div>
-                            <div class="nav-tool-desc">3D card flip brain trainer with timers</div>
+                            <div class="nav-tool-desc">3D card flip brain trainer</div>
                           </div>
                         </a>
-
                         <a href="${getSiteRoot()}games/tic-tac-toe/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-rose-50 text-rose-600"><i class="fa-solid fa-xmark"></i></div>
                           <div>
-                            <div class="nav-tool-title">Tic Tac Toe (XO vs AI)</div>
-                            <div class="nav-tool-desc">Play vs smart Minimax AI or 2-player</div>
+                            <div class="nav-tool-title">Tic Tac Toe (XO)</div>
+                            <div class="nav-tool-desc">Play vs smart Minimax AI</div>
                           </div>
                         </a>
-
                         <a href="${getSiteRoot()}games/word-scramble/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-blue-50 text-blue-600"><i class="fa-solid fa-spell-check"></i></div>
                           <div>
                             <div class="nav-tool-title">Word Scramble Master</div>
-                            <div class="nav-tool-desc">Unscramble mixed letters & combo streaks</div>
+                            <div class="nav-tool-desc">Anagrams & streak bonuses</div>
                           </div>
                         </a>
-
                         <a href="${getSiteRoot()}games/bhabhi-thulla/index.html" class="nav-tool-item">
                           <div class="nav-tool-icon bg-emerald-50 text-emerald-600"><i class="fa-solid fa-spade"></i></div>
                           <div>
                             <div class="nav-tool-title">Bhabhi Thulla Card Game</div>
-                            <div class="nav-tool-desc">4-player classic trick-taking evasion</div>
+                            <div class="nav-tool-desc">4-player classic trick-taking</div>
                           </div>
                         </a>
                       </div>
@@ -2840,7 +3493,7 @@ function renderGlobalFooter() {
           </div>
           <div>
             <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">100% In-Browser Privacy</h4>
-            <p class="text-[11px] text-slate-500 font-medium mt-0.5">Files & scripts stay in local RAM. Zero cloud uploads.</p>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">Files & scripts execute locally in RAM. Zero cloud uploads.</p>
           </div>
         </div>
 
@@ -2849,8 +3502,8 @@ function renderGlobalFooter() {
             <i class="fa-solid fa-bolt"></i>
           </div>
           <div>
-            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">Superfast Execution</h4>
-            <p class="text-[11px] text-slate-500 font-medium mt-0.5">WebAssembly & HTML5 Canvas engines with zero queue delay.</p>
+            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">Instant Client-Side Speed</h4>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">WebAssembly, HTML5 Canvas & native Web Crypto APIs.</p>
           </div>
         </div>
 
@@ -2860,56 +3513,55 @@ function renderGlobalFooter() {
           </div>
           <div>
             <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">100% Free & Unlimited</h4>
-            <p class="text-[11px] text-slate-500 font-medium mt-0.5">No credit cards, no login gates, and zero watermarks.</p>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">No subscriptions, no account signup gates, zero watermarks.</p>
           </div>
         </div>
 
       </div>
     </div>
 
-    <!-- Main Footer Links Grid -->
+    <!-- Main Footer Links Grid (8 Category Columns) -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-10">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8">
         
-        <!-- Brand Info Column (Span 4) -->
-        <div class="sm:col-span-2 lg:col-span-4 space-y-5">
-          <a href="${getSiteRoot()}" class="inline-flex items-center gap-3 group">
+        <!-- Column 1: Brand & Info -->
+        <div class="sm:col-span-2 space-y-4">
+          <a href="${getSiteRoot()}" class="inline-flex items-center gap-2.5 group">
             <img src="${getSiteRoot()}images/logo-icon.webp" alt="360Tools Logo" width="36" height="36" class="w-9 h-9 object-contain rounded-xl border border-slate-200 shadow-sm group-hover:scale-105 transition-transform">
             <span class="text-2xl font-black text-[#183153] tracking-tight">360Tools<span class="text-[#146ebe]">.me</span></span>
           </a>
           
           <p class="text-xs text-slate-600 font-medium leading-relaxed max-w-sm">
-            Free online tools for everyday digital tasks. High-precision client-side audio voiceovers, media compressors, PDF workflows, code minifiers, and seller calculators.
+            Free high-precision client-side tools: AI voiceovers, PDF manipulations, media compression, cryptographic security, and multi-category business & financial calculators.
           </p>
 
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 pt-1">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold shadow-2xs">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              All 35+ Tools Operational
+              All 45+ Tools Operational
             </span>
           </div>
 
           <!-- Social Links -->
-          <div class="pt-2 space-y-2">
-            <span class="text-[11px] font-black uppercase tracking-wider text-slate-400 block">Connect With Us</span>
-            <div class="flex items-center gap-2.5">
+          <div class="pt-2">
+            <div class="flex items-center gap-2">
               <a href="https://www.youtube.com/@360tools" target="_blank" rel="noopener noreferrer" 
-                class="w-9 h-9 rounded-xl bg-slate-50 hover:bg-red-50 text-slate-600 hover:text-red-600 flex items-center justify-center text-sm transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-red-50 text-slate-600 hover:text-red-600 flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
                 title="YouTube" aria-label="YouTube Channel">
                 <i class="fa-brands fa-youtube"></i>
               </a>
               <a href="https://www.facebook.com/360tools.me" target="_blank" rel="noopener noreferrer" 
-                class="w-9 h-9 rounded-xl bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#1877f2] flex items-center justify-center text-sm transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#1877f2] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
                 title="Facebook" aria-label="Facebook Page">
                 <i class="fa-brands fa-facebook-f"></i>
               </a>
               <a href="https://www.instagram.com/360tools.me" target="_blank" rel="noopener noreferrer" 
-                class="w-9 h-9 rounded-xl bg-slate-50 hover:bg-pink-50 text-slate-600 hover:text-[#e1306c] flex items-center justify-center text-sm transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-pink-50 text-slate-600 hover:text-[#e1306c] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
                 title="Instagram" aria-label="Instagram Profile">
                 <i class="fa-brands fa-instagram"></i>
               </a>
               <a href="https://360tools.me" 
-                class="w-9 h-9 rounded-xl bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#146ebe] flex items-center justify-center text-sm transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#146ebe] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
                 title="360tools.me Website" aria-label="360tools.me Official Website">
                 <i class="fa-solid fa-globe"></i>
               </a>
@@ -2917,101 +3569,168 @@ function renderGlobalFooter() {
           </div>
         </div>
 
-        <!-- Column 2: PDF & Compression (Span 2) -->
-        <div class="lg:col-span-2 space-y-3">
+        <!-- Column 2: PDF & Documents -->
+        <div class="space-y-3">
           <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
             <i class="fa-solid fa-file-pdf text-red-600 text-[11px]"></i>
-            <span>PDF & Media</span>
+            <span>PDF Suite</span>
           </h4>
-          <ul class="text-xs font-bold text-slate-600 space-y-2">
-            <li><a href="${getSiteRoot()}pdf-tools/" class="text-red-700 hover:text-red-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-file-pdf text-[9px] text-red-600"></i> PDF Tools (19 Tools)</a></li>
-            <li><a href="${getSiteRoot()}pdf-tools/merge-pdf/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Merge PDF</a></li>
-            <li><a href="${getSiteRoot()}pdf-tools/split-pdf/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Split PDF</a></li>
-            <li><a href="${getSiteRoot()}pdf-tools/compress-pdf/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Compress PDF</a></li>
-            <li><a href="${getSiteRoot()}image-tools/image-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Image Compressor</a></li>
-            <li><a href="${getSiteRoot()}image-tools/background-remover.html" class="text-teal-700 hover:text-teal-900 transition-colors flex items-center gap-1.5 font-bold"><i class="fa-solid fa-wand-magic-sparkles text-[9px] text-teal-600"></i> AI BG Remover</a></li>
-            <li><a href="${getSiteRoot()}image-tools/background-remover.html" class="text-purple-700 hover:text-purple-900 transition-colors flex items-center gap-1.5 font-bold"><i class="fa-solid fa-eraser text-[9px] text-purple-600"></i> Photo Object Eraser</a></li>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="${getSiteRoot()}pdf-tools/" class="text-red-700 hover:text-red-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-file-pdf text-[9px] text-red-600"></i> All 19 PDF Tools</a></li>
+            <li><a href="${getSiteRoot()}pdf-tools/merge-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Merge PDF</a></li>
+            <li><a href="${getSiteRoot()}pdf-tools/split-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Split PDF</a></li>
+            <li><a href="${getSiteRoot()}pdf-tools/compress-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Compress PDF</a></li>
+            <li><a href="${getSiteRoot()}pdf-tools/pdf-to-jpg/index.html" class="hover:text-[#146ebe] transition-colors">PDF to JPG / PNG</a></li>
+            <li><a href="${getSiteRoot()}pdf-tools/jpg-to-pdf/index.html" class="hover:text-[#146ebe] transition-colors">JPG to PDF</a></li>
+            <li><a href="${getSiteRoot()}pdf-tools/password-protect-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Protect & Unlock PDF</a></li>
           </ul>
         </div>
 
-        <!-- Column 3: Audio & Developer (Span 2) -->
-        <div class="lg:col-span-2 space-y-3">
+        <!-- Column 3: AI Voice & Audio -->
+        <div class="space-y-3">
           <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
             <i class="fa-solid fa-volume-high text-purple-600 text-[11px]"></i>
-            <span>Audio & Dev</span>
+            <span>AI Voice & Audio</span>
           </h4>
-          <ul class="text-xs font-bold text-slate-600 space-y-2">
-            <li><a href="${getSiteRoot()}audio-tools/text-to-speech.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Text to Speech</a></li>
-            <li><a href="${getSiteRoot()}audio-tools/text-to-mp3.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Text to MP3</a></li>
-            <li><a href="${getSiteRoot()}audio-tools/ai-voice-generator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> AI Voice Studio</a></li>
-            <li><a href="${getSiteRoot()}video-tools/video-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Video Compressor</a></li>
-            <li><a href="${getSiteRoot()}developer-tools/html-minifier.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> HTML Minifier</a></li>
-            <li><a href="${getSiteRoot()}developer-tools/javascript-minifier.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> JS Minifier</a></li>
-            <li><a href="${getSiteRoot()}developer-tools/ats-resume-checker.html" class="text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-file-circle-check text-[9px] text-indigo-600"></i> ATS Resume Checker</a></li>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="${getSiteRoot()}audio-tools/" class="text-purple-700 hover:text-purple-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-volume-high text-[9px] text-purple-600"></i> Audio Hub</a></li>
+            <li><a href="${getSiteRoot()}audio-tools/text-to-speech.html" class="hover:text-[#146ebe] transition-colors">Text to Speech</a></li>
+            <li><a href="${getSiteRoot()}audio-tools/text-to-mp3.html" class="hover:text-[#146ebe] transition-colors">Text to MP3</a></li>
+            <li><a href="${getSiteRoot()}audio-tools/ai-voice-generator.html" class="hover:text-[#146ebe] transition-colors">AI Voice Studio</a></li>
+            <li><a href="${getSiteRoot()}audio-tools/pdf-to-speech.html" class="hover:text-[#146ebe] transition-colors">PDF to Speech</a></li>
+            <li><a href="${getSiteRoot()}audio-tools/youtube-voiceover-generator.html" class="hover:text-[#146ebe] transition-colors">YouTube Voiceover</a></li>
+            <li><a href="${getSiteRoot()}audio-tools/urdu-text-to-speech.html" class="hover:text-[#146ebe] transition-colors">Urdu TTS (اردو)</a></li>
           </ul>
         </div>
 
-        <!-- Column 4: Calculators & E-Commerce (Span 2) -->
-        <div class="lg:col-span-2 space-y-3">
+        <!-- Column 4: Media & Design -->
+        <div class="space-y-3">
           <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
-            <i class="fa-solid fa-calculator text-amber-600 text-[11px]"></i>
-            <span>Calculators</span>
+            <i class="fa-solid fa-palette text-pink-600 text-[11px]"></i>
+            <span>Media & Design</span>
           </h4>
-          <ul class="text-xs font-bold text-slate-600 space-y-2">
-            <li><a href="${getSiteRoot()}calculators/" class="text-amber-700 hover:text-amber-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-calculator text-[9px] text-amber-600"></i> All Calculators</a></li>
-            <li><a href="${getSiteRoot()}ecommerce-tools/invoice-generator.html" class="text-blue-700 hover:text-blue-900 transition-colors flex items-center gap-1.5 font-bold"><i class="fa-solid fa-file-invoice-dollar text-[9px] text-blue-600"></i> Invoice Maker</a></li>
-            <li><a href="${getSiteRoot()}ecommerce-tools/etsy-fee-calculator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Etsy Calculator</a></li>
-            <li><a href="${getSiteRoot()}ecommerce-tools/amazon-fba-calculator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Amazon FBA</a></li>
-            <li><a href="${getSiteRoot()}calculators/section8-estimator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Section 8 Rent</a></li>
-            <li><a href="${getSiteRoot()}calculators/uk-stamp-duty-calculator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> UK Stamp Duty</a></li>
-            <li><a href="${getSiteRoot()}games/2048/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-cubes text-amber-500 text-[9px]"></i> 2048 Game</a></li>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="${getSiteRoot()}design-tools/" class="text-pink-700 hover:text-pink-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-palette text-[9px] text-pink-600"></i> Design Hub</a></li>
+            <li><a href="${getSiteRoot()}design-tools/color-palette-generator.html" class="hover:text-[#146ebe] transition-colors">Color Palette Generator</a></li>
+            <li><a href="${getSiteRoot()}design-tools/aspect-ratio-calculator.html" class="hover:text-[#146ebe] transition-colors">Aspect Ratio Calculator</a></li>
+            <li><a href="${getSiteRoot()}developer-tools/qr-code-generator.html" class="text-amber-700 hover:text-amber-900 transition-colors font-bold">QR Code Generator</a></li>
+            <li><a href="${getSiteRoot()}image-tools/image-compressor.html" class="hover:text-[#146ebe] transition-colors">Image Compressor</a></li>
+            <li><a href="${getSiteRoot()}image-tools/background-remover.html" class="hover:text-[#146ebe] transition-colors">AI Background Remover</a></li>
+            <li><a href="${getSiteRoot()}video-tools/video-compressor.html" class="hover:text-[#146ebe] transition-colors">Video Compressor</a></li>
           </ul>
         </div>
 
-        <!-- Column 5: Company & Legal (Span 2) -->
-        <div class="lg:col-span-2 space-y-3">
+        <!-- Column 5: Business, Finance & Security -->
+        <div class="space-y-3">
           <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
-            <i class="fa-solid fa-scale-balanced text-teal-600 text-[11px]"></i>
-            <span>Company & Legal</span>
+            <i class="fa-solid fa-vault text-emerald-600 text-[11px]"></i>
+            <span>Business & Finance</span>
           </h4>
-          <ul class="text-xs font-bold text-slate-600 space-y-2">
-            <li><a href="${getSiteRoot()}about.html" class="text-blue-600 font-bold hover:underline flex items-center gap-1.5"><i class="fa-solid fa-circle-info text-[9px]"></i> About 360Tools</a></li>
-            <li><a href="${getSiteRoot()}contact.html" class="text-teal-700 font-bold hover:underline flex items-center gap-1.5"><i class="fa-solid fa-envelope text-[9px]"></i> Contact Support</a></li>
-            <li><a href="${getSiteRoot()}blog.html" class="text-indigo-600 font-bold hover:underline flex items-center gap-1.5"><i class="fa-solid fa-newspaper text-[9px]"></i> Editorial Blog</a></li>
-            <li class="pt-2 border-t border-slate-100"><a href="${getSiteRoot()}privacy-policy.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-[9px] text-emerald-600"></i> Privacy Policy</a></li>
-            <li><a href="${getSiteRoot()}terms.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-file-contract text-[9px] text-amber-600"></i> Terms of Use</a></li>
-            <li><a href="${getSiteRoot()}disclaimer.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-triangle-exclamation text-[9px] text-rose-500"></i> Disclaimer</a></li>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="${getSiteRoot()}business-tools/" class="text-blue-700 hover:text-blue-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-briefcase text-[9px] text-blue-600"></i> Business Hub</a></li>
+            <li><a href="${getSiteRoot()}business-tools/roi-calculator.html" class="hover:text-[#146ebe] transition-colors">ROI & CAGR Calculator</a></li>
+            <li><a href="${getSiteRoot()}business-tools/break-even-calculator.html" class="hover:text-[#146ebe] transition-colors">Break-Even Calculator</a></li>
+            <li><a href="${getSiteRoot()}business-tools/freelance-rate-calculator.html" class="hover:text-[#146ebe] transition-colors">Freelance Rate Calculator</a></li>
+            <li><a href="${getSiteRoot()}finance-tools/compound-interest-calculator.html" class="hover:text-[#146ebe] transition-colors">Compound Interest</a></li>
+            <li><a href="${getSiteRoot()}finance-tools/loan-amortization-calculator.html" class="hover:text-[#146ebe] transition-colors">Loan Amortization</a></li>
+            <li><a href="${getSiteRoot()}finance-tools/crypto-profit-calculator.html" class="hover:text-[#146ebe] transition-colors">Crypto Profit & DCA</a></li>
           </ul>
         </div>
 
       </div>
 
-      <!-- Bottom Bar -->
+      <!-- Second Row of Footer Categories -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pt-8 mt-8 border-t border-slate-100">
+        
+        <!-- Text & Writing Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-font text-indigo-600 text-[11px]"></i>
+            <span>Writing & Text Tools</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="${getSiteRoot()}text-tools/" class="text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-align-left text-[9px] text-indigo-600"></i> Text Tools Hub</a></li>
+            <li><a href="${getSiteRoot()}text-tools/case-converter.html" class="hover:text-[#146ebe] transition-colors">Case Converter & Slugifier</a></li>
+            <li><a href="${getSiteRoot()}text-tools/lorem-ipsum-generator.html" class="hover:text-[#146ebe] transition-colors">Lorem Ipsum Generator</a></li>
+            <li><a href="${getSiteRoot()}text-tools/text-cleaner.html" class="hover:text-[#146ebe] transition-colors">Text Cleaner & Formatter</a></li>
+            <li><a href="${getSiteRoot()}developer-tools/word-counter.html" class="hover:text-[#146ebe] transition-colors">Word & Character Counter</a></li>
+          </ul>
+        </div>
+
+        <!-- Security & Developer Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-shield-halved text-rose-600 text-[11px]"></i>
+            <span>Security & Dev Tools</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="${getSiteRoot()}security-tools/" class="text-rose-700 hover:text-rose-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-shield-halved text-[9px] text-rose-600"></i> Security Hub</a></li>
+            <li><a href="${getSiteRoot()}security-tools/hash-generator.html" class="hover:text-[#146ebe] transition-colors">Online Hash Generator</a></li>
+            <li><a href="${getSiteRoot()}security-tools/base64-encoder-decoder.html" class="hover:text-[#146ebe] transition-colors">Base64 Encoder / Decoder</a></li>
+            <li><a href="${getSiteRoot()}security-tools/uuid-generator.html" class="hover:text-[#146ebe] transition-colors">UUID / GUID v4 Generator</a></li>
+            <li><a href="${getSiteRoot()}developer-tools/password-generator.html" class="hover:text-[#146ebe] transition-colors">Strong Password Generator</a></li>
+            <li><a href="${getSiteRoot()}developer-tools/html-minifier.html" class="hover:text-[#146ebe] transition-colors">HTML / CSS / JS Minifiers</a></li>
+          </ul>
+        </div>
+
+        <!-- Student & Academic Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-graduation-cap text-amber-600 text-[11px]"></i>
+            <span>Student & Academic</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="${getSiteRoot()}student-tools/" class="text-amber-700 hover:text-amber-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-graduation-cap text-[9px] text-amber-600"></i> Student Hub</a></li>
+            <li><a href="${getSiteRoot()}student-tools/gpa-calculator.html" class="hover:text-[#146ebe] transition-colors">GPA & CGPA Calculator</a></li>
+            <li><a href="${getSiteRoot()}student-tools/unit-converter.html" class="hover:text-[#146ebe] transition-colors">Universal Unit Converter</a></li>
+            <li><a href="${getSiteRoot()}ecommerce-tools/invoice-generator.html" class="hover:text-[#146ebe] transition-colors">Free Invoice Maker</a></li>
+            <li><a href="${getSiteRoot()}games/2048/index.html" class="hover:text-[#146ebe] transition-colors">2048 & Retro Games</a></li>
+          </ul>
+        </div>
+
+        <!-- Company & Legal -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-circle-info text-blue-600 text-[11px]"></i>
+            <span>Company & Legal</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="${getSiteRoot()}about.html" class="hover:text-[#146ebe] transition-colors">About 360Tools</a></li>
+            <li><a href="${getSiteRoot()}contact.html" class="hover:text-[#146ebe] transition-colors">Contact Support</a></li>
+            <li><a href="${getSiteRoot()}blog.html" class="hover:text-[#146ebe] transition-colors">Editorial Blog</a></li>
+            <li><a href="${getSiteRoot()}privacy-policy.html" class="hover:text-[#146ebe] transition-colors">Privacy Policy</a></li>
+            <li><a href="${getSiteRoot()}terms.html" class="hover:text-[#146ebe] transition-colors">Terms of Use</a></li>
+            <li><a href="${getSiteRoot()}disclaimer.html" class="hover:text-[#146ebe] transition-colors">Legal Disclaimer</a></li>
+            <li><a href="${getSiteRoot()}sitemap.xml" class="hover:text-[#146ebe] transition-colors">XML Sitemap</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright Bar -->
       <div class="mt-12 pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
         <div class="flex items-center gap-2 text-center md:text-left">
           <span>© 2026 <a href="${getSiteRoot()}" class="font-bold text-[#183153] hover:text-[#146ebe] transition-colors">360Tools (360tools.me)</a>. All rights reserved.</span>
         </div>
 
         <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-slate-600 text-[11px] font-bold">
-          <a href="${getSiteRoot()}pdf-tools/" class="text-red-600 hover:text-red-800 transition-colors flex items-center gap-1"><i class="fa-solid fa-file-pdf text-[10px]"></i> PDF Suite</a>
+          <a href="${getSiteRoot()}business-tools/" class="hover:text-[#146ebe] transition-colors">Business</a>
           <span>•</span>
-          <a href="${getSiteRoot()}appearance.html" class="text-purple-600 hover:text-purple-800 transition-colors flex items-center gap-1"><i class="fa-solid fa-palette text-[10px]"></i> Theme Customizer</a>
+          <a href="${getSiteRoot()}text-tools/" class="hover:text-[#146ebe] transition-colors">Text</a>
           <span>•</span>
-          <a href="${getSiteRoot()}about.html" class="hover:text-[#146ebe] transition-colors">About</a>
+          <a href="${getSiteRoot()}finance-tools/" class="hover:text-[#146ebe] transition-colors">Finance</a>
           <span>•</span>
-          <a href="${getSiteRoot()}contact.html" class="hover:text-[#146ebe] transition-colors">Contact</a>
+          <a href="${getSiteRoot()}security-tools/" class="hover:text-[#146ebe] transition-colors">Security</a>
           <span>•</span>
-          <a href="${getSiteRoot()}privacy-policy.html" class="hover:text-[#146ebe] transition-colors">Privacy Policy</a>
+          <a href="${getSiteRoot()}design-tools/" class="hover:text-[#146ebe] transition-colors">Design</a>
           <span>•</span>
-          <a href="${getSiteRoot()}terms.html" class="hover:text-[#146ebe] transition-colors">Terms of Service</a>
+          <a href="${getSiteRoot()}student-tools/" class="hover:text-[#146ebe] transition-colors">Student</a>
           <span>•</span>
-          <a href="${getSiteRoot()}disclaimer.html" class="hover:text-[#146ebe] transition-colors">Disclaimer</a>
-          <span>•</span>
-          <a href="${getSiteRoot()}sitemap.xml" class="hover:text-[#146ebe] transition-colors">Sitemap</a>
+          <a href="${getSiteRoot()}pdf-tools/" class="hover:text-[#146ebe] transition-colors">PDF Suite</a>
         </div>
 
         <div class="text-[10px] text-slate-400 text-center md:text-right">
-          Zero Cloud Logging • 100% Client-Side Private
+          Zero Cloud Logging • 100% Client-Side In-Browser
         </div>
       </div>
     </div>
@@ -3048,5 +3767,22 @@ if (document.readyState === 'loading') {
 } else {
   initGlobalComponents();
 }
+
+// Category Carousel Scroll Helper
+window.scrollCategoryCarousel = function(direction) {
+  const track = document.getElementById('categoryCarouselTrack');
+  if (!track) return;
+  const card = track.querySelector('.snap-start');
+  const step = card ? (card.offsetWidth + 16) : 296;
+  if (direction > 0 && track.scrollLeft + track.clientWidth >= track.scrollWidth - 20) {
+    track.scrollTo({ left: 0, behavior: 'smooth' });
+  } else if (direction < 0 && track.scrollLeft <= 10) {
+    track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+  } else {
+    track.scrollBy({ left: direction * step, behavior: 'smooth' });
+  }
+};
+
+
 
 

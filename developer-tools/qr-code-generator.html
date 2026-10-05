@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Free QR Code Generator Online with Logo & Colors (2026) | 360tools.me</title>
+  <meta name="title" content="Free QR Code Generator Online with Logo & Colors (2026) | 360tools.me">
+  <meta name="description" content="Generate high-resolution custom QR codes for free. Supports URL, Wi-Fi, vCard contacts, email, SMS, and crypto. Add logos, customize colors, and download in PNG, SVG, and PDF. 100% private in-browser.">
+  <meta name="keywords" content="free qr code generator, custom qr code generator with logo, qr code maker online, wifi qr code generator, vcard qr code generator, svg qr code maker, high resolution qr code generator, print ready qr code, private qr code creator">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/developer-tools/qr-code-generator.html">
+
+  <!-- Favicon & Open Graph / Facebook -->
+  <link rel="icon" type="image/webp" href="../images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="../images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/developer-tools/qr-code-generator.html">
+  <meta property="og:title" content="Free QR Code Generator with Logo & Colors | 360tools.me">
+  <meta property="og:description" content="Create customized, print-ready QR codes for URLs, Wi-Fi passwords, vCards, emails, and crypto addresses with zero tracking and zero server logging.">
+  <meta property="og:image" content="https://360tools.me/images/logo.webp">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://360tools.me/developer-tools/qr-code-generator.html">
+  <meta name="twitter:title" content="Free QR Code Generator with Logo & SVG Export">
+  <meta name="twitter:description" content="Generate high-res vector QR codes for websites, Wi-Fi, contacts, and payments client-side.">
+  <meta name="twitter:image" content="https://360tools.me/images/logo.webp">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Custom QR Code Generator with Logo & SVG Export",
+    "url": "https://360tools.me/developer-tools/qr-code-generator.html",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "description": "Enterprise-grade client-side QR Code generator supporting URLs, Wi-Fi networks, vCards, emails, and crypto addresses with custom colors, embedded logos, and lossless SVG/PNG exports.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do QR codes generated on 360Tools expire or have scan limits?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. All QR codes generated on 360Tools are permanent static QR codes. They encode the exact destination payload directly into the 2D matrix, meaning they will work forever with unlimited scans and zero subscription fees."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I add a custom company logo or icon to my QR code without breaking scanability?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our generator utilizes Reed-Solomon Error Correction algorithms (up to Level H, 30% redundancy). This allows you to embed a centered company logo, brand emblem, or icon while ensuring all smartphone cameras and optical scanners decode the code instantly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my Wi-Fi password or private vCard data transmitted to any external server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The entire QR generation engine executes 100% locally in your browser memory using HTML5 Canvas and client-side JavaScript. Your confidential Wi-Fi network credentials, personal contact info, and crypto wallet addresses never leave your device."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the best format for printing QR codes on billboards, flyers, and business cards?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For physical print media, SVG (Scalable Vector Graphics) or Ultra-HD 2048px PNG is recommended. Vector SVGs can be enlarged to any physical dimension without pixelation or scanning degradation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the minimum recommended size for a printed QR code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For close-range scanning on business cards or restaurant menus, the minimum size is 2 x 2 cm (0.8 x 0.8 inches). For posters or billboards, apply a 10:1 distance-to-size ratio (e.g., a scanner 10 feet away requires at least a 1-foot wide QR code)."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Developer Tools",
+        "item": "https://360tools.me/developer-tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "QR Code Generator",
+        "item": "https://360tools.me/developer-tools/qr-code-generator.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../css/style.min.css">
+
+  <!-- QRCode Library CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Header -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Container -->
+  <main class="max-w-7xl mx-auto w-full flex-1">
+
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-6" aria-label="Breadcrumb">
+      <a href="../index.html" class="hover:text-[#c27803] transition-colors"><i class="fa-solid fa-house mr-1"></i>Home</a>
+      <span class="text-slate-300">/</span>
+      <a href="./" class="hover:text-[#c27803] transition-colors">Developer Tools</a>
+      <span class="text-slate-300">/</span>
+      <span class="text-[#3e2723] font-black">QR Code Generator</span>
+    </nav>
+    
+    <!-- Hero / Headline Above the Fold -->
+    <div class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="bg-amber-100 text-amber-900 text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-solid fa-qrcode mr-1 text-[#c27803]"></i> Vector & High-Res QR Engine
+          </span>
+          <span class="text-xs font-bold text-slate-500">• 100% In-Browser Privacy • SVG & PNG Export</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
+          Free Custom QR Code Generator with Logo & Colors
+        </h1>
+        <p class="text-slate-600 text-sm sm:text-base mt-1 max-w-3xl leading-relaxed">
+          Create permanent, print-ready QR codes for websites, Wi-Fi networks, vCard business contacts, emails, and crypto wallets. Customize colors, add logos, and export vector SVGs with zero limits.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 self-start md:self-center">
+        <button onclick="loadSampleData()" class="fa-btn-secondary text-xs px-3.5 py-2">
+          <i class="fa-solid fa-wand-magic-sparkles text-[#c27803]"></i> Load Sample QR
+        </button>
+      </div>
+    </div>
+
+    <!-- MAIN INTERACTIVE STUDIO WORKSPACE -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+
+      <!-- LEFT COLUMN: Data Types & Customization Form (7 Cols) -->
+      <div class="lg:col-span-7 space-y-6">
+
+        <!-- 1. Type Selector Tabs -->
+        <div class="bg-white rounded-2xl p-4 border border-slate-200/80 shadow-xs">
+          <label class="block text-xs font-black text-slate-500 uppercase tracking-wider mb-3">1. Select Data Type</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-2" id="typeTabGroup">
+            <button onclick="switchType('url')" class="qr-type-btn active p-2.5 rounded-xl border border-slate-200 text-center flex flex-col items-center justify-center gap-1.5 transition-all text-xs font-bold text-slate-700 hover:border-[#c27803]" data-type="url">
+              <i class="fa-solid fa-link text-base text-[#c27803]"></i>
+              <span>URL</span>
+            </button>
+            <button onclick="switchType('text')" class="qr-type-btn p-2.5 rounded-xl border border-slate-200 text-center flex flex-col items-center justify-center gap-1.5 transition-all text-xs font-bold text-slate-700 hover:border-[#c27803]" data-type="text">
+              <i class="fa-solid fa-align-left text-base text-blue-600"></i>
+              <span>Text</span>
+            </button>
+            <button onclick="switchType('wifi')" class="qr-type-btn p-2.5 rounded-xl border border-slate-200 text-center flex flex-col items-center justify-center gap-1.5 transition-all text-xs font-bold text-slate-700 hover:border-[#c27803]" data-type="wifi">
+              <i class="fa-solid fa-wifi text-base text-emerald-600"></i>
+              <span>Wi-Fi</span>
+            </button>
+            <button onclick="switchType('vcard')" class="qr-type-btn p-2.5 rounded-xl border border-slate-200 text-center flex flex-col items-center justify-center gap-1.5 transition-all text-xs font-bold text-slate-700 hover:border-[#c27803]" data-type="vcard">
+              <i class="fa-solid fa-address-card text-base text-purple-600"></i>
+              <span>vCard</span>
+            </button>
+            <button onclick="switchType('email')" class="qr-type-btn p-2.5 rounded-xl border border-slate-200 text-center flex flex-col items-center justify-center gap-1.5 transition-all text-xs font-bold text-slate-700 hover:border-[#c27803]" data-type="email">
+              <i class="fa-solid fa-envelope text-base text-rose-600"></i>
+              <span>Email</span>
+            </button>
+            <button onclick="switchType('sms')" class="qr-type-btn p-2.5 rounded-xl border border-slate-200 text-center flex flex-col items-center justify-center gap-1.5 transition-all text-xs font-bold text-slate-700 hover:border-[#c27803]" data-type="sms">
+              <i class="fa-solid fa-comment-sms text-base text-amber-600"></i>
+              <span>SMS</span>
+            </button>
+            <button onclick="switchType('crypto')" class="qr-type-btn p-2.5 rounded-xl border border-slate-200 text-center flex flex-col items-center justify-center gap-1.5 transition-all text-xs font-bold text-slate-700 hover:border-[#c27803]" data-type="crypto">
+              <i class="fa-brands fa-bitcoin text-base text-amber-500"></i>
+              <span>Crypto</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Dynamic Input Fields -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs space-y-4">
+          <label class="block text-xs font-black text-slate-500 uppercase tracking-wider">2. Content & Payload Details</label>
+
+          <!-- Type: URL -->
+          <div id="form-url" class="qr-form-pane space-y-3">
+            <label class="block text-xs font-bold text-slate-700">Website or Destination Link</label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                <i class="fa-solid fa-globe"></i>
+              </span>
+              <input type="url" id="inputUrl" placeholder="https://example.com" value="https://360tools.me" class="fa-input pl-10 pr-4 py-2.5 text-sm w-full font-medium" oninput="renderQR()">
+            </div>
+          </div>
+
+          <!-- Type: Plain Text -->
+          <div id="form-text" class="qr-form-pane hidden space-y-3">
+            <label class="block text-xs font-bold text-slate-700">Plain Text Message</label>
+            <textarea id="inputText" rows="3" placeholder="Enter your text, notes, or serial number..." class="fa-input p-3 text-sm w-full font-medium" oninput="renderQR()"></textarea>
+          </div>
+
+          <!-- Type: Wi-Fi -->
+          <div id="form-wifi" class="qr-form-pane hidden space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Network Name (SSID)</label>
+                <input type="text" id="wifiSsid" placeholder="MyHomeWiFi" class="fa-input p-2.5 text-sm w-full font-medium" oninput="renderQR()">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Password</label>
+                <input type="text" id="wifiPass" placeholder="Network password" class="fa-input p-2.5 text-sm w-full font-medium" oninput="renderQR()">
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Security Type</label>
+                <select id="wifiAuth" class="fa-input p-2.5 text-sm w-full font-bold text-slate-700" onchange="renderQR()">
+                  <option value="WPA">WPA / WPA2 / WPA3 (Default)</option>
+                  <option value="WEP">WEP</option>
+                  <option value="nopass">None (Open Network)</option>
+                </select>
+              </div>
+              <div class="flex items-center pt-6">
+                <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-slate-700">
+                  <input type="checkbox" id="wifiHidden" class="w-4 h-4 text-[#c27803] rounded border-slate-300" onchange="renderQR()">
+                  <span>Hidden Network SSID</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Type: vCard (Contact) -->
+          <div id="form-vcard" class="qr-form-pane hidden space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">First Name</label>
+                <input type="text" id="vcardFirst" placeholder="Alex" class="fa-input p-2.5 text-sm w-full font-medium" oninput="renderQR()">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Last Name</label>
+                <input type="text" id="vcardLast" placeholder="Morgan" class="fa-input p-2.5 text-sm w-full font-medium" oninput="renderQR()">
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
+                <input type="tel" id="vcardPhone" placeholder="+1 (555) 019-2834" class="fa-input p-2.5 text-sm w-full font-medium" oninput="renderQR()">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Email Address</label>
+                <input type="email" id="vcardEmail" placeholder="alex@company.com" class="fa-input p-2.5 text-sm w-full font-medium" oninput="renderQR()">
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Company / Organization</label>
+                <input type="text" id="vcardOrg" placeholder="Global Tech Inc" class="fa-input p-2.5 text-sm w-full font-medium" oninput="renderQR()">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Job Title</label>
+                <input type="text" id="vcardTitle" placeholder="Lead Architect" class="fa-input p-2.5 text-sm w-full font-medium" oninput="renderQR()">
+              </div>
+            </div>
+          </div>
+
+          <!-- Type: Email -->
+          <div id="form-email" class="qr-form-pane hidden space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Recipient Email</label>
+              <input type="email" id="emailTo" placeholder="contact@domain.com" class="fa-input p-2.5 text-sm w-full font-medium" oninput="renderQR()">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Subject Line</label>
+              <input type="text" id="emailSubject" placeholder="Inquiry from QR Code" class="fa-input p-2.5 text-sm w-full font-medium" oninput="renderQR()">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Message Body</label>
+              <textarea id="emailBody" rows="2" placeholder="Hi, I saw your QR code and wanted to connect..." class="fa-input p-2.5 text-sm w-full font-medium" oninput="renderQR()"></textarea>
+            </div>
+          </div>
+
+          <!-- Type: SMS -->
+          <div id="form-sms" class="qr-form-pane hidden space-y-4">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
+              <input type="tel" id="smsPhone" placeholder="+1234567890" class="fa-input p-2.5 text-sm w-full font-medium" oninput="renderQR()">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Pre-filled SMS Message</label>
+              <textarea id="smsBody" rows="2" placeholder="START promo deal" class="fa-input p-2.5 text-sm w-full font-medium" oninput="renderQR()"></textarea>
+            </div>
+          </div>
+
+          <!-- Type: Crypto -->
+          <div id="form-crypto" class="qr-form-pane hidden space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Cryptocurrency</label>
+                <select id="cryptoCoin" class="fa-input p-2.5 text-sm w-full font-bold text-slate-700" onchange="renderQR()">
+                  <option value="bitcoin">Bitcoin (BTC)</option>
+                  <option value="ethereum">Ethereum (ETH)</option>
+                  <option value="solana">Solana (SOL)</option>
+                  <option value="usdt">Tether (USDT)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Amount (Optional)</label>
+                <input type="number" step="any" id="cryptoAmount" placeholder="0.05" class="fa-input p-2.5 text-sm w-full font-medium" oninput="renderQR()">
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Wallet Receiving Address</label>
+              <input type="text" id="cryptoAddress" placeholder="bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh" class="fa-input p-2.5 text-xs font-mono w-full" oninput="renderQR()">
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 3. Styling & Branding Studio -->
+        <div class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs space-y-6">
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <label class="block text-xs font-black text-slate-500 uppercase tracking-wider">3. Custom Styling & Branding</label>
+            <span class="text-[11px] font-bold text-[#c27803]"><i class="fa-solid fa-palette mr-1"></i> Studio Options</span>
+          </div>
+
+          <!-- Color Customization -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-2">Foreground Color (QR Dots)</label>
+              <div class="flex items-center gap-3">
+                <input type="color" id="fgColor" value="#3e2723" class="w-10 h-10 rounded-xl cursor-pointer border border-slate-300 p-0.5" onchange="renderQR()">
+                <div class="flex items-center gap-1.5">
+                  <button type="button" onclick="setFgColor('#3e2723')" class="w-6 h-6 rounded-full bg-[#3e2723] border border-white shadow-xs" title="Coffee Navy"></button>
+                  <button type="button" onclick="setFgColor('#0f172a')" class="w-6 h-6 rounded-full bg-[#0f172a] border border-white shadow-xs" title="Slate Black"></button>
+                  <button type="button" onclick="setFgColor('#c27803')" class="w-6 h-6 rounded-full bg-[#c27803] border border-white shadow-xs" title="Warm Gold"></button>
+                  <button type="button" onclick="setFgColor('#1e40af')" class="w-6 h-6 rounded-full bg-[#1e40af] border border-white shadow-xs" title="Royal Blue"></button>
+                  <button type="button" onclick="setFgColor('#065f46')" class="w-6 h-6 rounded-full bg-[#065f46] border border-white shadow-xs" title="Emerald"></button>
+                  <button type="button" onclick="setFgColor('#991b1b')" class="w-6 h-6 rounded-full bg-[#991b1b] border border-white shadow-xs" title="Crimson"></button>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-2">Background Color</label>
+              <div class="flex items-center gap-3">
+                <input type="color" id="bgColor" value="#ffffff" class="w-10 h-10 rounded-xl cursor-pointer border border-slate-300 p-0.5" onchange="renderQR()">
+                <label class="flex items-center gap-2 cursor-pointer text-xs font-bold text-slate-600 ml-2">
+                  <input type="checkbox" id="bgTransparent" class="w-4 h-4 text-[#c27803] rounded border-slate-300" onchange="toggleTransparentBg()">
+                  <span>Transparent</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Error Correction & Size Resolution -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">Error Correction Redundancy</label>
+              <select id="qrEcc" class="fa-input p-2.5 text-xs font-bold text-slate-700 w-full" onchange="renderQR()">
+                <option value="L">Level L (7% Recovery - Smallest)</option>
+                <option value="M" selected>Level M (15% Recovery - Standard)</option>
+                <option value="Q">Level Q (25% Recovery - High)</option>
+                <option value="H">Level H (30% Recovery - Best with Logo)</option>
+              </select>
+              <p class="text-[10px] text-slate-400 mt-1">Level H is automatically activated when embedding icons or center logos.</p>
+            </div>
+
+            <div>
+              <div class="flex justify-between items-center mb-1">
+                <label class="text-xs font-bold text-slate-700">Export Resolution (Pixels)</label>
+                <span id="sizeVal" class="text-xs font-mono font-black text-[#c27803]">1024 px</span>
+              </div>
+              <input type="range" id="qrSize" min="256" max="2048" step="128" value="1024" class="w-full accent-[#c27803] cursor-pointer" oninput="updateSizeDisplay(this.value)">
+              <div class="flex justify-between text-[10px] font-bold text-slate-400 mt-1">
+                <span>256px (Web)</span>
+                <span>1024px (Print HD)</span>
+                <span>2048px (Ultra HD)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Center Logo & Icon Branding -->
+          <div class="pt-4 border-t border-slate-100">
+            <div class="flex items-center justify-between mb-3">
+              <label class="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+                <i class="fa-solid fa-stamp text-[#c27803]"></i> Center Icon / Logo Overlay
+              </label>
+              <button type="button" onclick="clearLogo()" id="removeLogoBtn" class="hidden text-[11px] font-bold text-red-600 hover:underline">
+                <i class="fa-solid fa-trash-can mr-1"></i> Remove Logo
+              </button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+              <div>
+                <input type="file" id="logoUpload" accept="image/png, image/jpeg, image/svg+xml, image/webp" class="hidden" onchange="handleLogoUpload(event)">
+                <button type="button" onclick="document.getElementById('logoUpload').click()" class="fa-btn-secondary w-full py-2.5 px-4 text-xs font-bold flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-cloud-arrow-up text-[#c27803]"></i>
+                  <span id="logoFileName">Upload Custom Brand Logo</span>
+                </button>
+              </div>
+
+              <!-- Preset Icon Badges -->
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-bold text-slate-400">Presets:</span>
+                <button type="button" onclick="setPresetIcon('link')" class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-[#ffd43b] text-slate-700 text-xs flex items-center justify-center transition-colors" title="Link Icon"><i class="fa-solid fa-link"></i></button>
+                <button type="button" onclick="setPresetIcon('wifi')" class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-[#ffd43b] text-slate-700 text-xs flex items-center justify-center transition-colors" title="WiFi Icon"><i class="fa-solid fa-wifi"></i></button>
+                <button type="button" onclick="setPresetIcon('phone')" class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-[#ffd43b] text-slate-700 text-xs flex items-center justify-center transition-colors" title="Phone Icon"><i class="fa-solid fa-phone"></i></button>
+                <button type="button" onclick="setPresetIcon('mail')" class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-[#ffd43b] text-slate-700 text-xs flex items-center justify-center transition-colors" title="Email Icon"><i class="fa-solid fa-envelope"></i></button>
+                <button type="button" onclick="setPresetIcon('360')" class="w-8 h-8 rounded-xl bg-[#3e2723] text-[#ffd43b] font-black text-[10px] flex items-center justify-center transition-colors" title="360Tools Emblem">360</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Live Interactive Preview & Export Studio (5 Cols) -->
+      <div class="lg:col-span-5 space-y-6">
+
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-md sticky top-6 space-y-6 text-center">
+          
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <span class="text-xs font-black uppercase text-[#3e2723] tracking-wider flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              Live Scan Preview
+            </span>
+            <span class="text-[11px] font-bold text-slate-400" id="qrPayloadLength">0 chars</span>
+          </div>
+
+          <!-- Canvas Preview Box -->
+          <div class="p-4 sm:p-6 rounded-2xl bg-[#fbf7ee] border-2 border-dashed border-[#ded2be] flex flex-col items-center justify-center relative overflow-hidden group">
+            <div id="qrCanvasContainer" class="p-3 bg-white rounded-2xl shadow-sm transition-transform duration-300 group-hover:scale-105">
+              <canvas id="qrCanvas" class="max-w-full h-auto rounded-lg"></canvas>
+            </div>
+            
+            <p class="text-[11px] font-bold text-slate-400 mt-3 flex items-center gap-1">
+              <i class="fa-solid fa-camera"></i> Point your phone camera to test live
+            </p>
+          </div>
+
+          <!-- Instant Export Actions -->
+          <div class="space-y-3 pt-2">
+            <div class="grid grid-cols-2 gap-3">
+              <button onclick="downloadPNG()" class="fa-btn-primary py-3 px-4 text-xs font-black shadow-md flex items-center justify-center gap-2">
+                <i class="fa-solid fa-download"></i>
+                <span>Download PNG</span>
+              </button>
+              <button onclick="downloadSVG()" class="fa-btn-secondary py-3 px-4 text-xs font-black flex items-center justify-center gap-2">
+                <i class="fa-solid fa-bezier-curve text-[#c27803]"></i>
+                <span>Download SVG</span>
+              </button>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <button onclick="copyQRImage()" class="fa-btn-secondary py-2.5 px-4 text-xs font-bold flex items-center justify-center gap-2">
+                <i class="fa-regular fa-copy"></i>
+                <span>Copy Image</span>
+              </button>
+              <button onclick="printQRCard()" class="fa-btn-secondary py-2.5 px-4 text-xs font-bold flex items-center justify-center gap-2">
+                <i class="fa-solid fa-print"></i>
+                <span>Print QR Card</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Payload String Verification -->
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 text-left space-y-1">
+            <span class="text-[10px] font-black uppercase tracking-wider text-slate-400">Decoded Payload Content:</span>
+            <p id="payloadPreviewText" class="text-xs font-mono font-bold text-slate-700 break-all line-clamp-2">
+              https://360tools.me
+            </p>
+          </div>
+
+          <!-- Privacy Badge -->
+          <div class="text-[11px] font-bold text-emerald-700 bg-emerald-50 py-2 px-3 rounded-xl border border-emerald-200/80 flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-shield-halved"></i> 100% In-Browser Private. Zero Tracking & No Expiration.
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- IN-DEPTH AUTHORITY GUIDE & KNOWLEDGE BASE (~1,500+ WORDS FOR HIGH-CPC SEO) -->
+    <section class="max-w-7xl mx-auto py-12 border-t border-slate-200/80 space-y-12">
+
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="fa-badge-blue text-xs py-1.5 px-4 font-black uppercase">
+          Comprehensive QR Code Guide
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
+          The Engineering Guide to Custom QR Codes & Scannability
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base font-medium leading-relaxed">
+          Everything creators, businesses, and developers need to know about 2D matrix symbology, error correction redundancy, color contrast ratios, and vector print preparation.
+        </p>
+      </div>
+
+      <!-- Feature Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-amber-100 text-[#c27803] flex items-center justify-center text-xl font-black">
+            <i class="fa-solid fa-infinity"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723]">100% Static & Never Expires</h3>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Unlike commercial platforms that hold your destination URL hostage behind recurring monthly subscriptions, our static codes encode raw binary payloads directly. They work forever with zero scan quotas.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center text-xl font-black">
+            <i class="fa-solid fa-shield-virus"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723]">Reed-Solomon Error Correction</h3>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Built-in Level H (30%) mathematical redundancy allows your codes to withstand physical scratches, tears, water damage, or custom center logo overlays without compromising camera decode speed.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-xs space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-cyan-100 text-cyan-800 flex items-center justify-center text-xl font-black">
+            <i class="fa-solid fa-vector-square"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723]">Lossless Vector SVG Export</h3>
+          <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+            Export true mathematical SVG vector files for Adobe Illustrator, Figma, Canva, and large-scale industrial printing press applications from small coffee cups to 50-foot highway billboards.
+          </p>
+        </div>
+      </div>
+
+      <!-- In-Depth Article 1: How QR Codes Work -->
+      <article class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-xs space-y-6">
+        <h3 class="text-2xl sm:text-3xl font-black text-[#3e2723]">
+          How Quick Response (QR) Codes Work: Matrix Anatomy & Encoding
+        </h3>
+        <p class="text-slate-700 text-sm sm:text-base leading-relaxed">
+          Invented in 1994 by Masahiro Hara of Denso Wave for tracking automotive components, the <strong>Quick Response (QR) code</strong> is a two-dimensional matrix barcode capable of encoding up to 7,089 numeric characters or 4,296 alphanumeric characters. Unlike traditional 1D barcodes that only store data along a single horizontal axis, QR codes store information both horizontally and vertically, allowing orders-of-magnitude greater data density.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+          <div class="bg-[#fbf7ee] p-6 rounded-2xl border border-[#ded2be]/60 space-y-2">
+            <h4 class="text-base font-black text-[#3e2723] flex items-center gap-2">
+              <i class="fa-solid fa-bullseye text-[#c27803]"></i> Finder & Alignment Patterns
+            </h4>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              The three large square patterns located in the top-left, top-right, and bottom-left corners allow optical sensors to detect orientation, distance, and skew angle instantly across 360 degrees of rotation.
+            </p>
+          </div>
+          <div class="bg-[#fbf7ee] p-6 rounded-2xl border border-[#ded2be]/60 space-y-2">
+            <h4 class="text-base font-black text-[#3e2723] flex items-center gap-2">
+              <i class="fa-solid fa-border-all text-[#c27803]"></i> Timing & Quiet Zone
+            </h4>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              Alternating black and white timing tracks establish the coordinate grid. An essential 4-module blank margin (the "quiet zone") surrounding the code isolates data modules from adjacent visual clutter.
+            </p>
+          </div>
+        </div>
+
+        <h4 class="text-xl font-black text-[#3e2723] pt-4">Static vs Dynamic QR Codes: Which Should You Choose?</h4>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse">
+            <thead>
+              <tr class="bg-slate-100 border-b border-slate-200 text-[#3e2723]">
+                <th class="p-3.5 font-black">Feature</th>
+                <th class="p-3.5 font-black text-[#c27803]">Static QR Code (360Tools)</th>
+                <th class="p-3.5 font-black text-slate-500">Commercial Dynamic QR Code</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-700">
+              <tr>
+                <td class="p-3.5 font-bold">Expiration Date</td>
+                <td class="p-3.5 font-bold text-emerald-600"><i class="fa-solid fa-check mr-1"></i> Never expires (Permanent)</td>
+                <td class="p-3.5 text-red-600">Expires if monthly bill unpaid</td>
+              </tr>
+              <tr>
+                <td class="p-3.5 font-bold">Privacy & Intermediaries</td>
+                <td class="p-3.5 font-bold text-emerald-600"><i class="fa-solid fa-lock mr-1"></i> 100% Direct (0 Redirects)</td>
+                <td class="p-3.5 text-slate-600">Routes through tracking redirect server</td>
+              </tr>
+              <tr>
+                <td class="p-3.5 font-bold">Cost & Limits</td>
+                <td class="p-3.5 font-bold text-emerald-600"><i class="fa-solid fa-gift mr-1"></i> 100% Free Unlimited Scans</td>
+                <td class="p-3.5 text-slate-600">$10 - $50 / month recurring</td>
+              </tr>
+              <tr>
+                <td class="p-3.5 font-bold">Offline Functionality</td>
+                <td class="p-3.5 font-bold text-emerald-600"><i class="fa-solid fa-wifi mr-1"></i> Works completely offline (Wi-Fi, vCard)</td>
+                <td class="p-3.5 text-slate-600">Fails without active internet redirect</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- FAQ Section Accordion -->
+      <div class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/80 shadow-xs space-y-6">
+        <h3 class="text-2xl sm:text-3xl font-black text-[#3e2723]">Frequently Asked Questions (FAQ)</h3>
+        <div class="space-y-4">
+          
+          <details class="group fa-card p-5 bg-[#fbf7ee] border border-[#ded2be]/60 rounded-2xl transition-all cursor-pointer">
+            <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-[#3e2723] list-none">
+              <span>Do QR codes created on this website ever expire?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+              No. The QR codes you generate here are 100% static. The destination payload (URL, text, Wi-Fi password, or vCard) is permanently embedded in the visual module matrix. They will work as long as the printed medium exists with zero subscription requirements.
+            </p>
+          </details>
+
+          <details class="group fa-card p-5 bg-[#fbf7ee] border border-[#ded2be]/60 rounded-2xl transition-all cursor-pointer">
+            <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-[#3e2723] list-none">
+              <span>Can I safely use this tool for private Wi-Fi passwords and sensitive contacts?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+              Yes, absolutely. 360Tools operates purely client-side inside your browser's execution thread. No data packets or credentials are sent to our servers or any third-party analytics provider.
+            </p>
+          </details>
+
+          <details class="group fa-card p-5 bg-[#fbf7ee] border border-[#ded2be]/60 rounded-2xl transition-all cursor-pointer">
+            <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-[#3e2723] list-none">
+              <span>How do I ensure my custom colored QR code scans reliably?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+              Always maintain a high contrast ratio between the foreground dots and background. The foreground dots must be significantly darker than the background (e.g., dark navy or black on white/cream). Avoid light yellow dots on white paper.
+            </p>
+          </details>
+
+          <details class="group fa-card p-5 bg-[#fbf7ee] border border-[#ded2be]/60 rounded-2xl transition-all cursor-pointer">
+            <summary class="flex justify-between items-center font-bold text-sm sm:text-base text-[#3e2723] list-none">
+              <span>Why is SVG preferred over PNG for professional graphic design?</span>
+              <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <p class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed">
+              SVG (Scalable Vector Graphics) stores shapes as pure mathematical geometry rather than fixed raster pixels. You can scale an SVG QR code to any dimension—from a 1-inch product label to a building banner—with infinite sharpness and zero blur.
+            </p>
+          </details>
+
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- JAVASCRIPT LOGIC ENGINE -->
+  <script>
+    let currentType = 'url';
+    let uploadedLogoImage = null;
+    let presetIconType = null;
+
+    function switchType(type) {
+      currentType = type;
+      document.querySelectorAll('.qr-type-btn').forEach(btn => {
+        if (btn.getAttribute('data-type') === type) {
+          btn.classList.add('active', 'border-[#c27803]', 'bg-amber-50/50');
+        } else {
+          btn.classList.remove('active', 'border-[#c27803]', 'bg-amber-50/50');
+        }
+      });
+
+      document.querySelectorAll('.qr-form-pane').forEach(pane => pane.classList.add('hidden'));
+      const activePane = document.getElementById('form-' + type);
+      if (activePane) activePane.classList.remove('hidden');
+
+      renderQR();
+    }
+
+    function getPayload() {
+      switch (currentType) {
+        case 'url':
+          return document.getElementById('inputUrl').value.trim() || 'https://360tools.me';
+        case 'text':
+          return document.getElementById('inputText').value.trim() || 'Welcome to 360tools.me';
+        case 'wifi':
+          const ssid = document.getElementById('wifiSsid').value.trim() || 'MyNetwork';
+          const pass = document.getElementById('wifiPass').value || '';
+          const auth = document.getElementById('wifiAuth').value;
+          const hidden = document.getElementById('wifiHidden').checked ? 'true' : 'false';
+          return `WIFI:S:${ssid};T:${auth};P:${pass};H:${hidden};;`;
+        case 'vcard':
+          const fn = document.getElementById('vcardFirst').value.trim() || 'Alex';
+          const ln = document.getElementById('vcardLast').value.trim() || 'Morgan';
+          const phone = document.getElementById('vcardPhone').value.trim() || '+15550192834';
+          const email = document.getElementById('vcardEmail').value.trim() || 'alex@example.com';
+          const org = document.getElementById('vcardOrg').value.trim() || 'Tech Inc';
+          const title = document.getElementById('vcardTitle').value.trim() || 'Engineer';
+          return `BEGIN:VCARD\nVERSION:3.0\nN:${ln};${fn};;;\nFN:${fn} ${ln}\nORG:${org}\nTITLE:${title}\nTEL:${phone}\nEMAIL:${email}\nEND:VCARD`;
+        case 'email':
+          const to = document.getElementById('emailTo').value.trim() || 'support@360tools.me';
+          const sub = encodeURIComponent(document.getElementById('emailSubject').value.trim() || 'Hello');
+          const body = encodeURIComponent(document.getElementById('emailBody').value.trim() || 'Connecting via QR');
+          return `mailto:${to}?subject=${sub}&body=${body}`;
+        case 'sms':
+          const num = document.getElementById('smsPhone').value.trim() || '+15550192834';
+          const msg = encodeURIComponent(document.getElementById('smsBody').value.trim() || 'Hello');
+          return `smsto:${num}:${msg}`;
+        case 'crypto':
+          const coin = document.getElementById('cryptoCoin').value;
+          const addr = document.getElementById('cryptoAddress').value.trim() || '1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa';
+          const amt = document.getElementById('cryptoAmount').value.trim();
+          return amt ? `${coin}:${addr}?amount=${amt}` : `${coin}:${addr}`;
+        default:
+          return 'https://360tools.me';
+      }
+    }
+
+    function renderQR() {
+      try {
+        const payload = getPayload();
+        document.getElementById('payloadPreviewText').textContent = payload;
+        document.getElementById('qrPayloadLength').textContent = `${payload.length} chars`;
+
+        let ecc = document.getElementById('qrEcc').value;
+        if (uploadedLogoImage || presetIconType) {
+          ecc = 'H'; // Force High error correction when icon overlay present
+          document.getElementById('qrEcc').value = 'H';
+        }
+
+        const qr = qrcode(0, ecc);
+        qr.addData(payload);
+        qr.make();
+
+        const canvas = document.getElementById('qrCanvas');
+        const ctx = canvas.getContext('2d');
+        const moduleCount = qr.getModuleCount();
+        const exportSize = parseInt(document.getElementById('qrSize').value, 10) || 1024;
+        
+        canvas.width = exportSize;
+        canvas.height = exportSize;
+
+        const fgColor = document.getElementById('fgColor').value;
+        const isTransparent = document.getElementById('bgTransparent').checked;
+        const bgColor = isTransparent ? 'transparent' : document.getElementById('bgColor').value;
+
+        // Clear Background
+        ctx.clearRect(0, 0, exportSize, exportSize);
+        if (!isTransparent) {
+          ctx.fillStyle = bgColor;
+          ctx.fillRect(0, 0, exportSize, exportSize);
+        }
+
+        const margin = Math.floor(exportSize * 0.08);
+        const innerSize = exportSize - (margin * 2);
+        const cellSize = innerSize / moduleCount;
+
+        // Draw Matrix
+        ctx.fillStyle = fgColor;
+        for (let row = 0; row < moduleCount; row++) {
+          for (let col = 0; col < moduleCount; col++) {
+            if (qr.isDark(row, col)) {
+              const x = margin + col * cellSize;
+              const y = margin + row * cellSize;
+              ctx.fillRect(Math.round(x), Math.round(y), Math.ceil(cellSize), Math.ceil(cellSize));
+            }
+          }
+        }
+
+        // Draw Center Icon / Logo if active
+        if (uploadedLogoImage) {
+          drawCenterImage(ctx, uploadedLogoImage, exportSize);
+        } else if (presetIconType) {
+          drawPresetIcon(ctx, presetIconType, exportSize);
+        }
+
+      } catch (err) {
+        console.error("QR Generation error:", err);
+      }
+    }
+
+    function drawCenterImage(ctx, img, size) {
+      const logoSize = Math.floor(size * 0.22);
+      const center = size / 2;
+      const x = center - logoSize / 2;
+      const y = center - logoSize / 2;
+      const pad = Math.floor(logoSize * 0.12);
+
+      // White Badge Background with border
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.roundRect(x - pad, y - pad, logoSize + pad * 2, logoSize + pad * 2, 16);
+      ctx.fill();
+      ctx.strokeStyle = '#ded2be';
+      ctx.lineWidth = 4;
+      ctx.stroke();
+
+      ctx.drawImage(img, x, y, logoSize, logoSize);
+    }
+
+    function drawPresetIcon(ctx, type, size) {
+      const logoSize = Math.floor(size * 0.22);
+      const center = size / 2;
+      const x = center - logoSize / 2;
+      const y = center - logoSize / 2;
+      const pad = Math.floor(logoSize * 0.12);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.roundRect(x - pad, y - pad, logoSize + pad * 2, logoSize + pad * 2, 16);
+      ctx.fill();
+      ctx.strokeStyle = '#ded2be';
+      ctx.lineWidth = 4;
+      ctx.stroke();
+
+      ctx.fillStyle = '#3e2723';
+      ctx.font = `900 ${Math.floor(logoSize * 0.55)}px "Plus Jakarta Sans", sans-serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+
+      if (type === '360') {
+        ctx.fillText('360', center, center);
+      } else if (type === 'wifi') {
+        ctx.fillText('📶', center, center);
+      } else if (type === 'link') {
+        ctx.fillText('🔗', center, center);
+      } else if (type === 'phone') {
+        ctx.fillText('📞', center, center);
+      } else if (type === 'mail') {
+        ctx.fillText('✉️', center, center);
+      }
+    }
+
+    function setFgColor(color) {
+      document.getElementById('fgColor').value = color;
+      renderQR();
+    }
+
+    function toggleTransparentBg() {
+      renderQR();
+    }
+
+    function updateSizeDisplay(val) {
+      document.getElementById('sizeVal').textContent = `${val} px`;
+      renderQR();
+    }
+
+    function handleLogoUpload(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const img = new Image();
+        img.onload = function() {
+          uploadedLogoImage = img;
+          presetIconType = null;
+          document.getElementById('logoFileName').textContent = file.name;
+          document.getElementById('removeLogoBtn').classList.remove('hidden');
+          renderQR();
+          showToast('Brand logo attached successfully!', 'fa-circle-check');
+        };
+        img.src = evt.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function setPresetIcon(type) {
+      presetIconType = type;
+      uploadedLogoImage = null;
+      document.getElementById('logoFileName').textContent = `Preset Icon (${type.toUpperCase()})`;
+      document.getElementById('removeLogoBtn').classList.remove('hidden');
+      renderQR();
+    }
+
+    function clearLogo() {
+      uploadedLogoImage = null;
+      presetIconType = null;
+      document.getElementById('logoFileName').textContent = 'Upload Custom Brand Logo';
+      document.getElementById('removeLogoBtn').classList.add('hidden');
+      document.getElementById('logoUpload').value = '';
+      renderQR();
+    }
+
+    function downloadPNG() {
+      const canvas = document.getElementById('qrCanvas');
+      const link = document.createElement('a');
+      link.download = `360tools-qr-code-${Date.now()}.png`;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+      showToast('PNG QR code downloaded!', 'fa-download');
+    }
+
+    function downloadSVG() {
+      try {
+        const payload = getPayload();
+        let ecc = document.getElementById('qrEcc').value;
+        if (uploadedLogoImage || presetIconType) ecc = 'H';
+        const qr = qrcode(0, ecc);
+        qr.addData(payload);
+        qr.make();
+
+        const count = qr.getModuleCount();
+        const fg = document.getElementById('fgColor').value;
+        const isTrans = document.getElementById('bgTransparent').checked;
+        const bg = isTrans ? 'none' : document.getElementById('bgColor').value;
+        const size = 1000;
+        const margin = 80;
+        const cellSize = (size - margin * 2) / count;
+
+        let svg = `<?xml version="1.0" encoding="utf-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}">\n`;
+        if (!isTrans) {
+          svg += `  <rect width="${size}" height="${size}" fill="${bg}"/>\n`;
+        }
+        svg += `  <g fill="${fg}">\n`;
+
+        for (let r = 0; r < count; r++) {
+          for (let c = 0; c < count; c++) {
+            if (qr.isDark(r, c)) {
+              const x = (margin + c * cellSize).toFixed(2);
+              const y = (margin + r * cellSize).toFixed(2);
+              const w = cellSize.toFixed(2);
+              svg += `    <rect x="${x}" y="${y}" width="${w}" height="${w}"/>\n`;
+            }
+          }
+        }
+        svg += `  </g>\n</svg>`;
+
+        const blob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = `360tools-qr-vector-${Date.now()}.svg`;
+        link.click();
+        showToast('Vector SVG downloaded!', 'fa-bezier-curve');
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    async function copyQRImage() {
+      try {
+        const canvas = document.getElementById('qrCanvas');
+        canvas.toBlob(async (blob) => {
+          if (navigator.clipboard && navigator.clipboard.write) {
+            await navigator.clipboard.write([
+              new ClipboardItem({ 'image/png': blob })
+            ]);
+            showToast('QR Code copied to clipboard!', 'fa-check');
+          } else {
+            downloadPNG();
+          }
+        });
+      } catch (err) {
+        downloadPNG();
+      }
+    }
+
+    function printQRCard() {
+      const canvas = document.getElementById('qrCanvas');
+      const dataUrl = canvas.toDataURL('image/png');
+      const win = window.open('', '_blank');
+      win.document.write(`
+        <html>
+        <head>
+          <title>Print QR Code - 360tools.me</title>
+          <style>
+            body { font-family: sans-serif; text-align: center; padding: 40px; background: #fff; }
+            .card { max-width: 400px; margin: 0 auto; border: 2px solid #ded2be; padding: 24px; border-radius: 20px; }
+            img { max-width: 100%; height: auto; }
+            h2 { color: #3e2723; margin-top: 16px; margin-bottom: 4px; font-size: 20px; }
+            p { color: #666; font-size: 12px; margin: 0; }
+          </style>
+        </head>
+        <body>
+          <div class="card">
+            <img src="${dataUrl}" alt="QR Code">
+            <h2>Scan with your Camera</h2>
+            <p>Generated privately via 360tools.me</p>
+          </div>
+          <script>window.onload = function() { window.print(); }<\/script>
+        <footer id="globalFooter" class="no-print bg-white text-slate-700 border-t border-slate-200/80 mt-20">
+<!-- Top Feature Highlight Strip -->
+    <div class="border-b border-slate-200/80 bg-slate-50/70 py-6 px-4 sm:px-6">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+        
+        <div class="flex items-center justify-center md:justify-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200/80 text-[#146ebe] flex items-center justify-center text-lg shrink-0 shadow-2xs">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">100% In-Browser Privacy</h4>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">Files & scripts execute locally in RAM. Zero cloud uploads.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center md:justify-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200/80 text-emerald-600 flex items-center justify-center text-lg shrink-0 shadow-2xs">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">Instant Client-Side Speed</h4>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">WebAssembly, HTML5 Canvas & native Web Crypto APIs.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center md:justify-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center text-lg shrink-0 shadow-2xs">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">100% Free & Unlimited</h4>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">No subscriptions, no account signup gates, zero watermarks.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Main Footer Links Grid (8 Category Columns) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8">
+        
+        <!-- Column 1: Brand & Info -->
+        <div class="sm:col-span-2 space-y-4">
+          <a href="/" class="inline-flex items-center gap-2.5 group">
+            <img src="/images/logo-icon.webp" alt="360Tools Logo" width="36" height="36" class="w-9 h-9 object-contain rounded-xl border border-slate-200 shadow-sm group-hover:scale-105 transition-transform">
+            <span class="text-2xl font-black text-[#183153] tracking-tight">360Tools<span class="text-[#146ebe]">.me</span></span>
+          </a>
+          
+          <p class="text-xs text-slate-600 font-medium leading-relaxed max-w-sm">
+            Free high-precision client-side tools: AI voiceovers, PDF manipulations, media compression, cryptographic security, and multi-category business & financial calculators.
+          </p>
+
+          <div class="flex items-center gap-2 pt-1">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold shadow-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              All 45+ Tools Operational
+            </span>
+          </div>
+
+          <!-- Social Links -->
+          <div class="pt-2">
+            <div class="flex items-center gap-2">
+              <a href="https://www.youtube.com/@360tools" target="_blank" rel="noopener noreferrer" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-red-50 text-slate-600 hover:text-red-600 flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="YouTube" aria-label="YouTube Channel">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+              <a href="https://www.facebook.com/360tools.me" target="_blank" rel="noopener noreferrer" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#1877f2] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="Facebook" aria-label="Facebook Page">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com/360tools.me" target="_blank" rel="noopener noreferrer" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-pink-50 text-slate-600 hover:text-[#e1306c] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="Instagram" aria-label="Instagram Profile">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://360tools.me" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#146ebe] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="360tools.me Website" aria-label="360tools.me Official Website">
+                <i class="fa-solid fa-globe"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: PDF & Documents -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-file-pdf text-red-600 text-[11px]"></i>
+            <span>PDF Suite</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/pdf-tools/" class="text-red-700 hover:text-red-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-file-pdf text-[9px] text-red-600"></i> All 19 PDF Tools</a></li>
+            <li><a href="/pdf-tools/merge-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Merge PDF</a></li>
+            <li><a href="/pdf-tools/split-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Split PDF</a></li>
+            <li><a href="/pdf-tools/compress-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Compress PDF</a></li>
+            <li><a href="/pdf-tools/pdf-to-jpg/index.html" class="hover:text-[#146ebe] transition-colors">PDF to JPG / PNG</a></li>
+            <li><a href="/pdf-tools/jpg-to-pdf/index.html" class="hover:text-[#146ebe] transition-colors">JPG to PDF</a></li>
+            <li><a href="/pdf-tools/password-protect-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Protect & Unlock PDF</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: AI Voice & Audio -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-volume-high text-purple-600 text-[11px]"></i>
+            <span>AI Voice & Audio</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/audio-tools/" class="text-purple-700 hover:text-purple-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-volume-high text-[9px] text-purple-600"></i> Audio Hub</a></li>
+            <li><a href="/audio-tools/text-to-speech.html" class="hover:text-[#146ebe] transition-colors">Text to Speech</a></li>
+            <li><a href="/audio-tools/text-to-mp3.html" class="hover:text-[#146ebe] transition-colors">Text to MP3</a></li>
+            <li><a href="/audio-tools/ai-voice-generator.html" class="hover:text-[#146ebe] transition-colors">AI Voice Studio</a></li>
+            <li><a href="/audio-tools/pdf-to-speech.html" class="hover:text-[#146ebe] transition-colors">PDF to Speech</a></li>
+            <li><a href="/audio-tools/youtube-voiceover-generator.html" class="hover:text-[#146ebe] transition-colors">YouTube Voiceover</a></li>
+            <li><a href="/audio-tools/urdu-text-to-speech.html" class="hover:text-[#146ebe] transition-colors">Urdu TTS (اردو)</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Media & Design -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-palette text-pink-600 text-[11px]"></i>
+            <span>Media & Design</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/design-tools/" class="text-pink-700 hover:text-pink-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-palette text-[9px] text-pink-600"></i> Design Hub</a></li>
+            <li><a href="/design-tools/color-palette-generator.html" class="hover:text-[#146ebe] transition-colors">Color Palette Generator</a></li>
+            <li><a href="/design-tools/aspect-ratio-calculator.html" class="hover:text-[#146ebe] transition-colors">Aspect Ratio Calculator</a></li>
+            <li><a href="/developer-tools/qr-code-generator.html" class="text-amber-700 hover:text-amber-900 transition-colors font-bold">QR Code Generator</a></li>
+            <li><a href="/image-tools/image-compressor.html" class="hover:text-[#146ebe] transition-colors">Image Compressor</a></li>
+            <li><a href="/image-tools/background-remover.html" class="hover:text-[#146ebe] transition-colors">AI Background Remover</a></li>
+            <li><a href="/video-tools/video-compressor.html" class="hover:text-[#146ebe] transition-colors">Video Compressor</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Business, Finance & Security -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-vault text-emerald-600 text-[11px]"></i>
+            <span>Business & Finance</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/business-tools/" class="text-blue-700 hover:text-blue-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-briefcase text-[9px] text-blue-600"></i> Business Hub</a></li>
+            <li><a href="/business-tools/roi-calculator.html" class="hover:text-[#146ebe] transition-colors">ROI & CAGR Calculator</a></li>
+            <li><a href="/business-tools/break-even-calculator.html" class="hover:text-[#146ebe] transition-colors">Break-Even Calculator</a></li>
+            <li><a href="/business-tools/freelance-rate-calculator.html" class="hover:text-[#146ebe] transition-colors">Freelance Rate Calculator</a></li>
+            <li><a href="/finance-tools/compound-interest-calculator.html" class="hover:text-[#146ebe] transition-colors">Compound Interest</a></li>
+            <li><a href="/finance-tools/loan-amortization-calculator.html" class="hover:text-[#146ebe] transition-colors">Loan Amortization</a></li>
+            <li><a href="/finance-tools/crypto-profit-calculator.html" class="hover:text-[#146ebe] transition-colors">Crypto Profit & DCA</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Second Row of Footer Categories -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pt-8 mt-8 border-t border-slate-100">
+        
+        <!-- Text & Writing Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-font text-indigo-600 text-[11px]"></i>
+            <span>Writing & Text Tools</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/text-tools/" class="text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-align-left text-[9px] text-indigo-600"></i> Text Tools Hub</a></li>
+            <li><a href="/text-tools/case-converter.html" class="hover:text-[#146ebe] transition-colors">Case Converter & Slugifier</a></li>
+            <li><a href="/text-tools/lorem-ipsum-generator.html" class="hover:text-[#146ebe] transition-colors">Lorem Ipsum Generator</a></li>
+            <li><a href="/text-tools/text-cleaner.html" class="hover:text-[#146ebe] transition-colors">Text Cleaner & Formatter</a></li>
+            <li><a href="/developer-tools/word-counter.html" class="hover:text-[#146ebe] transition-colors">Word & Character Counter</a></li>
+          </ul>
+        </div>
+
+        <!-- Security & Developer Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-shield-halved text-rose-600 text-[11px]"></i>
+            <span>Security & Dev Tools</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/security-tools/" class="text-rose-700 hover:text-rose-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-shield-halved text-[9px] text-rose-600"></i> Security Hub</a></li>
+            <li><a href="/security-tools/hash-generator.html" class="hover:text-[#146ebe] transition-colors">Online Hash Generator</a></li>
+            <li><a href="/security-tools/base64-encoder-decoder.html" class="hover:text-[#146ebe] transition-colors">Base64 Encoder / Decoder</a></li>
+            <li><a href="/security-tools/uuid-generator.html" class="hover:text-[#146ebe] transition-colors">UUID / GUID v4 Generator</a></li>
+            <li><a href="/developer-tools/password-generator.html" class="hover:text-[#146ebe] transition-colors">Strong Password Generator</a></li>
+            <li><a href="/developer-tools/html-minifier.html" class="hover:text-[#146ebe] transition-colors">HTML / CSS / JS Minifiers</a></li>
+          </ul>
+        </div>
+
+        <!-- Student & Academic Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-graduation-cap text-amber-600 text-[11px]"></i>
+            <span>Student & Academic</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/student-tools/" class="text-amber-700 hover:text-amber-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-graduation-cap text-[9px] text-amber-600"></i> Student Hub</a></li>
+            <li><a href="/student-tools/gpa-calculator.html" class="hover:text-[#146ebe] transition-colors">GPA & CGPA Calculator</a></li>
+            <li><a href="/student-tools/unit-converter.html" class="hover:text-[#146ebe] transition-colors">Universal Unit Converter</a></li>
+            <li><a href="/ecommerce-tools/invoice-generator.html" class="hover:text-[#146ebe] transition-colors">Free Invoice Maker</a></li>
+            <li><a href="/games/2048/index.html" class="hover:text-[#146ebe] transition-colors">2048 & Retro Games</a></li>
+          </ul>
+        </div>
+
+        <!-- Company & Legal -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-circle-info text-blue-600 text-[11px]"></i>
+            <span>Company & Legal</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/about.html" class="hover:text-[#146ebe] transition-colors">About 360Tools</a></li>
+            <li><a href="/contact.html" class="hover:text-[#146ebe] transition-colors">Contact Support</a></li>
+            <li><a href="/blog.html" class="hover:text-[#146ebe] transition-colors">Editorial Blog</a></li>
+            <li><a href="/privacy-policy.html" class="hover:text-[#146ebe] transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms.html" class="hover:text-[#146ebe] transition-colors">Terms of Use</a></li>
+            <li><a href="/disclaimer.html" class="hover:text-[#146ebe] transition-colors">Legal Disclaimer</a></li>
+            <li><a href="/sitemap.xml" class="hover:text-[#146ebe] transition-colors">XML Sitemap</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright Bar -->
+      <div class="mt-12 pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
+        <div class="flex items-center gap-2 text-center md:text-left">
+          <span>© 2026 <a href="/" class="font-bold text-[#183153] hover:text-[#146ebe] transition-colors">360Tools (360tools.me)</a>. All rights reserved.</span>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-slate-600 text-[11px] font-bold">
+          <a href="/business-tools/" class="hover:text-[#146ebe] transition-colors">Business</a>
+          <span>•</span>
+          <a href="/text-tools/" class="hover:text-[#146ebe] transition-colors">Text</a>
+          <span>•</span>
+          <a href="/finance-tools/" class="hover:text-[#146ebe] transition-colors">Finance</a>
+          <span>•</span>
+          <a href="/security-tools/" class="hover:text-[#146ebe] transition-colors">Security</a>
+          <span>•</span>
+          <a href="/design-tools/" class="hover:text-[#146ebe] transition-colors">Design</a>
+          <span>•</span>
+          <a href="/student-tools/" class="hover:text-[#146ebe] transition-colors">Student</a>
+          <span>•</span>
+          <a href="/pdf-tools/" class="hover:text-[#146ebe] transition-colors">PDF Suite</a>
+        </div>
+
+        <div class="text-[10px] text-slate-400 text-center md:text-right">
+          Zero Cloud Logging • 100% Client-Side In-Browser
+        </div>
+      </div>
+    </div>
+</footer>
+</body>
+        </html>
+      `);
+      win.document.close();
+    }
+
+    function loadSampleData() {
+      switchType('wifi');
+      document.getElementById('wifiSsid').value = 'CoffeeShop_FastGuest';
+      document.getElementById('wifiPass').value = 'EnjoyCoffee2026!';
+      setPresetIcon('wifi');
+      setFgColor('#3e2723');
+      renderQR();
+      showToast('Loaded Sample Wi-Fi QR Code!', 'fa-wand-magic-sparkles');
+    }
+
+    function showToast(msg, icon = 'fa-check') {
+      const existing = document.getElementById('qrToast');
+      if (existing) existing.remove();
+
+      const toast = document.createElement('div');
+      toast.id = 'qrToast';
+      toast.className = 'fixed bottom-6 right-6 bg-[#3e2723] text-white py-3 px-5 rounded-2xl shadow-xl flex items-center gap-3 text-xs font-bold z-50 animate-bounce';
+      toast.innerHTML = `<i class="fa-solid ${icon} text-[#ffd43b]"></i> <span>${msg}</span>`;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3500);
+    }
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderQR();
+    });
+  </script>
+<footer id="globalFooter" class="no-print bg-white text-slate-700 border-t border-slate-200/80 mt-20">
+<!-- Top Feature Highlight Strip -->
+    <div class="border-b border-slate-200/80 bg-slate-50/70 py-6 px-4 sm:px-6">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+        
+        <div class="flex items-center justify-center md:justify-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200/80 text-[#146ebe] flex items-center justify-center text-lg shrink-0 shadow-2xs">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">100% In-Browser Privacy</h4>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">Files & scripts execute locally in RAM. Zero cloud uploads.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center md:justify-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200/80 text-emerald-600 flex items-center justify-center text-lg shrink-0 shadow-2xs">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">Instant Client-Side Speed</h4>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">WebAssembly, HTML5 Canvas & native Web Crypto APIs.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center md:justify-start gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center text-lg shrink-0 shadow-2xs">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <div>
+            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">100% Free & Unlimited</h4>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">No subscriptions, no account signup gates, zero watermarks.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Main Footer Links Grid (8 Category Columns) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8">
+        
+        <!-- Column 1: Brand & Info -->
+        <div class="sm:col-span-2 space-y-4">
+          <a href="/" class="inline-flex items-center gap-2.5 group">
+            <img src="/images/logo-icon.webp" alt="360Tools Logo" width="36" height="36" class="w-9 h-9 object-contain rounded-xl border border-slate-200 shadow-sm group-hover:scale-105 transition-transform">
+            <span class="text-2xl font-black text-[#183153] tracking-tight">360Tools<span class="text-[#146ebe]">.me</span></span>
+          </a>
+          
+          <p class="text-xs text-slate-600 font-medium leading-relaxed max-w-sm">
+            Free high-precision client-side tools: AI voiceovers, PDF manipulations, media compression, cryptographic security, and multi-category business & financial calculators.
+          </p>
+
+          <div class="flex items-center gap-2 pt-1">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold shadow-2xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              All 45+ Tools Operational
+            </span>
+          </div>
+
+          <!-- Social Links -->
+          <div class="pt-2">
+            <div class="flex items-center gap-2">
+              <a href="https://www.youtube.com/@360tools" target="_blank" rel="noopener noreferrer" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-red-50 text-slate-600 hover:text-red-600 flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="YouTube" aria-label="YouTube Channel">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+              <a href="https://www.facebook.com/360tools.me" target="_blank" rel="noopener noreferrer" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#1877f2] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="Facebook" aria-label="Facebook Page">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com/360tools.me" target="_blank" rel="noopener noreferrer" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-pink-50 text-slate-600 hover:text-[#e1306c] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="Instagram" aria-label="Instagram Profile">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="https://360tools.me" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#146ebe] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                title="360tools.me Website" aria-label="360tools.me Official Website">
+                <i class="fa-solid fa-globe"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: PDF & Documents -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-file-pdf text-red-600 text-[11px]"></i>
+            <span>PDF Suite</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/pdf-tools/" class="text-red-700 hover:text-red-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-file-pdf text-[9px] text-red-600"></i> All 19 PDF Tools</a></li>
+            <li><a href="/pdf-tools/merge-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Merge PDF</a></li>
+            <li><a href="/pdf-tools/split-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Split PDF</a></li>
+            <li><a href="/pdf-tools/compress-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Compress PDF</a></li>
+            <li><a href="/pdf-tools/pdf-to-jpg/index.html" class="hover:text-[#146ebe] transition-colors">PDF to JPG / PNG</a></li>
+            <li><a href="/pdf-tools/jpg-to-pdf/index.html" class="hover:text-[#146ebe] transition-colors">JPG to PDF</a></li>
+            <li><a href="/pdf-tools/password-protect-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Protect & Unlock PDF</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: AI Voice & Audio -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-volume-high text-purple-600 text-[11px]"></i>
+            <span>AI Voice & Audio</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/audio-tools/" class="text-purple-700 hover:text-purple-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-volume-high text-[9px] text-purple-600"></i> Audio Hub</a></li>
+            <li><a href="/audio-tools/text-to-speech.html" class="hover:text-[#146ebe] transition-colors">Text to Speech</a></li>
+            <li><a href="/audio-tools/text-to-mp3.html" class="hover:text-[#146ebe] transition-colors">Text to MP3</a></li>
+            <li><a href="/audio-tools/ai-voice-generator.html" class="hover:text-[#146ebe] transition-colors">AI Voice Studio</a></li>
+            <li><a href="/audio-tools/pdf-to-speech.html" class="hover:text-[#146ebe] transition-colors">PDF to Speech</a></li>
+            <li><a href="/audio-tools/youtube-voiceover-generator.html" class="hover:text-[#146ebe] transition-colors">YouTube Voiceover</a></li>
+            <li><a href="/audio-tools/urdu-text-to-speech.html" class="hover:text-[#146ebe] transition-colors">Urdu TTS (اردو)</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Media & Design -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-palette text-pink-600 text-[11px]"></i>
+            <span>Media & Design</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/design-tools/" class="text-pink-700 hover:text-pink-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-palette text-[9px] text-pink-600"></i> Design Hub</a></li>
+            <li><a href="/design-tools/color-palette-generator.html" class="hover:text-[#146ebe] transition-colors">Color Palette Generator</a></li>
+            <li><a href="/design-tools/aspect-ratio-calculator.html" class="hover:text-[#146ebe] transition-colors">Aspect Ratio Calculator</a></li>
+            <li><a href="/developer-tools/qr-code-generator.html" class="text-amber-700 hover:text-amber-900 transition-colors font-bold">QR Code Generator</a></li>
+            <li><a href="/image-tools/image-compressor.html" class="hover:text-[#146ebe] transition-colors">Image Compressor</a></li>
+            <li><a href="/image-tools/background-remover.html" class="hover:text-[#146ebe] transition-colors">AI Background Remover</a></li>
+            <li><a href="/video-tools/video-compressor.html" class="hover:text-[#146ebe] transition-colors">Video Compressor</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 5: Business, Finance & Security -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-vault text-emerald-600 text-[11px]"></i>
+            <span>Business & Finance</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/business-tools/" class="text-blue-700 hover:text-blue-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-briefcase text-[9px] text-blue-600"></i> Business Hub</a></li>
+            <li><a href="/business-tools/roi-calculator.html" class="hover:text-[#146ebe] transition-colors">ROI & CAGR Calculator</a></li>
+            <li><a href="/business-tools/break-even-calculator.html" class="hover:text-[#146ebe] transition-colors">Break-Even Calculator</a></li>
+            <li><a href="/business-tools/freelance-rate-calculator.html" class="hover:text-[#146ebe] transition-colors">Freelance Rate Calculator</a></li>
+            <li><a href="/finance-tools/compound-interest-calculator.html" class="hover:text-[#146ebe] transition-colors">Compound Interest</a></li>
+            <li><a href="/finance-tools/loan-amortization-calculator.html" class="hover:text-[#146ebe] transition-colors">Loan Amortization</a></li>
+            <li><a href="/finance-tools/crypto-profit-calculator.html" class="hover:text-[#146ebe] transition-colors">Crypto Profit & DCA</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Second Row of Footer Categories -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pt-8 mt-8 border-t border-slate-100">
+        
+        <!-- Text & Writing Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-font text-indigo-600 text-[11px]"></i>
+            <span>Writing & Text Tools</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/text-tools/" class="text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-align-left text-[9px] text-indigo-600"></i> Text Tools Hub</a></li>
+            <li><a href="/text-tools/case-converter.html" class="hover:text-[#146ebe] transition-colors">Case Converter & Slugifier</a></li>
+            <li><a href="/text-tools/lorem-ipsum-generator.html" class="hover:text-[#146ebe] transition-colors">Lorem Ipsum Generator</a></li>
+            <li><a href="/text-tools/text-cleaner.html" class="hover:text-[#146ebe] transition-colors">Text Cleaner & Formatter</a></li>
+            <li><a href="/developer-tools/word-counter.html" class="hover:text-[#146ebe] transition-colors">Word & Character Counter</a></li>
+          </ul>
+        </div>
+
+        <!-- Security & Developer Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-shield-halved text-rose-600 text-[11px]"></i>
+            <span>Security & Dev Tools</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/security-tools/" class="text-rose-700 hover:text-rose-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-shield-halved text-[9px] text-rose-600"></i> Security Hub</a></li>
+            <li><a href="/security-tools/hash-generator.html" class="hover:text-[#146ebe] transition-colors">Online Hash Generator</a></li>
+            <li><a href="/security-tools/base64-encoder-decoder.html" class="hover:text-[#146ebe] transition-colors">Base64 Encoder / Decoder</a></li>
+            <li><a href="/security-tools/uuid-generator.html" class="hover:text-[#146ebe] transition-colors">UUID / GUID v4 Generator</a></li>
+            <li><a href="/developer-tools/password-generator.html" class="hover:text-[#146ebe] transition-colors">Strong Password Generator</a></li>
+            <li><a href="/developer-tools/html-minifier.html" class="hover:text-[#146ebe] transition-colors">HTML / CSS / JS Minifiers</a></li>
+          </ul>
+        </div>
+
+        <!-- Student & Academic Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-graduation-cap text-amber-600 text-[11px]"></i>
+            <span>Student & Academic</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/student-tools/" class="text-amber-700 hover:text-amber-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-graduation-cap text-[9px] text-amber-600"></i> Student Hub</a></li>
+            <li><a href="/student-tools/gpa-calculator.html" class="hover:text-[#146ebe] transition-colors">GPA & CGPA Calculator</a></li>
+            <li><a href="/student-tools/unit-converter.html" class="hover:text-[#146ebe] transition-colors">Universal Unit Converter</a></li>
+            <li><a href="/ecommerce-tools/invoice-generator.html" class="hover:text-[#146ebe] transition-colors">Free Invoice Maker</a></li>
+            <li><a href="/games/2048/index.html" class="hover:text-[#146ebe] transition-colors">2048 & Retro Games</a></li>
+          </ul>
+        </div>
+
+        <!-- Company & Legal -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-circle-info text-blue-600 text-[11px]"></i>
+            <span>Company & Legal</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/about.html" class="hover:text-[#146ebe] transition-colors">About 360Tools</a></li>
+            <li><a href="/contact.html" class="hover:text-[#146ebe] transition-colors">Contact Support</a></li>
+            <li><a href="/blog.html" class="hover:text-[#146ebe] transition-colors">Editorial Blog</a></li>
+            <li><a href="/privacy-policy.html" class="hover:text-[#146ebe] transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms.html" class="hover:text-[#146ebe] transition-colors">Terms of Use</a></li>
+            <li><a href="/disclaimer.html" class="hover:text-[#146ebe] transition-colors">Legal Disclaimer</a></li>
+            <li><a href="/sitemap.xml" class="hover:text-[#146ebe] transition-colors">XML Sitemap</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright Bar -->
+      <div class="mt-12 pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
+        <div class="flex items-center gap-2 text-center md:text-left">
+          <span>© 2026 <a href="/" class="font-bold text-[#183153] hover:text-[#146ebe] transition-colors">360Tools (360tools.me)</a>. All rights reserved.</span>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-slate-600 text-[11px] font-bold">
+          <a href="/business-tools/" class="hover:text-[#146ebe] transition-colors">Business</a>
+          <span>•</span>
+          <a href="/text-tools/" class="hover:text-[#146ebe] transition-colors">Text</a>
+          <span>•</span>
+          <a href="/finance-tools/" class="hover:text-[#146ebe] transition-colors">Finance</a>
+          <span>•</span>
+          <a href="/security-tools/" class="hover:text-[#146ebe] transition-colors">Security</a>
+          <span>•</span>
+          <a href="/design-tools/" class="hover:text-[#146ebe] transition-colors">Design</a>
+          <span>•</span>
+          <a href="/student-tools/" class="hover:text-[#146ebe] transition-colors">Student</a>
+          <span>•</span>
+          <a href="/pdf-tools/" class="hover:text-[#146ebe] transition-colors">PDF Suite</a>
+        </div>
+
+        <div class="text-[10px] text-slate-400 text-center md:text-right">
+          Zero Cloud Logging • 100% Client-Side In-Browser
+        </div>
+      </div>
+    </div>
+</footer>
+</body>
+</html>

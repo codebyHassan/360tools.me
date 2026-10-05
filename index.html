@@ -70,6 +70,22 @@
   }
   </script>
 
+  <!-- JSON-LD Structured Data: VideoObject -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "360Tools — Free Online Tools & Utilities Walkthrough",
+    "description": "Watch 360Tools in action: 100% private, browser-based AI voice synthesis, PDF management, media compression, code minifiers, and e-commerce calculators.",
+    "thumbnailUrl": [
+      "https://i.ytimg.com/vi/ffrVF1p0_70/hqdefault.jpg"
+    ],
+    "uploadDate": "2024-01-01T08:00:00+00:00",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/ffrVF1p0_70",
+    "contentUrl": "https://www.youtube.com/watch?v=ffrVF1p0_70"
+  }
+  </script>
+
   <!-- JSON-LD Structured Data: FAQPage -->
   <script type="application/ld+json">
   {
@@ -215,6 +231,11 @@
               <span>Browse All Tools</span>
               <i class="fa-solid fa-arrow-down text-xs"></i>
             </a>
+            <a href="#demo-video"
+              class="fa-btn-secondary py-3.5 px-6 text-sm sm:text-base font-bold flex items-center justify-center gap-2">
+              <i class="fa-solid fa-circle-play text-red-600"></i>
+              <span>Watch Video</span>
+            </a>
             <a href="/audio-tools/"
               class="fa-btn-secondary py-3.5 px-6 text-sm sm:text-base font-bold flex items-center justify-center">
               <span>Audio & Voice Hub</span>
@@ -249,8 +270,303 @@
       </div>
     </section>
 
+    <!-- 1.5 INTERACTIVE CATEGORIES CAROUSEL -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 pb-8" id="categories-carousel-section">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <span class="fa-badge-blue text-[10px] py-1 px-3 font-black uppercase tracking-wider">
+            <i class="fa-solid fa-shapes text-[#c27803] mr-1"></i> Quick Discovery
+          </span>
+          <h2 class="text-xl sm:text-2xl font-black text-[#3e2723] mt-1 tracking-tight">
+            Explore All Tool Categories
+          </h2>
+        </div>
+
+        <!-- Carousel Left / Right Navigation Controls -->
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="scrollCategoryCarousel(-1)" aria-label="Previous Category"
+            class="w-10 h-10 rounded-2xl bg-white border border-[#ded2be] hover:bg-[#faedd0] hover:border-[#c27803] text-[#3e2723] flex items-center justify-center transition-all shadow-2xs hover:scale-105 active:scale-95 cursor-pointer">
+            <i class="fa-solid fa-chevron-left text-xs"></i>
+          </button>
+          <button type="button" onclick="scrollCategoryCarousel(1)" aria-label="Next Category"
+            class="w-10 h-10 rounded-2xl bg-white border border-[#ded2be] hover:bg-[#faedd0] hover:border-[#c27803] text-[#3e2723] flex items-center justify-center transition-all shadow-2xs hover:scale-105 active:scale-95 cursor-pointer">
+            <i class="fa-solid fa-chevron-right text-xs"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Carousel Scroll Container -->
+      <div id="categoryCarouselTrack" class="flex gap-4 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scroll-smooth" style="scrollbar-width: none; -ms-overflow-style: none;">
+        
+        <!-- Category Card 1: Business & Strategy -->
+        <div class="snap-start shrink-0 w-[260px] sm:w-[280px] p-5 rounded-3xl bg-white border border-[#ded2be] hover:border-[#c27803] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl font-black group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-briefcase"></i>
+              </div>
+              <span class="text-[10px] font-black px-2.5 py-1 rounded-full bg-blue-100 text-blue-800 uppercase">3 Tools</span>
+            </div>
+            <h3 class="text-base font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Business & Strategy</h3>
+            <p class="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
+              ROI, Annualized CAGR, Break-Even volume, and freelance rate pricing.
+            </p>
+          </div>
+          <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between">
+            <a href="/business-tools/" class="text-xs font-bold text-[#c27803] hover:underline flex items-center gap-1">
+              <span>Open Hub</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+            <button onclick="document.querySelector('#tools-catalog').scrollIntoView({behavior:'smooth'}); filterCategory('business');" class="text-[11px] font-bold text-slate-400 hover:text-slate-700">Filter Below</button>
+          </div>
+        </div>
+
+        <!-- Category Card 2: Writing & Text Tools -->
+        <div class="snap-start shrink-0 w-[260px] sm:w-[280px] p-5 rounded-3xl bg-white border border-[#ded2be] hover:border-[#c27803] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl font-black group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-font"></i>
+              </div>
+              <span class="text-[10px] font-black px-2.5 py-1 rounded-full bg-indigo-100 text-indigo-800 uppercase">4 Tools</span>
+            </div>
+            <h3 class="text-base font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Writing & Text</h3>
+            <p class="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
+              Case converter, Lorem Ipsum filler, text cleaner, and word counter.
+            </p>
+          </div>
+          <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between">
+            <a href="/text-tools/" class="text-xs font-bold text-[#c27803] hover:underline flex items-center gap-1">
+              <span>Open Hub</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+            <button onclick="document.querySelector('#tools-catalog').scrollIntoView({behavior:'smooth'}); filterCategory('text');" class="text-[11px] font-bold text-slate-400 hover:text-slate-700">Filter Below</button>
+          </div>
+        </div>
+
+        <!-- Category Card 3: Finance & Investment -->
+        <div class="snap-start shrink-0 w-[260px] sm:w-[280px] p-5 rounded-3xl bg-white border border-[#ded2be] hover:border-[#c27803] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-black group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-coins"></i>
+              </div>
+              <span class="text-[10px] font-black px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 uppercase">3 Tools</span>
+            </div>
+            <h3 class="text-base font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Finance & Crypto</h3>
+            <p class="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
+              Compound interest, mortgage amortization, and crypto DCA profits.
+            </p>
+          </div>
+          <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between">
+            <a href="/finance-tools/" class="text-xs font-bold text-[#c27803] hover:underline flex items-center gap-1">
+              <span>Open Hub</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+            <button onclick="document.querySelector('#tools-catalog').scrollIntoView({behavior:'smooth'}); filterCategory('finance');" class="text-[11px] font-bold text-slate-400 hover:text-slate-700">Filter Below</button>
+          </div>
+        </div>
+
+        <!-- Category Card 4: Security & Cryptography -->
+        <div class="snap-start shrink-0 w-[260px] sm:w-[280px] p-5 rounded-3xl bg-white border border-[#ded2be] hover:border-[#c27803] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl font-black group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <span class="text-[10px] font-black px-2.5 py-1 rounded-full bg-rose-100 text-rose-800 uppercase">4 Tools</span>
+            </div>
+            <h3 class="text-base font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Security & Privacy</h3>
+            <p class="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
+              SHA-256 Hash generator, Base64 encoder, UUID v4, and CSPRNG passwords.
+            </p>
+          </div>
+          <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between">
+            <a href="/security-tools/" class="text-xs font-bold text-[#c27803] hover:underline flex items-center gap-1">
+              <span>Open Hub</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+            <button onclick="document.querySelector('#tools-catalog').scrollIntoView({behavior:'smooth'}); filterCategory('security');" class="text-[11px] font-bold text-slate-400 hover:text-slate-700">Filter Below</button>
+          </div>
+        </div>
+
+        <!-- Category Card 5: Design & Creative -->
+        <div class="snap-start shrink-0 w-[260px] sm:w-[280px] p-5 rounded-3xl bg-white border border-[#ded2be] hover:border-[#c27803] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-pink-50 text-pink-600 flex items-center justify-center text-xl font-black group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-palette"></i>
+              </div>
+              <span class="text-[10px] font-black px-2.5 py-1 rounded-full bg-pink-100 text-pink-800 uppercase">3 Tools</span>
+            </div>
+            <h3 class="text-base font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Design & Media</h3>
+            <p class="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
+              Color palette generator, aspect ratio scaler, and custom QR codes.
+            </p>
+          </div>
+          <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between">
+            <a href="/design-tools/" class="text-xs font-bold text-[#c27803] hover:underline flex items-center gap-1">
+              <span>Open Hub</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+            <button onclick="document.querySelector('#tools-catalog').scrollIntoView({behavior:'smooth'}); filterCategory('design');" class="text-[11px] font-bold text-slate-400 hover:text-slate-700">Filter Below</button>
+          </div>
+        </div>
+
+        <!-- Category Card 6: Student & Academic -->
+        <div class="snap-start shrink-0 w-[260px] sm:w-[280px] p-5 rounded-3xl bg-white border border-[#ded2be] hover:border-[#c27803] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl font-black group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+              <span class="text-[10px] font-black px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 uppercase">2 Tools</span>
+            </div>
+            <h3 class="text-base font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Student & Academic</h3>
+            <p class="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
+              4.0 Scale college GPA/CGPA calculator and universal unit converter.
+            </p>
+          </div>
+          <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between">
+            <a href="/student-tools/" class="text-xs font-bold text-[#c27803] hover:underline flex items-center gap-1">
+              <span>Open Hub</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+            <button onclick="document.querySelector('#tools-catalog').scrollIntoView({behavior:'smooth'}); filterCategory('student');" class="text-[11px] font-bold text-slate-400 hover:text-slate-700">Filter Below</button>
+          </div>
+        </div>
+
+        <!-- Category Card 7: PDF & Documents -->
+        <div class="snap-start shrink-0 w-[260px] sm:w-[280px] p-5 rounded-3xl bg-white border border-[#ded2be] hover:border-[#c27803] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center text-xl font-black group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-file-pdf"></i>
+              </div>
+              <span class="text-[10px] font-black px-2.5 py-1 rounded-full bg-red-100 text-red-800 uppercase">19 Tools</span>
+            </div>
+            <h3 class="text-base font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">PDF & Documents</h3>
+            <p class="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
+              Merge, Split, Compress, Convert JPG/PNG to PDF, Protect, and Rotate.
+            </p>
+          </div>
+          <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between">
+            <a href="/pdf-tools/" class="text-xs font-bold text-[#c27803] hover:underline flex items-center gap-1">
+              <span>Open Hub</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+            <button onclick="document.querySelector('#tools-catalog').scrollIntoView({behavior:'smooth'}); filterCategory('pdf');" class="text-[11px] font-bold text-slate-400 hover:text-slate-700">Filter Below</button>
+          </div>
+        </div>
+
+        <!-- Category Card 8: AI Voice & Audio -->
+        <div class="snap-start shrink-0 w-[260px] sm:w-[280px] p-5 rounded-3xl bg-white border border-[#ded2be] hover:border-[#c27803] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl font-black group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-volume-high"></i>
+              </div>
+              <span class="text-[10px] font-black px-2.5 py-1 rounded-full bg-purple-100 text-purple-800 uppercase">7 Tools</span>
+            </div>
+            <h3 class="text-base font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">AI Voice & Audio</h3>
+            <p class="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
+              Neural Text-to-Speech, Text-to-MP3, YouTube narration, and Urdu TTS.
+            </p>
+          </div>
+          <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between">
+            <a href="/audio-tools/" class="text-xs font-bold text-[#c27803] hover:underline flex items-center gap-1">
+              <span>Open Hub</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+            <button onclick="document.querySelector('#tools-catalog').scrollIntoView({behavior:'smooth'}); filterCategory('audio');" class="text-[11px] font-bold text-slate-400 hover:text-slate-700">Filter Below</button>
+          </div>
+        </div>
+
+        <!-- Category Card 9: Media & Compression -->
+        <div class="snap-start shrink-0 w-[260px] sm:w-[280px] p-5 rounded-3xl bg-white border border-[#ded2be] hover:border-[#c27803] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl font-black group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-compress"></i>
+              </div>
+              <span class="text-[10px] font-black px-2.5 py-1 rounded-full bg-teal-100 text-teal-800 uppercase">12 Tools</span>
+            </div>
+            <h3 class="text-base font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Media & Compression</h3>
+            <p class="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
+              AI Background remover, photo eraser, video compressor, target sizes.
+            </p>
+          </div>
+          <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between">
+            <a href="/image-tools/" class="text-xs font-bold text-[#c27803] hover:underline flex items-center gap-1">
+              <span>Open Hub</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+            <button onclick="document.querySelector('#tools-catalog').scrollIntoView({behavior:'smooth'}); filterCategory('media');" class="text-[11px] font-bold text-slate-400 hover:text-slate-700">Filter Below</button>
+          </div>
+        </div>
+
+        <!-- Category Card 10: Developer & Web -->
+        <div class="snap-start shrink-0 w-[260px] sm:w-[280px] p-5 rounded-3xl bg-white border border-[#ded2be] hover:border-[#c27803] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-xl font-black group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <span class="text-[10px] font-black px-2.5 py-1 rounded-full bg-cyan-100 text-cyan-800 uppercase">9 Tools</span>
+            </div>
+            <h3 class="text-base font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Developer & Web</h3>
+            <p class="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
+              HTML, CSS, JS Minifiers, Shopify CSV validator, ATS resume scanner.
+            </p>
+          </div>
+          <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between">
+            <a href="/developer-tools/" class="text-xs font-bold text-[#c27803] hover:underline flex items-center gap-1">
+              <span>Open Hub</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+            <button onclick="document.querySelector('#tools-catalog').scrollIntoView({behavior:'smooth'}); filterCategory('developer');" class="text-[11px] font-bold text-slate-400 hover:text-slate-700">Filter Below</button>
+          </div>
+        </div>
+
+        <!-- Category Card 11: E-Commerce & Sellers -->
+        <div class="snap-start shrink-0 w-[260px] sm:w-[280px] p-5 rounded-3xl bg-white border border-[#ded2be] hover:border-[#c27803] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center text-xl font-black group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-calculator"></i>
+              </div>
+              <span class="text-[10px] font-black px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 uppercase">6 Tools</span>
+            </div>
+            <h3 class="text-base font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">E-Commerce & Sellers</h3>
+            <p class="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
+              Invoice generator, Etsy fee calculator, Amazon FBA dim weight.
+            </p>
+          </div>
+          <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between">
+            <a href="/ecommerce-tools/" class="text-xs font-bold text-[#c27803] hover:underline flex items-center gap-1">
+              <span>Open Hub</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+            <button onclick="document.querySelector('#tools-catalog').scrollIntoView({behavior:'smooth'}); filterCategory('ecommerce');" class="text-[11px] font-bold text-slate-400 hover:text-slate-700">Filter Below</button>
+          </div>
+        </div>
+
+        <!-- Category Card 12: Free Games -->
+        <div class="snap-start shrink-0 w-[260px] sm:w-[280px] p-5 rounded-3xl bg-white border border-[#ded2be] hover:border-[#c27803] hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-2xl bg-purple-50 text-purple-700 flex items-center justify-center text-xl font-black group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-gamepad"></i>
+              </div>
+              <span class="text-[10px] font-black px-2.5 py-1 rounded-full bg-purple-100 text-purple-800 uppercase">6 Games</span>
+            </div>
+            <h3 class="text-base font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Free Browser Games</h3>
+            <p class="text-xs text-slate-500 font-medium mt-1 leading-relaxed">
+              2048 Classic, Retro Snake, Memory Card Match, and Bhabhi Thulla.
+            </p>
+          </div>
+          <div class="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between">
+            <a href="/games/" class="text-xs font-bold text-[#c27803] hover:underline flex items-center gap-1">
+              <span>Play Games</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+            <button onclick="document.querySelector('#tools-catalog').scrollIntoView({behavior:'smooth'}); filterCategory('games');" class="text-[11px] font-bold text-slate-400 hover:text-slate-700">Filter Below</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- 2. POPULAR TOOLS CATALOG -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16" id="tools-catalog">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12" id="tools-catalog">
 
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <div>
@@ -283,6 +599,34 @@
           class="category-btn fa-tab-btn active px-4 py-2 text-xs font-black rounded-xl" data-cat="all">
           <i class="fa-solid fa-grip mr-1"></i> All Tools
         </button>
+        <button onclick="filterCategory('business')"
+          class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="business">
+          <i class="fa-solid fa-briefcase mr-1 text-blue-600"></i> Business & Strategy (3)
+        </button>
+        <button onclick="filterCategory('finance')"
+          class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="finance">
+          <i class="fa-solid fa-coins mr-1 text-emerald-600"></i> Finance & Crypto (3)
+        </button>
+        <button onclick="filterCategory('security')"
+          class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="security">
+          <i class="fa-solid fa-shield-halved mr-1 text-rose-600"></i> Security & Cryptography (3)
+        </button>
+        <button onclick="filterCategory('text')"
+          class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="text">
+          <i class="fa-solid fa-font mr-1 text-indigo-600"></i> Writing & Text (3)
+        </button>
+        <button onclick="filterCategory('design')"
+          class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="design">
+          <i class="fa-solid fa-palette mr-1 text-pink-600"></i> Design & Media (2)
+        </button>
+        <button onclick="filterCategory('student')"
+          class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="student">
+          <i class="fa-solid fa-graduation-cap mr-1 text-amber-600"></i> Student & Academic (2)
+        </button>
+        <button onclick="filterCategory('developer')"
+          class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="developer">
+          <i class="fa-solid fa-code mr-1 text-cyan-600"></i> Developer & Web (9)
+        </button>
         <button onclick="filterCategory('pdf')" class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl"
           data-cat="pdf">
           <i class="fa-solid fa-file-pdf mr-1 text-red-600"></i> PDF & Documents (19)
@@ -294,10 +638,6 @@
         <button onclick="filterCategory('media')" class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl"
           data-cat="media">
           <i class="fa-solid fa-compress mr-1 text-emerald-600"></i> Media & Compression (12)
-        </button>
-        <button onclick="filterCategory('developer')"
-          class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="developer">
-          <i class="fa-solid fa-code mr-1 text-cyan-600"></i> Developer & Web (6)
         </button>
         <button onclick="filterCategory('ecommerce')"
           class="category-btn fa-tab-btn px-4 py-2 text-xs font-bold rounded-xl" data-cat="ecommerce">
@@ -315,6 +655,117 @@
 
       <!-- Cards Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="toolsGrid">
+
+        <!-- Tool: Free Custom QR Code Generator (Featured) -->
+        <div
+          class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group border-2 border-amber-200 bg-gradient-to-br from-white to-amber-50/30"
+          data-category="developer"
+          data-title="Free QR Code Generator Custom Logo Colors URL WiFi vCard Contact Email SMS Crypto Vector SVG PNG High Resolution">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span
+                class="bg-[#c27803] text-white text-[10px] py-1 px-3 rounded-full font-black uppercase tracking-wider">New
+                Featured Tool</span>
+              <span class="text-xs text-emerald-600 font-bold flex items-center gap-1"><i
+                  class="fa-solid fa-lock text-[10px]"></i> 100% Private</span>
+            </div>
+
+            <div>
+              <h3
+                class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors flex items-center gap-2">
+                <span>QR Code Generator</span>
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-[#c27803] transition-colors"></i>
+              </h3>
+              <p class="text-xs text-slate-600 font-medium leading-relaxed mt-2">
+                Create custom vector QR codes for websites, Wi-Fi networks, vCards, emails & crypto with logo branding, colors, and SVG/PNG downloads.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-5 mt-4 border-t border-slate-200/80 flex items-center justify-between">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Developer & Utility</span>
+            <a href="/developer-tools/qr-code-generator.html"
+              class="fa-btn-primary py-2 px-4 text-xs font-bold shadow-xs">
+              <span>Create QR Code</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tool: Free Word & Character Counter (Featured) -->
+        <div
+          class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group border-2 border-blue-200 bg-gradient-to-br from-white to-blue-50/30"
+          data-category="developer"
+          data-title="Free Word Counter Character Count Spaces Sentences Paragraphs Reading Time Flesch Readability Keyword Density Essay">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span
+                class="bg-blue-600 text-white text-[10px] py-1 px-3 rounded-full font-black uppercase tracking-wider">New
+                Featured Tool</span>
+              <span class="text-xs text-emerald-600 font-bold flex items-center gap-1"><i
+                  class="fa-solid fa-lock text-[10px]"></i> 100% Private</span>
+            </div>
+
+            <div>
+              <h3
+                class="text-xl font-black text-[#3e2723] group-hover:text-blue-600 transition-colors flex items-center gap-2">
+                <span>Word & Character Counter</span>
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-blue-600 transition-colors"></i>
+              </h3>
+              <p class="text-xs text-slate-600 font-medium leading-relaxed mt-2">
+                Count words, characters (with/without spaces), reading time, and evaluate Flesch Reading Ease scores with real-time SEO keyword density.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-5 mt-4 border-t border-slate-200/80 flex items-center justify-between">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Writer & SEO Tool</span>
+            <a href="/developer-tools/word-counter.html"
+              class="fa-btn-primary py-2 px-4 text-xs font-bold shadow-xs bg-blue-600 hover:bg-blue-700">
+              <span>Count Words</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tool: Strong Password Generator (Featured) -->
+        <div
+          class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group border-2 border-emerald-200 bg-gradient-to-br from-white to-emerald-50/30"
+          data-category="developer"
+          data-title="Strong Password Generator Random Passphrase Diceware Entropy Calculator PIN Code CSPRNG Security">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span
+                class="bg-emerald-600 text-white text-[10px] py-1 px-3 rounded-full font-black uppercase tracking-wider">New
+                Featured Tool</span>
+              <span class="text-xs text-emerald-600 font-bold flex items-center gap-1"><i
+                  class="fa-solid fa-lock text-[10px]"></i> 100% Private</span>
+            </div>
+
+            <div>
+              <h3
+                class="text-xl font-black text-[#3e2723] group-hover:text-emerald-600 transition-colors flex items-center gap-2">
+                <span>Strong Password Generator</span>
+                <i
+                  class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-600 transition-colors"></i>
+              </h3>
+              <p class="text-xs text-slate-600 font-medium leading-relaxed mt-2">
+                Generate CSPRNG uncrackable passwords, Diceware passphrases, and numeric PINs with bit entropy scoring and brute-force crack time estimates.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-5 mt-4 border-t border-slate-200/80 flex items-center justify-between">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Security & Privacy</span>
+            <a href="/developer-tools/password-generator.html"
+              class="fa-btn-primary py-2 px-4 text-xs font-bold shadow-xs bg-emerald-600 hover:bg-emerald-700">
+              <span>Generate Password</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
 
         <!-- Tool: 100% In-Browser PDF Tools Ecosystem (Featured Hub) -->
         <div
@@ -681,6 +1132,268 @@
             class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
             <a href="/ecommerce-tools/amazon-fba-calculator.html"
               class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
+          </div>
+        </div>
+
+        <!-- Business Tools -->
+        <!-- ROI Calculator -->
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group"
+          data-category="business"
+          data-title="ROI Calculator Return on Investment Annualized CAGR Profit Percentage Cost Revenue Formula">
+          <div class="space-y-3">
+            <span class="bg-blue-100 text-blue-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Business Strategy</span>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">ROI & CAGR Calculator</h3>
+            <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Compute simple return on investment, net gain, and annualized CAGR with currency toggle and breakdown.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+            <a href="/business-tools/roi-calculator.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
+          </div>
+        </div>
+
+        <!-- Break-Even Calculator -->
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group"
+          data-category="business"
+          data-title="Break Even Calculator Unit Volume Margin Fixed Costs Variable Price Target Profit">
+          <div class="space-y-3">
+            <span class="bg-blue-100 text-blue-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Business Finance</span>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Break-Even Point Calculator</h3>
+            <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Find exact units and revenue required to cover fixed overhead, with contribution margin and target profit.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+            <a href="/business-tools/break-even-calculator.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
+          </div>
+        </div>
+
+        <!-- Freelance Rate Calculator -->
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group"
+          data-category="business"
+          data-title="Freelance Rate Calculator Hourly Day Minimum Rate Billable Hours Taxes Overhead Salary">
+          <div class="space-y-3">
+            <span class="bg-blue-100 text-blue-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Freelance Pricing</span>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Freelance Rate Calculator</h3>
+            <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Calculate billable hourly, daily, and project minimum rates factoring in taxes, overhead, and time off.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+            <a href="/business-tools/freelance-rate-calculator.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
+          </div>
+        </div>
+
+        <!-- Writing & Text Tools -->
+        <!-- Case Converter -->
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group"
+          data-category="text"
+          data-title="Case Converter Uppercase Lowercase Title Case CamelCase Snake Case Kebab Pascal Slugify">
+          <div class="space-y-3">
+            <span class="bg-indigo-100 text-indigo-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Writing & Code</span>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Case Converter & Slugifier</h3>
+            <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Transform text between UPPERCASE, Title Case, camelCase, snake_case, kebab-case, and URL slugs.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+            <a href="/text-tools/case-converter.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
+          </div>
+        </div>
+
+        <!-- Lorem Ipsum Generator -->
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group"
+          data-category="text"
+          data-title="Lorem Ipsum Generator Dummy Text Placeholder Generator Paragraphs HTML Tags">
+          <div class="space-y-3">
+            <span class="bg-indigo-100 text-indigo-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Typography</span>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Lorem Ipsum Generator</h3>
+            <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Generate custom placeholder filler text by paragraphs, sentences, words, or lists with optional HTML wrappers.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+            <a href="/text-tools/lorem-ipsum-generator.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
+          </div>
+        </div>
+
+        <!-- Text Cleaner -->
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group"
+          data-category="text"
+          data-title="Text Cleaner Formatter Trim Spaces Remove Line Breaks Strip HTML Emojis Duplicates">
+          <div class="space-y-3">
+            <span class="bg-indigo-100 text-indigo-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Text Processing</span>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Text Cleaner & Formatter</h3>
+            <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Remove extra spaces, blank lines, duplicate sentences, HTML tags, and emojis with one click.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+            <a href="/text-tools/text-cleaner.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
+          </div>
+        </div>
+
+        <!-- Finance & Crypto Tools -->
+        <!-- Compound Interest Calculator -->
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group"
+          data-category="finance"
+          data-title="Compound Interest Calculator Investment Growth Annual Monthly Deposit Savings CAGR">
+          <div class="space-y-3">
+            <span class="bg-emerald-100 text-emerald-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Wealth & Growth</span>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Compound Interest Calculator</h3>
+            <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Simulate investment growth with flexible compounding frequencies and periodic monthly contributions.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+            <a href="/finance-tools/compound-interest-calculator.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
+          </div>
+        </div>
+
+        <!-- Loan Amortization Calculator -->
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group"
+          data-category="finance"
+          data-title="Loan Amortization Calculator Mortgage Payment Schedule Interest Breakdown Principal">
+          <div class="space-y-3">
+            <span class="bg-emerald-100 text-emerald-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Mortgage & Debt</span>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Loan Amortization Calculator</h3>
+            <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Calculate exact monthly P&I repayments and full principal vs interest payoff schedules.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+            <a href="/finance-tools/loan-amortization-calculator.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
+          </div>
+        </div>
+
+        <!-- Crypto Profit Calculator -->
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group"
+          data-category="finance"
+          data-title="Crypto Profit Calculator DCA Dollar Cost Averaging Bitcoin Ethereum Gain Loss Return">
+          <div class="space-y-3">
+            <span class="bg-emerald-100 text-emerald-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Crypto & Trading</span>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Crypto Profit & DCA Calculator</h3>
+            <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Compute crypto trading returns, exchange fee deductions, and recurring Dollar Cost Averaging (DCA).
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+            <a href="/finance-tools/crypto-profit-calculator.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
+          </div>
+        </div>
+
+        <!-- Security & Cryptography Tools -->
+        <!-- Hash Generator -->
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group"
+          data-category="security"
+          data-title="Hash Generator SHA256 SHA512 MD5 SHA1 Online Cryptographic Checksum Keccak">
+          <div class="space-y-3">
+            <span class="bg-rose-100 text-rose-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Cryptography</span>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Online Hash Generator</h3>
+            <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Compute SHA-256, SHA-512, MD5, and SHA-1 cryptographic hashes client-side via native Web Crypto API.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+            <a href="/security-tools/hash-generator.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
+          </div>
+        </div>
+
+        <!-- Base64 Encoder / Decoder -->
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group"
+          data-category="security"
+          data-title="Base64 Encoder Decoder Text Binary File URL Safe ASCII UTF8 Conversion">
+          <div class="space-y-3">
+            <span class="bg-rose-100 text-rose-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Encoding</span>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Base64 Encoder / Decoder</h3>
+            <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Encode text to Base64 and decode Base64 strings with UTF-8 support and URL-safe base64url mode.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+            <a href="/security-tools/base64-encoder-decoder.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
+          </div>
+        </div>
+
+        <!-- UUID Generator -->
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group"
+          data-category="security"
+          data-title="UUID Generator GUID v4 Random Unique Identifier RFC 4122 Bulk Generator">
+          <div class="space-y-3">
+            <span class="bg-rose-100 text-rose-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Identifiers</span>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">UUID / GUID v4 Generator</h3>
+            <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Generate RFC 4122 compliant Version 4 UUIDs in bulk (up to 500) using cryptographically secure random numbers.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+            <a href="/security-tools/uuid-generator.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
+          </div>
+        </div>
+
+        <!-- Design & Media Tools -->
+        <!-- Color Palette Generator -->
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group"
+          data-category="design"
+          data-title="Color Palette Generator HEX RGB HSL Contrast Checker WCAG Harmony Shades">
+          <div class="space-y-3">
+            <span class="bg-pink-100 text-pink-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Design & UI</span>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Color Palette Generator</h3>
+            <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Generate 5-color aesthetic palettes with spacebar, lock favorite colors, and check WCAG contrast compliance.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+            <a href="/design-tools/color-palette-generator.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
+          </div>
+        </div>
+
+        <!-- Aspect Ratio Calculator -->
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group"
+          data-category="design"
+          data-title="Aspect Ratio Calculator 16:9 4:3 1:1 9:16 Dimension Scaler Video Photo Resolution">
+          <div class="space-y-3">
+            <span class="bg-pink-100 text-pink-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Video & Photography</span>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Aspect Ratio Calculator</h3>
+            <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Calculate dimensions and scaling for 16:9, 4:3, 1:1, 9:16, 21:9 with live canvas visual preview.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+            <a href="/design-tools/aspect-ratio-calculator.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
+          </div>
+        </div>
+
+        <!-- Student & Academic Tools -->
+        <!-- GPA Calculator -->
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group"
+          data-category="student"
+          data-title="GPA Calculator College High School 4.0 Scale Cumulative CGPA Grade Average Semester">
+          <div class="space-y-3">
+            <span class="bg-amber-100 text-amber-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Academic Tools</span>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">GPA & CGPA Calculator</h3>
+            <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Calculate semester GPA and cumulative CGPA on a 4.0 scale with credit hours and honors weightings.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+            <a href="/student-tools/gpa-calculator.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
+          </div>
+        </div>
+
+        <!-- Universal Unit Converter -->
+        <div class="tool-card fa-card fa-card-interactive p-7 flex flex-col justify-between group"
+          data-category="student"
+          data-title="Unit Converter Metric Imperial Length Weight Temperature Area Speed Volume Storage">
+          <div class="space-y-3">
+            <span class="bg-amber-100 text-amber-800 text-[11px] py-1 px-3 rounded-full font-extrabold">Academic Tools</span>
+            <h3 class="text-xl font-black text-[#3e2723] group-hover:text-[#c27803]">Universal Unit Converter</h3>
+            <p class="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
+              Convert length, weight, temperature, digital data, speed, area, and volume between metric & imperial.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#c27803]">
+            <a href="/student-tools/unit-converter.html" class="fa-btn-primary py-2 px-4 text-xs font-black">Launch Tool</a>
           </div>
         </div>
 
@@ -1147,6 +1860,56 @@
       </div>
     </section>
 
+    <!-- 8. VIDEO SHOWCASE & WALKTHROUGH -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-16" id="demo-video">
+      <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-md relative overflow-hidden">
+        <!-- Ambient decorative background glow -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-amber-100/60 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto text-center space-y-4 mb-8">
+          <div class="inline-flex items-center gap-2">
+            <span class="fa-badge-blue py-1.5 px-4 text-xs font-black uppercase tracking-wider">
+              <i class="fa-brands fa-youtube text-red-600 mr-1.5"></i> Official Video Guide • Watch in Action
+            </span>
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
+            See How 360Tools Powers Your Workflow
+          </h2>
+          <p class="text-slate-600 text-sm sm:text-base font-medium max-w-2xl mx-auto leading-relaxed">
+            Watch our comprehensive video walkthrough to see our high-speed, 100% private browser tools in action — from AI speech synthesis and PDF editing to instant file compression and multi-category business calculators.
+          </p>
+        </div>
+
+        <!-- Video Frame Container -->
+        <div class="relative z-10 max-w-4xl mx-auto">
+          <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl border-2 border-[#ded2be]/80 bg-[#183153]">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/ffrVF1p0_70?rel=0&modestbranding=1"
+              title="360Tools Official Video Overview"
+              class="absolute top-0 left-0 w-full h-full border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          </div>
+
+          <!-- Video Highlights & Link -->
+          <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-2xl bg-[#fbf7ee] border border-[#ded2be]/70 text-xs sm:text-sm font-bold text-slate-700">
+            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-slate-600">
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-[#c27803]"></i> 100% Private (0 Cloud Uploads)</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-bolt text-amber-500"></i> Instant WebAssembly</span>
+              <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-emerald-600"></i> Free & Unlimited</span>
+            </div>
+            <a href="https://www.youtube.com/watch?v=ffrVF1p0_70" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-red-600 hover:text-red-700 hover:underline font-extrabold whitespace-nowrap">
+              <i class="fa-brands fa-youtube text-base"></i> Watch on YouTube <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Centralized Pure JS Footer Injection -->
@@ -1161,7 +1924,7 @@
           </div>
           <div>
             <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">100% In-Browser Privacy</h4>
-            <p class="text-[11px] text-slate-500 font-medium mt-0.5">Files & scripts stay in local RAM. Zero cloud uploads.</p>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">Files & scripts execute locally in RAM. Zero cloud uploads.</p>
           </div>
         </div>
 
@@ -1170,8 +1933,8 @@
             <i class="fa-solid fa-bolt"></i>
           </div>
           <div>
-            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">Superfast Execution</h4>
-            <p class="text-[11px] text-slate-500 font-medium mt-0.5">WebAssembly & HTML5 Canvas engines with zero queue delay.</p>
+            <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">Instant Client-Side Speed</h4>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">WebAssembly, HTML5 Canvas & native Web Crypto APIs.</p>
           </div>
         </div>
 
@@ -1181,56 +1944,55 @@
           </div>
           <div>
             <h4 class="text-xs font-black uppercase tracking-wider text-[#183153]">100% Free & Unlimited</h4>
-            <p class="text-[11px] text-slate-500 font-medium mt-0.5">No credit cards, no login gates, and zero watermarks.</p>
+            <p class="text-[11px] text-slate-500 font-medium mt-0.5">No subscriptions, no account signup gates, zero watermarks.</p>
           </div>
         </div>
 
       </div>
     </div>
 
-    <!-- Main Footer Links Grid -->
+    <!-- Main Footer Links Grid (8 Category Columns) -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-12 pb-10">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8">
         
-        <!-- Brand Info Column (Span 4) -->
-        <div class="sm:col-span-2 lg:col-span-4 space-y-5">
-          <a href="/" class="inline-flex items-center gap-3 group">
+        <!-- Column 1: Brand & Info -->
+        <div class="sm:col-span-2 space-y-4">
+          <a href="/" class="inline-flex items-center gap-2.5 group">
             <img src="/images/logo-icon.webp" alt="360Tools Logo" width="36" height="36" class="w-9 h-9 object-contain rounded-xl border border-slate-200 shadow-sm group-hover:scale-105 transition-transform">
             <span class="text-2xl font-black text-[#183153] tracking-tight">360Tools<span class="text-[#146ebe]">.me</span></span>
           </a>
           
           <p class="text-xs text-slate-600 font-medium leading-relaxed max-w-sm">
-            Free online tools for everyday digital tasks. High-precision client-side audio voiceovers, media compressors, PDF workflows, code minifiers, and seller calculators.
+            Free high-precision client-side tools: AI voiceovers, PDF manipulations, media compression, cryptographic security, and multi-category business & financial calculators.
           </p>
 
-          <div class="flex items-center gap-2">
+          <div class="flex items-center gap-2 pt-1">
             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold shadow-2xs">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              All 35+ Tools Operational
+              All 45+ Tools Operational
             </span>
           </div>
 
           <!-- Social Links -->
-          <div class="pt-2 space-y-2">
-            <span class="text-[11px] font-black uppercase tracking-wider text-slate-400 block">Connect With Us</span>
-            <div class="flex items-center gap-2.5">
+          <div class="pt-2">
+            <div class="flex items-center gap-2">
               <a href="https://www.youtube.com/@360tools" target="_blank" rel="noopener noreferrer" 
-                class="w-9 h-9 rounded-xl bg-slate-50 hover:bg-red-50 text-slate-600 hover:text-red-600 flex items-center justify-center text-sm transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-red-50 text-slate-600 hover:text-red-600 flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
                 title="YouTube" aria-label="YouTube Channel">
                 <i class="fa-brands fa-youtube"></i>
               </a>
               <a href="https://www.facebook.com/360tools.me" target="_blank" rel="noopener noreferrer" 
-                class="w-9 h-9 rounded-xl bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#1877f2] flex items-center justify-center text-sm transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#1877f2] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
                 title="Facebook" aria-label="Facebook Page">
                 <i class="fa-brands fa-facebook-f"></i>
               </a>
               <a href="https://www.instagram.com/360tools.me" target="_blank" rel="noopener noreferrer" 
-                class="w-9 h-9 rounded-xl bg-slate-50 hover:bg-pink-50 text-slate-600 hover:text-[#e1306c] flex items-center justify-center text-sm transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-pink-50 text-slate-600 hover:text-[#e1306c] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
                 title="Instagram" aria-label="Instagram Profile">
                 <i class="fa-brands fa-instagram"></i>
               </a>
               <a href="https://360tools.me" 
-                class="w-9 h-9 rounded-xl bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#146ebe] flex items-center justify-center text-sm transition-all shadow-2xs hover:scale-110 border border-slate-200" 
+                class="w-8 h-8 rounded-lg bg-slate-50 hover:bg-blue-50 text-slate-600 hover:text-[#146ebe] flex items-center justify-center text-xs transition-all shadow-2xs hover:scale-110 border border-slate-200" 
                 title="360tools.me Website" aria-label="360tools.me Official Website">
                 <i class="fa-solid fa-globe"></i>
               </a>
@@ -1238,101 +2000,168 @@
           </div>
         </div>
 
-        <!-- Column 2: PDF & Compression (Span 2) -->
-        <div class="lg:col-span-2 space-y-3">
+        <!-- Column 2: PDF & Documents -->
+        <div class="space-y-3">
           <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
             <i class="fa-solid fa-file-pdf text-red-600 text-[11px]"></i>
-            <span>PDF & Media</span>
+            <span>PDF Suite</span>
           </h4>
-          <ul class="text-xs font-bold text-slate-600 space-y-2">
-            <li><a href="/pdf-tools/" class="text-red-700 hover:text-red-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-file-pdf text-[9px] text-red-600"></i> PDF Tools (19 Tools)</a></li>
-            <li><a href="/pdf-tools/merge-pdf/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Merge PDF</a></li>
-            <li><a href="/pdf-tools/split-pdf/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Split PDF</a></li>
-            <li><a href="/pdf-tools/compress-pdf/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Compress PDF</a></li>
-            <li><a href="/image-tools/image-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Image Compressor</a></li>
-            <li><a href="/image-tools/background-remover.html" class="text-teal-700 hover:text-teal-900 transition-colors flex items-center gap-1.5 font-bold"><i class="fa-solid fa-wand-magic-sparkles text-[9px] text-teal-600"></i> AI BG Remover</a></li>
-            <li><a href="/image-tools/background-remover.html" class="text-purple-700 hover:text-purple-900 transition-colors flex items-center gap-1.5 font-bold"><i class="fa-solid fa-eraser text-[9px] text-purple-600"></i> Photo Object Eraser</a></li>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/pdf-tools/" class="text-red-700 hover:text-red-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-file-pdf text-[9px] text-red-600"></i> All 19 PDF Tools</a></li>
+            <li><a href="/pdf-tools/merge-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Merge PDF</a></li>
+            <li><a href="/pdf-tools/split-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Split PDF</a></li>
+            <li><a href="/pdf-tools/compress-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Compress PDF</a></li>
+            <li><a href="/pdf-tools/pdf-to-jpg/index.html" class="hover:text-[#146ebe] transition-colors">PDF to JPG / PNG</a></li>
+            <li><a href="/pdf-tools/jpg-to-pdf/index.html" class="hover:text-[#146ebe] transition-colors">JPG to PDF</a></li>
+            <li><a href="/pdf-tools/password-protect-pdf/index.html" class="hover:text-[#146ebe] transition-colors">Protect & Unlock PDF</a></li>
           </ul>
         </div>
 
-        <!-- Column 3: Audio & Developer (Span 2) -->
-        <div class="lg:col-span-2 space-y-3">
+        <!-- Column 3: AI Voice & Audio -->
+        <div class="space-y-3">
           <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
             <i class="fa-solid fa-volume-high text-purple-600 text-[11px]"></i>
-            <span>Audio & Dev</span>
+            <span>AI Voice & Audio</span>
           </h4>
-          <ul class="text-xs font-bold text-slate-600 space-y-2">
-            <li><a href="/audio-tools/text-to-speech.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Text to Speech</a></li>
-            <li><a href="/audio-tools/text-to-mp3.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Text to MP3</a></li>
-            <li><a href="/audio-tools/ai-voice-generator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> AI Voice Studio</a></li>
-            <li><a href="/video-tools/video-compressor.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Video Compressor</a></li>
-            <li><a href="/developer-tools/html-minifier.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> HTML Minifier</a></li>
-            <li><a href="/developer-tools/javascript-minifier.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> JS Minifier</a></li>
-            <li><a href="/developer-tools/ats-resume-checker.html" class="text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-file-circle-check text-[9px] text-indigo-600"></i> ATS Resume Checker</a></li>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/audio-tools/" class="text-purple-700 hover:text-purple-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-volume-high text-[9px] text-purple-600"></i> Audio Hub</a></li>
+            <li><a href="/audio-tools/text-to-speech.html" class="hover:text-[#146ebe] transition-colors">Text to Speech</a></li>
+            <li><a href="/audio-tools/text-to-mp3.html" class="hover:text-[#146ebe] transition-colors">Text to MP3</a></li>
+            <li><a href="/audio-tools/ai-voice-generator.html" class="hover:text-[#146ebe] transition-colors">AI Voice Studio</a></li>
+            <li><a href="/audio-tools/pdf-to-speech.html" class="hover:text-[#146ebe] transition-colors">PDF to Speech</a></li>
+            <li><a href="/audio-tools/youtube-voiceover-generator.html" class="hover:text-[#146ebe] transition-colors">YouTube Voiceover</a></li>
+            <li><a href="/audio-tools/urdu-text-to-speech.html" class="hover:text-[#146ebe] transition-colors">Urdu TTS (اردو)</a></li>
           </ul>
         </div>
 
-        <!-- Column 4: Calculators & E-Commerce (Span 2) -->
-        <div class="lg:col-span-2 space-y-3">
+        <!-- Column 4: Media & Design -->
+        <div class="space-y-3">
           <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
-            <i class="fa-solid fa-calculator text-amber-600 text-[11px]"></i>
-            <span>Calculators</span>
+            <i class="fa-solid fa-palette text-pink-600 text-[11px]"></i>
+            <span>Media & Design</span>
           </h4>
-          <ul class="text-xs font-bold text-slate-600 space-y-2">
-            <li><a href="/calculators/" class="text-amber-700 hover:text-amber-900 transition-colors flex items-center gap-1.5 font-black"><i class="fa-solid fa-calculator text-[9px] text-amber-600"></i> All Calculators</a></li>
-            <li><a href="/ecommerce-tools/invoice-generator.html" class="text-blue-700 hover:text-blue-900 transition-colors flex items-center gap-1.5 font-bold"><i class="fa-solid fa-file-invoice-dollar text-[9px] text-blue-600"></i> Invoice Maker</a></li>
-            <li><a href="/ecommerce-tools/etsy-fee-calculator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Etsy Calculator</a></li>
-            <li><a href="/ecommerce-tools/amazon-fba-calculator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Amazon FBA</a></li>
-            <li><a href="/calculators/section8-estimator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> Section 8 Rent</a></li>
-            <li><a href="/calculators/uk-stamp-duty-calculator.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[8px] text-slate-300"></i> UK Stamp Duty</a></li>
-            <li><a href="/games/2048/index.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-cubes text-amber-500 text-[9px]"></i> 2048 Game</a></li>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/design-tools/" class="text-pink-700 hover:text-pink-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-palette text-[9px] text-pink-600"></i> Design Hub</a></li>
+            <li><a href="/design-tools/color-palette-generator.html" class="hover:text-[#146ebe] transition-colors">Color Palette Generator</a></li>
+            <li><a href="/design-tools/aspect-ratio-calculator.html" class="hover:text-[#146ebe] transition-colors">Aspect Ratio Calculator</a></li>
+            <li><a href="/developer-tools/qr-code-generator.html" class="text-amber-700 hover:text-amber-900 transition-colors font-bold">QR Code Generator</a></li>
+            <li><a href="/image-tools/image-compressor.html" class="hover:text-[#146ebe] transition-colors">Image Compressor</a></li>
+            <li><a href="/image-tools/background-remover.html" class="hover:text-[#146ebe] transition-colors">AI Background Remover</a></li>
+            <li><a href="/video-tools/video-compressor.html" class="hover:text-[#146ebe] transition-colors">Video Compressor</a></li>
           </ul>
         </div>
 
-        <!-- Column 5: Company & Legal (Span 2) -->
-        <div class="lg:col-span-2 space-y-3">
+        <!-- Column 5: Business, Finance & Security -->
+        <div class="space-y-3">
           <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
-            <i class="fa-solid fa-scale-balanced text-teal-600 text-[11px]"></i>
-            <span>Company & Legal</span>
+            <i class="fa-solid fa-vault text-emerald-600 text-[11px]"></i>
+            <span>Business & Finance</span>
           </h4>
-          <ul class="text-xs font-bold text-slate-600 space-y-2">
-            <li><a href="/about.html" class="text-blue-600 font-bold hover:underline flex items-center gap-1.5"><i class="fa-solid fa-circle-info text-[9px]"></i> About 360Tools</a></li>
-            <li><a href="/contact.html" class="text-teal-700 font-bold hover:underline flex items-center gap-1.5"><i class="fa-solid fa-envelope text-[9px]"></i> Contact Support</a></li>
-            <li><a href="/blog.html" class="text-indigo-600 font-bold hover:underline flex items-center gap-1.5"><i class="fa-solid fa-newspaper text-[9px]"></i> Editorial Blog</a></li>
-            <li class="pt-2 border-t border-slate-100"><a href="/privacy-policy.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-[9px] text-emerald-600"></i> Privacy Policy</a></li>
-            <li><a href="/terms.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-file-contract text-[9px] text-amber-600"></i> Terms of Use</a></li>
-            <li><a href="/disclaimer.html" class="hover:text-[#146ebe] transition-colors flex items-center gap-1.5"><i class="fa-solid fa-triangle-exclamation text-[9px] text-rose-500"></i> Disclaimer</a></li>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/business-tools/" class="text-blue-700 hover:text-blue-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-briefcase text-[9px] text-blue-600"></i> Business Hub</a></li>
+            <li><a href="/business-tools/roi-calculator.html" class="hover:text-[#146ebe] transition-colors">ROI & CAGR Calculator</a></li>
+            <li><a href="/business-tools/break-even-calculator.html" class="hover:text-[#146ebe] transition-colors">Break-Even Calculator</a></li>
+            <li><a href="/business-tools/freelance-rate-calculator.html" class="hover:text-[#146ebe] transition-colors">Freelance Rate Calculator</a></li>
+            <li><a href="/finance-tools/compound-interest-calculator.html" class="hover:text-[#146ebe] transition-colors">Compound Interest</a></li>
+            <li><a href="/finance-tools/loan-amortization-calculator.html" class="hover:text-[#146ebe] transition-colors">Loan Amortization</a></li>
+            <li><a href="/finance-tools/crypto-profit-calculator.html" class="hover:text-[#146ebe] transition-colors">Crypto Profit & DCA</a></li>
           </ul>
         </div>
 
       </div>
 
-      <!-- Bottom Bar -->
+      <!-- Second Row of Footer Categories -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pt-8 mt-8 border-t border-slate-100">
+        
+        <!-- Text & Writing Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-font text-indigo-600 text-[11px]"></i>
+            <span>Writing & Text Tools</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/text-tools/" class="text-indigo-700 hover:text-indigo-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-align-left text-[9px] text-indigo-600"></i> Text Tools Hub</a></li>
+            <li><a href="/text-tools/case-converter.html" class="hover:text-[#146ebe] transition-colors">Case Converter & Slugifier</a></li>
+            <li><a href="/text-tools/lorem-ipsum-generator.html" class="hover:text-[#146ebe] transition-colors">Lorem Ipsum Generator</a></li>
+            <li><a href="/text-tools/text-cleaner.html" class="hover:text-[#146ebe] transition-colors">Text Cleaner & Formatter</a></li>
+            <li><a href="/developer-tools/word-counter.html" class="hover:text-[#146ebe] transition-colors">Word & Character Counter</a></li>
+          </ul>
+        </div>
+
+        <!-- Security & Developer Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-shield-halved text-rose-600 text-[11px]"></i>
+            <span>Security & Dev Tools</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/security-tools/" class="text-rose-700 hover:text-rose-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-shield-halved text-[9px] text-rose-600"></i> Security Hub</a></li>
+            <li><a href="/security-tools/hash-generator.html" class="hover:text-[#146ebe] transition-colors">Online Hash Generator</a></li>
+            <li><a href="/security-tools/base64-encoder-decoder.html" class="hover:text-[#146ebe] transition-colors">Base64 Encoder / Decoder</a></li>
+            <li><a href="/security-tools/uuid-generator.html" class="hover:text-[#146ebe] transition-colors">UUID / GUID v4 Generator</a></li>
+            <li><a href="/developer-tools/password-generator.html" class="hover:text-[#146ebe] transition-colors">Strong Password Generator</a></li>
+            <li><a href="/developer-tools/html-minifier.html" class="hover:text-[#146ebe] transition-colors">HTML / CSS / JS Minifiers</a></li>
+          </ul>
+        </div>
+
+        <!-- Student & Academic Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-graduation-cap text-amber-600 text-[11px]"></i>
+            <span>Student & Academic</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/student-tools/" class="text-amber-700 hover:text-amber-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-graduation-cap text-[9px] text-amber-600"></i> Student Hub</a></li>
+            <li><a href="/student-tools/gpa-calculator.html" class="hover:text-[#146ebe] transition-colors">GPA & CGPA Calculator</a></li>
+            <li><a href="/student-tools/unit-converter.html" class="hover:text-[#146ebe] transition-colors">Universal Unit Converter</a></li>
+            <li><a href="/ecommerce-tools/invoice-generator.html" class="hover:text-[#146ebe] transition-colors">Free Invoice Maker</a></li>
+            <li><a href="/games/2048/index.html" class="hover:text-[#146ebe] transition-colors">2048 & Retro Games</a></li>
+          </ul>
+        </div>
+
+        <!-- Company & Legal -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-circle-info text-blue-600 text-[11px]"></i>
+            <span>Company & Legal</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/about.html" class="hover:text-[#146ebe] transition-colors">About 360Tools</a></li>
+            <li><a href="/contact.html" class="hover:text-[#146ebe] transition-colors">Contact Support</a></li>
+            <li><a href="/blog.html" class="hover:text-[#146ebe] transition-colors">Editorial Blog</a></li>
+            <li><a href="/privacy-policy.html" class="hover:text-[#146ebe] transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms.html" class="hover:text-[#146ebe] transition-colors">Terms of Use</a></li>
+            <li><a href="/disclaimer.html" class="hover:text-[#146ebe] transition-colors">Legal Disclaimer</a></li>
+            <li><a href="/sitemap.xml" class="hover:text-[#146ebe] transition-colors">XML Sitemap</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright Bar -->
       <div class="mt-12 pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
         <div class="flex items-center gap-2 text-center md:text-left">
           <span>© 2026 <a href="/" class="font-bold text-[#183153] hover:text-[#146ebe] transition-colors">360Tools (360tools.me)</a>. All rights reserved.</span>
         </div>
 
         <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-slate-600 text-[11px] font-bold">
-          <a href="/pdf-tools/" class="text-red-600 hover:text-red-800 transition-colors flex items-center gap-1"><i class="fa-solid fa-file-pdf text-[10px]"></i> PDF Suite</a>
+          <a href="/business-tools/" class="hover:text-[#146ebe] transition-colors">Business</a>
           <span>•</span>
-          <a href="/appearance.html" class="text-purple-600 hover:text-purple-800 transition-colors flex items-center gap-1"><i class="fa-solid fa-palette text-[10px]"></i> Theme Customizer</a>
+          <a href="/text-tools/" class="hover:text-[#146ebe] transition-colors">Text</a>
           <span>•</span>
-          <a href="/about.html" class="hover:text-[#146ebe] transition-colors">About</a>
+          <a href="/finance-tools/" class="hover:text-[#146ebe] transition-colors">Finance</a>
           <span>•</span>
-          <a href="/contact.html" class="hover:text-[#146ebe] transition-colors">Contact</a>
+          <a href="/security-tools/" class="hover:text-[#146ebe] transition-colors">Security</a>
           <span>•</span>
-          <a href="/privacy-policy.html" class="hover:text-[#146ebe] transition-colors">Privacy Policy</a>
+          <a href="/design-tools/" class="hover:text-[#146ebe] transition-colors">Design</a>
           <span>•</span>
-          <a href="/terms.html" class="hover:text-[#146ebe] transition-colors">Terms of Service</a>
+          <a href="/student-tools/" class="hover:text-[#146ebe] transition-colors">Student</a>
           <span>•</span>
-          <a href="/disclaimer.html" class="hover:text-[#146ebe] transition-colors">Disclaimer</a>
-          <span>•</span>
-          <a href="/sitemap.xml" class="hover:text-[#146ebe] transition-colors">Sitemap</a>
+          <a href="/pdf-tools/" class="hover:text-[#146ebe] transition-colors">PDF Suite</a>
         </div>
 
         <div class="text-[10px] text-slate-400 text-center md:text-right">
-          Zero Cloud Logging • 100% Client-Side Private
+          Zero Cloud Logging • 100% Client-Side In-Browser
         </div>
       </div>
     </div>
@@ -1550,11 +2379,58 @@
       }
     }
 
-    // Auto Render Full Catalog Grid on Load
+    let categoryAutoplayTimer = null;
+    let categoryAutoplayPaused = false;
+
+    function scrollCategoryCarousel(direction) {
+      const track = document.getElementById('categoryCarouselTrack');
+      if (!track) return;
+      const card = track.querySelector('.snap-start');
+      const step = card ? (card.offsetWidth + 16) : 296;
+      
+      // If moving forward and at/near the end, wrap to start
+      if (direction > 0 && track.scrollLeft + track.clientWidth >= track.scrollWidth - 20) {
+        track.scrollTo({ left: 0, behavior: 'smooth' });
+      } else if (direction < 0 && track.scrollLeft <= 10) {
+        track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+      } else {
+        track.scrollBy({ left: direction * step, behavior: 'smooth' });
+      }
+    }
+
+    function startCategoryAutoplay() {
+      if (categoryAutoplayTimer) clearInterval(categoryAutoplayTimer);
+      categoryAutoplayTimer = setInterval(() => {
+        if (!categoryAutoplayPaused) {
+          scrollCategoryCarousel(1);
+        }
+      }, 2800);
+    }
+
+    function initCategoryCarouselAutoplay() {
+      const track = document.getElementById('categoryCarouselTrack');
+      const section = document.getElementById('categories-carousel-section');
+      if (!track || !section) return;
+
+      section.addEventListener('mouseenter', () => { categoryAutoplayPaused = true; });
+      section.addEventListener('mouseleave', () => { categoryAutoplayPaused = false; });
+      section.addEventListener('touchstart', () => { categoryAutoplayPaused = true; }, { passive: true });
+      section.addEventListener('touchend', () => { 
+        setTimeout(() => { categoryAutoplayPaused = false; }, 2000); 
+      }, { passive: true });
+
+      startCategoryAutoplay();
+    }
+
+    // Auto Render Full Catalog Grid & Carousel Autoplay on Load
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', renderCatalogGrid);
+      document.addEventListener('DOMContentLoaded', () => {
+        renderCatalogGrid();
+        initCategoryCarouselAutoplay();
+      });
     } else {
       renderCatalogGrid();
+      initCategoryCarouselAutoplay();
     }
   </script>
 </body>

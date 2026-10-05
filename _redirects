@@ -53,6 +53,11 @@
 /ecommerce-tools/shopify-csv-validator.html /developer-tools/shopify-csv-validator.html 301
 /ats-resume-checker.html /developer-tools/ats-resume-checker.html 301
 /cv-checker.html /developer-tools/ats-resume-checker.html 301
+/qr-code-generator.html /developer-tools/qr-code-generator.html 301
+/word-counter.html /developer-tools/word-counter.html 301
+/character-counter.html /developer-tools/word-counter.html 301
+/password-generator.html /developer-tools/password-generator.html 301
+/passphrase-generator.html /developer-tools/password-generator.html 301
 
 # E-Commerce Tools
 /invoice-generator.html /ecommerce-tools/invoice-generator.html 301
@@ -84,5 +89,34 @@
 # Legal & Static Redirects
 /terms-and-conditions.html /terms.html 301
 /disclaimers.html /disclaimer.html 301
+
+# Business Tools
+/roi-calculator.html /business-tools/roi-calculator.html 301
+/break-even-calculator.html /business-tools/break-even-calculator.html 301
+/freelance-rate-calculator.html /business-tools/freelance-rate-calculator.html 301
+
+# Text Tools
+/case-converter.html /text-tools/case-converter.html 301
+/lorem-ipsum-generator.html /text-tools/lorem-ipsum-generator.html 301
+/text-cleaner.html /text-tools/text-cleaner.html 301
+
+# Finance Tools
+/compound-interest-calculator.html /finance-tools/compound-interest-calculator.html 301
+/loan-amortization-calculator.html /finance-tools/loan-amortization-calculator.html 301
+/crypto-profit-calculator.html /finance-tools/crypto-profit-calculator.html 301
+
+# Security Tools
+/hash-generator.html /security-tools/hash-generator.html 301
+/base64-encoder-decoder.html /security-tools/base64-encoder-decoder.html 301
+/uuid-generator.html /security-tools/uuid-generator.html 301
+
+# Design Tools
+/color-palette-generator.html /design-tools/color-palette-generator.html 301
+/aspect-ratio-calculator.html /design-tools/aspect-ratio-calculator.html 301
+
+# Student Tools
+/gpa-calculator.html /student-tools/gpa-calculator.html 301
+/unit-converter.html /student-tools/unit-converter.html 301
+
 
 

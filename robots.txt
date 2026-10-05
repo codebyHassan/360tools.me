@@ -2,5 +2,12 @@
 User-agent: *
 Allow: /
 
+# Disallow Internal Utility & Template Files
+Disallow: /404.html
+Disallow: /appearance.html
+Disallow: /blog-post.html
+
 # Sitemaps
 Sitemap: https://360tools.me/sitemap.xml
+Host: https://360tools.me
+
