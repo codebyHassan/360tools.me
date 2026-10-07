@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Free Online Markdown Previewer & Editor | Export to Full Image (PNG) & PDF | 360tools.me</title>
+  <meta name="title" content="Free Online Markdown Previewer & Editor | Export to Full Image (PNG) & PDF | 360tools.me">
+  <meta name="description" content="Free online Markdown previewer with live GFM rendering, syntax highlighting, KaTeX math, and Mermaid charts. Export markdown to full high-res PNG image, vector PDF, and standalone HTML. 100% private in-browser.">
+  <meta name="keywords" content="markdown previewer, markdown to image, markdown to pdf, online markdown editor, md viewer, convert md to png, export markdown to pdf, github flavored markdown previewer, markdown live preview, markdown to html converter, md to image full page, client side markdown editor">
+  <meta name="author" content="360tools.me">
+  <link rel="canonical" href="https://360tools.me/developer-tools/markdown-previewer.html">
+
+  <!-- Favicon & Open Graph / Facebook -->
+  <link rel="icon" type="image/webp" href="../images/logo-icon.webp">
+  <link rel="apple-touch-icon" href="../images/logo-icon.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://360tools.me/developer-tools/markdown-previewer.html">
+  <meta property="og:title" content="Free Online Markdown Previewer — Live GFM, Full PNG Image & PDF Export">
+  <meta property="og:description" content="Real-time Markdown editor with live preview, syntax highlighting, KaTeX math formulas, and one-click export to full-length PNG images, vector PDFs, and HTML.">
+  <meta property="og:image" content="https://360tools.me/images/logo.webp">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://360tools.me/developer-tools/markdown-previewer.html">
+  <meta name="twitter:title" content="Free Online Markdown Previewer with Full Image & PDF Export">
+  <meta name="twitter:description" content="Live Markdown editor with GitHub Flavored Markdown, code syntax highlighting, KaTeX math, and one-click export to full PNG image or PDF.">
+  <meta name="twitter:image" content="https://360tools.me/images/logo.webp">
+
+  <!-- JSON-LD Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Markdown Previewer & Full Image/PDF Exporter",
+    "url": "https://360tools.me/developer-tools/markdown-previewer.html",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "description": "High-performance online Markdown previewer and editor supporting GitHub Flavored Markdown (GFM), syntax highlighted code blocks, KaTeX math formulas, interactive checklists, and instant export to full-resolution PNG images, vector PDF documents, and HTML.",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "softwareVersion": "2.4.0",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "featureList": [
+      "Real-time synchronized side-by-side Markdown preview",
+      "GitHub Flavored Markdown (GFM) tables, task lists, and alerts",
+      "Export full markdown document to high-resolution PNG or JPEG image",
+      "Vector PDF export with custom page sizes (A4, Letter) and clean typography",
+      "Code syntax highlighting with one-click copy buttons",
+      "KaTeX mathematical formula rendering",
+      "Standalone HTML file export and rich text clipboard copying",
+      "100% private in-browser execution with zero server logging"
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: HowTo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to Preview Markdown and Export to Full Image or PDF",
+    "description": "Step-by-step guide to writing or pasting Markdown, previewing formatted output in real time, and downloading as a full PNG image or printable PDF.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Type, Paste, or Open a Markdown File",
+        "text": "Paste your Markdown syntax into the left editor pane, drag and drop an existing .md file, or choose from our starter templates (README, Blog, API Docs)."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Review Live Preview and Customize Styling",
+        "text": "Inspect formatted headings, tables, code blocks, task lists, and math equations in real time. Choose your preferred preview theme like GitHub Light, GitHub Dark, Notion, or Dracula."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Export to Full Image (PNG/JPEG) or Vector PDF",
+        "text": "Click 'Export Image' to capture the entire document as a crisp high-resolution PNG, or click 'Export PDF' to generate a formatted printable document with custom page dimensions."
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I download the entire Markdown preview as a full PNG or JPEG image?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Click the 'Export Image' button in the top action bar. The tool renders the entire preview container off-screen using high-definition 2x retina scaling, capturing all headers, tables, code blocks, and diagrams without scrollbar cutoffs, and automatically downloads the complete PNG or JPEG file."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the Markdown to PDF export work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our Markdown previewer uses a client-side vector layout engine that renders clean typography, preserves code formatting and tables, and compiles standard A4 or US Letter PDF files ready for printing, sharing, or submitting as documentation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this tool support GitHub Flavored Markdown (GFM)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Full GFM specifications are supported, including responsive tables, strikethrough text, interactive task checkboxes, autolinks, fenced code blocks with language syntax highlighting, and GitHub alert callouts ([!NOTE], [!TIP], [!WARNING])."
+      },
+      {
+        "@type": "Question",
+        "name": "Can I render mathematical formulas and equations in Markdown?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, our previewer integrates KaTeX. You can write inline equations using single dollar signs like $E = mc^2$ or full display blocks using double dollar signs like $$\\int_{-\\infty}^\\infty e^{-x^2} dx = \\sqrt{\\pi}$$."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my Markdown content uploaded or saved to any cloud server?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. All parsing, rendering, image generation, and PDF compilation execute 100% locally in your web browser. Your private notes, technical specifications, and proprietary code never leave your machine."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I copy the preview as formatted rich text to paste into Word or Google Docs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Click 'Copy Rich Text' from the toolbar. This copies formatted HTML directly to your system clipboard so you can paste into Google Docs, Microsoft Word, Notion, Substack, or Medium with all bolding, tables, and headers preserved."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://360tools.me/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Developer Tools",
+        "item": "https://360tools.me/developer-tools/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Markdown Previewer & Exporter",
+        "item": "https://360tools.me/developer-tools/markdown-previewer.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Preconnect External Domains -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons 6.5.1 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+  
+  <!-- Highlight.js Syntax Theme -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="hljsTheme">
+
+  <!-- KaTeX Math CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="../css/style.min.css">
+
+  <style>
+    /* Markdown Previewer Custom Styles */
+    .md-font-mono {
+      font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    /* Markdown Rendered Typography Themes */
+    .markdown-body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #24292f;
+      word-wrap: break-word;
+    }
+
+    .markdown-body h1, .markdown-body h2, .markdown-body h3, 
+    .markdown-body h4, .markdown-body h5, .markdown-body h6 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-top: 1.5em;
+      margin-bottom: 0.6em;
+      color: #1f2328;
+    }
+
+    .markdown-body h1 {
+      font-size: 2rem;
+      padding-bottom: 0.3em;
+      border-bottom: 1px solid #d0d7de;
+    }
+
+    .markdown-body h2 {
+      font-size: 1.5rem;
+      padding-bottom: 0.3em;
+      border-bottom: 1px solid #d0d7de;
+    }
+
+    .markdown-body h3 { font-size: 1.25rem; }
+    .markdown-body h4 { font-size: 1.05rem; }
+
+    .markdown-body p, .markdown-body blockquote, .markdown-body ul, 
+    .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre {
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+
+    .markdown-body a {
+      color: #0969da;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 600;
+    }
+    .markdown-body a:hover { color: #0550ae; }
+
+    .markdown-body blockquote {
+      padding: 0.5em 1em;
+      color: #57606a;
+      border-left: 0.25em solid #d0d7de;
+      background: #f6f8fa;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .markdown-body ul, .markdown-body ol {
+      padding-left: 2em;
+    }
+    .markdown-body ul { list-style-type: disc; }
+    .markdown-body ol { list-style-type: decimal; }
+    .markdown-body li + li { margin-top: 0.25em; }
+
+    /* Task lists */
+    .markdown-body ul.contains-task-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .markdown-body .task-list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+    .markdown-body .task-list-item input[type="checkbox"] {
+      margin-top: 0.3rem;
+      cursor: pointer;
+      accent-color: #0969da;
+    }
+
+    /* Code blocks and inline code */
+    .markdown-body code {
+      padding: 0.2em 0.4em;
+      margin: 0;
+      font-size: 85%;
+      background-color: rgba(175, 184, 193, 0.2);
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .markdown-body pre {
+      position: relative;
+      padding: 16px;
+      overflow: auto;
+      font-size: 85%;
+      line-height: 1.5;
+      background-color: #f6f8fa;
+      border-radius: 12px;
+      border: 1px solid #d0d7de;
+    }
+    .markdown-body pre code {
+      padding: 0;
+      margin: 0;
+      background: transparent;
+      border: 0;
+      font-size: 100%;
+    }
+
+    /* Tables */
+    .markdown-body table {
+      border-spacing: 0;
+      border-collapse: collapse;
+      display: block;
+      width: max-content;
+      max-width: 100%;
+      overflow: auto;
+      margin-bottom: 16px;
+      border-radius: 8px;
+    }
+    .markdown-body table th, .markdown-body table td {
+      padding: 8px 14px;
+      border: 1px solid #d0d7de;
+    }
+    .markdown-body table th {
+      font-weight: 700;
+      background-color: #f6f8fa;
+    }
+    .markdown-body table tr:nth-child(2n) {
+      background-color: #f6f8fa/50;
+    }
+
+    .markdown-body hr {
+      height: 0.2em;
+      padding: 0;
+      margin: 24px 0;
+      background-color: #d0d7de;
+      border: 0;
+    }
+
+    .markdown-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      margin: 12px 0;
+    }
+
+    /* GitHub Alert Callouts */
+    .markdown-body .markdown-alert {
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      border-left: 4px solid;
+      border-radius: 0 10px 10px 0;
+      background: #f8fafc;
+    }
+    .markdown-body .markdown-alert-title {
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .markdown-body .markdown-alert.alert-note { border-color: #0969da; background: #f0f7ff; }
+    .markdown-body .markdown-alert.alert-note .markdown-alert-title { color: #0969da; }
+    .markdown-body .markdown-alert.alert-tip { border-color: #1a7f37; background: #f0fdf4; }
+    .markdown-body .markdown-alert.alert-tip .markdown-alert-title { color: #1a7f37; }
+    .markdown-body .markdown-alert.alert-important { border-color: #8250df; background: #faf5ff; }
+    .markdown-body .markdown-alert.alert-important .markdown-alert-title { color: #8250df; }
+    .markdown-body .markdown-alert.alert-warning { border-color: #9a6700; background: #fffbeb; }
+    .markdown-body .markdown-alert.alert-warning .markdown-alert-title { color: #9a6700; }
+    .markdown-body .markdown-alert.alert-caution { border-color: #cf222e; background: #fef2f2; }
+    .markdown-body .markdown-alert.alert-caution .markdown-alert-title { color: #cf222e; }
+
+    /* Theme Variations */
+    .preview-theme-dark {
+      background-color: #0d1117 !important;
+      color: #e6edf3 !important;
+    }
+    .preview-theme-dark h1, .preview-theme-dark h2, .preview-theme-dark h3,
+    .preview-theme-dark h4, .preview-theme-dark h5, .preview-theme-dark h6 {
+      color: #f0f6fc !important;
+      border-color: #30363d !important;
+    }
+    .preview-theme-dark a { color: #58a6ff !important; }
+    .preview-theme-dark blockquote { background: #161b22 !important; border-color: #30363d !important; color: #8b949e !important; }
+    .preview-theme-dark pre { background: #161b22 !important; border-color: #30363d !important; }
+    .preview-theme-dark code { background: rgba(110,118,129,0.4) !important; color: #f0f6fc !important; }
+    .preview-theme-dark table th, .preview-theme-dark table td { border-color: #30363d !important; }
+    .preview-theme-dark table th { background-color: #161b22 !important; }
+    .preview-theme-dark table tr:nth-child(2n) { background-color: #161b22/60 !important; }
+    .preview-theme-dark hr { background-color: #30363d !important; }
+
+    .preview-theme-notion {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      background-color: #ffffff !important;
+      color: #37352f !important;
+    }
+    .preview-theme-notion h1, .preview-theme-notion h2, .preview-theme-notion h3 {
+      font-family: inherit !important;
+      color: #37352f !important;
+      border-bottom: none !important;
+    }
+
+    .preview-theme-dracula {
+      background-color: #282a36 !important;
+      color: #f8f8f2 !important;
+    }
+    .preview-theme-dracula h1, .preview-theme-dracula h2, .preview-theme-dracula h3 {
+      color: #ff79c6 !important;
+      border-color: #6272a4 !important;
+    }
+    .preview-theme-dracula a { color: #8be9fd !important; }
+    .preview-theme-dracula pre { background: #1e1f29 !important; border-color: #6272a4 !important; }
+
+    .preview-theme-sepia {
+      background-color: #fbf0d9 !important;
+      color: #433422 !important;
+    }
+    .preview-theme-sepia h1, .preview-theme-sepia h2, .preview-theme-sepia h3 {
+      color: #2b1d0c !important;
+      border-color: #dec8a7 !important;
+    }
+
+    /* Floating Copy Button on Code blocks */
+    .code-block-wrapper {
+      position: relative;
+      margin-bottom: 16px;
+    }
+    .code-block-wrapper pre {
+      margin-bottom: 0 !important;
+    }
+    .code-copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(0,0,0,0.1);
+      backdrop-filter: blur(4px);
+      color: #475569;
+      padding: 3px 8px;
+      font-size: 11px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      transition: all 0.2s ease;
+      opacity: 0;
+      z-index: 10;
+    }
+    .code-block-wrapper:hover .code-copy-btn {
+      opacity: 1;
+    }
+    .code-copy-btn:hover {
+      background: #ffffff;
+      color: #0969da;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .code-lang-tag {
+      position: absolute;
+      bottom: 8px;
+      right: 12px;
+      font-size: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #94a3b8;
+      text-transform: uppercase;
+      font-weight: 700;
+      pointer-events: none;
+    }
+
+    /* Custom Toolbar Button */
+    .tool-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 5px 9px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #334155;
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+    .tool-btn:hover {
+      background-color: #ffffff;
+      color: #c27803;
+      border-color: #cbd5e1;
+      transform: translateY(-1px);
+    }
+    .tool-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Editor line numbers simulator & scroll sync */
+    .editor-pane {
+      tab-size: 2;
+      caret-color: #c27803;
+    }
+    
+    /* Toast Notification */
+    #toastMessage {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #1e293b;
+      color: #ffffff;
+      padding: 12px 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 9999;
+    }
+    #toastMessage.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Image Export Frame Wrapper */
+    #exportFrameContainer {
+      position: absolute;
+      left: -9999px;
+      top: -9999px;
+      width: 900px;
+      background: #ffffff;
+      padding: 40px;
+      box-sizing: border-box;
+    }
+
+    /* Print styles for direct clean PDF printing */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #previewContainer, #previewContainer * {
+        visibility: visible;
+      }
+      #previewContainer {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+      .code-copy-btn, .code-lang-tag {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-[#ffd43b] selection:text-[#3e2723] px-3 sm:px-6 py-4 bg-[#fbf7ee]">
+
+  <!-- Centralized Global Header -->
+  <header id="globalHeader" class="min-h-[58px]"></header>
+
+  <!-- Main Application Container -->
+  <main class="max-w-7xl mx-auto w-full flex-1">
+
+    <!-- Breadcrumbs -->
+    <nav class="flex items-center gap-2 text-xs font-bold text-slate-400 mb-5" aria-label="Breadcrumb">
+      <a href="../index.html" class="hover:text-[#c27803] transition-colors"><i class="fa-solid fa-house mr-1"></i>Home</a>
+      <span class="text-slate-300">/</span>
+      <a href="./" class="hover:text-[#c27803] transition-colors">Developer Tools</a>
+      <span class="text-slate-300">/</span>
+      <span class="text-[#3e2723] font-black">Markdown Previewer & Exporter</span>
+    </nav>
+    
+    <!-- Hero / Headline Section -->
+    <div class="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="bg-amber-100 text-amber-900 text-xs font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <i class="fa-brands fa-markdown mr-1 text-[#c27803]"></i> Live Markdown Studio & Exporter
+          </span>
+          <span class="text-xs font-bold text-slate-500 hidden sm:inline">• Full PNG Image • Vector PDF • KaTeX & GFM</span>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-black text-[#3e2723] tracking-tight">
+          Online Markdown Previewer & Full Image/PDF Exporter
+        </h1>
+        <p class="text-slate-600 text-xs sm:text-sm mt-1 max-w-3xl leading-relaxed">
+          Write, edit, and preview GitHub Flavored Markdown in real-time with syntax highlighting, math formulas, and charts. Export full-length high-resolution PNG images, vector PDFs, or copy rich text with zero server latency.
+        </p>
+      </div>
+
+      <!-- Quick Template Selector & File Drop -->
+      <div class="flex flex-wrap items-center gap-2 self-start md:self-center">
+        <label for="fileUploadInput" class="tool-btn bg-white hover:bg-amber-50 text-slate-700 cursor-pointer shadow-2xs">
+          <i class="fa-solid fa-folder-open text-[#c27803]"></i> Open .md File
+          <input type="file" id="fileUploadInput" accept=".md,.markdown,.txt" class="hidden" onchange="handleFileUpload(event)">
+        </label>
+
+        <div class="relative inline-block text-left">
+          <select id="templateSelector" onchange="loadPresetTemplate(this.value)" class="tool-btn bg-white hover:bg-amber-50 text-slate-700 pr-8 cursor-pointer shadow-2xs">
+            <option value="" disabled selected>✨ Load Template...</option>
+            <option value="readme">🚀 GitHub README.md</option>
+            <option value="blog">📝 Technical Blog Post</option>
+            <option value="api">⚡ API Documentation</option>
+            <option value="math">📐 Academic Notes & KaTeX Math</option>
+            <option value="checklist">✅ Sprint Roadmap & Tasks</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Document Metrics Bar -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2.5 mb-5">
+      <div class="bg-white px-3.5 py-2.5 rounded-xl border border-slate-200/80 shadow-2xs text-center">
+        <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Words</span>
+        <div id="statWords" class="text-xl sm:text-2xl font-black text-[#3e2723]">0</div>
+      </div>
+      <div class="bg-white px-3.5 py-2.5 rounded-xl border border-slate-200/80 shadow-2xs text-center">
+        <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Characters</span>
+        <div id="statChars" class="text-xl sm:text-2xl font-black text-[#3e2723]">0</div>
+      </div>
+      <div class="bg-white px-3.5 py-2.5 rounded-xl border border-slate-200/80 shadow-2xs text-center">
+        <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Lines</span>
+        <div id="statLines" class="text-xl sm:text-2xl font-black text-[#3e2723]">0</div>
+      </div>
+      <div class="bg-white px-3.5 py-2.5 rounded-xl border border-slate-200/80 shadow-2xs text-center">
+        <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Paragraphs</span>
+        <div id="statParagraphs" class="text-xl sm:text-2xl font-black text-[#3e2723]">0</div>
+      </div>
+      <div class="bg-white px-3.5 py-2.5 rounded-xl border border-slate-200/80 shadow-2xs text-center">
+        <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Headings</span>
+        <div id="statHeadings" class="text-xl sm:text-2xl font-black text-[#3e2723]">0</div>
+      </div>
+      <div class="bg-white px-3.5 py-2.5 rounded-xl border border-slate-200/80 shadow-2xs text-center">
+        <span class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Reading Time</span>
+        <div id="statReadingTime" class="text-xl sm:text-2xl font-black text-[#c27803]">0 min</div>
+      </div>
+    </div>
+
+    <!-- MAIN EDITOR & LIVE PREVIEW WORKSPACE -->
+    <div class="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden mb-12">
+      
+      <!-- Universal Top Action Toolbar -->
+      <div class="p-3 sm:p-4 bg-slate-50/80 border-b border-slate-200/80 flex flex-wrap items-center justify-between gap-3">
+        
+        <!-- Left: Quick Formatting Buttons -->
+        <div class="flex flex-wrap items-center gap-1 sm:gap-1.5">
+          <button onclick="insertMarkdown('# ', '')" class="tool-btn" title="Heading 1"><i class="fa-solid fa-heading"></i>1</button>
+          <button onclick="insertMarkdown('## ', '')" class="tool-btn" title="Heading 2"><i class="fa-solid fa-heading"></i>2</button>
+          <button onclick="insertMarkdown('### ', '')" class="tool-btn" title="Heading 3"><i class="fa-solid fa-heading"></i>3</button>
+          <div class="h-4 w-px bg-slate-200 mx-0.5"></div>
+          <button onclick="insertMarkdown('**', '**')" class="tool-btn" title="Bold (Ctrl+B)"><i class="fa-solid fa-bold"></i></button>
+          <button onclick="insertMarkdown('*', '*')" class="tool-btn" title="Italic (Ctrl+I)"><i class="fa-solid fa-italic"></i></button>
+          <button onclick="insertMarkdown('~~', '~~')" class="tool-btn" title="Strikethrough"><i class="fa-solid fa-strikethrough"></i></button>
+          <div class="h-4 w-px bg-slate-200 mx-0.5"></div>
+          <button onclick="insertMarkdown('> ', '')" class="tool-btn" title="Quote Block"><i class="fa-solid fa-quote-left"></i></button>
+          <button onclick="insertMarkdown('`', '`')" class="tool-btn" title="Inline Code"><i class="fa-solid fa-code"></i></button>
+          <button onclick="insertCodeBlock()" class="tool-btn" title="Code Block with Syntax"><i class="fa-solid fa-file-code"></i></button>
+          <div class="h-4 w-px bg-slate-200 mx-0.5"></div>
+          <button onclick="insertMarkdown('- ', '')" class="tool-btn" title="Bullet List"><i class="fa-solid fa-list-ul"></i></button>
+          <button onclick="insertMarkdown('1. ', '')" class="tool-btn" title="Numbered List"><i class="fa-solid fa-list-ol"></i></button>
+          <button onclick="insertMarkdown('- [ ] ', '')" class="tool-btn" title="Task Checklist"><i class="fa-solid fa-square-check"></i></button>
+          <div class="h-4 w-px bg-slate-200 mx-0.5"></div>
+          <button onclick="insertTable()" class="tool-btn" title="Insert Table"><i class="fa-solid fa-table"></i></button>
+          <button onclick="insertLink()" class="tool-btn" title="Insert Hyperlink"><i class="fa-solid fa-link"></i></button>
+          <button onclick="insertImage()" class="tool-btn" title="Insert Image"><i class="fa-solid fa-image"></i></button>
+          <button onclick="insertMathFormula()" class="tool-btn" title="Insert KaTeX Math Formula"><i class="fa-solid fa-square-root-variable text-blue-600"></i> Math</button>
+          <button onclick="insertAlertBox()" class="tool-btn" title="GitHub Alert Callout"><i class="fa-solid fa-triangle-exclamation text-amber-600"></i> Alert</button>
+        </div>
+
+        <!-- Right: View Layout & Theme Controls -->
+        <div class="flex items-center gap-2">
+          <!-- Theme Picker -->
+          <div class="flex items-center gap-1.5 text-xs font-bold text-slate-500">
+            <i class="fa-solid fa-palette text-slate-400"></i>
+            <select id="previewThemeSelect" onchange="changePreviewTheme(this.value)" class="tool-btn py-1 px-2 text-xs font-bold">
+              <option value="github">GitHub Light</option>
+              <option value="dark">GitHub Dark</option>
+              <option value="notion">Notion Clean</option>
+              <option value="dracula">Dracula Studio</option>
+              <option value="sepia">Warm Sepia</option>
+            </select>
+          </div>
+
+          <!-- View Mode Toggles (Desktop & Mobile) -->
+          <div class="hidden sm:flex items-center bg-slate-200/70 p-0.5 rounded-lg text-xs font-bold">
+            <button id="viewSplitBtn" onclick="setViewMode('split')" class="px-2.5 py-1 rounded-md bg-white text-[#3e2723] shadow-2xs" title="Split View">
+              <i class="fa-solid fa-columns mr-1"></i> Split
+            </button>
+            <button id="viewEditorBtn" onclick="setViewMode('editor')" class="px-2.5 py-1 rounded-md text-slate-600 hover:text-slate-900" title="Editor Only">
+              <i class="fa-solid fa-pen mr-1"></i> Editor
+            </button>
+            <button id="viewPreviewBtn" onclick="setViewMode('preview')" class="px-2.5 py-1 rounded-md text-slate-600 hover:text-slate-900" title="Preview Only">
+              <i class="fa-solid fa-eye mr-1"></i> Preview
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Export & Download Command Bar -->
+      <div class="px-4 py-2.5 bg-amber-50/50 border-b border-slate-200/80 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div class="flex items-center gap-2">
+          <span class="font-black text-[#3e2723] uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+            <i class="fa-solid fa-file-export text-[#c27803]"></i> Export & Share:
+          </span>
+          <label class="inline-flex items-center gap-1 text-[11px] font-bold text-slate-600 cursor-pointer select-none">
+            <input type="checkbox" id="syncScrollCheckbox" checked class="rounded text-[#c27803] focus:ring-0">
+            <span>Sync Scrolling</span>
+          </label>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+          <!-- Full Image PNG Export (Requested) -->
+          <button onclick="exportAsFullImage('png')" class="tool-btn bg-[#c27803] hover:bg-[#a66602] text-white border-transparent shadow-2xs" title="Download Full High-Res PNG Image">
+            <i class="fa-solid fa-file-image"></i> Export Image (PNG)
+          </button>
+          <button onclick="exportAsFullImage('jpeg')" class="tool-btn bg-white hover:bg-slate-50 text-slate-700" title="Download JPEG Image">
+            <i class="fa-regular fa-image text-slate-500"></i> JPEG
+          </button>
+
+          <!-- PDF Export (Requested) -->
+          <button onclick="exportAsPDF()" class="tool-btn bg-red-600 hover:bg-red-700 text-white border-transparent shadow-2xs" title="Export as Formatted Vector PDF">
+            <i class="fa-solid fa-file-pdf"></i> Export PDF
+          </button>
+          
+          <!-- Download Raw MD & HTML -->
+          <button onclick="downloadMarkdownFile()" class="tool-btn" title="Download as .md file">
+            <i class="fa-brands fa-markdown text-blue-600"></i> .md File
+          </button>
+          <button onclick="downloadHtmlFile()" class="tool-btn" title="Download Standalone HTML">
+            <i class="fa-solid fa-code text-emerald-600"></i> HTML
+          </button>
+
+          <!-- Copy Utilities -->
+          <button onclick="copyRichText()" class="tool-btn" title="Copy formatted text for Word / Google Docs">
+            <i class="fa-solid fa-paste text-indigo-600"></i> Copy Rich Text
+          </button>
+          <button onclick="copyRawHtml()" class="tool-btn" title="Copy Raw HTML code">
+            <i class="fa-regular fa-copy"></i> Copy HTML
+          </button>
+          <button onclick="clearEditor()" class="tool-btn text-red-600 hover:bg-red-50 hover:border-red-200" title="Clear Editor">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- DUAL PANE WORKSPACE GRID -->
+      <div id="workspaceGrid" class="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-slate-200 min-h-[620px]">
+        
+        <!-- LEFT: Markdown Editor Pane -->
+        <div id="editorPaneContainer" class="flex flex-col bg-white">
+          <div class="px-4 py-2 bg-slate-50/50 border-b border-slate-100 flex items-center justify-between text-[11px] font-bold text-slate-500">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-pen-to-square text-[#c27803]"></i> MARKDOWN INPUT</span>
+            <span id="editorStatsBrief">Line 1, Col 1</span>
+          </div>
+          <div class="relative flex-1 flex">
+            <textarea id="markdownInput" spellcheck="false" placeholder="Type or paste your Markdown here... You can use tables, task lists, code blocks, math formulas ($E=mc^2$), and GitHub callouts." class="editor-pane md-font-mono w-full h-full min-h-[580px] p-4 text-sm text-slate-800 bg-white border-0 outline-none resize-none leading-relaxed focus:ring-0" oninput="handleEditorInput()" onscroll="handleEditorScroll()"></textarea>
+          </div>
+        </div>
+
+        <!-- RIGHT: Rendered Live Preview Pane -->
+        <div id="previewPaneContainer" class="flex flex-col bg-slate-50/30">
+          <div class="px-4 py-2 bg-slate-50/50 border-b border-slate-100 flex items-center justify-between text-[11px] font-bold text-slate-500">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-emerald-600"></i> LIVE HTML PREVIEW</span>
+            <span id="previewRenderTime">Rendered in 2ms</span>
+          </div>
+          <div id="previewScrollWrapper" class="flex-1 overflow-y-auto max-h-[750px] p-6 sm:p-8 bg-white transition-colors" onscroll="handlePreviewScroll()">
+            <div id="previewContainer" class="markdown-body mx-auto max-w-none">
+              <!-- Dynamically Rendered Markdown HTML will be injected here -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Hidden Off-Screen Image Export Canvas Container -->
+    <div id="exportFrameContainer" class="markdown-body">
+      <div id="exportFrameContent"></div>
+    </div>
+
+    <!-- PROGRESS / RENDERING SPINNER MODAL -->
+    <div id="exportProgressModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center hidden z-50">
+      <div class="bg-white rounded-2xl p-6 max-w-sm w-full mx-4 shadow-2xl text-center space-y-4">
+        <div class="w-14 h-14 mx-auto rounded-full bg-amber-50 text-[#c27803] flex items-center justify-center text-2xl animate-spin">
+          <i class="fa-solid fa-spinner"></i>
+        </div>
+        <div>
+          <h3 id="exportProgressTitle" class="text-base font-black text-[#3e2723]">Generating High-Res Image...</h3>
+          <p id="exportProgressDesc" class="text-xs text-slate-500 mt-1">Rendering 2x retina canvas and compiling vector layout.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Table Generator Modal -->
+    <div id="tableModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center hidden z-50">
+      <div class="bg-white rounded-3xl p-6 max-w-md w-full mx-4 shadow-2xl space-y-4 border border-slate-100">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <h3 class="text-base font-black text-[#3e2723] flex items-center gap-2">
+            <i class="fa-solid fa-table text-[#c27803]"></i> Insert Markdown Table
+          </h3>
+          <button onclick="closeTableModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="text-xs font-bold text-slate-600 block mb-1">Rows (excluding header)</label>
+            <input type="number" id="tableRows" value="3" min="1" max="20" class="w-full px-3 py-2 border border-slate-200 rounded-xl text-sm font-bold">
+          </div>
+          <div>
+            <label class="text-xs font-bold text-slate-600 block mb-1">Columns</label>
+            <input type="number" id="tableCols" value="3" min="1" max="10" class="w-full px-3 py-2 border border-slate-200 rounded-xl text-sm font-bold">
+          </div>
+        </div>
+        <div class="flex items-center justify-end gap-2 pt-2">
+          <button onclick="closeTableModal()" class="tool-btn px-4 py-2 text-xs">Cancel</button>
+          <button onclick="confirmTableInsert()" class="tool-btn bg-[#c27803] hover:bg-[#a66602] text-white px-4 py-2 text-xs border-transparent">Insert Table</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification Banner -->
+    <div id="toastMessage">
+      <i class="fa-solid fa-circle-check text-emerald-400"></i>
+      <span id="toastText">Action completed successfully!</span>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- RICH SEO & EDUCATIONAL SECTIONS (High-Tail & Long-Tail Ranking Authority) -->
+    <!-- ========================================================================= -->
+
+    <!-- Feature Pillars Grid -->
+    <section class="mb-16">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="bg-blue-100 text-blue-900 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">
+          <i class="fa-solid fa-wand-magic-sparkles mr-1 text-blue-700"></i> Advanced Markdown Capabilities
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight mt-2">
+          Why 360Tools Markdown Previewer is the Ultimate Editor
+        </h2>
+        <p class="text-slate-600 text-sm mt-1">
+          Engineered for software developers, technical authors, academics, and bloggers who demand pixel-perfect document rendering, high-definition image exports, and unmatched in-browser security.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Feature 1 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-xl bg-amber-50 text-[#c27803] flex items-center justify-center text-xl mb-4 border border-amber-200/60">
+            <i class="fa-solid fa-file-image"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] mb-2">Full Document Image Capture</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Unlike basic screenshot tools that crop long pages, our engine renders your entire document into a seamless 2x Retina PNG or JPEG with zero cutoffs—ideal for GitHub, Twitter threads, and LinkedIn carousels.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center text-xl mb-4 border border-red-200/60">
+            <i class="fa-solid fa-file-pdf"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] mb-2">Vector PDF Layout Engine</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Export presentation-ready PDF documents formatted with precision margins, crisp typography, clean page breaks, and intact code blocks ready for academic papers and client proposals.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-4 border border-blue-200/60">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] mb-2">Syntax Highlighted Code Blocks</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Auto-detects and highlights over 180 programming languages including JavaScript, Python, Rust, Go, HTML, CSS, SQL, and Bash, complete with a 1-click snippet copy button on every block.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl mb-4 border border-purple-200/60">
+            <i class="fa-solid fa-square-root-variable"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] mb-2">KaTeX Mathematical Equations</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Render fast TeX and LaTeX mathematical proofs, matrices, and algebraic formulas directly inside your markdown using standard dollar sign delimiters ($E=mc^2$ and $$\\sum_{i=1}^n$$).
+          </p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-4 border border-emerald-200/60">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] mb-2">100% Client-Side Privacy</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Zero server uploads, zero cookies, zero tracking. All markdown parsing, image rasterization, and PDF compiling happen exclusively in your browser memory via WebAssembly and JavaScript.
+          </p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-2xs hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-4 border border-indigo-200/60">
+            <i class="fa-solid fa-paste"></i>
+          </div>
+          <h3 class="text-lg font-black text-[#3e2723] mb-2">1-Click Rich Text Clipboard Copy</h3>
+          <p class="text-xs text-slate-600 leading-relaxed font-medium">
+            Transfer rendered markdown straight into Google Docs, Notion, Microsoft Word, Substack, or Medium without losing table borders, bold typography, or heading hierarchy.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comprehensive Markdown Syntax Cheatsheet -->
+    <section class="mb-16 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-xs">
+      <div class="max-w-3xl mb-8">
+        <span class="bg-emerald-100 text-emerald-900 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">
+          <i class="fa-solid fa-book-open mr-1 text-emerald-700"></i> Reference Guide
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight mt-2">
+          Complete Markdown & GFM Syntax Cheat Sheet
+        </h2>
+        <p class="text-slate-600 text-sm mt-1">
+          Master essential Markdown formatting rules, GitHub Flavored extensions, tables, checklists, and KaTeX mathematical notation.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="bg-slate-50 border-b border-slate-200 text-slate-700 uppercase font-black tracking-wider text-[11px]">
+              <th class="py-3 px-4">Element / Feature</th>
+              <th class="py-3 px-4">Markdown Syntax</th>
+              <th class="py-3 px-4">Visual Output / Description</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-slate-600 font-medium">
+            <tr>
+              <td class="py-3 px-4 font-bold text-[#3e2723]">Headings (H1 to H3)</td>
+              <td class="py-3 px-4 font-mono text-blue-700"># H1 &nbsp;|&nbsp; ## H2 &nbsp;|&nbsp; ### H3</td>
+              <td class="py-3 px-4">Hierarchical document titles with automatic anchor IDs</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold text-[#3e2723]">Bold & Italic</td>
+              <td class="py-3 px-4 font-mono text-blue-700">**Bold text** and *Italic text*</td>
+              <td class="py-3 px-4"><strong>Bold text</strong> and <em>Italic text</em></td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold text-[#3e2723]">Strikethrough</td>
+              <td class="py-3 px-4 font-mono text-blue-700">~~Deprecated feature~~</td>
+              <td class="py-3 px-4"><del>Deprecated feature</del></td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold text-[#3e2723]">GFM Data Tables</td>
+              <td class="py-3 px-4 font-mono text-blue-700">| Col 1 | Col 2 |<br>|---|---|<br>| Data A | Data B |</td>
+              <td class="py-3 px-4">Renders aligned, responsive tabular data with styled headers</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold text-[#3e2723]">Interactive Task Lists</td>
+              <td class="py-3 px-4 font-mono text-blue-700">- [x] Completed task<br>- [ ] Pending milestone</td>
+              <td class="py-3 px-4">Checkable interactive todo items for project roadmaps</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold text-[#3e2723]">Code Block with Syntax</td>
+              <td class="py-3 px-4 font-mono text-blue-700">```javascript<br>const add = (a, b) => a + b;<br>```</td>
+              <td class="py-3 px-4">Syntax highlighted code box with 1-click copy snippet button</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold text-[#3e2723]">GitHub Alert Boxes</td>
+              <td class="py-3 px-4 font-mono text-blue-700">> [!NOTE]<br>> Important update text</td>
+              <td class="py-3 px-4">Colored alert callouts ([!NOTE], [!TIP], [!WARNING], [!CAUTION])</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold text-[#3e2723]">KaTeX Math Equations</td>
+              <td class="py-3 px-4 font-mono text-blue-700">$E = mc^2$ &nbsp;or&nbsp; $$\\frac{-b \\pm \\sqrt{D}}{2a}$$</td>
+              <td class="py-3 px-4">High-precision mathematical formula and equation typesetting</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Comparison Table: Markdown vs Traditional Word Processors -->
+    <section class="mb-16 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200/80 shadow-xs">
+      <div class="max-w-3xl mb-8">
+        <span class="bg-indigo-100 text-indigo-900 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">
+          <i class="fa-solid fa-code-compare mr-1 text-indigo-700"></i> Technical Comparison
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight mt-2">
+          Markdown vs. Traditional Word Processors & Cloud Docs
+        </h2>
+        <p class="text-slate-600 text-sm mt-1">
+          Discover why modern software engineering teams, technical writers, and content creators prefer Markdown.
+        </p>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse">
+          <thead>
+            <tr class="bg-slate-50 border-b border-slate-200 text-slate-700 uppercase font-black tracking-wider text-[11px]">
+              <th class="py-3 px-4">Feature / Metric</th>
+              <th class="py-3 px-4 text-[#c27803]">360Tools Markdown Previewer</th>
+              <th class="py-3 px-4">Traditional WYSIWYG / Word</th>
+              <th class="py-3 px-4">Cloud Docs (Google Docs / Notion)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-slate-600 font-medium">
+            <tr>
+              <td class="py-3 px-4 font-bold text-[#3e2723]">Git Version Control Friendly</td>
+              <td class="py-3 px-4 font-bold text-emerald-600"><i class="fa-solid fa-check mr-1"></i> 100% Plain Text Diffable</td>
+              <td class="py-3 px-4 text-red-500"><i class="fa-solid fa-xmark mr-1"></i> Proprietary Binary (.docx)</td>
+              <td class="py-3 px-4 text-amber-600"><i class="fa-solid fa-minus mr-1"></i> Cloud Database Lock-in</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold text-[#3e2723]">Full Image (PNG) Export</td>
+              <td class="py-3 px-4 font-bold text-emerald-600"><i class="fa-solid fa-check mr-1"></i> 1-Click Retina 2x PNG</td>
+              <td class="py-3 px-4 text-red-500"><i class="fa-solid fa-xmark mr-1"></i> Requires Third-party Snipping</td>
+              <td class="py-3 px-4 text-red-500"><i class="fa-solid fa-xmark mr-1"></i> Not Available Natively</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold text-[#3e2723]">Data Privacy & Security</td>
+              <td class="py-3 px-4 font-bold text-emerald-600"><i class="fa-solid fa-check mr-1"></i> 100% In-Browser Local</td>
+              <td class="py-3 px-4 text-emerald-600"><i class="fa-solid fa-check mr-1"></i> Local File Storage</td>
+              <td class="py-3 px-4 text-amber-600"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Uploaded to Remote Servers</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold text-[#3e2723]">Code Highlighting & KaTeX Math</td>
+              <td class="py-3 px-4 font-bold text-emerald-600"><i class="fa-solid fa-check mr-1"></i> Native 180+ Languages & TeX</td>
+              <td class="py-3 px-4 text-red-500"><i class="fa-solid fa-xmark mr-1"></i> Clunky Equation Editors</td>
+              <td class="py-3 px-4 text-amber-600"><i class="fa-solid fa-minus mr-1"></i> Limited Syntax Customization</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 font-bold text-[#3e2723]">Speed & Distraction-Free Flow</td>
+              <td class="py-3 px-4 font-bold text-emerald-600"><i class="fa-solid fa-check mr-1"></i> Pure Keyboard Typing</td>
+              <td class="py-3 px-4 text-amber-600"><i class="fa-solid fa-minus mr-1"></i> Heavy Menu & Toolbars</td>
+              <td class="py-3 px-4 text-amber-600"><i class="fa-solid fa-minus mr-1"></i> Browser Extension Lag</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Deep Technical FAQ Accordion Section -->
+    <section class="mb-16">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="bg-amber-100 text-amber-900 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">
+          <i class="fa-solid fa-circle-question mr-1 text-[#c27803]"></i> Frequently Asked Questions
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black text-[#3e2723] tracking-tight mt-2">
+          Everything You Need to Know About Markdown Previewing & Exporting
+        </h2>
+        <p class="text-slate-600 text-sm mt-1">
+          Detailed answers to common questions about resolutions, PDF layouts, math equations, and formatting shortcuts.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-3">
+        <!-- FAQ 1 -->
+        <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs">
+          <h3 class="text-base font-black text-[#3e2723] flex items-center justify-between cursor-pointer" onclick="toggleFaq(this)">
+            <span>How does the Markdown to Full PNG Image export handle long documents?</span>
+            <i class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform"></i>
+          </h3>
+          <div class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed font-medium">
+            When you click "Export Image (PNG)", our tool clones the entire rendered markdown document into a virtual off-screen canvas at a crisp 2x retina scale. It calculates the exact scroll height, rendering all headings, tables, blockquotes, and code blocks continuously without any scrollbars, viewport cutoffs, or blurry artifacts.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs">
+          <h3 class="text-base font-black text-[#3e2723] flex items-center justify-between cursor-pointer" onclick="toggleFaq(this)">
+            <span>How can I ensure code blocks look beautiful in my exported PDF?</span>
+            <i class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform"></i>
+          </h3>
+          <div class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed font-medium">
+            Our PDF exporter utilizes dedicated print style rules that wrap code blocks, preserve font ligatures from JetBrains Mono, and prevent awkward page breaks right in the middle of code functions. Choose from our standard A4 or US Letter layouts for instant professional outputs.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs">
+          <h3 class="text-base font-black text-[#3e2723] flex items-center justify-between cursor-pointer" onclick="toggleFaq(this)">
+            <span>What mathematical equation syntax does KaTeX support?</span>
+            <i class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform"></i>
+          </h3>
+          <div class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed font-medium">
+            KaTeX supports nearly all standard LaTeX mathematical commands, including superscripts/subscripts, fractions (<code class="text-blue-600">\frac{a}{b}</code>), integrals (<code class="text-blue-600">\int</code>), summations (<code class="text-blue-600">\sum</code>), square roots (<code class="text-blue-600">\sqrt{x}</code>), Greek letters (<code class="text-blue-600">\alpha, \beta, \theta</code>), matrices, and piecewise functions.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs">
+          <h3 class="text-base font-black text-[#3e2723] flex items-center justify-between cursor-pointer" onclick="toggleFaq(this)">
+            <span>Can I customize preview themes for dark mode presentations?</span>
+            <i class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform"></i>
+          </h3>
+          <div class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed font-medium">
+            Yes. Use the Theme dropdown in the top toolbar to switch between GitHub Light, GitHub Dark, Notion Clean, Dracula Studio, and Warm Sepia. When you export an image or PDF, the visual theme styling is automatically preserved in your download.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-2xs">
+          <h3 class="text-base font-black text-[#3e2723] flex items-center justify-between cursor-pointer" onclick="toggleFaq(this)">
+            <span>Are keyboard shortcuts supported in the Markdown editor?</span>
+            <i class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform"></i>
+          </h3>
+          <div class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed font-medium">
+            Yes! You can use standard editor hotkeys: <kbd class="px-1.5 py-0.5 bg-slate-100 border border-slate-300 rounded text-xs font-mono font-bold">Ctrl+B</kbd> or <kbd class="px-1.5 py-0.5 bg-slate-100 border border-slate-300 rounded text-xs font-mono font-bold">Cmd+B</kbd> for bold, <kbd class="px-1.5 py-0.5 bg-slate-100 border border-slate-300 rounded text-xs font-mono font-bold">Ctrl+I</kbd> for italics, <kbd class="px-1.5 py-0.5 bg-slate-100 border border-slate-300 rounded text-xs font-mono font-bold">Ctrl+K</kbd> for hyperlinks, and <kbd class="px-1.5 py-0.5 bg-slate-100 border border-slate-300 rounded text-xs font-mono font-bold">Tab</kbd> for clean two-space indentation.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Developer & Text Tools Hub Grid -->
+    <section class="mb-16">
+      <div class="flex items-center justify-between mb-6 pb-2 border-b border-slate-200">
+        <h2 class="text-lg sm:text-xl font-black text-[#3e2723] flex items-center gap-2">
+          <i class="fa-solid fa-toolbox text-[#c27803]"></i> Related Developer & Text Utilities
+        </h2>
+        <a href="./" class="text-xs font-bold text-[#c27803] hover:underline">View All Developer Tools →</a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- Word Counter -->
+        <a href="word-counter.html" class="p-4 bg-white rounded-2xl border border-slate-200/80 shadow-2xs hover:border-[#c27803] transition-all group">
+          <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-lg mb-3 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-calculator"></i>
+          </div>
+          <h3 class="text-sm font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Word & Character Counter</h3>
+          <p class="text-[11px] text-slate-500 mt-1">Live readability analyzer and keyword density calculator.</p>
+        </a>
+
+        <!-- HTML Minifier -->
+        <a href="html-minifier.html" class="p-4 bg-white rounded-2xl border border-slate-200/80 shadow-2xs hover:border-[#c27803] transition-all group">
+          <div class="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-lg mb-3 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3 class="text-sm font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">HTML Minifier</h3>
+          <p class="text-[11px] text-slate-500 mt-1">Compress HTML files, strip comments, and save bandwidth.</p>
+        </a>
+
+        <!-- QR Code Generator -->
+        <a href="qr-code-generator.html" class="p-4 bg-white rounded-2xl border border-slate-200/80 shadow-2xs hover:border-[#c27803] transition-all group">
+          <div class="w-10 h-10 rounded-xl bg-amber-50 text-[#c27803] flex items-center justify-center text-lg mb-3 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-qrcode"></i>
+          </div>
+          <h3 class="text-sm font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">QR Code Generator</h3>
+          <p class="text-[11px] text-slate-500 mt-1">Generate high-res vector QR codes with logo embedding.</p>
+        </a>
+
+        <!-- Password Generator -->
+        <a href="password-generator.html" class="p-4 bg-white rounded-2xl border border-slate-200/80 shadow-2xs hover:border-[#c27803] transition-all group">
+          <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg mb-3 group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-key"></i>
+          </div>
+          <h3 class="text-sm font-black text-[#3e2723] group-hover:text-[#c27803] transition-colors">Strong Password Generator</h3>
+          <p class="text-[11px] text-slate-500 mt-1">Generate secure cryptographically random passwords.</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centralized Global Footer -->
+  <footer class="mt-20 border-t border-slate-200/80 bg-white/70 backdrop-blur-md pt-12 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <!-- Top Row with Brand and Category Links -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 pb-12 border-b border-slate-100">
+        
+        <!-- Brand Info -->
+        <div class="space-y-4 md:col-span-2">
+          <div class="flex items-center gap-2">
+            <img src="../images/logo-icon.webp" alt="360tools" class="w-8 h-8 rounded-xl shadow-2xs" width="32" height="32" loading="lazy">
+            <span class="text-xl font-black text-[#183153] tracking-tight">360tools<span class="text-[#c27803]">.me</span></span>
+          </div>
+          <p class="text-xs text-slate-500 leading-relaxed max-w-sm">
+            The all-in-one free client-side tool suite for software developers, designers, students, and businesses. Fast, secure, and 100% private in-browser utilities with zero data logging.
+          </p>
+          <div class="flex items-center gap-3 text-slate-400 text-sm">
+            <span class="flex items-center gap-1.5 text-emerald-600 font-bold text-xs"><i class="fa-solid fa-shield-halved"></i> 100% Local In-Browser Processing</span>
+          </div>
+        </div>
+
+        <!-- Developer Suite -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-code text-[#c27803] text-[11px]"></i>
+            <span>Developer Suite</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/developer-tools/" class="text-[#c27803] hover:text-[#a66602] transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-terminal text-[9px]"></i> Developer Hub</a></li>
+            <li><a href="/developer-tools/markdown-previewer.html" class="hover:text-[#c27803] transition-colors text-[#c27803]">Markdown Previewer</a></li>
+            <li><a href="/developer-tools/qr-code-generator.html" class="hover:text-[#c27803] transition-colors">QR Code Generator</a></li>
+            <li><a href="/developer-tools/word-counter.html" class="hover:text-[#c27803] transition-colors">Word & Character Counter</a></li>
+            <li><a href="/developer-tools/html-minifier.html" class="hover:text-[#c27803] transition-colors">HTML Minifier</a></li>
+            <li><a href="/developer-tools/css-minifier.html" class="hover:text-[#c27803] transition-colors">CSS Minifier</a></li>
+            <li><a href="/developer-tools/javascript-minifier.html" class="hover:text-[#c27803] transition-colors">JavaScript Minifier</a></li>
+          </ul>
+        </div>
+
+        <!-- PDF Tools -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-file-pdf text-red-600 text-[11px]"></i>
+            <span>PDF Suite</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/pdf-tools/" class="text-red-700 hover:text-red-900 transition-colors flex items-center gap-1 font-black"><i class="fa-solid fa-file-pdf text-[9px] text-red-600"></i> PDF Hub</a></li>
+            <li><a href="/pdf-tools/merge-pdf/" class="hover:text-[#c27803] transition-colors">Merge PDF</a></li>
+            <li><a href="/pdf-tools/split-pdf/" class="hover:text-[#c27803] transition-colors">Split PDF</a></li>
+            <li><a href="/pdf-tools/compress-pdf/" class="hover:text-[#c27803] transition-colors">Compress PDF</a></li>
+            <li><a href="/pdf-tools/html-to-pdf/" class="hover:text-[#c27803] transition-colors">HTML to PDF</a></li>
+          </ul>
+        </div>
+
+        <!-- Company & Legal -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-black text-[#183153] uppercase tracking-wider flex items-center gap-1.5 pb-2 border-b border-slate-100">
+            <i class="fa-solid fa-circle-info text-blue-600 text-[11px]"></i>
+            <span>Company & Legal</span>
+          </h4>
+          <ul class="text-xs font-bold text-slate-600 space-y-1.5">
+            <li><a href="/about.html" class="hover:text-[#c27803] transition-colors">About 360Tools</a></li>
+            <li><a href="/contact.html" class="hover:text-[#c27803] transition-colors">Contact Support</a></li>
+            <li><a href="/privacy-policy.html" class="hover:text-[#c27803] transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms.html" class="hover:text-[#c27803] transition-colors">Terms of Service</a></li>
+            <li><a href="/sitemap.xml" class="hover:text-[#c27803] transition-colors">XML Sitemap</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright Bar -->
+      <div class="mt-8 pt-6 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-medium">
+        <div class="flex items-center gap-2 text-center md:text-left">
+          <span>© 2026 <a href="/" class="font-bold text-[#183153] hover:text-[#c27803] transition-colors">360Tools (360tools.me)</a>. All rights reserved.</span>
+        </div>
+        <div class="text-[10px] text-slate-400 text-center md:text-right">
+          Zero Cloud Logging • 100% Client-Side Markdown Engine
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- EXTERNAL JAVASCRIPT DEPENDENCIES (Marked, DOMPurify, Highlight, KaTeX, HTML2Canvas, HTML2PDF) -->
+  <!-- ========================================================================= -->
+  
+  <!-- Marked.js for GFM Parsing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+
+  <!-- DOMPurify for XSS Sanitization -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.9/purify.min.js"></script>
+
+  <!-- Highlight.js for Code Highlighting -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <!-- KaTeX for Mathematical Formula Rendering -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+
+  <!-- html2canvas for High-Res Full Image Export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <!-- html2pdf.bundle for Vector PDF Export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <!-- Global Shared Site Engine -->
+  <script src="../js/main.js"></script>
+
+  <!-- Markdown Previewer Application Engine Logic -->
+  <script>
+    // Initial Starter Sample Content
+    const SAMPLE_STARTER_MARKDOWN = `# 🚀 360Tools Markdown Studio
+
+Welcome to the **most advanced online Markdown previewer and exporter**! Write, edit, and convert your Markdown files into high-resolution **PNG images**, **PDF documents**, and **standalone HTML** with zero lag.
+
+> [!TIP]
+> All processing runs **100% in your browser**. Your private documents, API keys, and notes never touch a remote server!
+
+---
+
+## ⚡ Core Features at a Glance
+
+- [x] **Real-time synchronized live preview** (Split, Editor-only, or Preview-only modes)
+- [x] **High-Definition Image Export** (Full 2x Retina PNG & JPEG without scroll cutoffs)
+- [x] **Vector PDF Export** (Formatted printable document with clean typography)
+- [x] **Code Syntax Highlighting** with 1-click copy snippet button
+- [x] **KaTeX Mathematical Proofs & Formulas**
+- [ ] Explore custom themes (GitHub Light, Dark, Notion, Dracula, Sepia)
+
+---
+
+## 📊 Comparison & Data Table
+
+| Feature Matrix | 360Tools Markdown | Generic Viewers | Cloud Docs |
+| :--- | :---: | :---: | :---: |
+| **Full PNG Image Export** | ✅ Ultra 2x HD | ❌ Cropped / Low Res | ❌ Not Supported |
+| **Vector PDF Generation** | ✅ Multi-page clean | ⚠️ Broken Layouts | ⚠️ Requires Login |
+| **Mathematical Formulas** | ✅ KaTeX TeX Engine | ❌ Plain text only | ⚠️ Heavy Plugins |
+| **Zero Server Logging** | ✅ 100% Local Sandbox | ⚠️ Data Analyzed | ❌ Remote Storage |
+
+---
+
+## 📐 Mathematical Equations (KaTeX Support)
+
+Write inline math like $E = mc^2$ or full display block formulas:
+
+$$\\int_{-\\infty}^{\\infty} e^{-x^2} dx = \\sqrt{\\pi}$$
+
+$$\\mathbf{A} = \\begin{pmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\end{pmatrix}, \\quad \\det(\\mathbf{A}) = a_{11}a_{22} - a_{12}a_{21}$$
+
+---
+
+## 💻 Syntax Highlighted Code
+
+\`\`\`typescript
+// High performance client-side Markdown parser
+interface MarkdownDocument {
+  title: string;
+  wordCount: number;
+  tags: string[];
+}
+
+function renderMarkdown(rawMd: string): string {
+  console.log("Parsing document with GitHub Flavored extensions...");
+  return marked.parse(rawMd);
+}
+\`\`\`
+
+---
+
+> [!WARNING]
+> Need to export for social media? Click **"Export Image (PNG)"** to generate a clean, shareable snapshot of this entire document!
+`;
+
+    const TEMPLATES = {
+      readme: `# Project Name 🚀
+
+A brief and clear description of what your project does, who it is for, and why it was built.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](#)
+[![Version](https://img.shields.io/badge/version-2.4.0-blue.svg)](#)
+
+## ✨ Key Features
+
+- ⚡ **Lightning Fast:** Instant client-side performance.
+- 🔒 **Privacy First:** Zero telemetry or cloud database logging.
+- 🎨 **Modern Design:** Curated typography and responsive UI.
+
+## 📦 Installation
+
+\`\`\`bash
+# Clone the repository
+git clone https://github.com/username/project-name.git
+
+# Navigate to project directory
+cd project-name
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+\`\`\`
+
+## 🛠️ Tech Stack
+
+| Component | Technology |
+| :--- | :--- |
+| **Frontend** | HTML5, Modern CSS, Vanilla JS |
+| **Rendering** | Marked.js, KaTeX, Highlight.js |
+| **Export Engine** | HTML2Canvas, HTML2PDF |
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+`,
+      blog: `# Mastering Modern Web Performance in 2026
+
+*Published on October 7, 2026 by Hassan • 6 min read*
+
+---
+
+## Introduction
+
+Web performance is no longer just about optimizing image sizes. Modern web applications require zero-latency execution, efficient DOM updates, and aggressive client-side caching.
+
+> "Every millisecond of latency costs user engagement and search visibility."
+
+### 1. Eliminating Server Round-Trips
+
+By shifting heavy computations to modern browser APIs such as WebAssembly and Web Workers, applications can achieve desktop-grade responsiveness.
+
+\`\`\`javascript
+// Efficient synchronous client-side processor
+async function processDataLocally(payload) {
+  const result = await computeHash(payload);
+  return result;
+}
+\`\`\`
+
+### 2. Measuring Core Web Vitals
+
+| Metric | Target (Good) | Needs Improvement |
+| :--- | :--- | :--- |
+| **LCP** (Largest Contentful Paint) | ≤ 1.2s | 1.2s - 2.5s |
+| **INP** (Interaction to Next Paint) | ≤ 100ms | 100ms - 250ms |
+| **CLS** (Cumulative Layout Shift) | ≤ 0.05 | 0.05 - 0.15 |
+
+## Conclusion
+
+Optimize aggressively, keep dependencies minimal, and always prioritize client-side execution wherever feasible!
+`,
+      api: `# ⚡ Authentication & User API Reference
+
+Base URL: \`https://api.example.com/v1\`
+
+## 1. Authenticate User
+
+Authenticate with API key or Bearer token to receive session credentials.
+
+### Request Endpoint
+\`POST /auth/login\`
+
+### Request Headers
+\`\`\`http
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer <YOUR_API_TOKEN>
+\`\`\`
+
+### Request Body
+\`\`\`json
+{
+  "email": "developer@example.com",
+  "password": "SecurePassword123!"
+}
+\`\`\`
+
+### Response Payload (\`200 OK\`)
+\`\`\`json
+{
+  "status": "success",
+  "data": {
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "user": {
+      "id": "usr_991823",
+      "role": "admin"
+    }
+  }
+}
+\`\`\`
+`,
+      math: `# 📐 Advanced Calculus & Linear Algebra Notes
+
+## 1. Gaussian Integral Proof
+
+The classic integral in Gaussian probability distributions:
+
+$$I = \\int_{-\\infty}^{\\infty} e^{-x^2} dx = \\sqrt{\\pi}$$
+
+### Proof via Polar Coordinates:
+
+$$I^2 = \\left( \\int_{-\\infty}^{\\infty} e^{-x^2} dx \\right) \\left( \\int_{-\\infty}^{\\infty} e^{-y^2} dy \\right) = \\int_{-\\infty}^{\\infty} \\int_{-\\infty}^{\\infty} e^{-(x^2+y^2)} dx dy$$
+
+Converting to polar coordinates where $x^2 + y^2 = r^2$ and $dx dy = r dr d\\theta$:
+
+$$I^2 = \\int_{0}^{2\\pi} d\\theta \\int_{0}^{\\infty} r e^{-r^2} dr = 2\\pi \\left[ -\\frac{1}{2} e^{-r^2} \\right]_{0}^{\\infty} = 2\\pi \\left( 0 - \\left(-\\frac{1}{2}\\right) \\right) = \\pi$$
+
+$$\\implies I = \\sqrt{\\pi}$$
+
+---
+
+## 2. Eigenvalue Problem
+
+For a matrix $\\mathbf{A}$ and eigenvector $\\mathbf{v}$:
+
+$$\\mathbf{A}\\mathbf{v} = \\lambda \\mathbf{v} \\iff (\\mathbf{A} - \\lambda \\mathbf{I})\\mathbf{v} = \\mathbf{0}$$
+
+Non-trivial solutions exist if and only if the characteristic equation holds:
+
+$$\\det(\\mathbf{A} - \\lambda \\mathbf{I}) = 0$$
+`,
+      checklist: `# 📋 Sprint Roadmap & Launch Milestone Checklist
+
+**Sprint Target:** Q4 Core Tools Release  
+**Status:** In Progress 🚀
+
+---
+
+## 🎯 High-Priority Deliverables
+
+- [x] Complete Markdown live previewer UI and split view layout
+- [x] Implement full-page high-resolution PNG image exporter
+- [x] Configure vector multi-page PDF generation engine
+- [x] Add KaTeX mathematical equation support ($E=mc^2$)
+- [x] Enable 180+ programming language syntax highlighting
+- [ ] Perform cross-browser compatibility tests on Safari, Firefox, and Chrome
+- [ ] Run SEO lighthouse audit and verify JSON-LD schema markup
+
+---
+
+## 👥 Team Assignments
+
+| Team Member | Module | Status | Priority |
+| :--- | :--- | :--- | :--- |
+| **Alex M.** | Frontend UI & Themes | Completed | High |
+| **Sara K.** | Canvas Rasterization | Completed | Urgent |
+| **David R.** | PDF Margins & Print CSS | Completed | Medium |
+| **Elena V.** | SEO Keyword Optimization | In Review | High |
+`
+    };
+
+    // DOM Elements
+    const markdownInput = document.getElementById('markdownInput');
+    const previewContainer = document.getElementById('previewContainer');
+    const previewScrollWrapper = document.getElementById('previewScrollWrapper');
+    const syncScrollCheckbox = document.getElementById('syncScrollCheckbox');
+    const previewThemeSelect = document.getElementById('previewThemeSelect');
+    const hljsTheme = document.getElementById('hljsTheme');
+
+    let isScrollingFromEditor = false;
+    let isScrollingFromPreview = false;
+
+    // Initialize Marked & Custom Extensions
+    function initMarkdownEngine() {
+      // Configure Marked Options
+      marked.setOptions({
+        gfm: true,
+        breaks: true,
+        pedantic: false
+      });
+
+      // Load saved state or default
+      const savedDoc = localStorage.getItem('360tools_saved_markdown');
+      if (savedDoc && savedDoc.trim().length > 0) {
+        markdownInput.value = savedDoc;
+      } else {
+        markdownInput.value = SAMPLE_STARTER_MARKDOWN;
+      }
+
+      renderMarkdownLive();
+      setupKeyboardShortcuts();
+    }
+
+    // Live Render Function
+    function renderMarkdownLive() {
+      const startTime = performance.now();
+      const rawText = markdownInput.value;
+
+      // Custom GitHub Alert Callout Pre-processor
+      let processedText = rawText.replace(/^>\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*([\s\S]*?)(?=\n\n|\n(?=[^>])|$)/gim, function(match, alertType, content) {
+        const type = alertType.toUpperCase();
+        let icon = 'fa-circle-info';
+        let alertClass = 'alert-note';
+
+        if (type === 'TIP') { icon = 'fa-lightbulb'; alertClass = 'alert-tip'; }
+        else if (type === 'IMPORTANT') { icon = 'fa-circle-exclamation'; alertClass = 'alert-important'; }
+        else if (type === 'WARNING') { icon = 'fa-triangle-exclamation'; alertClass = 'alert-warning'; }
+        else if (type === 'CAUTION') { icon = 'fa-radiation'; alertClass = 'alert-caution'; }
+
+        // Clean internal quote markers
+        const cleanContent = content.replace(/^>\s?/gm, '').trim();
+
+        return `<div class="markdown-alert ${alertClass}"><div class="markdown-alert-title"><i class="fa-solid ${icon}"></i> ${type}</div><div>${cleanContent}</div></div>`;
+      });
+
+      // Parse with Marked.js
+      let htmlOutput = marked.parse(processedText);
+
+      // Sanitize with DOMPurify
+      let cleanHtml = DOMPurify.sanitize(htmlOutput, {
+        ADD_TAGS: ['div', 'span', 'i', 'input', 'del'],
+        ADD_ATTR: ['class', 'id', 'type', 'checked', 'disabled', 'style', 'aria-hidden']
+      });
+
+      // Inject to preview container
+      previewContainer.innerHTML = cleanHtml;
+
+      // Enhance Code Blocks with Syntax Highlighting & Copy Button
+      previewContainer.querySelectorAll('pre code').forEach((codeBlock) => {
+        // Highlight with highlight.js
+        hljs.highlightElement(codeBlock);
+
+        // Wrap pre in code-block-wrapper if not already
+        const pre = codeBlock.parentElement;
+        if (pre && !pre.parentElement.classList.contains('code-block-wrapper')) {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'code-block-wrapper';
+          pre.parentNode.insertBefore(wrapper, pre);
+          wrapper.appendChild(pre);
+
+          // Add Copy Button
+          const copyBtn = document.createElement('button');
+          copyBtn.className = 'code-copy-btn';
+          copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
+          copyBtn.onclick = () => {
+            navigator.clipboard.writeText(codeBlock.innerText);
+            copyBtn.innerHTML = '<i class="fa-solid fa-check text-emerald-600"></i> Copied!';
+            setTimeout(() => {
+              copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
+            }, 2000);
+          };
+          wrapper.appendChild(copyBtn);
+
+          // Add Language Tag
+          const langMatch = codeBlock.className.match(/language-([a-zA-Z0-9_\-]+)/);
+          if (langMatch) {
+            const langTag = document.createElement('span');
+            langTag.className = 'code-lang-tag';
+            langTag.innerText = langMatch[1];
+            wrapper.appendChild(langTag);
+          }
+        }
+      });
+
+      // Render KaTeX Math Equations
+      if (typeof renderMathInElement === 'function') {
+        try {
+          renderMathInElement(previewContainer, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false }
+            ],
+            throwOnError: false
+          });
+        } catch (e) {
+          console.warn('KaTeX render error:', e);
+        }
+      }
+
+      // Update Live Stats
+      updateDocumentStats(rawText);
+
+      // Save to LocalStorage for persistence
+      try {
+        localStorage.setItem('360tools_saved_markdown', rawText);
+      } catch (e) {}
+
+      const endTime = performance.now();
+      const duration = Math.max(1, Math.round(endTime - startTime));
+      document.getElementById('previewRenderTime').innerText = `Rendered in ${duration}ms`;
+    }
+
+    // Update Word, Char, Line, and Heading Statistics
+    function updateDocumentStats(text) {
+      const trimmed = text.trim();
+      
+      // Words
+      const words = trimmed.length === 0 ? 0 : trimmed.split(/\s+/).filter(Boolean).length;
+      document.getElementById('statWords').innerText = words.toLocaleString();
+
+      // Characters
+      document.getElementById('statChars').innerText = text.length.toLocaleString();
+
+      // Lines
+      const lines = text.length === 0 ? 0 : text.split('\n').length;
+      document.getElementById('statLines').innerText = lines.toLocaleString();
+
+      // Paragraphs
+      const paragraphs = trimmed.length === 0 ? 0 : trimmed.split(/\n\s*\n/).filter(Boolean).length;
+      document.getElementById('statParagraphs').innerText = paragraphs.toLocaleString();
+
+      // Headings
+      const headings = (text.match(/^#{1,6}\s+.+$/gm) || []).length;
+      document.getElementById('statHeadings').innerText = headings.toLocaleString();
+
+      // Reading Time (225 WPM average)
+      const minutes = Math.ceil(words / 225);
+      document.getElementById('statReadingTime').innerText = words === 0 ? '0 min' : `${minutes} min`;
+    }
+
+    // Input event handler
+    function handleEditorInput() {
+      renderMarkdownLive();
+      updateCursorStats();
+    }
+
+    // Cursor position stats
+    function updateCursorStats() {
+      const pos = markdownInput.selectionStart;
+      const textBefore = markdownInput.value.substring(0, pos);
+      const lines = textBefore.split('\n');
+      const currentLine = lines.length;
+      const currentCol = lines[lines.length - 1].length + 1;
+      document.getElementById('editorStatsBrief').innerText = `Line ${currentLine}, Col ${currentCol}`;
+    }
+
+    // Synchronized Scroll Handling
+    function handleEditorScroll() {
+      if (!syncScrollCheckbox.checked || isScrollingFromPreview) return;
+      isScrollingFromEditor = true;
+
+      const editorScrollRatio = markdownInput.scrollTop / (markdownInput.scrollHeight - markdownInput.clientHeight);
+      previewScrollWrapper.scrollTop = editorScrollRatio * (previewScrollWrapper.scrollHeight - previewScrollWrapper.clientHeight);
+
+      setTimeout(() => { isScrollingFromEditor = false; }, 50);
+    }
+
+    function handlePreviewScroll() {
+      if (!syncScrollCheckbox.checked || isScrollingFromEditor) return;
+      isScrollingFromPreview = true;
+
+      const previewScrollRatio = previewScrollWrapper.scrollTop / (previewScrollWrapper.scrollHeight - previewScrollWrapper.clientHeight);
+      markdownInput.scrollTop = previewScrollRatio * (markdownInput.scrollHeight - markdownInput.clientHeight);
+
+      setTimeout(() => { isScrollingFromPreview = false; }, 50);
+    }
+
+    // View Mode Switcher (Split, Editor, Preview)
+    function setViewMode(mode) {
+      const grid = document.getElementById('workspaceGrid');
+      const editor = document.getElementById('editorPaneContainer');
+      const preview = document.getElementById('previewPaneContainer');
+      const splitBtn = document.getElementById('viewSplitBtn');
+      const editorBtn = document.getElementById('viewEditorBtn');
+      const previewBtn = document.getElementById('viewPreviewBtn');
+
+      [splitBtn, editorBtn, previewBtn].forEach(btn => {
+        btn.classList.remove('bg-white', 'text-[#3e2723]', 'shadow-2xs');
+        btn.classList.add('text-slate-600');
+      });
+
+      if (mode === 'split') {
+        grid.className = 'grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-slate-200 min-h-[620px]';
+        editor.classList.remove('hidden');
+        preview.classList.remove('hidden');
+        splitBtn.classList.add('bg-white', 'text-[#3e2723]', 'shadow-2xs');
+      } else if (mode === 'editor') {
+        grid.className = 'grid grid-cols-1 min-h-[620px]';
+        editor.classList.remove('hidden');
+        preview.classList.add('hidden');
+        editorBtn.classList.add('bg-white', 'text-[#3e2723]', 'shadow-2xs');
+      } else if (mode === 'preview') {
+        grid.className = 'grid grid-cols-1 min-h-[620px]';
+        editor.classList.add('hidden');
+        preview.classList.remove('hidden');
+        previewBtn.classList.add('bg-white', 'text-[#3e2723]', 'shadow-2xs');
+      }
+    }
+
+    // Theme Switcher (GitHub Light, Dark, Notion, Dracula, Sepia)
+    function changePreviewTheme(theme) {
+      const previewWrapper = document.getElementById('previewScrollWrapper');
+      previewWrapper.className = 'flex-1 overflow-y-auto max-h-[750px] p-6 sm:p-8 transition-colors';
+
+      if (theme === 'dark') {
+        previewWrapper.classList.add('preview-theme-dark');
+        hljsTheme.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css';
+      } else if (theme === 'notion') {
+        previewWrapper.classList.add('preview-theme-notion');
+        hljsTheme.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css';
+      } else if (theme === 'dracula') {
+        previewWrapper.classList.add('preview-theme-dracula');
+        hljsTheme.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dracula.min.css';
+      } else if (theme === 'sepia') {
+        previewWrapper.classList.add('preview-theme-sepia');
+        hljsTheme.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css';
+      } else {
+        hljsTheme.href = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css';
+      }
+    }
+
+    // Insert Markdown Helpers
+    function insertMarkdown(prefix, suffix = '') {
+      const textarea = markdownInput;
+      const start = textarea.selectionStart;
+      const end = textarea.selectionEnd;
+      const selected = textarea.value.substring(start, end);
+
+      const replacement = prefix + (selected || 'text') + suffix;
+      textarea.value = textarea.value.substring(0, start) + replacement + textarea.value.substring(end);
+      textarea.focus();
+      textarea.selectionStart = start + prefix.length;
+      textarea.selectionEnd = start + prefix.length + (selected.length || 4);
+
+      renderMarkdownLive();
+    }
+
+    function insertCodeBlock() {
+      const lang = prompt('Enter programming language (e.g. javascript, python, rust, html, css, bash):', 'javascript') || '';
+      insertMarkdown('```' + lang + '\n', '\n```');
+    }
+
+    function insertLink() {
+      const url = prompt('Enter Destination URL:', 'https://360tools.me');
+      if (url) insertMarkdown('[', `](${url})`);
+    }
+
+    function insertImage() {
+      const url = prompt('Enter Image URL:', 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800');
+      if (url) insertMarkdown('![Image description](', `${url})`);
+    }
+
+    function insertMathFormula() {
+      insertMarkdown('$$\n', '\n$$');
+    }
+
+    function insertAlertBox() {
+      insertMarkdown('> [!NOTE]\n> Write your alert or notice information here.\n');
+    }
+
+    // Table Generator Modal Helpers
+    function insertTable() {
+      document.getElementById('tableModal').classList.remove('hidden');
+    }
+
+    function closeTableModal() {
+      document.getElementById('tableModal').classList.add('hidden');
+    }
+
+    function confirmTableInsert() {
+      const rows = parseInt(document.getElementById('tableRows').value, 10) || 3;
+      const cols = parseInt(document.getElementById('tableCols').value, 10) || 3;
+
+      let tableMd = '\n';
+      // Header row
+      tableMd += '| ' + Array.from({length: cols}, (_, i) => `Header ${i + 1}`).join(' | ') + ' |\n';
+      // Separator row
+      tableMd += '| ' + Array.from({length: cols}, () => '---').join(' | ') + ' |\n';
+      // Data rows
+      for (let r = 0; r < rows; r++) {
+        tableMd += '| ' + Array.from({length: cols}, (_, c) => `Item ${r + 1}-${c + 1}`).join(' | ') + ' |\n';
+      }
+      tableMd += '\n';
+
+      insertMarkdown(tableMd, '');
+      closeTableModal();
+    }
+
+    // Load Preset Template
+    function loadPresetTemplate(templateKey) {
+      if (TEMPLATES[templateKey]) {
+        if (markdownInput.value.trim().length > 0) {
+          if (!confirm('Loading this template will replace your current markdown. Continue?')) {
+            document.getElementById('templateSelector').value = '';
+            return;
+          }
+        }
+        markdownInput.value = TEMPLATES[templateKey];
+        renderMarkdownLive();
+        showToast(`Loaded ${templateKey.toUpperCase()} template!`);
+        document.getElementById('templateSelector').value = '';
+      }
+    }
+
+    // Handle Uploading .md file
+    function handleFileUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        markdownInput.value = e.target.result;
+        renderMarkdownLive();
+        showToast(`Loaded file: ${file.name}`);
+      };
+      reader.readAsText(file);
+      event.target.value = '';
+    }
+
+    // =========================================================================
+    // EXPORT & DOWNLOAD IMPLEMENTATIONS (FULL IMAGE PNG, PDF, HTML, MD, RICH TEXT)
+    // =========================================================================
+
+    // 1. Export as Full-Length High-Res PNG / JPEG Image
+    async function exportAsFullImage(format = 'png') {
+      const modal = document.getElementById('exportProgressModal');
+      const modalTitle = document.getElementById('exportProgressTitle');
+      const modalDesc = document.getElementById('exportProgressDesc');
+      modalTitle.innerText = `Generating High-Res ${format.toUpperCase()} Image...`;
+      modalDesc.innerText = 'Rasterizing entire document at 2x Retina scale without scrollbar cutoffs.';
+      modal.classList.remove('hidden');
+
+      try {
+        const sourceElement = document.getElementById('previewContainer');
+        const theme = previewThemeSelect.value;
+        
+        // Clone into off-screen container for crisp clean capture
+        const frameContent = document.getElementById('exportFrameContent');
+        frameContent.innerHTML = sourceElement.innerHTML;
+        
+        // Apply theme styling to cloned container
+        const exportContainer = document.getElementById('exportFrameContainer');
+        exportContainer.className = `markdown-body preview-theme-${theme}`;
+
+        // Ensure images are fully loaded
+        await Promise.all(Array.from(frameContent.querySelectorAll('img')).map(img => {
+          if (img.complete) return Promise.resolve();
+          return new Promise(resolve => { img.onload = img.onerror = resolve; });
+        }));
+
+        // Render with html2canvas at scale: 2
+        const canvas = await html2canvas(exportContainer, {
+          scale: 2,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: theme === 'dark' ? '#0d1117' : (theme === 'dracula' ? '#282a36' : (theme === 'sepia' ? '#fbf0d9' : '#ffffff')),
+          logging: false
+        });
+
+        // Convert to data url and download
+        const mimeType = format === 'jpeg' ? 'image/jpeg' : 'image/png';
+        const dataUrl = canvas.toDataURL(mimeType, 0.95);
+        
+        const downloadLink = document.createElement('a');
+        downloadLink.download = `markdown-export-${Date.now()}.${format}`;
+        downloadLink.href = dataUrl;
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+
+        showToast(`Downloaded full ${format.toUpperCase()} image successfully!`);
+      } catch (err) {
+        console.error('Image export failed:', err);
+        alert('Image export encountered an issue: ' + err.message);
+      } finally {
+        modal.classList.add('hidden');
+      }
+    }
+
+    // 2. Export as Formatted Vector PDF
+    async function exportAsPDF() {
+      const modal = document.getElementById('exportProgressModal');
+      const modalTitle = document.getElementById('exportProgressTitle');
+      const modalDesc = document.getElementById('exportProgressDesc');
+      modalTitle.innerText = 'Compiling Vector PDF Document...';
+      modalDesc.innerText = 'Calculating clean pagination, header rules, and typography.';
+      modal.classList.remove('hidden');
+
+      try {
+        const sourceElement = document.getElementById('previewContainer');
+        const opt = {
+          margin: [12, 12, 12, 12],
+          filename: `markdown-document-${Date.now()}.pdf`,
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2, useCORS: true, logging: false },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+
+        await html2pdf().set(opt).from(sourceElement).save();
+        showToast('PDF downloaded successfully!');
+      } catch (err) {
+        console.error('PDF export failed:', err);
+        // Fallback to native print dialog
+        window.print();
+      } finally {
+        modal.classList.add('hidden');
+      }
+    }
+
+    // 3. Download Raw Markdown (.md)
+    function downloadMarkdownFile() {
+      const content = markdownInput.value;
+      const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `document-${Date.now()}.md`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast('Markdown (.md) file downloaded!');
+    }
+
+    // 4. Download Standalone HTML Document with Embedded Styles
+    function downloadHtmlFile() {
+      const htmlContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Markdown Document Export | 360tools</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 860px; margin: 40px auto; padding: 0 20px; color: #24292f; }
+    h1, h2, h3 { border-bottom: 1px solid #d0d7de; padding-bottom: 0.3em; }
+    pre { background: #f6f8fa; padding: 16px; border-radius: 8px; overflow: auto; border: 1px solid #d0d7de; }
+    code { font-family: monospace; background: rgba(175,184,193,0.2); padding: 0.2em 0.4em; border-radius: 4px; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+    th, td { border: 1px solid #d0d7de; padding: 8px 12px; }
+    th { background: #f6f8fa; }
+    blockquote { border-left: 4px solid #d0d7de; padding-left: 16px; color: #57606a; margin: 16px 0; }
+  </style>
+</head>
+<body>
+  ${previewContainer.innerHTML}
+</body>
+</html>`;
+
+      const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `rendered-markdown-${Date.now()}.html`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast('Standalone HTML document downloaded!');
+    }
+
+    // 5. Copy Rich Text to Clipboard (for Google Docs, Word, Medium)
+    async function copyRichText() {
+      try {
+        const typeHtml = 'text/html';
+        const typePlain = 'text/plain';
+        const blobHtml = new Blob([previewContainer.innerHTML], { type: typeHtml });
+        const blobPlain = new Blob([previewContainer.innerText], { type: typePlain });
+        
+        const clipboardItem = new ClipboardItem({
+          [typeHtml]: blobHtml,
+          [typePlain]: blobPlain
+        });
+        
+        await navigator.clipboard.write([clipboardItem]);
+        showToast('Formatted rich text copied! Paste directly into Google Docs or Word.');
+      } catch (err) {
+        // Fallback
+        navigator.clipboard.writeText(previewContainer.innerText);
+        showToast('Text copied to clipboard!');
+      }
+    }
+
+    // 6. Copy Raw HTML
+    function copyRawHtml() {
+      navigator.clipboard.writeText(previewContainer.innerHTML);
+      showToast('Raw HTML copied to clipboard!');
+    }
+
+    // 7. Clear Editor
+    function clearEditor() {
+      if (confirm('Are you sure you want to clear the editor?')) {
+        markdownInput.value = '';
+        renderMarkdownLive();
+        showToast('Editor cleared.');
+      }
+    }
+
+    // Toast Notification Display Helper
+    function showToast(message) {
+      const toast = document.getElementById('toastMessage');
+      const text = document.getElementById('toastText');
+      text.innerText = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2800);
+    }
+
+    // Keyboard Shortcuts Setup (Ctrl+B, Ctrl+I, Ctrl+K, Tab Indent)
+    function setupKeyboardShortcuts() {
+      markdownInput.addEventListener('keydown', function(e) {
+        // Tab indentation
+        if (e.key === 'Tab') {
+          e.preventDefault();
+          const start = this.selectionStart;
+          const end = this.selectionEnd;
+          this.value = this.value.substring(0, start) + '  ' + this.value.substring(end);
+          this.selectionStart = this.selectionEnd = start + 2;
+          renderMarkdownLive();
+          return;
+        }
+
+        // Ctrl / Cmd shortcuts
+        if (e.ctrlKey || e.metaKey) {
+          if (e.key === 'b' || e.key === 'B') {
+            e.preventDefault();
+            insertMarkdown('**', '**');
+          } else if (e.key === 'i' || e.key === 'I') {
+            e.preventDefault();
+            insertMarkdown('*', '*');
+          } else if (e.key === 'k' || e.key === 'K') {
+            e.preventDefault();
+            insertLink();
+          }
+        }
+      });
+
+      markdownInput.addEventListener('click', updateCursorStats);
+      markdownInput.addEventListener('keyup', updateCursorStats);
+    }
+
+    // FAQ Accordion Toggle Helper
+    function toggleFaq(headingEl) {
+      const content = headingEl.nextElementSibling;
+      const icon = headingEl.querySelector('i');
+      content.classList.toggle('hidden');
+      if (content.classList.contains('hidden')) {
+        icon.style.transform = 'rotate(0deg)';
+      } else {
+        icon.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    // Initialize on DOM Ready
+    document.addEventListener('DOMContentLoaded', initMarkdownEngine);
+  </script>
+</body>
+</html>

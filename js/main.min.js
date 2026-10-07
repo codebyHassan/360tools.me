@@ -595,6 +595,18 @@ const TOOLS_REGISTRY = [
     keywords: ["ats resume checker","cv checker","resume score"]
   },
   {
+    name: "Markdown Previewer & Exporter",
+    url: "/developer-tools/markdown-previewer.html",
+    category: "developer-tools",
+    subcategory: "editors",
+    icon: "fa-markdown",
+    color: "text-emerald-600",
+    bg: "bg-indigo-50 border-indigo-200/80",
+    desc: "Live Markdown editor & previewer with GFM, syntax highlighting, and export to full PNG image, PDF, and HTML.",
+    featured: true,
+    keywords: ["markdown previewer", "markdown to image", "markdown to pdf", "md editor", "convert md to png", "export markdown to pdf", "gfm viewer"]
+  },
+  {
     name: "Free Online Invoice Generator",
     url: "/ecommerce-tools/invoice-generator.html",
     category: "ecommerce-tools",
