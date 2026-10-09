@@ -226,6 +226,12 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://360tools.me/developer-tools/markdown-previewer.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://360tools.me/developer-tools/password-generator.html</loc>
     <lastmod>2026-10-05</lastmod>
     <changefreq>weekly</changefreq>
