@@ -68,7 +68,7 @@ function getSiteRoot() {
 const TOOLS_REGISTRY = [
   {
     name: "Merge PDF",
-    url: "/pdf-tools/merge-pdf/index.html",
+    url: "/pdf-tools/merge-pdf/",
     category: "pdf-tools",
     subcategory: "organization",
     icon: "fa-object-group",
@@ -80,7 +80,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Split PDF",
-    url: "/pdf-tools/split-pdf/index.html",
+    url: "/pdf-tools/split-pdf/",
     category: "pdf-tools",
     subcategory: "organization",
     icon: "fa-scissors",
@@ -92,7 +92,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Compress PDF",
-    url: "/pdf-tools/compress-pdf/index.html",
+    url: "/pdf-tools/compress-pdf/",
     category: "pdf-tools",
     subcategory: "compression",
     icon: "fa-file-zipper",
@@ -104,7 +104,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "JPG to PDF Converter",
-    url: "/pdf-tools/jpg-to-pdf/index.html",
+    url: "/pdf-tools/jpg-to-pdf/",
     category: "pdf-tools",
     subcategory: "conversion",
     icon: "fa-file-image",
@@ -116,7 +116,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "PNG to PDF Converter",
-    url: "/pdf-tools/png-to-pdf/index.html",
+    url: "/pdf-tools/png-to-pdf/",
     category: "pdf-tools",
     subcategory: "conversion",
     icon: "fa-file-image",
@@ -128,7 +128,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "WebP to PDF Converter",
-    url: "/pdf-tools/webp-to-pdf/index.html",
+    url: "/pdf-tools/webp-to-pdf/",
     category: "pdf-tools",
     subcategory: "conversion",
     icon: "fa-file-image",
@@ -140,7 +140,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "PDF to JPG Converter",
-    url: "/pdf-tools/pdf-to-jpg/index.html",
+    url: "/pdf-tools/pdf-to-jpg/",
     category: "pdf-tools",
     subcategory: "conversion",
     icon: "fa-image",
@@ -152,7 +152,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "PDF to PNG Converter",
-    url: "/pdf-tools/pdf-to-png/index.html",
+    url: "/pdf-tools/pdf-to-png/",
     category: "pdf-tools",
     subcategory: "conversion",
     icon: "fa-image",
@@ -164,7 +164,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "PDF to WebP Converter",
-    url: "/pdf-tools/pdf-to-webp/index.html",
+    url: "/pdf-tools/pdf-to-webp/",
     category: "pdf-tools",
     subcategory: "conversion",
     icon: "fa-bolt",
@@ -176,7 +176,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Rotate PDF",
-    url: "/pdf-tools/rotate-pdf/index.html",
+    url: "/pdf-tools/rotate-pdf/",
     category: "pdf-tools",
     subcategory: "editing",
     icon: "fa-rotate",
@@ -188,7 +188,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Delete PDF Pages",
-    url: "/pdf-tools/delete-pdf-pages/index.html",
+    url: "/pdf-tools/delete-pdf-pages/",
     category: "pdf-tools",
     subcategory: "editing",
     icon: "fa-trash-can",
@@ -200,7 +200,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Extract PDF Pages",
-    url: "/pdf-tools/extract-pdf-pages/index.html",
+    url: "/pdf-tools/extract-pdf-pages/",
     category: "pdf-tools",
     subcategory: "editing",
     icon: "fa-file-export",
@@ -212,7 +212,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "PDF to Text Extractor",
-    url: "/pdf-tools/pdf-to-text/index.html",
+    url: "/pdf-tools/pdf-to-text/",
     category: "pdf-tools",
     subcategory: "conversion",
     icon: "fa-file-lines",
@@ -224,7 +224,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Add Page Numbers to PDF",
-    url: "/pdf-tools/add-page-numbers-to-pdf/index.html",
+    url: "/pdf-tools/add-page-numbers-to-pdf/",
     category: "pdf-tools",
     subcategory: "editing",
     icon: "fa-arrow-down-1-9",
@@ -236,7 +236,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Watermark PDF",
-    url: "/pdf-tools/watermark-pdf/index.html",
+    url: "/pdf-tools/watermark-pdf/",
     category: "pdf-tools",
     subcategory: "security",
     icon: "fa-stamp",
@@ -248,7 +248,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Password Protect PDF",
-    url: "/pdf-tools/password-protect-pdf/index.html",
+    url: "/pdf-tools/password-protect-pdf/",
     category: "pdf-tools",
     subcategory: "security",
     icon: "fa-lock",
@@ -260,7 +260,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Unlock PDF",
-    url: "/pdf-tools/unlock-pdf/index.html",
+    url: "/pdf-tools/unlock-pdf/",
     category: "pdf-tools",
     subcategory: "security",
     icon: "fa-unlock",
@@ -272,7 +272,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "PDF Metadata Remover",
-    url: "/pdf-tools/pdf-metadata-remover/index.html",
+    url: "/pdf-tools/pdf-metadata-remover/",
     category: "pdf-tools",
     subcategory: "security",
     icon: "fa-user-shield",
@@ -284,7 +284,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "HTML to PDF Converter",
-    url: "/pdf-tools/html-to-pdf/index.html",
+    url: "/pdf-tools/html-to-pdf/",
     category: "pdf-tools",
     subcategory: "conversion",
     icon: "fa-code",
@@ -296,7 +296,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "PDF Tools Hub",
-    url: "/pdf-tools/index.html",
+    url: "/pdf-tools/",
     category: "pdf-tools",
     subcategory: "hub",
     icon: "fa-file-pdf",
@@ -728,7 +728,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "2048 Puzzle Game",
-    url: "/games/2048/index.html",
+    url: "/games/2048/",
     category: "games",
     subcategory: "puzzle",
     icon: "fa-cubes",
@@ -740,7 +740,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Classic Retro Snake",
-    url: "/games/snake/index.html",
+    url: "/games/snake/",
     category: "games",
     subcategory: "arcade",
     icon: "fa-worm",
@@ -752,7 +752,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Memory Card Match",
-    url: "/games/memory-game/index.html",
+    url: "/games/memory-game/",
     category: "games",
     subcategory: "puzzle",
     icon: "fa-brain",
@@ -764,7 +764,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Tic Tac Toe (XO vs AI)",
-    url: "/games/tic-tac-toe/index.html",
+    url: "/games/tic-tac-toe/",
     category: "games",
     subcategory: "board",
     icon: "fa-xmark",
@@ -776,7 +776,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Word Scramble Puzzle",
-    url: "/games/word-scramble/index.html",
+    url: "/games/word-scramble/",
     category: "games",
     subcategory: "puzzle",
     icon: "fa-spell-check",
@@ -788,7 +788,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Bhabhi Thulla Card Game",
-    url: "/games/bhabhi-thulla/index.html",
+    url: "/games/bhabhi-thulla/",
     category: "games",
     subcategory: "card",
     icon: "fa-spade",
@@ -884,7 +884,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Audio & Speech Tools Hub",
-    url: "/audio-tools/index.html",
+    url: "/audio-tools/",
     category: "audio-tools",
     subcategory: "hub",
     icon: "fa-volume-high",
@@ -970,7 +970,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Business Tools Hub",
-    url: "/business-tools/index.html",
+    url: "/business-tools/",
     category: "business-tools",
     subcategory: "hub",
     icon: "fa-briefcase",
@@ -1019,7 +1019,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Writing & Text Tools Hub",
-    url: "/text-tools/index.html",
+    url: "/text-tools/",
     category: "text-tools",
     subcategory: "hub",
     icon: "fa-align-left",
@@ -1068,7 +1068,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Finance Tools Hub",
-    url: "/finance-tools/index.html",
+    url: "/finance-tools/",
     category: "finance-tools",
     subcategory: "hub",
     icon: "fa-vault",
@@ -1117,7 +1117,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Security Tools Hub",
-    url: "/security-tools/index.html",
+    url: "/security-tools/",
     category: "security-tools",
     subcategory: "hub",
     icon: "fa-shield-halved",
@@ -1154,7 +1154,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Design Tools Hub",
-    url: "/design-tools/index.html",
+    url: "/design-tools/",
     category: "design-tools",
     subcategory: "hub",
     icon: "fa-swatchbook",
@@ -1191,7 +1191,7 @@ const TOOLS_REGISTRY = [
   },
   {
     name: "Student Tools Hub",
-    url: "/student-tools/index.html",
+    url: "/student-tools/",
     category: "student-tools",
     subcategory: "hub",
     icon: "fa-graduation-cap",

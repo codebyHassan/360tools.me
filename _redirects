@@ -1,5 +1,29 @@
 # 360Tools 301 Redirect Rules (SEO & Backlink Preservation)
 
+# Canonical Host & HTTPS Enforcement
+https://www.360tools.me/* https://360tools.me/:splat 301!
+http://www.360tools.me/* https://360tools.me/:splat 301!
+http://360tools.me/* https://360tools.me/:splat 301!
+
+# Strip /index.html Duplicate URLs
+/index.html / 301
+/pdf-tools/index.html /pdf-tools/ 301
+/audio-tools/index.html /audio-tools/ 301
+/image-tools/index.html /image-tools/ 301
+/developer-tools/index.html /developer-tools/ 301
+/video-tools/index.html /video-tools/ 301
+/ecommerce-tools/index.html /ecommerce-tools/ 301
+/calculators/index.html /calculators/ 301
+/games/index.html /games/ 301
+/business-tools/index.html /business-tools/ 301
+/text-tools/index.html /text-tools/ 301
+/finance-tools/index.html /finance-tools/ 301
+/security-tools/index.html /security-tools/ 301
+/design-tools/index.html /design-tools/ 301
+/student-tools/index.html /student-tools/ 301
+/pdf-tools/:tool/index.html /pdf-tools/:tool/ 301
+/games/:game/index.html /games/:game/ 301
+
 # Category Hubs
 /audio-voice-tools.html /audio-tools/ 301
 /compression-tools.html /image-tools/ 301
@@ -117,6 +141,10 @@
 # Student Tools
 /gpa-calculator.html /student-tools/gpa-calculator.html 301
 /unit-converter.html /student-tools/unit-converter.html 301
+
+# Custom 404 Page Fallback
+/* /404.html 404
+
 
 
 
